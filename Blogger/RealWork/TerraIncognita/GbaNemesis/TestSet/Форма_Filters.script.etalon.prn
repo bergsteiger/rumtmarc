@@ -1,0 +1,409 @@
+--------------- Контрол в фокусе: ------------------
+FiltersList : TnscTreeView
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+enFilters : TenFilters
+Фильтры
+Left = 0
+Top = 0
+Width = 315
+Height = 645
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Создать новый фильтр
+-
+Применить фильтр
+Применять автоматически
+Добавить фильтр из сохраненных запросов
+---------------
+FiltersList : TnscTreeView
+01. Энциклопедии решений
+Left = 0
+Top = 25
+Width = 315
+Height = 615
+TabOrder: 2
+Align: 5
+Images: assigned
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+Создать новый фильтр
+-
+Выделить все
+Снять выделение
+-
+Применить фильтр
+Применять автоматически
+Добавить фильтр из сохраненных запросов
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 315
+Height = 15
+Images: nil
+Создать новый фильтр
+-
+Выделить все
+Снять выделение
+-
+Применить фильтр
+Применять автоматически
+Добавить фильтр из сохраненных запросов
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbcfSaveLoadBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOkExt : TvcmToolButtonDef
+Искать
+Активность:True
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+bt_enResult_opClearAll : TvcmToolButtonDef
+Очистить
+Активность:True
+bt_enQuery_opSearchType : TvcmComboBox
+
+tbenFiltersTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFilter_opEdit : TvcmToolButtonDef
+Редактировать фильтр
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilter_opCreateFilter : TvcmToolButtonDef
+Добавить фильтр из сохраненных запросов
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opNew : TvcmToolButtonDef
+Создать новый фильтр
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+------------------Количество фильтров и их состав:--------------------
+15
+01. Энциклопедии решений
+02. Правовой консалтинг ГАРАНТ
+03. Статьи из СМИ
+04. Вопросы-ответы из СМИ
+05. Книги
+06. Формы документов
+07. Бухгалтерские проводки 
+08. Федеральные акты
+09. Письма Минфина и ФНС
+10. Региональные акты
+11. Высшие суды
+12. Практика ФАС округов
+13. Вступающие в силу с 01.01.2014
+14. Изданные с 01.01.2013
+15. Только действующие
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+FiltersList : TnscTreeView
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+enFilters : TenFilters
+Фильтры
+Left = 0
+Top = 0
+Width = 315
+Height = 625
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Создать новый фильтр
+-
+Применить фильтр
+Применять автоматически
+Добавить фильтр из сохраненных запросов
+---------------
+FiltersList : TnscTreeView
+01. Энциклопедии решений
+Left = 0
+Top = 25
+Width = 315
+Height = 595
+TabOrder: 2
+Align: 5
+Images: assigned
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+Создать новый фильтр
+-
+Выделить все
+Снять выделение
+-
+Применить фильтр
+Применять автоматически
+Добавить фильтр из сохраненных запросов
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 315
+Height = 15
+Images: nil
+Создать новый фильтр
+-
+Выделить все
+Снять выделение
+-
+Применить фильтр
+Применять автоматически
+Добавить фильтр из сохраненных запросов
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbcfSaveLoadBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOkExt : TvcmToolButtonDef
+Искать
+Активность:True
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+bt_enResult_opClearAll : TvcmToolButtonDef
+Очистить
+Активность:True
+bt_enQuery_opSearchType : TvcmComboBox
+
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:True
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:False
+
+tbenFiltersTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFilter_opEdit : TvcmToolButtonDef
+Редактировать фильтр
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilter_opCreateFilter : TvcmToolButtonDef
+Добавить фильтр из сохраненных запросов
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opNew : TvcmToolButtonDef
+Создать новый фильтр
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbcfSaveLoadTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opLoadFromFolder : TvcmToolButtonDef
+Выбрать из Моих документов...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enQuery_opGetOldQuery : TvcmToolButtonDef
+История запросов
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opFiltersListOpen : TvcmToolButtonDef
+Фильтры (вкладка)
+Активность:True
+
+------------------Количество фильтров и их состав:--------------------
+15
+01. Энциклопедии решений
+02. Правовой консалтинг ГАРАНТ
+03. Статьи из СМИ
+04. Вопросы-ответы из СМИ
+05. Книги
+06. Формы документов
+07. Бухгалтерские проводки 
+08. Федеральные акты
+09. Письма Минфина и ФНС
+10. Региональные акты
+11. Высшие суды
+12. Практика ФАС округов
+13. Вступающие в силу с 01.01.2014
+14. Изданные с 01.01.2013
+15. Только действующие

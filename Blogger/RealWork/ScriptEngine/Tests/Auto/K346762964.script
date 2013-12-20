@@ -1,0 +1,27 @@
+// Разработчик: Селянкин Владимир
+
+: K346762964
+
+ ТБ24
+ ОМ
+ "Открываем {(2001)}"
+ "Устанавливаем дату машины времени {('01.01.2000')}"
+ "Нажать на зелёную медаль МВ и проверить наличие баллона"
+
+ INTEGER VAR t_medal
+ INTEGER VAR t_ballon
+
+ "Зелёная медаль МВ" byname:control:push pop:control:GetTop =: t_medal
+ 0 t_medal "Зелёная медаль МВ" byname:control:push pop:control:ClientToScreen =: t_medal DROP
+
+ OBJECT VAR "Баллон"
+ "Зелёная медаль МВ" byname:control:push pop:reminder:FindEditor pop:control:SetFocus 'Не удалось поставить фокус в редактор баллона' ASSERTS
+ focused:control:push pop:control:GetAnotherParentForm pop:control:GetAnotherParentForm =: "Баллон"
+
+ "Баллон" pop:control:GetTop =: t_ballon
+ 0 t_ballon "Баллон" pop:control:ClientToScreen =: t_ballon DROP
+
+ t_ballon t_medal - .
+;
+
+K346762964

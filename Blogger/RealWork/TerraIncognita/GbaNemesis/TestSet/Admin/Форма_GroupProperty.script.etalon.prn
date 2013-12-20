@@ -1,0 +1,51 @@
+--------------- Контрол в фокусе: ------------------
+edName : TnscEdit
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 3
+---------------
+efGroupProperty : TefGroupProperty
+Новая группа
+Position:0
+Width = 285
+Height = 107
+Align: 0
+Anchors: 3
+BorderWidth: 0
+Отмена
+---------------
+Label1 : TvtLabel
+Имя группы
+Left = 8
+Top = 12
+Width = 105
+Height = 16
+Align: 0
+Anchors: 3
+Transparent: 0
+Отмена
+---------------
+edName : TnscEdit
+
+Left = 120
+Top = 8
+Width = 153
+Height = 21
+TabOrder: 2
+Anchors: 3
+Отмена
+-
+Выделить все
+---------------
+tbefGroupPropertyBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+---
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+---
+

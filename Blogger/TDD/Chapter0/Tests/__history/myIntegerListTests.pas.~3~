@@ -1,0 +1,56 @@
+unit myIntegerListTests;
+
+interface
+
+uses
+ TestFramework
+ ;
+
+type
+ TmyIntegerListTests = class(TTestCase)
+  published
+   procedure ListAdd;
+   procedure ListInsert;
+   procedure ListDelete;
+   procedure ListCount;
+   procedure ListItem;
+ end;//TmyIntegerListTests
+
+implementation
+
+uses
+ System.SysUtils,
+ myIntegerList
+ ;
+
+procedure TmyIntegerListTests.ListAdd;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList;
+end;
+
+procedure TmyIntegerListTests.ListInsert;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerListTests.ListDelete;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerListTests.ListCount;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerListTests.ListItem;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+initialization
+  TestFramework.RegisterTest(TmyIntegerListTests.Suite);
+
+end.

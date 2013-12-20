@@ -1,0 +1,53 @@
+// Разработчик: Селянкин Владимир
+
+: K344136201
+
+ : Действия
+   ОМ
+   OBJECT VAR "Главное окно"
+   INTEGER VAR left_medal
+   INTEGER VAR top_medal
+   INTEGER VAR f_height
+   INTEGER VAR f_width
+  // CONST "Синяя медаль с конвертом" 'remUnreadConsultations'
+ 
+   : "Запомнить размеры формы"
+    "Главное окно" pop:control:GetHeight =: f_height
+    "Главное окно" pop:control:GetWidth =: f_width
+   ;
+
+   "Найти главное окно" =: "Главное окно"
+   "Запомнить размеры формы"
+ 
+   f_width f_height true "Синяя медаль с конвертом" byname:control:push pop:reminder:Move
+  TRY
+   "Главное окно" "Уменьшить окно"
+   0 "Главное окно" pop:control:SetHeight
+   0 "Главное окно" pop:control:SetWidth
+   OnTest
+
+   "Синяя медаль с конвертом" byname:control:push pop:control:GetLeft =: left_medal
+   "Синяя медаль с конвертом" byname:control:push pop:control:GetTop =: top_medal
+
+   "Запомнить размеры формы"
+ 
+   f_width left_medal - 48 > .
+   f_height top_medal - 48 > .
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=344136215&focusedCommentId=377750294#comment-377750294
+ 
+   3 раза "Дождаться переключения вкладок"
+   "Главное окно" "Развернуть окно"
+   OnTest
+  FINALLY
+   "Запомнить размеры формы"
+   f_width -1 * =: f_width
+   f_height -1 * =: f_height
+  
+   f_width f_height true "Синяя медаль с конвертом" byname:control:push pop:reminder:Move
+  END
+ ;
+
+ "Добавить синюю медаль консультаций и сделать {(@ Действия)}"
+;
+
+K344136201

@@ -1,0 +1,94 @@
+USES
+ WordsTuning.script
+ WordsTranslation.script
+;
+
+CONST ANYUSERTYPE 31
+
+: "Выполнить обработав исключение" OBJECT IN aProc STRING IN anException
+ TRY
+  aProc DO
+ EXCEPT
+  current:exception:Message anException ?!= ? RAISE
+ END
+;
+
+: "Выполнить и восстановить фокус" OBJECT IN aProc
+ INTEGER VAR l_Control
+ OBJECT VAR l_Ctrl
+ focused:control:push pop:control:GetHandle >>> l_Control
+ // - запоминаем текущий контрол
+ TRY 
+  aProc DO
+ FINALLY
+  "Найти контрол по дескриптору {(l_Control)}" >>> l_Ctrl
+  l_Ctrl pop:control:SetFocus 'Не смогли восстановить фокус' ASSERTS
+  "Установить фокус в {(l_Ctrl)}"
+  // - восстанавливаем фокус
+ END
+;
+
+STRING FUNCTION "Заменить непечатаемые символы" STRING IN aStr
+ aStr =: Result
+ Result #13#10 '[перевод строки]' string:Replace =: Result
+ Result #10 '[разрыв строки]' string:Replace =: Result
+ Result '[перевод строки]' #13#10 string:Replace =: Result
+;
+
+WORDWORKER "раз повторить" INTEGER IN aCount
+ aCount LOOP ( WordToWork DO ) 
+;
+
+WORDWORKER "раза повторить" INTEGER IN aCount
+ aCount LOOP ( WordToWork DO ) 
+;
+
+WORDWORKER раз INTEGER IN aCount
+ aCount LOOP ( WordToWork DO ) 
+;
+
+WORDWORKER раза INTEGER IN aCount
+ aCount LOOP ( WordToWork DO ) 
+;
+
+: "раз" INTEGER IN aCount IN aProc
+ aCount LOOP ( aProc DO ) 
+;
+
+: "раза" INTEGER IN aCount IN aProc
+ "{(aCount)} раз {(aProc)}"
+;
+
+WordAlias "Дать системе перерисоваться" OnTest
+
+: "Ответить два раза Да для" IN aProc
+ wait:Yes
+ TRY
+  wait:Yes
+  TRY
+   aProc DO
+  FINALLY 
+   waited:? ASSERT
+  END
+ FINALLY 
+  waited:? ASSERT
+ END
+;
+
+: "Ответить один раз Да для" IN aProc
+ wait:Yes
+ TRY
+  aProc DO
+ FINALLY 
+  waited:? ASSERT
+ END
+;
+
+: ToDo STRING IN aString
+ 'To Do: ' aString Cat .
+;
+
+WORDWORKER "Обработать Enter модально"
+ @ ( "Нажать {('Enter')}" ) MODAL ( WordToWork DO )
+;
+

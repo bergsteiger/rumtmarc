@@ -1,0 +1,214 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/LocalInterface.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::LocalInterface
+//
+// Локальный интерфейс
+// ---
+// определяет локальный интерфейс на уровне реализации, нужен для того что бы доопределить
+// существующие конкретные интерфейсы, задав на них недостающие методы или фабрики, которые не
+// будут видны клиенту библиотеки, но смогут использоваться внутри конкретного пакета реализации.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: LocalInterface::Class
+implementation @ <<LocalInterface>>
+//? Локальный интерфейс 
+//? определяет локальный интерфейс на уровне реализации, нужен для того что бы доопределить существующие конкретные интерфейсы, задав на них недостающие методы или фабрики, которые не будут видны клиенту библиотеки, но смогут использоваться внутри конкретного пакета реализации.
+//= Interface::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47A2D6A00142*
+//c                                                                                                                                       {}
+//r {<{}{%f_is_interface(%R)=false}{%RC}>!=0}:                                                                                            {%SS может реализовывать только интерфейсы}
+//r {%Sa!=abstract&%f_has_factory_methods(%S)=false&<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=false}{%RC}>!=0}:             {%SS реализующий интерфейс без фабрик должен сам определять фабрики}
+//r {<{}{%LS!=Servant}{%LC}>!=0}:                                                                                                         {%SS могут реализовывать только серванты}
+//r {%f_number_cmp("<{}{}{%RC}>","1","\>")=1}:                                                                                            {%SS может реализовывать только один Интерфейс}
+//r {%f_is_one_root_int(%S)!=true}:                                                                                                       {%SS can't recursively realize different Interfaces}
+//r {%Sa=abstract&<{}{%SS=%GS&%Ga!=abstract}{%GC}>!=0}:                                                                                   {Абстрактный %SS не может наследоваться от не абстрактных %SS}
+//r {%Sa!=abstract&<{}{%lS=Servant&%la!=abstract}{%lC}>=0}:                                                                               {Неабстрактный %SS должен быть реализован хотя бы одним неабстрактным сервантом}
+//r {%Sa=abstract&[{<{}{%SS=%ZS&%Za!=abstract}{%ZC}>=0&<{}{%LS=Servant&%La=abstract}{%LC}>=0}{true}false]=false}:                         {Абстрактный %SS должен быть специализирован неабстрактным %SS или быть реализован абстрактным сервантом}
+//r {""=""}:                                                                                                                              {%S%t_common_interface_constraint()}
+
+//f _is_one_root_int
+; // constraint
+
+end. // <<LocalInterface>>
+
+: is_one_root_int OBJECT IN %S
+//	%f_clear_list(ROOTS)\
+ [%f] clear_list %( 'ROOTS' )% 
+//	<%f_fill_roots(%r)>\
+ %FOR [%f] fill_roots %( %r )% 
+ %END-FOR
+//	%f_unique_list(ROOTS)\
+ [%f] unique_list %( 'ROOTS' )% 
+//	[{%f_number_cmp("%f_roots_count(%S)","1","\>")=1}{true}false]
+ %IF ( ( [%f] number_cmp %( [%f] roots_count %( %S )% %, 1 %, '>' )% ) %== 1 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+
+//f _roots_count
+; // is_one_root_int
+
+: roots_count OBJECT IN %S
+//	%f_set_var(COUNT,"0")<{}{%f_is_empty(ROOTS)=false}{W}%f_pop_first_to_var(ROOTS,TEMP)[{"%{TEMP}U"!=""}%f_set_var(COUNT,"%f_evaluate(1+%{COUNT}N)")]>\
+ [%f] set_var %( 'COUNT' %, 0 )% 
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'ROOTS' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'ROOTS' %, 'TEMP' )% %IF ( ( ( get_global_var ( 'TEMP' ) |U ) ) %!= '' ) 
+   [%f] set_var %( 'COUNT' %, [%f] evaluate %( 1 %integer:?+ ( get_global_var ( 'COUNT' ) |N ) )% )% 
+  %END-IF
+ %END-FOR
+//	%{COUNT}N
+ ( get_global_var ( 'COUNT' ) |N ) 
+
+//f _fill_roots
+; // roots_count
+
+: fill_roots OBJECT IN %S
+//	[{<{}{%f_is_interface(%G)=true}{%GC}>=0&<{}{%f_is_interface(%R)=true}{%RC}>=0&%f_is_interface(%S)=true&%f_exists_in_list(ROOTS,S)=false}\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %G )% ) %==  true ) 
+   ( %G |C ) 
+  %END-FOR
+  %== 0 %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true ) 
+   ( %R |C ) 
+  %END-FOR
+  %== 0  ) %&& 
+   ( ( [%f] is_interface %( %S )% ) %==  true  ) %&& 
+   ( ( [%f] exists_in_list %( 'ROOTS' %, 'S' )% ) %==  false  ) ) 
+//	%f_add_to_list(ROOTS,S)]
+  [%f] add_to_list %( 'ROOTS' %, 'S' )% 
+ %END-IF
+
+//%f _use_bad_cast
+; // fill_roots
+
+implementation @ <<LocalInterface>>
+: use_bad_cast OBJECT IN %S
+//	[{"<{}{}{%g}%g<{}{%f_is_factory(%C)=true&%f_is_it_cached(%C)=true}.>>"!=""|"<{}{}{%r}%r<{}{%f_is_factory(%C)=true&%f_is_it_cached(%C)=true}.>>"!=""}{false}true]
+ %IF ( 
+  %FOR ( %g ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+     ( ( [%f] is_it_cached %( %C )% ) %==  true  ) ) 
+    '.' 
+   %END-FOR
+   %END-FOR
+  %!= '' %|| 
+   ( 
+  %FOR ( %r ) 
+   %r
+   %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+     ( ( [%f] is_it_cached %( %C )% ) %==  true  ) ) 
+    '.' 
+   %END-FOR
+   %END-FOR
+  %!= ''  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4704C0E30186for47A2D6A00142*
+; // use_bad_cast
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47A2D6A00142*
+//#UC END# *47022CCF00EAfor47A2D6A00142*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47A2D6A00142*
+//#UC END# *47022BBE0261for47A2D6A00142*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for47A2D6A00142*
+//#UC END# *47022C0F01E4for47A2D6A00142*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor47A2D6A00142*
+//#UC END# *49F5795900ECfor47A2D6A00142*
+; // dfm
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47A2D6A00142*
+//#UC END# *477398E501C0for47A2D6A00142*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for47A2D6A00142*
+//#UC END# *4DE79AFC0030for47A2D6A00142*
+; // sd
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47A2D6A00142*
+//#UC END# *4E65F581015Afor47A2D6A00142*
+; // link_to_requests_hack
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<LocalInterface>>
+

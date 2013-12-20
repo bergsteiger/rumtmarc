@@ -1,0 +1,100 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Interface/Facet.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Interface::Facet
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Facet::Class (redefinition)
+implementation @ <<Facet>>
+//= FacetInclude::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+; // st_space_key
+
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor499D6E6D0319*
+//#UC END# *47022CCF00EAfor499D6E6D0319*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for499D6E6D0319*
+//#UC END# *47022BBE0261for499D6E6D0319*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for499D6E6D0319*
+//#UC END# *47022C0F01E4for499D6E6D0319*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor499D6E6D0319*
+//#UC END# *49F5795900ECfor499D6E6D0319*
+; // dfm
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for499D6E6D0319*
+//#UC END# *477398E501C0for499D6E6D0319*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for499D6E6D0319*
+//#UC END# *4DE79AFC0030for499D6E6D0319*
+; // sd
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor499D6E6D0319*
+//#UC END# *4E65F581015Afor499D6E6D0319*
+; // link_to_requests_hack
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Facet>>
+

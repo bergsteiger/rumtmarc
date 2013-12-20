@@ -1,0 +1,132 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/WikiTargetImpl.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::WikiTargetImpl
+//
+// Абстрактный стереотип реализующий генерацию целей сборки в wiki
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: WikiTargetImpl::Category
+implementation @ <<WikiTargetImpl>>
+//? Абстрактный стереотип реализующий генерацию целей сборки в wiki
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47188B1503B9*
+//#UC END# *4705CBD6003Efor47188B1503B9*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for47188B1503B9*
+//#UC END# *470484D50138for47188B1503B9*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47188B1503B9*
+//C /%SN:%SU
+//O %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[
+ %IF-NOT-EMPTY
+
+//	{info}Включает реализацию требований:
+  '{info}Включает реализацию требований:'
+//	%f_clear_list(REQS)<%f_collect_req_i(%D)>\
+  [%f] clear_list %( 'REQS' )% 
+  %FOR [%f] collect_req_i %( %D )% 
+  %END-FOR
+//	%f_sort_list(REQS,g)%f_unique_list(REQS)\
+  [%f] sort_list %( 'REQS' %, 'g' )% [%f] unique_list %( 'REQS' )% 
+//	<{}{%f_is_empty(REQS)=false}{W}[%f_pop_first_to_var(REQS,REQ)* %f_k_link(%{REQ})
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'REQS' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'REQS' %, 'REQ' )% '* '
+    [%f] k_link %( ( get_global_var ( 'REQ' ) ) )% 
+//	]>{info}]\
+   %END-IF
+  %END-FOR
+  '{info}' 
+ %END-IF
+//	[{%SS!=VCMTestTarget&%SS!=TestTarget&%SS!=ExeTarget&%S#f_IsTarget()!=true}\
+ %IF ( ( %S |S ) %!= 'VCMTestTarget' %&& 
+   ( ( %S |S ) %!= 'TestTarget'  ) %&& 
+   ( ( %S |S ) %!= 'ExeTarget'  ) %&& 
+   ( ( %S %?f IsTarget %( )% ) %!=  true  ) ) 
+//	[
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Состоит из модулей:
+   '{info}Состоит из модулей:'
+//	%f_link_all_dep(%S)
+   [%f] link_all_dep %( %S )% 
+//	{info}]\
+   '{info}' 
+  %END-IF
+//	[
+  %IF-NOT-EMPTY
+
+//	%f_config_docs(%S)]\
+   [%f] config_docs %( %S )% 
+  %END-IF
+//	]\
+ %END-IF
+//	[{%mx=true&%Cx=true}
+ %IF ( ( %m |x ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+
+//	
+
+//	Диаграмма пакета:
+  'Диаграмма пакета:'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+  [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+  %m |U '.jpg}'
+//	]<%CX>
+ %END-IF
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for47188B1503B9*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<WikiTargetImpl>>
+

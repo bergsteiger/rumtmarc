@@ -1,0 +1,34 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div style="text-align: left;">
+<span style="font-family: inherit;">Подумалось.</span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><br /></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">Если я правильно помню то, что "мне рассказывали", то Эйнштейн так бы и заслужил ярлык "чудака" и "изобретателя велосипедов", со своей гипотезой о постоянности скорости света в инерциальных системах отсчёта (<a href="http://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B5%D1%80%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D0%BE%D1%82%D1%81%D1%87%D1%91%D1%82%D0%B0">http://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B5%D1%80%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D0%BE%D1%82%D1%81%D1%87%D1%91%D1%82%D0%B0</a>&nbsp;vs.&nbsp;&nbsp;<a href="http://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%B8%D0%BD%D0%B5%D1%80%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D0%BE%D1%82%D1%81%D1%87%D1%91%D1%82%D0%B0">http://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%B8%D0%BD%D0%B5%D1%80%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D0%BE%D1%82%D1%81%D1%87%D1%91%D1%82%D0%B0</a>)</span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><br /></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">Если бы не Лоренц (<a href="http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86,_%D0%A5%D0%B5%D0%BD%D0%B4%D1%80%D0%B8%D0%BA_%D0%90%D0%BD%D1%82%D0%BE%D0%BD">http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86,_%D0%A5%D0%B5%D0%BD%D0%B4%D1%80%D0%B8%D0%BA_%D0%90%D0%BD%D1%82%D0%BE%D0%BD</a>) со своими "сокращениями" (<a href="http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86%D0%B5%D0%B2%D0%BE_%D1%81%D0%BE%D0%BA%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5">http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86%D0%B5%D0%B2%D0%BE_%D1%81%D0%BE%D0%BA%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5</a>).</span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><br /></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">Ну и "преобразованиями" -&nbsp;<a href="http://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86%D0%B0">http://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%9B%D0%BE%D1%80%D0%B5%D0%BD%D1%86%D0%B0</a></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><br /></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">Хотя:</span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">"<span style="background-color: white; line-height: 19.1875px;">&nbsp;К современному, полностью самосогласованному виду их привели французский математик&nbsp;</span><a href="http://ru.wikipedia.org/wiki/%D0%9F%D1%83%D0%B0%D0%BD%D0%BA%D0%B0%D1%80%D0%B5,_%D0%90%D0%BD%D1%80%D0%B8" style="background-color: white; background-image: none; color: #0b0080; line-height: 19.1875px; text-decoration: none;" title="Пуанкаре, Анри">А. Пуанкаре</a><span style="background-color: white; line-height: 19.1875px;">&nbsp;и параллельно<b> и независимо&nbsp;</b></span><a href="http://ru.wikipedia.org/wiki/%D0%AD%D0%B9%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD,_%D0%90%D0%BB%D1%8C%D0%B1%D0%B5%D1%80%D1%82" style="background-color: white; background-image: none; color: #0b0080; line-height: 19.1875px; text-decoration: none;" title="Эйнштейн, Альберт"><b>А. Эйнштейн</b></a><span style="background-color: white; line-height: 19.1875px;"><b>&nbsp;в 1905 году.</b>"</span></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><br /></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">И вот что кстати интересно в свете "чистой математики":</span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><br /></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">"<span style="background-color: white; line-height: 19.1875px;">В 1910 году&nbsp;</span><a href="http://ru.wikipedia.org/wiki/%D0%98%D0%B3%D0%BD%D0%B0%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%B8%D1%87" style="background-color: white; background-image: none; color: #0b0080; line-height: 19.1875px; text-decoration: none;" title="Игнатовский, Владимир Сергеевич">В.&nbsp;С.&nbsp;Игнатовский</a><span style="background-color: white; line-height: 19.1875px;">&nbsp;первым попытался получить преобразование Лоренца на основе теории групп и без использования постулата о постоянстве скорости света"</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; line-height: 19.1875px;"><span style="font-family: inherit;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><span style="line-height: 19.1875px;">К чему я это всё? Да "просто так". Захотелось поделиться... К тому, что на каждый "велосипед" - может найтись и "аппарат"...</span></span></div>
+</div>

@@ -1,0 +1,349 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Packages/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Packages::Support
+//
+// вспомоагтельные функции для генерации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// выводит форвард декларацию класса, с учетом нэймспэйсов
+//f _in_scope_name
+: in_scope_name OBJECT IN %S
+//#UC START# *47173A8B000F*
+//	%SP\tclass %SN%1N;
+ %S |P #9'class '
+ %S |N %1 |N ';'
+//	%Sp
+ %S |p 
+//#UC END# *47173A8B000F*
+; // in_scope_name
+
+
+// нужно ли AMI
+//f _need_ami
+: need_ami OBJECT IN %S
+//#UC START# *47173A970119*
+//	[{"<{}{"%f_use_ami(%C)"="true"}{C%C}>"="0"}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] use_ami %( %C )% ) %== true ) 
+   ( 'C'
+   %C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *47173A970119*
+; // need_ami
+
+
+// возвращает true, если нужены дополнительные файлы для генерации фрейморвка фабрик
+//f _need_factory_files
+: need_factory_files OBJECT IN %S
+//#UC START# *47173AA10222*
+//	[{"<{}{"%f_has_factory_methods(%C)"="true"|%CM=ServerEvent::Class}{%CC}>"="0"}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] has_factory_methods %( %C )% ) %== true %|| 
+    ( ( %C |M ) %== 'ServerEvent::Class'  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *47173AA10222*
+; // need_factory_files
+
+
+// нужны ли дополнительные файлы для генерации описания TIE-обёрток
+//f _need_tie_files
+: need_tie_files OBJECT IN %S
+//#UC START# *47173AB10186*
+//	[{"<{}{%CM=Interface::Class|%CM=Struct::Class|%CM=Vector::Class|%CM=Set::Class}{%CC}>"="0"}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Interface::Class' %|| 
+    ( ( %C |M ) %== 'Struct::Class'  ) %|| 
+    ( ( %C |M ) %== 'Vector::Class'  ) %|| 
+    ( ( %C |M ) %== 'Set::Class'  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *47173AB10186*
+; // need_tie_files
+
+
+// нужно ли генерить в AMI
+//f _print_in_ami_file
+: print_in_ami_file OBJECT IN %S
+//#UC START# *47173ABC0177*
+//	[{"%f_use_ami(%S)"="true"|"%f_used_in_ami(%S)"="true"}{false}true]
+ %IF ( ( [%f] use_ami %( %S )% ) %== true %|| 
+   ( ( [%f] used_in_ami %( %S )% ) %== true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47173ABC0177*
+; // print_in_ami_file
+
+
+// использует ли AMI
+//f _use_ami
+: use_ami OBJECT IN %S
+//#UC START# *47173AC40222*
+//	[{"%S{Use AMI}"="true"}{[{"<{}{"%f_use_ami(%Z)"="true"}{C%Z}>"="0"}{true}false]}true]
+//	[{"%S{Use AMI}"="true"}{[{"<{}{%f_use_ami(%Z)=true}{C%Z}>"="0"}{true}false]}true]
+ %IF ( ( %S get_up ( 'Use AMI' ) ) %== true ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( [%f] use_ami %( %Z )% ) %==  true ) 
+     ( 'C'
+     %Z ) 
+    %END-FOR
+    %== 0 ) 
+    %ELSE
+      true 
+    %THEN
+     false 
+   %END-IF
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47173AC40222*
+; // use_ami
+
+
+// используется ли в AMI
+//f _used_in_ami
+: used_in_ami OBJECT IN %S
+//#UC START# *47173ACB0242*
+//	[{"<{}{"%f_use_ami(%b)"="true"}{C%b}>"="0"}{true}false]
+//	false
+ false
+//#UC END# *47173ACB0242*
+; // used_in_ami
+
+
+// использует ли заданный элемент детьми пакета
+//f _use_in_pack_child
+: use_in_pack_child OBJECT IN %S
+//#UC START# *47173B27007D*
+//	%f_set_var(TYPE,S)[{"%{PACK}<%C<{}{%wU=%{TYPE}U}.>>"!=""|<{}{%CS=Class&%f_use_in_pack_child(%C)=true}{C}>!=0}{false}true]
+ [%f] set_var %( 'TYPE' %, 'S' )% %IF ( ( ( get_global_var ( 'PACK' ) ) ) 
+  %FOR %C
+   %FOR %ITEM-CONDITION ( ( %w |U ) %== ( ( get_global_var ( 'TYPE' ) |U ) ) ) 
+    '.' 
+   %END-FOR
+   %END-FOR
+  %!= '' %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'Class' %&& 
+    ( ( [%f] use_in_pack_child %( %C )% ) %==  true  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47173B27007D*
+; // use_in_pack_child
+
+
+// генерит код модуля idl
+//f _idl_subsystem
+: idl_subsystem OBJECT IN %S
+//#UC START# *47173E11031C*
+//	[{"%XU"="idl"}
+ %IF ( ( %X |U ) %== 'idl' ) 
+
+//	
+
+//	\#ifndef __<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#ifndef __'
+  %FOR %ITEM-SEPARATOR '_' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %P |M ) %== 'Interfaces::Category' ) 
+   [%f] to_upper %( %P |N )% 
+  %END-FOR
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	\#define __<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#define __'
+  %FOR %ITEM-SEPARATOR '_' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %P |M ) %== 'Interfaces::Category' ) 
+   [%f] to_upper %( %P |N )% 
+  %END-FOR
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	[%f_idl_pre_include(%S)
+  %IF-NOT-EMPTY
+   [%f] idl_pre_include %( %S )% 
+//	
+
+//	][{%SN!=RootSrv}\#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+  %END-IF
+  %IF ( ( %S |N ) %!= 'RootSrv' ) 
+   '#include "shared/CoreSrv/RootSrv/RootSrv.idl"'
+//	][{"%f_need_ami(%S)"="true"}{<\n\#include %f_dump_include_path(%IL,%I)>}\#include %f_dump_include_path(%f_with_gen_id(idl_ami,%SL),%S)
+  %END-IF
+  %IF ( ( [%f] need_ami %( %S )% ) %== true ) 
+   %ELSE
+    %FOR #13#10'#include '
+     [%f] dump_include_path %( %I |L %, %I )% 
+    %END-FOR
+   %THEN
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'idl_ami' %, %S |L )% %, %S )% 
+//	]
+  %END-IF
+//	[\#pragma prefix "%f_idl_prefix(%S)"
+  %IF-NOT-EMPTY
+   '#pragma prefix "'
+   [%f] idl_prefix %( %S )% 
+//	
+
+//	]%SP[{%S{is namespace}=true}
+  %END-IF
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+
+//	#module %SN {]<{\n}{}{%C}[
+   out_indent 'module '
+   %S |N ' {' 
+  %END-IF
+  %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+   ( %C ) 
+   %IF-NOT-EMPTY
+
+//	[{"%f_print_in_ami_file(%C)"="false"}{\n#\t%CF // AMI forwarded}%CX]]>
+    %IF ( ( [%f] print_in_ami_file %( %C )% ) %== false ) 
+     %ELSE
+      #13#10
+      out_indent #9
+      %C |F ' // AMI forwarded' 
+     %THEN
+     %C |X 
+    %END-IF
+   %END-IF
+  %END-FOR
+//	[{%S{is namespace}=true}#};
+  %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+   out_indent '};'
+//	]%Sp
+  %END-IF
+  %S |p 
+//	][{"%XU"="idl_ami"}
+ %END-IF
+ %IF ( ( %X |U ) %== 'idl_ami' ) 
+
+//	
+
+//	\#ifndef __AMI_<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#ifndef __AMI_'
+  %FOR %ITEM-SEPARATOR '_' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %P |M ) %== 'Interfaces::Category' ) 
+   [%f] to_upper %( %P |N )% 
+  %END-FOR
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	\#define __AMI_<{_}{"%PM"="Interfaces::Category"}%f_to_upper(%PN)>_%f_to_upper(%SN)_IDL__
+  '#define __AMI_'
+  %FOR %ITEM-SEPARATOR '_' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %P |M ) %== 'Interfaces::Category' ) 
+   [%f] to_upper %( %P |N )% 
+  %END-FOR
+  '_'
+  [%f] to_upper %( %S |N )% '_IDL__'
+//	
+
+//	[%f_idl_pre_include(%S)
+  %IF-NOT-EMPTY
+   [%f] idl_pre_include %( %S )% 
+//	]
+  %END-IF
+//	[<\n\#include %f_dump_include_path(%f_with_gen_id(idl,%IL),%I)>
+  %IF-NOT-EMPTY
+   %FOR #13#10'#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'idl' %, %I |L )% %, %I )% 
+   %END-FOR
+//	]
+  %END-IF
+//	[\#pragma prefix "%f_idl_prefix(%S)"
+  %IF-NOT-EMPTY
+   '#pragma prefix "'
+   [%f] idl_prefix %( %S )% 
+//	
+
+//	]%SP[{%S{is namespace}=true}
+  %END-IF
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+
+//	#module %SN {]<{\n}{"%f_print_in_ami_file(%C)"="true"}
+   out_indent 'module '
+   %S |N ' {' 
+  %END-IF
+  %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( [%f] print_in_ami_file %( %C )% ) %== true ) 
+
+//	%C<{}{%f_use_ami(%n)=false&%f_kind_of(n,ServerFacet::Class)=true}[%f_with_gen_id(idl,#%nF)
+   %C
+   %FOR %ITEM-CONDITION ( ( [%f] use_ami %( %n )% ) %==  false %&& 
+     ( ( [%f] kind_of %( 'n' %, 'ServerFacet::Class' )% ) %==  true  ) ) 
+    %IF-NOT-EMPTY
+     [%f] with_gen_id %( 'idl' %, out_indent %n |F )% 
+//	]>%f_with_gen_id(idl,%CX)>
+    %END-IF
+   %END-FOR
+    [%f] with_gen_id %( 'idl' %, %C |X )% 
+  %END-FOR
+//	[{%S{is namespace}=true}#};
+  %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+   out_indent '};'
+//	]%Sp
+  %END-IF
+  %S |p 
+//	]
+ %END-IF
+//	
+//	\#endif
+ '#endif'
+//#UC END# *47173E11031C*
+; // idl_subsystem
+
+
+// нужно ли генерить cpp
+//f _srv_need_cpp_files
+: srv_need_cpp_files OBJECT IN %S
+//#UC START# *47173E1901E4*
+//	[{<{}{%AS=ServerInterface|%AS=ServerFacet}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'ServerInterface' %|| 
+    ( ( %A |S ) %== 'ServerFacet'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47173E1901E4*
+; // srv_need_cpp_files
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,19 @@
+unit Script.Word;
+
+interface
+
+uses
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptWord = class(TinterfacedObject, IscriptWord)
+   protected
+    procedure Cleanup; virtual;
+   public
+    destructor Destroy; override;
+ end;//TscriptWord
+
+implementation
+
+end.

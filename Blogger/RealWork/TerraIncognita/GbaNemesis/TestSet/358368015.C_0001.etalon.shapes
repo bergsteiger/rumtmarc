@@ -1,0 +1,313 @@
+----
+Obj type = Document
+Count = 10
+Rect = (900, -300, 15400, 11500)
+MaxLinesCount = 83
+----
+Obj type = TextPara
+Text = 'Обзор изменений документа'
+Rect = (1700, 700, 2000, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Picture 2168'
+Rect = (2000, 700, 2500, 10600)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Подготовлено экспертами компании "Гарант"'
+Rect = (2500, 700, 2800, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Далее приведены изменившиеся фрагменты редакций:'
+Rect = (2800, 700, 3100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Блок 10. Просто картинки в тексте.'
+Rect = (3100, 700, 3600, 10600)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 2
+Rect = (3600, 700, 5700, 10600)
+Dim = (10100, 2000)
+MaxLinesCount = 6
+----
+Obj type = TableRow
+Count = 2
+Rect = (3700, 700, 4400, 10900)
+Dim = (10100, 600)
+MaxLinesCount = 2
+DeltaHeight = 600
+----
+Obj type = TableCell
+Count = 1
+Rect = (3700, 700, 4400, 5800)
+Dim = (5000, 600)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = '01.01.2004 - 23.05.2013 (первоначальная)'
+Rect = (3700, 800, 4300, 5800)
+Dim = (4900, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TableCell
+Count = 1
+Rect = (3700, 5800, 4100, 10900)
+Dim = (5000, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '24.05.2013 - ?'
+Rect = (3700, 5900, 4000, 10800)
+Dim = (4900, 200)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 2
+Rect = (4400, 700, 5600, 10900)
+Dim = (10100, 1200)
+MaxLinesCount = 4
+DeltaHeight = 1200
+----
+Obj type = TableCell
+Count = 1
+Rect = (4400, 700, 5600, 5800)
+Dim = (5000, 1200)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = 'Данные изменения не могут быть отображены в сводном обзоре. Для их просмотра необходимо построить полное сравнение редакций'
+Rect = (4400, 800, 5600, 5800)
+Dim = (4900, 1100)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = TableCell
+Count = 1
+Rect = (4400, 5800, 5600, 10900)
+Dim = (5000, 1200)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = 'Данные изменения не могут быть отображены в сводном обзоре. Для их просмотра необходимо построить полное сравнение редакций'
+Rect = (4400, 5900, 5600, 10900)
+Dim = (4900, 1100)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = TextPara
+Text = 'Блок 20. Картинки в тексте и формулы'
+Rect = (5700, 700, 6200, 10600)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 2
+Rect = (6200, 700, 10100, 10600)
+Dim = (10100, 3800)
+MaxLinesCount = 7
+----
+Obj type = TableRow
+Count = 2
+Rect = (6200, 700, 6900, 10900)
+Dim = (10100, 600)
+MaxLinesCount = 2
+DeltaHeight = 600
+----
+Obj type = TableCell
+Count = 1
+Rect = (6200, 700, 6900, 5800)
+Dim = (5000, 600)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = '01.01.2004 - 23.05.2013 (первоначальная)'
+Rect = (6300, 800, 6900, 5800)
+Dim = (4900, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TableCell
+Count = 1
+Rect = (6200, 5800, 6600, 10900)
+Dim = (5000, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '24.05.2013 - ?'
+Rect = (6300, 5900, 6600, 10800)
+Dim = (4900, 200)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 2
+Rect = (6900, 700, 10000, 10900)
+Dim = (10100, 3000)
+MaxLinesCount = 5
+DeltaHeight = 3000
+----
+Obj type = TableCell
+Count = 1
+Rect = (6900, 700, 8200, 5800)
+Dim = (5000, 1200)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = 'Данные изменения не могут быть отображены в сводном обзоре. Для их просмотра необходимо построить полное сравнение редакций'
+Rect = (7000, 800, 8100, 5800)
+Dim = (4900, 1100)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = TableCell
+Count = 2
+Rect = (6900, 5800, 10000, 10900)
+Dim = (5000, 3000)
+MaxLinesCount = 5
+----
+Obj type = TextPara
+Text = 'Сначала картинка (разрешение 100):*, потом формула: * среди текста. '
+Count = 2
+Rect = (7000, 5900, 9700, 10800)
+Dim = (4700, 2600)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = BitmapPara
+Rect = (7200, 5900, 8600, 10800)
+Dim = (4900, 1300)
+MaxLinesCount = 7
+----
+Obj type = Formula
+Text = 'At(DiffRF(f,x),x=0)=1'
+Rect = (8700, 8500, 9400, 13400)
+Dim = (1200, 600)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (9700, 5900, 9900, 10800)
+Dim = (4900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Блок 30. Картинки в тексте и цветовое выделение'
+Rect = (10100, 700, 10600, 10600)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 2
+Rect = (10600, 700, 15400, 10600)
+Dim = (10100, 14400)
+MaxLinesCount = 23
+----
+Obj type = TableRow
+Count = 2
+Rect = (10600, 700, 11300, 10900)
+Dim = (10100, 600)
+MaxLinesCount = 2
+DeltaHeight = 600
+----
+Obj type = TableCell
+Count = 1
+Rect = (10600, 700, 11300, 5800)
+Dim = (5000, 600)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = '01.01.2004 - 23.05.2013 (первоначальная)'
+Rect = (10700, 800, 11300, 5800)
+Dim = (4900, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TableCell
+Count = 1
+Rect = (10600, 5800, 11000, 10900)
+Dim = (5000, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '24.05.2013 - ?'
+Rect = (10700, 5900, 11000, 10800)
+Dim = (4900, 200)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 2
+Rect = (11300, 700, 15400, 10900)
+Dim = (10100, 13600)
+MaxLinesCount = 21
+DeltaHeight = 13600
+----
+Obj type = TableCell
+Count = 3
+Rect = (11300, 700, 15400, 5800)
+Dim = (5000, 13600)
+MaxLinesCount = 21
+----
+Obj type = TextPara
+Text = 'А этот текст есть только в редакции. Картинка (смещение вниз = 10) в комментарии юристов: *'
+Count = 1
+Rect = (11400, 800, 14300, 5900)
+Dim = (4900, 2900)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = BitmapPara
+Rect = (12200, 900, 14300, 5900)
+Dim = (4900, 2000)
+MaxLinesCount = 11
+----
+Obj type = TextPara
+Rect = (14300, 800, 14700, 5700)
+Dim = (4900, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'А этот текст есть только в редакции. Картинка * рядом со ссылкой на начало топика и внутри цветового выделения ASCII 1'
+Rect = (14700, 800, 15300, 5700)
+Dim = (4700, 3500)
+MaxLinesCount = 6
+LinesCount = 6
+----
+Obj type = TableCell
+Count = 3
+Rect = (11300, 5800, 14100, 10900)
+Dim = (5000, 9700)
+MaxLinesCount = 17
+----
+Obj type = TextPara
+Text = 'Картинка (смещение вниз = 10) в комментарии юристов: *'
+Count = 1
+Rect = (11400, 5900, 13400, 11000)
+Dim = (4900, 1900)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = BitmapPara
+Rect = (11900, 6000, 13300, 11000)
+Dim = (4900, 1300)
+MaxLinesCount = 7
+----
+Obj type = TextPara
+Rect = (13400, 5900, 13800, 10800)
+Dim = (4900, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Картинка * рядом со ссылкой на начало топика и внутри цветового выделения ASCII 1'
+Rect = (13800, 5900, 14100, 10800)
+Dim = (4700, 2500)
+MaxLinesCount = 5
+LinesCount = 5

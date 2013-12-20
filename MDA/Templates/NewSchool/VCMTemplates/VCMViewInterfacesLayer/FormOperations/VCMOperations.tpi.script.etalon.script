@@ -1,0 +1,380 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/FormOperations/VCMOperations.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::FormOperations::VCMOperations
+//
+// Набор операций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMOperations::Class
+implementation @ <<VCMOperations>>
+//? Набор операций
+//> VCMOperation::Class
+
+//= WikiImplClass::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+//= OperationsPublisher::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_vcm_operations.gif
+//L code_vcm_operations
+// Параметры визуализации
+//$ C 192,255,255
+//$ l 0,128,255
+//$ f 0,128,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+// нет документации
+//%f _IsVCMOperations
+; // st_space_key
+
+: IsVCMOperations OBJECT IN %S
+//#UC START# *494FCCEC019Ffor494F808C01DB*
+//	true
+ true
+//#UC END# *494FCCEC019Ffor494F808C01DB*
+; // IsVCMOperations
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+//%f _OperationsToFuncImpl
+: OperationsToFuncImpl OBJECT IN %S
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9F9502BBfor494F808C01DB*
+//	<%C#f_OperationsToFuncImpl(%1)>\
+ %FOR %C %?f OperationsToFuncImpl %( %1 )% 
+ %END-FOR
+//	<%G#f_OperationsToFuncImpl(%1)>
+ %FOR %G %?f OperationsToFuncImpl %( %1 )% 
+ %END-FOR
+//#UC END# *4A8E9F9502BBfor494F808C01DB*
+; // OperationsToFuncImpl
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в функции
+//%f _OperationsToFuncIntf
+: OperationsToFuncIntf OBJECT IN %S
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9D5E0038for494F808C01DB*
+//	<%C#f_OperationsToFuncIntf(%1)>\
+ %FOR %C %?f OperationsToFuncIntf %( %1 )% 
+ %END-FOR
+//	<%G#f_OperationsToFuncIntf(%1)>
+ %FOR %G %?f OperationsToFuncIntf %( %1 )% 
+ %END-FOR
+//#UC END# *4A8E9D5E0038for494F808C01DB*
+; // OperationsToFuncIntf
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Определяет необходимые uses для операций
+//%f _OperationsToUses
+: OperationsToUses OBJECT IN %S
+//#UC START# *4A82DDA6016Afor494F808C01DB*
+//	<%C#f_OperationsToUses()>\
+ %FOR %C %?f OperationsToUses %( )% 
+ %END-FOR
+//	<%G#f_OperationsToUses()>
+ %FOR %G %?f OperationsToUses %( )% 
+ %END-FOR
+//#UC END# *4A82DDA6016Afor494F808C01DB*
+; // OperationsToUses
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в секцию Var
+//%f _OperationsToVar
+: OperationsToVar OBJECT IN %S
+//#UC START# *4A8E9D3A01FEfor494F808C01DB*
+//	<%C#f_OperationsToVar()>\
+ %FOR %C %?f OperationsToVar %( )% 
+ %END-FOR
+//	<%G#f_OperationsToVar()>
+ %FOR %G %?f OperationsToVar %( )% 
+ %END-FOR
+//#UC END# *4A8E9D3A01FEfor494F808C01DB*
+; // OperationsToVar
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Публикует операции
+//%f _PublishOperations
+: PublishOperations OBJECT IN %S
+//#UC START# *4A770F770199for494F808C01DB*
+//	<%C#f_PublishOperations()>\
+ %FOR %C %?f PublishOperations %( )% 
+ %END-FOR
+//	<%G#f_PublishOperations()>
+ %FOR %G %?f PublishOperations %( )% 
+ %END-FOR
+//#UC END# *4A770F770199for494F808C01DB*
+; // PublishOperations
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for494F808C01DB*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for494F808C01DB*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент может реализовываться классом
+//%f _ClassImplementable
+: ClassImplementable OBJECT IN %S
+//#UC START# *49551CA202CFfor494F808C01DB*
+//	false
+ false
+//#UC END# *49551CA202CFfor494F808C01DB*
+; // ClassImplementable
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor494F808C01DB*
+//#UC END# *49F5795900ECfor494F808C01DB*
+; // dfm
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor494F808C01DB*
+//#UC END# *470F15B800CBfor494F808C01DB*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor494F808C01DB*
+//R  
+//F %f_pas_OutInterfaceForward(%S)
+//	[\{$IfDef %S{ifdef}\}\n]\
+ %IF-NOT-EMPTY
+  '{$IfDef '
+  %S get_up ( 'ifdef' ) '}'#13#10 
+ %END-IF
+//	[<{}{%CC=Class&%C#f_IsVCMOperation()!=true}%CX>\n]
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+    ( ( %C %?f IsVCMOperation %( )% ) %!=  true  ) ) 
+   %C |X 
+  %END-FOR
+  #13#10 
+ %END-IF
+//	%f_pas_OpenType(%S)\
+//	[{%t_impl_class(%P)=true|%P#f_IsInterface()=true}[{<{}{%CC=Attribute&%C%TU=%PU}{C}>!=0}{\
+ %IF ( ( [%t] impl_class %( %P )% ) %==  true %|| 
+   ( ( %P %?f IsInterface %( )% ) %==  true  ) ) 
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+     ( ( %C ->T |U  ) %== ( %P |U )  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   %ELSE
+//	[{<{}{%CC=Operation&%C%TU=%PU}{C}>!=0}{\
+    %IF ( 
+     %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+       ( ( %C ->T |U  ) %== ( %P |U )  ) ) 
+      ( 'C' ) 
+     %END-FOR
+     %!= 0 ) 
+     %ELSE
+//	[{<{}{%CC=Operation&%C<{}{%C%TU=%1%PU}{C}>!=0}{C}>!=0}%PF]\
+      %IF ( 
+       %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+         ( ( %C
+        %FOR %ITEM-CONDITION ( ( %C ->T |U  ) %== ( %1 ->P |U  ) ) 
+         ( 'C' ) 
+        %END-FOR
+ )         %!= 0  ) ) 
+        ( 'C' ) 
+       %END-FOR
+       %!= 0 ) 
+       %P |F 
+      %END-IF
+//	}%PF]\
+     %THEN
+     %P |F 
+    %END-IF
+//	}\
+   %THEN
+//	%PF]]\
+   %P |F 
+  %END-IF
+ %END-IF
+//	<{}{%CS=impurity value}%f_set_var(%CN,"%f_pas_TypeName(%C%T)")>\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+  [%f] set_var %( %C |N %, [%f] pas_TypeName %( %C ->T  )% )% 
+ %END-FOR
+//	(* %f_pas_TypeName(%S) = operations[(%f_pas_InterfaceAncestor(%S)[\{, <{, }{%R#f_IsPureMixIn()!=true}%f_pas_TypeName(%R)>\}])]\
+ '(* '
+ [%f] pas_TypeName %( %S )% ' = operations'
+ %IF-NOT-EMPTY
+  '('
+  [%f] pas_InterfaceAncestor %( %S )% %IF-NOT-EMPTY
+   '{, '
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    %ITEM-CONDITION ( ( %R %?f IsPureMixIn %( )% ) %!=  true ) 
+    [%f] pas_TypeName %( %R )% 
+   %END-FOR
+   '}' 
+  %END-IF
+  ')' 
+ %END-IF
+//	[\n  \{* %SD \}]
+ %IF-NOT-EMPTY
+  #13#10'  {* '
+  %S |D ' }' 
+ %END-IF
+//	   \['{%SG}'\]
+ '   [''{'
+ %S |G '}'']'
+//	%f_pas_OutFacetBody(%S)\
+ [%f] pas_OutFacetBody %( %S )% 
+//	<{}{%R#f_IsPureMixIn()=true}[  // %RN\n\
+ %FOR %ITEM-CONDITION ( ( %R %?f IsPureMixIn %( )% ) %==  true ) 
+  %IF-NOT-EMPTY
+   '  // '
+   %R |N #13#10
+//	%f_pas_OutFacetBody(%R)]\
+   [%f] pas_OutFacetBody %( %R )% 
+  %END-IF
+//	%R<{}{%g#f_IsPureMixIn()=true}[  // %gN\n\
+  %R
+  %FOR %ITEM-CONDITION ( ( %g %?f IsPureMixIn %( )% ) %==  true ) 
+   %IF-NOT-EMPTY
+    '  // '
+    %g |N #13#10
+//	%f_pas_OutFacetBody(%g)]>\
+    [%f] pas_OutFacetBody %( %g )% 
+   %END-IF
+  %END-FOR
+ //	>\
+ %END-FOR
+//	 end;//%f_pas_TypeName(%S)*)\
+ ' end;//'
+ [%f] pas_TypeName %( %S )% '*)'
+//	[\n\{$EndIf %S{ifdef}\}\n]\
+ %IF-NOT-EMPTY
+  #13#10'{$EndIf '
+  %S get_up ( 'ifdef' ) '}'#13#10 
+ %END-IF
+//	<{}{%CS=impurity value}%f_set_var(%CN,"")>
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+  [%f] set_var %( %C |N %, '' )% 
+ %END-FOR
+//#UC END# *470F1571031Cfor494F808C01DB*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for494F808C01DB*
+//#UC END# *477398E501C0for494F808C01DB*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for494F808C01DB*
+//#UC END# *4774D2A20372for494F808C01DB*
+; // intf3.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for494F808C01DB*
+//#UC END# *4DE79AFC0030for494F808C01DB*
+; // sd
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor494F808C01DB*
+//#UC END# *4E65F581015Afor494F808C01DB*
+; // link_to_requests_hack
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for494F808C01DB*
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//#UC END# *4A41A13D03D5for494F808C01DB*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: VCMOperations::Class::Operation
+end. // <<VCMOperations>>
+
+implementation @ :: <<VCMOperations>> <<Operation>> ;
+//? Операция
+//= VCMOperationBase::Class
+
+// Параметры стереотипа
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<VCMOperations>> <<Operation>> ;
+

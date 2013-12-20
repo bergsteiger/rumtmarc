@@ -1,0 +1,30 @@
+USES
+ HLTCLike.script
+ DocumentNumbers.script
+; 
+
+: K290953660
+ OBJECT VAR l_QC
+ ТБ24
+ "Открываем {(НК)}"
+ 6 раз "Перейти на параграф вниз"
+ cc:Home
+ cc:StartSelBlock
+ "Убедиться, что фокус в редакторе"
+ focused:control:push >>> l_QC
+ l_QC pop:editor:ParaEnd
+ cc:EndSelBlock
+ cc:Copy
+ ППО
+ "Убедиться, что фокус в редакторе"
+ focused:control:push >>> l_QC
+ 'AT_USER_NAME' '1234' l_QC pop:QueryCard:SetAttribute
+ 'AT_USER_PHONE' '1234' l_QC pop:QueryCard:SetAttribute
+ 'AT_USER_PHONE#2' '1234' l_QC pop:QueryCard:SetAttribute
+ 'AT_EMAIL' '1234' l_QC pop:QueryCard:SetAttribute
+ cc:LastPage
+ cc:Paste
+ //"Нажать Искать"
+;
+
+K290953660

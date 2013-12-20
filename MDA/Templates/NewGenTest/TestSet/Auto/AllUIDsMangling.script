@@ -1,0 +1,38 @@
+USES
+ 'W:\shared\models\NewSchool\All.root.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\MDALike.tpl.script'
+;
+
+: "Развешиваем всем элементам модели переменные"
+
+/* : DoMember IN anUIDVar
+  VAR l_Element
+  anUIDVar DO =: l_Element
+  // - берём ссылку на элемент модели
+  l_Element IsVoid ? ( anUIDVar pop:Word:Name . 'IsVoid' . EXIT )
+  l_Element -> '"Имя переменной"' := 'Значение переменной'
+  // - добавляем элементу переменную и заполняем её значением
+  l_Element -> '"Имя переменной 2"' := ( anUIDVar pop:Word:Name )
+  // - добавляем элементу вторую переменную и заполняем её значением UID
+ ;
+ 
+ @ UIDS_LIST IterateMembers DoMember */
+ 
+ : DoMember IN anElement
+  anElement -> '"Имя переменной"' := 'Значение переменной'
+  // - добавляем элементу переменную и заполняем её значением
+  anElement -> '"Имя переменной 2"' := ( anElement |U )
+  // - добавляем элементу вторую переменную и заполняем её значением UID
+ ;
+ 
+ %A==> DoMember 
+;
+
+TRY
+ "Развешиваем всем элементам модели переменные"
+FINALLY
+ help
+END 

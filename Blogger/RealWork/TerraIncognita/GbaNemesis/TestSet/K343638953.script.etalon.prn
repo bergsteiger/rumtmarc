@@ -1,0 +1,87 @@
+tbefPreviewFormBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Печать
+Активность:True
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbefPreviewFormTop : TvcmToolbar
+Order = 1
+---------------
+bt_enPreview_opZoomIn : TvcmToolButtonDef
+Приблизить
+Активность:True
+bt_enPreview_opZoomOut : TvcmToolButtonDef
+Отдалить
+Активность:True
+bt_enPreview_opZoomWidth : TvcmToolButtonDef
+По ширине листа 
+Активность:True
+bt_enPreview_opZoomPage : TvcmToolButtonDef
+Страница целиком
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opFullSelectedSwitch : TvcmToolButtonDef
+Показывать выделенный фрагмент
+Активность:False
+bt_enDocument_opRGBGrayscaleSwitch : TvcmToolButtonDef
+Показывать цветным
+Активность:True
+bt_enDocument_opPrintInfoSwitch : TvcmToolButtonDef
+Печатать документ/справку
+Активность:True
+

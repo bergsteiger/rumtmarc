@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.Core" Type="System.String" Value="Core" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Testing" Type="System.String" Value="Testing" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Project1" Type="System.String" Value="Project1" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Script" Type="System.String" Value="Script" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Script.Interfaces" Type="System.String" Value="Script\Interfaces" Category="General" IsBrowsable="False" />
+</TgConfig>

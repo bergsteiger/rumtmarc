@@ -1,0 +1,376 @@
+--------------- Контрол в фокусе: ------------------
+bt_enChat_opUserFilter : TvcmComboBox
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+ContactListForm : TContactListForm
+Совещание онлайн
+Left = 0
+Top = 0
+Width = 315
+Height = 645
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Добавить пользователя
+---------------
+BackgroundPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 25
+Width = 315
+Height = 615
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Добавить пользователя
+---------------
+ContextFilter : TnscContextFilter
+
+Left = 0
+Top = 0
+Width = 315
+Height = 35
+ImageIndex: 77
+Align: 1
+Anchors: 7
+Images: assigned
+Добавить пользователя
+---------------
+ContextFilterButton : TvtSpeedButton
+
+Left = 285
+Top = 0
+Width = 25
+Height = 25
+ImageIndex: 77
+Anchors: 3
+Images: assigned
+Добавить пользователя
+---------------
+InternalEditor : TnscComboBoxWithFilter
+
+Left = 0
+Top = 0
+Width = 275
+Height = 25
+TabOrder: 1
+Anchors: 3
+Выделить все
+-
+Добавить пользователя
+---------------
+trContactList : TeeTreeView
+Заголовок не сравниваем
+Left = 0
+Top = 35
+Width = 315
+Height = 580
+TabOrder: 0
+Align: 5
+Images: assigned
+Добавить пользователя
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 315
+Height = 15
+Images: nil
+Добавить пользователя
+---------------
+bt_enChat_opUserFilter : TvcmComboBox
+Все пользователи
+Left = 0
+Top = 0
+Width = 135
+Height = 25
+Добавить пользователя
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbContactListFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enChat_opAdd : TvcmToolButtonDef
+Добавить пользователя
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enChat_opHistory : TvcmToolButtonDef
+История переписки
+Активность:False
+bt_enChat_opUserFilter : TvcmComboBox
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:False
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+bt_enChat_opUserFilter : TvcmComboBox
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+ContactListForm : TContactListForm
+Совещание онлайн
+Left = 0
+Top = 0
+Width = 315
+Height = 655
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Добавить пользователя
+---------------
+BackgroundPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 25
+Width = 315
+Height = 625
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Добавить пользователя
+---------------
+ContextFilter : TnscContextFilter
+
+Left = 0
+Top = 0
+Width = 315
+Height = 35
+ImageIndex: 77
+Align: 1
+Anchors: 7
+Images: assigned
+Добавить пользователя
+---------------
+ContextFilterButton : TvtSpeedButton
+
+Left = 285
+Top = 0
+Width = 25
+Height = 25
+ImageIndex: 77
+Anchors: 3
+Images: assigned
+Добавить пользователя
+---------------
+InternalEditor : TnscComboBoxWithFilter
+
+Left = 0
+Top = 0
+Width = 275
+Height = 25
+TabOrder: 1
+Anchors: 3
+Выделить все
+-
+Добавить пользователя
+---------------
+trContactList : TeeTreeView
+Заголовок не сравниваем
+Left = 0
+Top = 35
+Width = 315
+Height = 590
+TabOrder: 0
+Align: 5
+Images: assigned
+Добавить пользователя
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 315
+Height = 15
+Images: nil
+Добавить пользователя
+---------------
+bt_enChat_opUserFilter : TvcmComboBox
+Все пользователи
+Left = 0
+Top = 0
+Width = 135
+Height = 25
+Добавить пользователя
+---------------
+--------------- Содержимое тулбаров: -------------------
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:True
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:False
+
+tbContactListFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enChat_opAdd : TvcmToolButtonDef
+Добавить пользователя
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enChat_opHistory : TvcmToolButtonDef
+История переписки
+Активность:False
+bt_enChat_opUserFilter : TvcmComboBox
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:False
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+

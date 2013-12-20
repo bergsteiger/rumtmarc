@@ -1,0 +1,61 @@
+USES
+ 'W:\shared\models\NewSchool\SharedDelphi.root.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\SharedDelphiOperations.root.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Shared Delphi Scripting\Shared Delphi Scripting.model.script'
+; 
+
+USES
+ 'W:\shared\models\NewSchool\SharedDelphiTests.root.script'
+; 
+
+USES
+ 'W:\shared\models\NewSchool\Templates\MDALike.tpl.script'
+;
+
+: Gen
+ 
+ : OUTPRIM IN %S
+  %SN .
+  %SS .
+  %S %ST %ST |N .
+ ;
+ 
+ : OUTSAFE IN %S
+  %S NotValid ? EXIT
+  %S OUTPRIM
+ ;
+ 
+ FORWARD OUTSAFEGEN
+ 
+ : OUTSAFEGEN IN %S
+  %S NotValid ? EXIT
+  %S%G ==> ( IN %S %S OUTPRIM %S %G ==> OUTSAFEGEN )
+ ;
+ 
+ FORWARD OUT
+ 
+ : OUT IN %S
+  %S OUTPRIM
+  %S%R ==> OUTPRIM
+  %S%G ==> OUTPRIM
+  %S%Attrs ==> OUT
+  %S%Ops ==> OUT
+  %S%C ==> OUT
+  %S%T OUTSAFE
+  %S%T OUTSAFEGEN
+  %S%Lnks ==> ( IN %S %S OUTSAFE %S %T OUTSAFE )
+ ;
+ 
+ @ "Shared Delphi" OUT
+ @ "Shared Delphi Scripting" OUT
+ @ "Shared Delphi Operations" OUT
+ @ "Shared Delphi Tests" OUT
+;
+
+Gen

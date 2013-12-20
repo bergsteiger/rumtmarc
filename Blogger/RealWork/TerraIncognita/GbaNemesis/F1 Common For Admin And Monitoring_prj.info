@@ -1,0 +1,22 @@
+F1 Common For Admin And Monitoring : Project - 
+version: 72
+View : Library - 
+ MainForm : Unit - 
+  MPrimMainOptions : MixInMirror - 
+  AdminAndMonitoringsMainForm : Impurity - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  vcmMainFormRes : UtilityPack - 
+   Local : LocalConst - 
+    : uses - undefined
+    : uses - undefined
+   LCImpl_TooManyWindowsOpened_Choices : Constants - Варианты выбора для диалога TooManyWindowsOpened
+   Init_TooManyWindowsOpened_Choice_First : ini - Инициализация str_TooManyWindowsOpened_Choice_First
+   Init_TooManyWindowsOpened_Choice_Second : ini - Инициализация str_TooManyWindowsOpened_Choice_Second
+    : uses - undefined
+    : uses - undefined
+   LCImplLocal : Constants - Локализуемые строки Local
+    : uses - undefined
+   Init_TooManyWindowsOpened : ini - Инициализация str_TooManyWindowsOpened

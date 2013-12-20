@@ -1,0 +1,19 @@
+: TestCheckVar
+ 
+  : XXX
+    VAR B
+    VAR C
+  ;
+  
+  @ XXX -> 'A' := 1024
+  @ XXX -> 'A' DO .
+  
+  @ XXX -> 'B' := 2048
+  @ XXX -> 'B' DO .
+  
+  @ :: XXX C ; := 5000
+  :: XXX C ; .
+  @ XXX -> 'C' DO .
+;
+
+TestCheckVar

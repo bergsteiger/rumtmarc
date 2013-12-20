@@ -1,0 +1,3 @@
+Форма_ForbidAutoregistration.script
+Форма_GroupList.script
+Форма_GroupProperty.script

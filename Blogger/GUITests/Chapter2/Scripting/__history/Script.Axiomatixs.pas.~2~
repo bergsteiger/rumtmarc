@@ -1,0 +1,11 @@
+unit Script.Axiomatixs;
+
+interface
+
+uses
+ Script.Dictionary
+ ;
+
+implementation
+
+end.

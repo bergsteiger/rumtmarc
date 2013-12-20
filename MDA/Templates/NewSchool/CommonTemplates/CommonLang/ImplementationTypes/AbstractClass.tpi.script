@@ -1,0 +1,927 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/AbstractClass.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::AbstractClass
+//
+// Абстрактный базовый стереотип для SimpleClass и UtilityClass определяет общие свойства, функции
+// и трансформаторы.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: AbstractClass::Class
+implementation @ <<AbstractClass>>
+//? Абстрактный базовый стереотип для SimpleClass и UtilityClass определяет общие свойства, функции и трансформаторы.
+//= AbstractImplInclude::Class
+//= WikiImplClass::Class
+//= ClassBaseGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//W true
+// - может быть параметризован
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+//p non virtual base:b=false ? включает генерацию НЕ виртуального наследования
+//p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам серванта
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+ ?inherited
+ %IF ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций Юзер-Кода'
+//	][{"%S{non virtual base}"!="%S{!non virtual base}"}%f_up_prefix(%S) *non virtual base* = *%S{non virtual base}* - включает генерацию НЕ виртуального наследования
+ %END-IF
+ %IF ( ( %S get_up ( 'non virtual base' ) ) %!= ( %S get_up_def ( 'non virtual base' ) ) ) 
+  [%f] up_prefix %( %S )% ' *non virtual base* = *'
+  %S get_up ( 'non virtual base' ) '* - включает генерацию НЕ виртуального наследования'
+//	][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений ко всем методам серванта
+ %END-IF
+ %IF ( ( %S get_up ( 'debug log' ) ) %!= ( %S get_up_def ( 'debug log' ) ) ) 
+  [%f] up_prefix %( %S )% ' *debug log* = *'
+  %S get_up ( 'debug log' ) '* - включает генерацию вывода в лог обращений ко всем методам серванта'
+//	]
+ %END-IF
+
+// определение специфических данных стереотипа
+//%f _auto_self_data_h
+; // wiki_up_print
+
+: auto_self_data_h OBJECT IN %S
+//#UC START# *471728BC0232for4717284C01C5*
+//#UC END# *471728BC0232for4717284C01C5*
+; // auto_self_data_h
+
+
+// реализация специфических методов стереотипа
+//%f _auto_self_methods_cpp
+: auto_self_methods_cpp OBJECT IN %S
+//#UC START# *471728BE01B5for4717284C01C5*
+//#UC END# *471728BE01B5for4717284C01C5*
+; // auto_self_methods_cpp
+
+
+// определение специфических методов стереотипа
+//%f _auto_self_methods_h
+: auto_self_methods_h OBJECT IN %S
+//#UC START# *471728C000FAfor4717284C01C5*
+//#UC END# *471728C000FAfor4717284C01C5*
+; // auto_self_methods_h
+
+
+// выводит список наследования
+//%f _base_class_decl
+: base_class_decl OBJECT IN %S
+//#UC START# *471728C103A9for4717284C01C5*
+//#UC END# *471728C103A9for4717284C01C5*
+; // base_class_decl
+
+
+// реализация контсуктора и деструктора
+//%f _ctor_n_dctor_cpp
+: ctor_n_dctor_cpp OBJECT IN %S
+//#UC START# *471728C301D4for4717284C01C5*
+//#UC END# *471728C301D4for4717284C01C5*
+; // ctor_n_dctor_cpp
+
+
+// выводит определение конструктора и деструктора
+//%f _ctor_n_dctor_h
+: ctor_n_dctor_h OBJECT IN %S
+//#UC START# *471728C5005Dfor4717284C01C5*
+//#UC END# *471728C5005Dfor4717284C01C5*
+; // ctor_n_dctor_h
+
+
+// выводит forward-определение
+//%f _self_forward
+: self_forward OBJECT IN %S
+//#UC START# *471728C60280for4717284C01C5*
+//#UC END# *471728C60280for4717284C01C5*
+; // self_forward
+
+
+// выводит специфические include
+//%f _specific_include
+: specific_include OBJECT IN %S
+//#UC START# *471728C803B9for4717284C01C5*
+//#UC END# *471728C803B9for4717284C01C5*
+; // specific_include
+
+
+// генерация списка базовых классов и реализуемых интерфейсов
+//%f _java_base_class_decl
+: java_base_class_decl OBJECT IN %S
+//#UC START# *47173062030Dfor4717284C01C5*
+//	%f_java_base(%S)
+ [%f] java_base %( %S )% 
+//#UC END# *47173062030Dfor4717284C01C5*
+; // java_base_class_decl
+
+
+// генерация блока импорта серванта
+//%f _java_servant_import_self
+: java_servant_import_self OBJECT IN %S
+//#UC START# *4717306F0157for4717284C01C5*
+//#UC END# *4717306F0157for4717284C01C5*
+; // java_servant_import_self
+
+
+// генерация специфичсекого содержимого
+//%f _servant_content_java
+: servant_content_java OBJECT IN %S
+//#UC START# *47173078008Cfor4717284C01C5*
+//#UC END# *47173078008Cfor4717284C01C5*
+; // servant_content_java
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4717284C01C5*
+//#UC END# *4705CBD6003Efor4717284C01C5*
+; // wiki_child_kind
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4717284C01C5*
+//#UC END# *470484D50138for4717284C01C5*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4717284C01C5*
+//P
+//S class %SN;
+//O [{%f_need_cpp_file_for_servant(%S)=true}<{}{%t_nested_scope_def(%P)=true}{r}%PN_>%SN.cpp]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_need_cpp_file_for_servant(%S)=true}\
+ %IF ( ( [%f] need_cpp_file_for_servant %( %S )% ) %==  true ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	
+
+//	%f_simple_class_impl_body(%S)
+  [%f] simple_class_impl_body %( %S )% 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022CB8034Bfor4717284C01C5*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4717284C01C5*
+//F [{"%SK"="ParameterizedClass"}[template \<<{, }{%CC=Parameter}%f_dump_template_param_h(%C)>\> ]]class %SN;
+//S class %SN;
+//O [{%t_nested_scope_def(%P)=false}%SN.h]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)[{%t_nested_scope_def(%P)=false}{[#%S%f_open_ifdef()
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% %IF ( ( [%t] nested_scope_def %( %P )% ) %==  false ) 
+  %ELSE
+   %IF-NOT-EMPTY
+    out_indent %S %f open_ifdef %( )% 
+//	]}\
+   %END-IF
+  %THEN
+//	%f_h_header(%S)
+  [%f] h_header %( %S )% 
+//	%f_std_inc(%S)%f_set_var(SERV,S)
+  [%f] std_inc %( %S )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_includes_by_contents(%S)%f_include_factory_by_uses(%S)<\#include %f_dump_include_path(%wL,%w)
+  [%f] includes_by_contents %( %S )% [%f] include_factory_by_uses %( %S )% 
+  %FOR '#include '
+   [%f] dump_include_path %( %w |L %, %w )% 
+//	>%S%f_specific_include()[{%S{need UC}=true}
+  %END-FOR
+  %S %f specific_include %( )% %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[{_CUSTOM_INCLUDES}
+   %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+   %END-IF
+ //	][
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()][
+   %S %f open_ifdef %( )% 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	// forward decls for defined friends
+   '// forward decls for defined friends'
+//	<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}%a%PP\t%a%PF
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'friend' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'Sp' ) 
+    %a ->P |P  #9
+    %a ->P |F  
+//	%a%Pp
+    %a ->P |p  
+//	>]
+   %END-FOR
+  %END-IF
+//	%SP
+  %S |P 
+//	]<%WF
+ %END-IF
+ %FOR %W |F 
+//	>[%f_dump_cpp_functors_h_fd(%S)
+ %END-FOR
+ %IF-NOT-EMPTY
+  [%f] dump_cpp_functors_h_fd %( %S )% 
+//	]%f_docs(%S)\
+ %END-IF
+ [%f] docs %( %S )% 
+//	%S%f_self_forward()\
+ %S %f self_forward %( )% 
+//	[{"%SK"="ParameterizedClass"}#template \<<{, }{"%CC"="Parameter"}%CX>\>%f_set_var(INST,S)
+ %IF ( ( %S |K ) %== 'ParameterizedClass' ) 
+  out_indent 'template <'
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Parameter' ) 
+   %C |X 
+  %END-FOR
+  '>'
+  [%f] set_var %( 'INST' %, 'S' )% 
+//	]#class %SN %S%f_base_class_decl(){
+ %END-IF
+ out_indent 'class '
+ %S |N ' '
+ %S %f base_class_decl %( )% '{'
+//	[{%Sa!=abstract&%S{need objcounter}!=false}#	SET_OBJECT_COUNTER (%SN)
+ %IF ( ( %S |a ) %!= 'abstract' %&& 
+   ( ( %S get_up ( 'need objcounter' ) ) %!=  false  ) ) 
+  out_indent '	SET_OBJECT_COUNTER ('
+  %S |N ')'
+//	][<{}{"%aC"="Dependency"&"%aS"="friend"}{Sp}#	friend class %f_type(%a%P); // defined friend
+ %END-IF
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %a |C ) %== 'Dependency' %&& 
+    ( ( %a |S ) %== 'friend'  ) ) 
+   ( 'Sp' ) 
+   out_indent '	friend class '
+   [%f] type %( %a ->P  )% '; // defined friend'
+//	>][%P<{}{"%CU"!="%{SELF}U"&"%C{local supervisor}"="true"}#	friend class %f_type(%C);// local supervisor
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  %P
+  %FOR %ITEM-CONDITION ( ( %C |U ) %!= ( ( get_global_var ( 'SELF' ) |U ) ) %&& 
+    ( ( %C get_up ( 'local supervisor' ) ) %== true  ) ) 
+   out_indent '	friend class '
+   [%f] type %( %C )% ';// local supervisor'
+//	>][{"%S{singleton}"="true"}
+  %END-FOR
+  %END-IF
+ %IF ( ( %S get_up ( 'singleton' ) ) %== true ) 
+
+//	#	// singleton declaration
+  out_indent '	// singleton declaration'
+//	#	typedef ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+  out_indent '	typedef ACE_Singleton <'
+  %S |N ', ACE_SYNCH_RECURSIVE_MUTEX> Singleton;'
+//	#	friend class ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\>;
+  out_indent '	friend class ACE_Singleton <'
+  %S |N ', ACE_SYNCH_RECURSIVE_MUTEX>;'
+//	#public:
+  out_indent 'public:'
+//	#	static %SN* instance () {
+  out_indent '	static '
+  %S |N '* instance () {'
+//	#		return Singleton::instance();
+  out_indent '		return Singleton::instance();'
+//	#	}
+  out_indent '	}'
+//	][[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+ %END-IF
+ %IF-NOT-EMPTY
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+
+//	#//////////////////////////////////////////////////////////////////////////////////////////
+   out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// nested declorations[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+   out_indent '// nested declorations'
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+      ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0 ) 
+
+//	%f_visibility_spec(%C)%f_set_var(PREV_C,C)]
+    [%f] visibility_spec %( %C )% [%f] set_var %( 'PREV_C' %, 'C' )% 
+   %END-IF
+//	<{}{"%CC"="Class"&%CS!=TemplateFunctions}\
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+//	[{%f_visibility_spec(%C)!=%f_visibility_spec(%{PREV_C})}#%f_visibility_spec(%C)\n]%CX%f_set_var(PREV_C,C)
+    %IF ( ( [%f] visibility_spec %( %C )% ) %!= ( [%f] visibility_spec %( ( get_global_var ( 'PREV_C' ) ) )% ) ) 
+     out_indent [%f] visibility_spec %( %C )% #13#10 
+    %END-IF
+    %C |X [%f] set_var %( 'PREV_C' %, 'C' )% 
+//	
+
+//	>]]%f_set_var(SELF,S)%f_set_var(SERV,S)[#//////////////////////////////////////////////////////////////////////////////////////////
+   %END-FOR
+  %END-IF
+ %END-IF
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% %IF-NOT-EMPTY
+  out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// static member methods and data
+  out_indent '// static member methods and data'
+//	[#public:<{}{%CC=Operation&"%CS"="static"&"%CV"="PublicAccess"}{Sn}[
+  %IF-NOT-EMPTY
+   out_indent 'public:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'static'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>
+    %END-IF
+   %END-FOR
+//	][#protected:<{}{%CC=Operation&"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}[
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'protected:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'static'  ) %&& 
+     ( ( %C |V ) %== 'ProtectedAccess'  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>
+    %END-IF
+   %END-FOR
+//	][#private:<{}{%CC=Operation&"%CS"="static"&"%CV"="PrivateAccess"}{Sn}[
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'private:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'static'  ) %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]><{}{%CC=Attribute&[{%CS=static|%t_is_static_accessor(%C)=true}{flase}true]=true}{Sn}[
+    %END-IF
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+     ( %IF ( ( %C |S ) %== 'static' %|| 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     %ELSE
+      'flase' 
+     %THEN
+      true 
+    %END-IF
+    %==  true  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>
+    %END-IF
+   %END-FOR
+//	]][%f_static_data_accessor(%S)
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] static_data_accessor %( %S )% 
+//	]%S%f_ctor_n_dctor_h()\
+ %END-IF
+ %S %f ctor_n_dctor_h %( )% 
+//	[#//////////////////////////////////////////////////////////////////////////////////////////
+ %IF-NOT-EMPTY
+  out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// self methods
+  out_indent '// self methods'
+//	[%S%f_auto_self_methods_h()
+  %IF-NOT-EMPTY
+   %S %f auto_self_methods_h %( )% 
+//	][#public:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'public:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |a ) %!= 'abstract'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][#protected:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'protected:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |a ) %!= 'abstract'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'ProtectedAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][#private:<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'private:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |a ) %!= 'abstract'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]][
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	#//////////////////////////////////////////////////////////////////////////////////////////
+  out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// abstarct methods
+  out_indent '// abstarct methods'
+//	[#public:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+  %IF-NOT-EMPTY
+   out_indent 'public:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |a ) %== 'abstract'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][#protected:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'protected:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |a ) %== 'abstract'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'ProtectedAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][#private:<{}{"%CC"="Operation"&"%Ca"="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'private:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |a ) %== 'abstract'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]][
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	#//////////////////////////////////////////////////////////////////////////////////////////
+  out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// template methods
+  out_indent '// template methods'
+//	<{}{%CM=TemplateFunctions::Class}%CX
+  %FOR %ITEM-CONDITION ( ( %C |M ) %== 'TemplateFunctions::Class' ) 
+   %C |X 
+//	>
+  %END-FOR
+//	]%f_dump_cpp_functors_h(%S)[#//////////////////////////////////////////////////////////////////////////////////////////
+ %END-IF
+ [%f] dump_cpp_functors_h %( %S )% %IF-NOT-EMPTY
+  out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// self data
+  out_indent '// self data'
+//	#private:[
+  out_indent 'private:'
+  %IF-NOT-EMPTY
+
+//	%S%f_auto_self_data_h()
+   %S %f auto_self_data_h %( )% 
+//	]<{}{"%CC"="Attribute"&"%CS"!="static"&%t_is_static_accessor(%C)!=true}{Sn}[
+  %END-IF
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |S ) %!= 'static'  ) %&& 
+    ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+   ( 'Sn' ) 
+   %IF-NOT-EMPTY
+
+//	%CX
+    %C |X 
+//	]>][#//////////////////////////////////////////////////////////////////////////////////////////
+   %END-IF
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// oneway methods impl
+  out_indent '// oneway methods impl'
+//	#private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  out_indent 'private:'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |S ) %== 'oneway'  ) %|| 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) 
+   ( 'Sn' ) 
+
+//	%f_servant_cpp_oneway_operation_thr_h(%C)
+   [%f] servant_cpp_oneway_operation_thr_h %( %C )% 
+//	>
+  %END-FOR
+//	#protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  out_indent 'protected:'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |S ) %== 'oneway'  ) %|| 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) 
+   ( 'Sn' ) 
+
+//	%f_servant_cpp_oneway_operation_impl_h(%C)
+   [%f] servant_cpp_oneway_operation_impl_h %( %C )% 
+//	>
+  %END-FOR
+//	]%f_self_data_accessor(%S)\
+ %END-IF
+ [%f] self_data_accessor %( %S )% 
+//	[%f_dump_cpp_derrived_impl_h(%S)
+ %IF-NOT-EMPTY
+  [%f] dump_cpp_derrived_impl_h %( %S )% 
+//	][{%S{need UC}=true}
+ %END-IF
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	#%U[
+  out_indent %U%IF-NOT-EMPTY
+
+//	#]
+   out_indent 
+  %END-IF
+ //	]#}; // class %SN[{%t_nested_scope_def(%P)=false}{[
+ %END-IF
+ out_indent '}; // class '
+ %S |N %IF ( ( [%t] nested_scope_def %( %P )% ) %==  false ) 
+  %ELSE
+   %IF-NOT-EMPTY
+
+//	#%S%f_close_ifdef()]}
+    out_indent %S %f close_ifdef %( )% 
+   %END-IF
+  %THEN
+
+//	
+
+//	%Sp[
+  %S |p %IF-NOT-EMPTY
+
+//	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'i.h' %, %S |L )% %, %S )% 
+  %END-IF
+//	%f_h_footer(%S)
+  [%f] h_footer %( %S )% 
+//	]
+ %END-IF
+//P false
+//#UC END# *47022C88029Ffor4717284C01C5*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4717284C01C5*
+//P
+//S class %SN;
+//O [{%f_need_inline_file(%S)=true}%SN.i.h]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_need_inline_file(%S)=true}\
+ %IF ( ( [%f] need_inline_file %( %S )% ) %==  true ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	
+
+//	%f_simple_class_impl_body(%S)
+  [%f] simple_class_impl_body %( %S )% 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022CCF00EAfor4717284C01C5*
+; // i.h
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4717284C01C5*
+//#UC END# *470321C1038Afor4717284C01C5*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4717284C01C5*
+//O [{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false|%SM=State::Class}%SN.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_is_server_type(%S)=false}%f_set_var(SELF,S)%f_set_var(SERV,S)[{%t_nested_scope_def(%P)=false|%SM=State::Class}\
+ %IF ( ( [%f] is_server_type %( %S )% ) %==  false ) 
+  [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% %IF ( ( [%t] nested_scope_def %( %P )% ) %==  false %|| 
+    ( ( %S |M ) %== 'State::Class'  ) ) 
+//	%f_header(%S)
+   [%f] header %( %S )% 
+//	%f_set_var(SELF,S)%f_set_var(SERVANT,S)package %f_dump_java_package_ex(%S);
+   [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERVANT' %, 'S' )% 'package '
+   [%f] dump_java_package_ex %( %S )% ';'
+//	
+
+//	%f_dump_std_java_imports(%S)
+   [%f] dump_std_java_imports %( %S )% 
+//	[%f_java_dump_import_block(%S)
+   %IF-NOT-EMPTY
+    [%f] java_dump_import_block %( %S )% 
+//	]%f_includes_by_contents_java(%S)[%S%f_java_servant_import_self(%S)
+   %END-IF
+   [%f] includes_by_contents_java %( %S )% %IF-NOT-EMPTY
+    %S %f java_servant_import_self %( %S )% 
+//	]
+   %END-IF
+//	%U[{_CUSTOM_IMPORT}
+   %U%IF ( '_CUSTOM_IMPORT' ) 
+
+//	]
+   %END-IF
+ //	
+
+//	%U[{_CUSTOM_CLASS_DEFINITION}
+   %U%IF ( '_CUSTOM_CLASS_DEFINITION' ) 
+
+//	]
+   %END-IF
+ //	]#%t_visibility(%S,"%XU")[{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false|%SM=State::Class}{static }]%t_abstract_type(%S)class %SN%S%f_java_base_class_decl(%S) {
+  %END-IF
+  out_indent [%t] visibility %( %S %, %X |U )% %IF ( ( [%t] nested_scope_def %( %P )% ) %==  false %&& 
+    ( ( [%f] is_server_type %( %S )% ) %==  false  ) %|| 
+    ( ( %S |M ) %== 'State::Class'  ) ) 
+   %ELSE
+    'static ' 
+   %THEN
+  %END-IF
+  [%t] abstract_type %( %S )% 'class '
+  %S |N %S %f java_base_class_decl %( %S )% ' {'
+//	[
+  %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested declorations
+   '// nested declorations'
+//	<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>]%f_set_var(SELF,S)%f_set_var(SERV,S)%f_set_var(SERVANT,S)[#	// static member methods and data
+    %END-IF
+   %END-FOR
+  %END-IF
+  [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SERVANT' %, 'S' )% %IF-NOT-EMPTY
+   out_indent '	// static member methods and data'
+//	[<{}{%CC=Operation&"%CS"="static"&"%CV"="PublicAccess"}{Sn}[
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'static'  ) %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>][<{}{%CC=Operation&"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}[
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'static'  ) %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>][<{}{%CC=Operation&"%CS"="static"&"%CV"="PrivateAccess"}{Sn}[
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'static'  ) %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>][<{}{%CC=Attribute&[{%CS=static|%t_is_static_accessor(%C)=true}{flase}true]=true}{Sn}[
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+      ( %IF ( ( %C |S ) %== 'static' %|| 
+       ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+      %ELSE
+       'flase' 
+      %THEN
+       true 
+     %END-IF
+     %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>]]%f_static_data_accessor(%S)[#	//////////////////////////////////////////////////////////////////////////////////////////
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+  [%f] static_data_accessor %( %S )% %IF-NOT-EMPTY
+   out_indent '	//////////////////////////////////////////////////////////////////////////////////////////'
+//	#	// constructors
+   out_indent '	// constructors'
+//	[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}%f_dump_empty_ctor_java(%S)\n]}
+   %IF ( ( [%f] count_ctor %( %S )% ) %!= 0 ) 
+    %ELSE
+     %IF ( ( [%f] need_empty_ctor %( %S )% ) %==  true ) 
+      [%f] dump_empty_ctor_java %( %S )% #13#10 
+     %END-IF
+    %THEN
+
+//	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'ctor'  ) ) 
+     ( 'Sn' ) 
+     %C |X 
+//	
+
+//	>][#	%f_dump_cpp_servant_derrived_constr_java(%S)]
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    out_indent '	'
+    [%f] dump_cpp_servant_derrived_constr_java %( %S )% 
+   %END-IF
+//	][#	//////////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent '	//////////////////////////////////////////////////////////////////////////////////////////'
+//	#	// self data
+   out_indent '	// self data'
+//	<{\n\n}{"%CC"="Attribute"&%CS!=static&%t_is_static_accessor(%C)!=true&%f_can_dump_attr(%C%T)=true}%CX>
+   %FOR %ITEM-SEPARATOR #13#10#13#10 ; // %ITEM-SEPARATOR 
+    %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) %&& 
+     ( ( [%f] can_dump_attr %( %C ->T  )% ) %==  true  ) ) 
+    %C |X 
+   %END-FOR
+//	]%f_self_data_accessor(%S)[#	//////////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+  [%f] self_data_accessor %( %S )% %IF-NOT-EMPTY
+   out_indent '	//////////////////////////////////////////////////////////////////////////////////////////'
+//	#	// self methods
+   out_indent '	// self methods'
+//	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"}{Sp}
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'factory'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) ) 
+    ( 'Sp' ) 
+
+//	%CX
+    %C |X 
+//	>][%f_dump_java_derrived_impl(%S)
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+   [%f] dump_java_derrived_impl %( %S )% 
+//	][#	%S%f_servant_content_java(%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent '	'
+   %S %f servant_content_java %( %S )% 
+//	]%f_shift_intend(1)%f_dump_servant_sm_java(%S)%f_shift_intend(-1)\
+  %END-IF
+  [%f] shift_intend %( 1 )% [%f] dump_servant_sm_java %( %S )% [%f] shift_intend %( -1 )% 
+//	#	%U[{_CUSTOM_METHODS_AND_DATA}
+  out_indent '	'
+  %U%IF ( '_CUSTOM_METHODS_AND_DATA' ) 
+
+//	#	]
+   out_indent '	' 
+  %END-IF
+ //	
+
+//	#} // class %SN][{%f_is_server_type(%S)=false}\
+  out_indent '} // class '
+  %S |N 
+ %END-IF
+ %IF ( ( [%f] is_server_type %( %S )% ) %==  false ) 
+//	[{%t_nested_scope_def(%P)=false}
+  %IF ( ( [%t] nested_scope_def %( %P )% ) %==  false ) 
+
+//	%f_footer(%S)
+   [%f] footer %( %S )% 
+//	]]
+  %END-IF
+ %END-IF
+//#UC END# *470321950119for4717284C01C5*
+; // java
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<AbstractClass>>
+

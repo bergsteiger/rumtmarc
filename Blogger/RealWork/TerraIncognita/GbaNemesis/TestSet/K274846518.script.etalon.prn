@@ -1,0 +1,328 @@
+%producer 'ГАРАНТ аэро' date '25.08.2091'
+%format version 0.141 revision date '18/06/2010' 
+: Document = {
+ Width = 11900
+ Height = 16800
+ LeftIndent = 1100
+ RightIndent = 800
+ Paras = {
+  Width = 11900
+  Height = 16800
+  LeftIndent = 1100
+  RightIndent = 800
+  SpaceBefore = 800
+  SpaceAfter = 800
+  Orientation = ev_poPortrait
+ }
+ Name = '(ДУБЛЬ) Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.) (с поправками)'
+ ShortName = 'Оглавление'
+ ExternalHandle = 30103000
+ : ContentsElement = {
+  InContents = ev_spOnlyInContents
+  Handle = 1111
+  ShortName = 'Раздел первый'
+  : ContentsElement = {
+   InContents = ev_spOnlyInContents
+   Handle = 5000
+   ShortName = 'Глава 5. Федеральное Собрание (ст.ст. 94-109)'
+   : ContentsElement = {
+    InContents = ev_spOnlyInContents
+    Handle = 103
+    ShortName = 'Статья 103'
+    : ContentsElement = {
+     InContents = ev_spOnlyInContents
+     Handle = 10301
+     ShortName = 'Часть 1'
+     : Block = {
+      Handle = 103013
+      : = {
+       Style = -3
+       Text = '(ДУБЛЬ) Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.) (с поправками)'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 111
+          : = {
+           Type = 65540
+           DocID = 30103000
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Раздел первый'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 13
+          : = {
+           Type = 65540
+           DocID = 30103000
+           SubID = 1111
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Глава 5. Федеральное Собрание (ст.ст. 94-109)'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 45
+          : = {
+           Type = 65540
+           DocID = 30103000
+           SubID = 5000
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Статья 103'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 10
+          : = {
+           Type = 65540
+           DocID = 30103000
+           SubID = 103
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Часть 1'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 7
+          : = {
+           Type = 65540
+           DocID = 30103000
+           SubID = 10301
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Handle = 883
+       Style = -1
+       Segments = {
+        : = {
+         Handle = Diff
+         : = {
+          Style = -41
+          Finish = 161
+         }
+        }
+       }
+       Text = 'в) заслушивание ежегодных отчетов Правительства Российской Федерации о результатах его деятельности, в том числе по вопросам, поставленным Государственной Думой;'
+      }
+     }
+     : Block = {
+      Handle = 10303
+      : = {
+       Handle = 610
+       Style = -1
+       Segments = {
+        : = {
+         Handle = Diff
+         : = {
+          Style = -41
+          Finish = 1
+         }
+        }
+       }
+       Text = 'г) назначение на должность и освобождение от должности Председателя Центрального банка Российской Федерации;'
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
+%producer 'ГАРАНТ аэро' date '25.08.2091'
+%format version 0.141 revision date '18/06/2010' 
+: Document = {
+ Width = 11900
+ Height = 16800
+ LeftIndent = 1100
+ RightIndent = 800
+ Paras = {
+  Width = 11900
+  Height = 16800
+  LeftIndent = 1100
+  RightIndent = 800
+  SpaceBefore = 800
+  SpaceAfter = 800
+  Orientation = ev_poPortrait
+ }
+ Name = '(ДУБЛЬ) Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)'
+ ShortName = 'Оглавление'
+ ExternalHandle = 30103001
+ : ContentsElement = {
+  InContents = ev_spOnlyInContents
+  Handle = 1111
+  ShortName = 'Раздел первый'
+  : ContentsElement = {
+   InContents = ev_spOnlyInContents
+   Handle = 5000
+   ShortName = 'Глава 5. Федеральное Собрание (ст.ст. 94-109)'
+   : ContentsElement = {
+    InContents = ev_spOnlyInContents
+    Handle = 103
+    ShortName = 'Статья 103'
+    : ContentsElement = {
+     InContents = ev_spOnlyInContents
+     Handle = 10301
+     ShortName = 'Часть 1'
+     : Block = {
+      Handle = 10303
+      : = {
+       Style = -3
+       Text = '(ДУБЛЬ) Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 96
+          : = {
+           Type = 65540
+           DocID = 30103001
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Раздел первый'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 13
+          : = {
+           Type = 65540
+           DocID = 30103001
+           SubID = 1111
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Глава 5. Федеральное Собрание (ст.ст. 94-109)'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 45
+          : = {
+           Type = 65540
+           DocID = 30103001
+           SubID = 5000
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Статья 103'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 10
+          : = {
+           Type = 65540
+           DocID = 30103001
+           SubID = 103
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Style = -3
+       Text = 'Часть 1'
+       Segments = {
+        : = {
+         Handle = Hyperlinks
+         : HyperLink = {
+          Start = 1
+          Finish = 7
+          : = {
+           Type = 65540
+           DocID = 30103001
+           SubID = 10301
+          }
+         }
+        }
+       }
+      }
+      : = {
+       Handle = 610
+       Style = -1
+       Segments = {
+        : = {
+         Handle = Diff
+         : = {
+          Style = -42
+          Finish = 1
+         }
+        }
+       }
+       Text = 'в) назначение на должность и освобождение от должности Председателя Центрального банка Российской Федерации;'
+      }
+     }
+     : Block = {
+      Handle = 10304
+      : = {
+       Handle = 611
+       Style = -1
+       Segments = {
+        : = {
+         Handle = Diff
+         : = {
+          Style = -42
+          Finish = 1
+         }
+        }
+       }
+       Text = 'г) назначение на должность и освобождение от должности Председателя Счетной палаты и половины состава ее аудиторов;'
+      }
+     }
+    }
+   }
+  }
+ }
+}
+

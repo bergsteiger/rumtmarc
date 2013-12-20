@@ -1,0 +1,177 @@
+: "Закрыть все окна кроме текущего"
+ оп::Окна_Закрыть_все,_кроме_текущего
+ "Дождаться переключения вкладок"
+;
+
+OBJECT FUNCTION "Найти контрол по дескриптору" INTEGER IN aHandle
+ aHandle byhandle:control:push >>> Result
+;
+WordAlias "Найти контрол по дескриптору в стеке" byhandle:control:push
+
+: "Установить фокус в" OBJECT IN aControl
+ aControl pop:control:SetFocus ASSERT
+;
+WordAlias "Установить фокус" pop:control:SetFocus
+
+: "Выключаем машину времени"
+ // заглушка
+;
+
+//pop:object:IsNil
+WordAlias "Узнать, существует ли объект" pop:object:IsNil
+
+//pop:control:Name
+WordAlias "Узнать имя контрола" pop:control:Name
+
+//pop:component:Name
+WordAlias "Имя компонента" pop:component:Name
+
+//pop:control:Caption
+WordAlias "Заголовок контрола" pop:control:Caption
+
+//pop:control:GetMainForm
+WordAlias "Узнать главную форму" pop:control:GetMainForm
+
+//pop:object:GetOrdProp
+: "Сравнить с эталоном численную переменную объекта"
+ pop:object:GetOrdProp .
+; // "Сравнить с эталоном численную переменную объекта"
+WordAlias "Узнать численную переменную объекта" pop:object:GetOrdProp
+
+//pop:control:GetWidth
+WordAlias "Померить ширину" pop:control:GetWidth
+
+//pop:control:GetHeight
+WordAlias "Померить высоту" pop:control:GetHeight
+
+//pop:control:GetLeft
+WordAlias "Померить отступ слева" pop:control:GetLeft
+
+//pop:control:GetTop
+WordAlias "Померить отступ сверху" pop:control:GetTop
+
+//pop:control:VScrollerVisible
+: "Проверить, что у контрола есть вертикальный скроллер" OBJECT IN aControl
+ aControl  pop:control:VScrollerVisible 'У данного контрола нет скроллера' ASSERTS
+;
+: "Проверить, что у контрола нет вертикального скроллера" OBJECT IN aControl
+ aControl  pop:control:VScrollerVisible ! 'У данного контрола есть скроллер!' ASSERTS
+;
+WordAlias "Узнать, есть ли у контрола вертикальный скроллер" pop:control:VScrollerVisible
+
+//pop:control:HScrollerVisible
+WordAlias "Узнать, есть ли у контрола горизонтальный скроллер" pop:control:HScrollerVisible
+
+//focused:control:push
+WordAlias "Контрол в фокусе" focused:control:push
+
+//pop:control:Enabled
+: "Проверить, активен ли контрол ?" OBJECT IN aControl
+ aControl pop:control:Enabled .
+; // "Проверить, активен ли контрол?" 
+: "Убедиться, что контрол неактивен"
+ pop:control:Enabled !
+; // "Убедиться, что контрол неактивен"
+WordAlias "Убедиться, что контрол активен" pop:control:Enabled
+
+//pop:control:SetWidth
+: "Установить ширину"
+ pop:control:SetWidth
+ OnTest
+;
+
+//pop:control:SetHeight
+: "Установить высоту"
+ pop:control:SetHeight
+ OnTest
+;
+
+//key
+: "Нажать" STRING IN aString
+ aString key
+ OnTest
+;
+
+//оп::Группы_пользователей_Создать_новую_группу
+WordAlias "Создать новую группу" оп::Группы_пользователей_Создать_новую_группу
+
+//оп::Пользователи_Запретить_всем_использование_услуги_Правового_консалтинга
+WordAlias "Запретить всем использование услуги Правового консалтинга" оп::Пользователи_Запретить_всем_использование_услуги_Правового_консалтинга
+
+//оп::Пользователи_Разрешить/Запретить_авторегистрацию_новых_пользователей
+WordAlias "Разрешить/Запретить авторегистрацию новых пользователей" оп::Пользователи_Разрешить/Запретить_авторегистрацию_новых_пользователей
+
+//оп::Пользователи_Создать_нового_пользователя
+WordAlias "Создать нового пользователя" оп::Пользователи_Создать_нового_пользователя
+
+//emitstring
+: "Ввести строку" STRING IN aString
+ aString emitstring
+;
+
+: "Ввести" STRING IN aString
+ aString emitstring
+ nil =: aString
+;
+
+//pop:control:Click
+WordAlias "Кликнуть" pop:control:Click
+
+//cc:Down
+WordAlias "Стрелка вниз" cc:Down
+
+//cc:Up
+WordAlias "Стрелка вверх" cc:Up
+
+//script:FileName
+WordAlias "Полный путь скрипта" script:FileName
+
+//sysutils:ExtractFileName
+WordAlias "Имя скрипта" sysutils:ExtractFileName
+
+//pop:Lister:SelectWithShift
+WordAlias "Выделить с помощью Shift" pop:Lister:SelectWithShift
+
+//pop:Lister:GetCurrent
+WordAlias "Узнать номер позиции фокуса в списке" pop:Lister:GetCurrent
+
+//mouse:GetCursorPosition
+WordAlias "Запомнить позицию мыши" mouse:GetCursorPosition
+
+//оп::Правка_Копировать
+WordAlias "Копировать" оп::Правка_Копировать
+
+//оп::Правка_Вставить
+WordAlias "Вставить" оп::Правка_Вставить
+
+//clipboard:GetFormattedText
+: "Записать содержимое буфера в эталон"
+ 0 clipboard:GetFormattedText .
+;
+
+//pop:control:FindControlByName
+WordAlias "Найти контрол по имени на форме" pop:control:FindControlByName
+
+//menuitem:GetCount
+WordAlias "Узнать количество элементов меню" menuitem:GetCount
+
+//menuitem:GetItem
+WordAlias "Элемент меню" menuitem:GetItem
+
+//menuitem:IsVisible
+WordAlias "Узнать, видим ли элемент меню" menuitem:IsVisible
+
+//pop:object:GetStrProp
+: "Сравнить с эталоном строковую переменную объекта"
+ pop:object:GetStrProp .
+; // "Сравнить с эталоном строковую переменную объекта"
+WordAlias "Строковая переменная объекта" pop:object:GetStrProp
+
+//menuitem:GetCaption
+WordAlias "Узнать заголовок элемента меню" menuitem:GetCaption
+
+//menuitem:IsEnabled
+WordAlias "Узнать активность элемента меню" menuitem:IsEnabled
+
+//pop:form:FindMenuItem
+WordAlias "Найти элементы меню на форме " pop:form:FindMenuItem

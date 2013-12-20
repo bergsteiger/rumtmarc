@@ -1,0 +1,442 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::Support
+//
+// набор вспомогательных функций и трансформаторов для генерации шаблонов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// возвращает способ отображения стереотипа элемента диаграмме:
+// Stereotype
+// Icon
+// Decoration
+//t _visualization_type
+<<transformator>> visualization_type OBJECT IN %S
+//#UC START# *4709FA190196*
+//c	{}
+//r {"%S{visualization type}"="s"}: {Stereotype}
+//r {"%S{visualization type}"="i"}: {Icon}
+//r {"%S{visualization type}"="d"}: {Decoration}
+//r {""=""}: {}
+//#UC END# *4709FA190196*
+; // visualization_type
+
+
+// собирает рекурсивно все генераторы определенные или реализумые родителями
+//f _collect_parents_generators
+: collect_parents_generators OBJECT IN %S
+//#UC START# *470F600B0177*
+//	<%P<{}{%CC=Operation&%CS=generator}[{%f_exists_in_list(GENERATORS,C)=false}%f_add_to_list(GENERATORS,C)]>\
+ %FOR %P
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |S ) %== 'generator'  ) ) 
+   %IF ( ( [%f] exists_in_list %( 'GENERATORS' %, 'C' )% ) %==  false ) 
+    [%f] add_to_list %( 'GENERATORS' %, 'C' )% 
+   %END-IF
+  %END-FOR
+ //	[{%f_need_collect_override_generators(%S)=true}%P<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(GENERATORS,o)=false}%f_add_to_list(GENERATORS,o)]>\
+  %IF ( ( [%f] need_collect_override_generators %( %S )% ) %==  true ) 
+   %P
+   %FOR %ITEM-CONDITION ( ( %o |C ) %== 'Operation' %&& 
+     ( ( %o |S ) %== 'generator'  ) ) 
+    %IF ( ( [%f] exists_in_list %( 'GENERATORS' %, 'o' )% ) %==  false ) 
+     [%f] add_to_list %( 'GENERATORS' %, 'o' )% 
+    %END-IF
+   %END-FOR
+ //	%P<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(GENERATORS,O)=false}%f_add_to_list(GENERATORS,O)]>\
+   %P
+   %FOR %ITEM-CONDITION ( ( %O |C ) %== 'Operation' %&& 
+     ( ( %O |S ) %== 'generator'  ) ) 
+    %IF ( ( [%f] exists_in_list %( 'GENERATORS' %, 'O' )% ) %==  false ) 
+     [%f] add_to_list %( 'GENERATORS' %, 'O' )% 
+    %END-IF
+   %END-FOR
+ //	]>%S<{}{%oC=Operation&%oS=generator}[{%f_exists_in_list(GENERATORS,o)=false}%f_add_to_list(GENERATORS,o)]>\
+  %END-IF
+ %END-FOR
+ %S
+ %FOR %ITEM-CONDITION ( ( %o |C ) %== 'Operation' %&& 
+   ( ( %o |S ) %== 'generator'  ) ) 
+  %IF ( ( [%f] exists_in_list %( 'GENERATORS' %, 'o' )% ) %==  false ) 
+   [%f] add_to_list %( 'GENERATORS' %, 'o' )% 
+  %END-IF
+ %END-FOR
+ //	<{}{%OC=Operation&%OS=generator}[{%f_exists_in_list(GENERATORS,O)=false}%f_add_to_list(GENERATORS,O)]>
+ %FOR %ITEM-CONDITION ( ( %O |C ) %== 'Operation' %&& 
+   ( ( %O |S ) %== 'generator'  ) ) 
+  %IF ( ( [%f] exists_in_list %( 'GENERATORS' %, 'O' )% ) %==  false ) 
+   [%f] add_to_list %( 'GENERATORS' %, 'O' )% 
+  %END-IF
+ %END-FOR
+//если стереотип наследуется от такого же стереотипа, то не собираем
+//генераторы его родителя, т.к в этом случае всё наследование идёт на смарку
+// - тело генераторов обнуляется
+//f _need_collect_override_generators
+; // collect_parents_generators
+
+: need_collect_override_generators OBJECT IN %S
+//	[{%Rx=false&%Gx=false}{[{%RS=%SS|%GS=%SS}{true}false]}true]
+ %IF ( ( %R |x ) %==  false %&& 
+   ( ( %G |x ) %==  false  ) ) 
+  %ELSE
+   %IF ( ( %R |S ) %== ( %S |S ) %|| 
+     ( ( %G |S ) %== ( %S |S )  ) ) 
+    %ELSE
+      true 
+    %THEN
+     false 
+   %END-IF
+  %THEN
+   true 
+ %END-IF
+
+//f _dump_wiki_up_print
+; // need_collect_override_generators
+
+: dump_wiki_up_print OBJECT IN %S
+//	%f_set_var(BODY,"%f_dump_wiki_up_print_body(%S)")\
+ [%f] set_var %( 'BODY' %, [%f] dump_wiki_up_print_body %( %S )% )% 
+//	[{"%{BODY}N"!=""}%f_clear_list(LINES)%f_split_to_list(LINES,%{BODY}N,\n)\
+ %IF ( ( ( get_global_var ( 'BODY' ) |N ) ) %!= '' ) 
+  [%f] clear_list %( 'LINES' )% [%f] split_to_list %( 'LINES' %, ( get_global_var ( 'BODY' ) |N ) %, #13#10 )% 
+//	\%f _wiki_up_print
+  '%f _wiki_up_print'
+//	[{}{	}<{\n}{%f_is_empty(LINES)=false}{W}[%f_pop_first_to_var(LINES,LINE)[	%{LINE}N]]>]]
+  %IF ( ) 
+   %ELSE
+    '	' 
+   %THEN
+   %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+    %ITEM-CONDITION ( ( [%f] is_empty %( 'LINES' )% ) %==  false ) 
+    ( 'W' ) 
+    %IF-NOT-EMPTY
+     [%f] pop_first_to_var %( 'LINES' %, 'LINE' )% %IF-NOT-EMPTY
+      '	'
+      ( get_global_var ( 'LINE' ) |N ) 
+     %END-IF
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+
+//f _dump_wiki_up_print_body
+; // dump_wiki_up_print
+
+: dump_wiki_up_print_body OBJECT IN %S
+//	%f_clear_list(UPS_NAMES)\
+ [%f] clear_list %( 'UPS_NAMES' )% 
+//	%f_clear_list(UPS)\
+ [%f] clear_list %( 'UPS' )% 
+//	%f_clear_list(MAIN_UPS)\
+ [%f] clear_list %( 'MAIN_UPS' )% 
+//	%f_set_var(UP_MAIN,"")\
+ [%f] set_var %( 'UP_MAIN' %, '' )% 
+//	%f_set_var(INHERITANCE_COUNT,"%f_get_inheritance_count(%S)")\
+ [%f] set_var %( 'INHERITANCE_COUNT' %, [%f] get_inheritance_count %( %S )% )% 
+//
+//
+//	%f_collect_self_up(%S,%{UPS},%{UPS_NAMES})\
+ [%f] collect_self_up %( %S %, ( get_global_var ( 'UPS' ) ) %, ( get_global_var ( 'UPS_NAMES' ) ) )% 
+//	[{%{INHERITANCE_COUNT}N!=0&%{INHERITANCE_COUNT}N!=1}{[{%{INHERITANCE_COUNT}N!=0&%{UPS}<{}{}{%CC}>!=0}\%S\#\[inherited\]]}\
+ %IF ( ( ( get_global_var ( 'INHERITANCE_COUNT' ) |N ) ) %!= 0 %&& 
+   ( ( ( get_global_var ( 'INHERITANCE_COUNT' ) |N ) ) %!= 1  ) ) 
+  %ELSE
+   %IF ( ( ( get_global_var ( 'INHERITANCE_COUNT' ) |N ) ) %!= 0 %&& 
+     ( ( ( get_global_var ( 'UPS' ) ) ) 
+    %FOR ( %C |C ) 
+    %END-FOR
+    %!= 0  ) ) 
+    '%S#[inherited]' 
+   %END-IF
+  %THEN
+//	%f_collect_inherited_up(%S,%{UPS},%{UPS_NAMES})\
+  [%f] collect_inherited_up %( %S %, ( get_global_var ( 'UPS' ) ) %, ( get_global_var ( 'UPS_NAMES' ) ) )% 
+//	%f_find_main_hierarhy_for_up(%S,"UP_MAIN")\
+  [%f] find_main_hierarhy_for_up %( %S %, 'UP_MAIN' )% 
+//
+
+//
+//	[{"%{UP_MAIN}U"!=""}\
+  %IF ( ( ( get_global_var ( 'UP_MAIN' ) |U ) ) %!= '' ) 
+//	%f_clear_list(MAIN_NAMES)\
+   [%f] clear_list %( 'MAIN_NAMES' )% 
+//	%f_collect_self_up(%{UP_MAIN},%{MAIN_UPS},%{MAIN_NAMES})\
+   [%f] collect_self_up %( ( get_global_var ( 'UP_MAIN' ) ) %, ( get_global_var ( 'MAIN_UPS' ) ) %, ( get_global_var ( 'MAIN_NAMES' ) ) )% 
+//	%f_collect_inherited_up(%{UP_MAIN},%{MAIN_UPS},%{MAIN_NAMES})\
+   [%f] collect_inherited_up %( ( get_global_var ( 'UP_MAIN' ) ) %, ( get_global_var ( 'MAIN_UPS' ) ) %, ( get_global_var ( 'MAIN_NAMES' ) ) )% 
+//	%{UPS}%f_substract_list({MAIN_UPS})\
+   ( get_global_var ( 'UPS' ) %f substract_list %( '{MAIN_UPS}' )% ) 
+//	\%S\%\[%{UP_MAIN}#f_st_name()\]f_wiki_up_print()]\
+   '%S%['
+   ( get_global_var ( 'UP_MAIN' ) ) out_indent 'f_st_name()]f_wiki_up_print()' 
+  %END-IF
+//	]\
+ %END-IF
+//	%f_sort_list(UPS,g)\
+ [%f] sort_list %( 'UPS' %, 'g' )% 
+//	<{}{%f_is_empty(UPS)=false}{W}[%f_pop_first_to_var(UPS,UP)[\[\{"\%S\{%{UP}N\}"!=%t_dump_up_default_value(%{UP})\}\%f_up_prefix(\%S) *%{UP}N*[ = *%t_dump_up_value(%{UP})*][ - %f_convert_tpl_text("%f_str_replace(%{UP}D,\n,%f_space(%{UP}))")]
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'UPS' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'UPS' %, 'UP' )% %IF-NOT-EMPTY
+    '[{"%S{'
+    ( get_global_var ( 'UP' ) |N ) '}"!='
+    [%t] dump_up_default_value %( ( get_global_var ( 'UP' ) ) )% '}%f_up_prefix(%S) *'
+    ( get_global_var ( 'UP' ) |N ) '*'
+    %IF-NOT-EMPTY
+     ' = *'
+     [%t] dump_up_value %( ( get_global_var ( 'UP' ) ) )% '*' 
+    %END-IF
+    %IF-NOT-EMPTY
+     ' - '
+     [%f] convert_tpl_text %( [%f] str_replace %( ( get_global_var ( 'UP' ) |D ) %, #13#10 %, [%f] space %( ( get_global_var ( 'UP' ) ) )% )% )% 
+    %END-IF
+//	\]]]>
+    ']' 
+   %END-IF
+  %END-IF
+ %END-FOR
+
+//f _collect_up
+; // dump_wiki_up_print_body
+
+: collect_up OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_up: Не задан идентификатор списка!")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( '_collect_up: Не задан идентификатор списка!' )% 
+ %END-IF
+//	%f_set_var(LIST_ID,1)\
+ [%f] set_var %( 'LIST_ID' %, 1 )% 
+//	%f_clear_list(FULL_NAMES)\
+ [%f] clear_list %( 'FULL_NAMES' )% 
+//	%f_collect_up_i(%S)\
+ [%f] collect_up_i %( %S )% 
+//	%f_sort_list(%{LIST_ID}N,g)
+ [%f] sort_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'g' )% 
+
+//f _collect_up_i
+; // collect_up
+
+: collect_up_i OBJECT IN %S
+//	[<{}{"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_collect_up_i(%G)>]\
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %G %?f st_name %( )% ) %!= '' %&& 
+    ( ( %G %f need_st_define %( )% ) %==  true  ) ) 
+   ( %G ) 
+   [%f] collect_up_i %( %G )% 
+  %END-FOR
+ %END-IF
+//	[<{}{"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_collect_up_i(%R)>]\
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %R %?f st_name %( )% ) %!= '' %&& 
+    ( ( %R %f need_st_define %( )% ) %==  true  ) ) 
+   ( %R ) 
+   [%f] collect_up_i %( %R )% 
+  %END-FOR
+ %END-IF
+//	[<{}{%CC=Attribute&%f_exists_in_list(FULL_NAMES,"%CN")=false}%f_add_to_list(%{LIST_ID}N,C)%f_add_to_list(FULL_NAMES,"%CN")>]
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( [%f] exists_in_list %( 'FULL_NAMES' %, %C |N )% ) %==  false  ) ) 
+   [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'C' )% [%f] add_to_list %( 'FULL_NAMES' %, %C |N )% 
+  %END-FOR
+ %END-IF
+
+//возвращает количество базовых элементов
+//f _get_inheritance_count
+; // collect_up_i
+
+: get_inheritance_count OBJECT IN %S
+//	%f_evaluate(\
+ [%f] evaluate %( 
+//	<{}{"%G#f_st_name()"!="%S#f_st_name()"&"%G#f_st_name()"!=""&%G%f_need_st_define()=true&%f_has_user_properties(%G)=true}{%GC}>\
+ %FOR %ITEM-CONDITION ( ( %G %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) %&& 
+   ( ( %G %?f st_name %( )% ) %!= ''  ) %&& 
+   ( ( %G %f need_st_define %( )% ) %==  true  ) %&& 
+   ( ( [%f] has_user_properties %( %G )% ) %==  true  ) ) 
+  ( %G |C ) 
+ %END-FOR
+//	+ <{}{"%R#f_st_name()"!="%S#f_st_name()"&"%R#f_st_name()"!=""&%R%f_need_st_define()=true&%f_has_user_properties(%R)=true}{%RC}>\
+ '+ '
+ %FOR %ITEM-CONDITION ( ( %R %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) %&& 
+   ( ( %R %?f st_name %( )% ) %!= ''  ) %&& 
+   ( ( %R %f need_st_define %( )% ) %==  true  ) %&& 
+   ( ( [%f] has_user_properties %( %R )% ) %==  true  ) ) 
+  ( %R |C ) 
+ %END-FOR
+//	)
+)% 
+//находит основную иерархию для вывода юзер-свойств элемента,
+//возвращает УИД выбранного элемента (может вернуть "", если элемент ни от кого не наследует UP)
+//%1 - имя переменной, в которую нужно полжить результат
+//f _find_main_hierarhy_for_up
+; // get_inheritance_count
+
+: find_main_hierarhy_for_up OBJECT IN %S
+//	%f_set_var(CURR_MAX_UPS,"0")%f_set_var(CURR_MAIN,"")\
+ [%f] set_var %( 'CURR_MAX_UPS' %, 0 )% [%f] set_var %( 'CURR_MAIN' %, '' )% 
+//	[<{}{"%G#f_st_name()"!="%S#f_st_name()"&"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_update_main_hierarhy_for_up(%G,"CURR_MAX_UPS","CURR_MAIN")>]\
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %G %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) %&& 
+    ( ( %G %?f st_name %( )% ) %!= ''  ) %&& 
+    ( ( %G %f need_st_define %( )% ) %==  true  ) ) 
+   ( %G ) 
+   [%f] update_main_hierarhy_for_up %( %G %, 'CURR_MAX_UPS"' %, 'CURR_MAIN' )% 
+  %END-FOR
+ %END-IF
+//	[<{}{"%R#f_st_name()"!="%S#f_st_name()"&"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_update_main_hierarhy_for_up(%R,"CURR_MAX_UPS","CURR_MAIN")>]\
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %R %?f st_name %( )% ) %!= ( %S %?f st_name %( )% ) %&& 
+    ( ( %R %?f st_name %( )% ) %!= ''  ) %&& 
+    ( ( %R %f need_st_define %( )% ) %==  true  ) ) 
+   ( %R ) 
+   [%f] update_main_hierarhy_for_up %( %R %, 'CURR_MAX_UPS"' %, 'CURR_MAIN' )% 
+  %END-FOR
+ %END-IF
+//	[{"%{CURR_MAIN}U"!=""}%f_set_var(%1N,{CURR_MAIN})]\
+ %IF ( ( ( get_global_var ( 'CURR_MAIN' ) |U ) ) %!= '' ) 
+  [%f] set_var %( %1 |N %, '{CURR_MAIN}' )% 
+ %END-IF
+//	%f_set_var(CURR_MAX_UPS,"0")%f_set_var(CURR_MAIN,"")
+ [%f] set_var %( 'CURR_MAX_UPS' %, 0 )% [%f] set_var %( 'CURR_MAIN' %, '' )% 
+
+//%1 - CURR_MAX_UPS
+//%2 - CURR_MAIN
+//f _update_main_hierarhy_for_up
+; // find_main_hierarhy_for_up
+
+: update_main_hierarhy_for_up OBJECT IN %S
+//	%f_clear_list(_update_main_hierarhy_for_up_UPS)\
+ [%f] clear_list %( '_update_main_hierarhy_for_up_UPS' )% 
+//	%f_clear_list(_update_main_hierarhy_for_up_NAME_UPS)\
+ [%f] clear_list %( '_update_main_hierarhy_for_up_NAME_UPS' )% 
+//	%f_collect_self_up(%S,%{_update_main_hierarhy_for_up_UPS},%{_update_main_hierarhy_for_up_NAME_UPS})\
+ [%f] collect_self_up %( %S %, ( get_global_var ( '_update_main_hierarhy_for_up_UPS' ) ) %, ( get_global_var ( '_update_main_hierarhy_for_up_NAME_UPS' ) ) )% 
+//	%f_collect_inherited_up(%S,%{_update_main_hierarhy_for_up_UPS},%{_update_main_hierarhy_for_up_NAME_UPS})\
+ [%f] collect_inherited_up %( %S %, ( get_global_var ( '_update_main_hierarhy_for_up_UPS' ) ) %, ( get_global_var ( '_update_main_hierarhy_for_up_NAME_UPS' ) ) )% 
+//	[{%f_number_cmp("%f_size_list(_update_main_hierarhy_for_up_UPS)","%{%1N}N","\>")=1}\
+ %IF ( ( [%f] number_cmp %( [%f] size_list %( '_update_main_hierarhy_for_up_UPS' )% %, ( get_global_var ( %1 |N ) |N ) %, '>' )% ) %== 1 ) 
+//	%f_set_var(%1N,"%f_size_list(_update_main_hierarhy_for_up_UPS)")%f_set_var(%2N,S)]\
+  [%f] set_var %( %1 |N %, [%f] size_list %( '_update_main_hierarhy_for_up_UPS' )% )% [%f] set_var %( %2 |N %, 'S' )% 
+ %END-IF
+//	%f_warning("%SN: %f_size_list(_update_main_hierarhy_for_up_UPS), %{%1N}N, %{CURR_MAX_UPS}N, %{CURR_MAIN}N")\
+//	%f_clear_list(_update_main_hierarhy_for_up_UPS)\
+ [%f] clear_list %( '_update_main_hierarhy_for_up_UPS' )% 
+//	%f_clear_list(_update_main_hierarhy_for_up_NAME_UPS)
+ [%f] clear_list %( '_update_main_hierarhy_for_up_NAME_UPS' )% 
+
+//f _has_user_properties
+; // update_main_hierarhy_for_up
+
+: has_user_properties OBJECT IN %S
+//	%f_clear_list(_has_user_properties_UPS)\
+ [%f] clear_list %( '_has_user_properties_UPS' )% 
+//	%f_clear_list(_has_user_properties_NAME_UPS)\
+ [%f] clear_list %( '_has_user_properties_NAME_UPS' )% 
+//	%f_collect_self_up(%S,%{_has_user_properties_UPS},%{_has_user_properties_NAME_UPS})\
+ [%f] collect_self_up %( %S %, ( get_global_var ( '_has_user_properties_UPS' ) ) %, ( get_global_var ( '_has_user_properties_NAME_UPS' ) ) )% 
+//	%f_collect_inherited_up(%S,%{_has_user_properties_UPS},%{_has_user_properties_NAME_UPS})\
+ [%f] collect_inherited_up %( %S %, ( get_global_var ( '_has_user_properties_UPS' ) ) %, ( get_global_var ( '_has_user_properties_NAME_UPS' ) ) )% 
+//	[{%{_has_user_properties_UPS}%Cx=true}{false}true]\
+ %IF ( ( ( get_global_var ( '_has_user_properties_UPS' )  ->C |x ) ) %==  true ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//	%f_clear_list(_has_user_properties_UPS)\
+ [%f] clear_list %( '_has_user_properties_UPS' )% 
+//	%f_clear_list(_has_user_properties_NAME_UPS)
+ [%f] clear_list %( '_has_user_properties_NAME_UPS' )% 
+
+//%1 - список UP
+//%2 - список имен UP
+//f _collect_inherited_up
+; // has_user_properties
+
+: collect_inherited_up OBJECT IN %S
+//	[<{}{"%G#f_st_name()"!=""&%G%f_need_st_define()=true}{%G}%f_collect_self_up(%G,%1,%2)%f_collect_inherited_up(%G,%1,%2)>]\
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %G %?f st_name %( )% ) %!= '' %&& 
+    ( ( %G %f need_st_define %( )% ) %==  true  ) ) 
+   ( %G ) 
+   [%f] collect_self_up %( %G %, %1 %, %2 )% [%f] collect_inherited_up %( %G %, %1 %, %2 )% 
+  %END-FOR
+ %END-IF
+//	[<{}{"%R#f_st_name()"!=""&%R%f_need_st_define()=true}{%R}%f_collect_self_up(%R,%1,%2)%f_collect_inherited_up(%R,%1,%2)>]
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %R %?f st_name %( )% ) %!= '' %&& 
+    ( ( %R %f need_st_define %( )% ) %==  true  ) ) 
+   ( %R ) 
+   [%f] collect_self_up %( %R %, %1 %, %2 )% [%f] collect_inherited_up %( %R %, %1 %, %2 )% 
+  %END-FOR
+ %END-IF
+
+//%1 - список UP
+//%2 - список имен UP
+//f _collect_self_up
+; // collect_inherited_up
+
+: collect_self_up OBJECT IN %S
+//	[<{}{%CC=Attribute&%f_exists_in_list(%2N,"%CN")=false}%1%f_add_to_list(C)%2%f_add_to_list("%CN")>]
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( [%f] exists_in_list %( %2 |N %, %C |N )% ) %==  false  ) ) 
+   %1 %f add_to_list %( 'C' )% %2 %f add_to_list %( %C |N )% 
+  %END-FOR
+ %END-IF
+
+//t _dump_up_default_value
+; // collect_self_up
+
+<<transformator>> dump_up_default_value OBJECT IN %S
+//c                    {}
+//r {%SS=tribool}:    {"[{%SI=true|%SI=1}{[{%SI=false|%SI=0}{undefined}false]}true]"}
+//r {%SS=bool}:       {"[{%SI=true|%SI=1}{false}true]"}
+//r {%SS=list}:       {%f_clear_list(VALUES)%f_split_to_list(VALUES,%SI,|)%f_pop_first_to_var(VALUES,FIRST)"%f_convert_tpl_text(%{FIRST}N)"}
+//r {""=""}:           {"\%S\{!%{UP}N\}"}
+
+//t _dump_up_value
+; // dump_up_default_value
+
+<<transformator>> dump_up_value OBJECT IN %S
+//c                  {}
+//r {%SS=color}:     {\%f_to_rgb(\%S\{%SN\})}
+//r {""}:            {\%S\{%SN\}}
+
+//f _convert_tpl_text
+; // dump_up_value
+
+: convert_tpl_text OBJECT IN %S
+//	%f_str_replace(\
+ [%f] str_replace %( 
+//	%f_str_replace(\
+ [%f] str_replace %( 
+//	%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%SN,\\,\\\\),%f_rbracket(%S),\\%f_rbracket(%S)),%f_lbrace(%S),\\%f_lbrace(%S)),%f_rbrace(%S),\\%f_rbrace(%S)),%f_lbracket(%S),\\%f_lbracket(%S))\
+ [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( %S |N %, '\' %, '\\' )% %, [%f] rbracket %( %S )% %, '\'
+ [%f] rbracket %( %S )% )% %, [%f] lbrace %( %S )% %, '\'
+ [%f] lbrace %( %S )% )% %, [%f] rbrace %( %S )% %, '\'
+ [%f] rbrace %( %S )% )% %, [%f] lbracket %( %S )% %, '\'
+ [%f] lbracket %( %S )% )% 
+//	,%f_less(%S)\
+%,  [%f] less %( %S )% 
+//	,\\%f_less(%S)\
+%,  '\'
+ [%f] less %( %S )% 
+//	)\
+)% //	,%f_greater(%S)\
+%,  [%f] greater %( %S )% 
+//	,\\%f_greater(%S)\
+%,  '\'
+ [%f] greater %( %S )% 
+//	)
+)% //#UC END# *470F600B0177*
+; // convert_tpl_text
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

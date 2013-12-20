@@ -1,0 +1,1804 @@
+-
+--
+!
+!=0
+%%
+%INCLUDES
+&
+&&
+(
+*
+*/
+.
+.TAdminMainForm.BaseSearchPanel
+.TAdminMainForm.ChildZonePanel
+.TAdminMainForm.ClientZone
+.TAdminMainForm.LeftNavigator
+.TAdminMainForm.MainZone
+.TAdminMainForm.ParentZonePanel
+.TAdminMainForm.StatusBar
+.TcfAdminForm.BackgroundPanel
+.TcfAdminForm.PropertyZone
+.TcfAdminForm.TreeZone
+.TcfAttributeSelect.BackgroundPanel
+.TcfAttributeSelect.SelectedZone
+.TcfAttributeSelect.ValuesZone
+.TChildForm.ChildZone
+.TChildForm.MainPageTab
+.TefForbidAutoregistration.cbEmail
+.TefForbidAutoregistration.cbPhone
+.TefForbidAutoregistration.gbInfo
+.TefForbidAutoregistration.lblEmail
+.TefForbidAutoregistration.lblHint
+.TefForbidAutoregistration.lblPhone
+.TefForbidAutoregistration.lblReference
+.TefGroupProperty.edName
+.TefTreeAttributeSelect.AttributeTree
+.TefTreeAttributeSelect.ContextFilter
+.TefUserProperty.edGroup
+.TenSelectedAttributes.SelectedTree
+.TParentForm.ParentZone
+.TShutDownForm.ShutdownTimer
+.TShutDownForm.WarningText
+/
+:
+::
+:=
+?
+?!=
+?==
+?DUP
+@
+@SELF
+[
+[:]
+[[
+[]
+[CallerAndWordWorker]
+[CallerWorker]
+[EXPORTED]
+[i]
+[IF]
+[WordWorker]
+]]
+|
+||
+~
++
++!
+++
+<
+<>
+<0
+=:
+=:^
+==
+=0
+>
+->
+>>>
+>>>[]
+>>>^
+>>>L[]
+>0
+2*
+2/
+2DROP
+2DUP
+2OVER
+2SWAP
+ABSTRACT
+AGGREGATION
+application:ActionIdle
+application:CancelHint
+application:GetLastHint
+application:IsHintVisible
+ARRAY
+array:Clear
+array:Count
+array:New
+AskWindowToCloseItself
+ASSERT
+ASSERTS
+AutolinkProducer
+BEGIN
+BeginWait:Print
+BOOLEAN
+BREAK
+BREAK-ITERATOR
+byhandle:control:push
+byname:control:push
+CallerAndWordWorker
+CallerFirstParamWorker
+CallerWorker
+CASE
+Cat
+cc:ActionItem
+cc:AllDeselect
+cc:AllInvSelect
+cc:AllSelect
+cc:Back
+cc:BotOfPage
+cc:BotRightCell
+cc:CompleteDate
+cc:CompleteTime
+cc:Copy
+cc:CtrlChar
+cc:Cut
+cc:Dec
+cc:Del
+cc:DelBol
+cc:DelEol
+cc:DelLine
+cc:DelWord
+cc:DelWordLeft
+cc:DelWordRight
+cc:Down
+cc:End
+cc:EndSelBlock
+cc:ExtBotOfPage
+cc:ExtendDown
+cc:ExtendEnd
+cc:ExtendHome
+cc:ExtendLeft
+cc:ExtendPgDn
+cc:ExtendPgUp
+cc:ExtendRight
+cc:ExtendUp
+cc:ExtFirstPage
+cc:ExtLastPage
+cc:ExtTopOfPage
+cc:ExtWordLeft
+cc:ExtWordRight
+cc:FastFindNext
+cc:FirstPage
+cc:GotoMarker0
+cc:GotoMarker1
+cc:GotoMarker2
+cc:GotoMarker3
+cc:GotoMarker4
+cc:GotoMarker5
+cc:GotoMarker6
+cc:GotoMarker7
+cc:GotoMarker8
+cc:GotoMarker9
+cc:Home
+cc:Inc
+cc:Ins
+cc:LastPage
+cc:Left
+cc:MoveDown
+cc:MoveLeft
+cc:MoveRight
+cc:MoveUp
+cc:NewLine
+cc:NextPage
+cc:PageLeft
+cc:PageRight
+cc:Paste
+cc:PrevPage
+cc:Redo
+cc:Restore
+cc:Right
+cc:ScrollDown
+cc:ScrollUp
+cc:Select
+cc:SetMarker0
+cc:SetMarker1
+cc:SetMarker2
+cc:SetMarker3
+cc:SetMarker4
+cc:SetMarker5
+cc:SetMarker6
+cc:SetMarker7
+cc:SetMarker8
+cc:SetMarker9
+cc:StartSelBlock
+cc:Tab
+cc:TableEdit
+cc:TopLeftCell
+cc:TopOfPage
+cc:TreeAllExpand
+cc:TreeCollapse
+cc:TreeExpand
+cc:Undo
+cc:Up
+cc:WordLeft
+cc:WordRight
+CF_EVEREST
+CF_HTML
+CF_XML
+CHAR
+char:Dupe
+char:ToString
+CLASS
+class::TAbstractDropDown
+class::TAdminMainForm
+class::TafwBaseControl
+class::TafwControl
+class::TafwControlPrim
+class::TafwCustomCommonControl
+class::TafwCustomCommonControlPrim
+class::TafwCustomCommonTextControl
+class::TafwCustomCommonTextControlPrim
+class::TafwInputControl
+class::TafwTextControl
+class::TafwTextControlPrim
+class::TBasicAction
+class::TcfAdminForm
+class::TcfAttributeSelect
+class::TChildForm
+class::TCollection
+class::TComboBox
+class::TComponent
+class::TControl
+class::TControlScrollBar
+class::TctAbstractEdit
+class::TctButtonEdit
+class::TCustomCombo
+class::TCustomComboBox
+class::TCustomComboTree
+class::TCustomControl
+class::TCustomForm
+class::TCustomGroupBox
+class::TCustomImageList
+class::TCustomLabel
+class::TCustomListControl
+class::TCustomToolbar97
+class::TCustomToolbarButton97
+class::TCustomToolbarPanel97
+class::TCustomToolWindow97
+class::TDock97
+class::TDropDownTree
+class::TEditableBox
+class::TeeCustomTreeView
+class::TeeTreeView
+class::TeeTreeViewExport
+class::TefForbidAutoregistration
+class::TefGroupList
+class::TefGroupProperty
+class::TefTreeAttributeSelect
+class::TefUserList
+class::TefUserProperty
+class::TelCustomButtonEdit
+class::TelCustomEdit
+class::TElCustomPageControl
+class::TElTabSheet
+class::TElXPThemedControl
+class::TenLongProcessMessage
+class::TenSelectedAttributes
+class::TenShutdown
+class::TevCustomEdit
+class::TevCustomEditor
+class::TevCustomEditorModelPart
+class::TevCustomEditorWindow
+class::TevCustomEditorWindowModelPart
+class::TevCustomEditorWindowPrim
+class::TevCustomMemo
+class::TevEditorWithOperations
+class::TevMultiSelectEditorWindow
+class::TFakeBox
+class::TFont
+class::TForm
+class::TGraphic
+class::TGraphicControl
+class::TGraphicsObject
+class::TIcon
+class::TInterfacedPersistent
+class::Tl3CastablePersistent
+class::Tl3CBase
+class::Tl3CustomStrings
+class::Tl3Form
+class::Tl3HackPersistentOwner
+class::Tl3HackPersistentOwner1
+class::Tl3InterfacedComponent
+class::Tl3ProtoObject
+class::Tl3ProtoObjectWithCOMQI
+class::Tl3ProtoPersistent
+class::Tl3ProtoPersistentDataContainer
+class::Tl3ProtoPersistentRefList
+class::Tl3SimpleDataContainer
+class::Tl3SimpleObject
+class::Tl3SimpleObjectPrim
+class::Tl3StringList
+class::Tl3StringList1
+class::Tl3StringList2
+class::Tl3StringListPrim
+class::Tl3Strings
+class::TLogoForm
+class::TMainMenu
+class::TMainPrimForm
+class::TMenu
+class::TMenuItem
+class::TnevControl
+class::TnpCustomPanel
+class::TnscComboBox
+class::TnscContextFilter
+class::TnscEdit
+class::TnscFormsPageControl
+class::TnscNavigator
+class::TnscPageControl
+class::TnscSizeGripPanel
+class::TnscStatusBar
+class::TnscStatusBarButton
+class::TnscStatusBarPanel
+class::TnscStatusBarSep
+class::TnscTasksPanelTreeView
+class::TnscTreeView
+class::TnsLoginForm
+class::TObject
+class::TOfficeLikeMainForm
+class::TOvcBase
+class::TOvcController
+class::TOwnedCollection
+class::TParentForm
+class::TPersistent
+class::TPopupMenu
+class::TPrimAdminForm
+class::TPrimAdminMainForm
+class::TPrimAdminOptionsForm
+class::TPrimAttributeSelectForm
+class::TPrimAttributeSelectOptionsForm
+class::TPrimChildForm
+class::TPrimCustomizeTasksPanelForm
+class::TPrimCustomizeToolsForm
+class::TPrimForbidAutoregistrationForm
+class::TPrimForbidAutoregistrationOptionsForm
+class::TPrimGroupPropertyForm
+class::TPrimGroupPropertyOptionsForm
+class::TPrimGroupsListForm
+class::TPrimGroupsListOptionsForm
+class::TPrimLoginForm
+class::TPrimLongProcessForm
+class::TPrimMainForm
+class::TPrimMainOptionsForm
+class::TPrimParentForm
+class::TPrimSelectedAttributesForm
+class::TPrimSelectedAttributesOptionsForm
+class::TPrimShutDownForm
+class::TPrimTreeAttributeSelectForm
+class::TPrimTreeAttributeSelectOptionsForm
+class::TPrimUserListForm
+class::TPrimUserListOptionsForm
+class::TPrimUserPropertyForm
+class::TPrimUserPropertyOptionsForm
+class::TScrollingWinControl
+class::TSizeConstraints
+class::TSizeGripPanel
+class::TStrings
+class::Ttb97Control
+class::Ttb97CustomGraphicControl
+class::Ttb97GraphicControl
+class::Ttb97GraphicTextControl
+class::Ttb97MoreButton
+class::TTimer
+class::TToolbar97
+class::TToolbarSep97
+class::TTreeAttributeForm
+class::TvcmBaseCollection
+class::TvcmBaseEntities
+class::TvcmBaseMenuManager
+class::TvcmComboBox
+class::TvcmComponent
+class::TvcmContainerForm
+class::TvcmContainerFormModelPart
+class::TvcmCustomizeTasksPanelForm
+class::TvcmCustomizeToolsForm
+class::TvcmEntityForm
+class::TvcmEntityFormModelPart
+class::TvcmFakeBox
+class::TvcmForm
+class::TvcmFormStyle
+class::TvcmInterfacedForm
+class::TvcmMainForm
+class::TvcmMainFormModelPart
+class::TvcmProfilersCollection
+class::TvcmTextForm
+class::TvcmToolbar
+class::TvcmToolbarDef
+class::TvcmUserInteractiveForm
+class::TvcmZonesCollection
+class::TvtComboBoxQS
+class::TvtCustomCommonPanel
+class::TvtCustomGroupBox
+class::TvtCustomHeader
+class::TvtCustomLabel
+class::TvtCustomLabelPrim
+class::TvtCustomLister
+class::TvtCustomListerPrim
+class::TvtCustomOutliner
+class::TvtCustomPanel
+class::TvtCustomPanelPrim
+class::TvtCustomSizeablePanel
+class::TvtGroupBox
+class::TvtItemStorageViewer
+class::TvtLabel
+class::TvtListerHeader
+class::TvtNavigator
+class::TvtOutlinerWithDragDrop
+class::TvtOutlinerWithQuickSearch
+class::TvtPanel
+class::TvtProportionalCustomPanel
+class::TvtProportionalPanel
+class::TvtSimpleOutliner
+class::TvtSizeablePanel
+class::TWinControl
+ClassProducer
+clipboard:clear
+clipboard:GetFormattedText
+clipboard:SetText
+CloseWindow
+CompareStr
+CompareText
+ComputerName
+CONST
+CONSTANT
+CONTINUE
+control:MouseLeftClick
+control:MouseLeftDragAndDrop
+control:MouseMiddleClick
+control:MouseRightClick
+Ctx:PushCompiler
+Ctx:PushFinder
+current:exception:ClassName
+current:exception:Message
+DECLARED
+DEFAULT
+DeleteEtalons
+DeleteFile
+DeleteFilesByMask
+desktop:Height
+desktop:Width
+DIV
+DO
+DROP
+DUP
+emitstring
+EndsStr
+EndsText
+EndWait:Print
+EtalonNeeds64
+EtalonNeedsComputerName
+EtalonNeedsOSName
+EtalonNeedsXE
+EXIT
+false
+FILE
+file:EOF
+file:OpenRead
+file:OpenWrite
+file:ReadLines
+file:ReadLn
+file:ReadWStrLn
+file:WriteChar
+file:WriteLn
+file:WriteStr
+file:WriteWStr
+file:WriteWStrLn
+FINAL
+FindWindowByCaption
+focused:control:push
+font:BackColor
+font:Color
+font:IsBold
+font:IsItalic
+font:IsStrikeOut
+font:IsUnderline
+font:Name
+font:Size
+FOR
+form:Needs
+FORWARD
+FUNCTION
+generators:Execute
+generators:Link
+GetClassName
+GetForegroundWindow
+GetLocalDate
+GetLocalDateTime
+GetLocalTime
+GetTickCount
+GetWindowText
+HALT
+HardKey
+help
+history:DeleteBackItem
+IF
+IN
+INCLUDE
+INCLUDES
+INHERITED
+InitedVarProducer
+INTEGER
+INTERFACE
+IntToStr
+IsArray
+IsBracket
+IsChar
+IsClass
+IsInt
+IsIntf
+IsNodeFolder
+IsObj
+IsString
+IsUnder64
+IsVoid
+IsWString
+IsXE
+ITERATE
+ITERATEBACK
+IterateChildWindows
+IterateCode
+IterateForms
+IterateMembers
+IterateWindows
+key
+LINK
+LOOP
+MainScreen:Height
+MainScreen:Width
+menuitem:Click
+menuitem:GetCaption
+menuitem:GetCount
+menuitem:GetItem
+menuitem:GetMenuHeight
+menuitem:IsEnabled
+menuitem:IsVisible
+MOD
+MODAL
+mouse:GetCursorIndex
+mouse:GetCursorNameByIndex
+mouse:GetCursorPosition
+Mouse:LeftDown
+Mouse:LeftUp
+Mouse:MiddleDown
+Mouse:MiddleUp
+Mouse:RightDown
+Mouse:RightUp
+mouse:SetCursorPosition
+Mouse:WheelDown
+Mouse:WheelUp
+Msg
+NamedAutolinkProducer
+NamedInitedVarProducer
+NamedWordProducer
+nil
+NIP
+Node:Flags
+Node:IsFirst
+Node:IsLast
+Node:Text
+NOP
+NotImplemented
+OBJECT
+OSName
+OVER
+OVERRIDE
+Para:BoolA
+Para:BoolW
+Para:GetParent
+Para:GetType
+Para:IntA
+Para:IntW
+Para:IsSame
+Para:StrA
+Para:StyleName
+Para:Text
+Para:Type:Inherits
+PICK
+pop:ComboBox:DropDown
+pop:ComboBox:GetItemIndex
+pop:ComboBox:IndexOf
+pop:ComboBox:SaveItems
+pop:ComboBox:SelectItem
+pop:ComboBox:SetIndex
+pop:ComboTree:CurrentNode
+pop:Compiler:SetToCtx
+pop:component:ComponentCount
+pop:component:FindComponent
+pop:component:GetComponent
+pop:component:Name
+pop:control:CanFocus
+pop:control:Caption
+pop:control:Click
+pop:control:ClientToScreen
+pop:control:ControlCount
+pop:control:Enabled
+pop:control:FindControlByName
+pop:control:FindVGControlByName
+pop:control:Focused
+pop:control:GetAnotherParentForm
+pop:control:GetColor
+pop:control:GetControl
+pop:control:GetFont
+pop:control:GetHandle
+pop:control:GetHeight
+pop:control:GetHint
+pop:control:GetLeft
+pop:control:GetMainForm
+pop:control:GetParent
+pop:control:GetParentForm
+pop:control:GetPopupMenu
+pop:control:GetTop
+pop:control:GetTopParentForm
+pop:control:GetWidth
+pop:control:Hide
+pop:control:HScrollerVisible
+pop:control:Invalidate
+pop:control:MouseWheelDown
+pop:control:MouseWheelUp
+pop:control:Name
+pop:control:Repaint
+pop:control:ScreenToClient
+pop:control:ScrollInfo
+pop:control:ScrollInfo:Max
+pop:control:ScrollInfo:Min
+pop:control:ScrollInfo:PageSize
+pop:control:ScrollInfo:Position
+pop:control:SetColor
+pop:control:SetFocus
+pop:control:SetHeight
+pop:control:SetLeft
+pop:control:SetTop
+pop:control:SetWidth
+pop:control:Show
+pop:control:Undock
+pop:control:Visible
+pop:control:VScrollerVisible
+pop:editor:AtTop
+pop:editor:BlockResize
+pop:editor:BlockResizeEX
+pop:editor:CheckContinueCells
+pop:editor:CheckWithEtalon
+pop:editor:CopyAndPaste2DocumentBottom
+pop:editor:CurrentText
+pop:editor:CursorCoordsToScreen
+pop:editor:DeleteComment
+pop:editor:DeleteRow
+pop:editor:DocumentTailVisible
+pop:editor:DP2LP
+pop:editor:GetAllowRubberTables
+pop:editor:GetDrawLines
+pop:editor:GetDrawSpecial
+pop:editor:GetLeftIndentDelta
+pop:editor:GetLMargin
+pop:editor:GetParaByID
+pop:editor:GetSelectionText
+pop:editor:GetSelectionTextInFormat
+pop:editor:GetShowDocumentParts
+pop:editor:GetWebStyle
+pop:editor:GetWrapLimit
+pop:editor:HasComment
+pop:editor:InsertRow
+pop:editor:InsertSectionBreak
+pop:editor:InsertTable
+pop:editor:JumpToHyperlink
+pop:editor:LP2DP
+pop:editor:MergeCells
+pop:editor:MergeTables
+pop:editor:MergeTablesWithTimer
+pop:editor:NextHyperlink
+pop:editor:ParaCoordsToScreen
+pop:editor:ParaDown
+pop:editor:ParaEnd
+pop:editor:ParaEndCoordsToScreen
+pop:editor:ParaHome
+pop:editor:ParaMiddleCoordsToScreen
+pop:editor:ParaUp
+pop:editor:PrevHyperlink
+pop:editor:PrintAcnhor
+pop:editor:PrintTableCellsParams
+pop:editor:PushParaFromCursor
+pop:editor:RepaintAndCheckWithEtalon
+pop:editor:RepaintTableLinesAndCheckWithEtalon
+pop:editor:ResizeTableColumn
+pop:editor:ResizeTableColumnEX
+pop:editor:ScrollBottom
+pop:editor:ScrollLineDown
+pop:editor:ScrollLineUp
+pop:editor:ScrollTo
+pop:editor:SelectAll
+pop:editor:SelectCellByMouse
+pop:editor:SelectCells
+pop:editor:SelectCellsVertical
+pop:editor:SelectColumn
+pop:editor:SelectPara
+pop:editor:SelectTable
+pop:editor:SetAllowRubberTables
+pop:editor:SetCursorByPoint
+pop:editor:SetDrawLines
+pop:editor:SetDrawSpecial
+pop:editor:SetShowDocumentParts
+pop:editor:SetWebStyle
+pop:editor:SplitCell
+pop:editor:SplitTable
+pop:editor:TextToFile
+pop:editor:UpdateCursorFromHotSpot
+pop:editor:UpdateCursorFromHotSpotEx
+pop:editor:WheelScroll
+pop:Finder:SetToCtx
+pop:flash:GetFrame
+pop:form:ActiveMDIChild
+pop:form:Close
+pop:form:FindMenuItem
+pop:form:FormStyle
+pop:form:GetWindowState
+pop:form:HasControl
+pop:form:MDIChildCount
+pop:form:MDIChildren
+pop:form:ModalResult
+pop:form:Next
+pop:form:SetWindowState
+pop:ITest:Enabled
+pop:ITest:GetName
+pop:ITest:GetSubFolder
+pop:ITest:HasScriptChildren
+pop:Lister:FooterCaption
+pop:Lister:GetCurrent
+pop:Lister:GetSelected
+pop:Lister:SelectWithShift
+pop:NodeToTest
+pop:object:ClassName
+pop:object:GetFloatProp
+pop:object:GetInterfaceProp
+pop:object:GetObjProp
+pop:object:GetOrdProp
+pop:object:GetStrProp
+pop:object:HasProp
+pop:object:Inherits
+pop:object:IsNil
+pop:object:RTTIInfo
+pop:object:SetFloatProp
+pop:object:SetOrdProp
+pop:object:SetStrProp
+pop:PageControl:FindPageByCaption
+pop:PageControl:GetAllPageCaptions
+pop:PageControl:PageByIndex
+pop:PageControl:PageCaptionByIndex
+pop:QueryCard:Attribute:GetCollapsed
+pop:QueryCard:Attribute:GetFocus
+pop:QueryCard:Attribute:GetLogicOperation
+pop:QueryCard:Attribute:IsLogicOperationEnabled
+pop:QueryCard:Attribute:SetCollapsed
+pop:QueryCard:Attribute:SetFocus
+pop:QueryCard:Attribute:SetWithLogicOperation
+pop:QueryCard:GetCurrentReqName
+pop:QueryCard:SetAttribute
+pop:RadioButton:GetChecked
+pop:RadioButton:SetChecked
+pop:RadioGroup:GetItemIdex
+pop:RadioGroup:SetItemIndex
+pop:reminder:FindEditor
+pop:reminder:IsBaloonVisible
+pop:reminder:Move
+pop:SpinEdit:GetValue
+pop:SpinEdit:SetValue
+pop:StatusBarButton:IsDown
+pop:TB97Button:GetIsDown
+pop:TreeNode:GetNext
+pop:TreeNode:HasChildren
+pop:TreeView:GetItem
+pop:vcm:form:FormID
+pop:vcm:form:IsFloatingState
+pop:vcm:form:IsFloatingStateAndParentNotVisible
+pop:vcm:form:UserType
+pop:Word:Name
+pop:Word:Parent
+pop:Word:Producer
+pop:Word:PublicateInMainDictionary
+PRIVATE
+PROCEDURE
+ProcessFilesWithMask
+ProcessMessages
+ProcessSubDirs
+PROTECTED
+PUBLIC
+PureDir
+push:DUnitForm
+RAISE
+Random
+Randomize
+REALIZE
+REDEFINEABLE
+REDEFINITION
+REFERENCE
+RenameFile
+RGB2String
+ROLL
+ROT
+-ROT
+RULES
+SameStr
+SameText
+screen:Height
+screen:Width
+ScreenCount
+script:FileName
+SEALED
+SetForegroundWindow
+SetLocalDate
+SetLocalDateTime
+SetLocalTime
+SetRandSeed
+ShiftDate
+ShiftTime
+SLEEP
+StartsStr
+StartsText
+StartTimer
+StatusBar:OrderedControl
+StatusBar:OrderedControlsCount
+StatusBar:OrderIndex
+StereotypeProducer
+StereotypeStereotypeProducer
+StopTimer
+StopTimerEx
+STRING
+string:[i]
+string:+!
+string:++!
+string:CodePage
+string:ConsistsOf
+string:HasAnyOf
+string:Len
+string:--Len!
+string:Pos
+string:PosEx
+string:Replace
+string:ReplaceFirst
+string:RSplitTo!
+string:Split
+string:SplitTo!
+string:ToChar
+StrToInt
+StyleTable:Changed
+StyleTable:Changing
+StyleTable:SaveToFile
+SUMMONED
+SWAP
+sysutils:ChangeFileExt
+sysutils:DirectoryExists
+sysutils:ExtractFileDrive
+sysutils:ExtractFileName
+sysutils:ExtractFilePath
+sysutils:FileExists
+sysutils:ForceDirectories
+tests:CheckEtalon
+tests:CheckOutputWithInput
+text:Replace
+text:ReplaceFirst
+textpara:SetStyleByID
+THREAD
+TimeToLog
+ToPrintable
+tree:CheckFlag
+tree:ChildrenCount
+tree:CollapseAll
+tree:CurrentNode
+tree:CurrentNode:IsExpanded
+tree:ExpandAll
+tree:GetItem
+tree:GetItem:Bounds
+tree:GetItem:Height
+tree:GetItem:Left
+tree:GetItem:Top
+tree:GetItem:Width
+tree:GetItemImageIndex
+tree:GetItemsCount
+tree:GetSelected
+tree:SaveState2File
+tree:SetSelected
+tree:развернуть
+true
+TRY
+TryFocusOnForm
+TUCK
+USES
+VAR
+VarProducer
+vcm:Dispatcher:BeginOp
+vcm:Dispatcher:EndOp
+vcm:Dispatcher:Lock
+vcm:Dispatcher:Unlock
+vcm:FindForm
+vcm:History:GetBackCount
+vcm:History:GetBackItem
+vcm:History:GetForwardCount
+vcm:History:GetForwardItem
+vg:control:Click
+vg:control:CountSiblingLikeMe
+vg:control:GetIsChecked
+vg:control:Name
+vg:control:SetIsChecked
+VIRTUAL
+wait:Cancel
+wait:Choice
+wait:No
+wait:Ok
+wait:Yes
+waited:?
+WHILE
+WindowFromPoint
+WindowIsMine
+WinExec
+WordAlias
+WordAliasByRef
+WordProducer
+WORDWORKER
+WORDWORKER2
+W-STRING
+WString:[]
+WString:[]++!
+WString:[i]
+WString:+
+WString:+!
+WString:++
+WString:++!
+WString:CodePage
+WString:ConsistsOf
+WString:Ends
+WString:EndsText
+WString:HasAnyOf
+WString:IsNil
+WString:Len
+WString:--Len!
+WString:RSplitTo!
+WString:SplitTo!
+WString:Starts
+WString:StartsText
+WString:ToString
+компонент::ShutdownTimer
+контрол::AttributeTree
+контрол::AttributeTree:push
+контрол::BackgroundPanel
+контрол::BackgroundPanel:push
+контрол::BaseSearchPanel
+контрол::BaseSearchPanel:push
+контрол::cbEmail
+контрол::cbEmail:push
+контрол::cbPhone
+контрол::cbPhone:push
+контрол::ChildZone
+контрол::ChildZone:push
+контрол::ChildZonePanel
+контрол::ChildZonePanel:push
+контрол::ClientZone
+контрол::ClientZone:push
+контрол::ContextFilter
+контрол::ContextFilter:push
+контрол::edGroup
+контрол::edGroup:push
+контрол::edName
+контрол::edName:push
+контрол::gbInfo
+контрол::gbInfo:push
+контрол::GroupsTree
+контрол::GroupsTree:push
+контрол::lblEmail
+контрол::lblEmail:push
+контрол::lblHint
+контрол::lblHint:push
+контрол::lblPhone
+контрол::lblPhone:push
+контрол::lblReference
+контрол::lblReference:push
+контрол::LeftNavigator
+контрол::LeftNavigator:push
+контрол::MainPageTab
+контрол::MainPageTab:push
+контрол::MainZone
+контрол::MainZone:push
+контрол::ParentZone
+контрол::ParentZone:push
+контрол::ParentZonePanel
+контрол::ParentZonePanel:push
+контрол::PropertyZone
+контрол::PropertyZone:push
+контрол::RightNavigator
+контрол::RightNavigator:push
+контрол::SelectedTree
+контрол::SelectedTree:push
+контрол::SelectedZone
+контрол::SelectedZone:push
+контрол::StatusBar
+контрол::StatusBar:push
+контрол::TreeZone
+контрол::TreeZone:push
+контрол::trUserList
+контрол::trUserList:push
+контрол::ValuesZone
+контрол::ValuesZone:push
+контрол::WarningText
+контрол::WarningText:push
+моп::Настройка_панели_задач_Настройка...
+моп::Настройка_системы_Доступные_операции...
+моп::Настройка_системы_Закрепить_панели_инструментов
+моп::Настройка_системы_Настройка...
+моп::Настройка_системы_Размер_кнопок
+оп::enOpenable_opOpenInNewWindow
+оп::Атрибут_И
+оп::Атрибут_ИЛИ
+оп::Атрибут_ИЛИ_(shortcut)
+оп::Атрибут_Копировать_текущий_атрибут
+оп::Атрибут_КРОМЕ
+оп::Атрибуты_Печать
+оп::Визуальные_Английский_язык
+оп::Визуальные_Испанский_язык
+оп::Визуальные_Итальянский_язык
+оп::Визуальные_Немецкий_язык
+оп::Визуальные_Русский_язык
+оп::Визуальные_Французский_язык
+оп::Вложенные_формы_Закрыть
+оп::Встроенный_объект_Открыть_(во_внешнем_приложении)
+оп::Встроенный_объект_Сохранить_(экспорт)
+оп::Выбор_действия_Добавить
+оп::Выбор_действия_Ок
+оп::Выбор_действия_Отмена
+оп::Выделенные_элементы_Анализ_списка...
+оп::Выделенные_элементы_Копировать_в_новый_список
+оп::Выделенные_элементы_Найти_в_Толковом_словаре
+оп::Выделенные_элементы_Очистить_условия
+оп::Выделенные_элементы_Поставить_ссылку...
+оп::Выделенные_элементы_Ссылки_из_фрагмента
+оп::Выделенные_элементы_Ссылки_на_фрагмент
+оп::Вычисляемые_поля_Внутренний_номер
+оп::Вычисляемые_поля_Дата_редакции
+оп::Вычисляемые_поля_Количество_страниц
+оп::Вычисляемые_поля_Название_документа
+оп::Вычисляемые_поля_Название_документа_целиком
+оп::Вычисляемые_поля_Номер_страницы
+оп::Вычисляемые_поля_Позиция_в_файле
+оп::Вычисляемые_поля_Размер
+оп::Вычисляемые_поля_Система_ГАРАНТ
+оп::Вычисляемые_поля_Текущая_дата
+оп::Вычисляемые_поля_Текущее_время
+оп::Гипертекстовая_ссылка_Открыть_гиперссылку_в_новом_окне
+оп::Гипертекстовая_ссылка_Перейти_по_гиперссылке
+оп::Гипертекстовая_ссылка_Предыдущая_ссылка
+оп::Гипертекстовая_ссылка_Следующая_ссылка
+оп::Гипертекстовая_ссылка_Удалить_гиперссылку
+оп::Группы_пользователей_Изменить_доступ_к_информационным_блокам
+оп::Группы_пользователей_Переименовать
+оп::Группы_пользователей_Создать_новую_группу
+оп::Дерево_Перенос_по_словам
+оп::Дерево_Развернуть_все
+оп::Дерево_Свернуть_все
+оп::Документ_opDocumentIsUseful
+оп::Документ_opDocumentIsUseless
+оп::Документ_opShowDocumentPicture
+оп::Документ_opViewChangedFragments
+оп::Документ_Аннотация
+оп::Документ_Вернуться_в_список
+оп::Документ_Включить/выключить_информацию_об_изменениях_документа
+оп::Документ_Графическая_копия_официальной_публикации
+оп::Документ_Изменения_в_документе
+оп::Документ_Информация_о_документе
+оп::Документ_Комментарии
+оп::Документ_Открыть
+оп::Документ_Открыть_в_новом_окне
+оп::Документ_Открыть_документ_в_новом_окне
+оп::Документ_Открыть_документ_в_текущей_окне
+оп::Документ_Открыть_документ_в_текущем_окне
+оп::Документ_Перейти_на_закладку
+оп::Документ_Печатать_документ/справку
+оп::Документ_Печать
+оп::Документ_Печать...
+оп::Документ_Показать/скрыть_комментарии_ГАРАНТа
+оп::Документ_Показать/скрыть_мои_комментарии
+оп::Документ_Показывать_выделенный_фрагмент
+оп::Документ_Показывать_технические_комментарии
+оп::Документ_Показывать_цветным
+оп::Документ_Пользовательские_ссылки_на_документ_(ссылки_из_документа)_1
+оп::Документ_Пользовательские_ссылки_на_документ_(ссылки_из_документа)_2
+оп::Документ_Поставить_на_контроль
+оп::Документ_Похожие_документы
+оп::Документ_Предварительный_просмотр_печати
+оп::Документ_Предыдущий_документ_в_списке
+оп::Документ_Синонимы_по_международному_названию
+оп::Документ_Следующий_документ_в_списке
+оп::Документ_Сохранить_(экспорт)...
+оп::Документ_Список_выпускаемых_препаратов
+оп::Документ_Список_литературы
+оп::Документ_Справка_к_документу
+оп::Документ_Сравнение_редакций
+оп::Документ_Ссылки_из_документа
+оп::Документ_Ссылки_из_документа_(вид_информации)
+оп::Документ_Ссылки_на_документ
+оп::Документ_Ссылки_на_документ_(вид_информации)
+оп::Документ_Структура_документа
+оп::Документ_Термины_Толкового_словаря
+оп::Документ_Установить_закладку...
+оп::Журнал_Очистить
+оп::Завершение_работы_Восстановить
+оп::Завершение_работы_Восстановить_все
+оп::Завершение_работы_Добавить
+оп::Завершение_работы_Записать_по_умолчанию
+оп::Завершение_работы_Ок
+оп::Завершение_работы_Отмена
+оп::Завершение_работы_Очистить
+оп::Завершение_работы_Перезаписать
+оп::Завершение_работы_Применить
+оп::Завершение_работы_Сохранить
+оп::Завершение_работы_Справка
+оп::Закладка_(иконка)_Изменить_имя_и_комментарий_закладки
+оп::Закладка_(иконка)_Удалить_закладку
+оп::Закладки_на_пункт_оглавления_Установить_закладку_на_фрагмент
+оп::Запрос_История_запросов
+оп::Запрос_Тип_поиска
+оп::Значения_по_умолчанию_Восстановить
+оп::Иконка_предупреждения_Выключить_Машину_времени
+оп::Иконка_предупреждения_Выключить_Машину_времени_и_перейти_в_актуальную_редакцию
+оп::Иконка_предупреждения_Открыть_актуальную_редакцию
+оп::Интервал_дат_Открыть_новостную_ленту
+оп::Информация_Копировать
+оп::Информация_Копировать_в_формате_RTF
+оп::Информация_Печать
+оп::История_Вперед
+оп::История_Назад
+оп::Картинка_Во_все_окно
+оп::Картинка_Изменить_масштаб
+оп::Картинка_Масштаб_1:1
+оп::Картинка_Открыть
+оп::Картинка_Открыть_в_новом_окне
+оп::Картинка_Печать
+оп::Картинка_Сохранить_(экспорт)
+оп::Картинка_Увеличить
+оп::Картинка_Уменьшить
+оп::Кеш_документов_Запретить
+оп::Кеш_документов_Очистить
+оп::Консультация_Импортировать...
+оп::Консультация_Информация_о_консультации
+оп::Консультация_Открыть_для_просмотра
+оп::Консультация_Оценить_ответ
+оп::Контекстное_меню_конфигурации_Восстановить
+оп::Контекстное_меню_конфигурации_Восстановить_все
+оп::Контекстное_меню_конфигурации_Записать_по_умолчанию
+оп::Контекстное_меню_конфигурации_Копировать
+оп::Контекстное_меню_конфигурации_О_конфигурации
+оп::Контекстное_меню_конфигурации_Редактировать
+оп::Контекстное_меню_конфигурации_Сделать_активной
+оп::Контекстное_меню_конфигурации_Удалить
+оп::Контролируемый_объект_Открыть_документ
+оп::Контролируемый_объект_Сбросить_статус_"изменен"
+оп::Логическая_операция_И
+оп::Логическая_операция_ИЛИ
+оп::Логическая_операция_КРОМЕ
+оп::Машина_времени_Включить_Машину_времени
+оп::Меню_Спрятать_левый_навигатор
+оп::Меню_Спрятать_правый_навигатор
+оп::Мой_комментарий_(иконка)_Скрыть/Показать
+оп::Мой_комментарий_(иконка)_Удалить_комментарий
+оп::Мой_комментарий_Удалить_комментарий
+оп::Настройки_панели_меток_Показ_информации_о_метках
+оп::Настройки_панели_меток_Показывать_блоки_в_тексте
+оп::Настройки_панели_меток_Показывать_метки
+оп::Настройки_панели_меток_Показывать_спецсимволы
+оп::Окна_Выход
+оп::Окна_Закрыть_все,_кроме_текущего
+оп::Окна_Новое
+оп::Окна_Расход_памяти_в_оболочке
+оп::Окна_Список_открытых_окон
+оп::Окна_Упорядочить_каскадом
+оп::Окна_Упорядочить_по_вертикали
+оп::Окна_Упорядочить_по_горизонтали
+оп::Операции_карточки_Выбрать_реквизиты
+оп::Операции_карточки_Добавить_новый
+оп::Операции_карточки_Развернуть\Свернуть
+оп::Операции_карточки_Удалить_все
+оп::Операции_редактирования_даты_opCurrentDate
+оп::Операции_редактирования_даты_Вставить
+оп::Операции_редактирования_даты_Вырезать
+оп::Операции_редактирования_даты_Копировать
+оп::Операции_редактирования_даты_Удалить
+оп::Панель_задач_Включить_Машину_времени_с_календарной_даты\Выключить_Машину_времени
+оп::Панель_новостей_Новая_индивидуальная_лента
+оп::Панель_новостей_Редактировать_индивидуальную_ленту
+оп::Панель_новостей_Удалить_индивидуальную_ленту
+оп::Панель_новостей_Экспортировать_все_индивидуальные_ленты_в_файл
+оп::Панель_новостей_Экспортировать_выделенные_ленты_в_XML
+оп::Панель_сабов_редактора_Скопировать_позицию
+оп::Папка_Импорт_информации_в_папку...
+оп::Папка_Открыть_общий_доступ
+оп::Папка_Поставить_на_контроль
+оп::Папка_Сместиться_к_первому_выбранному
+оп::Папка_Снять_с_контроля
+оп::Папка_Создать_папку
+оп::Папка_Экспорт_информации_из_папки...
+оп::Папки_Фильтрация_элементов_папок_по_типу
+оп::Печать_Печать
+оп::Печать_Предварительный_просмотр
+оп::Пользователи_Запретить_всем_использование_услуги_Правового_консалтинга
+оп::Пользователи_Не_удалять_при_бездействии
+оп::Пользователи_Отключить_пользователя
+оп::Пользователи_Отменить_для_выделенных_пользователей_режим_привилегий
+оп::Пользователи_Разрешить/Запретить_авторегистрацию_новых_пользователей
+оп::Пользователи_Разрешить/Запретить_вновь_созданным_пользователям_использование_услуги_Правового_консалтинга
+оп::Пользователи_Разрешить_всем_использование_услуги_Правового_консалтинга
+оп::Пользователи_Сделать_выделенных_пользователей_привилегированными
+оп::Пользователи_Сделать_фильтры_данного_пользователя_общими
+оп::Пользователи_Создать_нового_пользователя
+оп::Пользователи_Фильтр_пользователей
+оп::Правка_opToggleFoundWords
+оп::Правка_Возврат_изменений
+оп::Правка_Вставить
+оп::Правка_Выделить_все
+оп::Правка_Вырезать
+оп::Правка_Копировать
+оп::Правка_Найти_далее
+оп::Правка_Отмена_изменений
+оп::Правка_Поиск_контекста...
+оп::Правка_Предыдущий_найденный
+оп::Правка_Снять_выделение
+оп::Правка_Удалить
+оп::Предварительный_просмотр_Отдалить
+оп::Предварительный_просмотр_По_ширине_листа_
+оп::Предварительный_просмотр_Приблизить
+оп::Предварительный_просмотр_Страница_целиком
+оп::Предупреждение_(медаль)_opRemListFiltered
+оп::Предупреждение_(медаль)_opRemListModified
+оп::Предупреждение_(медаль)_opRemListTimeMachineWarning
+оп::Предупреждение_(медаль)_opRemMWControlledChangingWarning
+оп::Предупреждение_(медаль)_opRemMWOldBaseWarning
+оп::Предупреждение_(медаль)_opRemMWTrialModeWarning
+оп::Предупреждение_(медаль)_opRemNewChatMessages
+оп::Предупреждение_(медаль)_opRemOnlineDead
+оп::Предупреждение_(медаль)_opRemWarnRedaction
+оп::Предупреждение_(медаль)_opRemWarnTimeMachineOn
+оп::Предупреждение_(медаль)_opViewInactualDocument
+оп::Предупреждение_(на_контроле)_Открыть_вкладку_"Документы_на_контроле"
+оп::Предупреждение_(на_контроле)_Показать_изменения
+оп::Предупреждение_(на_контроле)_Построить_список_изменившихся_документов_на_контроле
+оп::Предупреждение_(на_контроле)_Сбросить_статус_"изменен"
+оп::Предупреждение_(на_контроле)_Скрыть_предупреждающий_знак
+оп::Предупреждение_(на_контроле)_Способ_сброса_статуса_"изменен"
+оп::Предупреждение_(юридическое)_Показать_текст_предупреждения
+оп::Предупреждение_для_Машины_времени_Включить/Выключить_Машину_времени_
+оп::Предупреждение_для_Машины_времени_Показать_текст_предупреждения
+оп::Предупреждение_дополнительное_ShowInfo
+оп::Предупреждение_о_не_вступлении_в_силу_ShowInfo
+оп::Предупреждение_о_неактуальной_редакции_Открыть_актуальную_редакцию
+оп::Предупреждение_о_неактуальной_редакции_Показать_текст_предупреждения
+оп::Предупреждение_о_фильтрованном_списке_Отменить_все_фильтры
+оп::Пункт_меню_Информация_об_элементе
+оп::Пункт_меню_Открыть
+оп::Пункт_оглавления_-_Заголовок_документ_Заголовок_пункта_оглавления
+оп::Пункт_оглавления_-_Заголовок_документ_Печать_документа
+оп::Пункт_оглавления_-_Заголовок_документ_Печать_документа...
+оп::Пункт_оглавления_-_Заголовок_документ_Пользовательские_ссылки_на_документ_(ссылки_из_документа)_1
+оп::Пункт_оглавления_-_Заголовок_документ_Пользовательские_ссылки_на_документ_(ссылки_из_документа)_2
+оп::Пункт_оглавления_-_Заголовок_документ_Ссылки_на_документ
+оп::Пункт_оглавления_-_Заголовок_документ_Установить_закладку_на_документ...
+оп::Пункт_оглавления_-_Заголовок_документ_Экспорт_документа_в_MS-Word
+оп::Пункт_оглавления_Выделить_фрагмент
+оп::Пункт_оглавления_Копировать_фрагмент
+оп::Пункт_оглавления_Печать_фрагмента
+оп::Пункт_оглавления_Печать_фрагмента...
+оп::Пункт_оглавления_Предварительный_просмотр_печати_фрагмента
+оп::Пункт_оглавления_Ссылки_из_фрагмента
+оп::Пункт_оглавления_Ссылки_из_фрагмента_(вид_информации)
+оп::Пункт_оглавления_Ссылки_на_фрагмент
+оп::Пункт_оглавления_Ссылки_на_фрагмент_(вид_информации)
+оп::Пункт_оглавления_Экспорт_фрагмента_в_MS-Word
+оп::Раздел_навигатора_Открыть
+оп::Редакции_документа_Актуальная_редакция
+оп::Редакции_документа_Предыдущая_редакция
+оп::Редакции_документа_Следующая_редакция
+оп::Редакции_документа_Список_редакций
+оп::Редакция_opNextChange
+оп::Редакция_opPrevChange
+оп::Редакция_opReturnToDocument
+оп::Редакция_Открыть_в_новом_окне
+оп::Синхронный_просмотр_Аннотация_к_документу
+оп::Синхронный_просмотр_ИНФАРМ_Информация_о_документе
+оп::Синхронный_просмотр_ИНФАРМ_Список_препаратов
+оп::Синхронный_просмотр_ИНФАРМ_Текст_документа
+оп::Синхронный_просмотр_Информация_о_документе
+оп::Синхронный_просмотр_Настраиваемая_вкладка_связанных_документов_1
+оп::Синхронный_просмотр_Настраиваемая_вкладка_связанных_документов_2
+оп::Синхронный_просмотр_Похожие_документы
+оп::Синхронный_просмотр_Список_ссылок_из_документа
+оп::Синхронный_просмотр_Список_ссылок_на_документ
+оп::Синхронный_просмотр_Справка_к_документу
+оп::Синхронный_просмотр_Текст_документа
+оп::Система_Список_закладок...
+оп::Система_Статус_связи_с_ППО
+оп::Совещание_онлайн_Добавить_пользователя
+оп::Совещание_онлайн_История_переписки
+оп::Совещание_онлайн_Отправить_сообщение
+оп::Совещание_онлайн_Очистить_историю
+оп::Совещание_онлайн_Фильтр_пользователей
+оп::Сохраненный_запрос_Выполнить_запрос
+оп::Сохраненный_запрос_Использовать_как_фильтр
+оп::Сохраненный_запрос_Открыть_карточку_запроса
+оп::Список_(контекстные_операции)_Искать_по_источнику_опубликования_в_текущем_списке
+оп::Список_(контекстные_операции)_Искать_по_реквизитам_в_текущем_списке
+оп::Список_(контекстные_операции)_Искать_препараты_в_текущем_списке
+оп::Список_(контекстные_операции)_Открыть_текущий_список
+оп::Список_(контекстные_операции)_Открыть_текущий_список_в_новом_окне
+оп::Список_opCloseForm
+оп::Список_opIsOnActivePage
+оп::Список_opSetCRListType
+оп::Список_opSetSearchContext
+оп::Список_Вычесть_список...
+оп::Список_Дополнить_список...
+оп::Список_Искать_в_текущем_списке
+оп::Список_Открыть_текущий_список
+оп::Список_Открыть_текущий_список_в_новом_окне
+оп::Список_Пересечь_со_списком...
+оп::Список_Построить_полный_список
+оп::Список_Работа_со_списком
+оп::Список_Сортировать_список
+оп::Список_Справка_к_списку
+оп::Список_Установить_направление_сортировки
+оп::Список_Уточнить_список
+оп::Список_фармацевтических_фирм_Фильтр_по_странам
+оп::Список_Экспорт_списка_в_XML
+оп::Справка_Гарант_в_Интернет
+оп::Справка_Горячая_информация
+оп::Справка_Горячие_клавиши
+оп::Справка_Книга_отзывов_и_предложений
+оп::Справка_Контактная_информация
+оп::Справка_Новые_возможности
+оп::Справка_О_программе...
+оп::Справка_Руководство_пользователя
+оп::Ссылки_на_документ/Ссылки_из_документа_Выбрать_тип
+оп::Таблица_Вставить_колонку
+оп::Таблица_Вставить_строку
+оп::Таблица_Вставить_таблицу
+оп::Таблица_Удалить_колонку
+оп::Таблица_Удалить_строку
+оп::Текст_Выделить_текущее_слово
+оп::Текст_Выделить_текущий_абзац
+оп::Текст_Добавить_мой_комментарий
+оп::Текст_Изменить_имя_и_комментарий_закладки
+оп::Текст_Открыть_текущий_документ_в_новом_окне
+оп::Текст_Поставить_на_контроль
+оп::Текст_Слово_влево
+оп::Текст_Слово_вправо
+оп::Текст_Удалить_закладку
+оп::Текст_Установить_закладку...
+оп::Тематики_рассылки_Все_поступления_в_продукт_ПРАЙМ
+оп::Файл_opMakeHyperlinkToDocument
+оп::Файл_Выбрать_из_Моих_документов...
+оп::Файл_Переслать_по_E-mail
+оп::Файл_Печать
+оп::Файл_Печать...
+оп::Файл_Предварительный_просмотр
+оп::Файл_Сохранить_в_Мои_документы...
+оп::Файл_Сохранить_в_файл...
+оп::Файл_Экспорт_в_MS-Word
+оп::Фильтр_opCreateFilter
+оп::Фильтр_opRenameFIlter
+оп::Фильтр_Применить_фильтр
+оп::Фильтр_Применять_автоматически
+оп::Фильтр_Редактировать_фильтр
+оп::Фильтры_Отменить_все_фильтры
+оп::Фильтры_Применить_фильтры_заново
+оп::Фильтры_Создать_новый_фильтр
+оп::Фильтры_Фильтры
+оп::Фильтры_Фильтры_(вкладка)
+оп::Центр_управления_контролем_Добавить_сохраненный_документ_на_контроль
+оп::Центр_управления_контролем_Сбросить_статус_"изменен"_у_всех_объектов
+оп::Центр_управления_контролем_Сортировать
+оп::Центр_управления_контролем_Список_изменившихся_документов_на_контроле
+оп::Шрифт_Жирный
+оп::Шрифт_Курсив
+оп::Шрифт_Перечеркнутый
+оп::Шрифт_Подчеркнутый
+оп::Шрифты_Увеличить_шрифт
+оп::Шрифты_Уменьшить_шрифт
+оп::Элемент_папок_На_контроле
+оп::Элемент_папок_Открыть
+оп::Элемент_папок_Открыть_в_новом_окне
+оп::Элемент_папок_Показать_свойства
+оп::Элемент_папок_Свойства
+оп::Элемент_папок_Экспорт_для_интеграции
+тип_формы::admCreateGroup
+тип_формы::admGroupList
+тип_формы::admRenameGroup
+тип_формы::admUseProperties
+тип_формы::admUserList
+тип_формы::astFirstLevel
+тип_формы::astNone
+тип_формы::astOneLevel
+тип_формы::astTaxesPublishSearch
+тип_формы::cutForDiction
+тип_формы::cutUsual
+тип_формы::sftNone
+тип_формы::ut_CustomizeTasksPanel
+тип_формы::ut_CustomizeTools
+тип_формы::ut_ForbidAutoregistration
+тип_формы::ut_Login
+тип_формы::ut_Logo
+тип_формы::ut_LongProcess
+тип_формы::utAdmin
+тип_формы::utAttributeSelect
+тип_формы::utEmptyMainWindow
+тип_формы::utHistory
+тип_формы::utSelectedAttributes
+тип_формы::utSingleSearch
+форма::AdminForm
+форма::AdminMain
+форма::AttributeSelect
+форма::Child
+форма::CustomizeTasksPanel
+форма::CustomizeTools
+форма::ForbidAutoregistration
+форма::GroupList
+форма::GroupProperty
+форма::Login
+форма::Logo
+форма::LongProcess
+форма::Parent
+форма::SelectedAttributes
+форма::ShutDown
+форма::TreeAttributeSelect
+форма::UserList
+форма::UserProperty
+--!
+: : "Ввести строку"
+ STRING IN : aString
+; // "Ввести строку"
+: : "Ввести"
+ STRING IN : aString
+; // "Ввести"
+"Вставить"
+"Выделить с помощью Shift"
+: : "Выключаем машину времени"
+"выполнить для всех контролов"
+: : "Выполнить и восстановить фокус"
+ OBJECT IN : aProc
+ INTEGER VAR : l_Control
+ OBJECT VAR : l_Ctrl
+; // "Выполнить и восстановить фокус"
+: : "Выполнить обработав исключение"
+ STRING IN : anException
+ OBJECT IN : aProc
+; // "Выполнить обработав исключение"
+: : "Выставить форме размеры и"
+ OBJECT IN : aProc
+ INTEGER IN : formH
+ INTEGER IN : formW
+; // "Выставить форме размеры и"
+: : "Дать системе перерисоваться"
+: : "Дождаться переключения вкладок"
+"Заголовок контрола"
+: : "Задержка имени Жени Кусакина"
+: : "Зажать левую кнопку мыши"
+: : "Зажать правую кнопку мыши"
+: : "Зажать среднюю кнопку мыши"
+: : "Закончить перебор контролов"
+: : "Закрыть все окна кроме текущего"
+STRING FUNCTION : "Заменить непечатаемые символы"
+ STRING IN : aStr
+ STRING VAR : Result
+; // "Заменить непечатаемые символы"
+: : "Записать содержимое буфера в эталон"
+: : "Запомнить позицию мыши и выполнить"
+ IN : aProc
+ VAR : x_coord
+ VAR : y_coord
+; // "Запомнить позицию мыши и выполнить"
+"Запомнить позицию мыши"
+"Запретить всем использование услуги Правового консалтинга"
+"Имя компонента"
+"Имя скрипта"
+: : "Клик левой кнопкой мыши"
+: : "Клик правой кнопкой мыши"
+: : "Клик средней кнопкой мыши"
+"Кликнуть"
+"Контрол в фокусе"
+BOOLEAN FUNCTION : "Контрол является формой с именем ?"
+ OBJECT IN : aControl
+ STRING IN : aName
+ BOOLEAN VAR : Result
+; // "Контрол является формой с именем ?"
+"Копировать"
+: : "Нажать Del"
+: : "Нажать кнопку Отмена"
+ OBJECT VAR : "Кнопка Отмена"
+; // "Нажать кнопку Отмена"
+: : "Нажать кнопку Сохранить"
+ OBJECT VAR : "Кнопка Сохранить"
+; // "Нажать кнопку Сохранить"
+: : "Нажать"
+ STRING IN : aString
+; // "Нажать"
+OBJECT FUNCTION : "Найти главное окно модуля Администратора"
+ OBJECT VAR : Result
+; // "Найти главное окно модуля Администратора"
+OBJECT FUNCTION : "Найти контрол на форме"
+ STRING IN : aControl
+ OBJECT IN : aForm
+ OBJECT VAR : Result
+; // "Найти контрол на форме"
+"Найти контрол по дескриптору в стеке"
+OBJECT FUNCTION : "Найти контрол по дескриптору"
+ INTEGER IN : aHandle
+ OBJECT VAR : Result
+; // "Найти контрол по дескриптору"
+"Найти контрол по имени на форме"
+OBJECT FUNCTION : "Найти контрол по имени на форме"$FUNCTION
+ STRING IN : aControl
+ OBJECT IN : aForm
+ OBJECT VAR : Result
+; // "Найти контрол по имени на форме"$FUNCTION
+OBJECT FUNCTION : "Найти на главной форме форму с типом и именем"
+ STRING IN : aForm
+ INTEGER IN : aUserType
+ OBJECT VAR : Result
+ : : Действия
+  OBJECT IN : Контрол
+ ; // Действия
+; // "Найти на главной форме форму с типом и именем"
+OBJECT FUNCTION : "Найти окно по имени для контрола"
+ VAR : "Имя класса главного окна"
+ STRING IN : "Имя окна"
+ OBJECT IN : "Контрол"
+ OBJECT VAR : Result
+; // "Найти окно по имени для контрола"
+OBJECT FUNCTION : "Найти окно по имени"
+ STRING IN : "Имя окна"
+ OBJECT VAR : Result
+; // "Найти окно по имени"
+"Найти элементы меню на форме"
+"НЕ РАВНО"
+"НЕ ЯВЛЯЕТСЯ"
+: : "Ответить два раза Да для"
+ IN : aProc
+; // "Ответить два раза Да для"
+: : "Ответить один раз Да для"
+ IN : aProc
+; // "Ответить один раз Да для"
+: : "Отделить текст в эталоне"
+: : "Отпустить левую кнопку мыши"
+: : "Отпустить правую кнопку мыши"
+: : "Отпустить среднюю кнопку мыши"
+: : "Перевести фокус в на форме типа"
+ STRING IN : aControl
+ STRING IN : aForm
+ INTEGER IN : aUserType
+; // "Перевести фокус в на форме типа"
+: : "Перевести фокус в на форме"
+ STRING IN : aControl
+ STRING IN : aForm
+; // "Перевести фокус в на форме"
+"Полный путь скрипта"
+: : "Получить размеры и координаты контрола"
+ OBJECT IN : aControl
+; // "Получить размеры и координаты контрола"
+"Померить высоту"
+"Померить отступ сверху"
+"Померить отступ слева"
+"Померить ширину"
+: : "При помощи Shift выделяем элементов"
+ IN : aNum
+ VAR : l_Finish
+; // "При помощи Shift выделяем элементов"
+OBJECT FUNCTION : "Проверить доступность кнопки"
+ IN : aControl
+ OBJECT VAR : Result
+; // "Проверить доступность кнопки"
+: : "Проверить, активен ли контрол ?"
+ OBJECT IN : aControl
+; // "Проверить, активен ли контрол ?"
+: : "Проверить, что курсор вне ссылки"
+: : "Проверить, что курсор над ссылкой"
+: : "Проверить, что у контрола есть вертикальный скроллер"
+ OBJECT IN : aControl
+; // "Проверить, что у контрола есть вертикальный скроллер"
+: : "Проверить, что у контрола нет вертикального скроллера"
+ OBJECT IN : aControl
+; // "Проверить, что у контрола нет вертикального скроллера"
+"раз повторить"
+: : "раз"
+ INTEGER IN : aCount
+ IN : aProc
+; // "раз"
+"раза повторить"
+: : "раза"
+ INTEGER IN : aCount
+ IN : aProc
+; // "раза"
+: : "Развернуть окно"
+ OBJECT IN : "Окно"
+ CONST : wsMaximized
+; // "Развернуть окно"
+"Разрешить/Запретить авторегистрацию новых пользователей"
+: : "Сбрасываем вкладку БП в умолчательное состояние"
+: : "Сделать с изменением состояния и размеров окна"
+ OBJECT IN : aForm
+ OBJECT IN : aProc
+ VAR : aState
+ VAR : H
+ VAR : L
+ VAR : T
+ VAR : W
+; // "Сделать с изменением состояния и размеров окна"
+: : "Создать группу, выполнить с ней и удалить ее"
+ : : aName
+ OBJECT IN : aProc
+; // "Создать группу, выполнить с ней и удалить ее"
+"Создать нового пользователя"
+"Создать новую группу"
+: : "Создать пользователя, выполнить с ним и удалить его"
+ : : aName
+ OBJECT IN : aProc
+; // "Создать пользователя, выполнить с ним и удалить его"
+: : "Сравнить контекстное меню для контрола для точки с эталоном"
+ OBJECT IN : aControl
+ INTEGER IN : anX
+ INTEGER IN : anY
+ OBJECT VAR : l_Menu
+; // "Сравнить контекстное меню для контрола для точки с эталоном"
+: : "Сравнить контекстное меню для точки с эталоном"
+ INTEGER IN : anX
+ INTEGER IN : anY
+; // "Сравнить контекстное меню для точки с эталоном"
+: : "Сравнить контекстное меню с эталоном"
+: : "Сравнить меню с эталоном расширенно"
+ OBJECT IN : aMenu
+ BOOLEAN IN : anItemName
+ : : DoItem
+ INTEGER VAR : l_Indent
+; // "Сравнить меню с эталоном расширенно"
+: : "Сравнить меню с эталоном"
+ OBJECT IN : aMenu
+; // "Сравнить меню с эталоном"
+: : "Сравнить с эталоном размеры контрола"
+ OBJECT IN : aControl
+; // "Сравнить с эталоном размеры контрола"
+: : "Сравнить с эталоном строковую переменную объекта"
+: : "Сравнить с эталоном численную переменную объекта"
+: : "Сравнить содержимое тулбаров с эталоном полностью"
+: : "Сравнить содержимое тулбаров с эталоном расширенно"
+ : : "Получить содержимое тулбаров"
+ BOOLEAN IN : aCheckEnabled
+ : : Действия
+  OBJECT IN : aObj
+ ; // Действия
+; // "Сравнить содержимое тулбаров с эталоном расширенно"
+: : "Сравнить содержимое тулбаров с эталоном"
+: : "Сравнить текущее исключение с эталоном"
+ VAR : l_ClassName
+ VAR : l_Message
+ VAR : l_Message_out
+; // "Сравнить текущее исключение с эталоном"
+: : "Ставим указатель мыши на конец текущего параграфа редактора со смещением"
+ OBJECT IN : aEditor
+ INTEGER IN : aX
+ INTEGER IN : aY
+ VAR : x
+ VAR : y
+; // "Ставим указатель мыши на конец текущего параграфа редактора со смещением"
+"Стрелка вверх"
+"Стрелка вниз"
+"Строковая переменная объекта"
+"Убедиться, что контрол активен"
+: : "Убедиться, что контрол неактивен"
+BOOLEAN FUNCTION : "Удалить ссылку в дереве"
+ : : "Ищем ноду по контексту"
+  INTEGER VAR : "Предельное количество"
+  IN : aProc
+  VAR : l_CompareOp
+  INTERFACE VAR : l_Node
+  BOOLEAN VAR : Сделано
+ ; // "Ищем ноду по контексту"
+ STRING IN : aContext
+ STRING IN : aControl
+ STRING VAR : l_Name
+ BOOLEAN VAR : Result
+; // "Удалить ссылку в дереве"
+BOOLEAN FUNCTION : "Удалось перевести фокус в ?"
+ STRING IN : aControl
+ BOOLEAN VAR : Result
+ : : Действия
+  OBJECT IN : aObj
+ ; // Действия
+; // "Удалось перевести фокус в ?"
+"Узнать активность элемента меню"
+"Узнать главную форму"
+"Узнать заголовок элемента меню"
+"Узнать имя контрола"
+"Узнать количество элементов меню"
+"Узнать номер позиции фокуса в списке"
+"Узнать численную переменную объекта"
+"Узнать, видим ли элемент меню"
+"Узнать, есть ли у контрола вертикальный скроллер"
+"Узнать, есть ли у контрола горизонтальный скроллер"
+: : "Узнать, существует ли контрол и проверить его доступность"
+ IN : aControl
+; // "Узнать, существует ли контрол и проверить его доступность"
+"Узнать, существует ли объект"
+: : "Уменьшить окно"
+ OBJECT IN : "Окно"
+ CONST : wsNormal
+; // "Уменьшить окно"
+: : "Установить высоту"
+: : "Установить курсор мыши по координатам относительно контрола"
+ OBJECT IN : aControl
+ INTEGER IN : X
+ INTEGER IN : Y
+; // "Установить курсор мыши по координатам относительно контрола"
+: : "Установить курсор мыши по координатам"
+ INTEGER IN : X
+ INTEGER IN : Y
+; // "Установить курсор мыши по координатам"
+: : "Установить окно модуля Администратора на передний план"
+ VAR : l_Handle
+; // "Установить окно модуля Администратора на передний план"
+: : "Установить фокус в модуль Администратора"
+ OBJECT VAR : l_Form
+; // "Установить фокус в модуль Администратора"
+: : "Установить фокус в"
+ OBJECT IN : aControl
+; // "Установить фокус в"
+: : "Установить фокус во вкладку Группы пользователей"
+"Установить фокус"
+: : "Установить ширину"
+"Элемент меню"
+++!
+=-
+=+
+CONST : ANYUSERTYPE
+: : array:HasString
+ [] IN : anArray
+ STRING IN : aString
+ VAR : l_Result
+; // array:HasString
+: : array:StringCount
+ [] IN : anArray
+ STRING IN : aString
+ VAR : l_Result
+; // array:StringCount
+: : ASSUME
+ STRING IN : aStr
+; // ASSUME
+CONST : cBreak
+CONST : CF_RTF
+EnumerateControls
+CONST : fsMDIChild
+CONST : fsMDIForm
+CONST : fsNormal
+CONST : fsStayOnTop
+CONST : LLO_AND
+CONST : LLO_AND_NOT
+CONST : LLO_NONE
+CONST : LLO_OR
+: : OK_DIALOG
+ IN : aProc
+; // OK_DIALOG
+: : OnTest
+: : strings:Cat
+ : : DoCat
+  STRING IN : aStr1
+  STRING IN : aStr2
+ ; // DoCat
+ [] ARRAY : Tmp
+; // strings:Cat
+: : StyleTable:Restore
+: : ToDo
+ STRING IN : aString
+; // ToDo
+TotalEnum
+: : UNASSUME
+ STRING IN : aStr
+; // UNASSUME
+: : VOID
+ VAR : l_Void
+; // VOID
+БОЛЬШЕ
+ДА
+И
+ИЛИ
+МЕНЬШЕ
+НЕ
+НЕРАВНО
+НЕТ
+НЕЯВЛЯЕТСЯ
+: : ОсновноеМеню
+ПОКА
+РАВНО
+раз
+раза
+ЯВЛЯЕТСЯ

@@ -1,0 +1,128 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/UseCaseSettingValue.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CoreTemplates::RequirementsLib::Requirements::UseCaseSettingValue
+//
+// Значение настройки прецедента
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UseCaseSettingValue::Class
+implementation @ <<UseCaseSettingValue>>
+//? Значение настройки прецедента
+//< *::Class,*::Category
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y usecase.gif
+//L usecase
+// Параметры визуализации
+//$ C 152,251,152
+//$ l 60,179,113
+//$ f 60,179,113
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p CodeName:s ? Имя элемента кода
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{CodeName}"!="%S{!CodeName}"}%f_up_prefix(%S) *CodeName* = *%S{CodeName}* - Имя элемента кода
+ %IF ( ( %S get_up ( 'CodeName' ) ) %!= ( %S get_up_def ( 'CodeName' ) ) ) 
+  [%f] up_prefix %( %S )% ' *CodeName* = *'
+  %S get_up ( 'CodeName' ) '* - Имя элемента кода'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4E30271A0247*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4E30271A0247*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4E30271A0247*
+//#UC END# *4705CBD6003Efor4E30271A0247*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4E30271A0247*
+//#UC END# *470484D50138for4E30271A0247*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor4E30271A0247*
+//#UC END# *4E65F581015Afor4E30271A0247*
+; // link_to_requests_hack
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4E30271A0247*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[%f_k_common_elem_docs(%S)
+ %IF-NOT-EMPTY
+  [%f] k_common_elem_docs %( %S )% 
+//	
+
+//	]\
+ %END-IF
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for4E30271A0247*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<UseCaseSettingValue>>
+

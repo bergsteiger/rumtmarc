@@ -1,0 +1,9 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Откуда "ноги растут" -&nbsp;<a href="http://roman.yankovsky.me/?p=1100#comment-4116">http://roman.yankovsky.me/?p=1100#comment-4116</a>&nbsp;и&nbsp;<a href="http://www.stdthread.co.uk/doc/headers/future/future.html">http://www.stdthread.co.uk/doc/headers/future/future.html</a><br />
+<br />
+Вот это две конструкции кстати КРАЙНЕ интересны:<br />
+<br />
+<pre class="brush:delphi">future&amp; operator=(future&amp;&amp;);
+future&amp; operator=(future const&amp;) = delete;
+</pre>
+</div>

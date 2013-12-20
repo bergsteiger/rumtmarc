@@ -1,0 +1,86 @@
+WORDWORKER » BOOLEAN IN aFirst
+ // ƒвусторонний, а не обратный польский &&
+ aFirst IF
+  WordToWork DO IF
+   true
+  ELSE
+   false
+  ENDIF 
+ ELSE
+  false 
+ ENDIF 
+ //WordToWork DO &&
+; // %&&
+
+WORDWORKER »Ћ» BOOLEAN IN aFirst
+ // ƒвусторонний, а не обратный польский ||
+ aFirst IF
+  true
+ ELSE 
+  WordToWork DO IF
+   true
+  ELSE
+   false
+  ENDIF  
+ ENDIF 
+ //WordToWork DO ||
+; // %||
+
+WORDWORKER Ќ≈
+ // ѕравосторонний, а не обратный польский !
+ WordToWork DO !
+; // %!
+
+WORDWORKER –ј¬Ќќ
+ // ѕравосторонний, а не обратный польский ==
+ WordToWork DO ?==
+; //%==
+
+WORDWORKER Ќ≈–ј¬Ќќ
+ // ѕравосторонний, а не обратный польский !=
+ WordToWork DO ?!=
+; //%!=
+
+WordAlias "Ќ≈ –ј¬Ќќ" Ќ≈–ј¬Ќќ
+
+WORDWORKER ЅќЋ№Ў≈
+ WordToWork DO >
+;
+
+WORDWORKER ћ≈Ќ№Ў≈
+ WordToWork DO <
+;
+
+WORDWORKER "ЅќЋ№Ў≈ »Ћ» –ј¬Ќќ"
+ WordToWork DO < !
+;
+
+WORDWORKER "ћ≈Ќ№Ў≈ »Ћ» –ј¬Ќќ"
+ WordToWork DO > !
+;
+
+WORDWORKER я¬Ћя≈“—я OBJECT IN anObj
+ WordToWork DO anObj pop:object:Inherits
+;
+
+WORDWORKER Ќ≈я¬Ћя≈“—я OBJECT IN anObj
+ WordToWork DO anObj pop:object:Inherits !
+;
+
+WordAlias "Ќ≈ я¬Ћя≈“—я" Ќ≈я¬Ћя≈“—я
+
+WORDWORKER =+ INTEGER IN anInc
+ WordToWork DO anInc + =:^ WordToWork
+;
+
+WORDWORKER =- INTEGER IN anInc
+ WordToWork DO anInc - =:^ WordToWork
+;
+
+WORDWORKER2 ѕќ ј
+ @ ( WordToWork1 DO ) WHILE ( WordToWork2 DO )
+;
+
+WordAlias ƒј true
+
+WordAlias Ќ≈“ false

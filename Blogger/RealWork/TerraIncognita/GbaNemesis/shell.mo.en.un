@@ -1,0 +1,90 @@
+{control\NewBaseSearchForm\ContextEdit\Emptyhint}
+Введите Ваш запрос
+#
+
+#
+{message\HyperlinkToDocumentProducerLinkMade\Caption}
+Сформирована ссылка на документ для внешнего приложения. Перейдите в программу, в которую Вы хотите ее добавить (документ MS-Word или электронное письмо MS-Outlook), и вставьте ссылку из буфера обмена (команда 'Вставить' или CTRL+V)
+#
+Link to be added to external application created successfully. To insert the link, please switch over to the program (MS-Word document or MS-Outlook letter) and paste the link using command "Insert" or the key combination "CTRL + V".
+#
+{message\HyperlinkToDocumentProducerLinkMade\Settingscaption}
+Сформирована ссылка на документ для внешнего приложения. Перейдите в программу, в которую Вы хотите ее добавить (документ MS-Word или электронное письмо MS-Outlook), и вставьте ссылку из буфера обмена (команда 'Вставить' или CTRL+V)
+#
+Link to be added to external application created successfully. To insert the link, please switch over to the program (MS-Word document or MS-Outlook letter) and paste the link using command "Insert" or the key combination "CTRL + V".
+#
+{operation\enDocument\opMakeHyperlinkToDocument\Caption}
+Создать ссылку на документ
+#
+Create link to the current document
+#
+{operation\enFile\opMakeHyperlinkToDocument\Caption}
+Создать ссылку на документ
+#
+Create link to the current document
+#
+{operation\enFilter\opCreateFilter\Caption}
+Добавить фильтр из сохраненных запросов
+#
+
+#
+{operation\enSavedQuery\opCreateFilter\Caption}
+Добавить фильтр из сохраненных запросов
+#
+
+#
+{operation\enText\opMakeHyperlinkToDocument\Caption}
+Создать ссылку на документ
+#
+Create link to the current document
+#
+{string\asDocument\Caption}
+В документе
+#
+
+#
+{string\asEverywhere\Caption}
+Везде
+#
+
+#
+{string\asListDocuments\Caption}
+Список: в документах
+#
+
+#
+{string\asListNames\Caption}
+Список: в названиях
+#
+
+#
+{string\CreateFilter\Caption}
+Создать фильтр...
+#
+Create filter...
+#
+{string\etExample\Caption}
+Пример:
+#
+
+#
+{string\etFoundCount\Caption}
+Всего найдено
+#
+
+#
+{string\HyperlinkToDocumentProducerAppInfo\Caption}
+, (ссылка на систему ГАРАНТ)
+#
+
+#
+{string\nevmmPageCounterNew\Caption}
+Объем распечатки в листах: %d
+#
+
+#
+{string\pi_List_ExportWORestrictions\Caption}
+Экспортировать списки полностью
+#
+
+#

@@ -1,0 +1,13 @@
+edWriteToUs : TnscSimpleEditorForDialogs
+pnWriteToUs : TvtPanel
+pnRightForScroll : TvtPanel
+pnRightEx : TvtPanel
+pnBack : TvtProportionalPanel
+AACContainerForm : TAACContainerForm
+ParentZone : TvtPanel
+ParentForm : TParentForm
+ParentZonePanel : TvtPanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow

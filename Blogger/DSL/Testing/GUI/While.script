@@ -1,0 +1,5 @@
+: WhileTest
+ 10 @ ( ?DUP !=0 ) WHILE ( DUP . -- )
+;
+
+WhileTest 

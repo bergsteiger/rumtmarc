@@ -1,0 +1,50 @@
+USES
+ Controls.script
+ HLTCLike.script
+ DocumentNumbers.script
+;
+
+: K281532686
+
+ : "Дёрнуть редактор"
+  "Убедиться, что фокус в редакторе"
+  151 60 focused:control:push pop:editor:UpdateCursorFromHotSpotEx
+ ;
+ 
+ "Открываем {(НК)}"
+ ППР
+ TRY
+  10 LOOP "Увеличить шрифт"
+  StyleTable:Changing
+  TRY
+   OnTest
+   StyleTable:Changing
+   TRY
+    OnTest
+    StyleTable:Changing
+    TRY
+     OnTest
+    FINALLY
+     StyleTable:Changed
+    END
+   FINALLY
+    StyleTable:Changed
+   END
+   "Дёрнуть редактор"
+   OnTest
+  FINALLY
+   StyleTable:Changed
+  END
+  OnTest
+  "Дёрнуть редактор"
+  OnTest
+  "Дёрнуть редактор"
+  //"Редактор стилей"
+ FINALLY
+  //Config:Restore
+  StyleTable:Restore
+ END
+ OnTest
+;
+
+K281532686

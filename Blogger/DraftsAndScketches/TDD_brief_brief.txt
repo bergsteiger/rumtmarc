@@ -1,0 +1,14 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+"Предыдущая серия" была тут -&nbsp;<a href="http://programmingmindstream.blogspot.ru/2013/12/tdd.html">http://programmingmindstream.blogspot.ru/2013/12/tdd.html</a><br />
+<br />
+Что ещё хочется добавить?<br />
+<br />
+Пока вы не начали использовать DUnit (или что-то подобное), то "думать" о чём-то другом - бессмысленно.<br />
+<br />
+Надо "брать и делать".<br />
+<br />
+Может быть вы конечно используете TestComplete? Если - ДА. То это уже "разговор в другой плоскости".<br />
+<br />
+Кстати - РЕАЛЬНО ХОРОШИЕ статьи про TDD (не мои) вот тут -&nbsp;<a href="http://18delphi.blogspot.ru/search/label/TDD">http://18delphi.blogspot.ru/search/label/TDD</a><br />
+<br />
+Их - СТОИТ читать.</div>

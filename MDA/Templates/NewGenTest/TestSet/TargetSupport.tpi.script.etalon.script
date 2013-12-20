@@ -1,0 +1,1542 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/TargetSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::TargetSupport
+//
+// вспомогательный функция для генерации целей сборки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерит определения фабрик для рутового интерфейса DLL
+// язык - pas
+//f _spec_root_factory_method
+: spec_root_factory_method OBJECT IN %S
+//#UC START# *4715BACB01F4*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}		procedure %f_to_borland(%CN)%f_to_borland(%SN) (
+ %IF ( ( %S |M ) %== 'Interface::Class' %&& 
+   ( ( %S |a ) %!= 'abstract'  ) ) 
+  %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+   ( 'Sn' ) 
+   '		procedure '
+   [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% ' ('
+//				[%f_inc_operation_params(%C);
+   '			'
+   %IF-NOT-EMPTY
+    [%f] inc_operation_params %( %C )% ';'
+//				][{"%CS"="multi factory"&%C{transparent multy}=false}const aKey: PChar;
+    '			' 
+   %END-IF
+   %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    'const aKey: PChar;'
+//				]%t_arg(%S,"out")
+    '			' 
+   %END-IF
+   [%t] arg %( %S %, 'out' )% 
+//			); stdcall; overload;
+   '		); stdcall; overload;'
+//	
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}		procedure %f_to_borland(%CN)%f_to_borland(%{INT}N) (
+  %END-FOR
+  [%f] set_var %( 'INT' %, 'S' )% 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   ( 'Sn' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+    ( 'Sn' ) 
+    '		procedure '
+    [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+//				[%f_inc_operation_params(%C);
+    '			'
+    %IF-NOT-EMPTY
+     [%f] inc_operation_params %( %C )% ';'
+//				][{"%CS"="multi factory"&%C{transparent multy}=false}const aKey: PChar;
+     '			' 
+    %END-IF
+    %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     'const aKey: PChar;'
+//				]%t_arg(%{INT},"out")
+     '			' 
+    %END-IF
+    [%t] arg %( ( get_global_var ( 'INT' ) ) %, 'out' )% 
+//			); stdcall; overload;
+    '		); stdcall; overload;'
+//	
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}		procedure Make%f_to_borland(%SN) (%t_arg(%S,"out")); stdcall;
+   %END-FOR
+   %END-FOR
+ %END-IF
+ %IF ( ( [%t] is_container %( %S )% ) %==  true %&& 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %P %?f IsInterfaces %( )% ) %==  true ) 
+   ( %P |C ) 
+  %END-FOR
+  %!= 0  ) ) 
+  '		procedure Make'
+  [%f] to_borland %( %S |N )% ' ('
+  [%t] arg %( %S %, 'out' )% '); stdcall;'
+//	
+
+//	]
+ %END-IF
+//#UC END# *4715BACB01F4*
+; // spec_root_factory_method
+
+
+// генерит определения фабрик доступных в DLL
+// язык - pas
+//f _spec_dll_factory_method
+: spec_dll_factory_method OBJECT IN %S
+//#UC START# *4715BAD9003E*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}		function %f_to_borland(%CN)%f_to_borland(%SN) ([
+ %IF ( ( %S |M ) %== 'Interface::Class' %&& 
+   ( ( %S |a ) %!= 'abstract'  ) ) 
+  %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+   ( 'Sn' ) 
+   '		function '
+   [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% ' ('
+   %IF-NOT-EMPTY
+
+//				%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+    '			'
+    [%f] inc_operation_params %( %C )% 
+   %END-IF
+   %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    %IF ( ( %C ->C |x  ) %== true ) 
+     ';' 
+    %END-IF
+//				const aKey: PChar]
+    '			const aKey: PChar' 
+   %END-IF
+//			) : %f_type(%S); overload;
+   '		) : '
+   [%f] type %( %S )% '; overload;'
+//	
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}		function %f_to_borland(%CN)%f_to_borland(%{INT}N) ([
+  %END-FOR
+  [%f] set_var %( 'INT' %, 'S' )% 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   ( 'Sn' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+    ( 'Sn' ) 
+    '		function '
+    [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+    %IF-NOT-EMPTY
+
+//				%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+     '			'
+     [%f] inc_operation_params %( %C )% 
+    %END-IF
+    %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     %IF ( ( %C ->C |x  ) %== true ) 
+      ';' 
+     %END-IF
+//				const aKey: PChar]
+     '			const aKey: PChar' 
+    %END-IF
+//			) : %f_type(%{INT}); overload;
+    '		) : '
+    [%f] type %( ( get_global_var ( 'INT' ) ) )% '; overload;'
+//	
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}		function Make%f_to_borland(%SN) () : %f_type(%S);
+   %END-FOR
+   %END-FOR
+ %END-IF
+ %IF ( ( [%t] is_container %( %S )% ) %==  true %&& 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %P %?f IsInterfaces %( )% ) %==  true ) 
+   ( %P |C ) 
+  %END-FOR
+  %!= 0  ) ) 
+  '		function Make'
+  [%f] to_borland %( %S |N )% ' () : '
+  [%f] type %( %S )% ';'
+//	
+
+//	]
+ %END-IF
+//#UC END# *4715BAD9003E*
+; // spec_dll_factory_method
+
+
+// генерит реализацию фабричных методов доступных из DLL
+// язык - pas
+//f _spec_dll_factory_method_impl
+: spec_dll_factory_method_impl OBJECT IN %S
+//#UC START# *4715BAE002FD*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}	function T%{DLL}NDll.%f_to_borland(%CN)%f_to_borland(%SN) ([
+ %IF ( ( %S |M ) %== 'Interface::Class' %&& 
+   ( ( %S |a ) %!= 'abstract'  ) ) 
+  %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+   '	function T'
+   ( get_global_var ( 'DLL' ) |N ) 'Dll.'
+   [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% ' ('
+   %IF-NOT-EMPTY
+
+//			%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+    '		'
+    [%f] inc_operation_params %( %C )% 
+   %END-IF
+   %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    %IF ( ( %C ->C |x  ) %== true ) 
+     ';' 
+    %END-IF
+//			const aKey: PChar]
+    '		const aKey: PChar' 
+   %END-IF
+//		) : %f_type(%S);
+   '	) : '
+   [%f] type %( %S )% ';'
+//		var
+   '	var'
+//			aRes: %f_type(%S);
+   '		aRes: '
+   [%f] type %( %S )% ';'
+//		begin
+   '	begin'
+//			GetRoot().%f_to_borland(%CN)%f_to_borland(%SN)(%C<a%f_to_borland(%CN), >[{"%CS"="multi factory"&%C{transparent multy}=false}aKey, ]aRes);
+   '		GetRoot().'
+   [%f] to_borland %( %C |N )% [%f] to_borland %( %S |N )% '('
+   %C
+   %FOR 'a'
+    [%f] to_borland %( %C |N )% ', ' 
+   %END-FOR
+    %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    'aKey, ' 
+   %END-IF
+   'aRes);'
+//			Result := aRes;
+   '		Result := aRes;'
+//		end;
+   '	end;'
+//	
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}%g<{}{"%f_need_to_export(%C)"="true"}	function T%{DLL}NDll.%f_to_borland(%CN)%f_to_borland(%{INT}N) ([
+  %END-FOR
+  [%f] set_var %( 'INT' %, 'S' )% 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+    '	function T'
+    ( get_global_var ( 'DLL' ) |N ) 'Dll.'
+    [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+    %IF-NOT-EMPTY
+
+//			%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+     '		'
+     [%f] inc_operation_params %( %C )% 
+    %END-IF
+    %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     %IF ( ( %C ->C |x  ) %== true ) 
+      ';' 
+     %END-IF
+//			const aKey: PChar]
+     '		const aKey: PChar' 
+    %END-IF
+//		) : %f_type(%{INT});
+    '	) : '
+    [%f] type %( ( get_global_var ( 'INT' ) ) )% ';'
+//		var
+    '	var'
+//			aRes: %f_type(%{INT});
+    '		aRes: '
+    [%f] type %( ( get_global_var ( 'INT' ) ) )% ';'
+//		begin
+    '	begin'
+//			GetRoot().%f_to_borland(%CN)%f_to_borland(%{INT}N)(%C<a%f_to_borland(%CN), >[{"%CS"="multi factory"&%C{transparent multy}=false}aKey, ]aRes);
+    '		GetRoot().'
+    [%f] to_borland %( %C |N )% [%f] to_borland %( ( get_global_var ( 'INT' ) |N ) )% '('
+    %C
+    %FOR 'a'
+     [%f] to_borland %( %C |N )% ', ' 
+    %END-FOR
+     %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     'aKey, ' 
+    %END-IF
+    'aRes);'
+//			Result := aRes;
+    '		Result := aRes;'
+//		end;
+    '	end;'
+//	
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}	function T%{DLL}NDll.Make%f_to_borland(%SN) () : %f_type(%S);
+   %END-FOR
+   %END-FOR
+ %END-IF
+ %IF ( ( [%t] is_container %( %S )% ) %==  true %&& 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %P %?f IsInterfaces %( )% ) %==  true ) 
+   ( %P |C ) 
+  %END-FOR
+  %!= 0  ) ) 
+  '	function T'
+  ( get_global_var ( 'DLL' ) |N ) 'Dll.Make'
+  [%f] to_borland %( %S |N )% ' () : '
+  [%f] type %( %S )% ';'
+//		var
+  '	var'
+//			aRes: %f_type(%S);
+  '		aRes: '
+  [%f] type %( %S )% ';'
+//		begin
+  '	begin'
+//			GetRoot().Make%f_to_borland(%SN)(aRes);
+  '		GetRoot().Make'
+  [%f] to_borland %( %S |N )% '(aRes);'
+//			Result := aRes;
+  '		Result := aRes;'
+//		end;
+  '	end;'
+//	
+
+//	]
+ %END-IF
+//#UC END# *4715BAE002FD*
+; // spec_dll_factory_method_impl
+
+
+// перечисление параметров операций
+//f _inc_operation_params
+: inc_operation_params OBJECT IN %S
+//#UC START# *4715BAE90186*
+//	<{;\n\t\t\t}%f_arg_full_decl(%C)>
+ %FOR %ITEM-SEPARATOR ';'#13#10#9#9#9 ; // %ITEM-SEPARATOR 
+  [%f] arg_full_decl %( %C )% 
+ %END-FOR
+//#UC END# *4715BAE90186*
+; // inc_operation_params
+
+
+// генерация фабричных методов для TIE-обёртки
+//f _spec_tie_factory_method
+: spec_tie_factory_method OBJECT IN %S
+//#UC START# *4715BAF003C8*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}	virtual void _stdcall %CN_%f_to_omg(%SN)_%CU ([{}{\n\t\t}%f_dll_cpp_params_h(%C)	, ][{"%CS"="multi factory"&%C{transparent multy}=false}const char* key\n\t\t, ]%f_type(%S)*& ret_
+ %IF ( ( %S |M ) %== 'Interface::Class' %&& 
+   ( ( %S |a ) %!= 'abstract'  ) ) 
+  %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+   ( 'Sn' ) 
+   '	virtual void _stdcall '
+   %C |N '_'
+   [%f] to_omg %( %S |N )% '_'
+   %C |U ' ('
+   %IF ( ) 
+    %ELSE
+     #13#10#9#9 
+    %THEN
+    [%f] dll_cpp_params_h %( %C )% '	, ' 
+   %END-IF
+   %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    'const char* key'#13#10#9#9', ' 
+   %END-IF
+   [%f] type %( %S )% '*& ret_'
+//		) {
+   '	) {'
+//			_DLL_TRY
+   '		_DLL_TRY'
+//		%C<{}{"%f_need_tie(%C%T)"="true"}	%f_cpp_ret_holder(%C) %CN_ = 0;
+   '	'
+   %C
+   %FOR %ITEM-CONDITION ( ( [%f] need_tie %( %C ->T  )% ) %== true ) 
+    '	'
+    [%f] cpp_ret_holder %( %C )% ' '
+    %C |N '_ = 0;'
+//			%f_type_tie(%C%T)::make_cpp(%CN, %CN_);
+    '		'
+    [%f] type_tie %( %C ->T  )% '::make_cpp('
+    %C |N ', '
+    %C |N '_);'
+//		>	%f_type_tie(%S)::make_tie ([{%Cs=cached|%Cs=const,cached}&]%f_with_gen_id(h,%f_type(%S))Factory::%CN(%C<{, }%CN[{%f_need_tie(%C%T)=true}_]>[{"%f_need_tie(%C%T)"="true"}_][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]), ret_[{%Cs=cached|%Cs=const,cached}, true /*addref*/]);
+    '	' 
+   %END-FOR
+    '	'
+   [%f] type_tie %( %S )% '::make_tie ('
+   %IF ( ( %C |s ) %== 'cached' %|| 
+     ( ( %C |s ) %== 'const,cached'  ) ) 
+    '&' 
+   %END-IF
+   [%f] with_gen_id %( 'h' %, [%f] type %( %S )% )% 'Factory::'
+   %C |N '('
+   %C
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    %C |N %IF ( ( [%f] need_tie %( %C ->T  )% ) %==  true ) 
+     '_' 
+    %END-IF
+   %END-FOR
+    %IF ( ( [%f] need_tie %( %C ->T  )% ) %== true ) 
+    '_' 
+   %END-IF
+   %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    %IF ( ( %C ->C |x  ) %== true ) 
+     ', ' 
+    %END-IF
+    'key' 
+   %END-IF
+   '), ret_'
+   %IF ( ( %C |s ) %== 'cached' %|| 
+     ( ( %C |s ) %== 'const,cached'  ) ) 
+    ', true /*addref*/' 
+   %END-IF
+   ');'
+//			_DLL_CATCH
+   '		_DLL_CATCH'
+//		}
+   '	}'
+//	
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}	virtual void _stdcall %CN_%f_to_omg(%{INT}N)_%CU ([{}{\n\t\t}%f_dll_cpp_params_h(%C)	, ][{"%CS"="multi factory"&%C{transparent multy}=false}const char* key\n\t\t, ]%f_type(%{INT})*& ret_
+  %END-FOR
+  [%f] set_var %( 'INT' %, 'S' )% 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   ( 'Sn' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+    ( 'Sn' ) 
+    '	virtual void _stdcall '
+    %C |N '_'
+    [%f] to_omg %( ( get_global_var ( 'INT' ) |N ) )% '_'
+    %C |U ' ('
+    %IF ( ) 
+     %ELSE
+      #13#10#9#9 
+     %THEN
+     [%f] dll_cpp_params_h %( %C )% '	, ' 
+    %END-IF
+    %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     'const char* key'#13#10#9#9', ' 
+    %END-IF
+    [%f] type %( ( get_global_var ( 'INT' ) ) )% '*& ret_'
+//		) {
+    '	) {'
+//			_DLL_TRY
+    '		_DLL_TRY'
+//		%C<{}{"%f_need_tie(%C%T)"="true"}	%f_cpp_ret_holder(%C) %CN_ = 0;
+    '	'
+    %C
+    %FOR %ITEM-CONDITION ( ( [%f] need_tie %( %C ->T  )% ) %== true ) 
+     '	'
+     [%f] cpp_ret_holder %( %C )% ' '
+     %C |N '_ = 0;'
+//			%f_type_tie(%C%T)::make_cpp(%CN, %CN_);
+     '		'
+     [%f] type_tie %( %C ->T  )% '::make_cpp('
+     %C |N ', '
+     %C |N '_);'
+//		>	%f_type_tie(%{INT})::make_tie ([{%Cs=cached|%Cs=const,cached}&]%f_with_gen_id(h,%f_type(%{INT}))Factory::%CN(%C<{, }%CN[{"%f_need_tie(%C%T)"="true"}_]>[{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]), ret_[{%Cs=cached|%Cs=const,cached}, true /*addref*/]);
+     '	' 
+    %END-FOR
+     '	'
+    [%f] type_tie %( ( get_global_var ( 'INT' ) ) )% '::make_tie ('
+    %IF ( ( %C |s ) %== 'cached' %|| 
+      ( ( %C |s ) %== 'const,cached'  ) ) 
+     '&' 
+    %END-IF
+    [%f] with_gen_id %( 'h' %, [%f] type %( ( get_global_var ( 'INT' ) ) )% )% 'Factory::'
+    %C |N '('
+    %C
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %C |N %IF ( ( [%f] need_tie %( %C ->T  )% ) %== true ) 
+      '_' 
+     %END-IF
+    %END-FOR
+     %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     %IF ( ( %C ->C |x  ) %== true ) 
+      ', ' 
+     %END-IF
+     'key' 
+    %END-IF
+    '), ret_'
+    %IF ( ( %C |s ) %== 'cached' %|| 
+      ( ( %C |s ) %== 'const,cached'  ) ) 
+     ', true /*addref*/' 
+    %END-IF
+    ');'
+//			_DLL_CATCH
+    '		_DLL_CATCH'
+//		}
+    '	}'
+//	
+
+//	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}	virtual void _stdcall make_%f_to_omg(%SN)_%SU (%f_type(%S)*& ret_) {
+   %END-FOR
+   %END-FOR
+ %END-IF
+ %IF ( ( [%t] is_container %( %S )% ) %==  true %&& 
+   ( ( [%t] tied_elem %( %S )% ) %==  true  ) %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %P %?f IsInterfaces %( )% ) %==  true ) 
+   ( %P |C ) 
+  %END-FOR
+  %!= 0  ) ) 
+  '	virtual void _stdcall make_'
+  [%f] to_omg %( %S |N )% '_'
+  %S |U ' ('
+  [%f] type %( %S )% '*& ret_) {'
+//			_DLL_TRY
+  '		_DLL_TRY'
+//			%f_type_tie(%S)::new_tie (new %f_with_gen_id(h,%f_type(%S)) (), ret_);
+  '		'
+  [%f] type_tie %( %S )% '::new_tie (new '
+  [%f] with_gen_id %( 'h' %, [%f] type %( %S )% )% ' (), ret_);'
+//			_DLL_CATCH
+  '		_DLL_CATCH'
+//		}
+  '	}'
+//	
+
+//	]
+ %END-IF
+//#UC END# *4715BAF003C8*
+; // spec_tie_factory_method
+
+
+// генерация фабричных методов доступных из библиотеки
+// язык - c++
+//f _spec_factory_method
+: spec_factory_method OBJECT IN %S
+//#UC START# *4715BAF802BF*
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}	virtual %f_with_gen_id(h,%t_ret(%S,"%Cs")) %CN_%f_to_omg(%SN) (%f_dll_cpp_params_h(%C)[{"%CS"="multi factory"&%C{transparent multy}=false}[{%C%Cx=true}	, ]const char* key[{%C%Cx=true}\t\t]]
+ %IF ( ( %S |M ) %== 'Interface::Class' %&& 
+   ( ( %S |a ) %!= 'abstract'  ) ) 
+  %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+   '	virtual '
+   [%f] with_gen_id %( 'h' %, [%t] ret %( %S %, %C |s )% )% ' '
+   %C |N '_'
+   [%f] to_omg %( %S |N )% ' ('
+   [%f] dll_cpp_params_h %( %C )% %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    %IF ( ( %C ->C |x  ) %==  true ) 
+     '	, ' 
+    %END-IF
+    'const char* key'
+    %IF ( ( %C ->C |x  ) %==  true ) 
+     #9#9 
+    %END-IF
+   %END-IF
+//		) {
+   '	) {'
+//			return %f_with_gen_id(h,%f_type(%S))Factory::%CN(%C<{, }%CN>[{"%f_need_tie(%C%T)"="true"}_][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]);
+   '		return '
+   [%f] with_gen_id %( 'h' %, [%f] type %( %S )% )% 'Factory::'
+   %C |N '('
+   %C
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    %C |N 
+   %END-FOR
+    %IF ( ( [%f] need_tie %( %C ->T  )% ) %== true ) 
+    '_' 
+   %END-IF
+   %IF ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+    %IF ( ( %C ->C |x  ) %== true ) 
+     ', ' 
+    %END-IF
+    'key' 
+   %END-IF
+   ');'
+//		}
+   '	}'
+//	
+
+//	>%f_set_var(INT,S)<{}{"%ga"="abstract"}%g<{}{"%f_need_to_export(%C)"="true"}	virtual %f_with_gen_id(h,%t_ret(%{INT},"%Cs")) %CN_%f_to_omg(%{INT}N) (%f_dll_cpp_params_h(%C)[{"%CS"="multi factory"&%C{transparent multy}=false}[{%C%Cx=true}	, ]const char* key[{%C%Cx=true}\t\t]]
+  %END-FOR
+  [%f] set_var %( 'INT' %, 'S' )% 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %== true ) 
+    '	virtual '
+    [%f] with_gen_id %( 'h' %, [%t] ret %( ( get_global_var ( 'INT' ) ) %, %C |s )% )% ' '
+    %C |N '_'
+    [%f] to_omg %( ( get_global_var ( 'INT' ) |N ) )% ' ('
+    [%f] dll_cpp_params_h %( %C )% %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     %IF ( ( %C ->C |x  ) %==  true ) 
+      '	, ' 
+     %END-IF
+     'const char* key'
+     %IF ( ( %C ->C |x  ) %==  true ) 
+      #9#9 
+     %END-IF
+    %END-IF
+//		) {
+    '	) {'
+//			return %f_with_gen_id(h,%f_type(%{INT}))Factory::%CN(%C<{, }%CN[{"%f_need_tie(%C%T)"="true"}_]>[{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]);
+    '		return '
+    [%f] with_gen_id %( 'h' %, [%f] type %( ( get_global_var ( 'INT' ) ) )% )% 'Factory::'
+    %C |N '('
+    %C
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %C |N %IF ( ( [%f] need_tie %( %C ->T  )% ) %== true ) 
+      '_' 
+     %END-IF
+    %END-FOR
+     %IF ( ( %C |S ) %== 'multi factory' %&& 
+      ( ( %C get_up ( 'transparent multy' ) ) %==  false  ) ) 
+     %IF ( ( %C ->C |x  ) %== true ) 
+      ', ' 
+     %END-IF
+     'key' 
+    %END-IF
+    ');'
+//		}
+    '	}'
+//	
+
+//	>>]
+   %END-FOR
+   %END-FOR
+ %END-IF
+//#UC END# *4715BAF802BF*
+; // spec_factory_method
+
+
+// определяет можно ли экспортить фабрику из DLL
+// возвращает true ли false
+//f _need_to_export
+: need_to_export OBJECT IN %S
+//#UC START# *4715BAFF031C*
+//	[{"%f_is_factory(%S)"="true"&"%SV"="PublicAccess"&"%S{dll export}"="true"}{false}true]
+ %IF ( ( [%f] is_factory %( %S )% ) %== true %&& 
+   ( ( %S |V ) %== 'PublicAccess'  ) %&& 
+   ( ( %S get_up ( 'dll export' ) ) %== true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+
+//f _interface_need_export
+; // need_to_export
+
+: interface_need_export OBJECT IN %S
+//	[{"%SM"="Interface::Class"&"%Sa"!="abstract"&%f_has_exported_child(%S)=true}{false}true]
+ %IF ( ( %S |M ) %== 'Interface::Class' %&& 
+   ( ( %S |a ) %!= 'abstract'  ) %&& 
+   ( ( [%f] has_exported_child %( %S )% ) %==  true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+
+//f _has_exported_child
+; // interface_need_export
+
+: has_exported_child OBJECT IN %S
+//	[{<{}{%f_need_to_export(%C)=true}{C}>!=0|<{}{%ga=abstract&%g<{}{%f_need_to_export(%C)=true}{C}>!=0}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' %&& 
+    ( ( %g
+   %FOR %ITEM-CONDITION ( ( [%f] need_to_export %( %C )% ) %==  true ) 
+    ( 'C' ) 
+   %END-FOR
+ )    %!= 0  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4715BAFF031C*
+; // has_exported_child
+
+
+// определяет содержит ли элемент или его дети (рекурсивно) или пакеты, от которых он завсит
+// исключения
+// возвращает true или false
+//f _has_exception
+: has_exception OBJECT IN %S
+//#UC START# *4715BB0B0203*
+//	[{"<{}{"%AM"="Exception::Class"}{C}>"="0"&"<{}{"%d<{}{"%AM"="Exception::Class"}{%AC}>"!="0"}{%dC}>>"="0"}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Exception::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0 %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %d
+   %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Exception::Class' ) 
+    ( %A |C ) 
+   %END-FOR
+ )    %!= 0 ) 
+   ( %d |C ) 
+  %END-FOR
+ )   '>' %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *4715BB0B0203*
+; // has_exception
+
+
+// проверяет, что COM-таргет не зависит от пакетов, содержащих больше одного пакета COM-интерфейсов
+// (ComInterfaces::Category)
+//f _com_constraint
+: com_constraint OBJECT IN %S
+//#UC START# *4715C7FC0222*
+//	%f_set_var(COM_INTERFACE_COUNT,"%f_count_com_interface(%S)")[{"%{COM_INTERFACE_COUNT}N"=""|"%{COM_INTERFACE_COUNT}N"="."}{false}true]
+ [%f] set_var %( 'COM_INTERFACE_COUNT' %, [%f] count_com_interface %( %S )% )% %IF ( ( ( get_global_var ( 'COM_INTERFACE_COUNT' ) |N ) ) %== '' %|| 
+   ( ( ( get_global_var ( 'COM_INTERFACE_COUNT' ) |N ) ) %== '.'  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4715C7FC0222*
+; // com_constraint
+
+
+// возвращает пустую строчку, если не найдено ни одного COM- интерфейса в элементых, от которых
+// зависит цель, в противном случае возвращает не пустую строчку
+//f _count_com_interface
+: count_com_interface OBJECT IN %S
+//#UC START# *4715C8090203*
+//	[<{}{%de=false}{%d}%d<{}{%AM=ComInterfaces::Category}.>>]
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %d |e ) %==  false ) 
+   ( %d ) 
+   %d
+   %FOR %ITEM-CONDITION ( ( %A |M ) %== 'ComInterfaces::Category' ) 
+    '.' 
+   %END-FOR
+   %END-FOR
+ %END-IF
+//#UC END# *4715C8090203*
+; // count_com_interface
+
+
+// возвращает true, если используется memory пул, иначе false
+//f _use_mem_pool
+: use_mem_pool OBJECT IN %S
+//#UC START# *4718989C01C5*
+//	[{"<{}{"%A{Servant Pool}"="mem"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_mem_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A get_up ( 'Servant Pool' ) ) %== 'mem' ) 
+   ( %A |C ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %D |M ) %== 'Library::Category' %&& 
+      ( ( [%f] use_mem_pool %( %D )% ) %== true  ) ) 
+     ( %D |C ) 
+    %END-FOR
+    %!= 0 ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4718989C01C5*
+; // use_mem_pool
+
+
+// возвращает true, если используется пул объектов, иначе false
+//f _use_obj_pool
+: use_obj_pool OBJECT IN %S
+//#UC START# *471898A4001F*
+//	[{"<{}{"%A{Servant Pool}"="obj"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_obj_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A get_up ( 'Servant Pool' ) ) %== 'obj' ) 
+   ( %A |C ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %D |M ) %== 'Library::Category' %&& 
+      ( ( [%f] use_obj_pool %( %D )% ) %== true  ) ) 
+     ( %D |C ) 
+    %END-FOR
+    %!= 0 ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %THEN
+   true 
+ %END-IF
+//#UC END# *471898A4001F*
+; // use_obj_pool
+
+
+// генерация зависимостей для компиляции idl
+//f _dump_dep_for_idlcomp
+: dump_dep_for_idlcomp OBJECT IN %S
+//#UC START# *475789C20359*
+//	<{\n}{%de=false&%dS=ServerLibrary&%d<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="idlcomp" inheritAll="false"/\>>
+ %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %d |e ) %==  false %&& 
+   ( ( %d |S ) %== 'ServerLibrary'  ) %&& 
+   ( ( %d
+  %FOR %ITEM-CONDITION ( ( [%f] need_mpc_idl %( %C )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0  ) ) 
+  '		<ant antfile="'
+  [%f] str_replace %( %d |o %, %d |R %, '${env.JAVA_SOURCE_ROOT}' )% ' target="idlcomp" inheritAll=false />' 
+ %END-FOR
+
+//f _dump_dep_for_gcomp
+; // dump_dep_for_idlcomp
+
+: dump_dep_for_gcomp OBJECT IN %S
+//	<{\n}{%d<{}{%AM=Grammar::Class}{C}>!=0}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="gcomp" inheritAll="false"/\>>
+ %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %d
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Grammar::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0 ) 
+  '		<ant antfile="'
+  [%f] str_replace %( %d |o %, %d |R %, '${env.JAVA_SOURCE_ROOT}' )% ' target="gcomp" inheritAll=false />' 
+ %END-FOR
+//#UC END# *475789C20359*
+; // dump_dep_for_gcomp
+
+
+// генерит зависимости для сборки jar'ов
+//f _dump_dep_for_makejar
+: dump_dep_for_makejar OBJECT IN %S
+//#UC START# *475789CC0108*
+//	<{\n}{%de=false&%dS!=Requirements&%dS!=KCustomize}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="makejar" inheritAll="false"/\>>
+ %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %d |e ) %==  false %&& 
+   ( ( %d |S ) %!= 'Requirements'  ) %&& 
+   ( ( %d |S ) %!= 'KCustomize'  ) ) 
+  '		<ant antfile="'
+  [%f] str_replace %( %d |o %, %d |R %, '${env.JAVA_SOURCE_ROOT}' )% ' target="makejar" inheritAll=false />' 
+ %END-FOR
+//#UC END# *475789CC0108*
+; // dump_dep_for_makejar
+
+
+// поверяет, что параметр уже присутсвует в другом контэйнере
+//f _check_duplicate_params
+: check_duplicate_params OBJECT IN %S
+//#UC START# *48BF989E018B*
+//	%f_set_var(IS_EXIST_DUPLICATE,"false")\
+ [%f] set_var %( 'IS_EXIST_DUPLICATE' %, false )% 
+//	[{"%1N"="LIB"}{[{"%1N"="TARGET"}<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}%f_add_to_list(CONTROL_LIST,"%f_to_upper("%CN")") >>]}<{}{"%dM"="Library::Category"|"%dM"="ServerLibrary::Category"}{%d}%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}%f_add_to_list(CONTROL_LIST,"%f_to_upper("%CN")") >>>]\
+ %IF ( ( %1 |N ) %== 'LIB' ) 
+  %ELSE
+   %IF ( ( %1 |N ) %== 'TARGET' ) 
+    %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+     ( %A ) 
+     %A
+     %FOR ( %C ) 
+      [%f] add_to_list %( 'CONTROL_LIST' %, [%f] to_upper %( %C |N )% )% ' ' 
+     %END-FOR
+     %END-FOR
+   %END-IF
+  %THEN
+  %FOR %ITEM-CONDITION ( ( %d |M ) %== 'Library::Category' %|| 
+    ( ( %d |M ) %== 'ServerLibrary::Category'  ) ) 
+   ( %d ) 
+   %d
+   %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+    ( %A ) 
+    %A
+    %FOR ( %C ) 
+     [%f] add_to_list %( 'CONTROL_LIST' %, [%f] to_upper %( %C |N )% )% ' ' 
+    %END-FOR
+    %END-FOR
+   %END-FOR
+ %END-IF
+//	<{}{"%f_is_empty(CONTROL_LIST)"="false"&"%{IS_EXIST_DUPLICATE}N"="false"}{W}[%f_pop_first_to_var(CONTROL_LIST,EL)[{"%f_exists_in_list(CONTROL_LIST,"%{EL}N")"="true"}%{EL}N%f_set_var(IS_EXIST_DUPLICATE,"true")]]>\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'CONTROL_LIST' )% ) %== false %&& 
+   ( ( ( get_global_var ( 'IS_EXIST_DUPLICATE' ) |N ) ) %== false  ) ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'CONTROL_LIST' %, 'EL' )% %IF ( ( [%f] exists_in_list %( 'CONTROL_LIST' %, ( get_global_var ( 'EL' ) |N ) )% ) %== true ) 
+    ( get_global_var ( 'EL' ) |N ) [%f] set_var %( 'IS_EXIST_DUPLICATE' %, true )% 
+   %END-IF
+  %END-IF
+ %END-FOR
+//	%f_clear_list(CONTROL_LIST)
+ [%f] clear_list %( 'CONTROL_LIST' )% 
+//#UC END# *48BF989E018B*
+; // check_duplicate_params
+
+
+// проверяет правильность использования контэйнера настроек
+//f _check_settings_existance
+: check_settings_existance OBJECT IN %S
+//#UC START# *48BF9E6F00F1*
+//	<{}{"%AM"="Settings::Class"}{%A}%AN>
+ %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+  ( %A ) 
+  %A |N 
+ %END-FOR
+//#UC END# *48BF9E6F00F1*
+; // check_settings_existance
+
+
+// генерит документацию по параметрам используемым в таргете
+//f _config_docs
+: config_docs OBJECT IN %S
+//#UC START# *48BFA2F6034B*
+//	%f_set_var(IS_HEADER_EXIST,"false")[{"%SM"="AdapterTargetUnion::Category"}{\
+ [%f] set_var %( 'IS_HEADER_EXIST' %, false )% %IF ( ( %S |M ) %== 'AdapterTargetUnion::Category' ) 
+  %ELSE
+//	[{"%SM"!="InstallerTarget::Category"}\
+   %IF ( ( %S |M ) %!= 'InstallerTarget::Category' ) 
+//	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%S)\
+    [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% [%f] reg_all_dep_i %( %S )% 
+//	%f_copy_list(REG_ALL_DEP,REG_ALL_DEP_COPY)%f_clear_list(DEPEND_LIB)\
+    [%f] copy_list %( 'REG_ALL_DEP' %, 'REG_ALL_DEP_COPY' )% [%f] clear_list %( 'DEPEND_LIB' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%f_add_to_list(DEPEND_LIB,{_RAD_})]>\
+    %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) 
+     ( 'W' ) 
+     [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% %IF ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' %|| 
+       ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) 
+      [%f] add_to_list %( 'DEPEND_LIB' %, '{_RAD_}' )% 
+     %END-IF
+    %END-FOR
+//	%f_copy_list(REG_ALL_DEP_COPY,REG_ALL_DEP)\
+    [%f] copy_list %( 'REG_ALL_DEP_COPY' %, 'REG_ALL_DEP' )% 
+//	<{}{"%aM"="AdapterTargetUnion::Category"}{%a}%f_add_to_list(UNIONS,a)>[{%f_is_empty(UNIONS)=true}{%f_clear_list(UNIONS)}\
+    %FOR %ITEM-CONDITION ( ( %a |M ) %== 'AdapterTargetUnion::Category' ) 
+     ( %a ) 
+     [%f] add_to_list %( 'UNIONS' %, 'a' )% 
+    %END-FOR
+    %IF ( ( [%f] is_empty %( 'UNIONS' )% ) %==  true ) 
+     %ELSE
+      [%f] clear_list %( 'UNIONS' )% 
+     %THEN
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,C)%f_add_to_list(TARGET_N,"%f_to_upper("%CN")")>>\
+     %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+      ( %A ) 
+      %A
+      %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+       ( %C ) 
+       [%f] add_to_list %( 'TARGET' %, 'C' )% [%f] add_to_list %( 'TARGET_N' %, [%f] to_upper %( %C |N )% )% 
+      %END-FOR
+      %END-FOR
+//	%f_set_var(DEP_EXIST,"false")\
+     [%f] set_var %( 'DEP_EXIST' %, false )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%{_RAD_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(DEP_EXIST,"true")>>]>\
+     %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) 
+      ( 'W' ) 
+      [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% %IF ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' %|| 
+        ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) 
+       ( get_global_var ( '_RAD_' ) ) 
+       %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+        ( %A ) 
+        %A
+        %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+         ( %C ) 
+         [%f] set_var %( 'DEP_EXIST' %, true )% 
+        %END-FOR
+        %END-FOR
+      %END-IF
+     %END-FOR
+//	[{%f_is_empty(TARGET)=false|"%{DEP_EXIST}N"="true"}%f_set_var(IS_HEADER_EXIST,"true")\{info\}Настройки таргета]
+     %IF ( ( [%f] is_empty %( 'TARGET' )% ) %==  false %|| 
+       ( ( ( get_global_var ( 'DEP_EXIST' ) |N ) ) %== true  ) ) 
+      [%f] set_var %( 'IS_HEADER_EXIST' %, true )% '{info}Настройки таргета' 
+     %END-IF
+//	%f_output_target_param(%S)\
+     [%f] output_target_param %( %S )% 
+//	[{"%{IS_HEADER_EXIST}N"="true"}\{info\}]%f_clear_list(TARGET)\
+     %IF ( ( ( get_global_var ( 'IS_HEADER_EXIST' ) |N ) ) %== true ) 
+      '{info}' 
+     %END-IF
+     [%f] clear_list %( 'TARGET' )% 
+//	]]}%f_set_var(LIB_ATTR_EXISTANCE,"false")%f_set_var(TAR_ATTR_EXISTANCE,"false")\
+    %END-IF
+   %END-IF
+  %THEN
+  [%f] set_var %( 'LIB_ATTR_EXISTANCE' %, false )% [%f] set_var %( 'TAR_ATTR_EXISTANCE' %, false )% 
+//	<{}{"%dM"="AdapterTarget::Category"}{%d}%d[{<{}{%DS=ServerLibrary}{C}>!=0}%f_set_var(DIRECT_SL,"true")]%d[{<{}{%DS=ServerLibrary}{C}>=0&<{}{%dS=ServerLibrary}{C}>!=0}%f_set_var(INDIRECT_SL,"true")]%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(TAR_ATTR_EXISTANCE,"true")>>%d<{}{"%dM"="Library::Category"|"%dM"="ServerLibrary::Category"&%f_exists_in_list(SL_LIST,"%dU")=false}{%d}%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(LIB_ATTR_EXISTANCE,"true")>>>[{"%{LIB_ATTR_EXISTANCE}N"="true"|"%{TAR_ATTR_EXISTANCE}N"="true"|"%{DIRECT_SL}N"="true"|"%{INDIRECT_SL}N"="true"}%f_add_to_list(TARGETS_DEPEN,d)%f_set_var(TAR_ATTR_EXISTANCE,"false")%f_set_var(LIB_ATTR_EXISTANCE,"false")%f_set_var(DIRECT_SL,"false")%f_set_var(INDIRECT_SL,"false")]>\
+  %FOR %ITEM-CONDITION ( ( %d |M ) %== 'AdapterTarget::Category' ) 
+   ( %d ) 
+   %d%IF ( 
+    %FOR %ITEM-CONDITION ( ( %D |S ) %== 'ServerLibrary' ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0 ) 
+    [%f] set_var %( 'DIRECT_SL' %, true )% 
+   %END-IF
+    %d%IF ( 
+    %FOR %ITEM-CONDITION ( ( %D |S ) %== 'ServerLibrary' ) 
+     ( 'C' ) 
+    %END-FOR
+    %== 0 %&& 
+     ( 
+    %FOR %ITEM-CONDITION ( ( %d |S ) %== 'ServerLibrary' ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0  ) ) 
+    [%f] set_var %( 'INDIRECT_SL' %, true )% 
+   %END-IF
+    %d
+   %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+    ( %A ) 
+    %A
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+     ( %C ) 
+     [%f] set_var %( 'TAR_ATTR_EXISTANCE' %, true )% 
+    %END-FOR
+    %END-FOR
+    %d
+   %FOR %ITEM-CONDITION ( ( %d |M ) %== 'Library::Category' %|| 
+     ( ( %d |M ) %== 'ServerLibrary::Category'  ) %&& 
+     ( ( [%f] exists_in_list %( 'SL_LIST' %, %d |U )% ) %==  false  ) ) 
+    ( %d ) 
+    %d
+    %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+     ( %A ) 
+     %A
+     %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+      ( %C ) 
+      [%f] set_var %( 'LIB_ATTR_EXISTANCE' %, true )% 
+     %END-FOR
+     %END-FOR
+    %END-FOR
+    %IF ( ( ( get_global_var ( 'LIB_ATTR_EXISTANCE' ) |N ) ) %== true %|| 
+     ( ( ( get_global_var ( 'TAR_ATTR_EXISTANCE' ) |N ) ) %== true  ) %|| 
+     ( ( ( get_global_var ( 'DIRECT_SL' ) |N ) ) %== true  ) %|| 
+     ( ( ( get_global_var ( 'INDIRECT_SL' ) |N ) ) %== true  ) ) 
+    [%f] add_to_list %( 'TARGETS_DEPEN' %, 'd' )% [%f] set_var %( 'TAR_ATTR_EXISTANCE' %, false )% [%f] set_var %( 'LIB_ATTR_EXISTANCE' %, false )% [%f] set_var %( 'DIRECT_SL' %, false )% [%f] set_var %( 'INDIRECT_SL' %, false )% 
+   %END-IF
+  %END-FOR
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(UNION_ATTR,C)>>\
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+   ( %A ) 
+   %A
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+    ( %C ) 
+    [%f] add_to_list %( 'UNION_ATTR' %, 'C' )% 
+   %END-FOR
+   %END-FOR
+//	[{%f_is_empty(TARGETS_DEPEN)=false|%f_is_empty(UNION_ATTR)=false}\{info\}Настройки таргета:
+  %IF ( ( [%f] is_empty %( 'TARGETS_DEPEN' )% ) %==  false %|| 
+    ( ( [%f] is_empty %( 'UNION_ATTR' )% ) %==  false  ) ) 
+   '{info}Настройки таргета:'
+//	[{%f_is_empty(UNION_ATTR)=false}h6. %SN:
+   %IF ( ( [%f] is_empty %( 'UNION_ATTR' )% ) %==  false ) 
+    'h6. '
+    %S |N ':'
+//	
+
+//	<{}{%f_is_empty(UNION_ATTR)=false}{W}[%f_pop_first_to_var(UNION_ATTR,_UA_)-%{_UA_}N: %{_UA_}%TN [{"%{_UA_}D"!=""} // %{_UA_}D]
+    %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'UNION_ATTR' )% ) %==  false ) 
+     ( 'W' ) 
+     %IF-NOT-EMPTY
+      [%f] pop_first_to_var %( 'UNION_ATTR' %, '_UA_' )% '-'
+      ( get_global_var ( '_UA_' ) |N ) ': '
+      ( get_global_var ( '_UA_' )  ->T |N ) ' '
+      %IF ( ( ( get_global_var ( '_UA_' ) |D ) ) %!= '' ) 
+       ' // '
+       ( get_global_var ( '_UA_' ) |D ) 
+      %END-IF
+//	[{"%{_UA_}I"!=""}= %f_k_text_convert(%{_UA_}I)]
+      %IF ( ( ( get_global_var ( '_UA_' ) |I ) ) %!= '' ) 
+       '= '
+       [%f] k_text_convert %( ( get_global_var ( '_UA_' ) |I ) )% 
+      %END-IF
+//	]>]<{}{%f_is_empty(TARGETS_DEPEN)=false}{W}[%f_pop_first_to_var(TARGETS_DEPEN,TD)\
+     %END-IF
+    %END-FOR
+   %END-IF
+   %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TARGETS_DEPEN' )% ) %==  false ) 
+    ( 'W' ) 
+    %IF-NOT-EMPTY
+     [%f] pop_first_to_var %( 'TARGETS_DEPEN' %, 'TD' )% 
+//	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%{TD})\
+     [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% [%f] reg_all_dep_i %( ( get_global_var ( 'TD' ) ) )% 
+//	%f_copy_list(REG_ALL_DEP,REG_ALL_DEP_COPY)%f_clear_list(DEPEND_LIB)\
+     [%f] copy_list %( 'REG_ALL_DEP' %, 'REG_ALL_DEP_COPY' )% [%f] clear_list %( 'DEPEND_LIB' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%f_add_to_list(DEPEND_LIB,{_RAD_})]>\
+     %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) 
+      ( 'W' ) 
+      [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% %IF ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' %|| 
+        ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) 
+       [%f] add_to_list %( 'DEPEND_LIB' %, '{_RAD_}' )% 
+      %END-IF
+     %END-FOR
+//	%f_copy_list(REG_ALL_DEP_COPY,REG_ALL_DEP)\
+     [%f] copy_list %( 'REG_ALL_DEP_COPY' %, 'REG_ALL_DEP' )% 
+//	%{TD}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,C)%f_add_to_list(TARGET_N,"%f_to_upper("%CN")")>>\
+     ( get_global_var ( 'TD' ) ) 
+     %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+      ( %A ) 
+      %A
+      %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+       ( %C ) 
+       [%f] add_to_list %( 'TARGET' %, 'C' )% [%f] add_to_list %( 'TARGET_N' %, [%f] to_upper %( %C |N )% )% 
+      %END-FOR
+      %END-FOR
+//	
+
+//	h6. %{TD}N:
+     'h6. '
+     ( get_global_var ( 'TD' ) |N ) ':'
+//	
+
+//	%f_output_target_param(%{TD})\
+     [%f] output_target_param %( ( get_global_var ( 'TD' ) ) )% 
+//	%f_clear_list(TARGET)]>{info}]]%f_clear_list(SL_LIST)
+     [%f] clear_list %( 'TARGET' )% 
+    %END-IF
+   %END-FOR
+   '{info}' 
+  %END-IF
+ %END-IF
+ [%f] clear_list %( 'SL_LIST' )% 
+//#UC END# *48BFA2F6034B*
+; // config_docs
+
+
+// генерит содержимое файл настроек
+//f _config_ini
+: config_ini OBJECT IN %S
+//#UC START# *48BFA801001E*
+//	[{"%S{CONFIG_UC}"="true"}%U[{_CUSTOM_SECTIONS}\n]
+ %IF ( ( %S get_up ( 'CONFIG_UC' ) ) %== true ) 
+  %U%IF ( '_CUSTOM_SECTIONS' ) 
+   #13#10 
+  %END-IF
+ //	]\
+ %END-IF
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute&%C%f_in_config()=true}{%C}%f_add_to_list(TARGET,C)>>\
+ %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+  ( %A ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C %f in_config %( )% ) %==  true  ) ) 
+   ( %C ) 
+   [%f] add_to_list %( 'TARGET' %, 'C' )% 
+  %END-FOR
+  %END-FOR
+//	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%S)\
+ [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% [%f] reg_all_dep_i %( %S )% 
+//	%f_copy_list(REG_ALL_DEP,REG_LIB_DEPENDENCY)\
+ [%f] copy_list %( 'REG_ALL_DEP' %, 'REG_LIB_DEPENDENCY' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%{_RAD_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute&%C%f_in_config()=true}{%C}%f_add_to_list(DEPENDENCY,C)>>]>\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'REG_ALL_DEP' %, '_RAD_' )% %IF ( ( ( get_global_var ( '_RAD_' ) |M ) ) %!= 'ServerLibrary::Category' %|| 
+    ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{_RAD_}' )% ) %==  true  ) ) 
+   ( get_global_var ( '_RAD_' ) ) 
+   %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+    ( %A ) 
+    %A
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+      ( ( %C %f in_config %( )% ) %==  true  ) ) 
+     ( %C ) 
+     [%f] add_to_list %( 'DEPENDENCY' %, 'C' )% 
+    %END-FOR
+    %END-FOR
+  %END-IF
+ %END-FOR
+//	%f_copy_list(DEPENDENCY,COMMON)\
+ [%f] copy_list %( 'DEPENDENCY' %, 'COMMON' )% 
+//	<{}{%f_is_empty(DEPENDENCY)=false}{W}[%f_pop_first_to_var(DEPENDENCY,_DEP_)%f_copy_list(TARGET,TRG_COPY)\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'DEPENDENCY' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'DEPENDENCY' %, '_DEP_' )% [%f] copy_list %( 'TARGET' %, 'TRG_COPY' )% 
+//	<{}{%f_is_empty(TRG_COPY)=false}{W}[%f_pop_first_to_var(TRG_COPY,_TRG_)[{%f_to_upper("%{_DEP_}N")=%f_to_upper("%{_TRG_}N")}\
+   %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TRG_COPY' )% ) %==  false ) 
+    ( 'W' ) 
+    %IF-NOT-EMPTY
+     [%f] pop_first_to_var %( 'TRG_COPY' %, '_TRG_' )% %IF ( ( [%f] to_upper %( ( get_global_var ( '_DEP_' ) |N ) )% ) %== ( [%f] to_upper %( ( get_global_var ( '_TRG_' ) |N ) )% ) ) 
+//	%f_remove_from_list(COMMON,{_DEP_})]]>]>\
+      [%f] remove_from_list %( 'COMMON' %, '{_DEP_}' )% 
+     %END-IF
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-FOR
+//	[{%f_is_empty(COMMON)=false}{%f_set_var(OPTION_EXIST,"false")}%f_set_var(OPTION_EXIST,"true")]\
+ %IF ( ( [%f] is_empty %( 'COMMON' )% ) %==  false ) 
+  %ELSE
+   [%f] set_var %( 'OPTION_EXIST' %, false )% 
+  %THEN
+  [%f] set_var %( 'OPTION_EXIST' %, true )% 
+ %END-IF
+//	\[Common Params\]
+ '[Common Params]'
+//	[<{}{%f_is_empty(REG_LIB_DEPENDENCY)=false}{W}[%f_pop_first_to_var(REG_LIB_DEPENDENCY,_RLD_)[{%{_RLD_}<{}{"%AM"="Entity::Class"&"%Aa"!="abstract"}{C}>!=0}-%{_RLD_}N_db_path=
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'REG_LIB_DEPENDENCY' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'REG_LIB_DEPENDENCY' %, '_RLD_' )% %IF ( ( ( get_global_var ( '_RLD_' ) ) ) 
+     %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Entity::Class' %&& 
+       ( ( %A |a ) %!= 'abstract'  ) ) 
+      ( 'C' ) 
+     %END-FOR
+     %!= 0 ) 
+     '-'
+     ( get_global_var ( '_RLD_' ) |N ) '_db_path='
+//	-%{_RLD_}N_db_name=
+     '-'
+     ( get_global_var ( '_RLD_' ) |N ) '_db_name='
+//	-%{_RLD_}N_db_open_flags=
+     '-'
+     ( get_global_var ( '_RLD_' ) |N ) '_db_open_flags='
+//	]]>]\
+    %END-IF
+   %END-IF
+  %END-FOR
+ %END-IF
+//	<{}{%f_is_empty(COMMON)=false}{W}[%f_pop_first_to_var(COMMON,_CM_)[{"%{_CM_}I"=""};]-%{_CM_}N=[{"%{_CM_}I"!=""}{%t_config_init_values(%{_CM_}%TN)}%{_CM_}I]]
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'COMMON' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'COMMON' %, '_CM_' )% %IF ( ( ( get_global_var ( '_CM_' ) |I ) ) %== '' ) 
+    ';' 
+   %END-IF
+   '-'
+   ( get_global_var ( '_CM_' ) |N ) '='
+   %IF ( ( ( get_global_var ( '_CM_' ) |I ) ) %!= '' ) 
+    %ELSE
+     [%t] config_init_values %( ( get_global_var ( '_CM_' )  ->T |N ) )% 
+    %THEN
+    ( get_global_var ( '_CM_' ) |I ) 
+   %END-IF
+  %END-IF
+//	>
+ %END-FOR
+//	%f_set_var(NEED_UC,"[{"%S{CONFIG_UC}"="true"}{false}true]")\[%SN Params\]
+ [%f] set_var %( 'NEED_UC' %, %IF ( ( %S get_up ( 'CONFIG_UC' ) ) %== true ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+)%  '['
+ %S |N ' Params]'
+//	[{"%{OPTION_EXIST}N"="true"}-GPMAdditionalSection=Common Params
+ %IF ( ( ( get_global_var ( 'OPTION_EXIST' ) |N ) ) %== true ) 
+  '-GPMAdditionalSection=Common Params'
+//	][{<{}{%DS=ServerLibrary}{C}>!=0}%f_set_var(NEED_UC,"false")\
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %D |S ) %== 'ServerLibrary' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  [%f] set_var %( 'NEED_UC' %, false )% 
+//	%U[{_CUSTOM_PARAMS}
+  %U%IF ( '_CUSTOM_PARAMS' ) 
+
+//	-ORBEndPoint = iiop://localhost:5051
+   '-ORBEndPoint = iiop://localhost:5051'
+//	;-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+   ';-ORBInitRef = NameService=corbaloc::localhost:5051/NameService'
+//	]
+  %END-IF
+ //	][{<{}{%DS=ServerLibrary}{C}>=0&<{}{%dS=ServerLibrary}{C}>!=0}%f_set_var(NEED_UC,"false")\
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %D |S ) %== 'ServerLibrary' ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0 %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %d |S ) %== 'ServerLibrary' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  [%f] set_var %( 'NEED_UC' %, false )% 
+//	%U[{_CUSTOM_PARAMS}
+  %U%IF ( '_CUSTOM_PARAMS' ) 
+
+//	-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+   '-ORBInitRef = NameService=corbaloc::localhost:5051/NameService'
+//	]
+  %END-IF
+ //	]\
+ %END-IF
+//	<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_TR_)[{"%{_TR_}I"=""};]-%{_TR_}N=[{"%{_TR_}I"!=""}{%t_config_init_values(%{_TR_}%TN)}%{_TR_}I]]
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TARGET' %, '_TR_' )% %IF ( ( ( get_global_var ( '_TR_' ) |I ) ) %== '' ) 
+    ';' 
+   %END-IF
+   '-'
+   ( get_global_var ( '_TR_' ) |N ) '='
+   %IF ( ( ( get_global_var ( '_TR_' ) |I ) ) %!= '' ) 
+    %ELSE
+     [%t] config_init_values %( ( get_global_var ( '_TR_' )  ->T |N ) )% 
+    %THEN
+    ( get_global_var ( '_TR_' ) |I ) 
+   %END-IF
+  %END-IF
+//	>[{%{NEED_UC}N=true}%U[{_CUSTOM_PARAMS}\n]
+ %END-FOR
+ %IF ( ( ( get_global_var ( 'NEED_UC' ) |N ) ) %==  true ) 
+  %U%IF ( '_CUSTOM_PARAMS' ) 
+   #13#10 
+  %END-IF
+ //	]%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)%f_clear_list(TRG_COPY)%f_clear_list(COMMON)%f_clear_list(SL_LIST)
+ %END-IF
+ [%f] clear_list %( 'TARGET' )% [%f] clear_list %( 'DEPENDENCY' )% [%f] clear_list %( 'TRG_COPY' )% [%f] clear_list %( 'COMMON' )% [%f] clear_list %( 'SL_LIST' )% 
+//#UC END# *48BFA801001E*
+; // config_ini
+
+
+// генерит файл для записи в реестр пути в файлу настроек
+//f _config_reg
+: config_reg OBJECT IN %S
+//#UC START# *48BFBBCF01F8*
+//	REGEDIT4
+ 'REGEDIT4'
+//	
+//	\[HKEY_LOCAL_MACHINE\\SOFTWARE\\Garant\\%PN\\%SN\]
+ '[HKEY_LOCAL_MACHINE\SOFTWARE\Garant\'
+ %P |N '\'
+ %S |N ']'
+//	"-GCMConfigFile"="%f_with_gen_id(config,%So)"
+ '"-GCMConfigFile"="'
+ [%f] with_gen_id %( 'config' %, %S |o )% '"'
+//	
+//#UC END# *48BFBBCF01F8*
+; // config_reg
+
+
+// не понятно..., какая-то проверка настроек
+//f _check_non_overload_member
+: check_non_overload_member OBJECT IN %S
+//#UC START# *48C63206026E*
+//	%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)\
+ [%f] clear_list %( 'TARGET' )% [%f] clear_list %( 'DEPENDENCY' )% 
+//	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,"%f_to_upper("%CN")")>>\
+ %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+  ( %A ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+   ( %C ) 
+   [%f] add_to_list %( 'TARGET' %, [%f] to_upper %( %C |N )% )% 
+  %END-FOR
+  %END-FOR
+//	<%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(DEPENDENCY,"%f_to_upper("%CN")")>>>\
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+   ( %A ) 
+   %A
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+    ( %C ) 
+    [%f] add_to_list %( 'DEPENDENCY' %, [%f] to_upper %( %C |N )% )% 
+   %END-FOR
+   %END-FOR
+  %END-FOR
+//	<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_TG_)[{"%f_exists_in_list(DEPENDENCY,"%{_TG_}N")"="false"}%{_TG_}N;]]>\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TARGET' %, '_TG_' )% %IF ( ( [%f] exists_in_list %( 'DEPENDENCY' %, ( get_global_var ( '_TG_' ) |N ) )% ) %== false ) 
+    ( get_global_var ( '_TG_' ) |N ) ';' 
+   %END-IF
+  %END-IF
+ %END-FOR
+//	%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)
+ [%f] clear_list %( 'TARGET' )% [%f] clear_list %( 'DEPENDENCY' )% 
+//#UC END# *48C63206026E*
+; // check_non_overload_member
+
+
+// значение параметров по-умалчанию для файла настроек
+//t _config_init_values
+<<transformator>> config_init_values OBJECT IN %S
+//#UC START# *48D257BF029F*
+//c	{}
+//r {"%SN"="unsigned long"}:     {0}
+//r {"%SN"="long"}:              {0}
+//r {"%SN"="a-string"}:          {}
+//r {"%SN"="string"}:            {}
+//r {"%SN"="boolean"}:           {0}
+//r {"%SN"="integer"}:           {0}
+//r {"%SN"="unsigned integer"}:  {0}
+//r {"%SN"="short"}:             {0}
+//r {"%SN"="unsigned short"}:    {0}
+//#UC END# *48D257BF029F*
+; // config_init_values
+
+
+// не совсем понятно, но похоже, что выводит сожержимое файла настроек
+//f _output_target_param
+: output_target_param OBJECT IN %S
+//#UC START# *48F88FC903E3*
+//	<{}{%f_is_empty(DEPEND_LIB)=false}{W}%f_pop_first_to_var(DEPEND_LIB,_DEP_LIB_)%f_set_var(FLAG,"false")%{_DEP_LIB_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(FLAG,"true")[{%f_exists_in_list(TARGET_N,"%f_to_upper("%CN")")=true}%f_add_to_list(TARGET_OVERRIDE,%f_to_upper("%CN"))]>>[{"%{FLAG}N"="true"}* Параметры библиотеки %f_k_link(%{_DEP_LIB_}):
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'DEPEND_LIB' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'DEPEND_LIB' %, '_DEP_LIB_' )% [%f] set_var %( 'FLAG' %, false )% ( get_global_var ( '_DEP_LIB_' ) ) 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+   ( %A ) 
+   %A
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+    ( %C ) 
+    [%f] set_var %( 'FLAG' %, true )% %IF ( ( [%f] exists_in_list %( 'TARGET_N' %, [%f] to_upper %( %C |N )% )% ) %==  true ) 
+     [%f] add_to_list %( 'TARGET_OVERRIDE' %, [%f] to_upper %( %C |N )% )% 
+    %END-IF
+   %END-FOR
+   %END-FOR
+  %IF ( ( ( get_global_var ( 'FLAG' ) |N ) ) %== true ) 
+   '* Параметры библиотеки '
+   [%f] k_link %( ( get_global_var ( '_DEP_LIB_' ) ) )% ':'
+//	%{_DEP_LIB_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}** \\-%CN(%f_k_link_nearest_parent_with_output(%C)): %C%TN [{"%CD"!=""} - %CD][{"%CI"!=""}
+   ( get_global_var ( '_DEP_LIB_' ) ) 
+   %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Settings::Class' ) 
+    ( %A ) 
+    %A
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+     ( %C ) 
+     '** \-'
+     %C |N '('
+     [%f] k_link_nearest_parent_with_output %( %C )% '): '
+     %C ->T |N  ' '
+     %IF ( ( %C |D ) %!= '' ) 
+      ' - '
+      %C |D 
+     %END-IF
+     %IF ( ( %C |I ) %!= '' ) 
+
+//	= %f_k_text_convert(%CI)]
+      '= '
+      [%f] k_text_convert %( %C |I )% 
+     %END-IF
+//	>>]>[{%f_is_empty(TARGET)=false}<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_T_)[{%f_exists_in_list(TARGET_OVERRIDE,%f_to_upper("%{_T_}N"))=true}{%f_add_to_list(TARGET_SPEC,{_T_})}%f_add_to_list(TARGET_OVER,{_T_})]]>]\
+    %END-FOR
+    %END-FOR
+  %END-IF
+ %END-FOR
+ %IF ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) 
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TARGET' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'TARGET' %, '_T_' )% %IF ( ( [%f] exists_in_list %( 'TARGET_OVERRIDE' %, [%f] to_upper %( ( get_global_var ( '_T_' ) |N ) )% )% ) %==  true ) 
+     %ELSE
+      [%f] add_to_list %( 'TARGET_SPEC' %, '{_T_}' )% 
+     %THEN
+     [%f] add_to_list %( 'TARGET_OVER' %, '{_T_}' )% 
+    %END-IF
+   %END-IF
+  %END-FOR
+ %END-IF
+//	[{%f_is_empty(TARGET_OVER)=false}* Параметры, переопределённые в таргете:
+ %IF ( ( [%f] is_empty %( 'TARGET_OVER' )% ) %==  false ) 
+  '* Параметры, переопределённые в таргете:'
+//	<{}{%f_is_empty(TARGET_OVER)=false}{W}[%f_pop_first_to_var(TARGET_OVER,_TO_)** \\-%{_TO_}N(%f_k_link_nearest_parent_with_output(%{_TO_})): %{_TO_}%TN [{"%{_TO_}D"!=""} - %{_TO_}D][{"%{_TO_}I"!=""}
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TARGET_OVER' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'TARGET_OVER' %, '_TO_' )% '** \-'
+    ( get_global_var ( '_TO_' ) |N ) '('
+    [%f] k_link_nearest_parent_with_output %( ( get_global_var ( '_TO_' ) ) )% '): '
+    ( get_global_var ( '_TO_' )  ->T |N ) ' '
+    %IF ( ( ( get_global_var ( '_TO_' ) |D ) ) %!= '' ) 
+     ' - '
+     ( get_global_var ( '_TO_' ) |D ) 
+    %END-IF
+    %IF ( ( ( get_global_var ( '_TO_' ) |I ) ) %!= '' ) 
+
+//	= %f_k_text_convert(%{_TO_}I)]]
+     '= '
+     [%f] k_text_convert %( ( get_global_var ( '_TO_' ) |I ) )% 
+    %END-IF
+   %END-IF
+//	>][{%f_is_empty(TARGET_SPEC)=false}* Параметры, определённые в таргете:
+  %END-FOR
+ %END-IF
+ %IF ( ( [%f] is_empty %( 'TARGET_SPEC' )% ) %==  false ) 
+  '* Параметры, определённые в таргете:'
+//	<{}{%f_is_empty(TARGET_SPEC)=false}{W}[%f_pop_first_to_var(TARGET_SPEC,_TS_)** \\-%{_TS_}N(%f_k_link_nearest_parent_with_output(%{_TS_})): %{_TS_}%TN [{"%{_TS_}D"!=""} - %{_TS_}D][{"%{_TS_}I"!=""}
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TARGET_SPEC' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'TARGET_SPEC' %, '_TS_' )% '** \-'
+    ( get_global_var ( '_TS_' ) |N ) '('
+    [%f] k_link_nearest_parent_with_output %( ( get_global_var ( '_TS_' ) ) )% '): '
+    ( get_global_var ( '_TS_' )  ->T |N ) ' '
+    %IF ( ( ( get_global_var ( '_TS_' ) |D ) ) %!= '' ) 
+     ' - '
+     ( get_global_var ( '_TS_' ) |D ) 
+    %END-IF
+    %IF ( ( ( get_global_var ( '_TS_' ) |I ) ) %!= '' ) 
+
+//	= %f_k_text_convert(%{_TS_}I)]]
+     '= '
+     [%f] k_text_convert %( ( get_global_var ( '_TS_' ) |I ) )% 
+    %END-IF
+   %END-IF
+//	>][{%S<{}{%DS=ServerLibrary}{C}>!=0}* Параметры нейм-сервера:
+  %END-FOR
+ %END-IF
+ %IF ( ( %S
+  %FOR %ITEM-CONDITION ( ( %D |S ) %== 'ServerLibrary' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0 ) 
+  '* Параметры нейм-сервера:'
+//	** \\-ORBEndPoint: string
+  '** \-ORBEndPoint: string'
+//	= %f_k_text_convert("iiop://localhost:5051")
+  '= '
+  [%f] k_text_convert %( 'iiop://localhost:5051' )% 
+//	][{%S<{}{%DS=ServerLibrary}{C}>=0&%S<{}{%dS=ServerLibrary}{C}>!=0}* Параметры нейм-сервера:
+ %END-IF
+ %IF ( ( %S
+  %FOR %ITEM-CONDITION ( ( %D |S ) %== 'ServerLibrary' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %== 0 %&& 
+   ( ( %S
+  %FOR %ITEM-CONDITION ( ( %d |S ) %== 'ServerLibrary' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0  ) ) 
+  '* Параметры нейм-сервера:'
+//	** \\-ORBInitRef: string
+  '** \-ORBInitRef: string'
+//	= %f_k_text_convert("NameService=corbaloc::localhost:5051/NameService")
+  '= '
+  [%f] k_text_convert %( 'NameService=corbaloc::localhost:5051/NameService' )% 
+//	]
+ %END-IF
+//#UC END# *48F88FC903E3*
+; // output_target_param
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

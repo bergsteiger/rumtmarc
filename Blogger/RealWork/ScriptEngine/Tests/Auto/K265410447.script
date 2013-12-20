@@ -1,0 +1,28 @@
+// Разработчик: Селянкин Владимир
+
+: K265410447
+ 
+ OBJECT VAR "Главное окно"
+ OBJECT VAR "Форма БП"
+ INTEGER VAR l_height
+
+ "Красная медаль с восклицательным знаком" byname:control:push pop:control:Click
+ OnTest
+ "Найти главное окно" =: "Главное окно"
+ "Главное окно" pop:control:GetHeight =: l_height
+ 0 l_height true "Синяя медаль с конвертом" byname:control:push pop:reminder:Move
+
+ TRY
+  ППР
+  ОМ
+  focused:control:push pop:control:GetAnotherParentForm =: "Форма БП"
+  "Форма БП" pop:object:IsNil ! 'Не удалось найти левый навигатор' ASSERTS 
+  "Форма БП" "Напечатать иерархию вложенности контролов"
+  "Форма БП" pop:control:GetHeight .
+ FINALLY
+  l_height -1 * =: l_height
+  0 l_height true "Синяя медаль с конвертом" byname:control:push pop:reminder:Move
+ END
+;
+
+K265410447

@@ -1,0 +1,69 @@
+tben_MedicListSynchroViewTop : TvcmToolbar
+Order = 0
+---------------
+bt_enMedicListSynchroView_opOpenDocument : TvcmToolButtonDef
+Текст документа
+bt_enMedicListSynchroView_opOpenAttributesForm : TvcmToolButtonDef
+Информация о документе
+bt_enMedicListSynchroView_opOpenList : TvcmToolButtonDef
+Список препаратов
+
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+ : TvcmSeparatorDef
+
+bt_enDocument_opAddBookmark : TvcmToolButtonDef
+Установить закладку...
+ : TvcmSeparatorDef
+
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+ : TvcmSeparatorDef
+
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+ : TvcmSeparatorDef
+
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+ : TvcmSeparatorDef
+
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+ : TvcmSeparatorDef
+
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+ : TvcmSeparatorDef
+
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+ : TvcmSeparatorDef
+
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+
+tben_MedicFirmListTop : TvcmToolbar
+Order = 1
+---------------
+bt_enMedicFirmList_opCountryFilter : TvcmComboBox
+

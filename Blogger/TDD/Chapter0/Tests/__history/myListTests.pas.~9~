@@ -1,0 +1,25 @@
+unit myListTests;
+
+interface
+
+uses
+ TestFramework
+ ;
+
+type
+ TmyIntegerListTests = class(TTestCase)
+  published
+   procedure ListAdd;
+ end;//TmyIntegerListTests
+
+implementation
+
+procedure TmyIntegerListTests.ListAdd;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+initialization
+  TestFramework.RegisterTest(TmyListTest.Suite);
+
+end.

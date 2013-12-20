@@ -1,0 +1,54 @@
+<job id="makeCHMHelp">
+<script language="JScript" src="..//common//common.js"/>
+<script language="JScript">
+
+ var shell = WScript.CreateObject("WScript.Shell");
+
+ var data = new ActiveXObject("Msxml2.DOMDocument.4.0");
+ data.async = false;
+ data.validateOnParse = true;
+ data.preserveWhiteSpace = true;
+
+ data.load('../../data/data_rus_be4edit.xml');
+// data.transformNodeToObject(getStyle('include.xsl'), data);
+// data.save('delta2translate1.htm');
+ data.transformNodeToObject(getStyle('delta.xsl'), data);
+ data.save('delta2translate2.htm');
+
+/*  Содержимое блока является альтернативой сохранения сразу в html
+
+
+data.save('delta2translate2.htm');
+data.transformNodeToObject(getStyle('translate.xsl'), data);
+data.save('delta2translate.htm');
+
+
+*/
+
+  var html = data.transformNode(getStyle('translate.xsl'));
+  writeHTML('delta2translate.htm', html);
+
+
+  shell.CurrentDirectory = '..\\..\\output\\chm';
+  shell.CurrentDirectory = '..\\..\\output\\chm\\screenshot';
+  shell.CurrentDirectory = '..';
+
+
+ shell.Run('frontpg delta2translate.htm', 1, false);
+
+
+
+ 
+// ==================================================
+ 
+  function getStyle(styleSheet) {
+  var style = new ActiveXObject("Msxml2.DOMDocument.4.0");
+  style.async = false;
+  style.load(styleSheet);
+  return style;
+ }
+ 
+</script>
+</job>
+ 
+ 

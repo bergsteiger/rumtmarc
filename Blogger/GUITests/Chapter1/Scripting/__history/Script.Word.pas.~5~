@@ -1,0 +1,33 @@
+unit Script.Word;
+
+interface
+
+uses
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptWord = class(TinterfacedObject, IscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); virtual; abstract;
+    {* - собственно процедура для выполнения слова словаря. }
+  protected
+   procedure Cleanup; virtual;
+  public
+   destructor Destroy; override;
+ end;//TscriptWord
+
+implementation
+
+destructor TscriptWord.Destroy;
+begin
+  Cleanup;
+  inherited;
+end;
+
+procedure TscriptWord.Cleanup;
+begin
+  // - тут ничего не делаем, потомки всё сделают
+end;
+
+end.

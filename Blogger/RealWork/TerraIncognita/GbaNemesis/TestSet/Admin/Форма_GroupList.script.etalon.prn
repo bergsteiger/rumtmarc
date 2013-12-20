@@ -1,0 +1,134 @@
+--------------- Контрол в фокусе: ------------------
+GroupsTree : TeeTreeView
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+efGroupList : TefGroupList
+Группы пользователей
+Left = 0
+Top = 0
+Width = 320
+Height = 646
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+BackgroundPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 29
+Width = 320
+Height = 617
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+GroupsTree : TeeTreeView
+Все
+Left = 0
+Top = 0
+Width = 320
+Height = 617
+TabOrder: 0
+Align: 5
+Images: assigned
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 320
+Height = 18
+Images: nil
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbefUserPropertyBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opSave : TvcmToolButtonDef
+Создать
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbefGroupListTop : TvcmToolbar
+Order = 0
+---------------
+bt_enGroups_opAdd : TvcmToolButtonDef
+Создать новую группу
+Активность:True
+bt_enGroups_opRename : TvcmToolButtonDef
+Переименовать
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить группу
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enGroups_opChangeBaseAccess : TvcmToolButtonDef
+Изменить доступ к информационным блокам
+Активность:False
+
+tbcfAdminFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOkExt : TvcmToolButtonDef
+Создать
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbefUserListTop : TvcmToolbar
+Order = 0
+---------------
+bt_enUsers_opAdd : TvcmToolButtonDef
+Создать нового пользователя
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enUsers_opLogoutUser : TvcmToolButtonDef
+Отключить пользователя
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить пользователя
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enUsers_opDisableConsulting : TvcmToolButtonDef
+Запретить всем использование услуги Правового консалтинга
+Активность:True
+bt_enUsers_OpEnableConsulting : TvcmToolButtonDef
+Разрешить всем использование услуги Правового консалтинга
+Активность:True
+bt_enUsers_opConsultingStateForNewbie : TvcmToolButtonDef
+Запретить вновь созданным пользователям использование услуги Правового консалтинга
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enUsers_opAutoregistration : TvcmToolButtonDef
+Запретить авторегистрацию новых пользователей
+Активность:True
+bt_enUsers_opUserFilter : TvcmComboBox
+

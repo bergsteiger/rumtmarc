@@ -1,0 +1,17 @@
+program TDD;
+
+uses
+  Vcl.Forms,
+  GUITestRunner,
+  myListTests in 'Tests\myListTests.pas';
+
+{$R *.res}
+
+begin
+ Application.Initialize;
+ GUITestRunner.RunRegisteredTests;
+(*  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;*)
+end.

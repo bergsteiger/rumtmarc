@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.027,B:\TDD\Chapter0\Tests\myListTests.pas=B:\TDD\Chapter0\Tests\myIntegerListTests.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.138,B:\TDD\Chapter0\Unit1.pas=B:\TDD\Chapter0\Domain\myList.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.669,B:\TDD\Chapter0\Unit1.dfm=C:\Users\Александр\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.146,=C:\Users\Александр\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.562,B:\TDD\Chapter0\Domain\myList.pas=B:\TDD\Chapter0\Domain\myIntegerList.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.438,B:\TDD\Chapter0\Unit1.pas=B:\TDD\Chapter0\Tests\myListTests.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.313,B:\TDD\Chapter0\TDD.dproj=C:\Users\Александр\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.669,B:\TDD\Chapter0\Unit1.pas=C:\Users\Александр\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.432,=B:\TDD\Chapter0\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.119,=B:\TDD\Chapter0\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

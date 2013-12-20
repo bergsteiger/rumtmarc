@@ -1,0 +1,2906 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/PasUtils.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::PasUtils
+//
+// набор вспомогательных функций и трансформаторов для генерации в pas
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// выводит имя модуля
+//t _pas_UnitName
+<<transformator>> pas_UnitName OBJECT IN %S
+//#UC START# *472174BE001F*
+//@ %SU
+//c {}
+//r {%S#f_IsModuleOperation()=true}: {}
+// - операция модуля
+//r {%S#f_IsStruct()=true}: {}
+// - структура
+//r {%S#f_IsControl()=true}: {}
+// - визуальный контрол
+//r {%SS=MixInMirror}: {}
+// - отображение примеси
+//r {%S#f_IsInterfaces()=true}: {%P#f_pas_ElementPrefixBase()%SN[{%P{gui}=tie}Unit]}
+// - имя модуля для пакета с интерфейсами
+//r {%SS=ControllerInterfaces}: {%P#f_pas_ElementPrefixBase()%SN}
+// - имя модуля для пакета с интерфейсами контроллеров
+//r {%SS=EvdFactoryDef}: {%SN}
+// - имя модуля для пакета с фабриками
+//r {%S#f_IsUtilityPack()=true}: {%P#f_pas_ElementPrefixBase()%SN}
+// - имя модуля для утилитного пакета
+//r {%SS=WrapperPack}: {%SN}
+// - пакет с обёртками
+//r {%SS=InterfaceFactoryPack}: {%SN}
+// - пакет с фабриками
+//r {%SN=Primitives}: {}
+// - модуль с примитивами
+//r {%SS=Wrapper}: {[{%PS=WrapperPack}{%f_cut_prefix(%SN,W)_Wrap}]}
+// - обёртка тега
+//r {%SS=InterfaceFactory}: {[{%PS=InterfaceFactoryPack}{%f_cut_prefix(%SN,T)_InterfaceFactory}]}
+// - обёртка тега
+//r {%S#f_IsUnit()=true}: {}
+// - модуль реализации
+//r {%SS=VCMForms}: {}
+// - Формы представления
+//r {%SS=VCMModule}: {}
+// - модуль VCM
+//r {%SS=ControllerUnit}: {}
+// - реализация контроллеров VCM
+//r {%SS=TestUnit}: {}
+// - тестовый модуль VCM
+//r {%SS=Views}: {%SN}
+// - модуль с графическими контролами
+//r {%SS=Impl}: {%SN}
+// - модуль реализации
+//r {%S#f_IsMixIn()=true}: {%SN.imp}
+// - класс-примесь
+//r {%SS=UseCaseControllerImp}: {[{%P#f_IsUnitFileProducer()=true}{%f_cut_prefix(%f_pas_TypeName(%S),T)}]}
+// - реализация контроллера прецедента
+//r {%S#f_IsSimpleClass()=true}: {[{%P#f_IsUnitFileProducer()=true}{%f_cut_prefix(%f_pas_TypeName(%S),T)}]}
+// - простой класс реализации
+//r {%SS=UseCases}: {}
+// - пакет прецедентов
+//r {%SS=TagTable}: {%SN_Schema}
+// - таблица тегов
+//r {%SS=Project}: {}
+// - проект
+//r {%S#f_IsMethod()=true}: {}
+//r {%SC=Operation}: {}
+//r {%SS=Constants}: {}
+//r {"%SS"=""}: {%SN}
+// - это для того чтобы в uses можно было руками добавлять, например Controls
+//r {%S#f_evd_IsSchemaElement()=true}: {[{}{[{%SS=TagOverride}%PN_]}%S#f_pas_ElementPrefixBase()]%SN_Const}
+// - файл с константами от предопределённых значений тега
+//r {true}: {!ERROR!%SN.%SS}
+
+//f _SpellFieldPrim
+; // pas_UnitName
+
+: SpellFieldPrim OBJECT IN %S
+//	%f_set_var(PARENT_CLASS,"")\
+ [%f] set_var %( 'PARENT_CLASS' %, '' )% 
+//	[{%1#f_IsControl()!=true}{\
+ %IF ( ( %1 %?f IsControl %( )% ) %!=  true ) 
+  %ELSE
+//	%1<{}{%P#f_IsControl()!=true}{%P}\
+   %1
+   %FOR %ITEM-CONDITION ( ( %P %?f IsControl %( )% ) %!=  true ) 
+    ( %P ) 
+//	%f_set_var(PARENT_CLASS,P)\
+    [%f] set_var %( 'PARENT_CLASS' %, 'P' )% 
+//	%f_cycle_break(%S)\
+    [%f] cycle_break %( %S )% 
+//	>\
+   %END-FOR
+ //	}\
+  %THEN
+//	%f_set_var(PARENT_CLASS,1)\
+  [%f] set_var %( 'PARENT_CLASS' %, 1 )% 
+//	]\
+ %END-IF
+
+//	%{PARENT_CLASS}%f_add_attribute(%SU_Field,,\
+ ( get_global_var ( 'PARENT_CLASS' ) %f add_attribute %( %S |U '_Field' %, '' %, 
+//	%f_pas_FieldName(%S) : [{"%f_pas_TypeName(%T)"!=""}{%S%f_pas_ResultTypeName()}%TU],\
+ [%f] pas_FieldName %( %S )% ' : '
+ %IF ( ( [%f] pas_TypeName %( %T )% ) %!= '' ) 
+  %ELSE
+   %S %f pas_ResultTypeName %( )% 
+  %THEN
+  %T |U 
+ %END-IF
+%, //	Attr_Inst)\
+ 'Attr_Inst' )% ) 
+//	[{%Sl!=lnk|%t_interface(%P)=true}{\
+ %IF ( ( %S |l ) %!= 'lnk' %|| 
+   ( ( [%t] interface %( %P )% ) %==  true  ) ) 
+  %ELSE
+//	%{Attr_Inst}%f_set_link_type(lnk)\
+   ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'lnk' )% ) 
+//	}\
+  %THEN
+//	%{Attr_Inst}%f_set_link_type(ref)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
+//	]\
+ %END-IF
+//	%{Attr_Inst}%f_set_abstraction_type(final)\
+//	%{Attr_Inst}%f_set_visibility_type(PrivateAccess)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Attr_Inst}%f_set_up(ifdef,%S{ifdef})\
+ ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{Attr_Inst}%f_set_up(ifndef,%S{ifndef})\
+ ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+//	%{Attr_Inst}%f_set_applied_gen(cpp,false)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'cpp' %, false )% ) 
+//	%{Attr_Inst}%f_set_applied_gen(h,false)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'h' %, false )% ) 
+//	%{Attr_Inst}%f_set_documentation(Поле для свойства %SN)
+ ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Поле для свойства '
+ %S |N )% ) 
+//#UC END# *472174BE001F*
+; // SpellFieldPrim
+
+
+// выводит имя модуля
+//f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *472174C502AF*
+//@ %SU
+//	%f_set_var(_UNIT_NAME_,"")\
+ [%f] set_var %( '_UNIT_NAME_' %, '' )% 
+//	%f_set_var(_UNIT_NAME_,"%S#f_pas_UnitName()")\
+ [%f] set_var %( '_UNIT_NAME_' %, %S %?f pas_UnitName %( )% )% 
+//	[{"%{_UNIT_NAME_}N"=""}{[{"%{_UNIT_NAME_}N"!="_none_"}%{_UNIT_NAME_}N]}%t_pas_UnitName(%S)]
+ %IF ( ( ( get_global_var ( '_UNIT_NAME_' ) |N ) ) %== '' ) 
+  %ELSE
+   %IF ( ( ( get_global_var ( '_UNIT_NAME_' ) |N ) ) %!= '_none_' ) 
+    ( get_global_var ( '_UNIT_NAME_' ) |N ) 
+   %END-IF
+  %THEN
+  [%t] pas_UnitName %( %S )% 
+ %END-IF
+//#UC END# *472174C502AF*
+; // pas_UnitName
+
+
+// выводит имя файла модуля
+//f _pas_UnitFileName
+: pas_UnitFileName OBJECT IN %S
+//#UC START# *472174D20251*
+//	%f_set_var(_UNIT_NAME_,"%f_pas_UnitName(%S)")\
+ [%f] set_var %( '_UNIT_NAME_' %, [%f] pas_UnitName %( %S )% )% 
+//	[{"%{_UNIT_NAME_}N"!=""}\
+ %IF ( ( ( get_global_var ( '_UNIT_NAME_' ) |N ) ) %!= '' ) 
+//	%{_UNIT_NAME_}N\
+  ( get_global_var ( '_UNIT_NAME_' ) |N ) 
+//	[{%S#f_IsTarget()=true}{.pas}.dpr]\
+  %IF ( ( %S %?f IsTarget %( )% ) %==  true ) 
+   %ELSE
+    '.pas' 
+   %THEN
+   '.dpr' 
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *472174D20251*
+; // pas_UnitFileName
+
+
+// выводит тип умолчательного предка для интерфейсов
+//t _pas_DefaultInterfaceAncestor
+<<transformator>> pas_DefaultInterfaceAncestor OBJECT IN %S
+//#UC START# *472174E4035B*
+//c {}
+//r {%S#f_IsUseCaseController()=true}: {[{%Sa!=abstract}IvcmUseCaseController]}
+//r {%S#f_IsViewAreaController()=true}: {[{%Sa!=abstract}IvcmViewAreaController]}
+//r {%S#f_IsPureMixIn()=true}: {}
+//r {%S#f_IsVCMOperations()=true}: {}
+//r {%t_interface(%S)!=true}: {!ERROR!}
+//r {%S{is default ancestor}=true}: {}
+//r {true}: {[{}{IUnknown}%{DEFAULT_ANCESTOR}N]}
+//#UC END# *472174E4035B*
+; // pas_DefaultInterfaceAncestor
+
+
+// выводит тип предка для интерфейсов
+//f _pas_InterfaceAncestor
+: pas_InterfaceAncestor OBJECT IN %S
+//#UC START# *472174F0029F*
+//	[{%Gx=true}{%t_pas_DefaultInterfaceAncestor(%S)}%f_pas_TypeName(%G)]
+ %IF ( ( %G |x ) %==  true ) 
+  %ELSE
+   [%t] pas_DefaultInterfaceAncestor %( %S )% 
+  %THEN
+  [%f] pas_TypeName %( %G )% 
+ %END-IF
+//#UC END# *472174F0029F*
+; // pas_InterfaceAncestor
+
+
+// открывает секцию констант
+//f _pas_OpenConst
+: pas_OpenConst OBJECT IN %S
+//#UC START# *472174F70280*
+//	[{%XU!=pas}{\
+ %IF ( ( %X |U ) %!= 'pas' ) 
+  %ELSE
+//	[{%{WAS_CONST}N=0}const\n%f_pas_CloseDefinitions(%S)%f_set_var(WAS_CONST,"1")]\
+   %IF ( ( ( get_global_var ( 'WAS_CONST' ) |N ) ) %== 0 ) 
+    'const'#13#10
+    [%f] pas_CloseDefinitions %( %S )% [%f] set_var %( 'WAS_CONST' %, 1 )% 
+   %END-IF
+//	}\
+  %THEN
+//	[{%{WAS_CONST}N=0|%S{TreatAsVars}=true}\
+  %IF ( ( ( get_global_var ( 'WAS_CONST' ) |N ) ) %== 0 %|| 
+    ( ( %S get_up ( 'TreatAsVars' ) ) %==  true  ) ) 
+//	\n[{%S{TreatAsVars}!=true}{\
+   #13#10
+   %IF ( ( %S get_up ( 'TreatAsVars' ) ) %!=  true ) 
+    %ELSE
+//	var}\
+     'var' 
+    %THEN
+//	const]\
+    'const' 
+   %END-IF
+//	\n%f_pas_CloseDefinitions(%S)\
+   #13#10
+   [%f] pas_CloseDefinitions %( %S )% 
+//	[{%S{TreatAsVars}!=true}%f_set_var(WAS_CONST,"1")]\
+   %IF ( ( %S get_up ( 'TreatAsVars' ) ) %!=  true ) 
+    [%f] set_var %( 'WAS_CONST' %, 1 )% 
+   %END-IF
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *472174F70280*
+; // pas_OpenConst
+
+
+// открывает секцию объявления типов
+//f _pas_OpenType
+: pas_OpenType OBJECT IN %S
+//#UC START# *472174FF0280*
+//	[{%XU!=pas}{\
+ %IF ( ( %X |U ) %!= 'pas' ) 
+  %ELSE
+//	[{%{WAS_TYPE}N=0}{}\
+   %IF ( ( ( get_global_var ( 'WAS_TYPE' ) |N ) ) %== 0 ) 
+    %ELSE
+    %THEN
+//	type
+    'type'
+//	%f_pas_CloseDefinitions(%S)%f_set_var(WAS_TYPE,"1")\
+    [%f] pas_CloseDefinitions %( %S )% [%f] set_var %( 'WAS_TYPE' %, 1 )% 
+//	]\
+   %END-IF
+//	}\
+  %THEN
+//	[{%{WAS_TYPE}N=0}{\n}\
+  %IF ( ( ( get_global_var ( 'WAS_TYPE' ) |N ) ) %== 0 ) 
+   %ELSE
+    #13#10 
+   %THEN
+//	[{%{WAS_METHOD}N!=0}\n]\
+   %IF ( ( ( get_global_var ( 'WAS_METHOD' ) |N ) ) %!= 0 ) 
+    #13#10 
+   %END-IF
+//	\ntype
+   #13#10'type'
+//	%f_pas_CloseDefinitions(%S)%f_set_var(WAS_TYPE,"1")\
+   [%f] pas_CloseDefinitions %( %S )% [%f] set_var %( 'WAS_TYPE' %, 1 )% 
+//	]\
+  %END-IF
+//	<%FF>\
+  %FOR %F |F 
+  %END-FOR
+//	]
+ %END-IF
+//#UC END# *472174FF0280*
+; // pas_OpenType
+
+
+// закрывает секцию uses
+//f _pas_CloseUses
+: pas_CloseUses OBJECT IN %S
+//#UC START# *4721750D00CB*
+//	[{%{WAS_USES}N=1}\n  ;\n%f_set_var(WAS_USES,"0")\
+ %IF ( ( ( get_global_var ( 'WAS_USES' ) |N ) ) %== 1 ) 
+  #13#10'  ;'#13#10
+  [%f] set_var %( 'WAS_USES' %, 0 )% 
+//	[%S#f_close_ifdef()\n]\
+  %IF-NOT-EMPTY
+   %S %?f close_ifdef %( )% #13#10 
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4721750D00CB*
+; // pas_CloseUses
+
+
+// выводит список пакетов с указанным стереотипом от которых мы зависим
+//f _pas_Uses
+: pas_Uses OBJECT IN %S
+//#UC START# *47217513030D*
+//	[{%SC=Category}{\
+ %IF ( ( %S |C ) %== 'Category' ) 
+  %ELSE
+//	<%f_pas_PutToUses(%w)>\
+   %FOR [%f] pas_PutToUses %( %w )% 
+   %END-FOR
+//	<{}{%G#f_IsMixIn()=true}%f_pas_Uses(%G)>\
+   %FOR %ITEM-CONDITION ( ( %G %?f IsMixIn %( )% ) %==  true ) 
+    [%f] pas_Uses %( %G )% 
+   %END-FOR
+//	<{}{%R#f_IsMixIn()=true}%f_pas_Uses(%R)>\
+   %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+    [%f] pas_Uses %( %R )% 
+   %END-FOR
+//	<{}{%R#f_ClassImplementable()=true}%R<{}{%R#f_ClassImplementable()=true}%f_pas_PutToUses(%f_pas_Unit(%R))>>\
+   %FOR %ITEM-CONDITION ( ( %R %?f ClassImplementable %( )% ) %==  true ) 
+    %R
+    %FOR %ITEM-CONDITION ( ( %R %?f ClassImplementable %( )% ) %==  true ) 
+     [%f] pas_PutToUses %( [%f] pas_Unit %( %R )% )% 
+    %END-FOR
+    %END-FOR
+//	<{}{%CV=PublicAccess|%C#f_IsVCMFinalForm()=true}\
+   %FOR %ITEM-CONDITION ( ( %C |V ) %== 'PublicAccess' %|| 
+     ( ( %C %?f IsVCMFinalForm %( )% ) %==  true  ) ) 
+
+//	[{%CS!=ScriptKeyword}\
+//	[{"%CO"=""}{%f_pas_PutToUses(%C)}%f_pas_Uses(%C)]\
+    %IF ( ( %C |O ) %== '' ) 
+     %ELSE
+      [%f] pas_PutToUses %( %C )% 
+     %THEN
+     [%f] pas_Uses %( %C )% 
+    %END-IF
+
+//	]\
+//	>\
+   %END-FOR
+//	<%f_pas_Uses(%O)>\
+   %FOR [%f] pas_Uses %( %O )% 
+   %END-FOR
+//	<%f_pas_Uses(%o)>\
+   %FOR [%f] pas_Uses %( %o )% 
+   %END-FOR
+
+
+
+// Генерируем интерфейс методов "квадратиком", вложенных в фасеты/интерфейсы:
+//	[{%SC=Class}\
+   %IF ( ( %S |C ) %== 'Class' ) 
+//	<\
+    %FOR 
+
+//	%R<{}{%CC=Class&%C#f_IsClassImplementableElement()=true}\
+     %R
+     %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+       ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) ) 
+//	%f_pas_Uses(%C)\
+      [%f] pas_Uses %( %C )% 
+//	>\
+     %END-FOR
+ 
+
+//	%R<{}{%1#f_Implements(%G)!=true}{%G}\
+     %R
+     %FOR %ITEM-CONDITION ( ( %1 %?f Implements %( %G )% ) %!=  true ) 
+      ( %G ) 
+//	%G<{}{%CC=Class&%C#f_IsClassImplementableElement()=true}\
+      %G
+      %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+        ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) ) 
+//	%f_pas_Uses(%C)\
+       [%f] pas_Uses %( %C )% 
+//	>\
+      %END-FOR
+ //	>\
+     %END-FOR
+ 
+
+//	>\
+    %END-FOR
+//	]\
+   %END-IF
+
+// end Генерируем интерфейс методов "квадратиком"...
+
+
+//	}\
+  %THEN
+//	<{}{"%DO"!=""}%f_pas_PutToUses(%D)>\
+  %FOR %ITEM-CONDITION ( ( %D |O ) %!= '' ) 
+   [%f] pas_PutToUses %( %D )% 
+  %END-FOR
+//	<%f_pas_PutToUses(%w)>\
+  %FOR [%f] pas_PutToUses %( %w )% 
+  %END-FOR
+//	<%C<%f_pas_PutToUses(%w)%R<%f_pas_PutToUses(%w)>>>\
+  %FOR %C
+   %FOR [%f] pas_PutToUses %( %w )% %R
+    %FOR [%f] pas_PutToUses %( %w )% 
+    %END-FOR
+    %END-FOR
+   %END-FOR
+//	]\
+ %END-IF
+//	%S#f_pas_IntfUses(%1)
+ %S %?f pas_IntfUses %( %1 )% 
+//#UC END# *47217513030D*
+; // pas_Uses
+
+
+// Имя типа
+//t _pas_TypeName
+<<transformator>> pas_TypeName OBJECT IN %S
+//#UC START# *4721752001A5*
+//@ %SU
+//c {}
+//r {%SS=MixInMirror}: {[{%Gx!=true}%f_N(%S)]}
+//r {%SS=MixInMirror}: {}
+// - отображение примеси
+//r {%SN=void}: {}
+//r {%S#f_IsMixIn()=true}: {_%f_N(%S)_}
+// - класс-примесь
+//r {%SN=long}: {Integer}
+//r {%SN=boolean}: {Boolean}
+//r {%SN=wstring}: {WideString}
+//r {%SN=BOOL}: {LongBool}
+//r {%SN=unsigned long}: {Cardinal}
+//r {%SN=unsigned char}: {Byte}
+//r {%SN=object}: {IUnknown}
+//r {%SN=string}: {PChar}
+//r {%SN=a-string}: {String}
+//r {%SS=Facet}: {[{%S#f_InTie()=true}{[I%P#f_pas_ElementPrefixBase()]}I]%f_N(%S)}
+//r {%SS=Vector}: {[{%S#f_InTie()=true}{[T%P#f_pas_ElementPrefixBase()]}I]%f_N(%S)}
+//r {%SS=Interface}: {I%f_N(%S)}
+//r {%S#f_IsVCMOperations()=true}: {%f_N(%S)}
+//r {%t_interface(%S)=true}: {[{%S#f_InTie()=true}{[I%P#f_pas_ElementPrefixBase()]}I]%f_N(%S)}
+//r {%SS=Typedef}: {[{%S#f_InTie()=true}{[{%S{isPointer}!=true}{[P%P#f_pas_ElementPrefixBase()]}[T%P#f_pas_ElementPrefixBase()]]}T]%f_N(%S)}
+//r {%SS=TagTable}: {T%f_N(%S)Schema}
+//r {%SS=Tag}: {%f_N(%S)Tag}
+//r {%SS=Atom}: {%f_N(%S)Atom}
+//r {%SS=InterfaceFactory}: {%f_N(%S)InterfaceFactory}
+//r {%SS=Enum}: {[{%S#f_InTie()=true}{[T%P#f_pas_ElementPrefixBase()]}T]%f_N(%S)}
+//r {%SS=Function}: {[{%S#f_InTie()=true}{[T%P#f_pas_ElementPrefixBase()]}T]%f_N(%S)}
+//r {%S#f_IsStruct()=true}: {[{%S#f_InTie()=true}{[T%P#f_pas_ElementPrefixBase()]}T]%f_N(%S)}
+//r {true}: {[T%P#f_pas_ElementPrefixBase()]%f_N(%S)}
+//#UC END# *4721752001A5*
+; // pas_TypeName
+
+
+// Имя типа
+//f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *47217527000F*
+//	[{"%1N"=""}{[{}{%t_pas_TypeName(%1)}%1#f_pas_TypeName()]}[{}{%t_pas_TypeName(%S)}%S#f_pas_TypeName()]]
+ %IF ( ( %1 |N ) %== '' ) 
+  %ELSE
+   %IF ( ) 
+    %ELSE
+     [%t] pas_TypeName %( %1 )% 
+    %THEN
+    %1 %?f pas_TypeName %( )% 
+   %END-IF
+  %THEN
+  %IF ( ) 
+   %ELSE
+    [%t] pas_TypeName %( %S )% 
+   %THEN
+   %S %?f pas_TypeName %( )% 
+  %END-IF
+ %END-IF
+//#UC END# *47217527000F*
+; // pas_TypeName
+
+
+// документация отсутствует
+//t _pas_InInterfacePrefix
+<<transformator>> pas_InInterfacePrefix OBJECT IN %S
+//#UC START# *4721752E007D*
+//c {}
+//r {true}: {const }
+//#UC END# *4721752E007D*
+; // pas_InInterfacePrefix
+
+
+// документация отсутствует
+//t _pas_InPrefix
+<<transformator>> pas_InPrefix OBJECT IN %S
+//#UC START# *472175340167*
+//@ %SU
+//c {}
+//r {%SS=Typedef}: {[{%S{isPointer}=true}{%t_pas_InPrefix(%G)}]}
+//r {%SS=InitedTypedef}: {%f_error("Недопустимый стереотип %SS")%t_pas_InPrefix(%G)}
+//r {%S#f_IsStruct()=true}: {const }
+//r {%SS=Union}: {const }
+//r {%SS=Vector}: {const }
+//r {%t_interface(%S)=true}: {%t_pas_InInterfacePrefix(%S)}
+//r {%SN=object}: {const }
+//r {%SN=a-string}: {const }
+//r {%SN=a-wstring}: {const }
+//r {%SN=void}: {const }
+//r {%SS=ImpurityParamType}: {const }
+//r {true}: {}
+//#UC END# *472175340167*
+; // pas_InPrefix
+
+
+// документация отсутствует
+//t _pas_ParamPrefix
+<<transformator>> pas_ParamPrefix OBJECT IN %S
+//#UC START# *4721753903D8*
+//@ %SU
+//c {}
+//r {%SS=in}: {%t_pas_InPrefix(%T)}
+//r {%SS=const}: {const }
+//r {%SS=noconst}: {}
+//r {%SS=out}: {out }
+//r {%SS=inout}: {var }
+//r {true}: {!ERROR! %SS}
+//r {true}: {%SS}
+//#UC END# *4721753903D8*
+; // pas_ParamPrefix
+
+
+// документация отсутствует
+//f _pas_InAttr
+: pas_InAttr OBJECT IN %S
+//#UC START# *472175410251*
+//	%t_pas_InPrefix(%T)aValue: %f_pas_TypeName(%T)
+ [%t] pas_InPrefix %( %T )% 'aValue: '
+ [%f] pas_TypeName %( %T )% 
+//#UC END# *472175410251*
+; // pas_InAttr
+
+
+// документация отсутствует
+//f _pas_PropGet
+: pas_PropGet OBJECT IN %S
+//#UC START# *47217548030D*
+//	[{%S{pm}=true}{[{%t_interface(%P)=true&%P#f_InTie()=true}{Get_}Get]}pm_Get]%f_to_borland(%SN)
+ %IF ( ( %S get_up ( 'pm' ) ) %==  true ) 
+  %ELSE
+   %IF ( ( [%t] interface %( %P )% ) %==  true %&& 
+     ( ( %P %?f InTie %( )% ) %==  true  ) ) 
+    %ELSE
+     'Get_' 
+    %THEN
+    'Get' 
+   %END-IF
+  %THEN
+  'pm_Get' 
+ %END-IF
+ [%f] to_borland %( %S |N )% 
+//#UC END# *47217548030D*
+; // pas_PropGet
+
+
+// документация отсутствует
+//f _pas_PropSet
+: pas_PropSet OBJECT IN %S
+//#UC START# *4721755501B5*
+//	[{%S{pm}=true}{[{%t_interface(%P)=true&%P#f_InTie()=true}{Set_}Set]}pm_Set]%f_to_borland(%SN)
+ %IF ( ( %S get_up ( 'pm' ) ) %==  true ) 
+  %ELSE
+   %IF ( ( [%t] interface %( %P )% ) %==  true %&& 
+     ( ( %P %?f InTie %( )% ) %==  true  ) ) 
+    %ELSE
+     'Set_' 
+    %THEN
+    'Set' 
+   %END-IF
+  %THEN
+  'pm_Set' 
+ %END-IF
+ [%f] to_borland %( %S |N )% 
+//#UC END# *4721755501B5*
+; // pas_PropSet
+
+
+// документация отсутствует
+//t _pas_ParamType
+<<transformator>> pas_ParamType OBJECT IN %S
+//#UC START# *47217567007D*
+//c {}
+//r {%SS=Vector}: {[{%S{array type}=open}{%f_pas_TypeName(%S)}array of %f_pas_TypeName(%C%T)]}
+//r {%SS=InitedTypedef}: {%f_pas_TypeName(%G) = %CN}
+//r {true}: {%f_pas_TypeName(%S)}
+//#UC END# *47217567007D*
+; // pas_ParamType
+
+
+// документация отсутствует
+//t _pas_VendorPrefix
+<<transformator>> pas_VendorPrefix OBJECT IN %S
+//#UC START# *4721757401E4*
+//c {}
+//r {%SS=TestLibrary&%PS=VCMTestProject}: {}
+//r {true}: {[{%S{vendor}!=none}[{%S{gui}=tie&"%XU"!="intf.pas"}{%S{vendor}}]]}
+//#UC END# *4721757401E4*
+; // pas_VendorPrefix
+
+
+// документация отсутствует
+//f _pas_AncestorPrefix
+: pas_AncestorPrefix OBJECT IN %S
+//#UC START# *472175A001C5*
+//	[{%f_pas_IsSameUnit(%S,%G)!=true}%f_pas_Unit(%G)]
+ %IF ( ( [%f] pas_IsSameUnit %( %S %, %G )% ) %!=  true ) 
+  [%f] pas_Unit %( %G )% 
+ %END-IF
+//#UC END# *472175A001C5*
+; // pas_AncestorPrefix
+
+
+// документация отсутствует
+//t _pas_SetConst
+<<transformator>> pas_SetConst OBJECT IN %S
+//#UC START# *472175A700FA*
+//c {}
+//r {%SS=SetConst}: {%f_pas_TypeName(%S)}
+//r {%SS=SetOf}: {%t_pas_SetConst(%G)}
+//r {true}: {\[Low(%f_pas_TypeName(%S))..High(%f_pas_TypeName(%S))\]}
+//#UC END# *472175A700FA*
+; // pas_SetConst
+
+
+// документация отсутствует
+//f _pas_StructFields
+: pas_StructFields OBJECT IN %S
+//#UC START# *472175B200DA*
+//	<{\n#}\
+ %FOR %ITEM-SEPARATOR #13#10
+  out_indent ; // %ITEM-SEPARATOR 
+//	[\n#%C#f_open_ifdef()\n#]\
+  %IF-NOT-EMPTY
+   #13#10
+   out_indent %C %?f open_ifdef %( )% #13#10
+   out_indent 
+  %END-IF
+//	%f_N(%C): %f_pas_TypeName(%C%T);\
+  [%f] N %( %C )% ': '
+  [%f] pas_TypeName %( %C ->T  )% ';'
+//	[\n#%C#f_close_ifdef()\n#]\
+  %IF-NOT-EMPTY
+   #13#10
+   out_indent %C %?f close_ifdef %( )% #13#10
+   out_indent 
+  %END-IF
+//	>
+ %END-FOR
+//#UC END# *472175B200DA*
+; // pas_StructFields
+
+
+// документация отсутствует
+//f _pas_UnionFields
+: pas_UnionFields OBJECT IN %S
+//#UC START# *472175BB00CB*
+//	[{%f_substr_from_begin(%SN,4)=void}{%f_N(%S): %f_pas_TypeName(%T)}%f_pas_StructFields(%T)]
+ %IF ( ( [%f] substr_from_begin %( %S |N %, 4 )% ) %== 'void' ) 
+  %ELSE
+   [%f] N %( %S )% ': '
+   [%f] pas_TypeName %( %T )% 
+  %THEN
+  [%f] pas_StructFields %( %T )% 
+ %END-IF
+//#UC END# *472175BB00CB*
+; // pas_UnionFields
+
+
+// документация отсутствует
+//t _pas_IsSimpleType
+<<transformator>> pas_IsSimpleType OBJECT IN %S
+//#UC START# *472175C3031C*
+//c {}
+//r {%SS=UMLPrimitive}: {true}
+//r {%S#f_IsStruct()=true}: {true}
+//r {%SS=Typedef}: {%t_pas_IsSimpleType(%G)}
+//r {true}: {false}
+//#UC END# *472175C3031C*
+; // pas_IsSimpleType
+
+
+// документация отсутствует
+//f _pas_IsSimpleType
+: pas_IsSimpleType OBJECT IN %S
+//#UC START# *472175CA02DE*
+//@ %SU
+//	%t_pas_IsSimpleType(%S)
+ [%t] pas_IsSimpleType %( %S )% 
+//#UC END# *472175CA02DE*
+; // pas_IsSimpleType
+
+
+// документация отсутствует
+//f _pas_PropFromField
+: pas_PropFromField OBJECT IN %S
+//#UC START# *472175D001B5*
+//	[{"%SN"!=""&%t_pas_IsSimpleType(%T)=true}\
+ %IF ( ( %S |N ) %!= '' %&& 
+   ( ( [%t] pas_IsSimpleType %( %T )% ) %==  true  ) ) 
+//	   property %SN: %TN \n     read %1N.%SN \n     write %1N.%SN;\n]
+  '   property '
+  %S |N ': '
+  %T |N ' '#13#10'     read '
+  %1 |N '.'
+  %S |N ' '#13#10'     write '
+  %1 |N '.'
+  %S |N ';'#13#10 
+ %END-IF
+//#UC END# *472175D001B5*
+; // pas_PropFromField
+
+
+// документация отсутствует
+//f _pas_PropsFromStructFields
+: pas_PropsFromStructFields OBJECT IN %S
+//#UC START# *472175D70213*
+//	<{}%f_pas_PropFromField(%C,%1N)>
+ %FOR [%f] pas_PropFromField %( %C %, %1 |N )% 
+ %END-FOR
+//#UC END# *472175D70213*
+; // pas_PropsFromStructFields
+
+
+// документация отсутствует
+//f _pas_PropsFromUnionFields
+: pas_PropsFromUnionFields OBJECT IN %S
+//#UC START# *472175DD0242*
+//	<{}{%CS!=switch}%f_pas_PropsFromStructFields(%C%T,%1N)>
+ %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'switch' ) 
+  [%f] pas_PropsFromStructFields %( %C ->T  %, %1 |N )% 
+ %END-FOR
+//#UC END# *472175DD0242*
+; // pas_PropsFromUnionFields
+
+
+// документация отсутствует
+//f _pas_PropsFromUnion
+: pas_PropsFromUnion OBJECT IN %S
+//#UC START# *472175E3033C*
+//	[{%TS=Union}%f_pas_PropsFromUnionFields(%T,%S)]
+ %IF ( ( %T |S ) %== 'Union' ) 
+  [%f] pas_PropsFromUnionFields %( %T %, %S )% 
+ %END-IF
+//#UC END# *472175E3033C*
+; // pas_PropsFromUnion
+
+
+// документация отсутствует
+//f _pas_PrjPath
+: pas_PrjPath OBJECT IN %S
+//#UC START# *472178AA0222*
+//	[{%f_substr_from_begin(%SN,13)=Shared Delphi}{\
+ %IF ( ( [%f] substr_from_begin %( %S |N %, 13 )% ) %== 'Shared Delphi' ) 
+  %ELSE
+//	[{%SN=garant6x_test}{\
+   %IF ( ( %S |N ) %== 'garant6x_test' ) 
+    %ELSE
+//	[{%SN=Nemesis|%f_substr_from_begin(%SN,2)=F1}{\
+     %IF ( ( %S |N ) %== 'Nemesis' %|| 
+       ( ( [%f] substr_from_begin %( %S |N %, 2 )% ) %== 'F1'  ) ) 
+      %ELSE
+//	/%f_N(%S)\
+       '/'
+       [%f] N %( %S )% 
+//	}\
+      %THEN
+//	/garant6x\
+      '/garant6x'
+//	]\
+     %END-IF
+//	}\
+    %THEN
+//	/quality/test/garant6x]\
+    '/quality/test/garant6x' 
+   %END-IF
+//	}/common\
+  %THEN
+  '/common'
+//	]\
+ %END-IF
+//	%S{root path suffix}
+ %S get_up ( 'root path suffix' ) 
+
+//f _clear_USED_UNITS
+; // pas_PrjPath
+
+: clear_USED_UNITS OBJECT IN %S
+//	[{%f_is_empty(USED_UNITS_INSTANCES)=false}\
+ %IF ( ( [%f] is_empty %( 'USED_UNITS_INSTANCES' )% ) %==  false ) 
+//	%{USED_UNITS_INSTANCES}<{}{"%CC"!=""}%C%f_set_var(INUSED,"")>\
+  ( get_global_var ( 'USED_UNITS_INSTANCES' ) ) 
+  %FOR %ITEM-CONDITION ( ( %C |C ) %!= '' ) 
+   %C %f set_var %( 'INUSED' %, '' )% 
+  %END-FOR
+//	]\
+ %END-IF
+//	%f_clear_list(USED_UNITS_INSTANCES)\
+ [%f] clear_list %( 'USED_UNITS_INSTANCES' )% 
+//	%f_clear_list(USED_UNITS)
+ [%f] clear_list %( 'USED_UNITS' )% 
+//#UC END# *472178AA0222*
+; // clear_USED_UNITS
+
+
+// Открывает интерфейсную секцию модуля.
+//f _pas_OpenUnitInterface
+: pas_OpenUnitInterface OBJECT IN %S
+//#UC START# *47456B0303B6*
+//	%f_set_var(DEFAULT_ANCESTOR,"")\
+ [%f] set_var %( 'DEFAULT_ANCESTOR' %, '' )% 
+//	[{%S#f_IsVCMGUI()!=true&%S#f_IsExeTarget()!=true}{\
+ %IF ( ( %S %?f IsVCMGUI %( )% ) %!=  true %&& 
+   ( ( %S %?f IsExeTarget %( )% ) %!=  true  ) ) 
+  %ELSE
+//	program\
+   'program'
+//	}\
+  %THEN
+//	[{%S#f_IsAdapterTarget()=true}{\
+  %IF ( ( %S %?f IsAdapterTarget %( )% ) %==  true ) 
+   %ELSE
+//	unit\
+    'unit'
+//	}\
+   %THEN
+//	library\
+   'library'
+//	]\
+  %END-IF
+//	]\
+ %END-IF
+//	 [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitName(%S);\
+ ' '
+ %IF ( ( %S get_up ( 'finished' ) ) %!=  true ) 
+  'NOT_FINISHED_' 
+ %END-IF
+ [%f] pas_UnitName %( %S )% ';'
+//	[\n \{* %SD \}]
+//	\n
+ #13#10
+//	[{%S{weak}=true}\{$IfDef DesignTimeLibrary\}
+ %IF ( ( %S get_up ( 'weak' ) ) %==  true ) 
+  '{$IfDef DesignTimeLibrary}'
+//	\{$WEAKPACKAGEUNIT ON\}
+  '{$WEAKPACKAGEUNIT ON}'
+//	\{$EndIf DesignTimeLibrary\}\n\n]\
+  '{$EndIf DesignTimeLibrary}'#13#10#13#10 
+ %END-IF
+//	// Библиотека "%f_pas_LibName(%S)"
+//	[// Автор: %f_pas_Author(%S)\n]\
+//	// Модуль: %f_pas_UnitName(%S)
+//	[// Начат: %f_pas_Started(%S)\n]\
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	[{%S#f_evd_IsSchemaElement()=true}[\n// Константы для значений тега %SN [- "%SD"].]]\
+ %IF ( ( %S %?f evd_IsSchemaElement %( )% ) %==  true ) 
+  %IF-NOT-EMPTY
+   #13#10'// Константы для значений тега '
+   %S |N ' '
+   %IF-NOT-EMPTY
+    '- "'
+    %S |D 
+   %END-IF
+   '.' 
+  %END-IF
+ %END-IF
+//	[{%S{no hands}=true|%S{finished}=true}\n// ! Полностью генерируется с модели. Править руками - нельзя. !\n]\
+ %IF ( ( %S get_up ( 'no hands' ) ) %==  true %|| 
+   ( ( %S get_up ( 'finished' ) ) %==  true  ) ) 
+  #13#10'// ! Полностью генерируется с модели. Править руками - нельзя. !'#13#10 
+ %END-IF
+//	[{%S{finished}!=true}\n// ! Этот файл используется только для моделирования, а не для компиляции. !\n]\
+ %IF ( ( %S get_up ( 'finished' ) ) %!=  true ) 
+  #13#10'// ! Этот файл используется только для моделирования, а не для компиляции. !'#13#10 
+ %END-IF
+//	\
+//	[\n\{$Include %f_pas_Defines(%S)\}\n]\
+ %IF-NOT-EMPTY
+  #13#10'{$Include '
+  [%f] pas_Defines %( %S )% '}'#13#10 
+ %END-IF
+//	[{%S#f_IsTarget()!=true}\ninterface\n]\
+ %IF ( ( %S %?f IsTarget %( )% ) %!=  true ) 
+  #13#10'interface'#13#10 
+ %END-IF
+//	\
+//	%f_set_var(WAS_USES,"0")\
+ [%f] set_var %( 'WAS_USES' %, 0 )% 
+//	%f_set_var(WAS_INSTANCE,"0")\
+ [%f] set_var %( 'WAS_INSTANCE' %, 0 )% 
+//	%f_clear_list(FORWARDED_INTF)\
+ [%f] clear_list %( 'FORWARDED_INTF' )% 
+//	%f_clear_list(GENERATED_INTF)\
+ [%f] clear_list %( 'GENERATED_INTF' )% 
+//	%f_clear_USED_UNITS(%S)\
+ [%f] clear_USED_UNITS %( %S )% 
+//	%f_pas_CloseDefinitions(%S)
+ [%f] pas_CloseDefinitions %( %S )% 
+//#UC END# *47456B0303B6*
+; // pas_OpenUnitInterface
+
+
+// Открывает секцию реализации модуля.
+//f _pas_OpenUnitImplementation
+: pas_OpenUnitImplementation OBJECT IN %S
+//#UC START# *47456B3D0229*
+//	\nimplementation
+ #13#10'implementation'
+//	\
+//	%f_clear_list(REALIZED_METHODS)\
+ [%f] clear_list %( 'REALIZED_METHODS' )% 
+//	%f_set_var(WAS_USES,"0")\
+ [%f] set_var %( 'WAS_USES' %, 0 )% 
+//	%f_pas_CloseDefinitions(%S)
+ [%f] pas_CloseDefinitions %( %S )% 
+//#UC END# *47456B3D0229*
+; // pas_OpenUnitImplementation
+
+
+// Выводит реализацию класса.
+//f _pas_OutClassImplementation
+: pas_OutClassImplementation OBJECT IN %S
+//#UC START# *4746DD48001C*
+//	[{%Cx=true|%Ox=true|%ox=true|"%S%f_pas_OutOverridesImpl()"!=""|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
+ %IF ( ( %C |x ) %==  true %|| 
+   ( ( %O |x ) %==  true  ) %|| 
+   ( ( %o |x ) %==  true  ) %|| 
+   ( ( %S %f pas_OutOverridesImpl %( )% ) %!= ''  ) %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %G %?f IsMixIn %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+//	[\n%S%f_open_ifdef()\n]\
+  %IF-NOT-EMPTY
+   #13#10
+   %S %f open_ifdef %( )% #13#10 
+  %END-IF
+//	]\
+ %END-IF
+//	%f_with_gen_id(intf.pas,\
+ [%f] with_gen_id %( 'intf.pas' %, 
+//	[\n\
+ %IF-NOT-EMPTY
+  #13#10
+//	<{}{%CV!=PublicAccess&%C#f_IsAttribute()=true&%C#f_IsProp()!=true&%CS=static}\
+  %FOR %ITEM-CONDITION ( ( %C |V ) %!= 'PublicAccess' %&& 
+    ( ( %C %?f IsAttribute %( )% ) %==  true  ) %&& 
+    ( ( %C %?f IsProp %( )% ) %!=  true  ) %&& 
+    ( ( %C |S ) %== 'static'  ) ) 
+//	[%CX\n]\
+   %IF-NOT-EMPTY
+    %C |X #13#10 
+   %END-IF
+//	>\
+  %END-FOR
+//	])\
+ %END-IF
+)% //	%f_set_var(WAS_METHOD,"0")\
+ [%f] set_var %( 'WAS_METHOD' %, 0 )% 
+// - это надо, чтобы сказать, что началась новая пачка методов
+//   по идее надо не так, а завести пару OpenClass/CloseClass
+//	[{%S#f_IsMixIn()=true}%f_pas_CloseDefinitions(%S)]\
+ %IF ( ( %S %?f IsMixIn %( )% ) %==  true ) 
+  [%f] pas_CloseDefinitions %( %S )% 
+ %END-IF
+//	[{<{}{%R#f_IsMixIn()=true}{C}>!=0&"%S%f_ImplementedInlinesCount()"!="0"}\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %&& 
+   ( ( %S %f ImplementedInlinesCount %( )% ) %!= 0  ) ) 
+//	%f_clear_list(impurity_values)\
+  [%f] clear_list %( 'impurity_values' )% 
+//	<{}{"%CS"="impurity value"}\
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+//	%f_add_to_list(impurity_values,"%CN")\
+   [%f] add_to_list %( 'impurity_values' %, %C |N )% 
+//	>\
+  %END-FOR
+//	%f_set_var(FIRST,"true")\
+  [%f] set_var %( 'FIRST' %, true )% 
+//	%G<%g<{}{"%CS"="impurity value"}\
+  %G
+  %FOR %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+//	[{%f_exists_in_list(impurity_values,"%CN")!=true}\
+    %IF ( ( [%f] exists_in_list %( 'impurity_values' %, %C |N )% ) %!=  true ) 
+//	%f_add_to_list(impurity_values,"%CN")\
+     [%f] add_to_list %( 'impurity_values' %, %C |N )% 
+//	[{%{FIRST}N="true"}\
+     %IF ( ( ( get_global_var ( 'FIRST' ) |N ) ) %== true ) 
+//	%f_set_var(FIRST,"false")\
+      [%f] set_var %( 'FIRST' %, false )% 
+//	\n\
+      #13#10
+//	]\
+     %END-IF
+//	\{$If not Declared(_%CN_)\}type _%CN_ = %f_pas_TypeName(%C%T);\{$IfEnd\}\
+     '{$If not Declared(_'
+     %C |N '_)}type _'
+     %C |N '_ = '
+     [%f] pas_TypeName %( %C ->T  )% ';{$IfEnd}'
+//	]\
+    %END-IF
+//	\n>>\
+    #13#10 
+   %END-FOR
+   %END-FOR
+ //	%f_clear_list(impurity_values)\
+  [%f] clear_list %( 'impurity_values' )% 
+//	]\
+ %END-IF
+//	[{%S{singleton}=true&<{}{%C#f_IsFactory()=true}{C}>=0}
+ %IF ( ( %S get_up ( 'singleton' ) ) %==  true %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f IsFactory %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0  ) ) 
+
+//	%f_pas_OpenMethodImplementation("Instance",%S)\
+  [%f] pas_OpenMethodImplementation %( 'Instance"' %, %S )% 
+//	var g_%f_pas_TypeName(%S) : %f_pas_TypeName(%S) = nil;
+  'var g_'
+  [%f] pas_TypeName %( %S )% ' : '
+  [%f] pas_TypeName %( %S )% ' = nil;'
+//	
+
+//	procedure %f_pas_TypeName(%S)Free;
+  'procedure '
+  [%f] pas_TypeName %( %S )% 'Free;'
+//	begin
+  'begin'
+//	 l3Free(g_%f_pas_TypeName(%S));
+  ' l3Free(g_'
+  [%f] pas_TypeName %( %S )% ');'
+//	end;
+  'end;'
+//	
+
+//	class function %f_pas_TypeName(%S).Instance: %f_pas_TypeName(%S);
+  'class function '
+  [%f] pas_TypeName %( %S )% '.Instance: '
+  [%f] pas_TypeName %( %S )% ';'
+//	begin
+  'begin'
+//	 if (g_%f_pas_TypeName(%S) = nil) then
+  ' if (g_'
+  [%f] pas_TypeName %( %S )% ' = nil) then'
+//	 begin
+  ' begin'
+//	  l3System.AddExitProc(%f_pas_TypeName(%S)Free);
+  '  l3System.AddExitProc('
+  [%f] pas_TypeName %( %S )% 'Free);'
+//	  g_%f_pas_TypeName(%S) := Create\
+  '  g_'
+  [%f] pas_TypeName %( %S )% ' := Create'
+//	[{%S#f_IsDataModule()=true|%S#f_IsVCMForm()=true}\
+  %IF ( ( %S %?f IsDataModule %( )% ) %==  true %|| 
+    ( ( %S %?f IsVCMForm %( )% ) %==  true  ) ) 
+//	(nil)\
+   '(nil)'
+//	]\
+  %END-IF
+//	;
+  ';'
+//	 end;
+  ' end;'
+//	 Result := g_%f_pas_TypeName(%S);
+  ' Result := g_'
+  [%f] pas_TypeName %( %S )% ';'
+//	end;
+  'end;'
+//	]\
+ %END-IF
+//	[{%f_number_cmp("%S%f_ImplementedInlinesCount()","1","\>")=1}\
+ %IF ( ( [%f] number_cmp %( %S %f ImplementedInlinesCount %( )% %, 1 %, '>' )% ) %== 1 ) 
+//	%f_shift_intend(-7)\
+  [%f] shift_intend %( '-7' )% 
+//	%f_set_var(SKIP_FIRST,"true")\
+  [%f] set_var %( 'SKIP_FIRST' %, true )% 
+//	<{}{%oS=inline}[{%{SKIP_FIRST}N=true}{\
+  %FOR %ITEM-CONDITION ( ( %o |S ) %== 'inline' ) 
+   %IF ( ( ( get_global_var ( 'SKIP_FIRST' ) |N ) ) %==  true ) 
+    %ELSE
+//	%f_pas_MethodSigImplementation(%o,%S) forward;\
+     [%f] pas_MethodSigImplementation %( %o %, %S )% ' forward;'
+//	[\n%o%f_close_ifdef()\n]\
+     %IF-NOT-EMPTY
+      #13#10
+      %o %f close_ifdef %( )% #13#10 
+     %END-IF
+//	}\
+    %THEN
+//	%f_set_var(SKIP_FIRST,"false")\
+    [%f] set_var %( 'SKIP_FIRST' %, false )% 
+//	]>\
+   %END-IF
+  %END-FOR
+//	<{}{%OS=inline}[{%{SKIP_FIRST}N=true}{\
+  %FOR %ITEM-CONDITION ( ( %O |S ) %== 'inline' ) 
+   %IF ( ( ( get_global_var ( 'SKIP_FIRST' ) |N ) ) %==  true ) 
+    %ELSE
+//	%f_pas_MethodSigImplementation(%O,%S) forward;\
+     [%f] pas_MethodSigImplementation %( %O %, %S )% ' forward;'
+//	[\n%O%f_close_ifdef()\n]\
+     %IF-NOT-EMPTY
+      #13#10
+      %O %f close_ifdef %( )% #13#10 
+     %END-IF
+//	}\
+    %THEN
+//	%f_set_var(SKIP_FIRST,"false")\
+    [%f] set_var %( 'SKIP_FIRST' %, false )% 
+//	]>\
+   %END-IF
+  %END-FOR
+//	%f_shift_intend(+7)]\
+  [%f] shift_intend %( '+7' )% 
+ %END-IF
+//	<{}{%oS=inline}%o%f_pas_MethodImplementation(%S)>\
+ %FOR %ITEM-CONDITION ( ( %o |S ) %== 'inline' ) 
+  %o %f pas_MethodImplementation %( %S )% 
+ %END-FOR
+//	<{}{%OS=inline}%O%f_pas_MethodImplementation(%S)>\
+ %FOR %ITEM-CONDITION ( ( %O |S ) %== 'inline' ) 
+  %O %f pas_MethodImplementation %( %S )% 
+ %END-FOR
+// это временно
+//	<{}{%G#f_IsMixIn()=true}%f_pas_IncludeImpurityImpl(%G,%S)>\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsMixIn %( )% ) %==  true ) 
+  [%f] pas_IncludeImpurityImpl %( %G %, %S )% 
+ %END-FOR
+//	<{}{%R#f_IsMixIn()=true}%f_pas_IncludeImpurityImpl(%R,%S)>\
+ %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+  [%f] pas_IncludeImpurityImpl %( %R %, %S )% 
+ %END-FOR
+//	<{}{%CC=Class&%CV=PrivateAccess&"%CO"=""&%CS=Constants}%CX>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+   ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+   ( ( %C |O ) %== ''  ) %&& 
+   ( ( %C |S ) %== 'Constants'  ) ) 
+  %C |X 
+ %END-FOR
+//	<{}{%CC=Class&%CV=PrivateAccess&"%CO"=""&%CS!=Constants&%C#f_IsMethod()!=true}%CX>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+   ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+   ( ( %C |O ) %== ''  ) %&& 
+   ( ( %C |S ) %!= 'Constants'  ) %&& 
+   ( ( %C %?f IsMethod %( )% ) %!=  true  ) ) 
+  %C |X 
+ %END-FOR
+//	<{}{%CC=Class&%CV=PrivateAccess&"%CO"=""&%CS!=Constants&%C#f_IsMethod()=true}%CX>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+   ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+   ( ( %C |O ) %== ''  ) %&& 
+   ( ( %C |S ) %!= 'Constants'  ) %&& 
+   ( ( %C %?f IsMethod %( )% ) %==  true  ) ) 
+  %C |X 
+ %END-FOR
+//	<{}{%CC=Class&%CV!=PrivateAccess&%C#f_IsClassInner()=true}%CX>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+   ( ( %C |V ) %!= 'PrivateAccess'  ) %&& 
+   ( ( %C %?f IsClassInner %( )% ) %==  true  ) ) 
+  %C |X 
+ %END-FOR
+//	<{}{%CC=Class&%CV!=PrivateAccess&%C#f_IsClassInner()!=true&"%f_pas_UnitFileName(%C)"=""}%CX>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+   ( ( %C |V ) %!= 'PrivateAccess'  ) %&& 
+   ( ( %C %?f IsClassInner %( )% ) %!=  true  ) %&& 
+   ( ( [%f] pas_UnitFileName %( %C )% ) %== ''  ) ) 
+  %C |X 
+ %END-FOR
+//	<{}{%CC!=Class}%CX>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' ) 
+  %C |X 
+ %END-FOR
+//	<{}{%t_interface(%R)=true}%R<{}{%CS=impurity value}%f_set_var(%CN,"%f_pas_TypeName(%C%T)")>>\
+ %FOR %ITEM-CONDITION ( ( [%t] interface %( %R )% ) %==  true ) 
+  %R
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+   [%f] set_var %( %C |N %, [%f] pas_TypeName %( %C ->T  )% )% 
+  %END-FOR
+  %END-FOR
+// - устанавливаем типы параметров реализуемых методов
+
+//	<{}{%oS!=inline}%o%f_pas_MethodImplementation(%S,"r")\
+ %FOR %ITEM-CONDITION ( ( %o |S ) %!= 'inline' ) 
+  %o %f pas_MethodImplementation %( %S %, 'r' )% 
+//	>\
+ %END-FOR
+
+//	<{}{%OS!=inline}%O%f_pas_MethodImplementation(%S,"o")>\
+ %FOR %ITEM-CONDITION ( ( %O |S ) %!= 'inline' ) 
+  %O %f pas_MethodImplementation %( %S %, 'o' )% 
+ %END-FOR
+//	<{}{%t_interface(%R)=true}%R<{}{%CS=impurity value}%f_set_var(%CN,"")>>\
+ %FOR %ITEM-CONDITION ( ( [%t] interface %( %R )% ) %==  true ) 
+  %R
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+   [%f] set_var %( %C |N %, '' )% 
+  %END-FOR
+  %END-FOR
+
+// Генерируем реализацию методов "квадратиком", вложенных в фасеты/интерфейсы:
+//	<\
+ %FOR 
+
+//	%R<{}{%CC=Class&%C#f_IsClassImplementableElement()=true&%C#f_IsRealizedBySomeClassElement(%1)!=true}\
+  %R
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+    ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) %&& 
+    ( ( %C %?f IsRealizedBySomeClassElement %( %1 )% ) %!=  true  ) ) 
+//	%C%f_pas_MethodImplementation(%1,"r")\
+   %C %f pas_MethodImplementation %( %1 %, 'r' )% 
+//	>\
+  %END-FOR
+ 
+
+//	%R<{}{%1#f_Implements(%G)!=true}{%G}\
+  %R
+  %FOR %ITEM-CONDITION ( ( %1 %?f Implements %( %G )% ) %!=  true ) 
+   ( %G ) 
+//	%G<{}{%CC=Class&%C#f_IsClassImplementableElement()=true&%C#f_IsRealizedBySomeClassElement(%2)!=true}\
+   %G
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) %&& 
+     ( ( %C %?f IsRealizedBySomeClassElement %( %2 )% ) %!=  true  ) ) 
+//	[%C%f_pas_MethodImplementation(%2,"r")\n]\
+    %IF-NOT-EMPTY
+     %C %f pas_MethodImplementation %( %2 %, 'r' )% #13#10 
+    %END-IF
+//	>\
+   %END-FOR
+ //	>\
+  %END-FOR
+ 
+
+//	>\
+ %END-FOR
+// end Генерируем реализацию методов "квадратиком", вложенных в фасеты/интерфейсы:
+
+//	[{%S%f_HasAnyVCMAreaLink()=true}\
+//	%f_pas_OpenMethodImplementation("ClearRefs",%S)\
+//	procedure %f_pas_TypeName(%S).ClearRefs;
+//	begin
+//	[ <{\n }{%o#f_IsVCMAreaLink()=true}f_%oN := nil;>]\
+////	[\n <%R<{\n }{%CC=Class&%C#f_IsVCMAreaLink()=true}f_%CN := nil;>>]
+//	
+//	 inherited;
+//	end;\
+//	]\
+
+//	%S%f_pas_OutOverridesImpl()\
+ %S %f pas_OutOverridesImpl %( )% 
+//	%f_clear_list(CAST_METHODS)\
+ [%f] clear_list %( 'CAST_METHODS' )% 
+//	[\n\n// Методы преобразования к реализуемым интерфейсам\
+ %IF-NOT-EMPTY
+  #13#10#13#10'// Методы преобразования к реализуемым интерфейсам'
+//	<{\n}{%t_interface(%R)=true&%R%f_InTie()!=true}\
+  %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( [%t] interface %( %R )% ) %==  true %&& 
+    ( ( %R %f InTie %( )% ) %!=  true  ) ) 
+//	%R<{}{%R#f_IsPureMixIn()!=true&%t_interface(%R)=true&%f_exists_in_list(CAST_METHODS,R)!=true}\
+   %R
+   %FOR %ITEM-CONDITION ( ( %R %?f IsPureMixIn %( )% ) %!=  true %&& 
+     ( ( [%t] interface %( %R )% ) %==  true  ) %&& 
+     ( ( [%f] exists_in_list %( 'CAST_METHODS' %, 'R' )% ) %!=  true  ) ) 
+//	%f_add_to_list(CAST_METHODS,R)\
+    [%f] add_to_list %( 'CAST_METHODS' %, 'R' )% 
+//	%f_pas_OutCastMethodImpl(%R,%1,%S)\
+    [%f] pas_OutCastMethodImpl %( %R %, %1 %, %S )% 
+//	>\
+   %END-FOR
+ //	>\
+  %END-FOR
+//	]\
+ %END-IF
+//	%f_clear_list(CAST_METHODS)\
+ [%f] clear_list %( 'CAST_METHODS' )% 
+//	[{%S{need UC}=true}%f_with_gen_id(intf.pas,\n\n%U[{impl}\n])]\
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  [%f] with_gen_id %( 'intf.pas' %, #13#10#13#10
+  %U%IF ( 'impl' ) 
+   #13#10 
+  %END-IF
+ )%  %END-IF
+//	[{%Cx=true|%Ox=true|%ox=true|"%S%f_pas_OutOverridesImpl()"!=""|<{}{%G#f_IsMixIn()=true}{C}>!=0|<{}{%R#f_IsMixIn()=true}{C}>!=0}\
+ %IF ( ( %C |x ) %==  true %|| 
+   ( ( %O |x ) %==  true  ) %|| 
+   ( ( %o |x ) %==  true  ) %|| 
+   ( ( %S %f pas_OutOverridesImpl %( )% ) %!= ''  ) %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %G %?f IsMixIn %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+//	[\n\n%S%f_close_ifdef()]\
+  %IF-NOT-EMPTY
+   #13#10#13#10
+   %S %f close_ifdef %( )% 
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4746DD48001C*
+; // pas_OutClassImplementation
+
+
+// Закрывает все секции определения.
+//f _pas_CloseDefinitions
+: pas_CloseDefinitions OBJECT IN %S
+//#UC START# *4746DD7302F9*
+//	%f_set_var(WAS_TYPE,"0")\
+ [%f] set_var %( 'WAS_TYPE' %, 0 )% 
+//	%f_set_var(WAS_CONST,"0")\
+ [%f] set_var %( 'WAS_CONST' %, 0 )% 
+//	%f_set_var(WAS_METHOD,"0")\
+ [%f] set_var %( 'WAS_METHOD' %, 0 )% 
+//	%f_set_var(WAS_VAR,"0")
+ [%f] set_var %( 'WAS_VAR' %, 0 )% 
+//#UC END# *4746DD7302F9*
+; // pas_CloseDefinitions
+
+
+// Выводит имя владельца метода.
+//f _pas_MethodOwnerName
+: pas_MethodOwnerName OBJECT IN %S
+//#UC START# *4772A44803BD*
+//	[{"%1N"!=""}{%P%f_pas_MethodOwnerName(%S)}%1%f_pas_MethodOwnerName(%S)]
+ %IF ( ( %1 |N ) %!= '' ) 
+  %ELSE
+   %P %f pas_MethodOwnerName %( %S )% 
+  %THEN
+  %1 %f pas_MethodOwnerName %( %S )% 
+ %END-IF
+//#UC END# *4772A44803BD*
+; // pas_MethodOwnerName
+
+
+// Выводит тело метода.
+//f _pas_MethodBody
+: pas_MethodBody OBJECT IN %S
+//#UC START# *4772A483001F*
+//	[{%1{IsAutoHelper}=true&%3N=r}{\
+ %IF ( ( %1 get_up ( 'IsAutoHelper' ) ) %==  true %&& 
+   ( ( %3 |N ) %== 'r'  ) ) 
+  %ELSE
+//	%f_with_gen_id(intf.pas,%S%f_pas_MethodBodyPrim(%1,%2,%3,%4))}
+   [%f] with_gen_id %( 'intf.pas' %, %S %f pas_MethodBodyPrim %( %1 %, %2 %, %3 %, %4 )% )% 
+  %THEN
+
+//	begin
+  'begin'
+//	 [{"%f_pas_TypeName(%T)"!=""&%2N!=set}Result := ]f_%1%RN.%SN\
+  ' '
+  %IF ( ( [%f] pas_TypeName %( %T )% ) %!= '' %&& 
+    ( ( %2 |N ) %!= 'set'  ) ) 
+   'Result := ' 
+  %END-IF
+  'f_'
+  %1 ->R |N  '.'
+  %S |N 
+//	[{%S#f_IsProp()=true}{\
+  %IF ( ( %S %?f IsProp %( )% ) %==  true ) 
+   %ELSE
+//	[(<{, }%CN>)]\
+    %IF-NOT-EMPTY
+     '('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %C |N 
+     %END-FOR
+     ')' 
+    %END-IF
+//	}\
+   %THEN
+//	[\[<{, }%CN>\]]\
+   %IF-NOT-EMPTY
+    '['
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %C |N 
+    %END-FOR
+    ']' 
+   %END-IF
+//	]\
+  %END-IF
+//	[{%2N=set} := aValue];
+  %IF ( ( %2 |N ) %== 'set' ) 
+   ' := aValue' 
+  %END-IF
+  ';'
+//	end;]
+  'end;' 
+ %END-IF
+//#UC END# *4772A483001F*
+; // pas_MethodBody
+
+
+// Выводи полное имя метода, с указанием имени родительского класса.
+//f _pas_FullMethodName
+: pas_FullMethodName OBJECT IN %S
+//#UC START# *4772DC2D0302*
+//	[{%SS!=inline&%S{isGlobal}!=true}\
+ %IF ( ( %S |S ) %!= 'inline' %&& 
+   ( ( %S get_up ( 'isGlobal' ) ) %!=  true  ) ) 
+//	[{"%f_pas_MethodOwnerName(%S,%1)"!=""}\
+  %IF ( ( [%f] pas_MethodOwnerName %( %S %, %1 )% ) %!= '' ) 
+//	%f_pas_MethodOwnerName(%S,%1)%S%f_pas_MethodOwnerDelim()\
+   [%f] pas_MethodOwnerName %( %S %, %1 )% %S %f pas_MethodOwnerDelim %( )% 
+//	]\
+  %END-IF
+//	]\
+ %END-IF
+//	%S%f_pas_MethodName(%3)
+ %S %f pas_MethodName %( %3 )% 
+//#UC END# *4772DC2D0302*
+; // pas_FullMethodName
+
+
+// Выводит имя метода.
+//t _pas_MethodName
+<<transformator>> pas_MethodName OBJECT IN %S
+//#UC START# *4772E02A0115*
+//c	{}
+//r {%1N=get}: {%f_pas_PropGet(%S)}
+//r {%1N=set}: {%f_pas_PropSet(%S)}
+//r {%1N=area}: {DoGet_%f_N(%S)}
+//r {%1N=arearef}: {pm_Get%SNRef}
+//r {%1N=f}: {%f_to_borland(%f_N(%S))F}
+//r {""=""}: {%f_to_borland(%f_N(%S))}
+//#UC END# *4772E02A0115*
+; // pas_MethodName
+
+
+// Идентификатор владельца метода.
+//f _pas_MethodOwnerID
+: pas_MethodOwnerID OBJECT IN %S
+//#UC START# *4773784801F3*
+//	[{"%1N"!=""}{\
+ %IF ( ( %1 |N ) %!= '' ) 
+  %ELSE
+//	%f_pas_MethodOwnerID(%S,%P)\
+   [%f] pas_MethodOwnerID %( %S %, %P )% 
+//	}\
+  %THEN
+//	[{%PU=%1U}{\
+  %IF ( ( %P |U ) %== ( %1 |U ) ) 
+   %ELSE
+//	%1U\
+    %1 |U 
+//	}\
+   %THEN
+//	[{%S#f_IsOverride()=true}{\
+   %IF ( ( %S %?f IsOverride %( )% ) %==  true ) 
+    %ELSE
+
+
+//	[{%SS=localmethod}{\
+     %IF ( ( %S |S ) %== 'localmethod' ) 
+      %ELSE
+//	%1U\
+       %1 |U 
+//	}\
+      %THEN
+
+//	- тут возвращаем "пусто", чтобы операцию можно было безболезненно таскать между родителями
+//	]\
+     %END-IF
+
+
+//	}\
+    %THEN
+
+//	- тут возвращаем "пусто", чтобы операцию можно было безболезненно таскать между родителями
+//	]\
+   %END-IF
+
+//	%S#f_IsOverride()=true
+//	]\
+  %END-IF
+
+//	%PU=%1U
+//	]
+ %END-IF
+//#UC END# *4773784801F3*
+; // pas_MethodOwnerID
+
+
+// Ключевое слово метода.
+//t _pas_MethodKeyword
+<<transformator>> pas_MethodKeyword OBJECT IN %S
+//#UC START# *477392A702AE*
+//c	{}
+//r {%1N=get}: {function}
+//r {%1N=set}: {procedure}
+//r {%P#f_IsFactory()=true}: {class function}
+//r {%P#f_IsConstructor()=true}: {constructor}
+//r {%P#f_IsFactoryOnModule()=true}: {class [{"%S%f_pas_ResultTypeName(%1)"=""}{function}procedure]}
+//r {%P#f_IsMethod()=true&%P{is static}=true}: {class [{"%S%f_pas_ResultTypeName(%1)"=""}{function}procedure]}
+//r {%P#f_IsMethod()=true&%P%P#f_IsVCMFormsPack()=true}: {[{%P{is static}!=false}class ][{"%S%f_pas_ResultTypeName(%1)"=""}{function}procedure]}
+//r {%S#f_IsConstructor()=true}: {constructor}
+//r {%SS=static}: {[{%S{isGlobal}!=true}class ][{"%S%f_pas_ResultTypeName(%1)"=""}{function}procedure]}
+//r {%S#f_IsFactory()=true}: {class function}
+//r {%SN=destroy}: {destructor}
+//r {"%S%f_pas_ResultTypeName(%1)"=""}: {[{%S{is static}=true}class ]procedure}
+//r {""=""}: {[{%S{is static}=true}class ]function}
+//#UC END# *477392A702AE*
+; // pas_MethodKeyword
+
+
+// Добавляет модуль в список uses.
+//f _pas_PutToUses
+: pas_PutToUses OBJECT IN %S
+//#UC START# *4773C05103C4*
+//	[{%S%{INUSED}N!=1}\
+ %IF ( ( %S ( get_object_var ( 'INUSED' ) |N )  ) %!= 1 ) 
+//	[{%SS!=TagTable}{\
+  %IF ( ( %S |S ) %!= 'TagTable' ) 
+   %ELSE
+//	[{%BS!=Wrapper&%BS!=WrapperPack&%BS!=InterfaceFactory&%BS!=InterfaceFactoryPack}\
+    %IF ( ( %B |S ) %!= 'Wrapper' %&& 
+      ( ( %B |S ) %!= 'WrapperPack'  ) %&& 
+      ( ( %B |S ) %!= 'InterfaceFactory'  ) %&& 
+      ( ( %B |S ) %!= 'InterfaceFactoryPack'  ) ) 
+//	%f_pas_PutToUsesPrim(%S)]\
+     [%f] pas_PutToUsesPrim %( %S )% 
+    %END-IF
+//	}\
+   %THEN
+//	%f_pas_PutToUsesPrim(%S)\
+   [%f] pas_PutToUsesPrim %( %S )% 
+//	[{%SS=VCMControls}\
+   %IF ( ( %S |S ) %== 'VCMControls' ) 
+
+
+//	<{}{%wS=VCMControls}\
+    %FOR %ITEM-CONDITION ( ( %w |S ) %== 'VCMControls' ) 
+//	%f_pas_PutToUses(%w)\
+     [%f] pas_PutToUses %( %w )% 
+//	>\
+    %END-FOR
+
+
+//	<{}{%DS=VCMControls}\
+    %FOR %ITEM-CONDITION ( ( %D |S ) %== 'VCMControls' ) 
+//	%f_pas_PutToUses(%D)\
+     [%f] pas_PutToUses %( %D )% 
+//	>\
+    %END-FOR
+
+
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4773C05103C4*
+; // pas_PutToUses
+
+
+// Определяет нужно ли выводить модуль в список uses.
+//f _pas_NeedsPutToUses
+: pas_NeedsPutToUses OBJECT IN %S
+//#UC START# *4773C07201AD*
+//	[{%SN!=System}{\
+ %IF ( ( %S |N ) %!= 'System' ) 
+  %ELSE
+//	[{%SS=VCMControls}{false}\
+   %IF ( ( %S |S ) %== 'VCMControls' ) 
+    %ELSE
+      false 
+    %THEN
+//	[{%f_pas_UnitName(%S)!=%f_pas_UnitName(%B)}{false}true]\
+    %IF ( ( [%f] pas_UnitName %( %S )% ) %!= ( [%f] pas_UnitName %( %B )% ) ) 
+     %ELSE
+       false 
+     %THEN
+      true 
+    %END-IF
+//	]}\
+   %END-IF
+  %THEN
+//	[{%f_pas_UnitName(%S)!=%f_pas_UnitName(%B)}{false}\
+  %IF ( ( [%f] pas_UnitName %( %S )% ) %!= ( [%f] pas_UnitName %( %B )% ) ) 
+   %ELSE
+     false 
+   %THEN
+//	true\
+    true 
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4773C07201AD*
+; // pas_NeedsPutToUses
+
+
+// Свойство требует метод чтения.
+//f _pas_NeedsGetter
+: pas_NeedsGetter OBJECT IN %S
+//#UC START# *47742693024E*
+//	[{%S{inherits getter from some ancestor}=true}{\
+ %IF ( ( %S get_up ( 'inherits getter from some ancestor' ) ) %==  true ) 
+  %ELSE
+//	[{%S#f_IsWriteOnlyProp()!=true&%S#f_ReadsField()!=true}{false}true]\
+   %IF ( ( %S %?f IsWriteOnlyProp %( )% ) %!=  true %&& 
+     ( ( %S %?f ReadsField %( )% ) %!=  true  ) ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+//	}\
+  %THEN
+//	false\
+   false 
+//	]
+ %END-IF
+//#UC END# *47742693024E*
+; // pas_NeedsGetter
+
+
+// Свойство тербует метод записи.
+//f _pas_NeedsSetter
+: pas_NeedsSetter OBJECT IN %S
+//#UC START# *477426C002AB*
+//	[{%S{inherits setter from some ancestor}=true}{\
+ %IF ( ( %S get_up ( 'inherits setter from some ancestor' ) ) %==  true ) 
+  %ELSE
+//	[{%S#f_IsReadOnlyProp()!=true&%S{writes field}!=true}{false}true]\
+   %IF ( ( %S %?f IsReadOnlyProp %( )% ) %!=  true %&& 
+     ( ( %S get_up ( 'writes field' ) ) %!=  true  ) ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+//	}\
+  %THEN
+//	false\
+   false 
+//	]
+ %END-IF
+//#UC END# *477426C002AB*
+; // pas_NeedsSetter
+
+
+// Имя поля для свойства.
+//f _pas_FieldName
+: pas_FieldName OBJECT IN %S
+//#UC START# *477437FD00BF*
+//	[{%S#f_IsOverride()!=true}f_]%SN
+ %IF ( ( %S %?f IsOverride %( )% ) %!=  true ) 
+  'f_' 
+ %END-IF
+ %S |N 
+//#UC END# *477437FD00BF*
+; // pas_FieldName
+
+
+// Выводит включаемый модуль
+//f _pas_Defines
+: pas_Defines OBJECT IN %S
+//#UC START# *477611B50004*
+//	[{"%S{defines}"!=""}{\
+ %IF ( ( %S get_up ( 'defines' ) ) %!= '' ) 
+  %ELSE
+//	%f_pas_Defines(%P)\
+   [%f] pas_Defines %( %P )% 
+//	}\
+  %THEN
+//	%f_str_replace(%SR%Sd,/,\\)\\%S{defines}\
+  [%f] str_replace %( %S |R %S |d %, '/' %, '\' )% '\'
+  %S get_up ( 'defines' ) 
+//	]
+ %END-IF
+//#UC END# *477611B50004*
+; // pas_Defines
+
+
+// Выводит список модулей используемых в реализации.
+//f _pas_UsesInImpl
+: pas_UsesInImpl OBJECT IN %S
+//#UC START# *4776124101DE*
+//	[{%S{singleton}=true}%f_pas_PutToUses("l3Base")]\
+ %IF ( ( %S get_up ( 'singleton' ) ) %==  true ) 
+  [%f] pas_PutToUses %( 'l3Base' )% 
+ %END-IF
+
+//	<{}\
+ %FOR 
+//	[{%CS=uses&%CC=Dependency}{\
+  %IF ( ( %C |S ) %== 'uses' %&& 
+    ( ( %C |C ) %== 'Dependency'  ) ) 
+   %ELSE
+//	%f_pas_UsesInImpl(%C)\
+    [%f] pas_UsesInImpl %( %C )% 
+//	}\
+   %THEN
+//	%f_pas_PutImplToUses(%C%T)\
+   [%f] pas_PutImplToUses %( %C ->T  )% 
+//	[{%C%T#f_IsVCMForm()=true&%C%T#f_IsMixIn()=true}\
+   %IF ( ( %C ->T %?f IsVCMForm %( )%  ) %==  true %&& 
+     ( ( %C ->T %?f IsMixIn %( )%  ) %==  true  ) ) 
+//	%C%T<{}{%C#f_IsUserType()=true}\
+    %C ->T
+    %FOR %ITEM-CONDITION ( ( %C %?f IsUserType %( )% ) %==  true ) 
+//	%f_pas_PutToUses(%C)\
+     [%f] pas_PutToUses %( %C )% 
+//	>\
+    %END-FOR
+  //	]\
+   %END-IF
+//	]\
+  %END-IF
+//	>\
+ %END-FOR
+
+//	<{}{%G#f_IsMixIn()=true}%f_pas_UsesInImpl(%G)>\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsMixIn %( )% ) %==  true ) 
+  [%f] pas_UsesInImpl %( %G )% 
+ %END-FOR
+//	<{}{%R#f_IsMixIn()=true}%f_pas_UsesInImpl(%R)>\
+ %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+  [%f] pas_UsesInImpl %( %R )% 
+ %END-FOR
+
+//	<{}{%CV!=PublicAccess&%CC=Class}\
+ %FOR %ITEM-CONDITION ( ( %C |V ) %!= 'PublicAccess' %&& 
+   ( ( %C |C ) %== 'Class'  ) ) 
+
+//	[{"%CO"=""}{%f_pas_PutToUses(%C)}%f_pas_UsesInImpl(%C)]\
+//	%C<{}{%R#f_IsMixIn()=true}{%R}%R<%f_pas_PutToUses(%R)>%R<%f_pas_PutToUses(%G)>>\
+  %C
+  %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+   ( %R ) 
+   %R
+   %FOR [%f] pas_PutToUses %( %R )% 
+   %END-FOR
+    %R
+   %FOR [%f] pas_PutToUses %( %G )% 
+   %END-FOR
+   %END-FOR
+ //	%C<{}{%G#f_IsMixIn()=true}{%G}%G<%f_pas_PutToUses(%R)>%G<%f_pas_PutToUses(%G)>>\
+  %C
+  %FOR %ITEM-CONDITION ( ( %G %?f IsMixIn %( )% ) %==  true ) 
+   ( %G ) 
+   %G
+   %FOR [%f] pas_PutToUses %( %R )% 
+   %END-FOR
+    %G
+   %FOR [%f] pas_PutToUses %( %G )% 
+   %END-FOR
+   %END-FOR
+ //	>\
+ %END-FOR
+
+//	[{<{}{%R#f_IsMixIn()=true}{C}>!=0&"%S%f_ImplementedInlinesCount()"!="0"}\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %R %?f IsMixIn %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %&& 
+   ( ( %S %f ImplementedInlinesCount %( )% ) %!= 0  ) ) 
+//	%G<\
+  %G
+  %FOR 
+//	%g<{}{"%CS"="impurity value"}\
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+//	%f_pas_PutToUses(%C%T)\
+    [%f] pas_PutToUses %( %C ->T  )% 
+//	>\
+   %END-FOR
+ //	>\
+  %END-FOR
+ //	]\
+ %END-IF
+//	[{%SN=l3IID}%f_pas_PutToUses("Windows")\
+ %IF ( ( %S |N ) %== 'l3IID' ) 
+  [%f] pas_PutToUses %( 'Windows' )% 
+//	%f_pas_PutToUses("SysUtils")\
+  [%f] pas_PutToUses %( 'SysUtils' )% 
+//	]\
+ %END-IF
+
+// Генерируем интерфейс методов "квадратиком", вложенных в фасеты/интерфейсы:
+//	[{%SC=Class}\
+ %IF ( ( %S |C ) %== 'Class' ) 
+//	<\
+  %FOR 
+
+//	%R<{}{%CC=Class&%C#f_IsClassImplementableElement()=true}\
+   %R
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) ) 
+//	%f_pas_UsesInImpl(%C)\
+    [%f] pas_UsesInImpl %( %C )% 
+//	>\
+   %END-FOR
+ 
+
+//	%R<{}{%1#f_Implements(%G)!=true}{%G}\
+   %R
+   %FOR %ITEM-CONDITION ( ( %1 %?f Implements %( %G )% ) %!=  true ) 
+    ( %G ) 
+//	%G<{}{%CC=Class&%C#f_IsClassImplementableElement()=true}\
+    %G
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+      ( ( %C %?f IsClassImplementableElement %( )% ) %==  true  ) ) 
+//	%f_pas_UsesInImpl(%C)\
+     [%f] pas_UsesInImpl %( %C )% 
+//	>\
+    %END-FOR
+ //	>\
+   %END-FOR
+ 
+
+//	>\
+  %END-FOR
+//	]\
+ %END-IF
+// end Генерируем интерфейс методов "квадратиком"...
+
+//	%S#f_pas_ImplUses()
+ %S %?f pas_ImplUses %( )% 
+//#UC END# *4776124101DE*
+; // pas_UsesInImpl
+
+
+// Выводит модуль реализации.
+//f _pas_PutImplToUses
+: pas_PutImplToUses OBJECT IN %S
+//#UC START# *477629D1019E*
+//	%t_pas_PutImplToUses(%S)
+ [%t] pas_PutImplToUses %( %S )% 
+//#UC END# *477629D1019E*
+; // pas_PutImplToUses
+
+
+// Выводит модуль реализации.
+//t _pas_PutImplToUses
+<<transformator>> pas_PutImplToUses OBJECT IN %S
+//#UC START# *477629EE0131*
+//c	{}
+//r {"%SO"=""}: {%f_pas_PutImplToUses(%P)}
+//r {""=""}: {%f_pas_PutToUses(%S)}
+//#UC END# *477629EE0131*
+; // pas_PutImplToUses
+
+
+// выводит определение переменной.
+//f _pas_dump_Var
+: pas_dump_Var OBJECT IN %S
+//#UC START# *478B15100163*
+//	\n%f_pas_CloseDefinitions(%S)\
+ #13#10
+ [%f] pas_CloseDefinitions %( %S )% 
+//	[{%P{weak}=true&%t_interface(%T)=true}\{$IfNDef DesignTimeLibrary\}\n]\
+ %IF ( ( %P get_up ( 'weak' ) ) %==  true %&& 
+   ( ( [%t] interface %( %T )% ) %==  true  ) ) 
+  '{$IfNDef DesignTimeLibrary}'#13#10 
+ %END-IF
+//	[%S#f_open_ifdef()\n]\
+ %IF-NOT-EMPTY
+  %S %?f open_ifdef %( )% #13#10 
+ %END-IF
+//	var %SN : %f_pas_TypeName(%T)[ = %VN];\
+ 'var '
+ %S |N ' : '
+ [%f] pas_TypeName %( %T )% %IF-NOT-EMPTY
+  ' = '
+  %V |N 
+ %END-IF
+ ';'
+//	[\n \{* %SD\}]\
+ %IF-NOT-EMPTY
+  #13#10' {* '
+  %S |D '}' 
+ %END-IF
+//	[\n%S#f_close_ifdef()]\
+ %IF-NOT-EMPTY
+  #13#10
+  %S %?f close_ifdef %( )% 
+ %END-IF
+//	[{%P{weak}=true&%t_interface(%T)=true}\n\{$EndIf  DesignTimeLibrary\}]
+ %IF ( ( %P get_up ( 'weak' ) ) %==  true %&& 
+   ( ( [%t] interface %( %T )% ) %==  true  ) ) 
+  #13#10'{$EndIf  DesignTimeLibrary}' 
+ %END-IF
+//#UC END# *478B15100163*
+; // pas_dump_Var
+
+
+// выводит описание поля объекта.
+//f _pas_dump_Field
+: pas_dump_Field OBJECT IN %S
+//#UC START# *478B1BE103CE*
+//	[#%S%f_open_ifdef()\n]\
+ %IF-NOT-EMPTY
+  out_indent %S %f open_ifdef %( )% #13#10 
+ %END-IF
+//	[{%SS=static}\
+ %IF ( ( %S |S ) %== 'static' ) 
+//	%f_set_var(WAS_TYPE,"0")\
+  [%f] set_var %( 'WAS_TYPE' %, 0 )% 
+//	var\n]\
+  'var'#13#10 
+ %END-IF
+//	   %S%f_pas_AttrName() : %f_pas_TypeName(%T)\
+ '   '
+ %S %f pas_AttrName %( )% ' : '
+ [%f] pas_TypeName %( %T )% 
+//	[ = \
+ %IF-NOT-EMPTY
+  ' = '
+//	%S%f_OutValue()\
+  %S %f OutValue %( )% 
+//	];\
+ %END-IF
+ ';'
+//	[{%SD!=undefined}[\n    \{* %SD\}]]\
+ %IF ( ( %S |D ) %!= 'undefined' ) 
+  %IF-NOT-EMPTY
+   #13#10'    {* '
+   %S |D '}' 
+  %END-IF
+ %END-IF
+//	[\n#%S%f_close_ifdef()]
+ %IF-NOT-EMPTY
+  #13#10
+  out_indent %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *478B1BE103CE*
+; // pas_dump_Field
+
+
+// закрывает описание модуля.
+//f _pas_CloseUnit
+: pas_CloseUnit OBJECT IN %S
+//#UC START# *478B2E1B02FA*
+//	[\n\n\
+ %IF-NOT-EMPTY
+  #13#10#13#10
+//	initialization\
+  'initialization'
+//	%S%f_pas_OutMixInIniInclude()\
+  %S %f pas_OutMixInIniInclude %( )% 
+//	%S%f_pas_OutIni()\
+  %S %f pas_OutIni %( )% 
+//	]\
+ %END-IF
+//	[\n\n\
+ %IF-NOT-EMPTY
+  #13#10#13#10
+//	finalization\
+  'finalization'
+//	%S%f_pas_OutMixInFiniInclude()\
+  %S %f pas_OutMixInFiniInclude %( )% 
+//	%S%f_pas_OutFini()\
+  %S %f pas_OutFini %( )% 
+//	]\
+ %END-IF
+//	[{%{WAS_METHOD}N!=0}\n]\nend.\
+ %IF ( ( ( get_global_var ( 'WAS_METHOD' ) |N ) ) %!= 0 ) 
+  #13#10 
+ %END-IF
+ #13#10'end.'
+//	%f_clear_USED_UNITS(%S)\
+ [%f] clear_USED_UNITS %( %S )% 
+//	%f_end_new_file(%S)
+ [%f] end_new_file %( %S )% 
+//#UC END# *478B2E1B02FA*
+; // pas_CloseUnit
+
+
+// выводит имя библиотеки, к которой принадлежит элемент.
+//f _pas_LibName
+: pas_LibName OBJECT IN %S
+//#UC START# *478B2E3701D5*
+//@ %SU
+//	[{%SS=Library|%SS=TestLibrary|%S#f_IsVCMLib()=true}{%f_pas_LibName(%P)}%SN]
+ %IF ( ( %S |S ) %== 'Library' %|| 
+   ( ( %S |S ) %== 'TestLibrary'  ) %|| 
+   ( ( %S %?f IsVCMLib %( )% ) %==  true  ) ) 
+  %ELSE
+   [%f] pas_LibName %( %P )% 
+  %THEN
+  %S |N 
+ %END-IF
+//#UC END# *478B2E3701D5*
+; // pas_LibName
+
+
+// автор элемента.
+//f _pas_Author
+: pas_Author OBJECT IN %S
+//#UC START# *478B6F900320*
+//	[{}{%f_pas_Author(%P)}%S{author}]
+ %IF ( ) 
+  %ELSE
+   [%f] pas_Author %( %P )% 
+  %THEN
+  %S get_up ( 'author' ) 
+ %END-IF
+//#UC END# *478B6F900320*
+; // pas_Author
+
+
+// дата и время начала работы над элементом.
+//f _pas_Started
+: pas_Started OBJECT IN %S
+//#UC START# *478B6FA6013E*
+//	[{}{%f_pas_Started(%P)}%S{started}]
+ %IF ( ) 
+  %ELSE
+   [%f] pas_Started %( %P )% 
+  %THEN
+  %S get_up ( 'started' ) 
+ %END-IF
+//#UC END# *478B6FA6013E*
+; // pas_Started
+
+
+// определение интерфейса метода
+//f _pas_MethodDefInterface
+: pas_MethodDefInterface OBJECT IN %S
+//#UC START# *478F77A20077*
+//	%f_pas_OpenMethodInterface(%S,%1,%2)\
+ [%f] pas_OpenMethodInterface %( %S %, %1 %, %2 )% 
+//	[{%S#f_IsGlobal()!=true}   ]\
+ %IF ( ( %S %?f IsGlobal %( )% ) %!=  true ) 
+  '   ' 
+ %END-IF
+//	%S%f_pas_MethodKeyword(%3) [{%PS!=Function}%S%f_pas_MethodName(%3)]
+ %S %f pas_MethodKeyword %( %3 )% ' '
+ %IF ( ( %P |S ) %!= 'Function' ) 
+  %S %f pas_MethodName %( %3 )% 
+ %END-IF
+//#UC END# *478F77A20077*
+; // pas_MethodDefInterface
+
+
+// описание реализации метода
+//f _pas_MethodDefImplementation
+: pas_MethodDefImplementation OBJECT IN %S
+//#UC START# *478F77BE00EB*
+//	%f_pas_OpenMethodImplementation(%S,%1,%2)\
+ [%f] pas_OpenMethodImplementation %( %S %, %1 %, %2 )% 
+//	[%S%f_open_ifdef()\n]\
+ %IF-NOT-EMPTY
+  %S %f open_ifdef %( )% #13#10 
+ %END-IF
+//	%S%f_Ind()\
+ %S %f Ind %( )% 
+//	%S%f_pas_MethodKeyword(%3) %f_pas_FullMethodName(%S,%1,%2,%3)
+ %S %f pas_MethodKeyword %( %3 )% ' '
+ [%f] pas_FullMethodName %( %S %, %1 %, %2 %, %3 )% 
+//#UC END# *478F77BE00EB*
+; // pas_MethodDefImplementation
+
+
+// сигнатура интерфейса метода
+//f _pas_MethodSigInterface
+: pas_MethodSigInterface OBJECT IN %S
+//#UC START# *478F780A021D*
+//	%f_pas_MethodDefInterface(%S,%1,%2,%3)\
+ [%f] pas_MethodDefInterface %( %S %, %1 %, %2 %, %3 )% 
+//	%S%f_pas_MethodParams(%3)\
+ %S %f pas_MethodParams %( %3 )% 
+//	[{%P{of object}=true} of object];
+ %IF ( ( %P get_up ( 'of object' ) ) %==  true ) 
+  ' of object' 
+ %END-IF
+ ';'
+//#UC END# *478F780A021D*
+; // pas_MethodSigInterface
+
+
+// сигнатура реализации метода
+//f _pas_MethodSigImplementation
+: pas_MethodSigImplementation OBJECT IN %S
+//#UC START# *478F78280119*
+//	%f_pas_MethodDefImplementation(%S,%1,%2,%3)\
+ [%f] pas_MethodDefImplementation %( %S %, %1 %, %2 %, %3 )% 
+//	%S%f_pas_MethodParams(%3);\
+ %S %f pas_MethodParams %( %3 )% ';'
+
+//	[{%P#f_IsUtilityPack()=true&%SV!=PublicAccess}\
+ %IF ( ( %P %?f IsUtilityPack %( )% ) %==  true %&& 
+   ( ( %S |V ) %!= 'PublicAccess'  ) ) 
+//	[{%S{calling conventions}!=none&"%S{calling conventions}"!=""}\
+  %IF ( ( %S get_up ( 'calling conventions' ) ) %!= 'none' %&& 
+    ( ( %S get_up ( 'calling conventions' ) ) %!= ''  ) ) 
+//	 %S{calling conventions};\
+   ' '
+   %S get_up ( 'calling conventions' ) ';'
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *478F78280119*
+; // pas_MethodSigImplementation
+
+
+// начинает интерфейс метода
+//f _pas_OpenMethodInterface
+: pas_OpenMethodInterface OBJECT IN %S
+//#UC START# *478F85AC0370*
+//	[{"%PS"=""|%P#f_IsUtilityPack()=true}\
+ %IF ( ( %P |S ) %== '' %|| 
+   ( ( %P %?f IsUtilityPack %( )% ) %==  true  ) ) 
+//	[{%S#f_IsInterface()!=true}\
+  %IF ( ( %S %?f IsInterface %( )% ) %!=  true ) 
+//	[{%{WAS_METHOD}N=0}\
+   %IF ( ( ( get_global_var ( 'WAS_METHOD' ) |N ) ) %== 0 ) 
+
+//	\n// [{}{unit methods}start class %f_pas_MethodOwnerName(%S,%1)]\n\
+//	\n\
+    #13#10
+//	%f_pas_CloseDefinitions(%S)\
+    [%f] pas_CloseDefinitions %( %S )% 
+//	%f_set_var(WAS_METHOD,"1")\
+    [%f] set_var %( 'WAS_METHOD' %, 1 )% 
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *478F85AC0370*
+; // pas_OpenMethodInterface
+
+
+// начинает реализацию метода
+//f _pas_OpenMethodImplementation
+: pas_OpenMethodImplementation OBJECT IN %S
+//#UC START# *478F85C301FD*
+//	\n\
+ #13#10
+//	[{%{WAS_METHOD}N=0}{\
+ %IF ( ( ( get_global_var ( 'WAS_METHOD' ) |N ) ) %== 0 ) 
+  %ELSE
+
+
+//	[{%PS!=localmethod}\
+   %IF ( ( %P |S ) %!= 'localmethod' ) 
+//	\n\
+    #13#10
+//	]\
+   %END-IF
+
+//	%PS!=localmethod
+
+
+//	}\
+  %THEN
+//	// [{}{unit methods}start class %f_pas_MethodOwnerName(%S,%1)]\n\
+  '// '
+  %IF ( ) 
+   %ELSE
+    'unit methods' 
+   %THEN
+   'start class '
+   [%f] pas_MethodOwnerName %( %S %, %1 )% 
+  %END-IF
+  #13#10
+//	\n%f_pas_CloseDefinitions(%S)\
+  #13#10
+  [%f] pas_CloseDefinitions %( %S )% 
+//	%f_set_var(WAS_METHOD,"1")\
+  [%f] set_var %( 'WAS_METHOD' %, 1 )% 
+//	]
+ %END-IF
+//#UC END# *478F85C301FD*
+; // pas_OpenMethodImplementation
+
+
+// Имя родительского типа примеси.
+//f _pas_ImpurityParentName
+: pas_ImpurityParentName OBJECT IN %S
+//#UC START# *479480A40005*
+//	%f_pas_TypeName(%S)Parent_
+ [%f] pas_TypeName %( %S )% 'Parent_'
+//#UC END# *479480A40005*
+; // pas_ImpurityParentName
+
+
+// Возвращает имя родительского класса, который не является примесью.
+//f _pas_MainParentName
+: pas_MainParentName OBJECT IN %S
+//#UC START# *479485A30070*
+//	[{}{\
+ %IF ( ) 
+  %ELSE
+//	%S%f_pas_DefaultAncestor()\
+   %S %f pas_DefaultAncestor %( )% 
+//	}\
+  %THEN
+//	<{}{%G#f_IsMixIn()!=true}\
+  %FOR %ITEM-CONDITION ( ( %G %?f IsMixIn %( )% ) %!=  true ) 
+//	%f_pas_TypeName(%G)[{%GS=Tag}Class]\
+   [%f] pas_TypeName %( %G )% %IF ( ( %G |S ) %== 'Tag' ) 
+    'Class' 
+   %END-IF
+//	>\
+  %END-FOR
+//	]
+ %END-IF
+//#UC END# *479485A30070*
+; // pas_MainParentName
+
+
+// Включает реализацию примеси.
+//f _pas_IncludeImpurityImpl
+: pas_IncludeImpurityImpl OBJECT IN %S
+//#UC START# *47B17702018F*
+//	[{%{WAS_METHOD}N!=0}\n\
+ %IF ( ( ( get_global_var ( 'WAS_METHOD' ) |N ) ) %!= 0 ) 
+  #13#10
+//	%f_set_var(WAS_METHOD,"0")\
+  [%f] set_var %( 'WAS_METHOD' %, 0 )% 
+//	]\
+ %END-IF
+
+//	[{%{WAS_INSTANCE}N=0&%1#f_IsMixIn()!=true}\
+ %IF ( ( ( get_global_var ( 'WAS_INSTANCE' ) |N ) ) %== 0 %&& 
+   ( ( %1 %?f IsMixIn %( )% ) %!=  true  ) ) 
+//	%f_set_var(WAS_INSTANCE,"1")\
+  [%f] set_var %( 'WAS_INSTANCE' %, 1 )% 
+//	\ntype _Instance_R_ = %f_pas_TypeName(%1);\
+  #13#10'type _Instance_R_ = '
+  [%f] pas_TypeName %( %1 )% ';'
+//	]\
+ %END-IF
+
+//	\ntype %f_pas_TypeName(%S)R_ = %f_pas_TypeName(%1);
+ #13#10'type '
+ [%f] pas_TypeName %( %S )% 'R_ = '
+ [%f] pas_TypeName %( %1 )% ';'
+//	\n\{$Include %f_str_replace(%f_with_gen_id(intf.pas,%SR%Sd),/,\\)\\%f_pas_UnitFileName(%S)\}\n
+ #13#10'{$Include '
+ [%f] str_replace %( [%f] with_gen_id %( 'intf.pas' %, %S |R %S |d )% %, '/' %, '\' )% '\'
+ [%f] pas_UnitFileName %( %S )% '}'#13#10
+//#UC END# *47B17702018F*
+; // pas_IncludeImpurityImpl
+
+
+// Выводит тело фасета.
+//f _pas_OutFacetBody
+: pas_OutFacetBody OBJECT IN %S
+//#UC START# *47D8F882022B*
+//	<{}{%C%f_IsClassInner()=true&%C{isGlobal}!=true}\
+ %FOR %ITEM-CONDITION ( ( %C %f IsClassInner %( )% ) %==  true %&& 
+   ( ( %C get_up ( 'isGlobal' ) ) %!=  true  ) ) 
+//	[%CX\n]\
+  %IF-NOT-EMPTY
+   %C |X #13#10 
+  %END-IF
+//	>\
+ %END-FOR
+//	%f_with_gen_id(intf2.pas,<[%CX\n]>)\
+ [%f] with_gen_id %( 'intf2.pas' %, 
+ %FOR %IF-NOT-EMPTY
+   %C |X #13#10 
+  %END-IF
+ %END-FOR
+)% //	[{%S%f_InTie()!=true}\
+ %IF ( ( %S %f InTie %( )% ) %!=  true ) 
+//	[  // Методы преобразования к реализуемым интерфейсам
+  %IF-NOT-EMPTY
+   '  // Методы преобразования к реализуемым интерфейсам'
+//	<{\n}{%R#f_IsPureMixIn()!=true&%t_interface(%R)=true}%f_pas_OutCastMethodInterface(%R,%S)>
+   %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+    %ITEM-CONDITION ( ( %R %?f IsPureMixIn %( )% ) %!=  true %&& 
+     ( ( [%t] interface %( %R )% ) %==  true  ) ) 
+    [%f] pas_OutCastMethodInterface %( %R %, %S )% 
+   %END-FOR
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//	%S%f_InTie()!=true
+//#UC END# *47D8F882022B*
+; // pas_OutFacetBody
+
+
+// Выводим предварительное описание интерфейса.
+//f _pas_OutInterfaceForward
+: pas_OutInterfaceForward OBJECT IN %S
+//#UC START# *47DE36750324*
+//	[{%S#f_IsPureMixIn()!=true}\
+ %IF ( ( %S %?f IsPureMixIn %( )% ) %!=  true ) 
+//	[{%f_exists_in_list(FORWARDED_INTF,S)!=true}\
+  %IF ( ( [%f] exists_in_list %( 'FORWARDED_INTF' %, 'S' )% ) %!=  true ) 
+//	%f_add_to_list(FORWARDED_INTF,S)\
+   [%f] add_to_list %( 'FORWARDED_INTF' %, 'S' )% 
+
+//	[{%{WAS_TYPE}N=0}\
+   %IF ( ( ( get_global_var ( 'WAS_TYPE' ) |N ) ) %== 0 ) 
+//	%f_pas_OpenType(%S)\
+    [%f] pas_OpenType %( %S )% 
+//	]\
+   %END-IF
+
+
+//	 %f_pas_TypeName(%S) = interface;\n\
+   ' '
+   [%f] pas_TypeName %( %S )% ' = interface;'#13#10
+//	#\{ - предварительное описание %SN. \}\n\
+   out_indent '{ - предварительное описание '
+   %S |N '. }'#13#10
+
+
+//	%S%f_pas_ForwardPointers()\
+   %S %f pas_ForwardPointers %( )% 
+
+//	\n\
+   #13#10
+//	]\
+  %END-IF
+
+//	%f_exists_in_list(FORWARDED_INTF,S)!=true
+//	]
+ %END-IF
+//#UC END# *47DE36750324*
+; // pas_OutInterfaceForward
+
+
+// Выводит предварительное описание класса.
+//f _pas_OutClassForward
+: pas_OutClassForward OBJECT IN %S
+//#UC START# *47DE369601E9*
+//#UC END# *47DE369601E9*
+; // pas_OutClassForward
+
+
+// Выводит описание "статического конструктора".
+//f _pas_OutStaticCtorInterface
+: pas_OutStaticCtorInterface OBJECT IN %S
+//#UC START# *47E0F592011C*
+//	%f_pas_CloseDefinitions(%S)\
+ [%f] pas_CloseDefinitions %( %S )% 
+
+//	[{%P#f_IsConstructorsHolder()=true}{\
+ %IF ( ( %P %?f IsConstructorsHolder %( )% ) %==  true ) 
+  %ELSE
+//	%f_set_var(PARENT,P)\
+   [%f] set_var %( 'PARENT' %, 'P' )% 
+//	}\
+  %THEN
+//	%f_set_var(PARENT,P%G)\
+  [%f] set_var %( 'PARENT' %, 'P'
+  %G )% 
+//	]\
+ %END-IF
+// - избегаем ситуации с кривой финализацией наследуемых статических объектов
+
+//	function %f_pas_TypeName(%{PARENT})_%f_N(%S)[(%S%f_pas_Params())]:\
+ 'function '
+ [%f] pas_TypeName %( ( get_global_var ( 'PARENT' ) ) )% '_'
+ [%f] N %( %S )% %IF-NOT-EMPTY
+  '('
+  %S %f pas_Params %( )% ')' 
+ %END-IF
+ ':'
+//	 %f_pas_TypeName(%{PARENT});\
+ ' '
+ [%f] pas_TypeName %( ( get_global_var ( 'PARENT' ) ) )% ';'
+
+//	[{%1N!=false}\
+ %IF ( ( %1 |N ) %!=  false ) 
+//	%f_delphi_overload(%S,%{PARENT})\
+  [%f] delphi_overload %( %S %, ( get_global_var ( 'PARENT' ) ) )% 
+//	]\
+ %END-IF
+
+//	[\n  \{* %SD \}]
+ %IF-NOT-EMPTY
+  #13#10'  {* '
+  %S |D ' }' 
+ %END-IF
+//#UC END# *47E0F592011C*
+; // pas_OutStaticCtorInterface
+
+
+// Выводит реализацию "статического конструктора".
+//f _pas_OutStaticCtorImplementation
+: pas_OutStaticCtorImplementation OBJECT IN %S
+//#UC START# *47E0F5BE035B*
+//	\n\
+ #13#10
+//	%f_pas_OutStaticCtorInterface(%S,"false")\
+ [%f] pas_OutStaticCtorInterface %( %S %, false )% 
+//	%f_pas_MethodBody(%S)
+ [%f] pas_MethodBody %( %S )% 
+//	
+//#UC END# *47E0F5BE035B*
+; // pas_OutStaticCtorImplementation
+
+
+// Модуль, в котором определён элемент.
+//f _pas_Unit
+: pas_Unit OBJECT IN %S
+//#UC START# *484795C0026B*
+//@ %SU
+//	%t_pas_Unit(%S)
+ [%t] pas_Unit %( %S )% 
+//#UC END# *484795C0026B*
+; // pas_Unit
+
+
+// Модуль, в котором определён элемент.
+//t _pas_Unit
+<<transformator>> pas_Unit OBJECT IN %S
+//#UC START# *484795E600DE*
+//c	{}
+//r {%SS=ImpurityParamType}: {}
+//r {"%SO"=""}: {%f_pas_Unit(%P)}
+//r {""=""}: {%f_pas_UnitName(%S)}
+//#UC END# *484795E600DE*
+; // pas_Unit
+
+
+// Добавляет модуль в список uses (конечная реализация для внутреннего использования).
+//f _pas_PutToUsesPrim
+: pas_PutToUsesPrim OBJECT IN %S
+//#UC START# *484A9072022C*
+//	[{%S%{INUSED}N!=1}\
+ %IF ( ( %S ( get_object_var ( 'INUSED' ) |N )  ) %!= 1 ) 
+//	%S%f_set_var(INUSED,"1")\
+  %S %f set_var %( 'INUSED' %, 1 )% 
+//	%f_add_to_list(USED_UNITS_INSTANCES,S)\
+  [%f] add_to_list %( 'USED_UNITS_INSTANCES' %, 'S' )% 
+//	[{%S#f_IsVCMGUI()!=true}\
+  %IF ( ( %S %?f IsVCMGUI %( )% ) %!=  true ) 
+//	[{"%f_pas_UnitName(%S)"!=""&"%f_substr_from_begin(%f_pas_UnitName(%S),7)"!="!ERROR!"}{\
+   %IF ( ( [%f] pas_UnitName %( %S )% ) %!= '' %&& 
+     ( ( [%f] substr_from_begin %( [%f] pas_UnitName %( %S )% %, 7 )% ) %!= '!ERROR!'  ) ) 
+    %ELSE
+
+//	%f_warning(%SN : %SS - %f_pas_UnitName(%S))\
+//	<{}{%P#f_IsUtilityPack()=true|%P#f_IsInterfaces()=true}\
+     %FOR %ITEM-CONDITION ( ( %P %?f IsUtilityPack %( )% ) %==  true %|| 
+       ( ( %P %?f IsInterfaces %( )% ) %==  true  ) ) 
+
+//	%f_warning(%SN : %SS)\
+//	%f_pas_PutToUsesPrim(%P)\
+      [%f] pas_PutToUsesPrim %( %P )% 
+//	%f_cycle_break(%S)\
+      [%f] cycle_break %( %S )% 
+//	>\
+     %END-FOR
+//	}\
+    %THEN
+//	[{%S#f_ClassInner()!=true&%S#f_IsMixIn()!=true&%SS!=ImpurityParamType&%SS!=Library&%SS!=VCMControllers}\
+    %IF ( ( %S %?f ClassInner %( )% ) %!=  true %&& 
+      ( ( %S %?f IsMixIn %( )% ) %!=  true  ) %&& 
+      ( ( %S |S ) %!= 'ImpurityParamType'  ) %&& 
+      ( ( %S |S ) %!= 'Library'  ) %&& 
+      ( ( %S |S ) %!= 'VCMControllers'  ) ) 
+//	[{%f_exists_in_list(USED_UNITS,"%f_pas_UnitName(%S)")!=true}\
+     %IF ( ( [%f] exists_in_list %( 'USED_UNITS' %, [%f] pas_UnitName %( %S )% )% ) %!=  true ) 
+//	[{%f_pas_NeedsPutToUses(%S)=true}\
+      %IF ( ( [%f] pas_NeedsPutToUses %( %S )% ) %==  true ) 
+
+//	[{"%f_substr_from_begin(%f_pas_UnitName(%S),7)"!="!ERROR!"}\
+//	[{%{WAS_USES}N=0}\
+       %IF ( ( ( get_global_var ( 'WAS_USES' ) |N ) ) %== 0 ) 
+//	[\n%B#f_open_ifdef()]\
+        %IF-NOT-EMPTY
+         #13#10
+         %B %?f open_ifdef %( )% 
+        %END-IF
+//	]\
+       %END-IF
+//	[{"%SS"!=""}\
+       %IF ( ( %S |S ) %!= '' ) 
+//	%f_set_var(USES_IFDEF,"%f_dump_open_ifdef_str(%S)")\
+        [%f] set_var %( 'USES_IFDEF' %, [%f] dump_open_ifdef_str %( %S )% )% 
+//	[{%f_is_already_under_ifdef(%S,"%{USES_IFDEF}N")=false&"%{USES_IFDEF}N"!=""}\
+        %IF ( ( [%f] is_already_under_ifdef %( %S %, ( get_global_var ( 'USES_IFDEF' ) |N ) )% ) %==  false %&& 
+          ( ( ( get_global_var ( 'USES_IFDEF' ) |N ) ) %!= ''  ) ) 
+//	[{%{WAS_USES}N=0}\nuses\n\
+         %IF ( ( ( get_global_var ( 'WAS_USES' ) |N ) ) %== 0 ) 
+          #13#10'uses'#13#10
+//	%f_pas_CloseDefinitions(%S)%f_set_var(WAS_USES,"1")\
+          [%f] pas_CloseDefinitions %( %S )% [%f] set_var %( 'WAS_USES' %, 1 )% 
+//	[{%f_exists_in_list(USED_UNITS,"Classes")!=true}{\
+          %IF ( ( [%f] exists_in_list %( 'USED_UNITS' %, 'Classes' )% ) %!=  true ) 
+           %ELSE
+//	  SysUtils\
+            '  SysUtils'
+//	%f_add_to_list(USED_UNITS,"SysUtils")\
+            [%f] add_to_list %( 'USED_UNITS' %, 'SysUtils' )% 
+//	}\
+           %THEN
+//	  Classes\
+           '  Classes'
+//	%f_add_to_list(USED_UNITS,"Classes")\
+           [%f] add_to_list %( 'USED_UNITS' %, 'Classes' )% 
+//	]\
+          %END-IF
+//	]\
+         %END-IF
+//	]\
+        %END-IF
+//	[\n  %S#f_open_ifdef()\n  ]\
+        %IF-NOT-EMPTY
+         #13#10'  '
+         %S %?f open_ifdef %( )% #13#10'  ' 
+        %END-IF
+//	]\
+       %END-IF
+//	[{%{WAS_USES}N=0}{,\n}\nuses\n\
+       %IF ( ( ( get_global_var ( 'WAS_USES' ) |N ) ) %== 0 ) 
+        %ELSE
+         ','#13#10 
+        %THEN
+        #13#10'uses'#13#10
+//	%f_pas_CloseDefinitions(%S)%f_set_var(WAS_USES,"1")]\
+        [%f] pas_CloseDefinitions %( %S )% [%f] set_var %( 'WAS_USES' %, 1 )% 
+       %END-IF
+//	  %f_pas_UnitName(%S)\
+       '  '
+       [%f] pas_UnitName %( %S )% 
+//	%f_set_var(IS_MODULE,"false")\
+       [%f] set_var %( 'IS_MODULE' %, false )% 
+//	%f_set_var(MODULE_INSTANCE,S)\
+       [%f] set_var %( 'MODULE_INSTANCE' %, 'S' )% 
+//	[{"%SS"=""}{\
+       %IF ( ( %S |S ) %== '' ) 
+        %ELSE
+//	[{%B#f_IsTarget()=true}\
+         %IF ( ( %B %?f IsTarget %( )% ) %==  true ) 
+//	[{%S#f_InTie()=true}{\
+          %IF ( ( %S %?f InTie %( )% ) %==  true ) 
+           %ELSE
+//	%f_set_var(FILE_PATH,"%So")\
+            [%f] set_var %( 'FILE_PATH' %, %S |o )% 
+//	}\
+           %THEN
+//	%f_with_gen_id(pas,%f_set_var(FILE_PATH,"%So"))\
+           [%f] with_gen_id %( 'pas' %, [%f] set_var %( 'FILE_PATH' %, %S |o )% )% 
+//	]\
+          %END-IF
+//	[{"%{FILE_PATH}N"!=""}\
+          %IF ( ( ( get_global_var ( 'FILE_PATH' ) |N ) ) %!= '' ) 
+//	%f_set_var(FILE_PATH,"%f_str_replace(%{FILE_PATH}N,NOT_FINISHED_)")\
+           [%f] set_var %( 'FILE_PATH' %, [%f] str_replace %( ( get_global_var ( 'FILE_PATH' ) |N ) %, 'NOT_FINISHED_' )% )% 
+//	%f_set_var(POS,"%f_string_find(%{FILE_PATH}N,NotFinished/Borland/Delphi/Rtl/Sys)")\
+           [%f] set_var %( 'POS' %, [%f] string_find %( ( get_global_var ( 'FILE_PATH' ) |N ) %, 'NotFinished/Borland/Delphi/Rtl/Sys' )% )% 
+//	[{%{POS}N=-1}\
+           %IF ( ( ( get_global_var ( 'POS' ) |N ) ) %== -1 ) 
+//	%f_set_var(FILE_PATH,"%f_str_replace(%{FILE_PATH}N,NotFinished/)")\
+            [%f] set_var %( 'FILE_PATH' %, [%f] str_replace %( ( get_global_var ( 'FILE_PATH' ) |N ) %, 'NotFinished/' )% )% 
+//	]\
+           %END-IF
+//	%f_set_var(POS,"%f_string_find(%{FILE_PATH}N,NotFinished)")\
+           [%f] set_var %( 'POS' %, [%f] string_find %( ( get_global_var ( 'FILE_PATH' ) |N ) %, 'NotFinished' )% )% 
+//	[{%{POS}N=-1}\
+           %IF ( ( ( get_global_var ( 'POS' ) |N ) ) %== -1 ) 
+//	%f_set_var(FILE_PATH,"%f_cut_prefix(%f_str_replace(%f_cut_prefix(%{FILE_PATH}N,%BR%Bd),/,\\),\\)")\
+            [%f] set_var %( 'FILE_PATH' %, [%f] cut_prefix %( [%f] str_replace %( [%f] cut_prefix %( ( get_global_var ( 'FILE_PATH' ) |N ) %, %B |R %B |d )% %, '/' %, '\' )% %, '\' )% )% 
+//	[{%S#f_IsUtilityPack()!=true}{\
+            %IF ( ( %S %?f IsUtilityPack %( )% ) %!=  true ) 
+             %ELSE
+//	[{"<{}{"%C#f_pas_DefaultAncestor()"=""}%C<{}{%f_pas_TypeName(%g)=TDataModule}%f_set_var(MODULE_INSTANCE,S)got>>"!=""}\
+              %IF ( 
+               %FOR %ITEM-CONDITION ( ( %C %?f pas_DefaultAncestor %( )% ) %== '' ) 
+                %C
+                %FOR %ITEM-CONDITION ( ( [%f] pas_TypeName %( %g )% ) %== 'TDataModule' ) 
+                 [%f] set_var %( 'MODULE_INSTANCE' %, 'S' )% 'got' 
+                %END-FOR
+                %END-FOR
+               %!= '' ) 
+//	%f_set_var(IS_MODULE,"true")]\
+               [%f] set_var %( 'IS_MODULE' %, true )% 
+              %END-IF
+//	}\
+             %THEN
+//	[{"%S#f_pas_DefaultAncestor()"=""&<{}{%f_pas_TypeName(%g)=TDataModule}{C}>!=0}\
+             %IF ( ( %S %?f pas_DefaultAncestor %( )% ) %== '' %&& 
+               ( 
+              %FOR %ITEM-CONDITION ( ( [%f] pas_TypeName %( %g )% ) %== 'TDataModule' ) 
+               ( 'C' ) 
+              %END-FOR
+              %!= 0  ) ) 
+//	%f_set_var(IS_MODULE,"true")]\
+              [%f] set_var %( 'IS_MODULE' %, true )% 
+             %END-IF
+//	]\
+            %END-IF
+//	[{%{IS_MODULE}N=true|"%S#f_pas_DefaultAncestor()"!=""}{\
+            %IF ( ( ( get_global_var ( 'IS_MODULE' ) |N ) ) %==  true %|| 
+              ( ( %S %?f pas_DefaultAncestor %( )% ) %!= ''  ) ) 
+             %ELSE
+//	[{"%f_pas_UnitName(%S)"="StdRes"}{\
+              %IF ( ( [%f] pas_UnitName %( %S )% ) %== 'StdRes' ) 
+               %ELSE
+//	[{%f_pas_UnitName(%S)!=GblAdapter}\
+                %IF ( ( [%f] pas_UnitName %( %S )% ) %!= 'GblAdapter' ) 
+//	 in \
+                 ' in '
+//	'%{FILE_PATH}N'\
+                 ''''
+                 ( get_global_var ( 'FILE_PATH' ) |N ) ''''
+//	]\
+                %END-IF
+//	}\
+               %THEN
+//	 in 'StdRes.pas' \{dmStdRes: TvcmApplicationRes\}\
+               ' in ''StdRes.pas'' {dmStdRes: TvcmApplicationRes}'
+//	]\
+              %END-IF
+//	}\
+             %THEN
+//	 in \
+             ' in '
+//	'%{FILE_PATH}N'\
+             ''''
+             ( get_global_var ( 'FILE_PATH' ) |N ) ''''
+//	[{%Sa=final}\
+             %IF ( ( %S |a ) %== 'final' ) 
+//	 \{\
+              ' {'
+//	%f_cut_prefix(%f_pas_TypeName(%{MODULE_INSTANCE}),T): \
+              [%f] cut_prefix %( [%f] pas_TypeName %( ( get_global_var ( 'MODULE_INSTANCE' ) ) )% %, 'T' )% ': '
+//	[{%{IS_MODULE}N=true}{\
+              %IF ( ( ( get_global_var ( 'IS_MODULE' ) |N ) ) %==  true ) 
+               %ELSE
+//	%S#f_pas_DefaultAncestor()}\
+                %S %?f pas_DefaultAncestor %( )% 
+               %THEN
+//	TDataModule]\
+               'TDataModule' 
+              %END-IF
+//	\}\
+              '}'
+//	]\
+             %END-IF
+//	]\
+            %END-IF
+//	]\
+           %END-IF
+//	]\
+          %END-IF
+//	]\
+         %END-IF
+//	[\n  %S#f_close_ifdef()\n  ]\
+         %IF-NOT-EMPTY
+          #13#10'  '
+          %S %?f close_ifdef %( )% #13#10'  ' 
+         %END-IF
+//	}\
+        %THEN
+//	[{%B#f_IsTarget()!=true}{\
+        %IF ( ( %B %?f IsTarget %( )% ) %!=  true ) 
+         %ELSE
+//	[{"%f_pas_UnitName(%S)"="StdRes"}\
+          %IF ( ( [%f] pas_UnitName %( %S )% ) %== 'StdRes' ) 
+//	 in 'StdRes.pas' \{dmStdRes: TvcmApplicationRes\}]\
+           ' in ''StdRes.pas'' {dmStdRes: TvcmApplicationRes}' 
+          %END-IF
+//	}\
+         %THEN
+//	 \{a\}\
+         ' {a}'
+//	]\
+        %END-IF
+//	]\
+       %END-IF
+//	%f_add_to_list(USED_UNITS,"%f_pas_UnitName(%S)")\
+       [%f] add_to_list %( 'USED_UNITS' %, [%f] pas_UnitName %( %S )% )% 
+//	]\
+//	]\
+      %END-IF
+//	]\
+     %END-IF
+//	]\
+    %END-IF
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *484A9072022C*
+; // pas_PutToUsesPrim
+
+
+// Имя типа результата функции
+//f _pas_ResultTypeNamePrim
+: pas_ResultTypeNamePrim OBJECT IN %S
+//#UC START# *491B1CA102C4*
+//	[{%f_pas_TypeName(%S)!=Boolean}{\
+ %IF ( ( [%f] pas_TypeName %( %S )% ) %!= 'Boolean' ) 
+  %ELSE
+//	[{%t_interface(%1%P)=true&%1%P#f_InTie()=true}{\
+   %IF ( ( [%t] interface %( %1 ->P  )% ) %==  true %&& 
+     ( ( %1 ->P %?f InTie %( )%  ) %==  true  ) ) 
+    %ELSE
+//	%f_pas_TypeName(%S)\
+     [%f] pas_TypeName %( %S )% 
+//	}\
+    %THEN
+//	ByteBool\
+    'ByteBool'
+//	]\
+   %END-IF
+//	}\
+  %THEN
+//	[{%t_interface(%S)!=true&%f_IsVector(%S)!=true}{\
+  %IF ( ( [%t] interface %( %S )% ) %!=  true %&& 
+    ( ( [%f] IsVector %( %S )% ) %!=  true  ) ) 
+   %ELSE
+//	[{%t_interface(%1%P)=true&%1%P#f_InTie()=true&%1#f_IsProp()!=true}{\
+    %IF ( ( [%t] interface %( %1 ->P  )% ) %==  true %&& 
+      ( ( %1 ->P %?f InTie %( )%  ) %==  true  ) %&& 
+      ( ( %1 %?f IsProp %( )% ) %!=  true  ) ) 
+     %ELSE
+//	%f_pas_TypeName(%S)\
+      [%f] pas_TypeName %( %S )% 
+//	}\
+     %THEN
+
+// - тут ПУСТО
+//	]\
+    %END-IF
+//	}\
+   %THEN
+//	%f_pas_TypeName(%S)\
+   [%f] pas_TypeName %( %S )% 
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *491B1CA102C4*
+; // pas_ResultTypeNamePrim
+
+
+// Выводит интерфейс метода преобразования к интерфейсу
+//f _pas_OutCastMethodInterface
+: pas_OutCastMethodInterface OBJECT IN %S
+//#UC START# *4977614203C5*
+//	%f_pas_OpenMethodInterface(%S,%1)\
+ [%f] pas_OpenMethodInterface %( %S %, %1 )% 
+//	   function As_%f_pas_TypeName(%S): %f_pas_TypeName(%S);
+ '   function As_'
+ [%f] pas_TypeName %( %S )% ': '
+ [%f] pas_TypeName %( %S )% ';'
+//#UC END# *4977614203C5*
+; // pas_OutCastMethodInterface
+
+
+// Выводит реализацию метода преобразования к интерфейсу
+//f _pas_OutCastMethodImpl
+: pas_OutCastMethodImpl OBJECT IN %S
+//#UC START# *497761580042*
+//	%f_pas_OpenMethodImplementation(%S,%1,%2)\
+ [%f] pas_OpenMethodImplementation %( %S %, %1 %, %2 )% 
+//	function %f_pas_TypeName(%1).As_%f_pas_TypeName(%S): %f_pas_TypeName(%S);
+ 'function '
+ [%f] pas_TypeName %( %1 )% '.As_'
+ [%f] pas_TypeName %( %S )% ': '
+ [%f] pas_TypeName %( %S )% ';'
+//	begin
+ 'begin'
+//	 Result := Self;
+ ' Result := Self;'
+//	end;
+ 'end;'
+//#UC END# *497761580042*
+; // pas_OutCastMethodImpl
+
+
+// Преобразует TVariantArg к заданному типу
+//t _pas_FromVariant
+<<transformator>> pas_FromVariant OBJECT IN %S
+//#UC START# *499AA1290300*
+//c	{}
+//r {%SN=String}: {__coerce_String}
+//r {%SN=a-string}: {__coerce_String}
+//r {%t_simple_class(%S)=true}: {OleVariant}
+//r {%t_simple(%S)=true}: {OleVariant}
+//r {""=""}: {!!!}
+//r {""=""}: {%f_error("Неизвестный тип %SN")}
+//#UC END# *499AA1290300*
+; // pas_FromVariant
+
+
+// Преобразует заданный тип в Variant
+//t _pas_ToVariant
+<<transformator>> pas_ToVariant OBJECT IN %S
+//#UC START# *499BD8E703C6*
+//c	{}
+//r {%t_simple_class(%S)=true}: {tc%1NPublicInfo.VarFromObject}
+//r {""=""}: {}
+//#UC END# *499BD8E703C6*
+; // pas_ToVariant
+
+
+//f _IsVector
+: IsVector OBJECT IN %S
+//#UC START# *4AF95DE203E1*
+//f _IsVector
+; // IsVector
+
+: IsVector OBJECT IN %S
+//@ %SU
+//	[{%SS=Vector&%S#f_InTie()=true}{\
+ %IF ( ( %S |S ) %== 'Vector' %&& 
+   ( ( %S %?f InTie %( )% ) %==  true  ) ) 
+  %ELSE
+//	[{%SS=Typedef}{false}%f_IsVector(%G)]}\
+   %IF ( ( %S |S ) %== 'Typedef' ) 
+    %ELSE
+      false 
+    %THEN
+    [%f] IsVector %( %G )% 
+   %END-IF
+  %THEN
+//	true\
+   true 
+//	]
+ %END-IF
+//#UC END# *4AF95DE203E1*
+; // IsVector
+
+
+// Документация элемента без запрещённых символов
+//f _Doc
+: Doc OBJECT IN %S
+//#UC START# *4B33B19303A9*
+//	%f_str_replace(%f_str_replace(%SD,{,\[),},\])
+ [%f] str_replace %( [%f] str_replace %( %S |D %, '{' %, '[' )% %, '}' %, ']' )% 
+//#UC END# *4B33B19303A9*
+; // Doc
+
+
+// Проверяет, что модули обоих элементов совпадают
+//f _pas_IsSameUnit
+: pas_IsSameUnit OBJECT IN %S
+//#UC START# *4B6C635800A7*
+//@ %SU%1U
+//	[{%f_pas_Unit(%S)=%f_pas_Unit(%1)}{\
+ %IF ( ( [%f] pas_Unit %( %S )% ) %== ( [%f] pas_Unit %( %1 )% ) ) 
+  %ELSE
+//	false\
+    false 
+//	}\
+  %THEN
+//	true\
+   true 
+//	]
+ %END-IF
+//#UC END# *4B6C635800A7*
+; // pas_IsSameUnit
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

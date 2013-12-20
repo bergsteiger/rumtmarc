@@ -1,0 +1,5073 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/CommonFunctions.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::CommonFunctions
+//
+// вспомогательнные функции для генерации
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерация реализуемых и перегруженных методов, атрибутов
+//f _dump_cpp_derrived_impl_cpp
+: dump_cpp_derrived_impl_cpp OBJECT IN %S
+//#UC START# *4714D7D00167*
+//	%f_set_var(SERV,S)%f_set_var(NEED_UPDATE_RW,"0")%f_has_combo_fctr(%S)\
+ [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'NEED_UPDATE_RW' %, 0 )% [%f] has_combo_fctr %( %S )% 
+//	%f_clear_list(SERV_OPS)\
+ [%f] clear_list %( 'SERV_OPS' )% 
+//	%f_collect_self_operations_signature(%S,"SERV_OPS")\
+ [%f] collect_self_operations_signature %( %S %, 'SERV_OPS' )% 
+//	[
+ %IF-NOT-EMPTY
+
+//	[//////////////////////////////////////////////////////////////////////////////////////////
+  %IF-NOT-EMPTY
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// implemented interface's methods\
+   '// implemented interface''s methods'
+//	<{}{%{SERV}%f_additional_condition(%o)=true}{Sp}[
+   %FOR %ITEM-CONDITION ( ( ( get_global_var ( 'SERV' ) %f additional_condition %( %o )% ) ) %==  true ) 
+    ( 'Sp' ) 
+    %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_implemented_method_cpp(%o,"SERV_OPS")]>][{%f_has_overloaded_methods(%S)=true}
+     [%f] dump_implemented_method_cpp %( %o %, 'SERV_OPS' )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+  %IF ( ( [%f] has_overloaded_methods %( %S )% ) %==  true ) 
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// overloaded base methods<{}{"%OS"!="ctor"}{Sp}[
+   '// overloaded base methods'
+   %FOR %ITEM-CONDITION ( ( %O |S ) %!= 'ctor' ) 
+    ( 'Sp' ) 
+    %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_overloaded_method_cpp(%O,"SERV_OPS")]>
+     [%f] dump_overloaded_method_cpp %( %O %, 'SERV_OPS' )% 
+    %END-IF
+   %END-FOR
+//	]][{%{NEED_UPDATE_RW}N=1}
+  %END-IF
+ %END-IF
+ %IF ( ( ( get_global_var ( 'NEED_UPDATE_RW' ) |N ) ) %== 1 ) 
+
+//	void %SN::upgrade_rw () {
+  'void '
+  %S |N '::upgrade_rw () {'
+//		%U[{_UPDATE_RW}
+  '	'
+  %U%IF ( '_UPDATE_RW' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}]
+  '}' 
+ %END-IF
+//#UC END# *4714D7D00167*
+; // dump_cpp_derrived_impl_cpp
+
+
+// вывыодит объявление реализуемого метода
+//f _dump_implemented_method
+: dump_implemented_method OBJECT IN %S
+//#UC START# *4714D7F200EA*
+//	%f_set_var(__METHODS__,"%f_dump_implemented_method_impl(%S,%1)")\
+ [%f] set_var %( '__METHODS__' %, [%f] dump_implemented_method_impl %( %S %, %1 )% )% 
+//	[{"%{__METHODS__}N"!=""}#// implemented method from %f_type(%S%P)
+ %IF ( ( ( get_global_var ( '__METHODS__' ) |N ) ) %!= '' ) 
+  out_indent '// implemented method from '
+  [%f] type %( %S ->P  )% 
+//	%{__METHODS__}N]
+  ( get_global_var ( '__METHODS__' ) |N ) 
+ %END-IF
+
+//f _dump_implemented_method_impl
+; // dump_implemented_method
+
+: dump_implemented_method_impl OBJECT IN %S
+//	[{"%SC"="Attribute"}{[{"%SC"="Operation"}%f_servant_cpp_operation_h(%S)]}\
+ %IF ( ( %S |C ) %== 'Attribute' ) 
+  %ELSE
+   %IF ( ( %S |C ) %== 'Operation' ) 
+    [%f] servant_cpp_operation_h %( %S )% 
+   %END-IF
+  %THEN
+//	%f_clear_list(__OP_LIST__)\
+  [%f] clear_list %( '__OP_LIST__' )% 
+//	%f_copy_list(%1N,__OP_LIST__)\
+  [%f] copy_list %( %1 |N %, '__OP_LIST__' )% 
+//	%f_set_var(__SELF_R__,"%f_read_accessor_signature(%S)")%f_set_var(__SELF_W__,"%f_write_accessor_signature(%S)")\
+  [%f] set_var %( '__SELF_R__' %, [%f] read_accessor_signature %( %S )% )% [%f] set_var %( '__SELF_W__' %, [%f] write_accessor_signature %( %S )% )% 
+//	%f_set_var(__NEED_R__,"[{"%1N!=""}{true}[{%f_exists_in_list(__OP_LIST__,"%{__SELF_R__}N")=false}{false}true]]")\
+  [%f] set_var %( '__NEED_R__' %, %IF ( ( %1 |N ) %!= '' ) 
+   %ELSE
+     true 
+   %THEN
+   %IF ( ( [%f] exists_in_list %( '__OP_LIST__' %, ( get_global_var ( '__SELF_R__' ) |N ) )% ) %==  false ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %END-IF
+)% //	%f_set_var(__NEED_W__,"[{"%1N!=""}{true}[{%f_exists_in_list(__OP_LIST__,"%{__SELF_W__}N")=false}{false}true]]")\
+  [%f] set_var %( '__NEED_W__' %, %IF ( ( %1 |N ) %!= '' ) 
+   %ELSE
+     true 
+   %THEN
+   %IF ( ( [%f] exists_in_list %( '__OP_LIST__' %, ( get_global_var ( '__SELF_W__' ) |N ) )% ) %==  false ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %END-IF
+)% //	%f_servant_cpp_attribute_h(%S,"%{__NEED_R__}N","%{__NEED_W__}N")]
+  [%f] servant_cpp_attribute_h %( %S %, ( get_global_var ( '__NEED_R__' ) |N ) %, ( get_global_var ( '__NEED_W__' ) |N ) )% 
+ %END-IF
+
+//f _dump_implemented_method_cpp
+; // dump_implemented_method_impl
+
+: dump_implemented_method_cpp OBJECT IN %S
+//	%f_set_var(__METHODS__,"%f_dump_implemented_method_impl_cpp(%S,%1)")\
+ [%f] set_var %( '__METHODS__' %, [%f] dump_implemented_method_impl_cpp %( %S %, %1 )% )% 
+//	[{"%{__METHODS__}N"!=""}// implemented method from %f_type(%S%P)
+ %IF ( ( ( get_global_var ( '__METHODS__' ) |N ) ) %!= '' ) 
+  '// implemented method from '
+  [%f] type %( %S ->P  )% 
+//	%{__METHODS__}N]
+  ( get_global_var ( '__METHODS__' ) |N ) 
+ %END-IF
+
+//f _dump_implemented_method_impl_cpp
+; // dump_implemented_method_cpp
+
+: dump_implemented_method_impl_cpp OBJECT IN %S
+//	%f_clear_list(__OP_LIST__)\
+ [%f] clear_list %( '__OP_LIST__' )% 
+//	%f_copy_list(%1N,__OP_LIST__)\
+ [%f] copy_list %( %1 |N %, '__OP_LIST__' )% 
+//	[{"%SC"="Attribute"}{[{"%SC"="Operation"}%{SERV}%f_servant_cpp_operation_cpp_base(%S)]}\
+ %IF ( ( %S |C ) %== 'Attribute' ) 
+  %ELSE
+   %IF ( ( %S |C ) %== 'Operation' ) 
+    ( get_global_var ( 'SERV' ) %f servant_cpp_operation_cpp_base %( %S )% ) 
+   %END-IF
+  %THEN
+//	%f_set_var(__SELF_R__,"%f_read_accessor_signature(%S)")%f_set_var(__SELF_W__,"%f_write_accessor_signature(%S)")\
+  [%f] set_var %( '__SELF_R__' %, [%f] read_accessor_signature %( %S )% )% [%f] set_var %( '__SELF_W__' %, [%f] write_accessor_signature %( %S )% )% 
+//	%f_set_var(__NEED_R__,"[{"%1N!=""}{true}[{%f_exists_in_list(__OP_LIST__,"%{__SELF_R__}N")=false}{false}true]]")\
+  [%f] set_var %( '__NEED_R__' %, %IF ( ( %1 |N ) %!= '' ) 
+   %ELSE
+     true 
+   %THEN
+   %IF ( ( [%f] exists_in_list %( '__OP_LIST__' %, ( get_global_var ( '__SELF_R__' ) |N ) )% ) %==  false ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %END-IF
+)% //	%f_set_var(__NEED_W__,"[{"%1N!=""}{true}[{%f_exists_in_list(__OP_LIST__,"%{__SELF_W__}N")=false}{false}true]]")\
+  [%f] set_var %( '__NEED_W__' %, %IF ( ( %1 |N ) %!= '' ) 
+   %ELSE
+     true 
+   %THEN
+   %IF ( ( [%f] exists_in_list %( '__OP_LIST__' %, ( get_global_var ( '__SELF_W__' ) |N ) )% ) %==  false ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %END-IF
+)% //	%{SERV}%f_servant_cpp_attribute_cpp_base(%S,"%{__NEED_R__}N","%{__NEED_W__}N")]
+  ( get_global_var ( 'SERV' ) %f servant_cpp_attribute_cpp_base %( %S %, ( get_global_var ( '__NEED_R__' ) |N ) %, ( get_global_var ( '__NEED_W__' ) |N ) )% ) 
+ %END-IF
+
+//f _dump_overloaded_method_h
+; // dump_implemented_method_impl_cpp
+
+: dump_overloaded_method_h OBJECT IN %S
+//	%f_set_var(__METHODS__,"%f_dump_implemented_method_impl(%S,%1)")\
+ [%f] set_var %( '__METHODS__' %, [%f] dump_implemented_method_impl %( %S %, %1 )% )% 
+//	[{"%{__METHODS__}N"!=""}#// overloaded method from %f_type(%S%P)
+ %IF ( ( ( get_global_var ( '__METHODS__' ) |N ) ) %!= '' ) 
+  out_indent '// overloaded method from '
+  [%f] type %( %S ->P  )% 
+//	%{__METHODS__}N]
+  ( get_global_var ( '__METHODS__' ) |N ) 
+ %END-IF
+
+//f _dump_overloaded_method_cpp
+; // dump_overloaded_method_h
+
+: dump_overloaded_method_cpp OBJECT IN %S
+//	%f_set_var(__METHODS__,"%f_dump_implemented_method_impl_cpp(%S,%1)")\
+ [%f] set_var %( '__METHODS__' %, [%f] dump_implemented_method_impl_cpp %( %S %, %1 )% )% 
+//	[{"%{__METHODS__}N"!=""}// overloaded method from %f_type(%S%P)
+ %IF ( ( ( get_global_var ( '__METHODS__' ) |N ) ) %!= '' ) 
+  '// overloaded method from '
+  [%f] type %( %S ->P  )% 
+//	%{__METHODS__}N]
+  ( get_global_var ( '__METHODS__' ) |N ) 
+ %END-IF
+//#UC END# *4714D7F200EA*
+; // dump_overloaded_method_cpp
+
+
+// геенрация зоголовков реализуемых методов, атрибутов
+//f _dump_cpp_derrived_impl_h
+: dump_cpp_derrived_impl_h OBJECT IN %S
+//#UC START# *4714D8170399*
+//	%f_set_var(SERV,S)%f_set_var(NEED_UPDATE_RW,"0")%f_has_combo_fctr(%S)\
+ [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'NEED_UPDATE_RW' %, 0 )% [%f] has_combo_fctr %( %S )% 
+//	%f_clear_list(SERV_OPS)\
+ [%f] clear_list %( 'SERV_OPS' )% 
+//	%f_collect_self_operations_signature(%S,"SERV_OPS")\
+ [%f] collect_self_operations_signature %( %S %, 'SERV_OPS' )% 
+//	[
+ %IF-NOT-EMPTY
+
+//	[{%ox=true&%{SERV}%f_additional_condition(%o,"COUNT")=true}#//////////////////////////////////////////////////////////////////////////////////////////
+  %IF ( ( %o |x ) %==  true %&& 
+    ( ( ( get_global_var ( 'SERV' ) %f additional_condition %( %o %, 'COUNT' )% ) ) %==  true  ) ) 
+   out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// implemented interface's methods
+   out_indent '// implemented interface's methods'
+//	[{%t_simple_class(%S)=false}#protected:<{}{%{SERV}%f_additional_condition(%o)=true}{%oSp}[
+   %IF ( ( [%t] simple_class %( %S )% ) %==  false ) 
+    out_indent 'protected:'
+    %FOR %ITEM-CONDITION ( ( ( get_global_var ( 'SERV' ) %f additional_condition %( %o )% ) ) %==  true ) 
+     ( %o |S 'p' ) 
+     %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_implemented_method(%o,"SERV_OPS")]>][{%t_simple_class(%S)=true}[#public:<{}{%oV=PublicAccess&%t_simple_class(%o%P)=true}{Sp}[
+      [%f] dump_implemented_method %( %o %, 'SERV_OPS' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF ( ( [%t] simple_class %( %S )% ) %==  true ) 
+    %IF-NOT-EMPTY
+     out_indent 'public:'
+     %FOR %ITEM-CONDITION ( ( %o |V ) %== 'PublicAccess' %&& 
+       ( ( [%t] simple_class %( %o ->P  )% ) %==  true  ) ) 
+      ( 'Sp' ) 
+      %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_implemented_method(%o,"SERV_OPS")]>][{<{}{%oV=ProtectedAccess|%t_simple_class(%o%P)=false}{C}>!=0}\
+       [%f] dump_implemented_method %( %o %, 'SERV_OPS' )% 
+      %END-IF
+     %END-FOR
+    %END-IF
+    %IF ( 
+     %FOR %ITEM-CONDITION ( ( %o |V ) %== 'ProtectedAccess' %|| 
+       ( ( [%t] simple_class %( %o ->P  )% ) %==  false  ) ) 
+      ( 'C' ) 
+     %END-FOR
+     %!= 0 ) 
+//	[{<{}{%oV=PublicAccess&%t_simple_class(%o%P)=true}{C}>!=0}\n]#protected:<{}{%oV=ProtectedAccess|%t_simple_class(%o%P)=false}{Sp}[
+     %IF ( 
+      %FOR %ITEM-CONDITION ( ( %o |V ) %== 'PublicAccess' %&& 
+        ( ( [%t] simple_class %( %o ->P  )% ) %==  true  ) ) 
+       ( 'C' ) 
+      %END-FOR
+      %!= 0 ) 
+      #13#10 
+     %END-IF
+     out_indent 'protected:'
+     %FOR %ITEM-CONDITION ( ( %o |V ) %== 'ProtectedAccess' %|| 
+       ( ( [%t] simple_class %( %o ->P  )% ) %==  false  ) ) 
+      ( 'Sp' ) 
+      %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_implemented_method(%o,"SERV_OPS")]>][{<{}{%oV=PrivateAccess&%t_simple_class(%o%P)=true}{C}>!=0}\
+       [%f] dump_implemented_method %( %o %, 'SERV_OPS' )% 
+      %END-IF
+     %END-FOR
+    %END-IF
+    %IF ( 
+     %FOR %ITEM-CONDITION ( ( %o |V ) %== 'PrivateAccess' %&& 
+       ( ( [%t] simple_class %( %o ->P  )% ) %==  true  ) ) 
+      ( 'C' ) 
+     %END-FOR
+     %!= 0 ) 
+//	[{<{}{%oV=PublicAccess&%t_simple_class(%o%P)=true}{C}>!=0|<{}{%oV=ProtectedAccess|%t_simple_class(%o%P)=false}{C}>!=0}\n]\
+     %IF ( 
+      %FOR %ITEM-CONDITION ( ( %o |V ) %== 'PublicAccess' %&& 
+        ( ( [%t] simple_class %( %o ->P  )% ) %==  true  ) ) 
+       ( 'C' ) 
+      %END-FOR
+      %!= 0 %|| 
+       ( 
+      %FOR %ITEM-CONDITION ( ( %o |V ) %== 'ProtectedAccess' %|| 
+        ( ( [%t] simple_class %( %o ->P  )% ) %==  false  ) ) 
+       ( 'C' ) 
+      %END-FOR
+      %!= 0  ) ) 
+      #13#10 
+     %END-IF
+//	#private:<{}{%oV=PrivateAccess&%t_simple_class(%o%P)=true}{Sp}[
+     out_indent 'private:'
+     %FOR %ITEM-CONDITION ( ( %o |V ) %== 'PrivateAccess' %&& 
+       ( ( [%t] simple_class %( %o ->P  )% ) %==  true  ) ) 
+      ( 'Sp' ) 
+      %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_implemented_method(%o,"SERV_OPS")]>]]][{%f_has_overloaded_methods(%S)=true}
+       [%f] dump_implemented_method %( %o %, 'SERV_OPS' )% 
+      %END-IF
+     %END-FOR
+    %END-IF
+   %END-IF
+  %END-IF
+  %IF ( ( [%f] has_overloaded_methods %( %S )% ) %==  true ) 
+
+//	#//////////////////////////////////////////////////////////////////////////////////////////
+   out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// overloaded base methods
+   out_indent '// overloaded base methods'
+//	[#public:<{}{"%OV"="PublicAccess"&"%t_interface(%O%P)"="false"&"%OS"!="ctor"}{Sp}[
+   %IF-NOT-EMPTY
+    out_indent 'public:'
+    %FOR %ITEM-CONDITION ( ( %O |V ) %== 'PublicAccess' %&& 
+      ( ( [%t] interface %( %O ->P  )% ) %== false  ) %&& 
+      ( ( %O |S ) %!= 'ctor'  ) ) 
+     ( 'Sp' ) 
+     %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_overloaded_method_h(%O,"SERV_OPS")]>][
+      [%f] dump_overloaded_method_h %( %O %, 'SERV_OPS' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+
+//	#protected:<{}{"%OV"="ProtectedAccess"|"%t_interface(%O%P)"="true"&"%OS"!="ctor"}{Sp}[
+    out_indent 'protected:'
+    %FOR %ITEM-CONDITION ( ( %O |V ) %== 'ProtectedAccess' %|| 
+      ( ( [%t] interface %( %O ->P  )% ) %== true  ) %&& 
+      ( ( %O |S ) %!= 'ctor'  ) ) 
+     ( 'Sp' ) 
+     %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_overloaded_method_h(%O,"SERV_OPS")]>][
+      [%f] dump_overloaded_method_h %( %O %, 'SERV_OPS' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+
+//	#private:<{}{"%OV"="PrivateAccess"&"%OS"!="ctor"}{Sp}[
+    out_indent 'private:'
+    %FOR %ITEM-CONDITION ( ( %O |V ) %== 'PrivateAccess' %&& 
+      ( ( %O |S ) %!= 'ctor'  ) ) 
+     ( 'Sp' ) 
+     %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_overloaded_method_h(%O,"SERV_OPS")]>]
+      [%f] dump_overloaded_method_h %( %O %, 'SERV_OPS' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+//	]][{%{NEED_UPDATE_RW}N=1}
+  %END-IF
+ %END-IF
+ %IF ( ( ( get_global_var ( 'NEED_UPDATE_RW' ) |N ) ) %== 1 ) 
+
+//	
+
+//	#protected:
+  out_indent 'protected:'
+//		virtual void upgrade_rw ();]
+  '	virtual void upgrade_rw ();' 
+ %END-IF
+
+//f _is_property
+; // dump_cpp_derrived_impl_h
+
+: is_property OBJECT IN %S
+//	[{%SC=Attribute}{false}[{%SS=property|%SS=readonly|%SS=writeonly}{false}true]]
+ %IF ( ( %S |C ) %== 'Attribute' ) 
+  %ELSE
+    false 
+  %THEN
+  %IF ( ( %S |S ) %== 'property' %|| 
+    ( ( %S |S ) %== 'readonly'  ) %|| 
+    ( ( %S |S ) %== 'writeonly'  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+
+//f _self_have_same_method
+; // is_property
+
+: self_have_same_method OBJECT IN %S
+//	[{%SC=Operation}[]%f_exists_in_list(%1N,"%SN (<%f_arg(%C)>")]
+ %IF ( ( %S |C ) %== 'Operation' ) 
+  %IF-NOT-EMPTY
+  %END-IF
+  [%f] exists_in_list %( %1 |N %, %S |N ' ('
+  %FOR [%f] arg %( %C )% 
+  %END-FOR
+)%  %END-IF
+
+//собираем сигнатуры операций БЕЗ возвращаемого значения!
+//f _collect_self_operations_signature
+; // self_have_same_method
+
+: collect_self_operations_signature OBJECT IN %S
+//	[{""="%1N"}%f_error("_collect_self_operations_signature: Не задан идентификатор списка!")]\
+ %IF ( '' %== ( %1 |N ) ) 
+  [%f] error %( '_collect_self_operations_signature: Не задан идентификатор списка!' )% 
+ %END-IF
+//	%f_set_var(LIST_ID,1)\
+ [%f] set_var %( 'LIST_ID' %, 1 )% 
+//	<{}{%CC=Operation}%f_add_to_list(%{LIST_ID}N,"%f_operation_signature(%C)")>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' ) 
+  [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, [%f] operation_signature %( %C )% )% 
+ %END-FOR
+//	<{}{%f_is_property(%C)=true}[{%CS!=writeonly}%f_add_to_list(%{LIST_ID}N,"%f_read_accessor_signature(%C)")]\
+ %FOR %ITEM-CONDITION ( ( [%f] is_property %( %C )% ) %==  true ) 
+  %IF ( ( %C |S ) %!= 'writeonly' ) 
+   [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, [%f] read_accessor_signature %( %C )% )% 
+  %END-IF
+//	[{%CS!=readonly}%f_add_to_list(%{LIST_ID}N,"%f_write_accessor_signature(%C)")]>
+  %IF ( ( %C |S ) %!= 'readonly' ) 
+   [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, [%f] write_accessor_signature %( %C )% )% 
+  %END-IF
+ %END-FOR
+
+//f _collect_implemented_attrs
+; // collect_self_operations_signature
+
+: collect_implemented_attrs OBJECT IN %S
+//	[{""="%1N"}%f_error("_collect_implemented_attrs: Не задан идентификатор списка!")]\
+ %IF ( '' %== ( %1 |N ) ) 
+  [%f] error %( '_collect_implemented_attrs: Не задан идентификатор списка!' )% 
+ %END-IF
+//	%f_set_var(LIST_ID,1)\
+ [%f] set_var %( 'LIST_ID' %, 1 )% 
+//	<{}{%f_is_property(%o)=true}%f_add_to_list(%{LIST_ID}N,o)>
+ %FOR %ITEM-CONDITION ( ( [%f] is_property %( %o )% ) %==  true ) 
+  [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'o' )% 
+ %END-FOR
+
+//f _operation_signature
+; // collect_implemented_attrs
+
+: operation_signature OBJECT IN %S
+//	%SN (<%f_arg(%C)>)[ [{%SS!=chg&%SS!=oneway,chg&%SS!=static&%P#f_IsUtilityPack()!=true&"[{%PS=TemplateFunctions&%P%P#f_IsUtilityPack()=true}{false}true]"="false"}const]]
+ %S |N ' ('
+ %FOR [%f] arg %( %C )% 
+ %END-FOR
+ ')'
+ %IF-NOT-EMPTY
+  ' '
+  %IF ( ( %S |S ) %!= 'chg' %&& 
+    ( ( %S |S ) %!= 'oneway,chg'  ) %&& 
+    ( ( %S |S ) %!= 'static'  ) %&& 
+    ( ( %P %?f IsUtilityPack %( )% ) %!=  true  ) %&& 
+    ( %IF ( ( %P |S ) %== 'TemplateFunctions' %&& 
+     ( ( %P ->P %?f IsUtilityPack %( )%  ) %==  true  ) ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+   %== false  ) ) 
+   'const' 
+  %END-IF
+ %END-IF
+
+//f _read_accessor_signature
+; // operation_signature
+
+: read_accessor_signature OBJECT IN %S
+//	get_%SN (<%f_arg(%C)>) const
+ 'get_'
+ %S |N ' ('
+ %FOR [%f] arg %( %C )% 
+ %END-FOR
+ ') const'
+
+//f _write_accessor_signature
+; // read_accessor_signature
+
+: write_accessor_signature OBJECT IN %S
+//	set_%SN (%t_arg(%T,"%f_arg_specificator(%S)")<%f_arg(%C)>)
+ 'set_'
+ %S |N ' ('
+ [%t] arg %( %T %, [%f] arg_specificator %( %S )% )% 
+ %FOR [%f] arg %( %C )% 
+ %END-FOR
+ ')'
+
+//может ли %S пресдавлен элементом 
+//f _can_represented_by
+; // write_accessor_signature
+
+: can_represented_by OBJECT IN %S
+//#UC END# *4714D8170399*
+; // can_represented_by
+
+
+// генерация обявлений переопределённых конструкторов
+//f _dump_cpp_derrived_constr_h
+: dump_cpp_derrived_constr_h OBJECT IN %S
+//#UC START# *4714D84200DA*
+//	%f_set_var(SERV,S)[{%f_has_overloaded_ctors(%S)=true}[#public:
+ [%f] set_var %( 'SERV' %, 'S' )% %IF ( ( [%f] has_overloaded_ctors %( %S )% ) %==  true ) 
+  %IF-NOT-EMPTY
+   out_indent 'public:'
+//	<{}{"%OV"="PublicAccess"&"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+   %FOR %ITEM-CONDITION ( ( %O |V ) %== 'PublicAccess' %&& 
+     ( ( %O |S ) %== 'ctor'  ) ) 
+    ( 'Sp' ) 
+    out_indent '	// inherited from '
+    %O ->P |N  
+//	%OX
+    %O |X 
+//	
+
+//	>][#protected:
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+   out_indent 'protected:'
+//	<{}{"%OV"="ProtectedAccess"&"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+   %FOR %ITEM-CONDITION ( ( %O |V ) %== 'ProtectedAccess' %&& 
+     ( ( %O |S ) %== 'ctor'  ) ) 
+    ( 'Sp' ) 
+    out_indent '	// inherited from '
+    %O ->P |N  
+//	%OX
+    %O |X 
+//	
+
+//	>]]
+   %END-FOR
+  %END-IF
+ %END-IF
+//#UC END# *4714D84200DA*
+; // dump_cpp_derrived_constr_h
+
+
+// генерация обявлений переопределённых конструкторов серванта
+//f _dump_cpp_servant_derrived_constr_h
+: dump_cpp_servant_derrived_constr_h OBJECT IN %S
+//#UC START# *4714D8670119*
+//	%f_set_var(SERV,S)<{}{"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+ [%f] set_var %( 'SERV' %, 'S' )% 
+ %FOR %ITEM-CONDITION ( ( %O |S ) %== 'ctor' ) 
+  ( 'Sp' ) 
+  out_indent '	// inherited from '
+  %O ->P |N  
+//	%OX
+  %O |X 
+//	
+
+//	>
+ %END-FOR
+//#UC END# *4714D8670119*
+; // dump_cpp_servant_derrived_constr_h
+
+
+// генерация переопределённых конструкторов серванта
+//f _dump_cpp_servant_derrived_constr_java
+: dump_cpp_servant_derrived_constr_java OBJECT IN %S
+//#UC START# *4714D88F007D*
+//	%f_set_var(SERV,S)<{}{"%OS"="ctor"}{Sp}#	// inherited from %O%PN
+ [%f] set_var %( 'SERV' %, 'S' )% 
+ %FOR %ITEM-CONDITION ( ( %O |S ) %== 'ctor' ) 
+  ( 'Sp' ) 
+  out_indent '	// inherited from '
+  %O ->P |N  
+//	%OX
+  %O |X 
+//	
+
+//	>
+ %END-FOR
+//#UC END# *4714D88F007D*
+; // dump_cpp_servant_derrived_constr_java
+
+
+// генерация реализации переопределённых конструкторов
+//f _dump_cpp_derrived_constr_cpp
+: dump_cpp_derrived_constr_cpp OBJECT IN %S
+//#UC START# *4714D8A1038A*
+//	%f_set_var(SERV,S)<{}{"%OS"="ctor"}{Sp}// inherited from %O%PN
+ [%f] set_var %( 'SERV' %, 'S' )% 
+ %FOR %ITEM-CONDITION ( ( %O |S ) %== 'ctor' ) 
+  ( 'Sp' ) 
+  '// inherited from '
+  %O ->P |N  
+//	%OX
+  %O |X 
+//	
+
+//	>
+ %END-FOR
+//#UC END# *4714D8A1038A*
+; // dump_cpp_derrived_constr_cpp
+
+
+// есть ли ппереопределённые методы (кроме констукторов)
+//f _has_overloaded_methods
+: has_overloaded_methods OBJECT IN %S
+//#UC START# *4714D8CF0167*
+//	[{"<{}{%OS!=ctor}{C}>"!="0"}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %O |S ) %!= 'ctor' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714D8CF0167*
+; // has_overloaded_methods
+
+
+// есть ли переопределённые конструкторы
+//f _has_overloaded_ctors
+: has_overloaded_ctors OBJECT IN %S
+//#UC START# *4714D8F2003E*
+//	[{"<{}{%OS=ctor}{C}>"!="0"}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %O |S ) %== 'ctor' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714D8F2003E*
+; // has_overloaded_ctors
+
+
+// выводит COM-идентификатор
+//f _comiid
+: comiid OBJECT IN %S
+//#UC START# *4714D90A01E4*
+//	%f_str_conv("%SG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","0x%s, 0x%s, 0x%s, {0x%s, 0x%s, 0x%s, 0x%s, 0x%s, 0x%s, 0x%s, 0x%s}")
+ [%f] str_conv %( %S |G %, %8 |s '-'
+ %4 |s '-'
+ %4 |s '-'
+ %2 |s %2 |s '-'
+ %2 |s %2 |s %2 |s %2 |s %2 |s %2 |s %, 0 'x'
+ %s %, ' 0x'
+ %s %, ' 0x'
+ %s %, ' {0x'
+ %s %, ' 0x'
+ %s %, ' 0x'
+ %s %, ' 0x'
+ %s %, ' 0x'
+ %s %, ' 0x'
+ %s %, ' 0x'
+ %s %, ' 0x'
+ %s '}' )% 
+//#UC END# *4714D90A01E4*
+; // comiid
+
+
+// есть ли фабричные методы
+//f _has_factory_methods
+: has_factory_methods OBJECT IN %S
+//#UC START# *4714D9D600DA*
+//	[{"%Sa"!="abstract"}{false}%f_has_self_factory_methods(%S)]
+ %IF ( ( %S |a ) %!= 'abstract' ) 
+  %ELSE
+    false 
+  %THEN
+  [%f] has_self_factory_methods %( %S )% 
+ %END-IF
+//#UC END# *4714D9D600DA*
+; // has_factory_methods
+
+
+// есть ли фабричные методы
+//f _has_self_factory_methods
+: has_self_factory_methods OBJECT IN %S
+//#UC START# *4714D9F20203*
+//	[{%SM!=Servant::Class&%SM!=LocalInterface::Class}{[{"<{}{"%f_is_factory(%C)"="true"}{%CC}>"="0"}{true}%f_has_realize_factory_methods(%S)]}[{"<{}{"%f_is_factory(%C)"="true"}{%CC}>"="0"}{true}%f_has_base_factory_methods(%S)]]
+ %IF ( ( %S |M ) %!= 'Servant::Class' %&& 
+   ( ( %S |M ) %!= 'LocalInterface::Class'  ) ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== true ) 
+     ( %C |C ) 
+    %END-FOR
+    %== 0 ) 
+    %ELSE
+      true 
+    %THEN
+    [%f] has_realize_factory_methods %( %S )% 
+   %END-IF
+  %THEN
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== true ) 
+    ( %C |C ) 
+   %END-FOR
+   %== 0 ) 
+   %ELSE
+     true 
+   %THEN
+   [%f] has_base_factory_methods %( %S )% 
+  %END-IF
+ %END-IF
+//#UC END# *4714D9F20203*
+; // has_self_factory_methods
+
+
+// есть ли фабричные методы среди базоввых элементов
+//f _has_base_factory_methods
+: has_base_factory_methods OBJECT IN %S
+//#UC START# *4714DA02034B*
+//	[{"<{}{"%f_has_self_factory_methods(%g)"="true"&"%ga"="abstract"}{%GC}>"="0"}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] has_self_factory_methods %( %g )% ) %== true %&& 
+    ( ( %g |a ) %== 'abstract'  ) ) 
+   ( %G |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *4714DA02034B*
+; // has_base_factory_methods
+
+
+// есть ли фабричные методы у реализуемых (рекурсивно) элементов
+//f _has_realize_factory_methods
+: has_realize_factory_methods OBJECT IN %S
+//#UC START# *4714DA1900AB*
+//	[{"<{}{"%f_has_self_factory_methods(%r)"="true"}{%rC}>"="0"}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] has_self_factory_methods %( %r )% ) %== true ) 
+   ( %r |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *4714DA1900AB*
+; // has_realize_factory_methods
+
+
+// является ли элемент фабрикой
+//f _is_factory
+: is_factory OBJECT IN %S
+//#UC START# *4714DA5203C8*
+//@ %SU
+//	[{"%SS"="factory"|"%SS"="multi factory"|%S#f_is_factory()=true}{false}true]
+ %IF ( ( %S |S ) %== 'factory' %|| 
+   ( ( %S |S ) %== 'multi factory'  ) %|| 
+   ( ( %S %?f is_factory %( )% ) %==  true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DA5203C8*
+; // is_factory
+
+
+// генерация атрибутов и операций интерфейса, реализуемых сервантом
+//f _servant_cpp_attribute_h
+: servant_cpp_attribute_h OBJECT IN %S
+//#UC START# *4714DA740000*
+//	[{[{%t_need_ro(%S)=true&[{%1N!=false|%f_beaccessed(%S)=true}{false}true]=true}{false}true]=true|[{%t_need_rw(%S)=true&%2N!=false}{false}true]=true}%f_docs(%S)]\
+ %IF ( %IF ( ( [%t] need_ro %( %S )% ) %==  true %&& 
+    ( %IF ( ( %1 |N ) %!=  false %|| 
+     ( ( [%f] beaccessed %( %S )% ) %==  true  ) ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+   %==  true  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %==  true %|| 
+   ( %IF ( ( [%t] need_rw %( %S )% ) %==  true %&& 
+    ( ( %2 |N ) %!=  false  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %==  true  ) ) 
+  [%f] docs %( %S )% 
+ %END-IF
+//	[{%t_need_ro(%S)=true}[{%1N!=false}	[{"%{SERV}a"!="final"|%t_interface(%{SERV})=true}virtual ]\
+ %IF ( ( [%t] need_ro %( %S )% ) %==  true ) 
+  %IF ( ( %1 |N ) %!=  false ) 
+   '	'
+   %IF ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final' %|| 
+     ( ( [%t] interface %( ( get_global_var ( 'SERV' ) ) )% ) %==  true  ) ) 
+    'virtual ' 
+   %END-IF
+//	%f_iget_attr(%S) get_%SN (%S%f_accessor_args("true"))[ %f_op_const_spec(%S)][{%f_realize_srv_interface(%S)=false}{\n\t\tthrow (CORBA::SystemException<, %E<%NN::>%EN>)}[
+   [%f] iget_attr %( %S )% ' get_'
+   %S |N ' ('
+   %S %f accessor_args %( true )% ')'
+   %IF-NOT-EMPTY
+    ' '
+    [%f] op_const_spec %( %S )% 
+   %END-IF
+   %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+    %ELSE
+     #13#10#9#9'throw (CORBA::SystemException'
+     %FOR ', '
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')' 
+    %THEN
+    %IF-NOT-EMPTY
+
+//			/*throw (<{, }%E<%NN::>%EN>)*/]];][{"%f_beaccessed(%S)"="true"}[{%1N!=false}
+     '		/*throw ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')*/' 
+    %END-IF
+   %END-IF
+   ';' 
+  %END-IF
+  %IF ( ( [%f] beaccessed %( %S )% ) %== true ) 
+   %IF ( ( %1 |N ) %!=  false ) 
+
+//	]	[{"%{SERV}a"!="final"|%t_interface(%{SERV})=true}virtual ]%f_igetnc_attr(%S) get_%SN (%S%f_accessor_args())[{%f_realize_srv_interface(%S)=false}{\n\t\tthrow (CORBA::SystemException<, %E<%NN::>%EN>)}[
+   %END-IF
+   '	'
+   %IF ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final' %|| 
+     ( ( [%t] interface %( ( get_global_var ( 'SERV' ) ) )% ) %==  true  ) ) 
+    'virtual ' 
+   %END-IF
+   [%f] igetnc_attr %( %S )% ' get_'
+   %S |N ' ('
+   %S %f accessor_args %( )% ')'
+   %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+    %ELSE
+     #13#10#9#9'throw (CORBA::SystemException'
+     %FOR ', '
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')' 
+    %THEN
+    %IF-NOT-EMPTY
+
+//			/*throw (<{, }%E<%NN::>%EN>)*/]];]][{%t_need_rw(%S)=true&%2N!=false}[{%t_need_ro(%S)=true}\n\n]	[{"%{SERV}a"!="final"|%t_interface(%{SERV})=true}virtual ]void set_%SN (%f_iset_attr(%S) %SN[, %S%f_accessor_args()])[{%f_realize_srv_interface(%S)=false}{\n\t\tthrow (CORBA::SystemException<, %e<%NN::>%eN>)}[
+     '		/*throw ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')*/' 
+    %END-IF
+   %END-IF
+   ';' 
+  %END-IF
+ %END-IF
+ %IF ( ( [%t] need_rw %( %S )% ) %==  true %&& 
+   ( ( %2 |N ) %!=  false  ) ) 
+  %IF ( ( [%t] need_ro %( %S )% ) %==  true ) 
+   #13#10#13#10 
+  %END-IF
+  '	'
+  %IF ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final' %|| 
+    ( ( [%t] interface %( ( get_global_var ( 'SERV' ) ) )% ) %==  true  ) ) 
+   'virtual ' 
+  %END-IF
+  'void set_'
+  %S |N ' ('
+  [%f] iset_attr %( %S )% ' '
+  %S |N %IF-NOT-EMPTY
+   ', '
+   %S %f accessor_args %( )% 
+  %END-IF
+  ')'
+  %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+   %ELSE
+    #13#10#9#9'throw (CORBA::SystemException'
+    %FOR ', '
+     %e
+     %FOR %N |N '::' 
+     %END-FOR
+      %e |N 
+    %END-FOR
+    ')' 
+   %THEN
+   %IF-NOT-EMPTY
+
+//			/*throw (<{, }%e<%NN::>%eN>)*/]];]
+    '		/*throw ('
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %e
+     %FOR %N |N '::' 
+     %END-FOR
+      %e |N 
+    %END-FOR
+    ')*/' 
+   %END-IF
+  %END-IF
+  ';' 
+ %END-IF
+//#UC END# *4714DA740000*
+; // servant_cpp_attribute_h
+
+
+// возвращает true, если у элемента есть атрибут с заданным именем и видимостью "Implemented"
+//f _is_impl_atrr
+: is_impl_atrr OBJECT IN %S
+//#UC START# *4714DA96036B*
+//	[{"<{}{"%CC"="Attribute"&"%CN"="%1N"&"%CV"="ImplementationAccess"}{%CC}>"!="0"}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |N ) %== ( %1 |N )  ) %&& 
+    ( ( %C |V ) %== 'ImplementationAccess'  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DA96036B*
+; // is_impl_atrr
+
+
+// генерация атрибутов и операций интерфейса, реализуемых сервантом
+//f _servant_cpp_attribute_cpp
+: servant_cpp_attribute_cpp OBJECT IN %S
+//#UC START# *4714DA9E01F4*
+//	%f_set_var(LINE_FEED,"")\
+ [%f] set_var %( 'LINE_FEED' %, '' )% 
+//	[{[{%t_need_ro(%S)=true&[{%1N!=false|%f_beaccessed(%S)=true}{false}true]=true}{false}true]=true|[{%t_need_rw(%S)=true&%2N!=false}{false}true]=true}%f_docs(%S)]\
+ %IF ( %IF ( ( [%t] need_ro %( %S )% ) %==  true %&& 
+    ( %IF ( ( %1 |N ) %!=  false %|| 
+     ( ( [%f] beaccessed %( %S )% ) %==  true  ) ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+   %==  true  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %==  true %|| 
+   ( %IF ( ( [%t] need_rw %( %S )% ) %==  true %&& 
+    ( ( %2 |N ) %!=  false  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %==  true  ) ) 
+  [%f] docs %( %S )% 
+ %END-IF
+//	[{%t_need_ro(%S)=true}[{%1N!=false}%f_set_var(LINE_FEED,"\n\n")\
+ %IF ( ( [%t] need_ro %( %S )% ) %==  true ) 
+  %IF ( ( %1 |N ) %!=  false ) 
+   [%f] set_var %( 'LINE_FEED' %, #13#10#13#10 )% 
+//	%f_templ_header(%{SERV})%f_iget_attr(%S) %{SERV}N%f_templ_footer(%{SERV})::get_%SN (%S%f_accessor_args("true"))[ %f_op_const_spec(%S)][{%f_realize_srv_interface(%S)=false}{\n	throw (CORBA::SystemException<, %E<%NN::>%EN>)\n}[{%Ex=true}{ }
+   [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% [%f] iget_attr %( %S )% ' '
+   ( get_global_var ( 'SERV' ) |N ) [%f] templ_footer %( ( get_global_var ( 'SERV' ) ) )% '::get_'
+   %S |N ' ('
+   %S %f accessor_args %( true )% ')'
+   %IF-NOT-EMPTY
+    ' '
+    [%f] op_const_spec %( %S )% 
+   %END-IF
+   %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+    %ELSE
+     #13#10'	throw (CORBA::SystemException'
+     %FOR ', '
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')'#13#10 
+    %THEN
+    %IF ( ( %E |x ) %==  true ) 
+     %ELSE
+      ' ' 
+     %THEN
+
+//		/*throw (<{, }%E<%NN::>%EN>)*/
+     '	/*throw ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')*/'
+//	]]{%f_start_func_cpp(%S,"%{SERV}N::get_%SN const")%f_set_var(OP,S)
+    %END-IF
+   %END-IF
+   '{'
+   [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::get_'
+   %S |N ' const' )% [%f] set_var %( 'OP' %, 'S' )% 
+//		[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_GET]}
+   '	'
+   %IF ( ( [%f] is_impl_atrr %( ( get_global_var ( 'SERV' ) ) %, %S )% ) %==  true ) 
+    %ELSE
+     %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+       '_'
+       ( get_global_var ( 'SERV' ) |U ) '_GET' 
+      %END-IF
+) 
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+      '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]}return m_%SN;]
+      '	' 
+     %END-IF
+     %THEN
+    'return m_'
+    %S |N ';' 
+   %END-IF
+//	}][{"%f_beaccessed(%S)"="true"}%{LINE_FEED}N\
+   '}' 
+  %END-IF
+  %IF ( ( [%f] beaccessed %( %S )% ) %== true ) 
+   ( get_global_var ( 'LINE_FEED' ) |N ) 
+//	%f_set_var(LINE_FEED,"\n\n")\
+   [%f] set_var %( 'LINE_FEED' %, #13#10#13#10 )% 
+//	%f_templ_header(%{SERV})%f_igetnc_attr(%S) %{SERV}N%f_templ_footer(%{SERV})::get_%SN (%S%f_accessor_args())[{%f_realize_srv_interface(%S)=false}{\n	throw (CORBA::SystemException<, %E<%NN::>%EN>)\n}[{%Ex=true}{ }
+   [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% [%f] igetnc_attr %( %S )% ' '
+   ( get_global_var ( 'SERV' ) |N ) [%f] templ_footer %( ( get_global_var ( 'SERV' ) ) )% '::get_'
+   %S |N ' ('
+   %S %f accessor_args %( )% ')'
+   %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+    %ELSE
+     #13#10'	throw (CORBA::SystemException'
+     %FOR ', '
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')'#13#10 
+    %THEN
+    %IF ( ( %E |x ) %==  true ) 
+     %ELSE
+      ' ' 
+     %THEN
+
+//		/*throw (<{, }%E<%NN::>%EN>)*/
+     '	/*throw ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %E
+      %FOR %N |N '::' 
+      %END-FOR
+       %E |N 
+     %END-FOR
+     ')*/'
+//	]]{%f_start_func_cpp(%S,"%{SERV}N::get_%SN")
+    %END-IF
+   %END-IF
+   '{'
+   [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::get_'
+   %S |N )% 
+//		[{%S{force use const arg}=true}{return const_cast\<%f_igetnc_attr(%S)\>(((const %{SERV}N*)this)-\>get_%SN (<{, }%CN>));}%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_GET_NC]}
+   '	'
+   %IF ( ( %S get_up ( 'force use const arg' ) ) %==  true ) 
+    %ELSE
+     'return const_cast<'
+     [%f] igetnc_attr %( %S )% '>(((const '
+     ( get_global_var ( 'SERV' ) |N ) '*)this)->get_'
+     %S |N ' ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %C |N 
+     %END-FOR
+     '));' 
+    %THEN
+    %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+      '_'
+      ( get_global_var ( 'SERV' ) |U ) '_GET_NC' 
+     %END-IF
+) 
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+     '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]]
+     '	' 
+    %END-IF
+    %END-IF
+//	}]][{%t_need_rw(%S)=true&%2N!=false}%{LINE_FEED}N\
+   '}' 
+  %END-IF
+ %END-IF
+ %IF ( ( [%t] need_rw %( %S )% ) %==  true %&& 
+   ( ( %2 |N ) %!=  false  ) ) 
+  ( get_global_var ( 'LINE_FEED' ) |N ) 
+//	%f_templ_header(%{SERV})void %{SERV}N%f_templ_footer(%{SERV})::set_%SN (%f_iset_attr(%S) %SN[, %S%f_accessor_args()])[{%f_realize_srv_interface(%S)=false}{\n	throw (CORBA::SystemException<, %e<%NN::>%eN>)\n}[{%ex=true}{ }
+  [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% 'void '
+  ( get_global_var ( 'SERV' ) |N ) [%f] templ_footer %( ( get_global_var ( 'SERV' ) ) )% '::set_'
+  %S |N ' ('
+  [%f] iset_attr %( %S )% ' '
+  %S |N %IF-NOT-EMPTY
+   ', '
+   %S %f accessor_args %( )% 
+  %END-IF
+  ')'
+  %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+   %ELSE
+    #13#10'	throw (CORBA::SystemException'
+    %FOR ', '
+     %e
+     %FOR %N |N '::' 
+     %END-FOR
+      %e |N 
+    %END-FOR
+    ')'#13#10 
+   %THEN
+   %IF ( ( %e |x ) %==  true ) 
+    %ELSE
+     ' ' 
+    %THEN
+
+//		/*throw (<{, }%e<%NN::>%eN>)*/
+    '	/*throw ('
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %e
+     %FOR %N |N '::' 
+     %END-FOR
+      %e |N 
+    %END-FOR
+    ')*/'
+//	]]{%f_start_func_cpp(%S,"%{SERV}N::set_%SN")
+   %END-IF
+  %END-IF
+  '{'
+  [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::set_'
+  %S |N )% 
+//		[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_SET]}
+  '	'
+  %IF ( ( [%f] is_impl_atrr %( ( get_global_var ( 'SERV' ) ) %, %S )% ) %==  true ) 
+   %ELSE
+    %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+      '_'
+      ( get_global_var ( 'SERV' ) |U ) '_SET' 
+     %END-IF
+) 
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+     '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]}m_%SN = %SN;]
+     '	' 
+    %END-IF
+    %THEN
+   'm_'
+   %S |N ' = '
+   %S |N ';' 
+  %END-IF
+//	}]
+  '}' 
+ %END-IF
+//#UC END# *4714DA9E01F4*
+; // servant_cpp_attribute_cpp
+
+
+// генерация oneway операции
+//f _servant_cpp_oneway_operation_thr_h
+: servant_cpp_oneway_operation_thr_h OBJECT IN %S
+//#UC START# *4714DAAE02EE*
+//	[#%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  out_indent %S %f open_ifdef %( )% 
+//	]#static void thr_%SN_ (void* arg);[
+ %END-IF
+ out_indent 'static void thr_'
+ %S |N '_ (void* arg);'
+ %IF-NOT-EMPTY
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4714DAAE02EE*
+; // servant_cpp_oneway_operation_thr_h
+
+
+// генерация oneway операции
+//f _servant_cpp_oneway_operation_impl_h
+: servant_cpp_oneway_operation_impl_h OBJECT IN %S
+//#UC START# *4714DAC403B9*
+//	%f_set_var(ONEWAY_OP,"#[{"%Sa"="abstract"|"%Sa"="regular"&"%{SERV}a"!="final"}virtual ]%f_ret(%S) %SN_ (<{, }%f_arg_full_decl(%C)>)[{%SS!=oneway,chg} const][{"%Sa"="abstract"&"%PU"="%{SERV}U"} = 0];")\
+ [%f] set_var %( 'ONEWAY_OP' %, out_indent %IF ( ( %S |a ) %== 'abstract' %|| 
+   ( ( %S |a ) %== 'regular'  ) %&& 
+   ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final'  ) ) 
+  'virtual ' 
+ %END-IF
+ [%f] ret %( %S )% ' '
+ %S |N '_ ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  [%f] arg_full_decl %( %C )% 
+ %END-FOR
+ ')'
+ %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+  ' const' 
+ %END-IF
+ %IF ( ( %S |a ) %== 'abstract' %&& 
+   ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) ) 
+  ' = 0' 
+ %END-IF
+ ';' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{ONEWAY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'ONEWAY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{ONEWAY_OP}N}#[{"%Sa"="abstract"|"%Sa"="regular"&"%{SERV}a"!="final"}virtual ]%f_ret(%S) %SN_ (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[{%SS!=oneway,chg} const][{"%Sa"="abstract"&"%PU"="%{SERV}U"} = 0];]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+  %ELSE
+   ( get_global_var ( 'ONEWAY_OP' ) |N ) 
+  %THEN
+  out_indent %IF ( ( %S |a ) %== 'abstract' %|| 
+    ( ( %S |a ) %== 'regular'  ) %&& 
+    ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final'  ) ) 
+   'virtual ' 
+  %END-IF
+  [%f] ret %( %S )% ' '
+  %S |N '_ ('#13#10#9#9
+  %FOR %ITEM-SEPARATOR #13#10#9#9', ' ; // %ITEM-SEPARATOR 
+   [%f] arg_full_decl %( %C )% 
+  %END-FOR
+  #13#10#9')'
+  %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+   ' const' 
+  %END-IF
+  %IF ( ( %S |a ) %== 'abstract' %&& 
+    ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) ) 
+   ' = 0' 
+  %END-IF
+  ';' 
+ %END-IF
+
+//#UC END# *4714DAC403B9*
+; // servant_cpp_oneway_operation_impl_h
+
+
+// генерация конструктора для струтуры параметров oneway-операции
+//f _oneway_params_ctor
+: oneway_params_ctor OBJECT IN %S
+//#UC START# *4714DADE02FD*
+//	%f_set_var(ONEWAY_PARAMS_CTOR,"%f_to_borland(%SN)Params_ ([{%SS!=oneway,chg}const ]%PN* self_<, %f_arg(%C) %CN_>) : self([{%t_refcounted(%P)=true}{self_}%PN::_duplicate(self_)])<, %CN([{%t_refcounted(%C%T)=true}{%CN_}%f_type(%C%T)::_duplicate([{%CS=inref|%CS=inoutref}&]%CN_)])> {")\
+ [%f] set_var %( 'ONEWAY_PARAMS_CTOR' %, [%f] to_borland %( %S |N )% 'Params_ ('
+ %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+  'const ' 
+ %END-IF
+ %P |N '* self_'
+ %FOR ', '
+  [%f] arg %( %C )% ' '
+  %C |N '_' 
+ %END-FOR
+ ') : self('
+ %IF ( ( [%t] refcounted %( %P )% ) %==  true ) 
+  %ELSE
+   'self_' 
+  %THEN
+  %P |N '::_duplicate(self_)' 
+ %END-IF
+ ')'
+ %FOR ', '
+  %C |N '('
+  %IF ( ( [%t] refcounted %( %C ->T  )% ) %==  true ) 
+   %ELSE
+    %C |N '_' 
+   %THEN
+   [%f] type %( %C ->T  )% '::_duplicate('
+   %IF ( ( %C |S ) %== 'inref' %|| 
+     ( ( %C |S ) %== 'inoutref'  ) ) 
+    '&' 
+   %END-IF
+   %C |N '_)' 
+  %END-IF
+  ')' 
+ %END-FOR
+ ' {' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{ONEWAY_PARAMS_CTOR}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'ONEWAY_PARAMS_CTOR' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{ONEWAY_PARAMS_CTOR}N}%f_to_borland(%SN)Params_ (\n\t\t[{%SS!=oneway,chg}const ]%PN* self_<\n\t\t, %f_arg(%C) %CN_>\n\t) :\n\t\tself([{%t_refcounted(%P)=true}{self_}%PN::_duplicate(self_)])<\n\t\t, %CN([{%t_refcounted(%C%T)=true}{%CN_}%f_type(%C%T)::_duplicate([{%CS=inref|%CS=inoutref}&]%CN_)])>\n\t{]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+  %ELSE
+   ( get_global_var ( 'ONEWAY_PARAMS_CTOR' ) |N ) 
+  %THEN
+  [%f] to_borland %( %S |N )% 'Params_ ('#13#10#9#9
+  %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+   'const ' 
+  %END-IF
+  %P |N '* self_'
+  %FOR #13#10#9#9', '
+   [%f] arg %( %C )% ' '
+   %C |N '_' 
+  %END-FOR
+  #13#10#9') :'#13#10#9#9'self('
+  %IF ( ( [%t] refcounted %( %P )% ) %==  true ) 
+   %ELSE
+    'self_' 
+   %THEN
+   %P |N '::_duplicate(self_)' 
+  %END-IF
+  ')'
+  %FOR #13#10#9#9', '
+   %C |N '('
+   %IF ( ( [%t] refcounted %( %C ->T  )% ) %==  true ) 
+    %ELSE
+     %C |N '_' 
+    %THEN
+    [%f] type %( %C ->T  )% '::_duplicate('
+    %IF ( ( %C |S ) %== 'inref' %|| 
+      ( ( %C |S ) %== 'inoutref'  ) ) 
+     '&' 
+    %END-IF
+    %C |N '_)' 
+   %END-IF
+   ')' 
+  %END-FOR
+  #13#10#9'{' 
+ %END-IF
+
+//#UC END# *4714DADE02FD*
+; // oneway_params_ctor
+
+
+// генерация oneway операции
+//f _servant_cpp_oneway_operation_thr_cpp
+: servant_cpp_oneway_operation_thr_cpp OBJECT IN %S
+//#UC START# *4714DB000186*
+//	[%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  %S %f open_ifdef %( )% 
+//	]struct %f_to_borland(%SN)Params_ {
+ %END-IF
+ 'struct '
+ [%f] to_borland %( %S |N )% 'Params_ {'
+//		%PN[{%t_refcounted(%P)=true}{[{%SS!=oneway,chg} const]*}_[{%SS!=oneway,chg}c]var] self;
+ '	'
+ %P |N %IF ( ( [%t] refcounted %( %P )% ) %==  true ) 
+  %ELSE
+   %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+    ' const' 
+   %END-IF
+   '*' 
+  %THEN
+  '_'
+  %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+   'c' 
+  %END-IF
+  'var' 
+ %END-IF
+ ' self;'
+//	<{}{}{%C}	[{%f_check_if_type(%C%T,"string")=true}{[{%f_check_if_type(%C%T,"wstring")=true}{[{%CS=in|%CS=inref}{%f_var(%C%T)}%f_cvar(%C%T)] %CN}%f_var("a-wstring") %CN];}%f_var("a-string") %CN;]
+ %FOR ( %C ) 
+  '	'
+  %IF ( ( [%f] check_if_type %( %C ->T  %, 'string' )% ) %==  true ) 
+   %ELSE
+    %IF ( ( [%f] check_if_type %( %C ->T  %, 'wstring' )% ) %==  true ) 
+     %ELSE
+      %IF ( ( %C |S ) %== 'in' %|| 
+        ( ( %C |S ) %== 'inref'  ) ) 
+       %ELSE
+        [%f] var %( %C ->T  )% 
+       %THEN
+       [%f] cvar %( %C ->T  )% 
+      %END-IF
+      ' '
+      %C |N 
+     %THEN
+     [%f] var %( 'a-wstring' )% ' '
+     %C |N 
+    %END-IF
+    ';' 
+   %THEN
+   [%f] var %( 'a-string' )% ' '
+   %C |N ';' 
+  %END-IF
+//	>	%f_oneway_params_ctor(%S)
+ %END-FOR
+ '	'
+ [%f] oneway_params_ctor %( %S )% 
+//		}
+ '	}'
+//	};
+ '};'
+//	
+//	%f_templ_header(%{SERV})void %f_function_scope(%{SERV})thr_%SN_ (void* arg) {%f_start_func_cpp(%S,"%{SERV}N::%SN")
+ [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% 'void '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'thr_'
+ %S |N '_ (void* arg) {'
+ [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::'
+ %S |N )% 
+//		try {
+ '	try {'
+//			Core::Aptr\<%f_to_borland(%SN)Params_\> arg_ (reinterpret_cast\<%f_to_borland(%SN)Params_*\>(arg));
+ '		Core::Aptr<'
+ [%f] to_borland %( %S |N )% 'Params_> arg_ (reinterpret_cast<'
+ [%f] to_borland %( %S |N )% 'Params_*>(arg));'
+//			arg_-\>self-\>%SN_ (<{, }[{%CS=inref|%CS=inoutref}*]arg_-\>%CN[{%C%TN=string|%C%T%GN=string}{[{%t_refcounted(%C%T)=true}.in ()]}.data ()]>);
+ '		arg_->self->'
+ %S |N '_ ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %IF ( ( %C |S ) %== 'inref' %|| 
+    ( ( %C |S ) %== 'inoutref'  ) ) 
+   '*' 
+  %END-IF
+  'arg_->'
+  %C |N %IF ( ( %C ->T |N  ) %== 'string' %|| 
+    ( ( %C ->T ->G |N   ) %== 'string'  ) ) 
+   %ELSE
+    %IF ( ( [%t] refcounted %( %C ->T  )% ) %==  true ) 
+     '.in ()' 
+    %END-IF
+   %THEN
+   '.data ()' 
+  %END-IF
+ %END-FOR
+ ');'
+//		} catch (Core::Exception& ex) {
+ '	} catch (Core::Exception& ex) {'
+//			LOG_SEX ((ex, "while execute %PN::%SN oneway function"));
+ '		LOG_SEX ((ex, "while execute '
+ %P |N '::'
+ %S |N ' oneway function"));'
+//		} catch (...) {
+ '	} catch (...) {'
+//			LOG_UEX (("while execute %PN::%SN oneway function"));
+ '		LOG_UEX (("while execute '
+ %P |N '::'
+ %S |N ' oneway function"));'
+//		}
+ '	}'
+//	%f_end_func_cpp(%S)}[
+ [%f] end_func_cpp %( %S )% '}'
+ %IF-NOT-EMPTY
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4714DB000186*
+; // servant_cpp_oneway_operation_thr_cpp
+
+
+// генерация заголовка oneway операции
+//f _servant_oneway_operation_header_impl_cpp
+: servant_oneway_operation_header_impl_cpp OBJECT IN %S
+//#UC START# *4714DB1402DE*
+//	%f_set_var(ONEWAY_OP,"/*oneway*/ %f_templ_header(%{SERV})Core::ThreadHandle %f_function_scope(%{SERV})%SN (<{, }%f_arg_full_decl(%C)>)[{%SS!=oneway,chg} const] {")\
+ [%f] set_var %( 'ONEWAY_OP' %, '/*oneway*/ '
+ [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% 'Core::ThreadHandle '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% %S |N ' ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  [%f] arg_full_decl %( %C )% 
+ %END-FOR
+ ')'
+ %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+  ' const' 
+ %END-IF
+ ' {' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{ONEWAY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'ONEWAY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{ONEWAY_OP}N}/*oneway*/ %f_templ_header(%{SERV})Core::ThreadHandle %f_function_scope(%{SERV})%SN (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[{%SS!=oneway,chg} const] {]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+  %ELSE
+   ( get_global_var ( 'ONEWAY_OP' ) |N ) 
+  %THEN
+  '/*oneway*/ '
+  [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% 'Core::ThreadHandle '
+  [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% %S |N ' ('#13#10#9
+  %FOR %ITEM-SEPARATOR #13#10#9', ' ; // %ITEM-SEPARATOR 
+   [%f] arg_full_decl %( %C )% 
+  %END-FOR
+  #13#10')'
+  %IF ( ( %S |S ) %!= 'oneway,chg' ) 
+   ' const' 
+  %END-IF
+  ' {' 
+ %END-IF
+
+//#UC END# *4714DB1402DE*
+; // servant_oneway_operation_header_impl_cpp
+
+
+// генерация oneway операции
+//f _servant_cpp_oneway_operation_impl_cpp
+: servant_cpp_oneway_operation_impl_cpp OBJECT IN %S
+//#UC START# *4714DB2D035B*
+//	[%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  %S %f open_ifdef %( )% 
+//	]%f_servant_oneway_operation_header_impl_cpp(%S)%f_start_func_cpp(%S,"%{SERV}N::%SN")
+ %END-IF
+ [%f] servant_oneway_operation_header_impl_cpp %( %S )% [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::'
+ %S |N )% 
+//		Core::Aptr\<%f_to_borland(%SN)Params_\> arg = new %f_to_borland(%SN)Params_ (this<, %CN>);
+ '	Core::Aptr<'
+ [%f] to_borland %( %S |N )% 'Params_> arg = new '
+ [%f] to_borland %( %S |N )% 'Params_ (this'
+ %FOR ', '
+  %C |N 
+ %END-FOR
+ ');'
+//		Core::ThreadHandle ret = [{%S{separate thread pool}=none}{m_objects_thread_pool-\>}Core::ThreadPoolFactory::def().]spawn_thread (
+ '	Core::ThreadHandle ret = '
+ %IF ( ( %S get_up ( 'separate thread pool' ) ) %== 'none' ) 
+  %ELSE
+   'm_objects_thread_pool->' 
+  %THEN
+  'Core::ThreadPoolFactory::def().' 
+ %END-IF
+ 'spawn_thread ('
+//			reinterpret_cast\<ACE_THR_FUNC\> (%f_function_scope(%{SERV})thr_%SN_), arg.in ()
+ '		reinterpret_cast<ACE_THR_FUNC> ('
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% 'thr_'
+ %S |N '_), arg.in ()'
+//		);
+ '	);'
+//		if (ret == 0) {
+ '	if (ret == 0) {'
+//			throw; //CantSpawnThread ();
+ '		throw; //CantSpawnThread ();'
+//		} else {
+ '	} else {'
+//			arg.forget ();
+ '		arg.forget ();'
+//		}
+ '	}'
+//		return ret;
+ '	return ret;'
+//	%f_end_func_cpp(%S)}[
+ [%f] end_func_cpp %( %S )% '}'
+ %IF-NOT-EMPTY
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4714DB2D035B*
+; // servant_cpp_oneway_operation_impl_cpp
+
+
+// генерация операции серванта
+//f _servant_cpp_operation_h_i
+: servant_cpp_operation_h_i OBJECT IN %S
+//#UC START# *4714DB4301E4*
+//	%f_set_var(SERVANT_OPERATION,"#[{%SS=static|%SV=PrivateAccess&%P#f_IsUtilityPack()=true}static ][{%SS=oneway&%PU=%{SERV}U|%SS=oneway,chg&%PU=%{SERV}U}{[{%t_interface(%{SERV})=true|%Sa=abstract&%{SERV}a!=final|%Sa=regular&%{SERV}a!=final&%SS!=static&%PS!=TemplateFunctions}virtual ]%f_ret(%S) }/*oneway*/ Core::ThreadHandle ]%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway&%PU!=%{SERV}U|%SS=oneway,chg&%PU!=%{SERV}U}_]] (<{, }%f_arg_full_decl(%C)>)[ %f_op_const_spec(%S)][{%f_realize_srv_interface(%S)=false}{ throw (CORBA::SystemException<, %E<%NN::>%EN>)}[ /*throw (<{, }%E<%NN::>%EN>)*/]][{%Sa=abstract&%PU=%{SERV}U&%SS!=oneway&%SS!=oneway,chg} = 0];")\
+ [%f] set_var %( 'SERVANT_OPERATION' %, out_indent %IF ( ( %S |S ) %== 'static' %|| 
+   ( ( %S |V ) %== 'PrivateAccess'  ) %&& 
+   ( ( %P %?f IsUtilityPack %( )% ) %==  true  ) ) 
+  'static ' 
+ %END-IF
+ %IF ( ( %S |S ) %== 'oneway' %&& 
+   ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) %|| 
+   ( ( %S |S ) %== 'oneway,chg'  ) %&& 
+   ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) ) 
+  %ELSE
+   %IF ( ( [%t] interface %( ( get_global_var ( 'SERV' ) ) )% ) %==  true %|| 
+     ( ( %S |a ) %== 'abstract'  ) %&& 
+     ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final'  ) %|| 
+     ( ( %S |a ) %== 'regular'  ) %&& 
+     ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final'  ) %&& 
+     ( ( %S |S ) %!= 'static'  ) %&& 
+     ( ( %P |S ) %!= 'TemplateFunctions'  ) ) 
+    'virtual ' 
+   %END-IF
+   [%f] ret %( %S )% ' ' 
+  %THEN
+  '/*oneway*/ Core::ThreadHandle ' 
+ %END-IF
+ %S |N %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+   ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+  %IF ( ( %S |S ) %== 'oneway' %&& 
+    ( ( %P |U ) %!= ( ( get_global_var ( 'SERV' ) |U ) )  ) %|| 
+    ( ( %S |S ) %== 'oneway,chg'  ) %&& 
+    ( ( %P |U ) %!= ( ( get_global_var ( 'SERV' ) |U ) )  ) ) 
+   '_' 
+  %END-IF
+ %END-IF
+ ' ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  [%f] arg_full_decl %( %C )% 
+ %END-FOR
+ ')'
+ %IF-NOT-EMPTY
+  ' '
+  [%f] op_const_spec %( %S )% 
+ %END-IF
+ %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+  %ELSE
+   ' throw (CORBA::SystemException'
+   %FOR ', '
+    %E
+    %FOR %N |N '::' 
+    %END-FOR
+     %E |N 
+   %END-FOR
+   ')' 
+  %THEN
+  %IF-NOT-EMPTY
+   ' /*throw ('
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    %E
+    %FOR %N |N '::' 
+    %END-FOR
+     %E |N 
+   %END-FOR
+   ')*/' 
+  %END-IF
+ %END-IF
+ %IF ( ( %S |a ) %== 'abstract' %&& 
+   ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) %&& 
+   ( ( %S |S ) %!= 'oneway'  ) %&& 
+   ( ( %S |S ) %!= 'oneway,chg'  ) ) 
+  ' = 0' 
+ %END-IF
+ ';' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{SERVANT_OPERATION}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SERVANT_OPERATION' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SERVANT_OPERATION}N}#[{%SS"="static|%SV=PrivateAccess&%P#f_IsUtilityPack()=true}static ][{%SS=oneway&%PU=%{SERV}U|%SS=oneway,chg&%PU=%{SERV}U}{[{%t_interface(%{SERV})=true|%Sa=abstract&%{SERV}a!=final|%Sa=regular&%{SERV}a!=final&%SS!=static&%PS!=TemplateFunctions}virtual ]%f_ret(%S) }/*oneway*/ Core::ThreadHandle ]%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway&%PU!=%{SERV}U|%SS=oneway,chg&%PU!=%{SERV}U}_]] (\n\t\t<{\n\t\t, }%f_arg_full_decl(%C)>\n\t)[ %f_op_const_spec(%S)][{%f_realize_srv_interface(%S)=false}{ throw (\n\t\tCORBA::SystemException<\n\t\t, %E<%NN::>%EN>\n\t)}[ /*throw (\n\t\t<{\n\t\t, }%E<%NN::>%EN>\n\t)*/]][{%Sa=abstract&%PU=%{SERV}U&%SS!=oneway&%SS!="oneway,chg} = 0];]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+  %ELSE
+   ( get_global_var ( 'SERVANT_OPERATION' ) |N ) 
+  %THEN
+  out_indent %IF ( ( %S |S ) %== 'static' %|| 
+    ( ( %S |V ) %== 'PrivateAccess'  ) %&& 
+    ( ( %P %?f IsUtilityPack %( )% ) %==  true  ) ) 
+   'static ' 
+  %END-IF
+  %IF ( ( %S |S ) %== 'oneway' %&& 
+    ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) %|| 
+    ( ( %S |S ) %== 'oneway,chg'  ) %&& 
+    ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) ) 
+   %ELSE
+    %IF ( ( [%t] interface %( ( get_global_var ( 'SERV' ) ) )% ) %==  true %|| 
+      ( ( %S |a ) %== 'abstract'  ) %&& 
+      ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final'  ) %|| 
+      ( ( %S |a ) %== 'regular'  ) %&& 
+      ( ( ( get_global_var ( 'SERV' ) |a ) ) %!= 'final'  ) %&& 
+      ( ( %S |S ) %!= 'static'  ) %&& 
+      ( ( %P |S ) %!= 'TemplateFunctions'  ) ) 
+     'virtual ' 
+    %END-IF
+    [%f] ret %( %S )% ' ' 
+   %THEN
+   '/*oneway*/ Core::ThreadHandle ' 
+  %END-IF
+  %S |N %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+    ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+   %IF ( ( %S |S ) %== 'oneway' %&& 
+     ( ( %P |U ) %!= ( ( get_global_var ( 'SERV' ) |U ) )  ) %|| 
+     ( ( %S |S ) %== 'oneway,chg'  ) %&& 
+     ( ( %P |U ) %!= ( ( get_global_var ( 'SERV' ) |U ) )  ) ) 
+    '_' 
+   %END-IF
+  %END-IF
+  ' ('#13#10#9#9
+  %FOR %ITEM-SEPARATOR #13#10#9#9', ' ; // %ITEM-SEPARATOR 
+   [%f] arg_full_decl %( %C )% 
+  %END-FOR
+  #13#10#9')'
+  %IF-NOT-EMPTY
+   ' '
+   [%f] op_const_spec %( %S )% 
+  %END-IF
+  %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+   %ELSE
+    ' throw ('#13#10#9#9'CORBA::SystemException'
+    %FOR #13#10#9#9', '
+     %E
+     %FOR %N |N '::' 
+     %END-FOR
+      %E |N 
+    %END-FOR
+    #13#10#9')' 
+   %THEN
+   %IF-NOT-EMPTY
+    ' /*throw ('#13#10#9#9
+    %FOR %ITEM-SEPARATOR #13#10#9#9', ' ; // %ITEM-SEPARATOR 
+     %E
+     %FOR %N |N '::' 
+     %END-FOR
+      %E |N 
+    %END-FOR
+    #13#10#9')*/' 
+   %END-IF
+  %END-IF
+  %IF ( ( %S |a ) %== 'abstract' %&& 
+    ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) )  ) %&& 
+    ( ( %S |S ) %!= 'oneway'  ) %&& 
+    ( ( %S |S ) %!= 'oneway,chg'  ) ) 
+   ' = 0' 
+  %END-IF
+  ';' 
+ %END-IF
+
+//дампит если нужно спецификатор const
+//f _op_const_spec
+; // servant_cpp_operation_h_i
+
+: op_const_spec OBJECT IN %S
+//	[{%SS!=chg&%SS!=oneway,chg&%SS!=static&%P#f_IsUtilityPack()!=true&%PM!=ServerInterface::Class&%PM!=ServerFacet::Class&"[{%PS=TemplateFunctions&%P%P#f_IsUtilityPack()=true}{false}true]"="false"}const]
+ %IF ( ( %S |S ) %!= 'chg' %&& 
+   ( ( %S |S ) %!= 'oneway,chg'  ) %&& 
+   ( ( %S |S ) %!= 'static'  ) %&& 
+   ( ( %P %?f IsUtilityPack %( )% ) %!=  true  ) %&& 
+   ( ( %P |M ) %!= 'ServerInterface::Class'  ) %&& 
+   ( ( %P |M ) %!= 'ServerFacet::Class'  ) %&& 
+   ( %IF ( ( %P |S ) %== 'TemplateFunctions' %&& 
+    ( ( %P ->P %?f IsUtilityPack %( )%  ) %==  true  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %== false  ) ) 
+  'const' 
+ %END-IF
+//#UC END# *4714DB4301E4*
+; // op_const_spec
+
+
+// генерация операции серванта
+//f _servant_cpp_operation_h
+: servant_cpp_operation_h OBJECT IN %S
+//#UC START# *4714DB580261*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  out_indent %S %f open_ifdef %( )% 
+//	][{%PS=TemplateFunctions}#%f_templ_header(%P)]\
+ %END-IF
+ %IF ( ( %P |S ) %== 'TemplateFunctions' ) 
+  out_indent [%f] templ_header %( %P )% 
+ %END-IF
+//	%f_servant_cpp_operation_h_i(%S)[
+ [%f] servant_cpp_operation_h_i %( %S )% %IF-NOT-EMPTY
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4714DB580261*
+; // servant_cpp_operation_h
+
+
+// генерация операции серванта
+//f _servant_cpp_operation_cpp_i
+: servant_cpp_operation_cpp_i OBJECT IN %S
+//#UC START# *4714DB66035B*
+//	%f_set_var(SERVANT_OPERATION,"%f_ret(%S) %f_function_scope(%{SERV})%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway|%SS=oneway,chg}_]] (<{, }%f_arg_full_decl(%C)>)[{%SS!=chg&%SS!=oneway,chg&%SS!=static&%P#f_IsUtilityPack()!=true&%PM!=ServerInterface::Class&%PM!=ServerFacet::Class&"[{%PS=TemplateFunctions&%P%P#f_IsUtilityPack()=true}{false}true]"="false"} const] [{%f_realize_srv_interface(%S)=false}{throw (CORBA::SystemException<, %E<%NN::>%EN>) }[/*throw (<{, }%E<%NN::>%EN>)*/ ]]")\
+ [%f] set_var %( 'SERVANT_OPERATION' %, [%f] ret %( %S )% ' '
+ [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% %S |N %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+   ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+  %IF ( ( %S |S ) %== 'oneway' %|| 
+    ( ( %S |S ) %== 'oneway,chg'  ) ) 
+   '_' 
+  %END-IF
+ %END-IF
+ ' ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  [%f] arg_full_decl %( %C )% 
+ %END-FOR
+ ')'
+ %IF ( ( %S |S ) %!= 'chg' %&& 
+   ( ( %S |S ) %!= 'oneway,chg'  ) %&& 
+   ( ( %S |S ) %!= 'static'  ) %&& 
+   ( ( %P %?f IsUtilityPack %( )% ) %!=  true  ) %&& 
+   ( ( %P |M ) %!= 'ServerInterface::Class'  ) %&& 
+   ( ( %P |M ) %!= 'ServerFacet::Class'  ) %&& 
+   ( %IF ( ( %P |S ) %== 'TemplateFunctions' %&& 
+    ( ( %P ->P %?f IsUtilityPack %( )%  ) %==  true  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %== false  ) ) 
+  ' const' 
+ %END-IF
+ ' '
+ %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+  %ELSE
+   'throw (CORBA::SystemException'
+   %FOR ', '
+    %E
+    %FOR %N |N '::' 
+    %END-FOR
+     %E |N 
+   %END-FOR
+   ') ' 
+  %THEN
+  %IF-NOT-EMPTY
+   '/*throw ('
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    %E
+    %FOR %N |N '::' 
+    %END-FOR
+     %E |N 
+   %END-FOR
+   ')*/ ' 
+  %END-IF
+ %END-IF
+)% //	%f_set_var(OP_LEN,"%f_string_length("%{SERVANT_OPERATION}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SERVANT_OPERATION' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SERVANT_OPERATION}N}%f_ret(%S) %f_function_scope(%{SERV})%SN[{%PS!=ServerInterface&%PS!=ServerFacet}[{%SS=oneway|%SS=oneway,chg}_]] (\n\t<{\n\t, }%f_arg_full_decl(%C)>\n)[{%SS!=chg&%SS!=oneway,chg&%SS!=static&%P#f_IsUtilityPack()!=true&%PM!=ServerInterface::Class&%PM!=ServerFacet::Class&"[{%PS=TemplateFunctions&%P%P#f_IsUtilityPack()=true}{false}true]"="false"} const] [{%f_realize_srv_interface(%S)=false}{throw (\n\tCORBA::SystemException<\n\t, %E<%NN::>%EN>\n) }[/*throw (\n\t<{\n\t, }%E<%NN::>%EN>\n)*/ ]]]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+  %ELSE
+   ( get_global_var ( 'SERVANT_OPERATION' ) |N ) 
+  %THEN
+  [%f] ret %( %S )% ' '
+  [%f] function_scope %( ( get_global_var ( 'SERV' ) ) )% %S |N %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+    ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+   %IF ( ( %S |S ) %== 'oneway' %|| 
+     ( ( %S |S ) %== 'oneway,chg'  ) ) 
+    '_' 
+   %END-IF
+  %END-IF
+  ' ('#13#10#9
+  %FOR %ITEM-SEPARATOR #13#10#9', ' ; // %ITEM-SEPARATOR 
+   [%f] arg_full_decl %( %C )% 
+  %END-FOR
+  #13#10')'
+  %IF ( ( %S |S ) %!= 'chg' %&& 
+    ( ( %S |S ) %!= 'oneway,chg'  ) %&& 
+    ( ( %S |S ) %!= 'static'  ) %&& 
+    ( ( %P %?f IsUtilityPack %( )% ) %!=  true  ) %&& 
+    ( ( %P |M ) %!= 'ServerInterface::Class'  ) %&& 
+    ( ( %P |M ) %!= 'ServerFacet::Class'  ) %&& 
+    ( %IF ( ( %P |S ) %== 'TemplateFunctions' %&& 
+     ( ( %P ->P %?f IsUtilityPack %( )%  ) %==  true  ) ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+   %== false  ) ) 
+   ' const' 
+  %END-IF
+  ' '
+  %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false ) 
+   %ELSE
+    'throw ('#13#10#9'CORBA::SystemException'
+    %FOR #13#10#9', '
+     %E
+     %FOR %N |N '::' 
+     %END-FOR
+      %E |N 
+    %END-FOR
+    #13#10') ' 
+   %THEN
+   %IF-NOT-EMPTY
+    '/*throw ('#13#10#9
+    %FOR %ITEM-SEPARATOR #13#10#9', ' ; // %ITEM-SEPARATOR 
+     %E
+     %FOR %N |N '::' 
+     %END-FOR
+      %E |N 
+    %END-FOR
+    #13#10')*/ ' 
+   %END-IF
+  %END-IF
+ %END-IF
+//#UC END# *4714DB66035B*
+; // servant_cpp_operation_cpp_i
+
+
+// генерация операции серванта
+//f _servant_cpp_operation_cpp
+: servant_cpp_operation_cpp OBJECT IN %S
+//#UC START# *4714DB750119*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  %S %f open_ifdef %( )% 
+//	]%f_templ_header(%{SERV})\
+ %END-IF
+ [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% 
+//	[{%PS=TemplateFunctions}%f_templ_header(%P)]\
+ %IF ( ( %P |S ) %== 'TemplateFunctions' ) 
+  [%f] templ_header %( %P )% 
+ %END-IF
+//	%f_servant_cpp_operation_cpp_i(%S){%f_start_func_cpp(%S,"%{SERV}N::%SN")
+ [%f] servant_cpp_operation_cpp_i %( %S )% '{'
+ [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::'
+ %S |N )% 
+//		%f_s_c_op_c_uc(%S)
+ '	'
+ [%f] s_c_op_c_uc %( %S )% 
+//	%f_end_func_cpp(%S)}[
+ [%f] end_func_cpp %( %S )% '}'
+ %IF-NOT-EMPTY
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4714DB750119*
+; // servant_cpp_operation_cpp
+
+
+// Возвращает true если роделем является ServerInterface или ServerFacet.
+//f _realize_srv_interface
+: realize_srv_interface OBJECT IN %S
+//#UC START# *4714DB8F036B*
+//	[{%PM=ServerFacet::Class|%PM=ServerInterface::Class}{false}true]
+ %IF ( ( %P |M ) %== 'ServerFacet::Class' %|| 
+   ( ( %P |M ) %== 'ServerInterface::Class'  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DB8F036B*
+; // realize_srv_interface
+
+
+// генерация юзер-секции для операции
+//f _s_c_op_c_uc
+: s_c_op_c_uc OBJECT IN %S
+//#UC START# *4714DC090261*
+//	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!cpp!}
+ %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+   '_'
+   ( get_global_var ( 'SERV' ) |U ) 
+  %END-IF
+  '!cpp!' ) 
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+  '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]
+  '	' 
+ %END-IF
+ //#UC END# *4714DC090261*
+; // s_c_op_c_uc
+
+
+// выводит необходимый scope для метода
+//f _function_scope
+: function_scope OBJECT IN %S
+//#UC START# *4714DC1E032C*
+//	[{%S#f_IsUtilityPack()!=true}<{}{%t_nested_scope_def(%P)=true}{r}%PN::>%SN%f_templ_footer(%S)::]
+ %IF ( ( %S %?f IsUtilityPack %( )% ) %!=  true ) 
+  %FOR %ITEM-CONDITION ( ( [%t] nested_scope_def %( %P )% ) %==  true ) 
+   ( 'r' ) 
+   %P |N '::' 
+  %END-FOR
+  %S |N [%f] templ_footer %( %S )% '::' 
+ %END-IF
+//#UC END# *4714DC1E032C*
+; // function_scope
+
+
+// выводит заголовок шаблона
+//f _templ_header
+: templ_header OBJECT IN %S
+//#UC START# *4714DC2802FD*
+//	[{"%SK"="ParameterizedClass"}template \<<{, }{"%CC"="Parameter"}%CX>\>
+ %IF ( ( %S |K ) %== 'ParameterizedClass' ) 
+  'template <'
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Parameter' ) 
+   %C |X 
+  %END-FOR
+  '>'
+//	]
+ %END-IF
+//#UC END# *4714DC2802FD*
+; // templ_header
+
+
+// выводит специализацию шаблона
+//f _templ_footer
+: templ_footer OBJECT IN %S
+//#UC START# *4714DC92001F*
+//	[{"%SK"="ParameterizedClass"}\<<{, }{"%CC"="Parameter"}%CN>\>]
+ %IF ( ( %S |K ) %== 'ParameterizedClass' ) 
+  '<'
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Parameter' ) 
+   %C |N 
+  %END-FOR
+  '>' 
+ %END-IF
+//#UC END# *4714DC92001F*
+; // templ_footer
+
+
+// генерация кэшированного атрибута
+//f _cached_servant_attribute_h
+: cached_servant_attribute_h OBJECT IN %S
+//#UC START# *4714DCC70203*
+//	// cached attribute impl
+ '// cached attribute impl'
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#%f_attr(%S) get_%SN_ (); // return cached value		
+ out_indent [%f] attr %( %S )% ' get_'
+ %S |N '_ (); // return cached value		'
+//	#void invalidate_%SN_ (); // invalidate cached value
+ out_indent 'void invalidate_'
+ %S |N '_ (); // invalidate cached value'
+//	#%f_attr(%S) load_%SN_ (); // load value into cache (callback)
+ out_indent [%f] attr %( %S )% ' load_'
+ %S |N '_ (); // load value into cache (callback)'
+//#UC END# *4714DCC70203*
+; // cached_servant_attribute_h
+
+
+// генерация кэшированного атрибута
+//f _cached_servant_attribute_cpp
+: cached_servant_attribute_cpp OBJECT IN %S
+//#UC START# *4714DD390000*
+//	// cached attribute impl
+ '// cached attribute impl'
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	%f_attr(%S) %PN::get_%SN_ () {
+ [%f] attr %( %S )% ' '
+ %P |N '::get_'
+ %S |N '_ () {'
+//		return s_cache.get_%SN (this);
+ '	return s_cache.get_'
+ %S |N ' (this);'
+//	}
+ '}'
+//	
+//	void %PN::invalidate_%SN_ () {
+ 'void '
+ %P |N '::invalidate_'
+ %S |N '_ () {'
+//		s_cache.invalidate_%SN (this);
+ '	s_cache.invalidate_'
+ %S |N ' (this);'
+//	}
+ '}'
+//	
+//	%f_attr(%S) %PN::load_%SN_ () {
+ [%f] attr %( %S )% ' '
+ %P |N '::load_'
+ %S |N '_ () {'
+//		%U[
+ '	'
+ %U%IF-NOT-EMPTY
+
+//		]
+  '	' 
+ %END-IF
+ //	}
+ '}'
+//#UC END# *4714DD390000*
+; // cached_servant_attribute_cpp
+
+
+// генерация деструктора
+//f _servant_cpp_destructor_cpp
+: servant_cpp_destructor_cpp OBJECT IN %S
+//#UC START# *4714DD52035B*
+//	%f_templ_header(%S)%f_function_scope(%S)~%SN () {%f_start_func_cpp(%S,"%SN::~%SN")
+ [%f] templ_header %( %S )% [%f] function_scope %( %S )% '~'
+ %S |N ' () {'
+ [%f] start_func_cpp %( %S %, %S |N '::~'
+ %S |N )% 
+//		%U[{_DESTR_BODY!cpp!}
+ '	'
+ %U%IF ( '_DESTR_BODY!cpp!' ) 
+
+//		]
+  '	' 
+ %END-IF
+ //	%f_end_func_cpp(%S)}
+ [%f] end_func_cpp %( %S )% '}'
+//#UC END# *4714DD52035B*
+; // servant_cpp_destructor_cpp
+
+
+// регистрация всех фабрик серванта
+//f _reg_all_factories
+: reg_all_factories OBJECT IN %S
+//#UC START# *4714DD640177*
+//	%f_set_var(SELF,S)void register_all_factories () {
+ [%f] set_var %( 'SELF' %, 'S' )% 'void register_all_factories () {'
+//	#	%U[{_ENVIRONMENTS_CONFIG}
+ out_indent '	'
+ %U%IF ( '_ENVIRONMENTS_CONFIG' ) 
+
+//	#	]
+  out_indent '	' 
+ %END-IF
+ //	<{}{"%AM"="Servant::Class"&"%f_has_factory_methods(%A)"="true"&"%A{Factory auto reg}"="true"}
+ %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Servant::Class' %&& 
+   ( ( [%f] has_factory_methods %( %A )% ) %== true  ) %&& 
+   ( ( %A get_up ( 'Factory auto reg' ) ) %== true  ) ) 
+
+//	#	{
+  out_indent '	{'
+//	#		[{"%S{is namespace}"="true"}%SN::]%f_type(%A)_factory_var fctr = new [{"%S{is namespace}"="true"}%SN::]%f_type(%A)_factory ();
+  out_indent '		'
+  %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   %S |N '::' 
+  %END-IF
+  [%f] type %( %A )% '_factory_var fctr = new '
+  %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   %S |N '::' 
+  %END-IF
+  [%f] type %( %A )% '_factory ();'
+//	#		fctr-\>registrate_me([{}{0}%A{factory priority}]);
+  out_indent '		fctr->registrate_me('
+  %IF ( ) 
+   %ELSE
+    0 
+   %THEN
+   %A get_up ( 'factory priority' ) 
+  %END-IF
+  ');'
+//	#	}
+  out_indent '	}'
+//	#	><%d<{}{"%AM"="Servant::Class"&"%f_has_factory_methods(%A)"="true"&"%A{Factory auto reg}"="true"}
+  out_indent '	' 
+ %END-FOR
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Servant::Class' %&& 
+    ( ( [%f] has_factory_methods %( %A )% ) %== true  ) %&& 
+    ( ( %A get_up ( 'Factory auto reg' ) ) %== true  ) ) 
+
+//	#	{
+   out_indent '	{'
+//	#		%f_type(%A)_factory_var fctr = new %f_type(%A)_factory ();
+   out_indent '		'
+   [%f] type %( %A )% '_factory_var fctr = new '
+   [%f] type %( %A )% '_factory ();'
+//	#		fctr-\>registrate_me([{}{0}%A{factory priority}]);
+   out_indent '		fctr->registrate_me('
+   %IF ( ) 
+    %ELSE
+     0 
+    %THEN
+    %A get_up ( 'factory priority' ) 
+   %END-IF
+   ');'
+//	#	}
+   out_indent '	}'
+//	#	>>
+   out_indent '	' 
+  %END-FOR
+  %END-FOR
+//	#	%U[{_CUSTOM_REGISTRATE}
+ out_indent '	'
+ %U%IF ( '_CUSTOM_REGISTRATE' ) 
+
+//	#	]
+  out_indent '	' 
+ %END-IF
+ //	#}
+ out_indent '}'
+//#UC END# *4714DD640177*
+; // reg_all_factories
+
+
+// генерит форвард декларацию для типов, используемых как функтор
+//f _dump_cpp_functors_h_fd
+: dump_cpp_functors_h_fd OBJECT IN %S
+//#UC START# *4714DD8B0242*
+//	<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)[{"%{COMP_KEY}%TM"!="UMLPrimitive::Class"}#[{"%{COMP_KEY}%TM"="Struct::Class"}{class}struct] %f_type(%{COMP_KEY}%T);
+ %FOR %ITEM-CONDITION ( ( [%f] used_as_compare_func %( %s )% ) %==  true ) 
+  ( %s ) 
+  [%f] set_compare_key_type %( %s )% %IF ( ( ( get_global_var ( 'COMP_KEY' )  ->T |M ) ) %!= 'UMLPrimitive::Class' ) 
+   out_indent %IF ( ( ( get_global_var ( 'COMP_KEY' )  ->T |M ) ) %== 'Struct::Class' ) 
+    %ELSE
+     'class' 
+    %THEN
+    'struct' 
+   %END-IF
+   ' '
+   [%f] type %( ( get_global_var ( 'COMP_KEY' )  ->T ) )% ';'
+//	]><{}{%f_used_as_hash_func(%s)=true}{%s}%f_set_hash_key_type(%s)[{"%t_simple(%{COMP_KEY}%T)"="false"}#[{"%{COMP_KEY}%TM"="Struct::Class"}{class}struct] %f_type(%{COMP_KEY}%T);
+  %END-IF
+ %END-FOR
+ %FOR %ITEM-CONDITION ( ( [%f] used_as_hash_func %( %s )% ) %==  true ) 
+  ( %s ) 
+  [%f] set_hash_key_type %( %s )% %IF ( ( [%t] simple %( ( get_global_var ( 'COMP_KEY' )  ->T ) )% ) %== false ) 
+   out_indent %IF ( ( ( get_global_var ( 'COMP_KEY' )  ->T |M ) ) %== 'Struct::Class' ) 
+    %ELSE
+     'class' 
+    %THEN
+    'struct' 
+   %END-IF
+   ' '
+   [%f] type %( ( get_global_var ( 'COMP_KEY' )  ->T ) )% ';'
+//	]>
+  %END-IF
+ %END-FOR
+//#UC END# *4714DD8B0242*
+; // dump_cpp_functors_h_fd
+
+
+// какие-то манипуляции с глобальными переменными
+//f _reset_unic
+: reset_unic OBJECT IN %S
+//#UC START# *4714DD920399*
+//	%f_set_var(_SAVED_COMP_KEY,M)%f_set_var(_SAVED_S,M)
+ [%f] set_var %( '_SAVED_COMP_KEY' %, 'M' )% [%f] set_var %( '_SAVED_S' %, 'M' )% 
+//#UC END# *4714DD920399*
+; // reset_unic
+
+
+// какие-то манипуляции с глобальными переменными
+//f _test_unic
+: test_unic OBJECT IN %S
+//#UC START# *4714DD9E000F*
+//	[{"%{COMP_KEY}%TU"="%{_SAVED_COMP_KEY}%TU"&%{COMP_KEY}l=%{_SAVED_COMP_KEY}l&"%SU"="%{_SAVED_S}U"}{true%f_set_var(_SAVED_COMP_KEY,{COMP_KEY})%f_set_var(_SAVED_S,S)}false]
+ %IF ( ( ( get_global_var ( 'COMP_KEY' )  ->T |U ) ) %== ( ( get_global_var ( '_SAVED_COMP_KEY' )  ->T |U ) ) %&& 
+   ( ( ( get_global_var ( 'COMP_KEY' ) |l ) ) %== ( ( get_global_var ( '_SAVED_COMP_KEY' ) |l ) )  ) %&& 
+   ( ( %S |U ) %== ( ( get_global_var ( '_SAVED_S' ) |U ) )  ) ) 
+  %ELSE
+    true [%f] set_var %( '_SAVED_COMP_KEY' %, '{COMP_KEY}' )% [%f] set_var %( '_SAVED_S' %, 'S' )% 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *4714DD9E000F*
+; // test_unic
+
+
+// какие-то манипуляции с глобальными переменными
+//f _test_unic_dbg
+: test_unic_dbg OBJECT IN %S
+//#UC START# *4714DDA60290*
+//	%{COMP_KEY}%TN = %{_SAVED_COMP_KEY}%TN & %SN = %{_SAVED_S}N
+ ( get_global_var ( 'COMP_KEY' )  ->T |N ) ' = '
+ ( get_global_var ( '_SAVED_COMP_KEY' )  ->T |N ) ' & '
+ %S |N ' = '
+ ( get_global_var ( '_SAVED_S' ) |N ) 
+//#UC END# *4714DDA60290*
+; // test_unic_dbg
+
+
+// выводит аргументы функтора сравнения
+//f _comp_funct_arg
+: comp_funct_arg OBJECT IN %S
+//#UC START# *4714DDAD001F*
+//	[{%TN!=c-string}{%t_attr(%T,"%Sl-const",%S)[{%Sl!=lnk}&]}[{%f_is_not_fixed_simple(%T)=true&%Sl!=ref}{const %f_with_gen_id(h,%f_attr(%S))[{%Sl!=lnk}&]}[{%Sl=agr}{%f_with_gen_id(h,%f_attr(%S)) const}[{%Ss!=const}const ]%f_with_gen_id(h,%f_attr(%S))]]]
+ %IF ( ( %T |N ) %!= 'c-string' ) 
+  %ELSE
+   [%t] attr %( %T %, %S |l '-const"' %, %S )% %IF ( ( %S |l ) %!= 'lnk' ) 
+    '&' 
+   %END-IF
+  %THEN
+  %IF ( ( [%f] is_not_fixed_simple %( %T )% ) %==  true %&& 
+    ( ( %S |l ) %!= 'ref'  ) ) 
+   %ELSE
+    'const '
+    [%f] with_gen_id %( 'h' %, [%f] attr %( %S )% )% %IF ( ( %S |l ) %!= 'lnk' ) 
+     '&' 
+    %END-IF
+   %THEN
+   %IF ( ( %S |l ) %== 'agr' ) 
+    %ELSE
+     [%f] with_gen_id %( 'h' %, [%f] attr %( %S )% )% ' const' 
+    %THEN
+    %IF ( ( %S |s ) %!= 'const' ) 
+     'const ' 
+    %END-IF
+    [%f] with_gen_id %( 'h' %, [%f] attr %( %S )% )% 
+   %END-IF
+  %END-IF
+ %END-IF
+//#UC END# *4714DDAD001F*
+; // comp_funct_arg
+
+
+// генерация функтора
+//f _dump_cpp_functors_h
+: dump_cpp_functors_h OBJECT IN %S
+//#UC START# *4714DDB4035B*
+//	<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)\
+ %FOR %ITEM-CONDITION ( ( [%f] used_as_compare_func %( %s )% ) %==  true ) 
+  ( %s ) 
+  [%f] set_compare_key_type %( %s )% 
+//	[{%f_test_unic(%S)=true}#	bool operator () (%f_comp_funct_arg(%{COMP_KEY}) x, %f_comp_funct_arg(%{COMP_KEY}) y) const;
+  %IF ( ( [%f] test_unic %( %S )% ) %==  true ) 
+   out_indent '	bool operator () ('
+   [%f] comp_funct_arg %( ( get_global_var ( 'COMP_KEY' ) ) )% ' x, '
+   [%f] comp_funct_arg %( ( get_global_var ( 'COMP_KEY' ) ) )% ' y) const;'
+//	
+
+//	]>%f_reset_unic(%S)<{}{%f_used_as_hash_func(%s)=true}{%s}%f_set_hash_key_type(%s)[{%f_test_unic(%S)=true}#	size_t operator () (%f_comp_funct_arg(%{COMP_KEY}) x) const;
+  %END-IF
+ %END-FOR
+ [%f] reset_unic %( %S )% 
+ %FOR %ITEM-CONDITION ( ( [%f] used_as_hash_func %( %s )% ) %==  true ) 
+  ( %s ) 
+  [%f] set_hash_key_type %( %s )% %IF ( ( [%f] test_unic %( %S )% ) %==  true ) 
+   out_indent '	size_t operator () ('
+   [%f] comp_funct_arg %( ( get_global_var ( 'COMP_KEY' ) ) )% ' x) const;'
+//	
+
+//	]>%f_reset_unic(%S)<{}{%f_used_as_deallocator_func(%s)=true}{%s}#	static void destroy (%f_type(%s%P%G)* content) {
+  %END-IF
+ %END-FOR
+ [%f] reset_unic %( %S )% 
+ %FOR %ITEM-CONDITION ( ( [%f] used_as_deallocator_func %( %s )% ) %==  true ) 
+  ( %s ) 
+  out_indent '	static void destroy ('
+  [%f] type %( %s ->P ->G   )% '* content) {'
+//	#		%U[
+  out_indent '		'
+  %U%IF-NOT-EMPTY
+
+//	#		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+   out_indent '		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);'
+//	#		]
+   out_indent '		' 
+  %END-IF
+ //	#	}
+  out_indent '	}'
+//	
+
+//	>[{%f_need_less_func(%S)=true}#	bool operator \< (const %SN& y) const;
+ %END-FOR
+ %IF ( ( [%f] need_less_func %( %S )% ) %==  true ) 
+  out_indent '	bool operator < (const '
+  %S |N '& y) const;'
+//	]
+ %END-IF
+//#UC END# *4714DDB4035B*
+; // dump_cpp_functors_h
+
+
+// генерация функтора
+//f _dump_cpp_functors_cpp
+: dump_cpp_functors_cpp OBJECT IN %S
+//#UC START# *4714DDC60167*
+//	<{}{%f_used_as_compare_func(%s)=true}{%s}%f_set_compare_key_type(%s)\
+ %FOR %ITEM-CONDITION ( ( [%f] used_as_compare_func %( %s )% ) %==  true ) 
+  ( %s ) 
+  [%f] set_compare_key_type %( %s )% 
+//	[{%f_test_unic(%S)=true}%f_templ_header(%S)bool %f_function_scope(%S)operator () (%f_comp_funct_arg(%{COMP_KEY}) x, %f_comp_funct_arg(%{COMP_KEY}) y) const {
+  %IF ( ( [%f] test_unic %( %S )% ) %==  true ) 
+   [%f] templ_header %( %S )% 'bool '
+   [%f] function_scope %( %S )% 'operator () ('
+   [%f] comp_funct_arg %( ( get_global_var ( 'COMP_KEY' ) ) )% ' x, '
+   [%f] comp_funct_arg %( ( get_global_var ( 'COMP_KEY' ) ) )% ' y) const {'
+//		%U[{_%{COMP_KEY}U_COMP}
+   '	'
+   %U%IF ( '_( '
+    ( get_global_var ( 'COMP_KEY' ) |U ) ) '_COMP' ) 
+
+//		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+    '	throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);'
+//		]
+    '	' 
+   %END-IF
+ //	}
+   '}'
+//	
+
+//	]>%f_reset_unic(%S)<{}{%f_used_as_hash_func(%s)=true}{%s}%f_set_hash_key_type(%s)\
+  %END-IF
+ %END-FOR
+ [%f] reset_unic %( %S )% 
+ %FOR %ITEM-CONDITION ( ( [%f] used_as_hash_func %( %s )% ) %==  true ) 
+  ( %s ) 
+  [%f] set_hash_key_type %( %s )% 
+//	[{%f_test_unic(%S)=true}%f_templ_header(%S)size_t %f_function_scope(%S)operator () (%f_comp_funct_arg(%{COMP_KEY}) x) const {
+  %IF ( ( [%f] test_unic %( %S )% ) %==  true ) 
+   [%f] templ_header %( %S )% 'size_t '
+   [%f] function_scope %( %S )% 'operator () ('
+   [%f] comp_funct_arg %( ( get_global_var ( 'COMP_KEY' ) ) )% ' x) const {'
+//		%U[{_%{COMP_KEY}U_HASH}
+   '	'
+   %U%IF ( '_( '
+    ( get_global_var ( 'COMP_KEY' ) |U ) ) '_HASH' ) 
+
+//		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+    '	throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);'
+//		]
+    '	' 
+   %END-IF
+ //	}
+   '}'
+//	
+
+//	]>%f_reset_unic(%S)[{%f_need_less_func(%S)=true}%f_templ_header(%S)bool %f_function_scope(%S)operator \< (const %SN& y) const {
+  %END-IF
+ %END-FOR
+ [%f] reset_unic %( %S )% %IF ( ( [%f] need_less_func %( %S )% ) %==  true ) 
+  [%f] templ_header %( %S )% 'bool '
+  [%f] function_scope %( %S )% 'operator < (const '
+  %S |N '& y) const {'
+//		%U[{_LESS}
+  '	'
+  %U%IF ( '_LESS' ) 
+
+//		throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);
+   '	throw Core::Root::MDAGenNotImplemented (GDS_CURRENT_FUNCTION);'
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//	
+
+//	]
+ %END-IF
+//#UC END# *4714DDC60167*
+; // dump_cpp_functors_cpp
+
+
+// записывает в переменную COMP_KEY атрибут-ключ для ассоциативных контэйнеров
+//f _set_compare_key_type
+: set_compare_key_type OBJECT IN %S
+//#UC START# *4714DDE50196*
+//	[{%f_kind_of(P,Map::Class)=true}%P<{}{%C%Cx=true}%C[%f_set_var(COMP_KEY,C)]>]\
+ %IF ( ( [%f] kind_of %( 'P' %, 'Map::Class' )% ) %==  true ) 
+  %P
+  %FOR %ITEM-CONDITION ( ( %C ->C |x  ) %==  true ) 
+   %C%IF-NOT-EMPTY
+    [%f] set_var %( 'COMP_KEY' %, 'C' )% 
+   %END-IF
+   %END-FOR
+  %END-IF
+//	[{%f_kind_of(P,Set::Class)=true}%P<{}{"%CS"=""}{%C}%f_set_var(COMP_KEY,C)>]
+ %IF ( ( [%f] kind_of %( 'P' %, 'Set::Class' )% ) %==  true ) 
+  %P
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== '' ) 
+   ( %C ) 
+   [%f] set_var %( 'COMP_KEY' %, 'C' )% 
+  %END-FOR
+  %END-IF
+//#UC END# *4714DDE50196*
+; // set_compare_key_type
+
+
+// записывает в переменную COMP_KEY атрибут, используемых в качестве хэш-ключа
+//f _set_hash_key_type
+: set_hash_key_type OBJECT IN %S
+//#UC START# *4714DDEC000F*
+//	[{%f_kind_of(P,UnsortedSet::Class)=true|%f_kind_of(P,UnsortedMap::Class)=true}%P<{}{%C%Cx=true}%C[%f_set_var(COMP_KEY,C)]>]
+ %IF ( ( [%f] kind_of %( 'P' %, 'UnsortedSet::Class' )% ) %==  true %|| 
+   ( ( [%f] kind_of %( 'P' %, 'UnsortedMap::Class' )% ) %==  true  ) ) 
+  %P
+  %FOR %ITEM-CONDITION ( ( %C ->C |x  ) %==  true ) 
+   %C%IF-NOT-EMPTY
+    [%f] set_var %( 'COMP_KEY' %, 'C' )% 
+   %END-IF
+   %END-FOR
+  %END-IF
+//#UC END# *4714DDEC000F*
+; // set_hash_key_type
+
+
+// возвращает true если элемент используется как фукнтор сравнения
+//f _used_as_compare_func
+: used_as_compare_func OBJECT IN %S
+//#UC START# *4714DDFC029F*
+//	[{%SS=compare}{false}true]
+ %IF ( ( %S |S ) %== 'compare' ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DDFC029F*
+; // used_as_compare_func
+
+
+// возвращает true если элемент используется как хэш-функция
+//f _used_as_hash_func
+: used_as_hash_func OBJECT IN %S
+//#UC START# *4714DE0B006D*
+//	[{%SS=hasher}{false}true]
+ %IF ( ( %S |S ) %== 'hasher' ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DE0B006D*
+; // used_as_hash_func
+
+
+// возвращает true если элемент используется как деаллокатор
+//f _used_as_deallocator_func
+: used_as_deallocator_func OBJECT IN %S
+//#UC START# *4714DE1202BF*
+//	[{%SS=deallocator}{false}true]
+ %IF ( ( %S |S ) %== 'deallocator' ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DE1202BF*
+; // used_as_deallocator_func
+
+
+// возвращае true, сли нужен оператор "меньше"
+//f _need_less_func
+: need_less_func OBJECT IN %S
+//#UC START# *4714DE1A030D*
+//	[{"<{}{%f_need_less_func_for_(%s,%S)=true}{%sC}>"="0"}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] need_less_func_for_ %( %s %, %S )% ) %==  true ) 
+   ( %s |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *4714DE1A030D*
+; // need_less_func
+
+
+// нужно
+//f _need_less_func_for_
+: need_less_func_for_ OBJECT IN %S
+//#UC START# *4714DE3301F4*
+//	[{%f_kind_of(P,Set::Class)=true}{%f_need_less_func_for_map(%S,%1)}%P[{"<{}{%CS=compare}{C}>"="0"&"<{}{"%CS"=""&"%Cl"="agr"&"%CU"="%1U"}{C}>"="1"}{false}true]]
+ %IF ( ( [%f] kind_of %( 'P' %, 'Set::Class' )% ) %==  true ) 
+  %ELSE
+   [%f] need_less_func_for_map %( %S %, %1 )% 
+  %THEN
+  %P%IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'compare' ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0 %&& 
+    ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== '' %&& 
+     ( ( %C |l ) %== 'agr'  ) %&& 
+     ( ( %C |U ) %== ( %1 |U )  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 1  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %END-IF
+//#UC END# *4714DE3301F4*
+; // need_less_func_for_
+
+
+// возвращае true, сли нужен оператор "меньше"
+//f _need_less_func_for_map
+: need_less_func_for_map OBJECT IN %S
+//#UC START# *4714DE6803C8*
+//	%P[{%f_kind_of(P,Map::Class)=true}{false}%P[{"<{}{%CS=compare}{C}>"="0"&"<{}{"%C%Cx"="true"&"%C%Cl"="agr"&"%C%C%TU"="%3U"}{%CC}>"="1"}{false}true]]
+ %P%IF ( ( [%f] kind_of %( 'P' %, 'Map::Class' )% ) %==  true ) 
+  %ELSE
+    false 
+  %THEN
+  %P%IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'compare' ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0 %&& 
+    ( 
+   %FOR %ITEM-CONDITION ( ( %C ->C |x  ) %== true %&& 
+     ( ( %C ->C |l  ) %== 'agr'  ) %&& 
+     ( ( %C ->C ->T |U   ) %== ( %3 |U )  ) ) 
+    ( %C |C ) 
+   %END-FOR
+   %== 1  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+  %END-IF
+ //#UC END# *4714DE6803C8*
+; // need_less_func_for_map
+
+
+// возвращает true, если элемент или его родители являются "стандартными"
+//f _is_standart
+: is_standart OBJECT IN %S
+//#UC START# *4714DE8D01E4*
+//	[{"<{}{%P{is standart}=true}{%PC}>"!="0"}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %P get_up ( 'is standart' ) ) %==  true ) 
+   ( %P |C ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DE8D01E4*
+; // is_standart
+
+
+// выводит путь для include
+//f _dump_include_path
+: dump_include_path OBJECT IN %S
+//#UC START# *4714DED40119*
+//	[{"%SN"!=""}{}[{%f_is_standart(%1)=false&%S{is standart}!=true}{\<%SN\>}"%SN"]]
+ %IF ( ( %S |N ) %!= '' ) 
+  %ELSE
+  %THEN
+  %IF ( ( [%f] is_standart %( %1 )% ) %==  false %&& 
+    ( ( %S get_up ( 'is standart' ) ) %!=  true  ) ) 
+   %ELSE
+    '<'
+    %S |N '>' 
+   %THEN
+   %S |N 
+  %END-IF
+ %END-IF
+//#UC END# *4714DED40119*
+; // dump_include_path
+
+
+// определяет зависит ли элемент от серверной части
+//f _use_server
+: use_server OBJECT IN %S
+//#UC START# *4714DF01029F*
+//	[{%SS!=ServerLibrary&%S{force use server}!=true}{true}[{%f_with_gen_id(h,<{}{%dS=ServerLibrary}{C}>)!=0|<{}{%dS=ServerLibrary|%S{force use server}=true}{C}>!=0}{false}true]]
+ %IF ( ( %S |S ) %!= 'ServerLibrary' %&& 
+   ( ( %S get_up ( 'force use server' ) ) %!=  true  ) ) 
+  %ELSE
+    true 
+  %THEN
+  %IF ( ( [%f] with_gen_id %( 'h' %, 
+   %FOR %ITEM-CONDITION ( ( %d |S ) %== 'ServerLibrary' ) 
+    ( 'C' ) 
+   %END-FOR
+)% )    %!= 0 %|| 
+    ( 
+   %FOR %ITEM-CONDITION ( ( %d |S ) %== 'ServerLibrary' %|| 
+     ( ( %S get_up ( 'force use server' ) ) %==  true  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+
+//f _use_event_service
+; // use_server
+
+: use_event_service OBJECT IN %S
+//	[{%S{force use event service}!=true}{true}[{<{}{"%d<{}{%AM=ServerEvent::Class}{%A}.>"!=""}{%dC}>!=0}true]]
+ %IF ( ( %S get_up ( 'force use event service' ) ) %!=  true ) 
+  %ELSE
+    true 
+  %THEN
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %d
+    %FOR %ITEM-CONDITION ( ( %A |M ) %== 'ServerEvent::Class' ) 
+     ( %A ) 
+     '.' 
+    %END-FOR
+ )     %!= '' ) 
+    ( %d |C ) 
+   %END-FOR
+   %!= 0 ) 
+    true 
+  %END-IF
+ %END-IF
+
+//#UC END# *4714DF01029F*
+; // use_event_service
+
+
+// генерит include'ы в зависимости от вложенных элементов
+//f _includes_by_contents
+: includes_by_contents OBJECT IN %S
+//#UC START# *4714DF75035B*
+//	[{"<{}{"%A%TN"="tribool"}{C}>"!="0"}\#include "boost/logic/tribool.hpp"
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A ->T |N  ) %== 'tribool' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include "boost/logic/tribool.hpp"'
+//	][{<{}{%AM=Function::Class}{C}>!=0}\#include "boost/function.hpp"
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Function::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include "boost/function.hpp"'
+//	][{<{}{%AM=FixedArray::Class}{C}>!=0}\#include "boost/array.hpp"
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'FixedArray::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include "boost/array.hpp"'
+//	]\
+ %END-IF
+
+//	[{"<{}{"%AM"="Queue::Class"}{C}>"!="0"}\#include \<queue\>
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Queue::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include <queue>'
+//	]\
+ %END-IF
+
+//	[{"<{}{"%AM"="Deque::Class"}{C}>"!="0"}\#include \<deque\>
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Deque::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include <deque>'
+//	]\
+ %END-IF
+
+//	[{"<{}{"%AM"="Set::Class"}{C}>"!="0"}\#include \<set\>
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Set::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include <set>'
+//	][{"<{}{"%AM"="Map::Class"|"%AM"="MultiMap::Class"}{C}>"!="0"}\#include \<map\>
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Map::Class' %|| 
+    ( ( %A |M ) %== 'MultiMap::Class'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include <map>'
+//	][{"<{}{"%AM"="Vector::Class"}{C}>"!="0"|<{}{%C#f_has_multi_factory()=true&%Ca!=abstract}{%CC}>!=0}\#include \<vector\>
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Vector::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f has_multi_factory %( )% ) %==  true %&& 
+    ( ( %C |a ) %!= 'abstract'  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %!= 0  ) ) 
+  '#include <vector>'
+//	][{"<{}{"%AM"="List::Class"}{C}>"!="0"}\#include \<list\>
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'List::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include <list>'
+//	][{"%S{singleton}"="true"|"%S{Servant Pool}"="obj"}\#include "ace/Singleton.h"
+ %END-IF
+ %IF ( ( %S get_up ( 'singleton' ) ) %== true %|| 
+   ( ( %S get_up ( 'Servant Pool' ) ) %== 'obj'  ) ) 
+  '#include "ace/Singleton.h"'
+//	][{"%S{Servant Pool}"="mem"}\#include "shared/Core/mng/PoolMemoryManager.h"
+ %END-IF
+ %IF ( ( %S get_up ( 'Servant Pool' ) ) %== 'mem' ) 
+  '#include "shared/Core/mng/PoolMemoryManager.h"'
+//	][{"%S{Servant Pool}"="obj"}\#include "shared/Core/mng/PoolObjectManager.h"
+ %END-IF
+ %IF ( ( %S get_up ( 'Servant Pool' ) ) %== 'obj' ) 
+  '#include "shared/Core/mng/PoolObjectManager.h"'
+//	][{"<{}{"%AM"="TypeConvertor::Class"&"%A{is sorted}"="true"}{C}>"!="0"}\#include "shared/Core/data/SortedTypeConverter.h"
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'TypeConvertor::Class' %&& 
+    ( ( %A get_up ( 'is sorted' ) ) %== true  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include "shared/Core/data/SortedTypeConverter.h"'
+//	][{"<{}{"%AM"="TypeConvertor::Class"&"%A{is sorted}"="false"}{C}>"!="0"}\#include "shared/Core/data/UnsortedTypeConverter.h"
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'TypeConvertor::Class' %&& 
+    ( ( %A get_up ( 'is sorted' ) ) %== false  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include "shared/Core/data/UnsortedTypeConverter.h"'
+//	][{<{}{%AM=UnsortedMap::Class|%AM=UnsortedSet::Class}{C}>!=0}\#include "shared/Core/data/unsorted_containers.h"
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'UnsortedMap::Class' %|| 
+    ( ( %A |M ) %== 'UnsortedSet::Class'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include "shared/Core/data/unsorted_containers.h"'
+//	][{<{}{%AM=Array::Class}{C}>!=0}\#include "shared/Core/data/Array.h"
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Array::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  '#include "shared/Core/data/Array.h"'
+//	]%f_dump_includes_by_containers(%S)
+ %END-IF
+ [%f] dump_includes_by_containers %( %S )% 
+
+//f _dump_includes_by_containers
+; // includes_by_contents
+
+: dump_includes_by_containers OBJECT IN %S
+//	%f_clear_list(CONT_DATA)%f_set_var(OWNER,S)\
+ [%f] clear_list %( 'CONT_DATA' )% [%f] set_var %( 'OWNER' %, 'S' )% 
+//	%f_collect_includes_by_containers(%S,"CONT_DATA")\
+ [%f] collect_includes_by_containers %( %S %, 'CONT_DATA' )% 
+//	[<{}{%f_is_empty(CONT_DATA)=false}{W}[%f_pop_first_to_var(CONT_DATA,FWD)\#include %f_dump_include_path(%{FWD}L,%{FWD})
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'CONT_DATA' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'CONT_DATA' %, 'FWD' )% '#include '
+    [%f] dump_include_path %( ( get_global_var ( 'FWD' ) |L ) %, ( get_global_var ( 'FWD' ) ) )% 
+//	]>]
+   %END-IF
+  %END-FOR
+ %END-IF
+
+//f _collect_includes_by_containers
+; // dump_includes_by_containers
+
+: collect_includes_by_containers OBJECT IN %S
+//	%f_set_var(LIST_ID,"%1N")%f_set_var(OWNER,S)\
+ [%f] set_var %( 'LIST_ID' %, %1 |N )% [%f] set_var %( 'OWNER' %, 'S' )% 
+//	%f_collect_includes_by_containers_i(%S)\
+ [%f] collect_includes_by_containers_i %( %S )% //	<{}{%CC=Attribute&%CS=extern}{%C}%f_collect_includes_by_containers_i(%C%T)>\
+
+//	%f_sort_list(%{LIST_ID}N,u)%f_unique_list(%{LIST_ID}N)\
+ [%f] sort_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'u' )% [%f] unique_list %( ( get_global_var ( 'LIST_ID' ) |N ) )% 
+//	%f_fill_used_elements(%S,"%{LIST_ID}N","USED")\
+ [%f] fill_used_elements %( %S %, ( get_global_var ( 'LIST_ID' ) |N ) %, 'USED' )% 
+//	%f_remove_range(%S,"%{LIST_ID}N","USED")
+ [%f] remove_range %( %S %, ( get_global_var ( 'LIST_ID' ) |N ) %, 'USED' )% 
+
+//f _collect_includes_by_containers_i
+; // collect_includes_by_containers
+
+: collect_includes_by_containers_i OBJECT IN %S
+//	<{}{%CC=Attribute&%Cl=agr&%t_is_container(%C%T)=true}%C%T[{%SW!=%{OWNER}W&%C%TW!=%{OWNER}W&%f_need_includes_by_containers(%C)=true}%C%T[%f_set_var(TYPE,S)][{%{OWNER}<{}{%wU=%{TYPE}U}{%wC}>=0}%f_add_to_list(%{LIST_ID}N,{TYPE})]]>
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+   ( ( %C |l ) %== 'agr'  ) %&& 
+   ( ( [%t] is_container %( %C ->T  )% ) %==  true  ) ) 
+  %C ->T%IF ( ( %S |W ) %!= ( ( get_global_var ( 'OWNER' ) |W ) ) %&& 
+    ( ( %C ->T |W  ) %!= ( ( get_global_var ( 'OWNER' ) |W ) )  ) %&& 
+    ( ( [%f] need_includes_by_containers %( %C )% ) %==  true  ) ) 
+   %C ->T%IF-NOT-EMPTY
+    [%f] set_var %( 'TYPE' %, 'S' )% 
+   %END-IF
+     %IF ( ( ( get_global_var ( 'OWNER' ) ) ) 
+    %FOR %ITEM-CONDITION ( ( %w |U ) %== ( ( get_global_var ( 'TYPE' ) |U ) ) ) 
+     ( %w |C ) 
+    %END-FOR
+    %== 0 ) 
+    [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, '{TYPE}' )% 
+   %END-IF
+  %END-IF
+   %END-FOR
+
+//формирует список элементов, которые используются данным (как типы контейнеров) и, которые сами явно зависят от данного элемента
+//f _fill_used_elements
+; // collect_includes_by_containers_i
+
+: fill_used_elements OBJECT IN %S
+//	%f_set_var(OWNER,S)\
+ [%f] set_var %( 'OWNER' %, 'S' )% 
+//	%f_copy_list(%1N,TEMP)\
+ [%f] copy_list %( %1 |N %, 'TEMP' )% 
+//	%f_clear_list(%2N)\
+ [%f] clear_list %( %2 |N )% 
+//	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,FWD)\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TEMP' %, 'FWD' )% 
+//	[{%{FWD}<{}{%IL=%{OWNER}L}{%IC}>!=0}%f_add_to_list(%2N,{FWD})]]>
+   %IF ( ( ( get_global_var ( 'FWD' ) ) ) 
+    %FOR %ITEM-CONDITION ( ( %I |L ) %== ( ( get_global_var ( 'OWNER' ) |L ) ) ) 
+     ( %I |C ) 
+    %END-FOR
+    %!= 0 ) 
+    [%f] add_to_list %( %2 |N %, '{FWD}' )% 
+   %END-IF
+  %END-IF
+ %END-FOR
+
+//удаляет из исходного списка все элементы, из заданного диапазона
+//f _remove_range
+; // fill_used_elements
+
+: remove_range OBJECT IN %S
+//	%f_copy_list(%2N,TEMP)\
+ [%f] copy_list %( %2 |N %, 'TEMP' )% 
+//	<{}{%f_is_empty(TEMP)=false}{W}[%f_pop_first_to_var(TEMP,FWD)%f_remove_from_list(%1N,{FWD})]>
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TEMP' %, 'FWD' )% [%f] remove_from_list %( %1 |N %, '{FWD}' )% 
+  %END-IF
+ %END-FOR
+
+//f _need_includes_by_containers
+; // remove_range
+
+: need_includes_by_containers OBJECT IN %S
+//	[{%TS=DataElement}{[{%Sl=agr}{false}true]}true]
+ %IF ( ( %T |S ) %== 'DataElement' ) 
+  %ELSE
+   %IF ( ( %S |l ) %== 'agr' ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714DF75035B*
+; // need_includes_by_containers
+
+
+// генерит include к фабрикам по связи uses
+//f _include_factory_by_uses
+: include_factory_by_uses OBJECT IN %S
+//#UC START# *4714DF94034B*
+//	[{<{}{%RK=ParameterizedClass}{C}>!=0}[// by \<\<uses\>\> dependencies
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %R |K ) %== 'ParameterizedClass' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %IF-NOT-EMPTY
+   '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"}[{%A%TS=Servant|%A%TS=SrvServant}\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+   %FOR %ITEM-CONDITION ( ( %A |S ) %== 'uses' %&& 
+     ( ( %A |C ) %== 'Dependency'  ) ) 
+    %IF ( ( %A ->T |S  ) %== 'Servant' %|| 
+      ( ( %A ->T |S  ) %== 'SrvServant'  ) ) 
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>]]
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+//#UC END# *4714DF94034B*
+; // include_factory_by_uses
+
+
+// генерация incluede'а стандартного заголовка
+//f _std_inc
+: std_inc OBJECT IN %S
+//#UC START# *4714DFD102FD*
+//	[{<{}{%PN=Core}{C}>=0}\#include "[{<{}{%f_use_server(%P)=true}{C}>=0}{\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %P |N ) %== 'Core' ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0 ) 
+  '#include "'
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( [%f] use_server %( %P )% ) %==  true ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0 ) 
+   %ELSE
+//	[{%XU!=h|%PS=Impl|<{}{%PN=CoreSrv}{C}>=0}{shared/Core/sys/std_inc.h}shared/CoreSrv/sys/std_inc.h]}shared/Core/sys/std_inc.h]"][{<{}{%PN=Core}{C}>!=0}\
+    %IF ( ( %X |U ) %!= 'h' %|| 
+      ( ( %P |S ) %== 'Impl'  ) %|| 
+      ( 
+     %FOR %ITEM-CONDITION ( ( %P |N ) %== 'CoreSrv' ) 
+      ( 'C' ) 
+     %END-FOR
+     %== 0  ) ) 
+     %ELSE
+      'shared/Core/sys/std_inc.h' 
+     %THEN
+     'shared/CoreSrv/sys/std_inc.h' 
+    %END-IF
+   %THEN
+   'shared/Core/sys/std_inc.h' 
+  %END-IF
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %P |N ) %== 'Core' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+//	[{%S#f_IsInterfaces()=true}{\#include "ace/ACE.h"}\#include "shared/Core/sys/core_std_inc.h"[{%XU=fctr.h|%XU=fctr.cpp}
+  %IF ( ( %S %?f IsInterfaces %( )% ) %==  true ) 
+   %ELSE
+    '#include "ace/ACE.h' 
+   %THEN
+   '#include "shared/Core/sys/core_std_inc.h"'
+   %IF ( ( %X |U ) %== 'fctr.h' %|| 
+     ( ( %X |U ) %== 'fctr.cpp'  ) ) 
+
+//	\#include "shared/Core/Root/Root.h"][{<{}{%AS=oneway|%AS=oneway,chg}{%AC}>!=0}
+    '#include "shared/Core/Root/Root.h' 
+   %END-IF
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %A |S ) %== 'oneway' %|| 
+      ( ( %A |S ) %== 'oneway,chg'  ) ) 
+     ( %A |C ) 
+    %END-FOR
+    %!= 0 ) 
+
+//	\#include "shared/Core/mt/mt.h"]]]
+    '#include "shared/Core/mt/mt.h' 
+   %END-IF
+  %END-IF
+ %END-IF
+//#UC END# *4714DFD102FD*
+; // std_inc
+
+
+// метод дампит имя пакета по правилам java (имя пакета должено соответствовать файловой системе)
+//f _dump_java_package
+: dump_java_package OBJECT IN %S
+//#UC START# *4714E01E009C*
+//	%f_set_var(ARG,S)%f_set_var(RES,"[{%Se=false|"%SL"=""}{%SL}<{}{%PM=Project::Category}%P{package prefix}.>%S<{.}{%P{is namespace}=true|%PM=Project::Category|%PM=KPlugins::Category|%PM=DataDef::Category|%f_is_nested(%P)=true}{%Pr}%PN>]")[{%SC=State|%SM=State::Class}{%{RES}N}<{}{%PM=StateMachine::Class}%f_str_replace(%{RES}N,.%PN,.sm.%PN)>]
+ [%f] set_var %( 'ARG' %, 'S' )% [%f] set_var %( 'RES' %, %IF ( ( %S |e ) %==  false %|| 
+   ( ( %S |L ) %== ''  ) ) 
+  %ELSE
+   %S |L 
+  %THEN
+  %FOR %ITEM-CONDITION ( ( %P |M ) %== 'Project::Category' ) 
+   %P get_up ( 'package prefix' ) '.' 
+  %END-FOR
+  %S
+  %FOR %ITEM-SEPARATOR '.' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %P get_up ( 'is namespace' ) ) %==  true %|| 
+    ( ( %P |M ) %== 'Project::Category'  ) %|| 
+    ( ( %P |M ) %== 'KPlugins::Category'  ) %|| 
+    ( ( %P |M ) %== 'DataDef::Category'  ) %|| 
+    ( ( [%f] is_nested %( %P )% ) %==  true  ) ) 
+   ( %P |r ) 
+   %P |N 
+  %END-FOR
+  %END-IF
+)%  %IF ( ( %S |C ) %== 'State' %|| 
+   ( ( %S |M ) %== 'State::Class'  ) ) 
+  %ELSE
+   ( get_global_var ( 'RES' ) |N ) 
+  %THEN
+  %FOR %ITEM-CONDITION ( ( %P |M ) %== 'StateMachine::Class' ) 
+   [%f] str_replace %( ( get_global_var ( 'RES' ) |N ) %, '.'
+   %P |N %, '.sm.'
+   %P |N )% 
+  %END-FOR
+ %END-IF
+
+//f _is_nested
+; // dump_java_package
+
+: is_nested OBJECT IN %S
+//	[{%t_nested_scope_def(%S)=true&%{ARG}M!=State::Class}{false}true]
+ %IF ( ( [%t] nested_scope_def %( %S )% ) %==  true %&& 
+   ( ( ( get_global_var ( 'ARG' ) |M ) ) %!= 'State::Class'  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714E01E009C*
+; // is_nested
+
+
+// метод дампит имя пакета по правилам java (имя пакета должено соответствовать файловой системе) -
+// более правильная версия dump_java_package (), впоследствии должна заменить её полностью
+//f _dump_java_package_ex
+: dump_java_package_ex OBJECT IN %S
+//#UC START# *4714E02B033C*
+//	[{%Se=false|"%SL"=""}{%SL}\
+ %IF ( ( %S |e ) %==  false %|| 
+   ( ( %S |L ) %== ''  ) ) 
+  %ELSE
+   %S |L 
+  %THEN
+//	<{}{%PM=Project::Category}%f_str_replace(%P{package prefix}/%PN%f_delsubstr_from_begin(%Sd,%f_string_length(%Pd)),/,.)>]
+  %FOR %ITEM-CONDITION ( ( %P |M ) %== 'Project::Category' ) 
+   [%f] str_replace %( %P get_up ( 'package prefix' ) '/'
+   %P |N [%f] delsubstr_from_begin %( %S |d %, [%f] string_length %( %P |d )% )% %, '/' %, '.' )% 
+  %END-FOR
+ %END-IF
+//#UC END# *4714E02B033C*
+; // dump_java_package_ex
+
+
+// включает все часто (всегда) используемые импорты в джава коде
+//f _dump_std_java_imports
+: dump_std_java_imports OBJECT IN %S
+//#UC START# *4714E06003C8*
+//	import ru.garant.shared.Core.Logs;[{<{}{%PS=KLibrary}{%PC}>!=0}
+ 'import ru.garant.shared.Core.Logs;'
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %P |S ) %== 'KLibrary' ) 
+   ( %P |C ) 
+  %END-FOR
+  %!= 0 ) 
+
+//	import ru.garant.shared.ConfluenceCore.Helpers.*;
+  'import ru.garant.shared.ConfluenceCore.Helpers.*;'
+//	import ru.garant.shared.ConfluenceCore.UserSupport.*;
+  'import ru.garant.shared.ConfluenceCore.UserSupport.*;'
+//	import ru.garant.shared.ConfluenceCore.SpaceSupport.*;]
+  'import ru.garant.shared.ConfluenceCore.SpaceSupport.*;' 
+ %END-IF
+//#UC END# *4714E06003C8*
+; // dump_std_java_imports
+
+
+// генерация видимоти элемента
+//t _visibility
+<<transformator>> visibility OBJECT IN %S
+//#UC START# *4714E07C001F*
+//c                            {java}                                      {}
+//r "%SV"="PublicAccess":      {public }                                   {public }
+//r "%SV"="PrivateAccess":     {[{%Sa!=abstract}{protected }private ]}     {[{%Sa!=abstract}{protected }private ]}
+//r "%SV"="ProtectedAccess":   {protected }                                {protected }
+//r ""="":                     {public }                                   {public }
+//#UC END# *4714E07C001F*
+; // visibility
+
+
+// генерация типа абстракции (используется при генерации в java)
+//t _abstract_type
+<<transformator>> abstract_type OBJECT IN %S
+//#UC START# *4714E098007D*
+//c                                                {}
+//r "<{}{%CC=Operation&%Ca=abstract}{%CC}>"!="0":    {abstract }
+//r "%Sa"="regular":                               {}
+//r "%Sa"="abstract":                              {abstract }
+//r "%Sa"="final":                                 {final }
+//r ""="":                                         {}
+//#UC END# *4714E098007D*
+; // abstract_type
+
+
+// генерация метода
+//f _servant_java_operation
+: servant_java_operation OBJECT IN %S
+//#UC START# *4714E0D400AB*
+//	[{%SS!=oneway&%SS!=oneway,chg}{%f_oneway_operation_impl_java(%S)}%f_docs(%S)\
+ %IF ( ( %S |S ) %!= 'oneway' %&& 
+   ( ( %S |S ) %!= 'oneway,chg'  ) ) 
+  %ELSE
+   [%f] oneway_operation_impl_java %( %S )% 
+  %THEN
+  [%f] docs %( %S )% 
+//	[%S#f_dump_annotations("#")
+  %IF-NOT-EMPTY
+   %S %?f dump_annotations %( out_indent )% 
+//	]#%t_visibility(%S,"XU")[{%S%f_is_static()=true}static ][{"%1N"!="interface"}%t_abstract_type(%S)]%f_ret(%S) %f_to_java(%SN) (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>][{%Sa!=abstract}{;} {
+  %END-IF
+  out_indent [%t] visibility %( %S %, 'XU' )% %IF ( ( %S %f is_static %( )% ) %==  true ) 
+   'static ' 
+  %END-IF
+  %IF ( ( %1 |N ) %!= 'interface' ) 
+   [%t] abstract_type %( %S )% 
+  %END-IF
+  [%f] ret %( %S )% ' '
+  [%f] to_java %( %S |N )% ' ('
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   [%f] arg_full_decl %( %C )% 
+  %END-FOR
+  ')'
+  %IF-NOT-EMPTY
+   ' throws '
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    [%f] type %( %E )% 
+   %END-FOR
+  %END-IF
+  %IF ( ( %S |a ) %!= 'abstract' ) 
+   %ELSE
+    ';' 
+   %THEN
+   ' {'
+//	#	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}
+   out_indent '	'
+   %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+     '_'
+     ( get_global_var ( 'SERV' ) |U ) 
+    %END-IF
+    '!java!' ) 
+
+//	#	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+    out_indent '	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();'
+//	#	]
+    out_indent '	' 
+   %END-IF
+ //	#}]]
+   out_indent '}' 
+  %END-IF
+ %END-IF
+//#UC END# *4714E0D400AB*
+; // servant_java_operation
+
+
+// генерация переопределенного метода
+//f _servant_java_derived_operation
+: servant_java_derived_operation OBJECT IN %S
+//#UC START# *4714E0E2034B*
+//	[{%f_need_oneway_impl(%S)=false}%f_docs(%S)\
+ %IF ( ( [%f] need_oneway_impl %( %S )% ) %==  false ) 
+  [%f] docs %( %S )% 
+//	[%S#f_dump_annotations("#","true")
+  %IF-NOT-EMPTY
+   %S %?f dump_annotations %( out_indent %, true )% 
+//	]#[[{"%1N"!="interface"|[{%PS=Interface|%PS=LocalInterface|%PS=Facet|%PS=ServerFacet|%PS=Interface}{true}false]=true}{public }%t_visibility(%S)][{%SS=static}static ][{"%1N"!="interface"}%t_abstract_type(%S)]%f_ret(%S) [{%PS!=ServerInterface&%PS!=ServerFacet}{%SN}%f_to_java(%SN)] (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>] {
+  %END-IF
+  out_indent %IF-NOT-EMPTY
+   %IF ( ( %1 |N ) %!= 'interface' %|| 
+     ( %IF ( ( %P |S ) %== 'Interface' %|| 
+      ( ( %P |S ) %== 'LocalInterface'  ) %|| 
+      ( ( %P |S ) %== 'Facet'  ) %|| 
+      ( ( %P |S ) %== 'ServerFacet'  ) %|| 
+      ( ( %P |S ) %== 'Interface'  ) ) 
+     %ELSE
+       true 
+     %THEN
+      false 
+    %END-IF
+    %==  true  ) ) 
+    %ELSE
+     'public ' 
+    %THEN
+    [%t] visibility %( %S )% 
+   %END-IF
+   %IF ( ( %S |S ) %== 'static' ) 
+    'static ' 
+   %END-IF
+   %IF ( ( %1 |N ) %!= 'interface' ) 
+    [%t] abstract_type %( %S )% 
+   %END-IF
+   [%f] ret %( %S )% ' '
+   %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+     ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+    %ELSE
+     %S |N 
+    %THEN
+    [%f] to_java %( %S |N )% 
+   %END-IF
+   ' ('
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    [%f] arg_full_decl %( %C )% 
+   %END-FOR
+   ')'
+   %IF-NOT-EMPTY
+    ' throws '
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     [%f] type %( %E )% 
+    %END-FOR
+   %END-IF
+   ' {'
+//	#	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}
+   out_indent '	'
+   %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+     '_'
+     ( get_global_var ( 'SERV' ) |U ) 
+    %END-IF
+    '!java!' ) 
+
+//	#	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+    out_indent '	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();'
+//	#	]
+    out_indent '	' 
+   %END-IF
+ //	#}]][{%f_need_oneway_impl(%S)=true}#//oneway implementation
+   out_indent '}' 
+  %END-IF
+ %END-IF
+ %IF ( ( [%f] need_oneway_impl %( %S )% ) %==  true ) 
+  out_indent '//oneway implementation'
+//	#[{"%1N"!="interface"|[{%PS=Interface|%PS=LocalInterface|%PS=Facet|%PS=ServerFacet|%PS=Interface}{true}false]=true}{public }%t_visibility(%S)][{"%1N"!="interface"}%t_abstract_type(%S)]void [{%PS!=ServerInterface&%PS!=ServerFacet}{%SN}%f_to_java(%SN)] (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>] {
+  out_indent %IF ( ( %1 |N ) %!= 'interface' %|| 
+    ( %IF ( ( %P |S ) %== 'Interface' %|| 
+     ( ( %P |S ) %== 'LocalInterface'  ) %|| 
+     ( ( %P |S ) %== 'Facet'  ) %|| 
+     ( ( %P |S ) %== 'ServerFacet'  ) %|| 
+     ( ( %P |S ) %== 'Interface'  ) ) 
+    %ELSE
+      true 
+    %THEN
+     false 
+   %END-IF
+   %==  true  ) ) 
+   %ELSE
+    'public ' 
+   %THEN
+   [%t] visibility %( %S )% 
+  %END-IF
+  %IF ( ( %1 |N ) %!= 'interface' ) 
+   [%t] abstract_type %( %S )% 
+  %END-IF
+  'void '
+  %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+    ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+   %ELSE
+    %S |N 
+   %THEN
+   [%f] to_java %( %S |N )% 
+  %END-IF
+  ' ('
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   [%f] arg_full_decl %( %C )% 
+  %END-FOR
+  ')'
+  %IF-NOT-EMPTY
+   ' throws '
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    [%f] type %( %E )% 
+   %END-FOR
+  %END-IF
+  ' {'
+//	#	java.util.concurrent.Executor executor = ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ();
+  out_indent '	java.util.concurrent.Executor executor = ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ();'
+//	#	Runnable eval = new Runnable () {
+  out_indent '	Runnable eval = new Runnable () {'
+//	#		public void run() {
+  out_indent '		public void run() {'
+//	#			%f_to_java(%SNImpl) (<{, }%f_to_java(%CN)>);
+  out_indent '			'
+  [%f] to_java %( %S |N 'Impl' )% ' ('
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   [%f] to_java %( %C |N )% 
+  %END-FOR
+  ');'
+//	#		}
+  out_indent '		}'
+//	#	};
+  out_indent '	};'
+//	#	executor.execute(eval);
+  out_indent '	executor.execute(eval);'
+//	#}
+  out_indent '}'
+//	
+
+//	%f_docs(%S)\
+  [%f] docs %( %S )% 
+//	[%S#f_dump_annotations("#","true")
+  %IF-NOT-EMPTY
+   %S %?f dump_annotations %( out_indent %, true )% 
+//	]#[{%SV!=PrivateAccess}{private}protected] [{"%1N"!="interface"}%t_abstract_type(%S)]%f_ret(%S) %f_to_java(%SNImpl) (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>] {
+  %END-IF
+  out_indent %IF ( ( %S |V ) %!= 'PrivateAccess' ) 
+   %ELSE
+    'private' 
+   %THEN
+   'protected' 
+  %END-IF
+  ' '
+  %IF ( ( %1 |N ) %!= 'interface' ) 
+   [%t] abstract_type %( %S )% 
+  %END-IF
+  [%f] ret %( %S )% ' '
+  [%f] to_java %( %S |N 'Impl' )% ' ('
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   [%f] arg_full_decl %( %C )% 
+  %END-FOR
+  ')'
+  %IF-NOT-EMPTY
+   ' throws '
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    [%f] type %( %E )% 
+   %END-FOR
+  %END-IF
+  ' {'
+//	#	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}
+  out_indent '	'
+  %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+    '_'
+    ( get_global_var ( 'SERV' ) |U ) 
+   %END-IF
+   '!java!' ) 
+
+//	#	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+   out_indent '	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();'
+//	#	]
+   out_indent '	' 
+  %END-IF
+ //	#}]
+  out_indent '}' 
+ %END-IF
+
+//f _need_oneway_impl
+; // servant_java_derived_operation
+
+: need_oneway_impl OBJECT IN %S
+//	[{%f_is_server_type(%P)=false&[{%SS=oneway|%SS=oneway,chg}true]=true}{false}true]
+ %IF ( ( [%f] is_server_type %( %P )% ) %==  false %&& 
+   ( %IF ( ( %S |S ) %== 'oneway' %|| 
+    ( ( %S |S ) %== 'oneway,chg'  ) ) 
+    true 
+  %END-IF
+  %==  true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714E0E2034B*
+; // need_oneway_impl
+
+
+// генерация атрибута
+//f _servant_java_attribute
+: servant_java_attribute OBJECT IN %S
+//#UC START# *4714E0F303A9*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[{%t_need_ro(%S)=true}\
+ %IF ( ( [%t] need_ro %( %S )% ) %==  true ) 
+//	[%S#f_dump_annotations("#")
+  %IF-NOT-EMPTY
+   %S %?f dump_annotations %( out_indent )% 
+//	]#%f_templ_header(%{SERV})[{"%1N"!="interface"|[{%PS=Interface|%PS=LocalInterface|%PS=Facet|%PS=ServerFacet|%PS=Interface}{true}false]=true}{public }%t_visibility(%S)]%f_ret(%S) get[{%PS!=ServerInterface&%PS!=ServerFacet}{_%SN}%f_to_borland(%SN)] (%S%f_accessor_args())[
+  %END-IF
+  out_indent [%f] templ_header %( ( get_global_var ( 'SERV' ) ) )% %IF ( ( %1 |N ) %!= 'interface' %|| 
+    ( %IF ( ( %P |S ) %== 'Interface' %|| 
+     ( ( %P |S ) %== 'LocalInterface'  ) %|| 
+     ( ( %P |S ) %== 'Facet'  ) %|| 
+     ( ( %P |S ) %== 'ServerFacet'  ) %|| 
+     ( ( %P |S ) %== 'Interface'  ) ) 
+    %ELSE
+      true 
+    %THEN
+     false 
+   %END-IF
+   %==  true  ) ) 
+   %ELSE
+    'public ' 
+   %THEN
+   [%t] visibility %( %S )% 
+  %END-IF
+  [%f] ret %( %S )% ' get'
+  %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+    ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+   %ELSE
+    '_'
+    %S |N 
+   %THEN
+   [%f] to_borland %( %S |N )% 
+  %END-IF
+  ' ('
+  %S %f accessor_args %( )% ')'
+  %IF-NOT-EMPTY
+
+//	#	throws <{, }%f_type(%E)>
+   out_indent '	throws '
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    [%f] type %( %E )% 
+   %END-FOR
+//	#][{%Ex=false} ]{%f_start_func_cpp(%S,"get%f_to_borland(%SN)")%f_set_var(OP,S)
+   out_indent 
+  %END-IF
+  %IF ( ( %E |x ) %==  false ) 
+   ' ' 
+  %END-IF
+  '{'
+  [%f] start_func_cpp %( %S %, 'get'
+  [%f] to_borland %( %S |N )% )% [%f] set_var %( 'OP' %, 'S' )% 
+//	#	[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_GET]}
+  out_indent '	'
+  %IF ( ( [%f] is_impl_atrr %( ( get_global_var ( 'SERV' ) ) %, %S )% ) %==  true ) 
+   %ELSE
+    %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+      '_'
+      ( get_global_var ( 'SERV' ) |U ) '_GET' 
+     %END-IF
+) 
+
+//	#	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+     out_indent '	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();'
+//	#	]}return this.%f_to_java(%SN)_;]
+     out_indent '	' 
+    %END-IF
+    %THEN
+   'return this.'
+   [%f] to_java %( %S |N )% '_;' 
+  %END-IF
+//	#}
+  out_indent '}'
+//	][{%t_need_rw(%S)=true}[{%t_need_ro(%S)=true}\n]\
+ %END-IF
+ %IF ( ( [%t] need_rw %( %S )% ) %==  true ) 
+  %IF ( ( [%t] need_ro %( %S )% ) %==  true ) 
+   #13#10 
+  %END-IF
+//	[%S#f_dump_annotations("#")
+  %IF-NOT-EMPTY
+   %S %?f dump_annotations %( out_indent )% 
+//	]#[{"%1N"!="interface"|[{%PS=Interface|%PS=LocalInterface|%PS=Facet|%PS=ServerFacet|%PS=Interface}{true}false]=true}{public }%t_visibility(%S)]void set[{%PS!=ServerInterface&%PS!=ServerFacet}{_%SN}%f_to_borland(%SN)] (%f_iset_attr(%S) %f_to_java(%SN)[, %S%f_accessor_args()])[
+  %END-IF
+  out_indent %IF ( ( %1 |N ) %!= 'interface' %|| 
+    ( %IF ( ( %P |S ) %== 'Interface' %|| 
+     ( ( %P |S ) %== 'LocalInterface'  ) %|| 
+     ( ( %P |S ) %== 'Facet'  ) %|| 
+     ( ( %P |S ) %== 'ServerFacet'  ) %|| 
+     ( ( %P |S ) %== 'Interface'  ) ) 
+    %ELSE
+      true 
+    %THEN
+     false 
+   %END-IF
+   %==  true  ) ) 
+   %ELSE
+    'public ' 
+   %THEN
+   [%t] visibility %( %S )% 
+  %END-IF
+  'void set'
+  %IF ( ( %P |S ) %!= 'ServerInterface' %&& 
+    ( ( %P |S ) %!= 'ServerFacet'  ) ) 
+   %ELSE
+    '_'
+    %S |N 
+   %THEN
+   [%f] to_borland %( %S |N )% 
+  %END-IF
+  ' ('
+  [%f] iset_attr %( %S )% ' '
+  [%f] to_java %( %S |N )% %IF-NOT-EMPTY
+   ', '
+   %S %f accessor_args %( )% 
+  %END-IF
+  ')'
+  %IF-NOT-EMPTY
+
+//	#	throws <{, }%f_type(%e)>
+   out_indent '	throws '
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    [%f] type %( %e )% 
+   %END-FOR
+//	#][{%ex=false} ]{%f_start_func_cpp(%S,"%{SERV}N::set_%SN")
+   out_indent 
+  %END-IF
+  %IF ( ( %e |x ) %==  false ) 
+   ' ' 
+  %END-IF
+  '{'
+  [%f] start_func_cpp %( %S %, ( get_global_var ( 'SERV' ) |N ) '::set_'
+  %S |N )% 
+//	#	[{%f_is_impl_atrr(%{SERV},%S)=true}{%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U_SET]}
+  out_indent '	'
+  %IF ( ( [%f] is_impl_atrr %( ( get_global_var ( 'SERV' ) ) %, %S )% ) %==  true ) 
+   %ELSE
+    %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+      '_'
+      ( get_global_var ( 'SERV' ) |U ) '_SET' 
+     %END-IF
+) 
+
+//	#	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+     out_indent '	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();'
+//	#	]}this.%f_to_java(%SN)_ = %f_to_java(%SN);]
+     out_indent '	' 
+    %END-IF
+    %THEN
+   'this.'
+   [%f] to_java %( %S |N )% '_ = '
+   [%f] to_java %( %S |N )% ';' 
+  %END-IF
+//	#}]
+  out_indent '}' 
+ %END-IF
+//#UC END# *4714E0F303A9*
+; // servant_java_attribute
+
+
+// генерация реализуемых и перегруженных методов, атрибутов
+//f _dump_java_derrived_impl
+: dump_java_derrived_impl OBJECT IN %S
+//#UC START# *4714E102033C*
+//	%f_set_var(SERV,S)%f_set_var(NEED_UPDATE_RW,"0")%f_has_combo_fctr(%S)[
+ [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'NEED_UPDATE_RW' %, 0 )% [%f] has_combo_fctr %( %S )% %IF-NOT-EMPTY
+
+//	[#//////////////////////////////////////////////////////////////////////////////////////////
+  %IF-NOT-EMPTY
+   out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// implemented interface's methods
+   out_indent '// implemented interface's methods'
+//	[<{\n}{}{Sp}\
+   %IF-NOT-EMPTY
+    %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+     ( 'Sp' ) 
+//	
+
+//	#	// implemented method from %f_type(%o%P)
+     out_indent '	// implemented method from '
+     [%f] type %( %o ->P  )% 
+//	[{"%oC"="Attribute"}%f_servant_java_attribute(%o,"interface")][{"%oC"="Operation"}%f_servant_java_derived_operation(%o,"interface")]>]][{%f_has_overloaded_methods(%S)=true}
+     %IF ( ( %o |C ) %== 'Attribute' ) 
+      [%f] servant_java_attribute %( %o %, 'interface' )% 
+     %END-IF
+     %IF ( ( %o |C ) %== 'Operation' ) 
+      [%f] servant_java_derived_operation %( %o %, 'interface' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+  %IF ( ( [%f] has_overloaded_methods %( %S )% ) %==  true ) 
+
+//	#//////////////////////////////////////////////////////////////////////////////////////////
+   out_indent '//////////////////////////////////////////////////////////////////////////////////////////'
+//	#// overloaded base methods
+   out_indent '// overloaded base methods'
+//	[#<{}{"%OV"="PublicAccess"&"%t_interface(%O%P)"="false"&"%OS"!="ctor"}{Sp}
+   %IF-NOT-EMPTY
+    out_indent 
+    %FOR %ITEM-CONDITION ( ( %O |V ) %== 'PublicAccess' %&& 
+      ( ( [%t] interface %( %O ->P  )% ) %== false  ) %&& 
+      ( ( %O |S ) %!= 'ctor'  ) ) 
+     ( 'Sp' ) 
+
+//	
+
+//	#	// overloaded method from %f_type(%O%P)
+     out_indent '	// overloaded method from '
+     [%f] type %( %O ->P  )% 
+//	[{"%OC"="Attribute"}%f_servant_java_attribute(%O,"interface")][{"%OC"="Operation"}%f_servant_java_derived_operation(%O,"interface")]>][\
+     %IF ( ( %O |C ) %== 'Attribute' ) 
+      [%f] servant_java_attribute %( %O %, 'interface' )% 
+     %END-IF
+     %IF ( ( %O |C ) %== 'Operation' ) 
+      [%f] servant_java_derived_operation %( %O %, 'interface' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+//	#<{}{"%OV"="ProtectedAccess"|"%t_interface(%O%P)"="true"&"%OS"!="ctor"}{Sp}
+    out_indent 
+    %FOR %ITEM-CONDITION ( ( %O |V ) %== 'ProtectedAccess' %|| 
+      ( ( [%t] interface %( %O ->P  )% ) %== true  ) %&& 
+      ( ( %O |S ) %!= 'ctor'  ) ) 
+     ( 'Sp' ) 
+
+//	
+
+//	#	// overloaded method from %f_type(%O%P)
+     out_indent '	// overloaded method from '
+     [%f] type %( %O ->P  )% 
+//	[{"%OC"="Attribute"}%f_servant_java_attribute(%O,"interface")][{"%OC"="Operation"}%f_servant_java_derived_operation(%O,"interface")]>][\
+     %IF ( ( %O |C ) %== 'Attribute' ) 
+      [%f] servant_java_attribute %( %O %, 'interface' )% 
+     %END-IF
+     %IF ( ( %O |C ) %== 'Operation' ) 
+      [%f] servant_java_derived_operation %( %O %, 'interface' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+//	#<{}{"%OV"="PrivateAccess"&"%OS"!="ctor"}{Sp}
+    out_indent 
+    %FOR %ITEM-CONDITION ( ( %O |V ) %== 'PrivateAccess' %&& 
+      ( ( %O |S ) %!= 'ctor'  ) ) 
+     ( 'Sp' ) 
+
+//	
+
+//	#	// overloaded method from %f_type(%O%P)
+     out_indent '	// overloaded method from '
+     [%f] type %( %O ->P  )% 
+//	[{"%OC"="Attribute"}%f_servant_java_attribute(%O,"interface")][{"%OC"="Operation"}%f_servant_java_derived_operation(%O,"interface")]>]
+     %IF ( ( %O |C ) %== 'Attribute' ) 
+      [%f] servant_java_attribute %( %O %, 'interface' )% 
+     %END-IF
+     %IF ( ( %O |C ) %== 'Operation' ) 
+      [%f] servant_java_derived_operation %( %O %, 'interface' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+//	]][{%{NEED_UPDATE_RW}N=1}
+  %END-IF
+ %END-IF
+ %IF ( ( ( get_global_var ( 'NEED_UPDATE_RW' ) |N ) ) %== 1 ) 
+
+//	
+
+//	#	public void upgrade_rw () {
+  out_indent '	public void upgrade_rw () {'
+//	#		%U[{_UPDATE_RW}
+  out_indent '		'
+  %U%IF ( '_UPDATE_RW' ) 
+
+//	#		throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+   out_indent '		throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();'
+//	#		]
+   out_indent '		' 
+  %END-IF
+ //	#	}]
+  out_indent '	}' 
+ %END-IF
+//#UC END# *4714E102033C*
+; // dump_java_derrived_impl
+
+
+// генерация всех собственных методов элемента
+//f _dump_java_self_impl
+: dump_java_self_impl OBJECT IN %S
+//#UC START# *4714E11F02AF*
+//	[[#<{}{"%CC"!="Attribute"}{Sp}
+ %IF-NOT-EMPTY
+  %IF-NOT-EMPTY
+   out_indent 
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Attribute' ) 
+    ( 'Sp' ) 
+
+//	[{"%CC"="Operation"}%f_servant_java_operation(%C)]>]]
+    %IF ( ( %C |C ) %== 'Operation' ) 
+     [%f] servant_java_operation %( %C )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+//#UC END# *4714E11F02AF*
+; // dump_java_self_impl
+
+
+// генерация импортов по вложенным типам
+//f _includes_by_contents_java
+: includes_by_contents_java OBJECT IN %S
+//#UC START# *4714E1410280*
+//#UC END# *4714E1410280*
+; // includes_by_contents_java
+
+
+// возвращает true, если нужно дописывать POA
+//f _need_poa
+: need_poa OBJECT IN %S
+//#UC START# *4714E16B0261*
+//	[{%SS=ServerInterface|%SS=ServerFacet}{false}true]
+ %IF ( ( %S |S ) %== 'ServerInterface' %|| 
+   ( ( %S |S ) %== 'ServerFacet'  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714E16B0261*
+; // need_poa
+
+
+// возвращает true, если тип является серверным
+//f _is_server_type_java
+: is_server_type_java OBJECT IN %S
+//#UC START# *4714E1750399*
+//	[{%f_is_server_type(%S)=true&%t_simple(%S)=false}{false}true]
+ %IF ( ( [%f] is_server_type %( %S )% ) %==  true %&& 
+   ( ( [%t] simple %( %S )% ) %==  false  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714E1750399*
+; // is_server_type_java
+
+
+// генерация импорта на java
+//f _java_import
+: java_import OBJECT IN %S
+//#UC START# *4714E1820138*
+//	[{%Se=false}{[{"%SL"!=""}import %SL;]}[{"%So"!=""|%t_nested_scope_def(%P)=true|%f_is_server_type_java(%S)=true}import %f_dump_java_package(%S).%SN[{%XU=fctr.java}FactoryImpl][{%f_need_poa(%S)=true&"%1S"!="uses"}POA;\nimport %f_dump_java_package(%S).%SN];]]
+ %IF ( ( %S |e ) %==  false ) 
+  %ELSE
+   %IF ( ( %S |L ) %!= '' ) 
+    'import '
+    %S |L ';' 
+   %END-IF
+  %THEN
+  %IF ( ( %S |o ) %!= '' %|| 
+    ( ( [%t] nested_scope_def %( %P )% ) %==  true  ) %|| 
+    ( ( [%f] is_server_type_java %( %S )% ) %==  true  ) ) 
+   'import '
+   [%f] dump_java_package %( %S )% '.'
+   %S |N %IF ( ( %X |U ) %== 'fctr.java' ) 
+    'FactoryImpl' 
+   %END-IF
+   %IF ( ( [%f] need_poa %( %S )% ) %==  true %&& 
+     ( ( %1 |S ) %!= 'uses'  ) ) 
+    'POA;'#13#10'import '
+    [%f] dump_java_package %( %S )% '.'
+    %S |N 
+   %END-IF
+   ';' 
+  %END-IF
+ %END-IF
+//#UC END# *4714E1820138*
+; // java_import
+
+
+// генерация импорта основных исключений
+//f _java_core_exceptions
+: java_core_exceptions OBJECT IN %S
+//#UC START# *4714E1A502EE*
+//	[{%f_is_server_type(%S)=false}{import ru.garant.shared.CoreSrv.UnknownFactoryKey;
+ %IF ( ( [%f] is_server_type %( %S )% ) %==  false ) 
+  %ELSE
+   'import ru.garant.shared.CoreSrv.UnknownFactoryKey;'
+//	import ru.garant.shared.CoreSrv.NoActiveFactory;}import ru.garant.shared.Core.Root.UnknownFactoryKey;
+   'import ru.garant.shared.CoreSrv.NoActiveFactory;' 
+  %THEN
+  'import ru.garant.shared.Core.Root.UnknownFactoryKey;'
+//	import ru.garant.shared.Core.Root.NoActiveFactory;]
+  'import ru.garant.shared.Core.Root.NoActiveFactory;' 
+ %END-IF
+//	import ru.garant.shared.Core.Root.DuplicatedFactoryKey;
+ 'import ru.garant.shared.Core.Root.DuplicatedFactoryKey;'
+//#UC END# *4714E1A502EE*
+; // java_core_exceptions
+
+
+// генерация возвращаемого значения функции (нужно чтобы после генерации java код собирался без
+// ошибок)
+//f _java_return
+: java_return OBJECT IN %S
+//#UC START# *4714E1C903A9*
+//	[return %t_java_return(%S);]
+ %IF-NOT-EMPTY
+  'return '
+  [%t] java_return %( %S )% ';' 
+ %END-IF
+//#UC END# *4714E1C903A9*
+; // java_return
+
+
+// генерация возвращаемого значения функции (нужно чтобы после генерации java код собирался без
+// ошибок)
+//t _java_return
+<<transformator>> java_return OBJECT IN %S
+//#UC START# *4714E2100280*
+//c                                  {}
+//r "%SN"="void":                    {}
+//r "%SM"="BitMask::Class":          {true}
+//r "%SC"="Operation":               {true}
+//r "%SN"="short":                   {0}
+//r "%SN"="size":                    {0}
+//r "%SN"="integer":                 {0}
+//r "%SN"="long":                    {0}
+//r "%SN"="atomic":                  {0}
+//r "%SN"="hthread":                 {0}
+//r "%SN"="unsigned atomic":         {0}
+//r "%SN"="long long":               {0}
+//r "%SN"="unsigned short":          {0}
+//r "%SN"="unsigned integer":        {0}
+//r "%SN"="unsigned long":           {0}
+//r "%SN"="unsigned long long":      {0}
+//r "%SN"="float":                   {0.0}
+//r "%SN"="double":                  {0.0}
+//r "%SN"="boolean":                 {true}
+//r "%SN"="char":                    {0}
+//r "%SN"="wchar":                   {0}
+//r "%SN"="octet":                   {0}
+//r "%SN"="string":                  {""}
+//r "%SN"="pointer":                 {null}
+//r "%SN"="HWND":                    {null}
+//r "%SN"="WPARAM":                  {null}
+//r "%SN"="LPARAM":                  {null}
+//r "%SN"="BOOL":                    {true}
+//r "%SN"="LRESULT":                 {null}
+//r "%SN"="UINT":                    {0}
+//r "%SN"="HANDLE":                  {0}
+//r "%SN"="HHOOK":                   {null}
+//r "%S%PN"="Win32":                 {0}
+//r "%SM"="Typedef::Class":          {[{%Gx=true}{true}%t_java_return(%G)]}
+//r ""="":                           {null}
+//#UC END# *4714E2100280*
+; // java_return
+
+
+// возвращает пакет где определен дом библиотек
+//f _dump_lib_home
+: dump_lib_home OBJECT IN %S
+//#UC START# *4714E2240148*
+//	%f_dump_java_package(%S).%SN
+ [%f] dump_java_package %( %S )% '.'
+ %S |N 
+//#UC END# *4714E2240148*
+; // dump_lib_home
+
+
+// регистрация домов библиотек
+//f _reg_all_dep_java
+: reg_all_dep_java OBJECT IN %S
+//#UC START# *4714E24D030D*
+//	%f_clear_list(REG_ALL_DEP)\
+ [%f] clear_list %( 'REG_ALL_DEP' )% 
+//	%f_clear_list(REG_ALL_DEP_SERVER)\
+ [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% 
+//	%f_collect_reg_all_dep_java(%S)\
+ [%f] collect_reg_all_dep_java %( %S )% 
+//	%f_sort_list(REG_ALL_DEP,u)\
+ [%f] sort_list %( 'REG_ALL_DEP' %, 'u' )% 
+//	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,CYCLE_ITEM)\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'REG_ALL_DEP' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'REG_ALL_DEP' %, 'CYCLE_ITEM' )% 
+//			lhm.registrateLibHome (%f_dump_lib_home(%{CYCLE_ITEM}).LibHomeFactory.get());[{%f_exists_in_list(REG_ALL_DEP_SERVER,{CYCLE_ITEM})=true}
+  '		lhm.registrateLibHome ('
+  [%f] dump_lib_home %( ( get_global_var ( 'CYCLE_ITEM' ) ) )% '.LibHomeFactory.get());'
+  %IF ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, '{CYCLE_ITEM}' )% ) %==  true ) 
+
+//			lhm.registrateLibHome (%f_dump_lib_home(%{CYCLE_ITEM}).ServerLibHomeFactory.get());]
+   '		lhm.registrateLibHome ('
+   [%f] dump_lib_home %( ( get_global_var ( 'CYCLE_ITEM' ) ) )% '.ServerLibHomeFactory.get());' 
+  %END-IF
+//	]>%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)
+  ']' 
+ %END-FOR
+ [%f] clear_list %( 'REG_ALL_DEP' )% [%f] clear_list %( 'REG_ALL_DEP_SERVER' )% 
+
+//f _collect_reg_all_dep_java
+; // reg_all_dep_java
+
+: collect_reg_all_dep_java OBJECT IN %S
+//	<{}{%De=false&%D{old gcm}!=true&%DS!=Requirements&%DS!=KCustomize}[{%f_exists_in_list(REG_ALL_DEP,D)=false}%f_add_to_list(REG_ALL_DEP,D)]\
+ %FOR %ITEM-CONDITION ( ( %D |e ) %==  false %&& 
+   ( ( %D get_up ( 'old gcm' ) ) %!=  true  ) %&& 
+   ( ( %D |S ) %!= 'Requirements'  ) %&& 
+   ( ( %D |S ) %!= 'KCustomize'  ) ) 
+  %IF ( ( [%f] exists_in_list %( 'REG_ALL_DEP' %, 'D' )% ) %==  false ) 
+   [%f] add_to_list %( 'REG_ALL_DEP' %, 'D' )% 
+  %END-IF
+//	[{%DS=ServerLibrary&%t_target_ex(%S)=true}[{%f_exists_in_list(REG_ALL_DEP_SERVER,D)=false}%f_add_to_list(REG_ALL_DEP_SERVER,D)]\
+  %IF ( ( %D |S ) %== 'ServerLibrary' %&& 
+    ( ( [%t] target_ex %( %S )% ) %==  true  ) ) 
+   %IF ( ( [%f] exists_in_list %( 'REG_ALL_DEP_SERVER' %, 'D' )% ) %==  false ) 
+    [%f] add_to_list %( 'REG_ALL_DEP_SERVER' %, 'D' )% 
+   %END-IF
+//	][{%DS!=ServerLibrary|%t_target_ex(%S)=true}%f_collect_reg_all_dep_java(%D)]>
+  %END-IF
+  %IF ( ( %D |S ) %!= 'ServerLibrary' %|| 
+    ( ( [%t] target_ex %( %S )% ) %==  true  ) ) 
+   [%f] collect_reg_all_dep_java %( %D )% 
+  %END-IF
+ %END-FOR
+//#UC END# *4714E24D030D*
+; // collect_reg_all_dep_java
+
+
+// генерация акцессоров
+//f _self_data_accessor
+: self_data_accessor OBJECT IN %S
+//#UC START# *4714E25C0119*
+//	[{%XU=h}[
+ %IF ( ( %X |U ) %== 'h' ) 
+  %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self data accessors
+   '// self data accessors'
+//	%f_collect_implemented_attrs(%S,"SERV_OPS")\
+   [%f] collect_implemented_attrs %( %S %, 'SERV_OPS' )% 
+//	[public:<{}{%f_can_be_accessed(%C)=true&%CV=PublicAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+   %IF-NOT-EMPTY
+    'public:'
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_h(%C,"SERV_OPS")
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_h %( %C %, 'SERV_OPS' )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_h(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_h %( %C )% 
+//	]]>][protected:<{}{%f_can_be_accessed(%C)=true&%CV=ProtectedAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    'protected:'
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_h(%C,"SERV_OPS")
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_h %( %C %, 'SERV_OPS' )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_h(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_h %( %C )% 
+//	]]>][private:<{}{%f_can_be_accessed(%C)=true&%CV=PrivateAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    'private:'
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_h(%C,"SERV_OPS")
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_h %( %C %, 'SERV_OPS' )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_h(%C,"SERV_OPS")
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_h %( %C %, 'SERV_OPS' )% 
+//	]]>]]][{%XU=cpp|%XU=i.h}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+ %END-IF
+ %IF ( ( %X |U ) %== 'cpp' %|| 
+   ( ( %X |U ) %== 'i.h'  ) ) 
+  %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self data accessors
+   '// self data accessors'
+//	%f_collect_implemented_attrs(%S,"SERV_OPS")\
+   [%f] collect_implemented_attrs %( %S %, 'SERV_OPS' )% 
+//	[<{}{%f_can_be_accessed(%C)=true&%CV=PublicAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_cpp(%C,"SERV_OPS")
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_cpp %( %C %, 'SERV_OPS' )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_cpp(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_cpp %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=ProtectedAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_cpp(%C,"SERV_OPS")
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_cpp %( %C %, 'SERV_OPS' )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_cpp(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_cpp %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=PrivateAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_cpp(%C,"SERV_OPS")
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_cpp %( %C %, 'SERV_OPS' )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_cpp(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_cpp %( %C )% 
+//	]]>]]][{%XU=java}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+ %END-IF
+ %IF ( ( %X |U ) %== 'java' ) 
+  %IF-NOT-EMPTY
+
+//	#	//////////////////////////////////////////////////////////////////////////////////////////
+   out_indent '	//////////////////////////////////////////////////////////////////////////////////////////'
+//	#	// self data accessors
+   out_indent '	// self data accessors'
+//	[<{}{%f_can_be_accessed(%C)=true&%CV=PublicAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_java(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_java %( %C )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_java(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_java %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=ProtectedAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_java(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_java %( %C )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_java(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_java %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=PrivateAccess&%t_is_static_accessor(%C)!=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_java(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_java %( %C )% 
+//	][{%t_need_rw(%C)=true}[{%t_need_ro(%C)=true}\n]%f_write_accessor_java(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+        #13#10 
+       %END-IF
+       [%f] write_accessor_java %( %C )% 
+//	]]>]]]
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+ %END-IF
+
+//f _static_data_accessor
+; // self_data_accessor
+
+: static_data_accessor OBJECT IN %S
+//	[{%XU=h}[
+ %IF ( ( %X |U ) %== 'h' ) 
+  %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static data accessors
+   '// static data accessors'
+//	[public:<{}{%f_can_be_accessed(%C)=true&%CV=PublicAccess&%t_is_static_accessor(%C)=true}{Sn}[
+   %IF-NOT-EMPTY
+    'public:'
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_h(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_h %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_h(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_h %( %C )% 
+//	]]>][protected:<{}{%f_can_be_accessed(%C)=true&%CV=ProtectedAccess&%t_is_static_accessor(%C)=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    'protected:'
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_h(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_h %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_h(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_h %( %C )% 
+//	]]>][private:<{}{%f_can_be_accessed(%C)=true&%CV=PrivateAccess&%t_is_static_accessor(%C)=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    'private:'
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_h(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_h %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_h(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_h %( %C )% 
+//	]]>]]][{%XU=cpp|%XU=i.h}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+ %END-IF
+ %IF ( ( %X |U ) %== 'cpp' %|| 
+   ( ( %X |U ) %== 'i.h'  ) ) 
+  %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static data accessors
+   '// static data accessors'
+//	[<{}{%f_can_be_accessed(%C)=true&%CV=PublicAccess&%t_is_static_accessor(%C)=true}{Sn}[
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_cpp(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_cpp %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_cpp(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_cpp %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=ProtectedAccess&%t_is_static_accessor(%C)=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_cpp(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_cpp %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_cpp(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_cpp %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=PrivateAccess&%t_is_static_accessor(%C)=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_cpp(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_cpp %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_cpp(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_cpp %( %C )% 
+//	]]>]]][{%XU=java}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+ %END-IF
+ %IF ( ( %X |U ) %== 'java' ) 
+  %IF-NOT-EMPTY
+
+//	#	//////////////////////////////////////////////////////////////////////////////////////////
+   out_indent '	//////////////////////////////////////////////////////////////////////////////////////////'
+//	#	// static data accessors
+   out_indent '	// static data accessors'
+//	[<{}{%f_can_be_accessed(%C)=true&%CV=PublicAccess&%t_is_static_accessor(%C)=true}{Sn}[
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_java(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_java %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_java(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_java %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=ProtectedAccess&%t_is_static_accessor(%C)=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_java(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_java %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_java(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_java %( %C )% 
+//	]]>][<{}{%f_can_be_accessed(%C)=true&%CV=PrivateAccess&%t_is_static_accessor(%C)=true}{Sn}[
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] can_be_accessed %( %C )% ) %==  true %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) %&& 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	[{%t_need_ro(%C)=true}%f_read_accessor_java(%C)
+      %IF ( ( [%t] need_ro %( %C )% ) %==  true ) 
+       [%f] read_accessor_java %( %C )% 
+//	][{%t_need_rw(%C)=true}%f_write_accessor_java(%C)
+      %END-IF
+      %IF ( ( [%t] need_rw %( %C )% ) %==  true ) 
+       [%f] write_accessor_java %( %C )% 
+//	]]>]]]
+      %END-IF
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+ %END-IF
+
+//f _read_accessor_java1
+; // static_data_accessor
+
+: read_accessor_java1 OBJECT IN %S
+//	#final %t_visibility(%S)[{%SS=static}static ]%f_attr(%S) %f_to_java(get_%SN) () {
+ out_indent 'final '
+ [%t] visibility %( %S )% %IF ( ( %S |S ) %== 'static' ) 
+  'static ' 
+ %END-IF
+ [%f] attr %( %S )% ' '
+ [%f] to_java %( 'get_'
+ %S |N )% ' () {'
+//	#	%U[{_GET_ACCESSOR}
+ out_indent '	'
+ %U%IF ( '_GET_ACCESSOR' ) 
+
+//	#	return %f_to_java([{%SS=static}s_]%SN)_;
+  out_indent '	return '
+  [%f] to_java %( %IF ( ( %S |S ) %== 'static' ) 
+   's_' 
+  %END-IF
+  %S |N )% '_;'
+//	#	]
+  out_indent '	' 
+ %END-IF
+ //	#}
+ out_indent '}'
+
+//f _write_accessor_java1
+; // read_accessor_java1
+
+: write_accessor_java1 OBJECT IN %S
+//	#final %t_visibility(%S)[{%SS=static}static ]void %f_to_java(set_%SN) (final %f_attr(%S) %f_to_java(%SN)) {
+ out_indent 'final '
+ [%t] visibility %( %S )% %IF ( ( %S |S ) %== 'static' ) 
+  'static ' 
+ %END-IF
+ 'void '
+ [%f] to_java %( 'set_'
+ %S |N )% ' (final '
+ [%f] attr %( %S )% ' '
+ [%f] to_java %( %S |N )% ') {'
+//	#	%U[{_SET_ACCESSOR}
+ out_indent '	'
+ %U%IF ( '_SET_ACCESSOR' ) 
+
+//	#	%f_to_java([{%SS=static}s_]%SN)_ = %f_to_java(%SN);
+  out_indent '	'
+  [%f] to_java %( %IF ( ( %S |S ) %== 'static' ) 
+   's_' 
+  %END-IF
+  %S |N )% '_ = '
+  [%f] to_java %( %S |N )% ';'
+//	#	]
+  out_indent '	' 
+ %END-IF
+ //	#}
+ out_indent '}'
+//#UC END# *4714E25C0119*
+; // write_accessor_java1
+
+
+// выводит полное имя элемента (с учетом нэймспейсов)
+//f _full_name
+: full_name OBJECT IN %S
+//#UC START# *4714E28A0251*
+//	<{}{%P{is namespace}=true}{r}%PN::>%SN
+ %FOR %ITEM-CONDITION ( ( %P get_up ( 'is namespace' ) ) %==  true ) 
+  ( 'r' ) 
+  %P |N '::' 
+ %END-FOR
+ %S |N 
+//#UC END# *4714E28A0251*
+; // full_name
+
+
+// что-то не понятно, используется при выводе элементов, которые используют данный
+//f _is_rg_derived
+: is_rg_derived OBJECT IN %S
+//#UC START# *4714E2F80109*
+//	%f_set_var(TEMP_ARG,1)[{<{}{%GU=%{TEMP_ARG}U}{C}>!=0|<{}{%RU=%{TEMP_ARG}U}{C}>!=0}{false}true]
+ [%f] set_var %( 'TEMP_ARG' %, 1 )% %IF ( 
+  %FOR %ITEM-CONDITION ( ( %G |U ) %== ( ( get_global_var ( 'TEMP_ARG' ) |U ) ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %R |U ) %== ( ( get_global_var ( 'TEMP_ARG' ) |U ) ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4714E2F80109*
+; // is_rg_derived
+
+
+// фукнция сравнивает output-файл элемента и его родителя, если они совпадают вызывает f_error
+//f _output_constraint
+: output_constraint OBJECT IN %S
+//#UC START# *4714E300004E*
+//	[{%So=%Po&"%So"!=""}%f_error("Error, because output file for element \<\<%SS\>\>%SN is equal to output file his parent (\<\<%PS\>\>%SN)")]
+ %IF ( ( %S |o ) %== ( %P |o ) %&& 
+   ( ( %S |o ) %!= ''  ) ) 
+  [%f] error %( 'Error' %, ' because output file for element <<'
+  %S |S '>>'
+  %S |N ' is equal to output file his parent (<<'
+  %P |S '>>'
+  %S |N ')' )% 
+ %END-IF
+//#UC END# *4714E300004E*
+; // output_constraint
+
+
+// выводит относительный путь до рутовой папки проекта
+//f _root_relative_path
+: root_relative_path OBJECT IN %S
+//#UC START# *4714E312032C*
+//	%f_clear_list(ROOT_RELATIVE_PATH)\
+ [%f] clear_list %( 'ROOT_RELATIVE_PATH' )% 
+//	%f_split_to_list(ROOT_RELATIVE_PATH,%Sd,/)\
+ [%f] split_to_list %( 'ROOT_RELATIVE_PATH' %, %S |d %, '/' )% 
+//	<{}{%f_is_empty(ROOT_RELATIVE_PATH)=false}{W}%f_pop_first_to_var(ROOT_RELATIVE_PATH,PATH_ITEM)%f_str_replace(%{PATH_ITEM}N,%{PATH_ITEM}N,../)>%f_clear_list(ROOT_RELATIVE_PATH)
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'ROOT_RELATIVE_PATH' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'ROOT_RELATIVE_PATH' %, 'PATH_ITEM' )% [%f] str_replace %( ( get_global_var ( 'PATH_ITEM' ) |N ) %, ( get_global_var ( 'PATH_ITEM' ) |N ) %, '../' )% 
+ %END-FOR
+ [%f] clear_list %( 'ROOT_RELATIVE_PATH' )% 
+//#UC END# *4714E312032C*
+; // root_relative_path
+
+
+// проверяет совпадает ли имя типа с заданным, с учетом, что тип может быть получен как typedef
+//f _check_if_type
+: check_if_type OBJECT IN %S
+//#UC START# *4715E8B102CE*
+//	[{"%SN"="%1N"|"%SM"="Typedef::Class"&"%S[%GN]"="%1N"}{false}true]
+ %IF ( ( %S |N ) %== ( %1 |N ) %|| 
+   ( ( %S |M ) %== 'Typedef::Class'  ) %&& 
+   ( ( %S%IF-NOT-EMPTY
+   %G |N 
+  %END-IF
+ )   %== ( %1 |N )  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4715E8B102CE*
+; // check_if_type
+
+
+// используется для преобразования в булевый тип результата сравнения строк (функци string_cmp)
+//f _true
+: true OBJECT IN %S
+//#UC START# *4715E8F701A5*
+//	[{%SN=1}{false}true]
+ %IF ( ( %S |N ) %== 1 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4715E8F701A5*
+; // true
+
+
+// возвращает true, если элемент реализует более одного серверного фасета или интерфейса
+//f _realize_more_than_one_facet
+: realize_more_than_one_facet OBJECT IN %S
+//#UC START# *4716ED3F0203*
+//	[{<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>!=0&<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>!=1}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %R |S ) %== 'ServerFacet' %|| 
+    ( ( %R |S ) %== 'ServerInterface'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %R |S ) %== 'ServerFacet' %|| 
+    ( ( %R |S ) %== 'ServerInterface'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 1  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4716ED3F0203*
+; // realize_more_than_one_facet
+
+
+// возвращает true, если элемент является сервантом или симпл-классом
+//f _servant_or_simpleclass
+: servant_or_simpleclass OBJECT IN %S
+//#UC START# *4716EDD70271*
+//	[{%SS=Servant|%S#f_IsSimpleClass()=true}{false}true]
+ %IF ( ( %S |S ) %== 'Servant' %|| 
+   ( ( %S %?f IsSimpleClass %( )% ) %==  true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4716EDD70271*
+; // servant_or_simpleclass
+
+
+// префикс IDL
+//f _idl_prefix
+: idl_prefix OBJECT IN %S
+//#UC START# *47189F5B02FD*
+//	garant.ru
+ 'garant.ru'
+//#UC END# *47189F5B02FD*
+; // idl_prefix
+
+
+// дампит спец. дефайны для IDL-файлов
+//f _idl_pre_include
+: idl_pre_include OBJECT IN %S
+//#UC START# *47189F7402AF*
+//	\#define CORBA3
+ '#define CORBA3'
+//#UC END# *47189F7402AF*
+; // idl_pre_include
+
+
+// начало тела функции
+//f _start_func_cpp
+: start_func_cpp OBJECT IN %S
+//#UC START# *47189F8001A5*
+//	[{"%S{debug log}"="true"|"%P{debug log}"="true"}\n\tLOG_D (("%1N"));]
+ %IF ( ( %S get_up ( 'debug log' ) ) %== true %|| 
+   ( ( %P get_up ( 'debug log' ) ) %== true  ) ) 
+  #13#10#9'LOG_D (("'
+  %1 |N '));' 
+ %END-IF
+//#UC END# *47189F8001A5*
+; // start_func_cpp
+
+
+// конец тела функции
+//f _end_func_cpp
+: end_func_cpp OBJECT IN %S
+//#UC START# *47189F89008C*
+//#UC END# *47189F89008C*
+; // end_func_cpp
+
+
+// проверяет использованность элемента
+//f _is_used
+: is_used OBJECT IN %S
+//#UC START# *4721B2480203*
+//	[{%M{force usage}=false&%S{force usage}=false&%ax=false}{true}false]
+ %IF ( ( %M get_up ( 'force usage' ) ) %==  false %&& 
+   ( ( %S get_up ( 'force usage' ) ) %==  false  ) %&& 
+   ( ( %a |x ) %==  false  ) ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *4721B2480203*
+; // is_used
+
+
+// Заголовок - шапка для h-файлов
+//f _h_header
+: h_header OBJECT IN %S
+//#UC START# *47382FE9009C*
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_set_var(DEFINE,"%f_str_replace(%f_get_define(%S), ,_)")\
+ [%f] set_var %( 'DEFINE' %, [%f] str_replace %( [%f] get_define %( %S )% %, ' ' %, '_' )% )% 
+//	\#ifndef %{DEFINE}N
+ '#ifndef '
+ ( get_global_var ( 'DEFINE' ) |N ) 
+//	\#define %{DEFINE}N
+ '#define '
+ ( get_global_var ( 'DEFINE' ) |N ) 
+//	%f_set_var(DEFINE,"")
+ [%f] set_var %( 'DEFINE' %, '' )% 
+
+//f _get_define
+; // h_header
+
+: get_define OBJECT IN %S
+//	__<{_}{"%Pr"="true"}{r}%f_to_upper(%PN)>_%f_to_upper(%SN)_%X{ifdef_suffix}__
+ '__'
+ %FOR %ITEM-SEPARATOR '_' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %P |r ) %== true ) 
+  ( 'r' ) 
+  [%f] to_upper %( %P |N )% 
+ %END-FOR
+ '_'
+ [%f] to_upper %( %S |N )% '_'
+ %X get_up ( 'ifdef_suffix' ) '__'
+//#UC END# *47382FE9009C*
+; // get_define
+
+
+// финальная часть h-файлов
+//f _h_footer
+: h_footer OBJECT IN %S
+//#UC START# *47382FF701E4*
+//	[
+ %IF-NOT-EMPTY
+
+//	%S%f_close_ifdef()]\
+  %S %f close_ifdef %( )% 
+ %END-IF
+//	%f_set_var(DEFINE,"%f_str_replace(%f_get_define(%S), ,_)")\
+ [%f] set_var %( 'DEFINE' %, [%f] str_replace %( [%f] get_define %( %S )% %, ' ' %, '_' )% )% 
+//	\n\#endif //%{DEFINE}N
+ #13#10'#endif //'
+ ( get_global_var ( 'DEFINE' ) |N ) 
+//	%f_footer(%S,"false")%f_set_var(DEFINE,"")
+ [%f] footer %( %S %, false )% [%f] set_var %( 'DEFINE' %, '' )% 
+//#UC END# *47382FF701E4*
+; // h_footer
+
+
+// сортирует список строк по длине:
+// %f_sort_strings_by_length(%S,"LIST_ID"), где LIST_ID - идентификатор списка строк
+//f _sort_strings_by_length
+: sort_strings_by_length OBJECT IN %S
+//#UC START# *48A16F79022A*
+//определяем максимальное число разрядов в числе = длине строки элемента списка
+//например для списка "abcd", "abcdefgadfer" MAX_LEN = 2 (str_length(str_length"abcdefgadfer")))
+//	%f_set_var(MAX_LEN,"0")\
+ [%f] set_var %( 'MAX_LEN' %, 0 )% 
+//	%f_clear_list(TEMP_SORT_STRINGS_BY_LENGTH)\
+ [%f] clear_list %( 'TEMP_SORT_STRINGS_BY_LENGTH' )% 
+//	%f_copy_list(%1N,TEMP_SORT_STRINGS_BY_LENGTH)\
+ [%f] copy_list %( %1 |N %, 'TEMP_SORT_STRINGS_BY_LENGTH' )% 
+//	<{}{%f_is_empty(TEMP_SORT_STRINGS_BY_LENGTH)=false}{W}[%f_pop_first_to_var(TEMP_SORT_STRINGS_BY_LENGTH,ITEM)\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP_SORT_STRINGS_BY_LENGTH' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TEMP_SORT_STRINGS_BY_LENGTH' %, 'ITEM' )% 
+//	[{%f_number_cmp("%{MAX_LEN}N","%f_string_length(%f_string_length(%{ITEM}N))","\<")=1}%f_set_var(MAX_LEN,"%f_string_length(%f_string_length(%{ITEM}N))")]]>\
+   %IF ( ( [%f] number_cmp %( ( get_global_var ( 'MAX_LEN' ) |N ) %, [%f] string_length %( [%f] string_length %( ( get_global_var ( 'ITEM' ) |N ) )% )% %, '<' )% ) %== 1 ) 
+    [%f] set_var %( 'MAX_LEN' %, [%f] string_length %( [%f] string_length %( ( get_global_var ( 'ITEM' ) |N ) )% )% )% 
+   %END-IF
+  %END-IF
+ %END-FOR
+//	%f_sort_list(%1N,"%f_formated_len(%S,"%{MAX_LEN}N")")
+ [%f] sort_list %( %1 |N %, [%f] formated_len %( %S %, ( get_global_var ( 'MAX_LEN' ) |N ) )% )% 
+
+//"добивает" слева число, записанное в виде строки нулями, чтобы длина получившеёся строки была равна %1N
+//f _formated_len
+; // sort_strings_by_length
+
+: formated_len OBJECT IN %S
+//	%f_set_var(KEY_LEN,"%f_string_length(%f_string_length(%SN))")\
+ [%f] set_var %( 'KEY_LEN' %, [%f] string_length %( [%f] string_length %( %S |N )% )% )% 
+//	%f_set_var(INDEX,"%f_evaluate(%1N - %{KEY_LEN}N)")\
+ [%f] set_var %( 'INDEX' %, [%f] evaluate %( %1 |N ' - '
+ ( get_global_var ( 'KEY_LEN' ) |N ) )% )% 
+//	<{}{%f_number_cmp("%{INDEX}N","0","\>")=1}{W}%f_dump_0(%S)%f_set_var(INDEX,"%f_evaluate(%{INDEX}N - 1)")>%f_string_length(%SN)
+ %FOR %ITEM-CONDITION ( ( [%f] number_cmp %( ( get_global_var ( 'INDEX' ) |N ) %, 0 %, '>' )% ) %== 1 ) 
+  ( 'W' ) 
+  [%f] dump_0 %( %S )% [%f] set_var %( 'INDEX' %, [%f] evaluate %( ( get_global_var ( 'INDEX' ) |N ) ' - 1' )% )% 
+ %END-FOR
+ [%f] string_length %( %S |N )% 
+//#UC END# *48A16F79022A*
+; // formated_len
+
+
+// сортирует список чисел, представленых в виде строк (т.е "1","2","3"):
+// %fsort_strings_as_integer(%S,"LIST_ID"), где LIST_ID - идентификатор списка, который нужно
+// отсортировать
+//f _sort_strings_as_integer
+: sort_strings_as_integer OBJECT IN %S
+//#UC START# *48A16FD003A9*
+//разбиваем исходный список на 2: один содержащем положиетльные только положительные числа, другой - только отрицательные
+//	%f_clear_list(POSITIVE)\
+ [%f] clear_list %( 'POSITIVE' )% 
+//	%f_clear_list(NEGATIVE)\
+ [%f] clear_list %( 'NEGATIVE' )% 
+//	<{}{%f_is_empty(%1N)=false}{W}[%f_pop_first_to_var(%1N,ITEM)\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( %1 |N )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( %1 |N %, 'ITEM' )% 
+//	[{%f_number_cmp("%{ITEM}N","0","\<")=1}{%f_add_to_list(POSITIVE,"%{ITEM}N")}%f_add_to_list(NEGATIVE,"%f_str_replace(%{ITEM}N,-,)")]]>\
+   %IF ( ( [%f] number_cmp %( ( get_global_var ( 'ITEM' ) |N ) %, 0 %, '<' )% ) %== 1 ) 
+    %ELSE
+     [%f] add_to_list %( 'POSITIVE' %, ( get_global_var ( 'ITEM' ) |N ) )% 
+    %THEN
+    [%f] add_to_list %( 'NEGATIVE' %, [%f] str_replace %( ( get_global_var ( 'ITEM' ) |N ) %, '-' %, )% )% 
+   %END-IF
+  %END-IF
+ %END-FOR
+//соритурем два полученных списка
+//	%f_sort_strings_as_unsigned_integer_impl(%S,"POSITIVE")\
+ [%f] sort_strings_as_unsigned_integer_impl %( %S %, 'POSITIVE' )% 
+//	%f_sort_strings_as_unsigned_integer_impl(%S,"NEGATIVE")\
+ [%f] sort_strings_as_unsigned_integer_impl %( %S %, 'NEGATIVE' )% //	%f_dump_list(%S,"NEGATIVE")
+
+//сливаем их в исходный список
+//	%f_clear_list(%1N)\
+ [%f] clear_list %( %1 |N )% 
+//	<{}{%f_is_empty(NEGATIVE)=false}{W}[%f_pop_last_to_var(NEGATIVE,ITEM)%f_add_to_list(%1N,"-%{ITEM}N")]>\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'NEGATIVE' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_last_to_var %( 'NEGATIVE' %, 'ITEM' )% [%f] add_to_list %( %1 |N %, '-'
+   ( get_global_var ( 'ITEM' ) |N ) )% 
+  %END-IF
+ %END-FOR
+//	<{}{%f_is_empty(POSITIVE)=false}{W}[%f_pop_first_to_var(POSITIVE,ITEM)%f_add_to_list(%1N,"%{ITEM}N")]>
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'POSITIVE' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'POSITIVE' %, 'ITEM' )% [%f] add_to_list %( %1 |N %, ( get_global_var ( 'ITEM' ) |N ) )% 
+  %END-IF
+ %END-FOR
+//	%f_dump_list(%S,"%1N")
+
+//f _sort_strings_as_unsigned_integer_impl
+; // sort_strings_as_integer
+
+: sort_strings_as_unsigned_integer_impl OBJECT IN %S
+//	%f_set_var(MAX_LEN,"0")\
+ [%f] set_var %( 'MAX_LEN' %, 0 )% 
+//	%f_clear_list(TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL)\
+ [%f] clear_list %( 'TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL' )% 
+//	%f_copy_list(%1N,TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL)\
+ [%f] copy_list %( %1 |N %, 'TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL' )% 
+//	<{}{%f_is_empty(TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL)=false}{W}[%f_pop_first_to_var(TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL,ITEM)\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TEMP_SORT_STRINGS_AS_UNSIGNED_INTEGER_IMPL' %, 'ITEM' )% 
+//	[{%f_number_cmp("%{MAX_LEN}N","%f_string_length(%{ITEM}N)","\<")=1}%f_set_var(MAX_LEN,"%f_string_length(%{ITEM}N)")]]>\
+   %IF ( ( [%f] number_cmp %( ( get_global_var ( 'MAX_LEN' ) |N ) %, [%f] string_length %( ( get_global_var ( 'ITEM' ) |N ) )% %, '<' )% ) %== 1 ) 
+    [%f] set_var %( 'MAX_LEN' %, [%f] string_length %( ( get_global_var ( 'ITEM' ) |N ) )% )% 
+   %END-IF
+  %END-IF
+ %END-FOR
+//	%f_sort_list(%1N,"%f_formated_len_for_uint(%S,"%{MAX_LEN}N")")
+ [%f] sort_list %( %1 |N %, [%f] formated_len_for_uint %( %S %, ( get_global_var ( 'MAX_LEN' ) |N ) )% )% 
+
+//f _formated_len_for_uint
+; // sort_strings_as_unsigned_integer_impl
+
+: formated_len_for_uint OBJECT IN %S
+//	%f_set_var(KEY_LEN,"%f_string_length(%SN)")\
+ [%f] set_var %( 'KEY_LEN' %, [%f] string_length %( %S |N )% )% 
+//	%f_set_var(INDEX,"%f_evaluate(%1N - %{KEY_LEN}N)")\
+ [%f] set_var %( 'INDEX' %, [%f] evaluate %( %1 |N ' - '
+ ( get_global_var ( 'KEY_LEN' ) |N ) )% )% 
+//	<{}{%f_number_cmp("%{INDEX}N","0","\>")=1}{W}%f_dump_0(%S)%f_set_var(INDEX,"%f_evaluate(%{INDEX}N - 1)")>%SN
+ %FOR %ITEM-CONDITION ( ( [%f] number_cmp %( ( get_global_var ( 'INDEX' ) |N ) %, 0 %, '>' )% ) %== 1 ) 
+  ( 'W' ) 
+  [%f] dump_0 %( %S )% [%f] set_var %( 'INDEX' %, [%f] evaluate %( ( get_global_var ( 'INDEX' ) |N ) ' - 1' )% )% 
+ %END-FOR
+ %S |N 
+
+//повторяет переданную строку n раз и выводит результат
+//например: %f_repeat_str("1","5")
+//выведет: 11111
+//f _repeat_str
+; // formated_len_for_uint
+
+: repeat_str OBJECT IN %S
+//	[{%f_number_cmp("%1N","0","\<")=1}%f_error("_repeat_str: repeate count must be positive number")]\
+ %IF ( ( [%f] number_cmp %( %1 |N %, 0 %, '<' )% ) %== 1 ) 
+  [%f] error %( '_repeat_str: repeate count must be positive number' )% 
+ %END-IF
+//	%f_set_var(__COUNTER__,"%1N")\
+ [%f] set_var %( '__COUNTER__' %, %1 |N )% 
+//	<{}{%f_number_cmp("%{__COUNTER__}N","0","\>")=1}{W}%f_set_var(__COUNTER__,"%f_evaluate(%{__COUNTER__}N - 1)")%SN>
+ %FOR %ITEM-CONDITION ( ( [%f] number_cmp %( ( get_global_var ( '__COUNTER__' ) |N ) %, 0 %, '>' )% ) %== 1 ) 
+  ( 'W' ) 
+  [%f] set_var %( '__COUNTER__' %, [%f] evaluate %( ( get_global_var ( '__COUNTER__' ) |N ) ' - 1' )% )% %S |N 
+ %END-FOR
+//#UC END# *48A16FD003A9*
+; // repeat_str
+
+
+// Правила преобразования спецификатора параметра для read-only и read-write операций. Для read-
+// only все не out параметры преобразуются в in - параметры, для read-write - преобразование не
+// выолняется.
+//t _r_w_param_specificator
+<<transformator>> r_w_param_specificator OBJECT IN %S
+//#UC START# *4979637901EB*
+//c                   {read-only}         {read-write}
+//r "%SN"!="out":     {in}                {[{}{in}%SN]}
+//r ""="":            {[{}{in}%SN]}       {[{}{in}%SN]N}
+//#UC END# *4979637901EB*
+; // r_w_param_specificator
+
+
+// мержит строки с использованием заданного разделителя (пустые строки, кроме первой исключаются):
+// %0 - разделитель
+// %1..%9 - строки
+// Например результат работы %f_string(":","A","","B") -> A:B
+//f _merge_string
+: merge_string OBJECT IN %S
+//#UC START# *4979935E01C9*
+//	%1N[{"%2N"!=""}%0N%2N][{"%3N"!=""}%0N%3N][{"%4N"!=""}%0N%4N][{"%5N"!=""}%0N%5N]\
+//	[{"%6N"!=""}%0N%6N][{"%7N"!=""}%0N%8N][{"%9N"!=""}%0N%9N]
+//	%f_clear_list(__FUNCTION_ARGS__)\
+ [%f] clear_list %( '__FUNCTION_ARGS__' )% 
+//	%f_add_to_function_args_list("%1N")\
+ [%f] add_to_function_args_list %( %1 |N )% 
+//	%f_add_to_function_args_list("%2N")\
+ [%f] add_to_function_args_list %( %2 |N )% 
+//	%f_add_to_function_args_list("%3N")\
+ [%f] add_to_function_args_list %( %3 |N )% 
+//	%f_add_to_function_args_list("%4N")\
+ [%f] add_to_function_args_list %( %4 |N )% 
+//	%f_add_to_function_args_list("%5N")\
+ [%f] add_to_function_args_list %( %5 |N )% 
+//	%f_add_to_function_args_list("%6N")\
+ [%f] add_to_function_args_list %( %6 |N )% 
+//	%f_add_to_function_args_list("%7N")\
+ [%f] add_to_function_args_list %( %7 |N )% 
+//	%f_add_to_function_args_list("%8N")\
+ [%f] add_to_function_args_list %( %8 |N )% 
+//	%f_add_to_function_args_list("%9N")\
+ [%f] add_to_function_args_list %( %9 |N )% 
+//	<{%0N}{%f_is_empty(__FUNCTION_ARGS__)=false}{W}[%f_pop_first_to_var(__FUNCTION_ARGS__,__F_ARG__)%{__F_ARG__}N]>\
+ %FOR %ITEM-SEPARATOR %0 |N ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( '__FUNCTION_ARGS__' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( '__FUNCTION_ARGS__' %, '__F_ARG__' )% ( get_global_var ( '__F_ARG__' ) |N ) 
+  %END-IF
+ %END-FOR
+//	%f_clear_list(__FUNCTION_ARGS__)
+ [%f] clear_list %( '__FUNCTION_ARGS__' )% 
+
+//f _add_to_function_args_list
+; // merge_string
+
+: add_to_function_args_list OBJECT IN %S
+//	[{"%SN"!=""}%f_add_to_list(__FUNCTION_ARGS__,"%SN")]
+ %IF ( ( %S |N ) %!= '' ) 
+  [%f] add_to_list %( '__FUNCTION_ARGS__' %, %S |N )% 
+ %END-IF
+//#UC END# *4979935E01C9*
+; // add_to_function_args_list
+
+
+// конвертирует сроку согласну стилю оформления текущего языка
+//t _language_style
+<<transformator>> language_style OBJECT IN %S
+//#UC START# *497993D203D1*
+//c                                 {}
+//r {%X{lid}=cpp|%X{lid}=idl}:      {%SN}
+//r {%X{lid}=java}:                 {%f_to_java(%SN)}
+//r {""=""}:                        {%f_to_borland(%SN)}
+//#UC END# *497993D203D1*
+; // language_style
+
+
+// Возвращает true если проект использует библиотеку с данными, false в противном случае.
+//f _use_db_lib
+: use_db_lib OBJECT IN %S
+//#UC START# *49B0E76A024C*
+//	[{<{}{%dS=Library&%d%f_check_db_data()=true}{C}>!=0}{false}true]]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %d |S ) %== 'Library' %&& 
+    ( ( %d %f check_db_data %( )% ) %==  true  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+ ']'
+//#UC END# *49B0E76A024C*
+; // use_db_lib
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

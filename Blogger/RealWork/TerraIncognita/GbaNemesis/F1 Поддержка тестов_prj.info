@@ -1,0 +1,166 @@
+F1 Поддержка тестов : Project - Поддержка тестирования проектов семейства F1
+version: 200
+F1 Words : Library - Слова словаря для продуктов семейства F1
+ TestsTuning : Unit - 
+  F1Test : Impurity - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Words : ScriptKeywords - 
+  AttributeSearch : ScriptKeyword - 
+  MainMenu : ScriptKeyword - 
+  Ok : ScriptKeyword - 
+  OpenDocument : ScriptKeyword - 
+    : uses - 
+  F1WordsUser : Impurity - 
+    : uses - 
+    : uses - 
+  f1WordsPack : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TkwDocumentsCacheClear : SimpleClass - 
+    : uses - 
+  TkwFiltersList : SimpleClass - 
+  TkwTimeMachineSetDate : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TkwExportHelp : SimpleClass - 
+    : uses - 
+    : uses - 
+  f1_BaseDate : ScriptKeyword - Кладёт на стек дату базы в строковом формате
+    : uses - 
+  f1_ComplectName : ScriptKeyword - 
+    : uses - 
+  f1_ComplectOwner : ScriptKeyword - 
+    : uses - 
+ Integration : ScriptKeywords - 
+  Integration : ScriptKeywordsPack - 
+    : uses - 
+  integration_OpenLink : ScriptKeyword - 
+    : uses - 
+    : uses - 
+F1 Shell Words : Library - Слова словаря специфичные именно для оболочки F1
+ F1 Shell Words : ScriptKeywords - 
+  F1ShellWordsPack : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  ExTextFormWord : Impurity - 
+   DoTextForm : method - 
+   TExTextFormHack : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TkwDocumentSetBookmark : SimpleClass - 
+    : uses - 
+  TkwF1WasBeep : SimpleClass - 
+    : uses - 
+  TkwF1ImportConsultation : SimpleClass - 
+    : uses - 
+    : uses - 
+  TkwConfigRestore : SimpleClass - 
+    : uses - 
+  TkwStyleTableRestore : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+  kwDiffFormWord : Impurity - 
+   TDiffFormHack : SimpleClass - 
+   DoDiffForm : method - 
+  kwDiffIteratorWord : Impurity - 
+   DoIterator : method - 
+  TkwDiffIteratorNext : SimpleClass - 
+  TkwDiffIteratorHasNext : SimpleClass - 
+  TkwDiffIteratorHasPrev : SimpleClass - 
+  TkwDiffIteratorPrev : SimpleClass - 
+  TkwTextFormSetNeedShowIntranetWarning : SimpleClass - 
+  TkwTextFormGetDocumentID : SimpleClass - Возвращает идентификатор текущего открытого документа
+    : uses - 
+  TkwOpenSituationCard : SimpleClass - открыть ППС 6.х (Стандартная)
+    : uses - 
+  TkwOpenOldSituationCard : SimpleClass - открыть ППС 5.х (Преемственная)
+    : uses - 
+  QueryCardFormWord : Impurity - 
+   DoQueryCardForm : abstractmethod - 
+  QueryCard_SetCanSaveState : ScriptKeyword - Устанавливает флаг того может ли карточка запроса писать своё состояние
+  document_LikeState : ScriptKeyword - 
+  browse : ScriptKeyword - открывает ссылку в браузере
+    : uses - 
+  GetEncryptedComplectId : ScriptKeyword - 
+    : uses - 
+    : uses - 
+    : uses - 
+ TaskPanelWords : ScriptKeywords - 
+  TaskPanelWords : ScriptKeywordsPack - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  vtHideFieldFromStackWord : Impurity - 
+   DoHideField : method - 
+   TvtHideFieldHack : SimpleClass - 
+  pop_HideField_IsExpanded : ScriptKeyword - 
+  pop_HideField_SetExpanded : ScriptKeyword - 
+  nscTaskPanelWord : Impurity - 
+   DoTaskPanel : method - 
+  pop_TaskPanel_GetCount : ScriptKeyword - 
+  pop_TaskPanel_GetHideField : ScriptKeyword - 
+  pop_HideField_GetCaption : ScriptKeyword - 
+  RegisterTaskPanelClasses : UtilityPack - 
+   new_ini_op : ini - 
+    : uses - 
+    : uses - 
+ TreeViewWords : ScriptKeywords - 
+  kwNscTreeViewWord : Impurity - 
+   DoWithNscTreeView : method - 
+  pop_TreeView_ExportSelectionWithFormat : ScriptKeyword - 
+   TPrimListOptionsFormHack : SimpleClass - 
+    : uses - 
+    : uses - 
+  TreeViewWordsPack : ScriptKeywordsPack - 
+    : uses - 
+F1 Shell Tests Core : TestLibrary - 
+ Core : TestUnit - 
+  InsiderOwnScripter : TestCase - 
+    : uses - undefined
+  TF1AutoScripter : TestCase - Скрипт с поддержкой авторегистрации
+    : uses - 
+    : uses - 
+    : uses - undefined
+F1 AutoTests : Library - 
+ AutoTests : Unit - 
+  TF1AutoTestSuite : SimpleClass - 
+   Register : static - 
+    : uses - 
+    : uses - 

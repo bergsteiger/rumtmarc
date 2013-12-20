@@ -1,0 +1,8 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Код "реальной" скриптовой машины.<br />
+<br />
+Вот тут - <a href="http://18delphi.blogspot.ru/2013/11/gui-back-to-basics_22.html">http://18delphi.blogspot.ru/2013/11/gui-back-to-basics_22.html</a> я писал про устройство скриптовой машины.<br />
+<br />
+А вот тут - <a href="https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/RealWork/ScriptEngine/">https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/RealWork/ScriptEngine/</a> я решил выложить код "реальной" скриптовой машины.<br />
+<br />
+Он - НЕ скомпилируется. Но думаю, что ОСОБЕННО пытливым читателям - будет интересен.</div>

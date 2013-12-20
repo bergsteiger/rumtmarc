@@ -1,0 +1,439 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMModelLayer/Reflectable/ReflectablePureMixIn.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMModelLayer::Reflectable::ReflectablePureMixIn
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ReflectablePureMixIn::Class
+implementation @ <<ReflectablePureMixIn>>
+//= PureMixIn::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: ReflectablePureMixIn::Class::readonly::Attribute
+; // st_space_key
+
+end. // <<ReflectablePureMixIn>>
+
+implementation @ :: <<ReflectablePureMixIn>> <<readonly>> ;
+//= AbstractFacet::Class::readonly::Attribute
+//= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for501915BD0369*
+//#UC END# *46E6D4BB0339for501915BD0369*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for501915BD0369*
+//#UC END# *47022BBE0261for501915BD0369*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for501915BD0369*
+//#UC END# *47022C0F01E4for501915BD0369*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor501915BD0369*
+//#UC END# *47022CB8034Bfor501915BD0369*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor501915BD0369*
+//#UC END# *47022CCF00EAfor501915BD0369*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor501915BD0369*
+//#UC END# *470321C1038Afor501915BD0369*
+; // fctr.java
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for501915BD0369*
+//#UC END# *4774D2A20372for501915BD0369*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor501915BD0369*
+//#UC END# *49F5795900ECfor501915BD0369*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for501915BD0369*
+//#UC END# *4DE79AFC0030for501915BD0369*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor501915BD0369*
+//#UC END# *4E65F581015Afor501915BD0369*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractFacet::Class::readonly::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+ call-inherited:: 'AbstractFacet::readonly::Attribute' wiki_up_print %( )%
+ %IF ( ( %S get_up ( 'reflectable' ) ) %!= ( %S get_up_def ( 'reflectable' ) ) ) 
+  [%f] up_prefix %( %S )% ' *reflectable* = *'
+  %S get_up ( 'reflectable' ) '*'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for501915BD0369*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for501915BD0369*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for501915BD0369*
+//#UC END# *470484D50138for501915BD0369*
+; // wiki_up_add_gen
+
+
+//: ReflectablePureMixIn::Class::property::Attribute
+end. // :: <<ReflectablePureMixIn>> <<readonly>> ;
+
+implementation @ :: <<ReflectablePureMixIn>> <<property>> ;
+//= AbstractFacet::Class::property::Attribute
+//= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for501915CD01DE*
+//#UC END# *46E6D4BB0339for501915CD01DE*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for501915CD01DE*
+//#UC END# *47022BBE0261for501915CD01DE*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for501915CD01DE*
+//#UC END# *47022C0F01E4for501915CD01DE*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor501915CD01DE*
+//#UC END# *47022CB8034Bfor501915CD01DE*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor501915CD01DE*
+//#UC END# *47022CCF00EAfor501915CD01DE*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor501915CD01DE*
+//#UC END# *470321C1038Afor501915CD01DE*
+; // fctr.java
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for501915CD01DE*
+//#UC END# *4774D2A20372for501915CD01DE*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor501915CD01DE*
+//#UC END# *49F5795900ECfor501915CD01DE*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for501915CD01DE*
+//#UC END# *4DE79AFC0030for501915CD01DE*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor501915CD01DE*
+//#UC END# *4E65F581015Afor501915CD01DE*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractFacet::Class::property::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+ call-inherited:: 'AbstractFacet::property::Attribute' wiki_up_print %( )%
+ %IF ( ( %S get_up ( 'reflectable' ) ) %!= ( %S get_up_def ( 'reflectable' ) ) ) 
+  [%f] up_prefix %( %S )% ' *reflectable* = *'
+  %S get_up ( 'reflectable' ) '*'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for501915CD01DE*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for501915CD01DE*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for501915CD01DE*
+//#UC END# *470484D50138for501915CD01DE*
+; // wiki_up_add_gen
+
+
+//: ReflectablePureMixIn::Class::writeonly::Attribute
+end. // :: <<ReflectablePureMixIn>> <<property>> ;
+
+implementation @ :: <<ReflectablePureMixIn>> <<writeonly>> ;
+//= AbstractFacet::Class::writeonly::Attribute
+//= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for501915DD0234*
+//#UC END# *46E6D4BB0339for501915DD0234*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for501915DD0234*
+//#UC END# *47022BBE0261for501915DD0234*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for501915DD0234*
+//#UC END# *47022C0F01E4for501915DD0234*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor501915DD0234*
+//#UC END# *47022CB8034Bfor501915DD0234*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor501915DD0234*
+//#UC END# *47022CCF00EAfor501915DD0234*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor501915DD0234*
+//#UC END# *470321C1038Afor501915DD0234*
+; // fctr.java
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for501915DD0234*
+//#UC END# *4774D2A20372for501915DD0234*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor501915DD0234*
+//#UC END# *49F5795900ECfor501915DD0234*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for501915DD0234*
+//#UC END# *4DE79AFC0030for501915DD0234*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor501915DD0234*
+//#UC END# *4E65F581015Afor501915DD0234*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractFacet::Class::writeonly::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+ call-inherited:: 'AbstractFacet::writeonly::Attribute' wiki_up_print %( )%
+ %IF ( ( %S get_up ( 'reflectable' ) ) %!= ( %S get_up_def ( 'reflectable' ) ) ) 
+  [%f] up_prefix %( %S )% ' *reflectable* = *'
+  %S get_up ( 'reflectable' ) '*'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for501915DD0234*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for501915DD0234*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for501915DD0234*
+//#UC END# *470484D50138for501915DD0234*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<ReflectablePureMixIn>> <<writeonly>> ;
+

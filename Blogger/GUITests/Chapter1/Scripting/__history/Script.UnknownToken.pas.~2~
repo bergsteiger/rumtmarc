@@ -1,0 +1,23 @@
+unit Script.UnknownToken;
+
+interface
+
+uses
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TscriptUnknownToken = class(TscriptWord)
+  private
+   f_String : String;
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+  public
+   constructor Create(const aString: String);
+   class function Make(const aString: String): IscriptWord;
+ end;//TscriptUnknownToken
+
+implementation
+
+end.

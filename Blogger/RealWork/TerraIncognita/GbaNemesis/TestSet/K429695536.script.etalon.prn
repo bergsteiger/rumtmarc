@@ -1,0 +1,260 @@
+<html>
+<style type="text/css">
+body {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.50 in;
+text-align: justify;
+}
+pre {
+margin: 0; margin-left: 0 in;text-indent : 0 in;text-align: left;
+}
+td {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: justify;
+font-family : Arial;
+}
+p {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.50 in;
+text-align: justify;
+}
+.ColorSelection {
+font-weight: Bold;
+color: #26282F;
+}
+a {
+color: #106BBE;
+}
+h1 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+h2 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+h3 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+h4 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+.ArticleHeader {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+margin-left: 1.12 in;
+text-indent : -0.62 in;
+text-align: justify;
+}
+.NormalNote {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+margin-left: 0.12 in;
+margin-right: 0.12 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.TxtComment {
+background-color: #F0F0F0;
+font-family:  Arial;
+font-size: 13pt;
+color: #353842;
+margin: 0 in;
+margin-left: 0.12 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.VersionInfo {
+font-style: Italic;
+background-color: #F0F0F0;
+font-family:  Arial;
+font-size: 13pt;
+color: #353842;
+margin: 0 in;
+margin-left: 0.12 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.NormalSBSLeft {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.HFLeft {
+font-family:  Arial;
+font-size: 8pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.NormalSBSRight {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: right;
+}
+.HFRight {
+font-family:  Arial;
+font-size: 8pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: right;
+}
+.UserComment {
+background-color: #FFDFE0;
+font-family:  Arial;
+font-size: 13pt;
+color: #353842;
+margin: 0 in;
+margin-left: 0.12 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.ANSIDOS {
+font-family:  Courier New;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+}
+.FoundWords {
+background-color: #FFF580;
+}
+.NotApplied {
+background-color: #D8EDE8;
+color: #000000;
+}
+.NormalTable {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.NormalOEM {
+font-family:  Courier New;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+}
+.Contents {
+font-family:  Courier New;
+font-size: 13pt;
+margin: 0 in;
+margin-left: 0.10 in;
+text-indent : 0.00 in;
+}
+.ToLeft {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.HyperLinkCont {
+color: #106BBE;
+}
+.DictEntry {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+margin-right: 0.08 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.NormalTableList {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.35 in;
+text-align: justify;
+}
+.TechComment {
+background-color: #FFFFA6;
+font-family:  Arial;
+font-size: 13pt;
+color: #463F31;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.TxtOutOfDate {
+color: #666600;
+text-decoration: line-through;
+}
+</style>
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<META NAME="Generator" CONTENT="ГАРАНТ аэро">
+<HEAD>
+<TITLE>Оглавление</TITLE>
+</HEAD>
+<body>
+<a name="0"></a>
+<h1>Налоговый кодекс Российской Федерации (НК РФ) (с изменениями и дополнениями)</h1>
+<h1>Часть первая</h1>
+<h1>Раздел I. Общие положения (ст.ст. 1 - 18)</h1>
+<h1>Глава 1. Законодательство о налогах и сборах и иные нормативные правовые акты о налогах и сборах (ст.ст. 1 - 11)</h1>
+<h1>Статья 1. Законодательство Российской Федерации о налогах и сборах, законодательство субъектов Российской Федерации о налогах и сборах, нормативные правовые акты представительных органов муниципальных образований о налогах и сборах</h1>
+<p>1. Законодательство Российской Федерации о налогах и сборах состоит из настоящего Кодекса и принятых в соответствии с ним федеральных законов о налогах и сборах.</p>
+<p>2. Настоящий Кодекс устанавливает систему налогов и сборов, а также общие принципы налогообложения и сборов в Российской Федерации, в том числе:</p>
+<p>1) виды налогов и сборов, взимаемых в Российской Федерации;</p>
+<p>2) основания возникновения (изменения, прекращения) и порядок исполнения обязанностей по уплате налогов и сборов;</p>
+<p>3) принципы установления, введения в действие и прекращения действия ранее введенных налогов субъектов Российской Федерации и местных налогов;</p>
+<p>4) права и обязанности налогоплательщиков, налоговых органов и других участников отношений, регулируемых законодательством о налогах и сборах;</p>
+<p>5) формы и методы налогового контроля;</p>
+<p>6) ответственность за совершение налоговых правонарушений;</p>
+<p>7) порядок обжалования актов налоговых органов и действий (бездействия) их должностных лиц.</p>
+<p>3. Действие настоящего Кодекса распространяется на отношения по установлению, введению и взиманию сборов в тех случаях, когда это прямо предусмотрено настоящим Кодексом.</p>
+<p>4. Законодательство субъектов Российской Федерации о налогах и сборах состоит из законов о налогах субъектов Российской Федерации, принятых в соответствии с настоящим Кодексом.</p>
+<p>5. Нормативные правовые акты муниципальных образований о местных налогах и сборах принимаются представительными органами муниципальных образований в соответствии с настоящим Кодексом.</p>
+<p class="TxtComment">ГАРАНТ:</p>
+<p class="TxtComment"><a href="#12">Статьями 12</a> и <a href="#15">15</a> настоящего Кодекса установление местных сборов не предусмотрено</p>
+<pre>&nbsp;</pre>
+<p>6. Указанные в настоящей статье законы и другие нормативные правовые акты именуются в тексте настоящего Кодекса &quot;законодательство о налогах и сборах&quot;.</p>
+<pre>&nbsp;</pre>
+<p class="ArticleHeader"><font class="ColorSelection">Статья 2.</font> Отношения, регулируемые законодательством о налогах и сборах</p>
+<p class="TxtComment">ГАРАНТ:</p>
+<p class="TxtComment">См. правовые акты, схемы и комментарии к статье 2 НК РФ</p>
+<pre>&nbsp;</pre>
+<p>Законодательство о налогах и сборах регулирует властные отношения по установлению, введению и взиманию налогов и сборов в Российской Федерации, а также отношения, возникающие в процессе осуществления налогового контроля, обжалования актов налоговых органов, действий (бездействия) их должностных лиц и привлечения к ответственности за совершение налогового правонарушения.</p>
+<p>К отношениям по установлению, введению и взиманию таможенных платежей, а также к отношениям, возникающим в процессе осуществления контроля за уплатой таможенных платежей, обжалования актов таможенных органов, действий (бездействия) их должностных лиц и привлечения к ответственности виновных лиц, законодательство о налогах и сборах не применяется, если иное не предусмотрено настоящим Кодексом.</p>
+<pre>&nbsp;</pre>
+<p class="TxtComment">Информация об изменениях:</p>
+<p class="VersionInfo">Федеральным законом от 29 июля 2004 г. N 95-ФЗ в статью 3 настоящего Кодекса внесены изменения, вступающие в силу с 1 января 2005 г.</p>
+</body>
+</html>
+

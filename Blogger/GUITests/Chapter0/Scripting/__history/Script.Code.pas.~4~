@@ -1,0 +1,14 @@
+unit Script.Code;
+
+interface
+
+uses
+ System.Collections.Generic,
+ Script.WordsInterfaces
+ ;
+
+
+
+implementation
+
+end.

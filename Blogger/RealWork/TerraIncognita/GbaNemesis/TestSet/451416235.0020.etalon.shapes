@@ -1,0 +1,604 @@
+----
+Obj type = Document
+Count = 2
+Rect = (700, -300, 15300, 11500)
+MaxLinesCount = 2287
+----
+Obj type = Block
+Count = 3
+Rect = (1500, 700, 2300, 10600)
+MaxLinesCount = 51
+----
+Obj type = TextPara
+Text = 'П•з†вм'
+Rect = (1500, 700, 1700, 1073741800)
+Dim = (700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (1700, 700, 2000, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (2000, 700, 2300, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Block
+Count = 26
+Rect = (2300, 700, 15300, 10600)
+MaxLinesCount = 56
+----
+Obj type = LeafParaDecorationsHolder
+Count = 2
+Rect = (2300, 700, 2600, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 2
+----
+Obj type = DecorTextPara
+Text = '<1018>ѕриложение N†18. —правка-расчЄт о причитающихс€ субсиди€х предпри€ти€м по искусственному осеменению сельскохоз€йственных животных на возмещение затрат по производству и реализации семени быков-производителей, хр€ков-производителей  KIND:   ‘ормы документов'
+Rect = (2300, 700, 2300, 10600)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'ѕриложение N†18'
+Rect = (2300, 700, 2600, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'к приказу ћинсельхозпрода –“'
+Rect = (2600, 700, 2900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'от 22 феврал€ 2013†г. N†23/2-пр'
+Rect = (2900, 700, 3200, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (3200, 700, 3500, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '—правка-расчЄт о причитающихс€ субсиди€х предпри€ти€м по искусственному осеменению сельскохоз€йственных животных на возмещение затрат по производству и реализации семени быков-производителей, хр€ков-производителей за _________________ 2013 года по _________________________________________________________ (наименование организации - получател€ субсидии)'
+Rect = (3500, 700, 5800, 10700)
+Dim = (9900, 2200)
+MaxLinesCount = 7
+LinesCount = 7
+----
+Obj type = TextPara
+Text = ''
+Rect = (5800, 700, 6100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 5
+Rect = (6100, 700, 10800, 11000)
+Dim = (10100, 4600)
+MaxLinesCount = 14
+----
+Obj type = TableRow
+Count = 5
+Rect = (6100, 700, 8000, 10900)
+Dim = (10100, 1800)
+MaxLinesCount = 6
+DeltaHeight = 1800
+----
+Obj type = TableCell
+Count = 1
+Rect = (6100, 700, 8000, 3700)
+Dim = (2900, 1800)
+MaxLinesCount = 6
+----
+Obj type = TextPara
+Text = 'Ќаименование организации, которой реализовано произведенное сем€ сельскохоз€йственных производителей'
+Rect = (6200, 800, 7900, 3700)
+Dim = (2700, 1700)
+MaxLinesCount = 6
+LinesCount = 6
+----
+Obj type = TableCell
+Count = 1
+Rect = (6100, 3700, 7400, 6000)
+Dim = (2200, 1200)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = '¬ид семени сельскохоз€йственных производителей'
+Rect = (6200, 3800, 7400, 6000)
+Dim = (2000, 1100)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = TableCell
+Count = 1
+Rect = (6100, 6000, 7100, 7000)
+Dim = (1000, 900)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = ' оличество, доз'
+Rect = (6200, 6100, 7100, 6900)
+Dim = (800, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = TableCell
+Count = 1
+Rect = (6100, 7000, 7700, 8500)
+Dim = (1500, 1500)
+MaxLinesCount = 5
+----
+Obj type = TextPara
+Text = '–азмер субсидии на одну дозу, рублей'
+Rect = (6200, 7100, 7600, 8500)
+Dim = (1300, 1400)
+MaxLinesCount = 5
+LinesCount = 5
+----
+Obj type = TableCell
+Count = 2
+Rect = (6100, 8500, 7200, 10900)
+Dim = (2300, 1000)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = '—умма субсидии, рублей'
+Rect = (6200, 8600, 6800, 10900)
+Dim = (2200, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TextPara
+Text = '*'
+Count = 1
+Rect = (6800, 8600, 7100, 10900)
+Dim = (2200, 300)
+MaxLinesCount = 1
+----
+Obj type = Formula
+Text = '!(String("гр.4")*+String("гр.5"))'
+Rect = (6800, 9100, 7100, 11300)
+Dim = (1200, 300)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 6
+Rect = (8000, 700, 8400, 10900)
+Dim = (10100, 300)
+MaxLinesCount = 1
+DeltaHeight = 300
+----
+Obj type = TableCell
+Count = 1
+Rect = (8000, 700, 8400, 2200)
+Dim = (1400, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'район'
+Rect = (8000, 800, 8300, 2100)
+Dim = (1200, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8000, 2200, 8400, 3700)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'хоз€йство'
+Rect = (8000, 2200, 8300, 3600)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8000, 3700, 8400, 6000)
+Dim = (2200, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8000, 3800, 8300, 5900)
+Dim = (2000, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8000, 6000, 8400, 7000)
+Dim = (1000, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8000, 6100, 8300, 6900)
+Dim = (800, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8000, 7000, 8400, 8500)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8000, 7100, 8300, 8400)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8000, 8500, 8400, 10900)
+Dim = (2300, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8000, 8600, 8300, 10900)
+Dim = (2200, 200)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 6
+Rect = (8400, 700, 8800, 10900)
+Dim = (10100, 300)
+MaxLinesCount = 1
+DeltaHeight = 300
+----
+Obj type = TableCell
+Count = 1
+Rect = (8400, 700, 8800, 2200)
+Dim = (1400, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '1'
+Rect = (8400, 800, 8700, 2100)
+Dim = (1200, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8400, 2200, 8800, 3700)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '2'
+Rect = (8400, 2200, 8700, 3600)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8400, 3700, 8800, 6000)
+Dim = (2200, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '3'
+Rect = (8400, 3800, 8700, 5900)
+Dim = (2000, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8400, 6000, 8800, 7000)
+Dim = (1000, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '4'
+Rect = (8400, 6100, 8700, 6900)
+Dim = (800, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8400, 7000, 8800, 8500)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '5'
+Rect = (8400, 7100, 8700, 8400)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8400, 8500, 8800, 10900)
+Dim = (2300, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '6'
+Rect = (8400, 8600, 8700, 10900)
+Dim = (2200, 200)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 6
+Rect = (8800, 700, 9800, 10900)
+Dim = (10100, 900)
+MaxLinesCount = 3
+DeltaHeight = 900
+----
+Obj type = TableCell
+Count = 1
+Rect = (8800, 700, 9200, 2200)
+Dim = (1400, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8800, 800, 9100, 2100)
+Dim = (1200, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8800, 2200, 9200, 3700)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8800, 2200, 9100, 3600)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8800, 3700, 9800, 6000)
+Dim = (2200, 900)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = 'сем€ быков-производителей'
+Rect = (8800, 3800, 9700, 6000)
+Dim = (2000, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = TableCell
+Count = 1
+Rect = (8800, 6000, 9200, 7000)
+Dim = (1000, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8800, 6100, 9100, 6900)
+Dim = (800, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8800, 7000, 9200, 8500)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '49,0'
+Rect = (8800, 7100, 9100, 8400)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (8800, 8500, 9200, 10900)
+Dim = (2300, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8800, 8600, 9100, 10900)
+Dim = (2200, 200)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 6
+Rect = (9800, 700, 10800, 10900)
+Dim = (10100, 900)
+MaxLinesCount = 3
+DeltaHeight = 900
+----
+Obj type = TableCell
+Count = 1
+Rect = (9800, 700, 10200, 2200)
+Dim = (1400, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (9800, 800, 10100, 2100)
+Dim = (1200, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (9800, 2200, 10200, 3700)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (9800, 2200, 10100, 3600)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (9800, 3700, 10700, 6000)
+Dim = (2200, 900)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = 'сем€ хр€ков-производителей'
+Rect = (9800, 3800, 10700, 6000)
+Dim = (2000, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = TableCell
+Count = 1
+Rect = (9800, 6000, 10200, 7000)
+Dim = (1000, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (9800, 6100, 10100, 6900)
+Dim = (800, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (9800, 7000, 10200, 8500)
+Dim = (1500, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '230,0'
+Rect = (9800, 7100, 10100, 8400)
+Dim = (1300, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (9800, 8500, 10200, 10900)
+Dim = (2300, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (9800, 8600, 10100, 10900)
+Dim = (2200, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (10800, 700, 11100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Рг™ЃҐЃ§®в•Ђм Ѓа£†≠®І†ж®® -                _____________ _________________'
+Rect = (11100, 700, 11300, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'ѓЃЂгз†в•Ђп бг°б®§®®                         (ѓЃ§ѓ®бм)        (Ф.И.О.)'
+Rect = (11300, 700, 11600, 1073741800)
+Dim = (9000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (11600, 700, 11900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'ГЂ†Ґ≠л© °ге£†Ђв•а                         _____________ _________________'
+Rect = (11900, 700, 12100, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '                                            (ѓЃ§ѓ®бм)        (Ф.И.О.)'
+Rect = (12100, 700, 12300, 1073741800)
+Dim = (9000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'П•з†вм'
+Rect = (12300, 700, 12600, 1073741800)
+Dim = (700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (12600, 700, 12900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'ДЃбвЃҐ•а≠Ѓбвм §†≠≠ле ѓЃ§вҐ•а¶§†о:'
+Rect = (12900, 700, 13100, 1073741800)
+Dim = (4300, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Н†з†Ђм≠®™ Уѓа†ҐЂ•≠®п б•Ђмб™Ѓ£Ѓ еЃІп©бвҐ†'
+Rect = (13100, 700, 13300, 1073741800)
+Dim = (5200, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '® ѓаЃ§ЃҐЃЂмбвҐ®п М®≠б•ЂмеЃІѓаЃ§† РТ       _____________ _________________'
+Rect = (13300, 700, 13600, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Ґ ___________ ђг≠®ж®ѓ†Ђм≠Ѓђ а†©Ѓ≠• РТ       (ѓЃ§ѓ®бм)        (Ф.И.О.)'
+Rect = (13600, 700, 13800, 1073741800)
+Dim = (9000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (13800, 700, 14100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Н†з†Ђм≠®™ д®≠†≠бЃҐЃ-н™Ѓ≠Ѓђ®з•б™Ѓ£Ѓ Ѓв§•Ђ† _____________ _________________'
+Rect = (14100, 700, 14300, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '                                            (ѓЃ§ѓ®бм)        (Ф.И.О.)'
+Rect = (14300, 700, 14600, 1073741800)
+Dim = (9000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'П•з†вм'
+Rect = (14600, 700, 14800, 1073741800)
+Dim = (700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (14800, 700, 15100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'И≠бѓ•™вЃа б•Ђ•™ж®Ѓ≠≠Ѓ-ѓЂ•ђ•≠≠Ѓ©'
+Rect = (15100, 700, 15300, 1073741800)
+Dim = (4000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'бЂг¶°л ________________________           _____________ _________________'
+Rect = (15300, 700, 15300, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1

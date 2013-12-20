@@ -1,0 +1,511 @@
+--------------- Контрол в фокусе: ------------------
+efListInfo : TefListInfo
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+efListInfo : TefListInfo
+Справка к списку
+Left = 0
+Top = 0
+Width = 780
+Height = 230
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ListInfoViewer : TnscEditor
+
+Left = 0
+Top = 25
+Width = 780
+Height = 205
+TabOrder: 2
+Align: 5
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+Выделить все
+-
+Печать
+Печать...
+Предварительный просмотр
+--- Текст редактора: ---
+Список всех документов
+ 
+---------------
+BtnClose : TvcmDockPanelButton
+
+Left = 0
+Top = 0
+Width = 25
+Height = 20
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbfcSynchroViewTop : TvcmToolbar
+Order = 0
+---------------
+bt_enSynchroView_ShowText : TvcmToolButtonDef
+Текст документа
+Активность:True
+bt_enSynchroView_opAnnotation : TvcmToolButtonDef
+Аннотация к документу
+Активность:True
+bt_enSynchroView_ShowAttributes : TvcmToolButtonDef
+Информация о документе
+Активность:True
+bt_enSynchroView_ShowRelated : TvcmToolButtonDef
+Справка к документу
+Активность:True
+bt_enSynchroView_ShowUserCRList1 : TvcmToolButtonDef
+Настраиваемая вкладка связанных документов 1
+Активность:True
+bt_enSynchroView_ShowUserCRList2 : TvcmToolButtonDef
+Настраиваемая вкладка связанных документов 2
+Активность:True
+bt_enSynchroView_opSimilarDocuments : TvcmToolButtonDef
+Похожие документы
+Активность:True
+
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+
+tbenFiltersTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFilter_opEdit : TvcmToolButtonDef
+Редактировать фильтр
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilter_opCreateFilter : TvcmToolButtonDef
+Добавить фильтр из сохраненных запросов
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opNew : TvcmToolButtonDef
+Создать новый фильтр
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbefListTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddToControl : TvcmToolButtonDef
+Поставить на контроль
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enList_opWorkWithList : TvcmToolButtonDef
+Работа со списком
+Активность:True
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+efListInfo : TefListInfo
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+efListInfo : TefListInfo
+Справка к списку
+Left = 0
+Top = 0
+Width = 780
+Height = 230
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ListInfoViewer : TnscEditor
+
+Left = 0
+Top = 25
+Width = 780
+Height = 205
+TabOrder: 2
+Align: 5
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+Выделить все
+-
+Печать
+Печать...
+Предварительный просмотр
+--- Текст редактора: ---
+Список всех документов
+ 
+---------------
+BtnClose : TvcmDockPanelButton
+
+Left = 0
+Top = 0
+Width = 25
+Height = 20
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbfcSynchroViewTop : TvcmToolbar
+Order = 0
+---------------
+bt_enSynchroView_ShowText : TvcmToolButtonDef
+Текст документа
+Активность:True
+bt_enSynchroView_opAnnotation : TvcmToolButtonDef
+Аннотация к документу
+Активность:True
+bt_enSynchroView_ShowAttributes : TvcmToolButtonDef
+Информация о документе
+Активность:True
+bt_enSynchroView_ShowRelated : TvcmToolButtonDef
+Справка к документу
+Активность:True
+bt_enSynchroView_ShowUserCRList1 : TvcmToolButtonDef
+Настраиваемая вкладка связанных документов 1
+Активность:True
+bt_enSynchroView_ShowUserCRList2 : TvcmToolButtonDef
+Настраиваемая вкладка связанных документов 2
+Активность:True
+bt_enSynchroView_opSimilarDocuments : TvcmToolButtonDef
+Похожие документы
+Активность:True
+
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddBookmark : TvcmToolButtonDef
+Установить закладку...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opShowJurorComments : TvcmToolButtonDef
+Показать/скрыть комментарии ГАРАНТа
+Активность:True
+bt_enDocument_opShowUserComments : TvcmToolButtonDef
+Показать/скрыть мои комментарии
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enSelection_opFindInDict : TvcmToolButtonDef
+Найти в Толковом словаре
+Активность:True
+
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:True
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:False
+
+tbenFiltersTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFilter_opEdit : TvcmToolButtonDef
+Редактировать фильтр
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilter_opCreateFilter : TvcmToolButtonDef
+Добавить фильтр из сохраненных запросов
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opNew : TvcmToolButtonDef
+Создать новый фильтр
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbefListTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+bt_enFile_opLoadFromFolder : TvcmToolButtonDef
+Выбрать из Моих документов...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddToControl : TvcmToolButtonDef
+Поставить на контроль
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enList_opSpecifyList : TvcmToolButtonDef
+Уточнить список
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enList_opSortDirection : TvcmToolButtonDef
+Отсортировано по убыванию
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enList_opWorkWithList : TvcmToolButtonDef
+Работа со списком
+Активность:True
+bt_enList_opSort : TvcmComboBox
+

@@ -1,0 +1,16 @@
+unit Script.Code;
+
+interface
+
+uses
+ System.Collections.Generics,
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptCode = class(TList<IscriptWord>)
+ end;//TscriptCode
+
+implementation
+
+end.

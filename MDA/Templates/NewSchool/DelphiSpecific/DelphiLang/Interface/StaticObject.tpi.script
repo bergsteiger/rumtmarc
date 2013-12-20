@@ -1,0 +1,957 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Interface/StaticObject.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Interface::StaticObject
+//
+// Статический объект
+// ---
+// Определяет элемент реализации (пока может находится в интерфейсных пакетах, потом должен быть
+// перенёс только в пакеты реализации), экземпляры которого можно создавать на стеке. Аналог
+// Struct, но с методами и наследованием.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: StaticObject::Class
+implementation @ <<StaticObject>>
+//? Статический объект
+//? Определяет элемент реализации (пока может находится в интерфейсных пакетах, потом должен быть перенёс только в пакеты реализации), экземпляры которого можно создавать на стеке. Аналог Struct, но с методами и наследованием.
+//> method::Class
+//> Constructor::Class
+
+//= UsesContainer::Class
+//= InterfaceTypesInclude::Class
+//= StaticObjectPrim::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_struct.gif
+//L code_struct
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 240,230,210
+//$ l 100,75,35
+//$ f 100,75,35
+//d 1
+// - может иметь унаследованную реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p packed:b=false ? определяет упакованность структуры
+//p IsAutoHelper:b=false ? Определяет, что объект является автоматическим helper'ом для интерфейса
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{packed}"!="%S{!packed}"}%f_up_prefix(%S) *packed* = *%S{packed}* - определяет упакованность структуры
+ ?inherited
+ %IF ( ( %S get_up ( 'packed' ) ) %!= ( %S get_up_def ( 'packed' ) ) ) 
+  [%f] up_prefix %( %S )% ' *packed* = *'
+  %S get_up ( 'packed' ) '* - определяет упакованность структуры'
+//	][{"%S{IsAutoHelper}"!="%S{!IsAutoHelper}"}%f_up_prefix(%S) *IsAutoHelper* = *%S{IsAutoHelper}* - Определяет, что объект является автоматическим helper'ом для интерфейса
+ %END-IF
+ %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %!= ( %S get_up_def ( 'IsAutoHelper' ) ) ) 
+  [%f] up_prefix %( %S )% ' *IsAutoHelper* = *'
+  %S get_up ( 'IsAutoHelper' ) '* - Определяет, что объект является автоматическим helper'ом для интерфейса'
+//	]
+ %END-IF
+
+//%f _IsConstructorsHolder
+; // wiki_up_print
+
+: IsConstructorsHolder OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E0B58C0032Ffor4739862802BF*
+//@ %SU
+//	[{%Gx=true&<{}{%C#f_IsConstructor()!=true}{C}>=0}{\
+ %IF ( ( %G |x ) %==  true %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f IsConstructor %( )% ) %!=  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0  ) ) 
+  %ELSE
+//	false\
+    false 
+//	}\
+  %THEN
+//	true\
+   true 
+//	]
+ %END-IF
+// - избегаем ситуации с кривой финализацией наследуемых статических объектов
+//#UC END# *4E0B58C0032Ffor4739862802BF*
+; // IsConstructorsHolder
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что метод должен быть реализован публично
+//%f _IsPublicRealizedMethod
+: IsPublicRealizedMethod OBJECT IN %S
+// параметры: aMethod: void = %1
+//#UC START# *4A42517502CEfor4739862802BF*
+//	true
+ true
+//#UC END# *4A42517502CEfor4739862802BF*
+; // IsPublicRealizedMethod
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsStaticObject
+: IsStaticObject OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B6C3C5C01FCfor4739862802BF*
+//	true
+ true
+//#UC END# *4B6C3C5C01FCfor4739862802BF*
+; // IsStaticObject
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4739862802BF*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4739862802BF*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4739862802BF*
+//R  
+//	%f_pas_OutClassImplementation(%S)\
+ [%f] pas_OutClassImplementation %( %S )% 
+
+//	[{%S{IsAutoHelper}=true|<{}{%C#f_IsProp()=true}{C}>!=0}\
+ %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f IsProp %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+//	%f_pas_OpenMethodImplementation("Fake",%S)\
+  [%f] pas_OpenMethodImplementation %( 'Fake"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).Fake;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.Fake;'
+//	begin
+  'begin'
+//	 Assert(false);
+  ' Assert(false);'
+//	end;\
+  'end;'
+//	%f_pas_OpenMethodImplementation("Init",%S)\
+  [%f] pas_OpenMethodImplementation %( 'Init"' %, %S )% 
+//	constructor %f_pas_TypeName(%S).Init[{%S{IsAutoHelper}=true}(const anIntf: %f_pas_TypeName(%R))];
+  'constructor '
+  [%f] pas_TypeName %( %S )% '.Init'
+  %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true ) 
+   '(const anIntf: '
+   [%f] pas_TypeName %( %R )% ')' 
+  %END-IF
+  ';'
+//	begin
+  'begin'
+//	[{%S{IsAutoHelper}=true}{\
+  %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true ) 
+   %ELSE
+//	%f_with_gen_id(intf.pas,\
+    [%f] with_gen_id %( 'intf.pas' %, 
+//	%U[{Init}
+    %U%IF ( 'Init' ) 
+
+//	 !!! Needs to be implemented !!!
+     ' !!! Needs to be implemented !!!'
+//	]
+    %END-IF
+ //	)\
+)% //	}\
+   %THEN
+//	 f_%RN := anIntf;
+   ' f_'
+   %R |N ' := anIntf;'
+//	]\
+  %END-IF
+//	end;\
+  'end;'
+//	]\
+ %END-IF
+
+//	[{%S{IsAutoHelper}=true}\
+ %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true ) 
+//	%f_pas_OpenMethodImplementation("IsValid",%S)\
+  [%f] pas_OpenMethodImplementation %( 'IsValid"' %, %S )% 
+//	function %f_pas_TypeName(%S).IsValid: Boolean;
+  'function '
+  [%f] pas_TypeName %( %S )% '.IsValid: Boolean;'
+//	begin
+  'begin'
+//	 Result := (f_%RN \<\> nil);
+  ' Result := (f_'
+  %R |N ' <> nil);'
+//	end;\
+  'end;'
+//	%f_pas_OpenMethodImplementation("Free",%S)\
+  [%f] pas_OpenMethodImplementation %( 'Free"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).Free;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.Free;'
+//	begin
+  'begin'
+//	 f_%RN := nil;
+  ' f_'
+  %R |N ' := nil;'
+//	 inherited;
+  ' inherited;'
+//	end;\
+  'end;'
+//	]
+ %END-IF
+//#UC END# *470F15B800CBfor4739862802BF*
+; // impl.pas
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4739862802BF*
+//	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+ %IF ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% ) %!=  true ) 
+//	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+  [%f] add_to_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% 
+//	%f_shift_intend(-1)\
+  [%f] shift_intend %( -1 )% 
+//	<{}{%CV!=PrivateAccess&%C%f_IsClassInner()!=true&"%CO"=""}[{%CS!=Typedef|%C%GU!=%SU|%C{isClassRef}=true}[%CX\n]]>\
+  %FOR %ITEM-CONDITION ( ( %C |V ) %!= 'PrivateAccess' %&& 
+    ( ( %C %f IsClassInner %( )% ) %!=  true  ) %&& 
+    ( ( %C |O ) %== ''  ) ) 
+   %IF ( ( %C |S ) %!= 'Typedef' %|| 
+     ( ( %C ->G |U  ) %!= ( %S |U )  ) %|| 
+     ( ( %C get_up ( 'isClassRef' ) ) %==  true  ) ) 
+    %IF-NOT-EMPTY
+     %C |X #13#10 
+    %END-IF
+   %END-IF
+  %END-FOR
+//	%f_shift_intend(+1)\
+  [%f] shift_intend %( 1 )% 
+
+//	[{%S#f_IsConstructorsHolder()!=true}\
+  %IF ( ( %S %?f IsConstructorsHolder %( )% ) %!=  true ) 
+//	%f_pas_OpenType(%S)\
+   [%f] pas_OpenType %( %S )% 
+
+//	#%f_pas_TypeName(%S) = [{%S{packed}=true}packed ]object[(%GN)]\
+   out_indent [%f] pas_TypeName %( %S )% ' = '
+   %IF ( ( %S get_up ( 'packed' ) ) %==  true ) 
+    'packed ' 
+   %END-IF
+   'object'
+   %IF-NOT-EMPTY
+    '('
+    %G |N ')' 
+   %END-IF
+//	[\n# \{* %f_Doc(%S) \}]
+   %IF-NOT-EMPTY
+    #13#10
+    out_indent ' {* '
+    [%f] Doc %( %S )% ' }' 
+   %END-IF
+
+
+//	[{%S{IsAutoHelper}=true}#private\n#\
+   %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true ) 
+    out_indent 'private'#13#10
+    out_indent 
+//	 f_%RN : %f_pas_TypeName(%R);\n\
+    ' f_'
+    %R |N ' : '
+    [%f] pas_TypeName %( %R )% ';'#13#10
+//	]\
+   %END-IF
+
+
+
+//	[#private
+
+//	#// property fields
+
+//	%f_with_gen_id(intf3.pas,<{}{%C#f_IsStaticObject()!=true&%C#f_IsStruct()!=true}[%CX\n]>)]\
+
+
+//	[#private\n#\
+   %IF-NOT-EMPTY
+    out_indent 'private'#13#10
+    out_indent 
+//	<{\n#}{%CV=PrivateAccess&%C#f_IsConstructor()!=true&%C%f_IsClassInner()=true&%C#f_IsAttribute()=true}%CX>\n]\
+    %FOR %ITEM-SEPARATOR #13#10
+     out_indent ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %C |V ) %== 'PrivateAccess' %&& 
+      ( ( %C %?f IsConstructor %( )% ) %!=  true  ) %&& 
+      ( ( %C %f IsClassInner %( )% ) %==  true  ) %&& 
+      ( ( %C %?f IsAttribute %( )% ) %==  true  ) ) 
+     %C |X 
+    %END-FOR
+    #13#10 
+   %END-IF
+
+
+//	[#protected\n#\
+   %IF-NOT-EMPTY
+    out_indent 'protected'#13#10
+    out_indent 
+//	<{\n#}{%CV=ProtectedAccess&%C#f_IsConstructor()!=true&%C%f_IsClassInner()=true&%C#f_IsAttribute()=true}%CX>\n]\
+    %FOR %ITEM-SEPARATOR #13#10
+     out_indent ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %C |V ) %== 'ProtectedAccess' %&& 
+      ( ( %C %?f IsConstructor %( )% ) %!=  true  ) %&& 
+      ( ( %C %f IsClassInner %( )% ) %==  true  ) %&& 
+      ( ( %C %?f IsAttribute %( )% ) %==  true  ) ) 
+     %C |X 
+    %END-FOR
+    #13#10 
+   %END-IF
+
+
+//	[#private\n#\
+   %IF-NOT-EMPTY
+    out_indent 'private'#13#10
+    out_indent 
+//	<{\n#}{%CV=PrivateAccess&%C#f_IsConstructor()!=true&%C%f_IsClassInner()=true&%C#f_IsAttribute()!=true}%CX>\n]\
+    %FOR %ITEM-SEPARATOR #13#10
+     out_indent ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %C |V ) %== 'PrivateAccess' %&& 
+      ( ( %C %?f IsConstructor %( )% ) %!=  true  ) %&& 
+      ( ( %C %f IsClassInner %( )% ) %==  true  ) %&& 
+      ( ( %C %?f IsAttribute %( )% ) %!=  true  ) ) 
+     %C |X 
+    %END-FOR
+    #13#10 
+   %END-IF
+
+
+//	[#protected\n#\
+   %IF-NOT-EMPTY
+    out_indent 'protected'#13#10
+    out_indent 
+//	<{\n#}{%CV=ProtectedAccess&%C#f_IsConstructor()!=true&%C%f_IsClassInner()=true&%C#f_IsAttribute()!=true}%CX>\n]\
+    %FOR %ITEM-SEPARATOR #13#10
+     out_indent ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %C |V ) %== 'ProtectedAccess' %&& 
+      ( ( %C %?f IsConstructor %( )% ) %!=  true  ) %&& 
+      ( ( %C %f IsClassInner %( )% ) %==  true  ) %&& 
+      ( ( %C %?f IsAttribute %( )% ) %!=  true  ) ) 
+     %C |X 
+    %END-FOR
+    #13#10 
+   %END-IF
+
+
+//	[#protected
+   %IF-NOT-EMPTY
+    out_indent 'protected'
+//	#// property methods
+    out_indent '// property methods'
+//	<{}{%C#f_IsProp()=true}[%CX\n]>]\
+    %FOR %ITEM-CONDITION ( ( %C %?f IsProp %( )% ) %==  true ) 
+     %IF-NOT-EMPTY
+      %C |X #13#10 
+     %END-IF
+    %END-FOR
+   %END-IF
+
+
+//	[#protected\n#\
+   %IF-NOT-EMPTY
+    out_indent 'protected'#13#10
+    out_indent 
+//	// realized methods
+    '// realized methods'
+//	<{\n}{%oS!=inline}\
+    %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %o |S ) %!= 'inline' ) 
+//	[{%o#f_IsAttribute()=true|%S%f_IsPublicRealizedMethod(%o)!=true}\
+     %IF ( ( %o %?f IsAttribute %( )% ) %==  true %|| 
+       ( ( %S %f IsPublicRealizedMethod %( %o )% ) %!=  true  ) ) 
+//	%o%f_pas_MethodInterface(%S,"r")\
+      %o %f pas_MethodInterface %( %S %, 'r' )% 
+//	]>\n]\
+     %END-IF
+    %END-FOR
+    #13#10 
+   %END-IF
+
+
+//	[#public\n#\
+   %IF-NOT-EMPTY
+    out_indent 'public'#13#10
+    out_indent 
+//	// realized methods
+    '// realized methods'
+//	<{\n}{%oS!=inline}\
+    %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %o |S ) %!= 'inline' ) 
+//	[{%o#f_IsAttribute()!=true&%S%f_IsPublicRealizedMethod(%o)=true}\
+     %IF ( ( %o %?f IsAttribute %( )% ) %!=  true %&& 
+       ( ( %S %f IsPublicRealizedMethod %( %o )% ) %==  true  ) ) 
+//	%o%f_pas_MethodInterface(%S,"r")\
+      %o %f pas_MethodInterface %( %S %, 'r' )% 
+//	]>\n]\
+     %END-IF
+    %END-FOR
+    #13#10 
+   %END-IF
+
+
+//	[#public\n#\
+   %IF-NOT-EMPTY
+    out_indent 'public'#13#10
+    out_indent 
+//	\
+//	<{\n#}{%C#f_IsProp()!=true&%CV=PublicAccess&%C#f_IsConstructor()!=true&%C%f_IsClassInner()=true&%C#f_IsAttribute()=true}\
+    %FOR %ITEM-SEPARATOR #13#10
+     out_indent ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %C %?f IsProp %( )% ) %!=  true %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) %&& 
+      ( ( %C %?f IsConstructor %( )% ) %!=  true  ) %&& 
+      ( ( %C %f IsClassInner %( )% ) %==  true  ) %&& 
+      ( ( %C %?f IsAttribute %( )% ) %==  true  ) ) 
+//	%CX\
+     %C |X 
+//	>\n\
+    %END-FOR
+    #13#10
+//	]\
+   %END-IF
+
+
+//	[#public\n#\
+   %IF-NOT-EMPTY
+    out_indent 'public'#13#10
+    out_indent 
+//	\
+//	<{\n#}{%CV=PublicAccess&%C#f_IsConstructor()!=true&%C%f_IsClassInner()=true&%C#f_IsAttribute()!=true}\
+    %FOR %ITEM-SEPARATOR #13#10
+     out_indent ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %C |V ) %== 'PublicAccess' %&& 
+      ( ( %C %?f IsConstructor %( )% ) %!=  true  ) %&& 
+      ( ( %C %f IsClassInner %( )% ) %==  true  ) %&& 
+      ( ( %C %?f IsAttribute %( )% ) %!=  true  ) ) 
+//	%CX\
+     %C |X 
+//	>\n\
+    %END-FOR
+    #13#10
+//	]\
+   %END-IF
+
+
+//	%f_with_gen_id(intf2.pas,\
+   [%f] with_gen_id %( 'intf2.pas' %, 
+//	%f_shift_intend(-2)\
+   [%f] shift_intend %( '-2' )% 
+//	[#public\n<%CX>\n]\
+   %IF-NOT-EMPTY
+    out_indent 'public'#13#10
+    %FOR %C |X 
+    %END-FOR
+    #13#10 
+   %END-IF
+//	%f_shift_intend(+2)\
+   [%f] shift_intend %( '+2' )% 
+//	)\
+)% 
+
+//	%f_with_gen_id(intf2.pas,\
+   [%f] with_gen_id %( 'intf2.pas' %, 
+//	%f_shift_intend(-2)\
+   [%f] shift_intend %( '-2' )% 
+//	[#public\n\
+   %IF-NOT-EMPTY
+    out_indent 'public'#13#10
+//	%f_shift_intend(-1)\
+    [%f] shift_intend %( -1 )% 
+//	<{\n}%oX>\n\
+    %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+     %o |X 
+    %END-FOR
+    #13#10
+//	]\
+   %END-IF
+//	%f_shift_intend(+3)\
+   [%f] shift_intend %( '+3' )% 
+//	)\
+)% 
+
+//	[{%S{IsAutoHelper}=true|<{}{%C#f_IsProp()=true}{C}>!=0}\
+   %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true %|| 
+     ( 
+    %FOR %ITEM-CONDITION ( ( %C %?f IsProp %( )% ) %==  true ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0  ) ) 
+//	#private
+    out_indent 'private'
+//	#  procedure Fake; virtual; // - это нужно чтобы правильно генерировались вызовы методов доступа к свойствам\n\
+    out_indent '  procedure Fake; virtual; // - это нужно чтобы правильно генерировались вызовы методов доступа к свойствам'#13#10
+//	#public
+    out_indent 'public'
+//	#  constructor Init[{%S{IsAutoHelper}=true}(const anIntf: %f_pas_TypeName(%R))];
+    out_indent '  constructor Init'
+    %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true ) 
+     '(const anIntf: '
+     [%f] pas_TypeName %( %R )% ')' 
+    %END-IF
+    ';'
+//	]\
+   %END-IF
+
+
+//	[{%S{IsAutoHelper}=true}\
+   %IF ( ( %S get_up ( 'IsAutoHelper' ) ) %==  true ) 
+//	#public
+    out_indent 'public'
+//	#  function IsValid: Boolean;
+    out_indent '  function IsValid: Boolean;'
+//	#  procedure Free;
+    out_indent '  procedure Free;'
+//	#  property As_%RN: %f_pas_TypeName(%R) read f_%RN;
+    out_indent '  property As_'
+    %R |N ': '
+    [%f] pas_TypeName %( %R )% ' read f_'
+    %R |N ';'
+//	]\
+   %END-IF
+//	#end;//%f_pas_TypeName(%S)\
+   out_indent 'end;//'
+   [%f] pas_TypeName %( %S )% 
+//	]\
+  %END-IF
+
+
+//	%f_shift_intend(-1)\
+  [%f] shift_intend %( -1 )% 
+//	<{}{%CV!=PrivateAccess&%C%f_IsClassInner()!=true&"%CO"=""}[{%CS=Typedef&%C%GU=%SU&%C{isClassRef}!=true}[%CX\n]]>\
+  %FOR %ITEM-CONDITION ( ( %C |V ) %!= 'PrivateAccess' %&& 
+    ( ( %C %f IsClassInner %( )% ) %!=  true  ) %&& 
+    ( ( %C |O ) %== ''  ) ) 
+   %IF ( ( %C |S ) %== 'Typedef' %&& 
+     ( ( %C ->G |U  ) %== ( %S |U )  ) %&& 
+     ( ( %C get_up ( 'isClassRef' ) ) %!=  true  ) ) 
+    %IF-NOT-EMPTY
+     %C |X #13#10 
+    %END-IF
+   %END-IF
+  %END-FOR
+//	%f_shift_intend(+1)\
+  [%f] shift_intend %( 1 )% 
+//	]
+ %END-IF
+//#UC END# *470F1571031Cfor4739862802BF*
+; // intf.pas
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for4739862802BF*
+//	%f_with_gen_id(intf.pas,[\n<{\n}{%C#f_IsConstructor()=true}%CX>])
+ [%f] with_gen_id %( 'intf.pas' %, %IF-NOT-EMPTY
+  #13#10
+  %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C %?f IsConstructor %( )% ) %==  true ) 
+   %C |X 
+  %END-FOR
+ %END-IF
+)% //#UC END# *4774D2A20372for4739862802BF*
+; // intf3.pas
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: StaticObject::Class::Attribute
+end. // <<StaticObject>>
+
+implementation @ :: <<StaticObject>> <<Attribute>> ;
+//? Атрибут.
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//a fr
+// - тип абстракции
+//Y code_attr.gif
+//L code_attr
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47398BF3004E*
+//R  
+//	#%SN : %f_pas_TypeName(%S%T);[ // %f_Doc(%S)]
+ out_indent %S |N ' : '
+ [%f] pas_TypeName %( %S ->T  )% ';'
+ %IF-NOT-EMPTY
+  ' // '
+  [%f] Doc %( %S )% 
+ %END-IF
+//#UC END# *470F1571031Cfor47398BF3004E*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47398BF3004E*
+//#UC END# *470F15B800CBfor47398BF3004E*
+; // impl.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for47398BF3004E*
+//#UC END# *4774D2A20372for47398BF3004E*
+; // intf3.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47398BF3004E*
+//R  
+//	%f_pas_PropsFromUnion(%S)
+ [%f] pas_PropsFromUnion %( %S )% 
+//#UC END# *477398E501C0for47398BF3004E*
+; // intf2.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47398BF3004E*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor47398BF3004E*
+; // wiki_child_kind
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что стереотип является атрибутом
+//%f _IsAttribute
+: IsAttribute OBJECT IN %S
+//#UC START# *4A37B6A9016Ffor47398BF3004E*
+//	true
+ true
+//#UC END# *4A37B6A9016Ffor47398BF3004E*
+; // IsAttribute
+
+
+//: StaticObject::Class::Operation
+end. // :: <<StaticObject>> <<Attribute>> ;
+
+implementation @ :: <<StaticObject>> <<Operation>> ;
+//? Метод.
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//a fr
+// - тип абстракции
+//Y code_method.gif
+//L code_method
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47398C2B001F*
+//R  
+//	%S%f_pas_MethodInterface()
+ %S %f pas_MethodInterface %( )% 
+//#UC END# *470F1571031Cfor47398C2B001F*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47398C2B001F*
+//R  
+//	%S%f_pas_MethodImplementation()
+ %S %f pas_MethodImplementation %( )% 
+//#UC END# *470F15B800CBfor47398C2B001F*
+; // impl.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for47398C2B001F*
+//#UC END# *4774D2A20372for47398C2B001F*
+; // intf3.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47398C2B001F*
+//	method
+ 'method'
+//#UC END# *4705CBD6003Efor47398C2B001F*
+; // wiki_child_kind
+
+
+//: StaticObject::Class::ctor::Operation
+end. // :: <<StaticObject>> <<Operation>> ;
+
+implementation @ :: <<StaticObject>> <<ctor>> ;
+//? Конструктор.
+//= StaticObject::Class::Operation
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_ctor.gif
+//L code_ctor
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47E0E4970192*
+//#UC END# *46E6D4BB0339for47E0E4970192*
+; // wiki
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47E0E4970192*
+//#UC END# *477398E501C0for47E0E4970192*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for47E0E4970192*
+//#UC END# *4774D2A20372for47E0E4970192*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor47E0E4970192*
+//#UC END# *49F5795900ECfor47E0E4970192*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for47E0E4970192*
+//#UC END# *4DE79AFC0030for47E0E4970192*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47E0E4970192*
+//#UC END# *4E65F581015Afor47E0E4970192*
+; // link_to_requests_hack
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47E0E4970192*
+//R  
+//	%f_pas_OutStaticCtorInterface(%S)
+ [%f] pas_OutStaticCtorInterface %( %S )% 
+//#UC END# *470F1571031Cfor47E0E4970192*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47E0E4970192*
+//R  
+//	\n%f_pas_OutStaticCtorImplementation(%S)
+ #13#10
+ [%f] pas_OutStaticCtorImplementation %( %S )% 
+//#UC END# *470F15B800CBfor47E0E4970192*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47E0E4970192*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for47E0E4970192*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for47E0E4970192*
+//#UC END# *470484D50138for47E0E4970192*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsConstructor
+: IsConstructor OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE025440082for47E0E4970192*
+//	true
+ true
+//#UC END# *4AE025440082for47E0E4970192*
+; // IsConstructor
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _pas_BeforeMethodBodyImplementation
+: pas_BeforeMethodBodyImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4B6C4DE70271for47E0E4970192*
+//	%S%[inherited]\
+ inherited
+//	%S%f_pas_StaticCtorBeforeMethodBodyImplementation(%1,%2)
+ %S %f pas_StaticCtorBeforeMethodBodyImplementation %( %1 %, %2 )% 
+//#UC END# *4B6C4DE70271for47E0E4970192*
+; // pas_BeforeMethodBodyImplementation
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47E0E4970192*
+//	mng
+ 'mng'
+//#UC END# *4705CBD6003Efor47E0E4970192*
+; // wiki_child_kind
+
+
+//: StaticObject::Class::readonly::Attribute
+end. // :: <<StaticObject>> <<ctor>> ;
+
+implementation @ :: <<StaticObject>> <<readonly>> ;
+//= ClassBase::Class::readonly::Attribute
+
+// Параметры стереотипа
+//a f
+// - тип абстракции
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<StaticObject>> <<readonly>> ;
+

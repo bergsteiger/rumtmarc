@@ -1,0 +1,30 @@
+USES
+ HLTCLike.script
+ F1ControlsDefinition.script
+;
+
+: TEmitString 
+ : Wait
+  3 LOOP ProcessMessages
+ ;
+ 
+ ОсновноеМеню 
+ ППР
+ 
+ "Ввести строку {('конституция')}"
+ 'Down' key 
+ "Ввести строку {('РФ')}"
+ 
+ Ok 
+ 
+ Wait
+ 
+ "Перевести фокус в список"
+ 
+ ProcessMessages
+ 
+ 'Enter' key
+ ProcessMessages
+; // TEmitString
+
+TEmitString

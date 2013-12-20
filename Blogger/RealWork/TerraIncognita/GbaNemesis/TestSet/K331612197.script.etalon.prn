@@ -1,0 +1,5 @@
+NewBaseSearchForm : TNewBaseSearchForm
+BaseSearchPanel : TvtPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow

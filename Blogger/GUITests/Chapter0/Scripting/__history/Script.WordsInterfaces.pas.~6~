@@ -1,0 +1,34 @@
+unit Script.WordsInterfaces;
+
+interface
+
+uses
+ Core.Obj,
+ Script.Interfaces
+ ;
+
+type
+ TscriptContext = class(TCoreObject)
+  private
+   f_Log : IscriptLog;
+  protected
+   procedure Cleanup; override;
+ end;//TscriptContext
+
+ TscriptCompileContext = class(TscriptContext)
+ end;//TscriptCompileContext
+
+ IscriptWord = interface
+  procedure DoIt(aContext: TscriptContext);
+   {* - собственно процедура для выполнения слова словаря. }
+ end;//IscriptWord
+
+implementation
+
+procedure TscriptContext.Cleanup;
+begin
+ f_Log := nil;
+ inherited;
+end;
+
+end.

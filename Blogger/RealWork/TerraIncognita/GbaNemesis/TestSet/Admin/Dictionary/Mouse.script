@@ -1,0 +1,89 @@
+USES
+ WordsTranslation.script
+ SysUtils.script
+;
+
+: "Зажать левую кнопку мыши"
+  Mouse:LeftDown
+  ProcessMessages
+;
+
+: "Отпустить левую кнопку мыши"
+  Mouse:LeftUp
+  ProcessMessages
+;
+
+: "Зажать правую кнопку мыши"
+  Mouse:RightDown
+  ProcessMessages
+;
+
+: "Отпустить правую кнопку мыши"
+  Mouse:RightUp
+  ProcessMessages
+;
+
+: "Зажать среднюю кнопку мыши"
+  Mouse:MiddleDown
+  ProcessMessages
+;
+
+: "Отпустить среднюю кнопку мыши"
+  Mouse:MiddleUp
+  ProcessMessages
+;
+
+: "Клик левой кнопкой мыши"
+  Mouse:LeftDown
+  Mouse:LeftUp
+  ProcessMessages
+;
+
+: "Клик правой кнопкой мыши"
+  Mouse:RightDown
+  Mouse:RightUp
+  ProcessMessages
+;
+
+: "Клик средней кнопкой мыши"
+  Mouse:MiddleDown
+  Mouse:MiddleUp
+  ProcessMessages
+;
+
+: "Установить курсор мыши по координатам" INTEGER IN X INTEGER IN Y
+ X Y mouse:SetCursorPosition
+;
+
+: "Ставим указатель мыши на конец текущего параграфа редактора со смещением" OBJECT IN aEditor INTEGER IN aX INTEGER IN aY
+  VAR x
+  VAR y
+  aEditor pop:editor:ParaEndCoordsToScreen >>> y >>> x
+  aX =+ x
+  aY =+ y
+  x y mouse:SetCursorPosition
+  OnTest
+;
+
+: "Проверить, что курсор над ссылкой"
+  'курсор над ссылкой:' . mouse:GetCursorIndex mouse:GetCursorNameByIndex .
+;
+
+: "Проверить, что курсор вне ссылки"
+  'курсор вне ссылки:' . mouse:GetCursorIndex mouse:GetCursorNameByIndex .
+;
+
+: "Запомнить позицию мыши и выполнить" IN aProc
+ VAR x_coord
+ VAR y_coord
+ "Запомнить позицию мыши" >>> y_coord >>> x_coord
+ TRY
+  aProc DO
+ FINALLY
+  x_coord y_coord mouse:SetCursorPosition 
+ END
+;
+
+: "Установить курсор мыши по координатам относительно контрола" INTEGER IN X INTEGER IN Y OBJECT IN aControl
+ X Y aControl pop:control:ClientToScreen mouse:SetCursorPosition
+;

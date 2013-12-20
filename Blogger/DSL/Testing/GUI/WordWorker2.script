@@ -1,0 +1,13 @@
+: TestWordWorker2
+
+ WORDWORKER2 X
+  WordToWork1 DO .
+  WordToWork2 DO .
+ ;
+ 
+ X 'A' 1
+ 2 .
+ 
+;
+
+TestWordWorker2

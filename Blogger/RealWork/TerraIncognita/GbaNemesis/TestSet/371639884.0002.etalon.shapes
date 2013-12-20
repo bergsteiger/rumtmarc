@@ -1,0 +1,167 @@
+----
+Obj type = Document
+Count = 5
+Rect = (-2100, -300, 14200, 11500)
+MaxLinesCount = 49
+----
+Obj type = Block
+Count = 1
+Rect = (-1200, 700, 3100, 10600)
+MaxLinesCount = 7
+----
+Obj type = Table
+Count = 1
+Rect = (-1200, 700, 3100, 14300)
+Dim = (13500, 4400)
+MaxLinesCount = 4
+----
+Obj type = TableRow
+Count = 2
+Rect = (-1200, 700, 3000, 14300)
+Dim = (13500, 4300)
+MaxLinesCount = 4
+DeltaHeight = 4300
+----
+Obj type = TableCell
+Count = 1
+Rect = (100, 700, 3000, 7500)
+Dim = (6700, 2800)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = 'Сначала формула: * потом картинка: * среди текста. В таблице.'
+Count = 1
+Rect = (200, 800, 3000, 7400)
+Dim = (6400, 2700)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = BitmapPara
+Rect = (800, 800, 2600, 7400)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TableCell
+Count = 1
+Rect = (-1200, 7500, 3000, 14300)
+Dim = (6700, 4300)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = 'Две картинки подряд: * * среди текста. В таблице.'
+Count = 1
+Rect = (-1100, 7600, 3000, 14200)
+Dim = (6400, 4200)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = BitmapPara
+Rect = (800, 7600, 2600, 14200)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (3100, 700, 3400, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Block
+Count = 6
+Rect = (3400, 700, 12700, 10600)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = 'Картинка (смещение вниз = 10) в комментарии юристов: *'
+Count = 1
+Rect = (3400, 700, 5500, 10600)
+Dim = (9900, 2000)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = BitmapPara
+Rect = (3600, 900, 5500, 10800)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (5500, 700, 5900, 10600)
+Dim = (9900, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Картинка * рядом со ссылкой на начало топика и внутри цветового выделения ASCII 1'
+Count = 1
+Rect = (5900, 700, 8000, 10600)
+Dim = (9700, 2100)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = BitmapPara
+Rect = (5900, 2100, 7700, 12000)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = 'Картинка в версионном комментарии: * Смещение вниз = 20'
+Count = 1
+Rect = (8000, 700, 10200, 10600)
+Dim = (9900, 2000)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = BitmapPara
+Rect = (8300, 700, 10100, 10600)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (10200, 700, 10600, 10600)
+Dim = (9900, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Картинка * внутри цветового выделения ASCII 7'
+Count = 1
+Rect = (10600, 700, 12700, 10600)
+Dim = (9700, 2000)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = BitmapPara
+Rect = (10500, 2300, 12300, 12200)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (12700, 700, 13000, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Block
+Count = 3
+Rect = (13000, 700, 14200, 10600)
+MaxLinesCount = 11
+----
+Obj type = TextPara
+Text = 'Просто текст для наполнения, чтобы баллон был побольше. Просто текст для наполнения, чтобы баллон был побольше. Картинка * внутри текста в параграфе #52. Просто текст для наполнения, чтобы баллон был побольше. Просто текст для наполнения, чтобы баллон был побольше. Просто текст для наполнения, чтобы баллон был побольше. Просто текст для наполнения, чтобы баллон был побольше. '
+Rect = (13000, 700, 13000, 10600)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (13000, 700, 13300, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Просто текст для наполнения Просто текст для наполнения. Картинка * внутри текста в параграфе #46. Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения.'
+Rect = (13300, 700, 14200, 10600)
+Dim = (9400, 3600)
+MaxLinesCount = 4
+LinesCount = 4
+----
+ImageInfo FirstIndex = 6, LastIndex = -1

@@ -1,0 +1,864 @@
+%producer 'ГАРАНТ ЭКСПЕРТ' date '28.04.2012'
+%format version 0.141 revision date '18/06/2010' 
+: Document = {
+ Width = 11900
+ Height = 16800
+ LeftIndent = 1100
+ RightIndent = 800
+ Paras = {
+  Width = 11900
+  Height = 16800
+  LeftIndent = 1100
+  RightIndent = 800
+  SpaceBefore = 800
+  SpaceAfter = 800
+  Orientation = ev_poPortrait
+ }
+ ExternalHandle = 51500023
+ ShortName = 'Оглавление'
+ Name = 'L-Аргинин (Аргинин)'
+ LineSpacing = 100
+ Style = -1
+ Children = 3
+ : Block = {
+  Handle = 1
+  ShortName = 'Описание препарата'
+  InContents = ev_spInContentsAndOnSubPanel
+  Children = 8
+  : = {
+   Handle = 1
+   Style = -1
+   Segments = {
+    : = {
+     Handle = View
+     : = {
+      Style = -10
+      Finish = 19
+     }
+    }
+   }
+   Text = 'Торговое название: L-Аргинин (L-Arginine)'
+  }
+  : = {
+   Handle = 2
+   Style = -1
+   Segments = {
+    : = {
+     Handle = View
+     : = {
+      Style = -10
+      Finish = 24
+     }
+    }
+   }
+   Text = 'Международное название: Аргинин (Arginine)'
+  }
+  : = {
+  }
+  : = {
+   Handle = 3
+   Style = -1
+   Segments = {
+    : = {
+     Handle = View
+     : = {
+      Style = -10
+      Finish = 26
+     }
+    }
+   }
+   Text = 'Фармакологическая группа: гепатопротекторное средство'
+  }
+  : = {
+   Handle = 4
+   Style = -1
+   Segments = {
+    : = {
+     Handle = View
+     : = {
+      Style = -10
+      Finish = 28
+     }
+    }
+   }
+   Text = 'Фармакологическое действие: анаболическое нестероидное, гепатопротекторное, желчегонное, метаболическое, общетонизирующее'
+  }
+  : = {
+   Handle = 5
+   Style = -1
+   Segments = {
+    : = {
+     Handle = View
+     : = {
+      Style = -10
+      Finish = 33
+     }
+    }
+   }
+   Text = 'Фармакологическая группа по АТК: A05BA01. Аргинин'
+  }
+  : = {
+   Handle = 6
+   Style = -1
+   Segments = {
+    : = {
+     Handle = View
+     : = {
+      Style = -10
+      Finish = 18
+     }
+    }
+   }
+   Text = 'Условия хранения: Список Б'
+  }
+  : = {
+  }
+ }
+ : Block = {
+  Handle = 2
+  ShortName = 'Формы выпуска'
+  InContents = ev_spInContentsAndOnSubPanel
+  Children = 2
+  : Block = {
+   Handle = 101
+   ShortName = 'прочие'
+   InContents = ev_spInContentsAndOnSubPanel
+   Children = 2
+   : Block = {
+    Handle = 1001
+    ShortName = 'аминокислота для парентерального питания [Япония; Ajinomoto Co.Inc]'
+    InContents = ev_spInContentsAndOnSubPanel
+    Children = 11
+    : = {
+     Handle = 7
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 21
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 22
+        Finish = 37
+        : = {
+         DocID = 52100041
+        }
+       }
+      }
+     }
+     Text = 'Фирма-производитель: Ajinomoto Co.Inc'
+    }
+    : = {
+     Handle = 8
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Страна: Япония'
+    }
+    : = {
+     Handle = 9
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 15
+       }
+      }
+     }
+     Text = 'Формы выпуска: аминокислота для парентерального питания'
+    }
+    : = {
+     Handle = 10
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Состав: аргинин'
+    }
+    : = {
+     Handle = 11
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 13
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 14
+        Finish = 26
+        : = {
+         DocID = 12250764
+         SubID = 2922
+        }
+       }
+      }
+     }
+     Text = 'Коды ТН ВЭД: 2922 49 950 0'
+    }
+    : = {
+     Handle = 12
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 28
+       }
+      }
+     }
+     Text = 'Отпускается по рецепту врача'
+    }
+    : = {
+     Handle = 13
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 42
+       }
+      }
+     }
+     Text = 'Состояние регистрационного удостоверения: истекшее'
+    }
+    : = {
+     Handle = 14
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 19
+       }
+      }
+     }
+     Text = 'Номер регистрации: П-8-242 №00813'
+    }
+    : = {
+     Handle = 15
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 35
+       }
+      }
+     }
+     Text = 'Даты регистрации, перерегистрации: 08.12.1993'
+    }
+    : = {
+     Handle = 16
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 19
+       }
+      }
+     }
+     Text = 'Год аннулирования: 2001'
+    }
+    : = {
+    }
+   }
+   : Block = {
+    Handle = 1002
+    ShortName = 'аминокислота для парентерального питания [Япония; Kyowa Hakko Kogyo Co Ltd]'
+    InContents = ev_spInContentsAndOnSubPanel
+    Children = 11
+    : = {
+     Handle = 17
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 21
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 22
+        Finish = 45
+        : = {
+         DocID = 52101090
+        }
+       }
+      }
+     }
+     Text = 'Фирма-производитель: Kyowa Hakko Kogyo Co Ltd'
+    }
+    : = {
+     Handle = 18
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Страна: Япония'
+    }
+    : = {
+     Handle = 19
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 15
+       }
+      }
+     }
+     Text = 'Формы выпуска: аминокислота для парентерального питания'
+    }
+    : = {
+     Handle = 20
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Состав: аргинин'
+    }
+    : = {
+     Handle = 21
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 13
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 14
+        Finish = 26
+        : = {
+         DocID = 12250764
+         SubID = 3004
+        }
+       }
+      }
+     }
+     Text = 'Коды ТН ВЭД: 3004 90 190 9'
+    }
+    : = {
+     Handle = 22
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 28
+       }
+      }
+     }
+     Text = 'Отпускается по рецепту врача'
+    }
+    : = {
+     Handle = 23
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 42
+       }
+      }
+     }
+     Text = 'Состояние регистрационного удостоверения: истекшее'
+    }
+    : = {
+     Handle = 24
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 19
+       }
+      }
+     }
+     Text = 'Номер регистрации: П-8-242 №00980'
+    }
+    : = {
+     Handle = 25
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 35
+       }
+      }
+     }
+     Text = 'Даты регистрации, перерегистрации: 23.12.1982'
+    }
+    : = {
+     Handle = 26
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 19
+       }
+      }
+     }
+     Text = 'Год аннулирования: 1997'
+    }
+    : = {
+    }
+   }
+  }
+  : Block = {
+   Handle = 102
+   ShortName = 'субстанция'
+   InContents = ev_spInContentsAndOnSubPanel
+   Children = 2
+   : Block = {
+    Handle = 1003
+    ShortName = 'субстанция-порошок (пакеты полиэтиленовые двухслойные) 25, 50 кг [Япония; Ajinomoto Co.Inc]'
+    InContents = ev_spInContentsAndOnSubPanel
+    Children = 12
+    : = {
+     Handle = 27
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 21
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 22
+        Finish = 37
+        : = {
+         DocID = 52100041
+        }
+       }
+      }
+     }
+     Text = 'Фирма-производитель: Ajinomoto Co.Inc'
+    }
+    : = {
+     Handle = 28
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Страна: Япония'
+    }
+    : = {
+     Handle = 29
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 15
+       }
+      }
+     }
+     Text = 'Формы выпуска: субстанция-порошок (пакеты полиэтиленовые двухслойные) 25, 50 кг'
+    }
+    : = {
+     Handle = 30
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Состав: L-аргинин'
+    }
+    : = {
+     Handle = 31
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 13
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 14
+        Finish = 26
+        : = {
+         DocID = 12250764
+         SubID = 2922
+        }
+       }
+      }
+     }
+     Text = 'Коды ТН ВЭД: 2922 49 950 0'
+    }
+    : = {
+     Handle = 32
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 18
+       }
+      }
+     }
+     Text = 'Номер фармстатьи: НД 42-11247-06'
+    }
+    : = {
+     Handle = 33
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 15
+       }
+      }
+     }
+     Text = 'Срок годности: 2 года'
+    }
+    : = {
+     Handle = 34
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 28
+       }
+      }
+     }
+     Text = 'Отпускается по рецепту врача'
+    }
+    : = {
+     Handle = 35
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 42
+       }
+      }
+     }
+     Text = 'Состояние регистрационного удостоверения: действующее'
+    }
+    : = {
+     Handle = 36
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 19
+       }
+      }
+     }
+     Text = 'Номер регистрации: П №012601/01'
+    }
+    : = {
+     Handle = 37
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 35
+       }
+      }
+     }
+     Text = 'Даты регистрации, перерегистрации: 29.12.2006'
+    }
+    : = {
+    }
+   }
+   : Block = {
+    Handle = 1004
+    ShortName = 'субстанция-порошок (барабаны фибровые) 50 кг [Япония; Ajinomoto Co.Inc]'
+    InContents = ev_spInContentsAndOnSubPanel
+    Children = 13
+    : = {
+     Handle = 38
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 21
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 22
+        Finish = 37
+        : = {
+         DocID = 52100041
+        }
+       }
+      }
+     }
+     Text = 'Фирма-производитель: Ajinomoto Co.Inc'
+    }
+    : = {
+     Handle = 39
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Страна: Япония'
+    }
+    : = {
+     Handle = 40
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 15
+       }
+      }
+     }
+     Text = 'Формы выпуска: субстанция-порошок (барабаны фибровые) 50 кг'
+    }
+    : = {
+     Handle = 41
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 8
+       }
+      }
+     }
+     Text = 'Состав: аргинин'
+    }
+    : = {
+     Handle = 42
+     Style = -1
+     Segments = {
+      Children = 2
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 13
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 14
+        Finish = 26
+        : = {
+         DocID = 12250764
+         SubID = 2922
+        }
+       }
+      }
+     }
+     Text = 'Коды ТН ВЭД: 2922 49 950 0'
+    }
+    : = {
+     Handle = 43
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 18
+       }
+      }
+     }
+     Text = 'Номер фармстатьи: НД 42-11247-00'
+    }
+    : = {
+     Handle = 44
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 15
+       }
+      }
+     }
+     Text = 'Срок годности: 2 года'
+    }
+    : = {
+     Handle = 45
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 28
+       }
+      }
+     }
+     Text = 'Отпускается по рецепту врача'
+    }
+    : = {
+     Handle = 46
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 42
+       }
+      }
+     }
+     Text = 'Состояние регистрационного удостоверения: замененное'
+    }
+    : = {
+     Handle = 47
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 19
+       }
+      }
+     }
+     Text = 'Номер регистрации: П №012601/01-2001'
+    }
+    : = {
+     Handle = 48
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 35
+       }
+      }
+     }
+     Text = 'Даты регистрации, перерегистрации: 22.01.2001'
+    }
+    : = {
+     Handle = 49
+     Style = -1
+     Segments = {
+      : = {
+       Handle = View
+       : = {
+        Style = -10
+        Finish = 19
+       }
+      }
+     }
+     Text = 'Год аннулирования: 2007'
+    }
+    : = {
+    }
+   }
+  }
+ }
+ : = {
+ }
+}
+ 

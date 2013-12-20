@@ -1,0 +1,476 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Redefinitions/UseCaseSetting.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Redefinitions::UseCaseSetting
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UseCaseSetting::Class (redefinition)
+implementation @ <<UseCaseSetting>>
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа UseCase::Class
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4E302A8B026Cfor4E30ECBB004D*
+//	%S%[inherited]\
+ inherited
+//	[{"%S{CodeName}"!=""&%Cx=true}\
+ %IF ( ( %S get_up ( 'CodeName' ) ) %!= '' %&& 
+   ( ( %C |x ) %==  true  ) ) 
+//	%f_set_var(SELF,S)\
+  [%f] set_var %( 'SELF' %, 'S' )% 
+//	%f_set_var(VALUES_COUNT,"%{SELF}<{}{%CS=UseCaseSettingValue&"%C{CodeName}"!=""}{C}>")\
+  [%f] set_var %( 'VALUES_COUNT' %, ( get_global_var ( 'SELF' ) ) 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'UseCaseSettingValue' %&& 
+    ( ( %C get_up ( 'CodeName' ) ) %!= ''  ) ) 
+   ( 'C' ) 
+  %END-FOR
+)% //	[{%{VALUES_COUNT}N!=0}\
+  %IF ( ( ( get_global_var ( 'VALUES_COUNT' ) |N ) ) %!= 0 ) 
+//	[{%{VALUES_COUNT}N=2}{\
+   %IF ( ( ( get_global_var ( 'VALUES_COUNT' ) |N ) ) %== 2 ) 
+    %ELSE
+//	%f_set_var(IsBool,"false")\
+     [%f] set_var %( 'IsBool' %, false )% 
+//	}\
+    %THEN
+//	%f_set_var(IsBool,"true")\
+    [%f] set_var %( 'IsBool' %, true )% 
+//	]\
+   %END-IF
+//	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
+   %IF ( ( ( get_global_var ( 'BOOLEAN' ) |N ) ) %== '' ) 
+    [%f] find_element %( '46A603BB0391' %, 'BOOLEAN' )% 
+   %END-IF
+//	[{"%{Integer}N"=""}%f_find_element(46A606AC03B2,Integer)]\
+   %IF ( ( ( get_global_var ( 'Integer' ) |N ) ) %== '' ) 
+    [%f] find_element %( '46A606AC03B2' %, 'Integer' )% 
+   %END-IF
+//	[{"%{TddComboBoxConfigItem}N"=""}%f_find_element(TddComboBoxConfigItem,TddComboBoxConfigItem)]\
+   %IF ( ( ( get_global_var ( 'TddComboBoxConfigItem' ) |N ) ) %== '' ) 
+    [%f] find_element %( 'TddComboBoxConfigItem' %, 'TddComboBoxConfigItem' )% 
+   %END-IF
+//	[{"%{TddBaseConfigItem}N"=""}%f_find_element(TddBaseConfigItem,TddBaseConfigItem)]\
+   %IF ( ( ( get_global_var ( 'TddBaseConfigItem' ) |N ) ) %== '' ) 
+    [%f] find_element %( 'TddBaseConfigItem' %, 'TddBaseConfigItem' )% 
+   %END-IF
+//	[{"%{TddConfigValue}N"=""}%f_find_element(TddConfigValue,TddConfigValue)]\
+   %IF ( ( ( get_global_var ( 'TddConfigValue' ) |N ) ) %== '' ) 
+    [%f] find_element %( 'TddConfigValue' %, 'TddConfigValue' )% 
+   %END-IF
+//	[{"%{l3FillChar}N"=""}%f_find_element(l3FillChar,l3FillChar)]\
+   %IF ( ( ( get_global_var ( 'l3FillChar' ) |N ) ) %== '' ) 
+    [%f] find_element %( 'l3FillChar' %, 'l3FillChar' )% 
+   %END-IF
+//	[{"%{Tafw}N"=""}%f_find_element(Tafw,Tafw)]\
+   %IF ( ( ( get_global_var ( 'Tafw' ) |N ) ) %== '' ) 
+    [%f] find_element %( 'Tafw' %, 'Tafw' )% 
+   %END-IF
+//	<{}{%LS=VCMUseCaseRealization}\
+   %FOR %ITEM-CONDITION ( ( %L |S ) %== 'VCMUseCaseRealization' ) 
+//	%L<{}{%GS=VCMFormsPack}\
+    %L
+    %FOR %ITEM-CONDITION ( ( %G |S ) %== 'VCMFormsPack' ) 
+//	%f_set_var(MOD,G)\
+     [%f] set_var %( 'MOD' %, 'G' )% 
+//	%f_set_var(PAR,G%P)\
+     [%f] set_var %( 'PAR' %, 'G'
+     %P )% 
+
+//	%{PAR}%f_add_class(%{SELF}U_%{MOD}U_Res,UtilityPack,%f_N(%{MOD})%{SELF}{CodeName}SettingRes,Pack_Inst)\
+     ( get_global_var ( 'PAR' ) %f add_class %( ( get_global_var ( 'SELF' ) |U ) '_'
+     ( get_global_var ( 'MOD' ) |U ) '_Res' %, 'UtilityPack' %, [%f] N %( ( get_global_var ( 'MOD' ) ) )% ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'SettingRes' %, 'Pack_Inst' )% ) 
+
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	%{Pack_Inst}%f_add_class(%{Pack_Inst}U_Enum,Enum,%{SELF}{CodeName}Enum,Enum_Inst)\
+       ( get_global_var ( 'Pack_Inst' ) %f add_class %( ( get_global_var ( 'Pack_Inst' ) |U ) '_Enum' %, 'Enum' %, ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Enum' %, 'Enum_Inst' )% ) 
+//	%{Enum_Inst}%f_set_documentation(Ключи для настройки "%{SELF}N")\
+       ( get_global_var ( 'Enum_Inst' ) %f set_documentation %( 'Ключи для настройки "'
+       ( get_global_var ( 'SELF' ) |N ) )% ) 
+
+//	%{SELF}<{}{%CS=UseCaseSettingValue&"%C{CodeName}"!=""}\
+       ( get_global_var ( 'SELF' ) ) 
+       %FOR %ITEM-CONDITION ( ( %C |S ) %== 'UseCaseSettingValue' %&& 
+         ( ( %C get_up ( 'CodeName' ) ) %!= ''  ) ) 
+//	%{Enum_Inst}%f_add_attribute(%CU_SettingValue_Key,,\
+        ( get_global_var ( 'Enum_Inst' ) %f add_attribute %( %C |U '_SettingValue_Key' %, '' %, 
+//	KEY_%{SELF}{CodeName}_%C{CodeName},\
+        'KEY_'
+        ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) '_'
+        %C get_up ( 'CodeName' ) %, 
+//	Attr_Inst)\
+        'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(%CN)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %C |N )% ) 
+
+//	>\
+       %END-FOR
+//	}\
+      %THEN
+//	]\
+     %END-IF
+
+
+//	%{MOD}%f_add_class(%{SELF}U_%{MOD}U_FM,FactoryMethod,%f_N(%{MOD})%{SELF}{CodeName}Setting,FM_Inst)\
+     ( get_global_var ( 'MOD' ) %f add_class %( ( get_global_var ( 'SELF' ) |U ) '_'
+     ( get_global_var ( 'MOD' ) |U ) '_FM' %, 'FactoryMethod' %, [%f] N %( ( get_global_var ( 'MOD' ) ) )% ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Setting' %, 'FM_Inst' )% ) 
+//	%{FM_Inst}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'FM_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{FM_Inst}%f_set_documentation(Метод для получения значения настройки "%{SELF}N")\
+     ( get_global_var ( 'FM_Inst' ) %f set_documentation %( 'Метод для получения значения настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{FM_Inst}%f_make_accessable(%{Tafw}U)\
+     ( get_global_var ( 'FM_Inst' ) %f make_accessable %( ( get_global_var ( 'Tafw' ) |U ) )% ) 
+//	%{FM_Inst}%f_add_dependency(%{FM_Inst}U_%{Tafw}U_uses,%{Tafw}U,uses,,USES_Inst)\
+     ( get_global_var ( 'FM_Inst' ) %f add_dependency %( ( get_global_var ( 'FM_Inst' ) |U ) '_'
+     ( get_global_var ( 'Tafw' ) |U ) '_uses' %, ( get_global_var ( 'Tafw' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{FM_Inst}%f_set_up(NO_FACTORY_BRACKECTS,true)\
+     ( get_global_var ( 'FM_Inst' ) %f set_up %( 'NO_FACTORY_BRACKECTS' %, true )% ) 
+//	%{FM_Inst}%f_add_operation(%{FM_Inst}U_DoIt,,DoIt (): \
+     ( get_global_var ( 'FM_Inst' ) %f add_operation %( ( get_global_var ( 'FM_Inst' ) |U ) '_DoIt' %, '' %, 'DoIt (): '
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	%{Integer}U}\
+       ( get_global_var ( 'Integer' ) |U ) 
+      %THEN
+//	%{BOOLEAN}U\
+      ( get_global_var ( 'BOOLEAN' ) |U ) 
+//	]\
+     %END-IF
+//	,Op_Instance)\
+%,      'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(%{FM_Inst}D)\
+     ( get_global_var ( 'Op_Instance' ) %f set_documentation %( ( get_global_var ( 'FM_Inst' ) |D ) )% ) 
+//	%{FM_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{FM_Inst},%{MOD})_var,\
+     ( get_global_var ( 'FM_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'FM_Inst' ) ) %, ( get_global_var ( 'MOD' ) ) )% '_var' %, 
+//	 {-}\
+     ' {-}'
+//	)\
+)% ) //	%{FM_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{FM_Inst},%{MOD})_impl,\
+     ( get_global_var ( 'FM_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'FM_Inst' ) ) %, ( get_global_var ( 'MOD' ) ) )% '_impl' %, 
+//	 if (afw.Settings = nil) then
+     ' if (afw.Settings = nil) then'
+//	  Result := dv_%f_N(%{MOD})_%{SELF}{CodeName}
+     '  Result := dv_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 
+//	 else
+     ' else'
+//	  Result := afw.Settings.\
+     '  Result := afw.Settings.'
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	LoadInteger\
+       'LoadInteger'
+//	}\
+      %THEN
+//	LoadBoolean\
+      'LoadBoolean'
+//	]\
+     %END-IF
+//	(pi_%f_N(%{MOD})_%{SELF}{CodeName}, dv_%f_N(%{MOD})_%{SELF}{CodeName});\
+     '(pi_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) %, ' dv_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) ');'
+//	)\
+)% ) 
+
+//	%{MOD}%f_add_class(%{SELF}U_%{MOD}U_FM_W,FactoryMethod,Write%f_N(%{MOD})%{SELF}{CodeName}Setting,FM_Inst_W)\
+     ( get_global_var ( 'MOD' ) %f add_class %( ( get_global_var ( 'SELF' ) |U ) '_'
+     ( get_global_var ( 'MOD' ) |U ) '_FM_W' %, 'FactoryMethod' %, 'Write'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Setting' %, 'FM_Inst_W' )% ) 
+//	%{FM_Inst_W}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'FM_Inst_W' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{FM_Inst_W}%f_set_documentation(Метод для записи значения настройки "%{SELF}N")\
+     ( get_global_var ( 'FM_Inst_W' ) %f set_documentation %( 'Метод для записи значения настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{FM_Inst_W}%f_make_accessable(%{Tafw}U)\
+     ( get_global_var ( 'FM_Inst_W' ) %f make_accessable %( ( get_global_var ( 'Tafw' ) |U ) )% ) 
+//	%{FM_Inst_W}%f_add_dependency(%{FM_Inst_W}U_%{Tafw}U_uses,%{Tafw}U,uses,,USES_Inst)\
+     ( get_global_var ( 'FM_Inst_W' ) %f add_dependency %( ( get_global_var ( 'FM_Inst_W' ) |U ) '_'
+     ( get_global_var ( 'Tafw' ) |U ) '_uses' %, ( get_global_var ( 'Tafw' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{FM_Inst_W}%f_set_up(NO_FACTORY_BRACKECTS,true)\
+     ( get_global_var ( 'FM_Inst_W' ) %f set_up %( 'NO_FACTORY_BRACKECTS' %, true )% ) 
+//	%{FM_Inst_W}%f_add_operation(%{FM_Inst_W}U_DoIt,,DoIt (aValue : \
+     ( get_global_var ( 'FM_Inst_W' ) %f add_operation %( ( get_global_var ( 'FM_Inst_W' ) |U ) '_DoIt' %, '' %, 'DoIt (aValue : '
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	%{Integer}U}\
+       ( get_global_var ( 'Integer' ) |U ) 
+      %THEN
+//	%{BOOLEAN}U\
+      ( get_global_var ( 'BOOLEAN' ) |U ) 
+//	]\
+     %END-IF
+//	),Op_Instance)\
+     ')' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(%{FM_Inst_W}D)\
+     ( get_global_var ( 'Op_Instance' ) %f set_documentation %( ( get_global_var ( 'FM_Inst_W' ) |D ) )% ) 
+//	%{FM_Inst_W}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{FM_Inst_W},%{MOD})_var,\
+     ( get_global_var ( 'FM_Inst_W' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'FM_Inst_W' ) ) %, ( get_global_var ( 'MOD' ) ) )% '_var' %, 
+//	 {-}\
+     ' {-}'
+//	)\
+)% ) //	%{FM_Inst_W}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{FM_Inst_W},%{MOD})_impl,\
+     ( get_global_var ( 'FM_Inst_W' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'FM_Inst_W' ) ) %, ( get_global_var ( 'MOD' ) ) )% '_impl' %, 
+//	 if (afw.Settings \<\> nil) then
+     ' if (afw.Settings <> nil) then'
+//	  afw.Settings.\
+     '  afw.Settings.'
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	SaveInteger\
+       'SaveInteger'
+//	}\
+      %THEN
+//	SaveBoolean\
+      'SaveBoolean'
+//	]\
+     %END-IF
+//	(pi_%f_N(%{MOD})_%{SELF}{CodeName}, aValue);\
+     '(pi_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) %, ' aValue);'
+//	)\
+)% ) 
+
+//	%{MOD}%f_add_dependency(%{MOD}U_%{Pack_Inst}U_uses,%{Pack_Inst}U,uses,,USES_Inst)\
+     ( get_global_var ( 'MOD' ) %f add_dependency %( ( get_global_var ( 'MOD' ) |U ) '_'
+     ( get_global_var ( 'Pack_Inst' ) |U ) '_uses' %, ( get_global_var ( 'Pack_Inst' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{Pack_Inst}%f_set_documentation(Ресурсы для настройки "%{SELF}N")\
+     ( get_global_var ( 'Pack_Inst' ) %f set_documentation %( 'Ресурсы для настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+
+//	%{Pack_Inst}%f_add_class(%{Pack_Inst}U_Key,Constants,%{SELF}{CodeName}Key,Const_Inst)\
+     ( get_global_var ( 'Pack_Inst' ) %f add_class %( ( get_global_var ( 'Pack_Inst' ) |U ) '_Key' %, 'Constants' %, ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Key' %, 'Const_Inst' )% ) 
+//	%{Const_Inst}%f_add_attribute(%{Const_Inst}U_Key,,\
+     ( get_global_var ( 'Const_Inst' ) %f add_attribute %( ( get_global_var ( 'Const_Inst' ) |U ) '_Key' %, '' %, 
+//	pi_%f_N(%{MOD})_%{SELF}{CodeName} = '%{MOD}D/%{SELF}N',\
+     'pi_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) ' = '''
+     ( get_global_var ( 'MOD' ) |D ) '/'
+     ( get_global_var ( 'SELF' ) |N ) '''' %, 
+//	Attr_Inst)\
+     'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Идентификатор настройки "%{SELF}N")\
+     ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Идентификатор настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{Const_Inst}%f_add_attribute(%{Const_Inst}U_DefaultValue,,\
+     ( get_global_var ( 'Const_Inst' ) %f add_attribute %( ( get_global_var ( 'Const_Inst' ) |U ) '_DefaultValue' %, '' %, 
+//	dv_%f_N(%{MOD})_%{SELF}{CodeName} = \
+     'dv_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) ' = '
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	0\
+       0 
+//	}\
+      %THEN
+//	false\
+       false 
+//	]\
+     %END-IF
+//	,\
+%, //	Attr_Inst)\
+     'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Значение по-умолчанию настройки "%{SELF}N")\
+     ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Значение по-умолчанию настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+
+//	%{Pack_Inst}%f_add_class(%{Pack_Inst}U_Name,LocalConst,%{SELF}{CodeName}Name,Local_Inst)\
+     ( get_global_var ( 'Pack_Inst' ) %f add_class %( ( get_global_var ( 'Pack_Inst' ) |U ) '_Name' %, 'LocalConst' %, ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Name' %, 'Local_Inst' )% ) 
+//	%{Local_Inst}%f_set_documentation(Имя настройки "%{SELF}N")\
+     ( get_global_var ( 'Local_Inst' ) %f set_documentation %( 'Имя настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{Local_Inst}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'Local_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Local_Inst}%f_add_attribute(%SU_SettingName,,\
+     ( get_global_var ( 'Local_Inst' ) %f add_attribute %( %S |U '_SettingName' %, '' %, 
+//	%{SELF}{CodeName} = '%{SELF}N',\
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) ' = '''
+     ( get_global_var ( 'SELF' ) |N ) '''' %, 
+//	Attr_Inst)\
+     'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(%{SELF}N)\
+     ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( ( get_global_var ( 'SELF' ) |N ) )% ) 
+
+//	%{Pack_Inst}%f_add_class(%{Pack_Inst}U_Values,LocalConst,%{SELF}{CodeName}Values,Local_Inst)\
+     ( get_global_var ( 'Pack_Inst' ) %f add_class %( ( get_global_var ( 'Pack_Inst' ) |U ) '_Values' %, 'LocalConst' %, ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Values' %, 'Local_Inst' )% ) 
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	%{Local_Inst}%f_add_inheritable(%{Enum_Inst}U)\
+       ( get_global_var ( 'Local_Inst' ) %f add_inheritable %( ( get_global_var ( 'Enum_Inst' ) |U ) )% ) 
+//	}\
+      %THEN
+//	%{Local_Inst}%f_add_inheritable(%{BOOLEAN}U)\
+      ( get_global_var ( 'Local_Inst' ) %f add_inheritable %( ( get_global_var ( 'BOOLEAN' ) |U ) )% ) 
+//	]\
+     %END-IF
+//	%{Local_Inst}%f_set_documentation(Значения для настройки "%{SELF}N")\
+     ( get_global_var ( 'Local_Inst' ) %f set_documentation %( 'Значения для настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{Local_Inst}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'Local_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Local_Inst}%f_set_up(Need mapping support,true)\
+     ( get_global_var ( 'Local_Inst' ) %f set_up %( 'Need mapping support' %, true )% ) 
+//	%{Local_Inst}%f_set_up(Need map interface,true)\
+     ( get_global_var ( 'Local_Inst' ) %f set_up %( 'Need map interface' %, true )% ) 
+//	%{Local_Inst}%f_set_up(elements prefix,%{SELF}{CodeName})\
+     ( get_global_var ( 'Local_Inst' ) %f set_up %( 'elements prefix' %, ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) )% ) 
+
+//	%{SELF}<{}{%CS=UseCaseSettingValue&"%C{CodeName}"!=""}\
+     ( get_global_var ( 'SELF' ) ) 
+     %FOR %ITEM-CONDITION ( ( %C |S ) %== 'UseCaseSettingValue' %&& 
+       ( ( %C get_up ( 'CodeName' ) ) %!= ''  ) ) 
+//	%{Local_Inst}%f_add_attribute(%CU_SettingValue,,\
+      ( get_global_var ( 'Local_Inst' ) %f add_attribute %( %C |U '_SettingValue' %, '' %, 
+//	%C{CodeName} = '%CN',\
+      %C get_up ( 'CodeName' ) ' = '''
+      %C |N '''' %, 
+//	Attr_Inst)\
+      'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(%CN)\
+      ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %C |N )% ) 
+
+//	>\
+     %END-FOR
+
+
+//	%{PAR}%f_add_class(%{SELF}U_%{MOD}U_AppConfig,SimpleClass,Tst%f_N(%{MOD})%{SELF}{CodeName}Item,Class_Inst)\
+     ( get_global_var ( 'PAR' ) %f add_class %( ( get_global_var ( 'SELF' ) |U ) '_'
+     ( get_global_var ( 'MOD' ) |U ) '_AppConfig' %, 'SimpleClass' %, 'Tst'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Item' %, 'Class_Inst' )% ) 
+//	%{Class_Inst}%f_make_accessable(%{TddComboBoxConfigItem}U)\
+     ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'TddComboBoxConfigItem' ) |U ) )% ) 
+//	%{Class_Inst}%f_make_accessable(%{l3FillChar}U)\
+     ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'l3FillChar' ) |U ) )% ) 
+//	%{Class_Inst}%f_make_accessable(%{TddConfigValue}U)\
+     ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'TddConfigValue' ) |U ) )% ) 
+//	%{Class_Inst}%f_add_inheritable(%{TddComboBoxConfigItem}U)\
+     ( get_global_var ( 'Class_Inst' ) %f add_inheritable %( ( get_global_var ( 'TddComboBoxConfigItem' ) |U ) )% ) 
+//	%{Class_Inst}%f_add_dependency(%{Class_Inst}U_%{Pack_Inst}U_uses,%{Pack_Inst}U,uses,,USES_Inst)\
+     ( get_global_var ( 'Class_Inst' ) %f add_dependency %( ( get_global_var ( 'Class_Inst' ) |U ) '_'
+     ( get_global_var ( 'Pack_Inst' ) |U ) '_uses' %, ( get_global_var ( 'Pack_Inst' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{Class_Inst}%f_add_dependency(%{Class_Inst}U_%{l3FillChar}U_uses,%{l3FillChar}U,uses,,USES_Inst)\
+     ( get_global_var ( 'Class_Inst' ) %f add_dependency %( ( get_global_var ( 'Class_Inst' ) |U ) '_'
+     ( get_global_var ( 'l3FillChar' ) |U ) '_uses' %, ( get_global_var ( 'l3FillChar' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{Class_Inst}%f_add_dependency(%{Class_Inst}U_%{TddConfigValue}U_uses,%{TddConfigValue}U,uses,,USES_Inst)\
+     ( get_global_var ( 'Class_Inst' ) %f add_dependency %( ( get_global_var ( 'Class_Inst' ) |U ) '_'
+     ( get_global_var ( 'TddConfigValue' ) |U ) '_uses' %, ( get_global_var ( 'TddConfigValue' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{Class_Inst}%f_set_documentation(Визуализатор для настройки "%{SELF}N")\
+     ( get_global_var ( 'Class_Inst' ) %f set_documentation %( 'Визуализатор для настройки "'
+     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{Class_Inst}%f_add_operation(%{Class_Inst}U_Create,ctor,Create (aMasterItem : %{TddBaseConfigItem}U = nil),Op_Instance)\
+     ( get_global_var ( 'Class_Inst' ) %f add_operation %( ( get_global_var ( 'Class_Inst' ) |U ) '_Create' %, 'ctor' %, 'Create (aMasterItem : '
+     ( get_global_var ( 'TddBaseConfigItem' ) |U ) ' = nil)' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Class_Inst})_var,\
+     ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+//	var
+     'var'
+//	 l_Value : TddConfigValue;\
+     ' l_Value : TddConfigValue;'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Class_Inst})_impl,\
+     ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+//	 l3FillChar(l_Value, SizeOf(l_Value));
+     ' l3FillChar(l_Value' %, ' SizeOf(l_Value));'
+//	 l_Value.Kind := \
+     ' l_Value.Kind := '
+//	[{%{IsBool}N=true}{\
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	dd_vkInteger\
+       'dd_vkInteger'
+//	}\
+      %THEN
+//	dd_vkBoolean\
+      'dd_vkBoolean'
+//	]\
+     %END-IF
+//	;
+     ';'
+//	 [{%{IsBool}N=true}{\
+     ' '
+     %IF ( ( ( get_global_var ( 'IsBool' ) |N ) ) %==  true ) 
+      %ELSE
+//	l_Value.AsInteger\
+       'l_Value.AsInteger'
+//	}\
+      %THEN
+//	l_Value.AsBoolean\
+      'l_Value.AsBoolean'
+//	]\
+     %END-IF
+//	 := dv_%f_N(%{MOD})_%{SELF}{CodeName};
+     ' := dv_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) ';'
+//	 inherited Create(pi_%f_N(%{MOD})_%{SELF}{CodeName},
+     ' inherited Create(pi_'
+     [%f] N %( ( get_global_var ( 'MOD' ) ) )% '_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) %, 
+//	  str_%{SELF}{CodeName}.AsStr,
+     '  str_'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) '.AsStr,'
+//	  l_Value, T%{SELF}{CodeName}ValuesMapImpl.Make, aMasterItem);\
+     '  l_Value' %, ' T'
+     ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'ValuesMapImpl.Make' %, ' aMasterItem);'
+//	)\
+)% ) 
+
+//	%{MOD}%f_add_dependency(%{MOD}U_%{Class_Inst}U_uses,%{Class_Inst}U,uses,,USES_Inst)\
+     ( get_global_var ( 'MOD' ) %f add_dependency %( ( get_global_var ( 'MOD' ) |U ) '_'
+     ( get_global_var ( 'Class_Inst' ) |U ) '_uses' %, ( get_global_var ( 'Class_Inst' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+
+//	>\
+    %END-FOR
+ //	>\
+   %END-FOR
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4E302A8B026Cfor4E30ECBB004D*
+; // DoSpell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<UseCaseSetting>>
+

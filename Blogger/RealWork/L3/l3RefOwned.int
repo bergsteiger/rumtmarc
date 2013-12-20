@@ -1,0 +1,63 @@
+{$IfNDef _RefOwned_Declared}
+
+{ Библиотека "L3 (Low Level Library)" }
+{ Автор: Люлин А.В. ©                 }
+{ Модуль: l3RefOwned.int -            }
+{ Начат: 20.10.2005 09:49             }
+{ $Id: l3RefOwned.int,v 1.1 2005/10/20 06:32:25 lulin Exp $ }
+
+// $Log: l3RefOwned.int,v $
+// Revision 1.1  2005/10/20 06:32:25  lulin
+// - объекты с владельцами выделены в шаблоны.
+//
+
+ {$Define _RefOwned_Declared}
+ 
+  _RefOwned_ = class(_RefOwnedParent_)
+   {* Класс-шаблон для реализации объектов с владельцем. }
+    private
+    // property fields
+      f_Owner : _OwnerType_;
+    protected
+    // property methods
+      function  GetOwner: TPersistent;
+        override;
+        {-}
+    protected
+    // internal methods
+      procedure DoSetOwner(Value: TObject);
+        override;
+        {-}
+      procedure Cleanup;
+        override;
+        {-}
+  end;//_RefOwned_
+
+{$Else  _RefOwned_Declared}
+
+// start class _RefOwned_
+
+function _RefOwned_.GetOwner: TPersistent;
+  {override;}
+  {-}
+begin
+ Result := f_Owner As TPersistent;
+end;
+
+procedure _RefOwned_.DoSetOwner(Value: TObject);
+  {override;}
+  {-}
+begin
+ l3Set(f_Owner, Value);
+end;
+
+procedure _RefOwned_.Cleanup;
+  {override;}
+  {-}
+begin
+ Owner := nil;
+ inherited;
+end;
+
+{$EndIf _RefOwned_Declared}
+

@@ -1,0 +1,147 @@
+unit Script.Engine;
+
+interface
+
+uses
+ Script.Interfaces,
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TscriptEngine = class
+   protected
+    class function CompileToken(aContext : TscriptCompileContext): Boolean;
+   public
+    class function CompileScript(const aFileName: String;
+                              const aCompileLog: IscriptCompileLog): IscriptCode;
+    class procedure RunScript(const aFileName: String;
+                              const aCompileLog: IscriptCompileLog;
+                              const aRunLog : IscriptRunLog);
+    class procedure RegisterKeyWord(const aKeyWord: String; aWordClass: RscriptWord);
+ end;//TscriptEngine
+
+implementation
+
+uses
+ TypInfo,
+ System.SysUtils,
+ Script.Parser,
+ Testing.Engine,
+ Script.Code,
+ Script.StringWord,
+ Script.UnknownToken,
+ Script.Axiomatics
+ ;
+
+class function TscriptEngine.CompileToken(aContext : TscriptCompileContext): Boolean;
+var
+ l_FoundWord : IscriptWord;
+begin
+ Result := true;
+ aContext.Parser.NextToken;
+ aContext.Log(aContext.Parser.TokenString);
+ Case aContext.Parser.TokenType of
+  script_ttEOF:
+   Result := false;
+  script_ttToken:
+  begin
+   if TscriptAxiomatics.Instance.TryGetValue(aContext.Parser.TokenString, l_FoundWord) then
+   // - слово зарегистрировано в аксиоматике
+    aContext.Compiler.CompileWord(l_FoundWord)
+    // - компилируем его
+   else
+    aContext.Compiler.CompileWord(TscriptUnknownToken.Make(aContext.Parser.TokenString));
+    // - пока компилируем заглушку
+  end;//script_ttToken
+  script_ttString:
+   aContext.Compiler.CompileWord(TscriptStringWord.Make(aContext.Parser.TokenString));
+  else
+   Assert(false, 'Неизвестный тип токена: ' + GetEnumName(TypeInfo(TscriptTokenType), Ord(aContext.Parser.TokenType)));
+ end;//Case l_CompileContext.Parser.TokenType
+end;
+
+class function TscriptEngine.CompileScript(const aFileName: String;
+                                           const aCompileLog: IscriptCompileLog): IscriptCode;
+var
+ l_CompileContext : TscriptCompileContext;
+ l_FoundWord : IscriptWord;
+begin
+ {$IfNDef NoTesting}
+ TtestEngine.StartTest(aFileName);
+ try
+ {$EndIf  NoTesting}
+  l_CompileContext := TscriptCompileContext.Create(aCompileLog,
+                                                   TscriptParser.Make(aFileName),
+                                                   TscriptCompiler.Make);
+  try
+   while true do
+   begin
+    l_CompileContext.Parser.NextToken;
+    l_CompileContext.Log(l_CompileContext.Parser.TokenString);
+    Case l_CompileContext.Parser.TokenType of
+     script_ttEOF:
+      break;
+     script_ttToken:
+     begin
+      if TscriptAxiomatics.Instance.TryGetValue(l_CompileContext.Parser.TokenString, l_FoundWord) then
+      // - слово зарегистрировано в аксиоматике
+       l_CompileContext.Compiler.CompileWord(l_FoundWord)
+       // - компилируем его
+      else
+       l_CompileContext.Compiler.CompileWord(TscriptUnknownToken.Make(l_CompileContext.Parser.TokenString));
+       // - пока компилируем заглушку
+     end;//script_ttToken
+     script_ttString:
+      l_CompileContext.Compiler.CompileWord(TscriptStringWord.Make(l_CompileContext.Parser.TokenString));
+     else
+      Assert(false, 'Неизвестный тип токена: ' + GetEnumName(TypeInfo(TscriptTokenType), Ord(l_CompileContext.Parser.TokenType)));
+    end;//Case l_CompileContext.Parser.TokenType
+   end;//while not l_CompileContext.Parser.EOF
+   Result := l_CompileContext.Compiler.CompiledCode;
+  finally
+   FreeAndNil(l_CompileContext);
+  end;//try..finally
+ {$IfNDef NoTesting}
+ finally
+  TtestEngine.StopTest;
+ end;//try..finally
+ {$EndIf  NoTesting}
+end;
+
+class procedure TscriptEngine.RunScript(const aFileName: String;
+                                        const aCompileLog: IscriptCompileLog;
+                                        const aRunLog : IscriptRunLog);
+var
+ l_RunContext : TscriptRunContext;
+ l_Code : IscriptCode;
+begin
+ l_Code := Self.CompileScript(aFileName, aCompileLog);
+ {$IfNDef NoTesting}
+ TtestEngine.StartTest(aFileName);
+ try
+ {$EndIf  NoTesting}
+  try
+   l_RunContext := TscriptRunContext.Create(aRunLog);
+   try
+    l_Code.Run(l_RunContext);
+    // - выполняем скомпилированный код
+   finally
+    FreeAndNil(l_RunContext);
+   end;//try..finally
+  finally
+   l_Code := nil;
+  end;//try..finally
+ {$IfNDef NoTesting}
+ finally
+  TtestEngine.StopTest;
+ end;//try..finally
+ {$EndIf  NoTesting}
+end;
+
+class procedure TscriptEngine.RegisterKeyWord(const aKeyWord: String; aWordClass: RscriptWord);
+begin
+ TscriptAxiomatics.Instance.AddWord(aKeyWord, aWordClass);
+end;
+
+end.

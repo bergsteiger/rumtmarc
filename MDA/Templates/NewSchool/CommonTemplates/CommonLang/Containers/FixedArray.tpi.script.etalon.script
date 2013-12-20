@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/FixedArray.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::FixedArray
+//
+// Массив фиксированной длинны
+// ---
+// Тип данных задается атрибутом без стереотипа, размер массива задаётся с помощью значания по-
+// умолчанию для ключа этого атрибута.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: FixedArray::Class
+implementation @ <<FixedArray>>
+//? Массив фиксированной длинны
+//? Тип данных задается атрибутом без стереотипа, размер массива задаётся с помощью значания по-умолчанию для ключа этого атрибута.
+//= BaseContainer::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа BaseContainer::Class
+// сгенерить определение контэйнера для C++
+//%f _dump_container_def_h
+; // st_space_key
+
+: dump_container_def_h OBJECT IN %S
+//#UC START# *49015EE401E1for4A10F31901C6*
+//	%f_dump_container_fwds_h(%S)\
+ [%f] dump_container_fwds_h %( %S )% 
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#typedef boost::array \< %f_data_dump(%S), <{}{"%CS"=""}%C<%f_init(%C)>> \> %SN;
+ out_indent 'typedef boost::array < '
+ [%f] data_dump %( %S )% ', '
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== '' ) 
+  %C
+  %FOR [%f] init %( %C )% 
+  %END-FOR
+  %END-FOR
+ ' > '
+ %S |N ';'
+//#UC END# *49015EE401E1for4A10F31901C6*
+; // dump_container_def_h
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4A10F31901C6*
+//c                                                       {}
+//r {"%Cx"="false"}:                                      {%SS не задан тип данных}
+//r {"%C%Cx"="false"|%C<{}{"%CI"!=""}{%CC}>=0}:            {%SS не задан размер массива}
+//r {""=""}:                      {}
+//#UC END# *4704C0E30186for4A10F31901C6*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: FixedArray::Class::Attribute
+end. // <<FixedArray>>
+
+implementation @ :: <<FixedArray>> <<Attribute>> ;
+//? Тип данных контэйнера, значение по-умолчанию для ключа атрибута определяет размер контэйнера
+//= BaseContainer::Class::Attribute
+
+// Параметры стереотипа
+//l arl
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: FixedArray::Class::Attribute::Attribute
+; // st_space_key
+
+end. // :: <<FixedArray>> <<Attribute>> ;
+
+implementation @ :: <<FixedArray>> <<Attribute>> ;
+//? Размер массива
+// Параметры стереотипа
+//Y code_key_attr.gif
+//L code_key_attr
+//T 
+// - может не иметь "цели" (типа/результата)
+//l a
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<FixedArray>> <<Attribute>> ;
+

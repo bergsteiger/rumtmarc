@@ -1,0 +1,390 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormInner/Control.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::Control
+//
+// Визуальный контрол
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Control::Class
+implementation @ <<Control>>
+//? Визуальный контрол
+//> Control::Class
+//> ControlOverride::Class
+
+//= FormInner::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+// Параметры визуализации
+//$ C 255,192,203
+//$ l 165,42,0
+//$ f 165,42,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p ControlClass=none|TvtLabel|TvtGroupBox|TvtPanel|TvtSizeablePanel|TvtProportionalPanel|TvtLister|TeeButton|TeeEditor|TnscEditor|TnscEdit|TvtFocusLabel|TeeCheckBox|TnscLister|TnscHideField|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TvtScrollBar|TPaintBox ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{ControlClass}"!="%S{!ControlClass}"}%f_up_prefix(%S) *ControlClass* = *%S{ControlClass}*
+ ?inherited
+ %IF ( ( %S get_up ( 'ControlClass' ) ) %!= ( %S get_up_def ( 'ControlClass' ) ) ) 
+  [%f] up_prefix %( %S )% ' *ControlClass* = *'
+  %S get_up ( 'ControlClass' ) '*'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ %IF ( ( %S %f IsOverride %( )% ) %!=  true ) 
+//	[{%Gx!=true}\
+  %IF ( ( %G |x ) %!=  true ) 
+//	[{%S{ControlClass}!=none&"%S{ControlClass}"!=""}\
+   %IF ( ( %S get_up ( 'ControlClass' ) ) %!= 'none' %&& 
+     ( ( %S get_up ( 'ControlClass' ) ) %!= ''  ) ) 
+//	%f_find_element(%S{ControlClass},l_Elem)\
+    [%f] find_element %( %S get_up ( 'ControlClass' ) %, 'l_Elem' )% 
+//	%S%f_make_accessable(%{l_Elem}U)\
+    %S %f make_accessable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
+//	%S%f_add_inheritable(%{l_Elem}U)\
+    %S %f add_inheritable %( ( get_global_var ( 'l_Elem' ) |U ) )% 
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]\
+ %END-IF
+
+//	%S%[inherited]\
+ inherited
+
+//	[{%S%f_IsOverride()!=true}\
+ %IF ( ( %S %f IsOverride %( )% ) %!=  true ) 
+
+
+//	%f_set_var(FOUND,"false")\
+  [%f] set_var %( 'FOUND' %, false )% 
+//	%f_set_var(PARENT,"")\
+  [%f] set_var %( 'PARENT' %, '' )% 
+//	<{}{%P#f_IsControl()!=true}{%P}\
+  %FOR %ITEM-CONDITION ( ( %P %?f IsControl %( )% ) %!=  true ) 
+   ( %P ) 
+//	[{%{FOUND}N=false}\
+   %IF ( ( ( get_global_var ( 'FOUND' ) |N ) ) %==  false ) 
+//	%f_set_var(FOUND,"true")\
+    [%f] set_var %( 'FOUND' %, true )% 
+//	%f_set_var(PARENT,P)\
+    [%f] set_var %( 'PARENT' %, 'P' )% 
+//	]\
+   %END-IF
+//	>\
+  %END-FOR
+
+//	%f_warning(%{PARENT}S : %{PARENT}N)\
+
+
+//	%{PARENT}%f_add_class(%SU_Word,SimpleClass,Tkw_%f_N(%{PARENT})_Control_%f_N(%S),Word_Inst)\
+  ( get_global_var ( 'PARENT' ) %f add_class %( %S |U '_Word' %, 'SimpleClass' %, 'Tkw_'
+  [%f] N %( ( get_global_var ( 'PARENT' ) ) )% '_Control_'
+  [%f] N %( %S )% %, 'Word_Inst' )% ) 
+//	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
+  %IF ( ( ( get_global_var ( 'TtfwControlString' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'TtfwControlString' %, 'TtfwControlString' )% 
+  %END-IF
+//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwControlString' ) |U ) )% ) 
+//	%{Word_Inst}%f_add_inheritable(%{TtfwControlString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f add_inheritable %( ( get_global_var ( 'TtfwControlString' ) |U ) )% ) 
+//	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
+  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NeedsKeywordDoc' %, true )% ) 
+//	%{PARENT}%f_add_dependency(%SU_%{Word_Inst}U_uses,%{Word_Inst}U,uses,,USES_Inst)\
+  ( get_global_var ( 'PARENT' ) %f add_dependency %( %S |U '_'
+  ( get_global_var ( 'Word_Inst' ) |U ) '_uses' %, ( get_global_var ( 'Word_Inst' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора контрола %SN
+  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для идентификатора контрола '
+  %S |N 
+//	----
+  '----'
+//	*Пример использования*:
+  '*Пример использования*:'
+//	\{code\}
+  '{code}'
+//	контрол::%f_str_replace(%f_N(%S), ,_) TryFocus ASSERT
+  'контрол::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% ' TryFocus ASSERT'
+//	\{code\})\
+  '{code}' )% ) 
+//	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+
+//	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
+  %IF ( ( ( get_global_var ( 'TtfwControlString.GetString' ) |N ) ) %== '' ) 
+   [%f] find_element %( '4DDFD2EA0116' %, 'TtfwControlString.GetString' )% 
+  %END-IF
+//	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwControlString.GetString' ) |U ) )% ) 
+//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
+  ( get_global_var ( 'TtfwControlString.GetString' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwControlString.GetString' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
+  ( get_global_var ( 'TtfwControlString.GetString' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwControlString.GetString' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_impl' %, 
+//	 Result := '%f_N(%S)';\
+  ' Result := '''
+  [%f] N %( %S )% ''';'
+//	)\
+)% ) 
+
+//	%{Word_Inst}%f_add_operation(%{Word_Inst}U_Ini,ini,Ini (),Op_Instance)\
+  ( get_global_var ( 'Word_Inst' ) %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini ()' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Регистрация %{Word_Inst}N)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация '
+  ( get_global_var ( 'Word_Inst' ) |N ) )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+  ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	 %{Word_Inst}N.Register('контрол::%f_str_replace(%f_N(%S), ,_)', %S%f_pas_ResultTypeName());\
+  ' '
+  ( get_global_var ( 'Word_Inst' ) |N ) '.Register(''контрол::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '''' %, ' '
+  %S %f pas_ResultTypeName %( )% ');'
+//	)\
+)% ) 
+
+//	%{PARENT}%f_add_class(%SU_Word_Push,SimpleClass,Tkw_%f_N(%{PARENT})_Control_%f_N(%S)_Push,Word_Inst)\
+  ( get_global_var ( 'PARENT' ) %f add_class %( %S |U '_Word_Push' %, 'SimpleClass' %, 'Tkw_'
+  [%f] N %( ( get_global_var ( 'PARENT' ) ) )% '_Control_'
+  [%f] N %( %S )% '_Push' %, 'Word_Inst' )% ) 
+//	[{"%{TkwControlPush}N"=""}%f_find_element(byname_control_push,TkwControlPush)]\
+  %IF ( ( ( get_global_var ( 'TkwControlPush' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'byname_control_push' %, 'TkwControlPush' )% 
+  %END-IF
+//	[{"%{TtfwContext}N"=""}%f_find_element(TtfwContext,TtfwContext)]\
+  %IF ( ( ( get_global_var ( 'TtfwContext' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'TtfwContext' %, 'TtfwContext' )% 
+  %END-IF
+//	%{Word_Inst}%f_make_accessable(%{TkwControlPush}U)\
+  ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TkwControlPush' ) |U ) )% ) 
+//	%{Word_Inst}%f_add_inheritable(%{TkwControlPush}U)\
+  ( get_global_var ( 'Word_Inst' ) %f add_inheritable %( ( get_global_var ( 'TkwControlPush' ) |U ) )% ) 
+//	%{PARENT}%f_add_dependency(%SU_%{Word_Inst}U_uses,%{Word_Inst}U,uses,,USES_Inst)\
+  ( get_global_var ( 'PARENT' ) %f add_dependency %( %S |U '_'
+  ( get_global_var ( 'Word_Inst' ) |U ) '_uses' %, ( get_global_var ( 'Word_Inst' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
+  ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwContext' ) |U ) )% ) 
+//	%{Word_Inst}%f_add_dependency(%SU_%{Word_Inst}U_%{TtfwContext}U_uses,%{TtfwContext}U,uses,,USES_Inst)\
+  ( get_global_var ( 'Word_Inst' ) %f add_dependency %( %S |U '_'
+  ( get_global_var ( 'Word_Inst' ) |U ) '_'
+  ( get_global_var ( 'TtfwContext' ) |U ) '_uses' %, ( get_global_var ( 'TtfwContext' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%{Word_Inst}%f_set_documentation(Слово словаря для контрола %SN
+  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для контрола '
+  %S |N 
+//	----
+  '----'
+//	*Пример использования*:
+  '*Пример использования*:'
+//	\{code\}
+  '{code}'
+//	контрол::%f_str_replace(%f_N(%S):push, ,_) pop:control:SetFocus ASSERT
+  'контрол::'
+  [%f] str_replace %( [%f] N %( %S )% ':push' %, ' ' %, '_' )% ' pop:control:SetFocus ASSERT'
+//	\{code\})\
+  '{code}' )% ) 
+//	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+
+//	[{"%{TtfwWord.DoDoIt}N"=""}%f_find_element(4DAEEDE10285,TtfwWord.DoDoIt)]\
+  %IF ( ( ( get_global_var ( 'TtfwWord.DoDoIt' ) |N ) ) %== '' ) 
+   [%f] find_element %( '4DAEEDE10285' %, 'TtfwWord.DoDoIt' )% 
+  %END-IF
+//	%{Word_Inst}%f_add_override(%{TtfwWord.DoDoIt}U)\
+  ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.DoDoIt' ) |U ) )% ) 
+//	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_var,\
+  ( get_global_var ( 'TtfwWord.DoDoIt' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.DoDoIt' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_impl,\
+  ( get_global_var ( 'TtfwWord.DoDoIt' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.DoDoIt' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_impl' %, 
+//	 aCtx.rEngine.PushString('%f_N(%S)');
+  ' aCtx.rEngine.PushString('''
+  [%f] N %( %S )% ''');'
+//	 inherited;\
+  ' inherited;'
+//	)\
+)% ) 
+
+//	%{Word_Inst}%f_add_operation(%{Word_Inst}U_Ini,ini,Ini (),Op_Instance)\
+  ( get_global_var ( 'Word_Inst' ) %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini ()' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Регистрация %{Word_Inst}N)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация '
+  ( get_global_var ( 'Word_Inst' ) |N ) )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+  ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	 %{Word_Inst}N.Register('контрол::%f_str_replace(%f_N(%S), ,_):push');\
+  ' '
+  ( get_global_var ( 'Word_Inst' ) |N ) '.Register(''контрол::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% ':push'');'
+//	)\
+)% ) 
+
+//	]\
+ %END-IF
+//	<%C#f_DoSpell()>
+ %FOR %C %?f DoSpell %( )% 
+ %END-FOR
+
+//#UC END# *4B2A19E3038Bfor4A794CA201BF*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+//%f _pas_MethodOwnerName
+: pas_MethodOwnerName OBJECT IN %S
+//#UC START# *49CB3C99034Bfor4A794CA201BF*
+//	%P%f_pas_MethodOwnerName(%S)
+ %P %f pas_MethodOwnerName %( %S )% 
+//#UC END# *49CB3C99034Bfor4A794CA201BF*
+; // pas_MethodOwnerName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию методов для свойства
+//%f _pas_PropertyMethodImplementation
+: pas_PropertyMethodImplementation OBJECT IN %S
+//#UC START# *4A7ADF4E0277for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ %IF ( ( %S %f IsOverride %( )% ) %!=  true ) 
+//	%S%[inherited]f_pas_PropertyMethodImplementation(%1,%2,%3)]\
+  call-inherited pas_PropertyMethodImplementation %( %1 %, %2 %, %3 )%
+ %END-IF
+//	<{}{%C#f_IsControl()=true}%C%f_pas_PropertyMethodImplementation(%1,%2,%3)>
+ %FOR %ITEM-CONDITION ( ( %C %?f IsControl %( )% ) %==  true ) 
+  %C %f pas_PropertyMethodImplementation %( %1 %, %2 %, %3 )% 
+ %END-FOR
+//#UC END# *4A7ADF4E0277for4A794CA201BF*
+; // pas_PropertyMethodImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс методов для свойства
+//%f _pas_PropertyMethodInterface
+: pas_PropertyMethodInterface OBJECT IN %S
+//#UC START# *4A7ADF400052for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ %IF ( ( %S %f IsOverride %( )% ) %!=  true ) 
+//	%S%[inherited]f_pas_PropertyMethodInterface(%1,%2,%3)]\
+  call-inherited pas_PropertyMethodInterface %( %1 %, %2 %, %3 )%
+ %END-IF
+//	<{}{%C#f_IsControl()=true}[\n%C%f_pas_PropertyMethodInterface(%1,%2,%3)]>
+ %FOR %ITEM-CONDITION ( ( %C %?f IsControl %( )% ) %==  true ) 
+  %IF-NOT-EMPTY
+   #13#10
+   %C %f pas_PropertyMethodInterface %( %1 %, %2 %, %3 )% 
+  %END-IF
+ %END-FOR
+//#UC END# *4A7ADF400052for4A794CA201BF*
+; // pas_PropertyMethodInterface
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// документация отсутствует
+//%f _pas_dump_Property
+: pas_dump_Property OBJECT IN %S
+//#UC START# *4A7ADFAE0118for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ %IF ( ( %S %f IsOverride %( )% ) %!=  true ) 
+//	%S%[inherited]]\
+  inherited
+ %END-IF
+//	<{}{%C#f_IsControl()=true}[\n%C%f_pas_dump_Property()]>
+ %FOR %ITEM-CONDITION ( ( %C %?f IsControl %( )% ) %==  true ) 
+  %IF-NOT-EMPTY
+   #13#10
+   %C %f pas_dump_Property %( )% 
+  %END-IF
+ %END-FOR
+//#UC END# *4A7ADFAE0118for4A794CA201BF*
+; // pas_dump_Property
+
+
+// перекрытие базового стереотипа ClassBase::Class::property::Attribute
+// Выводит поле для свойства
+//%f _pas_OutField
+: pas_OutField OBJECT IN %S
+//#UC START# *4A797AC90346for4A794CA201BF*
+//	[{%S%f_IsOverride()!=true}\
+ %IF ( ( %S %f IsOverride %( )% ) %!=  true ) 
+//	%S%[inherited]]\
+  inherited
+ %END-IF
+//	<[\n%C#f_pas_OutField()]>
+ %FOR %IF-NOT-EMPTY
+   #13#10
+   %C %?f pas_OutField %( )% 
+  %END-IF
+ %END-FOR
+
+//%f _SpellField
+; // pas_OutField
+
+: SpellField OBJECT IN %S
+//	[{%S%f_IsOverride()!=true}\
+ %IF ( ( %S %f IsOverride %( )% ) %!=  true ) 
+//	%S%[inherited]]
+  inherited
+ %END-IF
+//	<[\n%C#f_SpellField()\
+//	]>
+//#UC END# *4A797AC90346for4A794CA201BF*
+; // SpellField
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+//~ Control::Class::property::Attribute::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Control>>
+

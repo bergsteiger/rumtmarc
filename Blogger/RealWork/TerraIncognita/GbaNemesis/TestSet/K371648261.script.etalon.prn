@@ -1,0 +1,14 @@
+Text : TnscEditor
+TextForm : TTextForm
+pnLeft : TvtPanel
+pnLeftForScroll : TvtPanel
+pnLeftEx : TvtSizeablePanel
+pnBack : TvtProportionalPanel
+AACContentsContainerForm : TAACContentsContainerForm
+ParentZone : TvtPanel
+ParentForm : TParentForm
+ParentZonePanel : TvtPanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow

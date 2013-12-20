@@ -1,0 +1,18 @@
+// Разработчик: Селянкин Владимир
+
+: K377750742
+ ППР
+ OBJECT VAR l_QC
+ "Убедиться, что фокус в редакторе"
+ focused:control:push >>> l_QC
+ TRY
+  "в поле 'Дата принятия С' ввести {('01.01.2001')}"
+  'AT_PUBLISHING_DATE' l_QC pop:QueryCard:Attribute:SetFocus
+  оп::Правка_Удалить
+ FINALLY
+  l_QC pop:QueryCard:Attribute:GetFocus .
+ END
+;
+
+//анти-тест K377750742
+K377750742

@@ -1,0 +1,233 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/Requirements.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CoreTemplates::RequirementsLib::Requirements::Requirements
+//
+// Пакет требований
+// ---
+// Пакет с моделью требований
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Requirements::Category
+implementation @ <<Requirements>>
+//? Пакет требований
+//? Пакет с моделью требований
+//> Problems::Category
+//> UseCases::Category
+//> Features::Category
+
+//= Документация::MDAGenerator
+//= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y requirements.gif
+//L requirements
+// Параметры визуализации
+//$ C 245,175,195
+//$ l 200,50,100
+//$ f 200,50,100
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+; // st_space_key
+
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor47047244009C*
+//R  
+//P
+//C /%SN
+//O %SN.model.script
+//	%f_dump_to_FORTH(%S)\
+ [%f] dump_to_FORTH %( %S )% 
+//	<{}{"%CO"!=""}%CX>
+ %FOR %ITEM-CONDITION ( ( %C |O ) %!= '' ) 
+  %C |X 
+ %END-FOR
+//#UC END# *4F368B80039Efor47047244009C*
+; // forth_structure
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47047244009C*
+//C /%SU
+//C /Requirements
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//#UC END# *4E65F581015Afor47047244009C*
+; // link_to_requests_hack
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47047244009C*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ %IF-NOT-EMPTY
+  'h2. Модель'
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Зависит от требоваий:
+   '{info}Зависит от требоваий:'
+//	<{}{%DS=Requirements}* %f_k_link(%D)
+   %FOR %ITEM-CONDITION ( ( %D |S ) %== 'Requirements' ) 
+    '* '
+    [%f] k_link %( %D )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Реализован в модуле:
+   '{info}Реализован в модуле:'
+//	<{}{%DS!=Requirements&%t_target_ex(%D)!=true}{Sp}* %f_k_link(%D)
+   %FOR %ITEM-CONDITION ( ( %D |S ) %!= 'Requirements' %&& 
+     ( ( [%t] target_ex %( %D )% ) %!=  true  ) ) 
+    ( 'Sp' ) 
+    '* '
+    [%f] k_link %( %D )% 
+//	>{info}][{%mx=true&%Cx=true}
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF ( ( %m |x ) %==  true %&& 
+    ( ( %C |x ) %==  true  ) ) 
+
+//	
+
+//	_Диаграмма пакета:_
+   '_Диаграмма пакета:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}]][
+   [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+   %m |U '.jpg}' 
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	
+
+//	h2. Состав требований[
+  'h2. Состав требований'
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Проблемы пользователя:_<{}{%CS=Problems}
+   '_Проблемы пользователя:_'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'Problems' ) 
+
+//	\# *%f_k_link(%C)*
+    '# *'
+    [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+    '_'
+    %C |? '_'
+    %IF-NOT-EMPTY
+     ', '
+     [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Возможности:_<{}{%CS=Features}
+   '_Возможности:_'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'Features' ) 
+
+//	\# *%f_k_link(%C)*
+    '# *'
+    [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+    '_'
+    %C |? '_'
+    %IF-NOT-EMPTY
+     ', '
+     [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Прецеденты:_<{}{%CS=UseCases}
+   '_Прецеденты:_'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'UseCases' ) 
+
+//	\# *%f_k_link(%C)*
+    '# *'
+    [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]
+    '_'
+    %C |? '_'
+    %IF-NOT-EMPTY
+     ', '
+     [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+//	
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for47047244009C*
+; // wiki
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for47047244009C*
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//#UC END# *4A41A13D03D5for47047244009C*
+; // spell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Requirements>>
+

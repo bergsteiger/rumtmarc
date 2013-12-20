@@ -1,0 +1,929 @@
+--------------- Контрол в фокусе: ------------------
+ContentsTree : TnscTreeView
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+ContentsForm : TContentsForm
+Структура документа
+Left = 0
+Top = 0
+Width = 315
+Height = 505
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+BackgroundPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 25
+Width = 315
+Height = 475
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ContextFilter : TnscContextFilter
+
+Left = 0
+Top = 0
+Width = 315
+Height = 35
+ImageIndex: 77
+Align: 1
+Anchors: 7
+Images: assigned
+---------------
+ContextFilterButton : TvtSpeedButton
+
+Left = 285
+Top = 0
+Width = 25
+Height = 25
+ImageIndex: 77
+Anchors: 3
+Images: assigned
+---------------
+InternalEditor : TnscComboBoxWithFilter
+
+Left = 0
+Top = 0
+Width = 275
+Height = 25
+TabOrder: 1
+Anchors: 3
+---------------
+lstBookmarks : TvtLister
+
+Left = 0
+Top = 0
+Width = 100
+Height = 150
+TabOrder: 1
+TabStop: 1
+Align: 2
+Anchors: 13
+ReadOnly: 0
+Images: assigned
+Удалить
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 100
+Height = 15
+Images: nil
+Удалить
+---------------
+lstComments : TvtLister
+
+Left = 0
+Top = 0
+Width = 100
+Height = 150
+TabOrder: 2
+TabStop: 1
+Align: 2
+Anchors: 13
+ReadOnly: 0
+Images: assigned
+Удалить
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 100
+Height = 15
+Images: nil
+Удалить
+---------------
+lstExternalObjects : TvtLister
+
+Left = 0
+Top = 0
+Width = 100
+Height = 150
+TabOrder: 3
+TabStop: 1
+Align: 2
+Anchors: 13
+ReadOnly: 0
+Images: assigned
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 100
+Height = 15
+Images: nil
+---------------
+Tasks : TnscTasksPanelView
+
+Left = 0
+Top = 35
+Width = 315
+Height = 440
+Align: 5
+---------------
+field_ContentsTree : TnscTasksPanelHideField
+Оглавление
+Left = 0
+Top = 0
+Width = 315
+Height = 60
+TabOrder: 0
+TabStop: 1
+Align: 0
+Images: nil
+---------------
+ContentsTree : TnscTreeView
+Часть первая
+Left = 0
+Top = 30
+Width = 315
+Height = 30
+TabOrder: 2
+Align: 5
+Images: assigned
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+Копировать фрагмент
+Печать фрагмента...
+Предварительный просмотр печати фрагмента
+Экспорт фрагмента в &MS-Word
+ В новый документ
+ В открытый документ
+Выделить фрагмент
+Ссылки на фрагмент
+Ссылки из фрагмента
+-
+Установить закладку на фрагмент
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 315
+Height = 15
+Images: nil
+Копировать фрагмент
+Печать фрагмента...
+Предварительный просмотр печати фрагмента
+Экспорт фрагмента в &MS-Word
+ В новый документ
+ В открытый документ
+Выделить фрагмент
+Ссылки на фрагмент
+Ссылки из фрагмента
+-
+Установить закладку на фрагмент
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+
+tbefListTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+
+tbefListTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+
+tbContentsFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocumentBlock_opGetTypedCorrespondentList : TvcmToolButtonDef
+Ссылки на фрагмент (вид информации)
+Активность:True
+bt_enDocumentBlock_opGetTypedRespondentList : TvcmToolButtonDef
+Ссылки из фрагмента (вид информации)
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbTextFormTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddBookmark : TvcmToolButtonDef
+Установить закладку...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddToControl : TvcmToolButtonDef
+Поставить на контроль
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opChangesButton : TvcmToolButtonDef
+Изменения в документе
+Активность:True
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+ContentsTree : TnscTreeView
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+ContentsForm : TContentsForm
+Структура документа
+Left = 0
+Top = 0
+Width = 315
+Height = 525
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+BackgroundPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 25
+Width = 315
+Height = 500
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ContextFilter : TnscContextFilter
+
+Left = 0
+Top = 0
+Width = 315
+Height = 35
+ImageIndex: 77
+Align: 1
+Anchors: 7
+Images: assigned
+---------------
+ContextFilterButton : TvtSpeedButton
+
+Left = 285
+Top = 0
+Width = 25
+Height = 25
+ImageIndex: 77
+Anchors: 3
+Images: assigned
+---------------
+InternalEditor : TnscComboBoxWithFilter
+
+Left = 0
+Top = 0
+Width = 275
+Height = 25
+TabOrder: 1
+Anchors: 3
+---------------
+lstBookmarks : TvtLister
+
+Left = 0
+Top = 0
+Width = 100
+Height = 150
+TabOrder: 1
+TabStop: 1
+Align: 2
+Anchors: 13
+ReadOnly: 0
+Images: assigned
+Удалить
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 100
+Height = 15
+Images: nil
+Удалить
+---------------
+lstComments : TvtLister
+
+Left = 0
+Top = 0
+Width = 100
+Height = 150
+TabOrder: 2
+TabStop: 1
+Align: 2
+Anchors: 13
+ReadOnly: 0
+Images: assigned
+Удалить
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 100
+Height = 15
+Images: nil
+Удалить
+---------------
+lstExternalObjects : TvtLister
+
+Left = 0
+Top = 0
+Width = 100
+Height = 150
+TabOrder: 3
+TabStop: 1
+Align: 2
+Anchors: 13
+ReadOnly: 0
+Images: assigned
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 100
+Height = 15
+Images: nil
+---------------
+Tasks : TnscTasksPanelView
+
+Left = 0
+Top = 35
+Width = 315
+Height = 465
+Align: 5
+---------------
+field_ContentsTree : TnscTasksPanelHideField
+Оглавление
+Left = 0
+Top = 0
+Width = 315
+Height = 60
+TabOrder: 0
+TabStop: 1
+Align: 0
+Images: nil
+---------------
+ContentsTree : TnscTreeView
+Часть первая
+Left = 0
+Top = 30
+Width = 315
+Height = 30
+TabOrder: 2
+Align: 5
+Images: assigned
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+Копировать фрагмент
+Печать фрагмента...
+Предварительный просмотр печати фрагмента
+Экспорт фрагмента в &MS-Word
+ В новый документ
+ В открытый документ
+Выделить фрагмент
+Ссылки на фрагмент
+Ссылки из фрагмента
+-
+Установить закладку на фрагмент
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 315
+Height = 15
+Images: nil
+Копировать фрагмент
+Печать фрагмента...
+Предварительный просмотр печати фрагмента
+Экспорт фрагмента в &MS-Word
+ В новый документ
+ В открытый документ
+Выделить фрагмент
+Ссылки на фрагмент
+Ссылки из фрагмента
+-
+Установить закладку на фрагмент
+-
+Развернуть все
+Свернуть все
+Перенос по словам
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+
+tbefListTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enList_opSpecifyList : TvcmToolButtonDef
+Уточнить список
+Активность:True
+
+tbefListTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enList_opSpecifyList : TvcmToolButtonDef
+Уточнить список
+Активность:True
+
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:True
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:False
+
+tbContentsFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocumentBlock_opGetTypedCorrespondentList : TvcmToolButtonDef
+Ссылки на фрагмент (вид информации)
+Активность:True
+bt_enDocumentBlock_opGetTypedRespondentList : TvcmToolButtonDef
+Ссылки из фрагмента (вид информации)
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbTextFormTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+bt_enFile_opLoadFromFolder : TvcmToolButtonDef
+Выбрать из Моих документов...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddToControl : TvcmToolButtonDef
+Поставить на контроль
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opGetCorrespondentListExFrmAct : TvcmToolButtonDef
+Ссылки на документ (вид информации)
+Активность:True
+bt_enDocument_opGetRespondentListExFrmAct : TvcmToolButtonDef
+Ссылки из документа (вид информации)
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTimeMachine_opTimeMachineOnOffNew : TvcmToolButtonDef
+Включить Машину времени
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opShowJurorComments : TvcmToolButtonDef
+Скрыть комментарии ГАРАНТа
+Активность:True
+bt_enDocument_opShowUserComments : TvcmToolButtonDef
+Скрыть мои комментарии
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opGetGraphicImage : TvcmToolButtonDef
+Графическая копия официальной публикации
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opChangesButton : TvcmToolButtonDef
+Изменения в документе
+Активность:True
+

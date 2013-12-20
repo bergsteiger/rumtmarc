@@ -1,0 +1,101 @@
+--------------- Контрол в фокусе: ------------------
+OkButton : TvtButton
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 1
+---------------
+efEULA : TefEULA
+Условия использования
+Position:0
+Width = 390
+Height = 275
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+ShellCaptionLabel : TvtLabel
+Прочтите внимательно
+Left = 10
+Top = 5
+Width = 135
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+OkButton : TvtButton
+Ок
+Left = 160
+Top = 215
+Width = 75
+Height = 25
+TabOrder: 2
+TabStop: 1
+Anchors: 3
+---------------
+eeMemoWithEditOperations1 : TeeMemoWithEditOperations
+Правомерное владение экземпляром версии Электронного периодического справочника "Система ГАРАНТ" возможно только на основании и на условиях договора с лицами, указанными на сайте www.garant.ru
+
+ВНИМАНИЕ! НЕСОБЛЮДЕНИЕ УКАЗАННОГО ВЫШЕ УСЛОВИЯ ЯВЛЯЕТСЯ НАРУШЕНИЕМ ЗАКОНОДАТЕЛЬСТВА РОССИЙСКОЙ ФЕДЕРАЦИИ И ПРЕСЛЕДУЕТСЯ ПО ЗАКОНУ.
+Left = 10
+Top = 25
+Width = 360
+Height = 175
+TabOrder: 4
+TabStop: 1
+Align: 0
+Anchors: 3
+ReadOnly: 1
+Выделить все
+---------------
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+OkButton : TvtButton
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 1
+---------------
+efEULA : TefEULA
+Условия использования
+Position:0
+Width = 390
+Height = 275
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+ShellCaptionLabel : TvtLabel
+Прочтите внимательно
+Left = 10
+Top = 5
+Width = 135
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+OkButton : TvtButton
+Ок
+Left = 160
+Top = 215
+Width = 75
+Height = 25
+TabOrder: 2
+TabStop: 1
+Anchors: 3
+---------------
+eeMemoWithEditOperations1 : TeeMemoWithEditOperations
+Правомерное владение экземпляром версии Электронного периодического справочника "Система ГАРАНТ" возможно только на основании и на условиях договора с лицами, указанными на сайте www.garant.ru
+
+ВНИМАНИЕ! НЕСОБЛЮДЕНИЕ УКАЗАННОГО ВЫШЕ УСЛОВИЯ ЯВЛЯЕТСЯ НАРУШЕНИЕМ ЗАКОНОДАТЕЛЬСТВА РОССИЙСКОЙ ФЕДЕРАЦИИ И ПРЕСЛЕДУЕТСЯ ПО ЗАКОНУ.
+Left = 10
+Top = 25
+Width = 360
+Height = 175
+TabOrder: 4
+TabStop: 1
+Align: 0
+Anchors: 3
+ReadOnly: 1
+Выделить все
+---------------

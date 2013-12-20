@@ -1,0 +1,10 @@
+----
+Obj type = Document
+Count = 1
+Rect = (1000, -300, 11300, 11500)
+MaxLinesCount = 52
+----
+Obj type = BitmapPara
+Rect = (1800, 700, 11300, 10700)
+Dim = (9900, 9400)
+MaxLinesCount = 52

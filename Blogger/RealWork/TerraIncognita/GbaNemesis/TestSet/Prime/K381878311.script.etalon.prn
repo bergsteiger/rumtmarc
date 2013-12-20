@@ -1,0 +1,14 @@
+%producer 'ГАРАНТ аэро' date '25.08.2091'
+%format version 0.141 revision date '18/06/2010' 
+: QueryCard = {
+ : ContentsElement = {
+  Handle = 3
+  ShortName = 'Параметры рассылки'
+  : ControlPara = {
+   Justification = ev_itLeft
+   Text = 'garant@tver.garant.ru, trofimov@tver.garant.ru, tver@town.com'
+   Type = ev_ctEmailEdit
+  }
+ }
+}
+

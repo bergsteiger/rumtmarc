@@ -1,0 +1,235 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/Feature.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CoreTemplates::RequirementsLib::Requirements::Feature
+//
+// Возможность
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Feature::Class
+implementation @ <<Feature>>
+//? Возможность
+//> Feature::Class
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a ra
+// - тип абстракции
+//Y feature.gif
+//L feature
+// Параметры визуализации
+//$ C 195,245,175
+//$ l 10,195,10
+//$ f 10,195,10
+//$ i i
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47047810029F*
+//c                              {}
+//r {%S%f_by_self()=false&%S%f_by_children()=false&%S%f_by_parent()=false}: {%SS долен реализовывать как минимум один UserNeeds}
+//r {"<{}{%GS!=Feature}{C}>"!="0"}: {%SS может наследоваться только от других %SS}
+
+//%f _by_self
+; // constraint
+
+: by_self OBJECT IN %S
+//	[{<{}{%RS=UserNeeds}{C}>=0}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %R |S ) %== 'UserNeeds' ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+
+//%f _by_children
+; // by_self
+
+: by_children OBJECT IN %S
+//	[{%Cx=true}{false}[{<{}{%C%f_by_self()=false&%C%f_by_children()=false}{C}>=0}{false}true]]
+ %IF ( ( %C |x ) %==  true ) 
+  %ELSE
+    false 
+  %THEN
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C %f by_self %( )% ) %==  false %&& 
+     ( ( %C %f by_children %( )% ) %==  false  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0 ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+
+//%f _by_parent
+; // by_children
+
+: by_parent OBJECT IN %S
+//	[{%PS=%SS}{false}[{%P%f_by_self()=true|%P%f_by_parent()=true}{false}true]]
+ %IF ( ( %P |S ) %== ( %S |S ) ) 
+  %ELSE
+    false 
+  %THEN
+  %IF ( ( %P %f by_self %( )% ) %==  true %|| 
+    ( ( %P %f by_parent %( )% ) %==  true  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+//#UC END# *4704C0E30186for47047810029F*
+; // by_parent
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47047810029F*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[{%Rx=true}
+ %IF ( ( %R |x ) %==  true ) 
+
+//	{info}Решает проблему:
+  '{info}Решает проблему:'
+//	<* %f_k_link_wp(%R,%S)
+  %FOR '* '
+   [%f] k_link_wp %( %R %, %S )% 
+//	>{info}][{%Lx=true|%Gx=true}
+  %END-FOR
+  '{info}' 
+ %END-IF
+ %IF ( ( %L |x ) %==  true %|| 
+   ( ( %G |x ) %==  true  ) ) 
+
+//	
+
+//	{info}Реализована [{%Gx=true}базовой возможностью][{%Gx=true&%Lx=true} и ][{%Lx=true}прецедентом]:
+  '{info}Реализована '
+  %IF ( ( %G |x ) %==  true ) 
+   'базовой возможностью' 
+  %END-IF
+  %IF ( ( %G |x ) %==  true %&& 
+    ( ( %L |x ) %==  true  ) ) 
+   ' и ' 
+  %END-IF
+  %IF ( ( %L |x ) %==  true ) 
+   'прецедентом' 
+  %END-IF
+  ':'
+//	<* %f_k_link_wp(%G,%S)
+  %FOR '* '
+   [%f] k_link_wp %( %G %, %S )% 
+//	><* %f_k_link_wp(%L,%S)
+  %END-FOR
+  %FOR '* '
+   [%f] k_link_wp %( %L %, %S )% 
+//	>{info}][{%Lx=false&%Gx=false}[{%Cx=false}
+  %END-FOR
+  '{info}' 
+ %END-IF
+ %IF ( ( %L |x ) %==  false %&& 
+   ( ( %G |x ) %==  false  ) ) 
+  %IF ( ( %C |x ) %==  false ) 
+
+//	
+
+//	{warning}Возможность не реализованна!
+   '{warning}Возможность не реализованна!'
+//	{warning}][{%Cx=true}
+   '{warning}' 
+  %END-IF
+  %IF ( ( %C |x ) %==  true ) 
+
+//	
+
+//	{tip}Реализацию возможности смотрите в ее вложеных подвозможностях
+   '{tip}Реализацию возможности смотрите в ее вложеных подвозможностях'
+//	{tip}]][{%Zx=true}
+   '{tip}' 
+  %END-IF
+ %END-IF
+ %IF ( ( %Z |x ) %==  true ) 
+
+//	
+
+//	{tip}Использована в качестве основы для:
+  '{tip}Использована в качестве основы для:'
+//	<* %f_k_link_wp(%Z,%S)
+  %FOR '* '
+   [%f] k_link_wp %( %Z %, %S )% 
+//	>{tip}][{%mx=true&%Cx=true}
+  %END-FOR
+  '{tip}' 
+ %END-IF
+ %IF ( ( %m |x ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+
+//	
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+  %FOR %ITEM-SEPARATOR '----'#13#10 ; // %ITEM-SEPARATOR 
+   '_'
+   %IF ( ( %m |N ) %!= 'Main' ) 
+    %ELSE
+     'Основная' 
+    %THEN
+    %m |N 
+   %END-IF
+   ' диаграмма элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+   [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+   %m |U '.jpg}'
+//	>]<%CX>
+  %END-FOR
+ %END-IF
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for47047810029F*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Feature>>
+

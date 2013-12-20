@@ -1,0 +1,47 @@
+tbcfSaveLoadBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOkExt : TvcmToolButtonDef
+Искать
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+bt_enResult_opClearAll : TvcmToolButtonDef
+Очистить
+ : TvcmSeparatorDef
+
+bt_enQuery_opSearchType : TvcmComboBox
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+ : TvcmSeparatorDef
+
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+ : TvcmSeparatorDef
+
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+ : TvcmSeparatorDef
+
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+ : TvcmSeparatorDef
+
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+ : TvcmSeparatorDef
+
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+ : TvcmSeparatorDef
+
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+

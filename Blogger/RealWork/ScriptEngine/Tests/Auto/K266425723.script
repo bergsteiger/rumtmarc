@@ -1,0 +1,22 @@
+USES
+ HLTCLike.script
+;
+
+: K266425723
+
+ : Действия
+  @ "Анализ списка" OK_DIALOG
+ ;
+ 
+ "Список всех документов"
+ 4 LOOP ProcessMessages
+ 'MissingAnalisisTree' ASSUME
+ // - сказали, что считаем, что дерева для анализа нет 
+ TRY
+  @ Действия MODAL NOP
+ FINALLY
+  'MissingAnalisisTree' UNASSUME
+ END 
+;
+
+K266425723

@@ -1,0 +1,42 @@
+<job id="makeCHMHelp">
+<script language="JScript" src="..//common//common.js"/>
+<script language="JScript">
+
+ var shell = WScript.CreateObject("WScript.Shell");
+
+ var data = new ActiveXObject("Msxml2.DOMDocument.4.0");
+ data.async = false;
+ data.validateOnParse = true;
+ data.preserveWhiteSpace = true;
+
+
+// предварительная обработка vcm-дерева
+
+ data.load('../../data/nemesis.xml');
+ data.transformNodeToObject(getStyle('preprocess.xsl'), data);
+ data.save('vcm.xml');
+
+
+ data.load('../../data/nemesis.xml');
+ data.transformNodeToObject(getStyle('preprocess_dis.xsl'), data);
+ data.save('vcm_dis.xml');
+
+  shell.run('afc.cmd vcm.xml vcm_dis.xml',0,true);
+
+
+// ==================================================
+ 
+  function getStyle(styleSheet) {
+  var style = new ActiveXObject("Msxml2.DOMDocument.4.0");
+  style.async = false;
+  style.load(styleSheet);
+  return style;
+ }
+
+
+
+ 
+</script>
+</job>
+ 
+ 

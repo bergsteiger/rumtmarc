@@ -1,0 +1,12 @@
+: TestImmedWordWorker
+
+ [WordWorker] Print
+  WordToWork DO .
+ ;
+ 
+ 'Hello' .
+ Print 123
+
+;
+
+TestImmedWordWorker

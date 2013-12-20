@@ -1,0 +1,317 @@
+----
+Obj type = Document
+Count = 8
+Rect = (700, -300, 15400, 11500)
+MaxLinesCount = 2287
+----
+Obj type = Block
+Count = 5
+Rect = (1500, 700, 6100, 10600)
+MaxLinesCount = 145
+----
+Obj type = Block
+Count = 1
+Rect = (1500, 700, 2400, 10600)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = '1.37. Форма справки-расчёта для предоставления субсидий поставщикам за реализацию зерна урожая 2012 года, заготавливаемого в Региональный продовольственный фонд (приложение N 37);'
+Rect = (1500, 700, 2400, 10700)
+Dim = (9900, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = Block
+Count = 1
+Rect = (2400, 700, 3500, 10600)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = '1.38. Форма справки-расчёта для предоставления субсидий сельскохозяйственным товаропроизводителям на возмещение части затрат, связанных с разведением племенных лошадей чистокровных верховых пород в 2013 году (приложение N 38);'
+Rect = (2400, 700, 3500, 10700)
+Dim = (9900, 1100)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = Block
+Count = 1
+Rect = (3500, 700, 4400, 10600)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = '1.39. Форма справки-расчёта для предоставления субсидий сельскохозяйственным товаропроизводителям по возмещению части затрат на звероводство в 2013 году (приложение N 39);'
+Rect = (3500, 700, 4400, 10700)
+Dim = (9900, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = Block
+Count = 1
+Rect = (4400, 700, 5300, 10600)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = '1.40. Форма справки-расчёта для предоставления субсидий сельскохозяйственным товаропроизводителям на содержание маточного поголовья овец и коз в 2013 году (приложение N 40);'
+Rect = (4400, 700, 5300, 10700)
+Dim = (9900, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = Block
+Count = 1
+Rect = (5300, 700, 6100, 10600)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = '1.41. Форма сводной справки-расчёта для предоставления субсидий сельскохозяйственным товаропроизводителям на содержание маточного поголовья овец и коз в 2013 году (приложение N 41).'
+Rect = (5300, 700, 6100, 10700)
+Dim = (9900, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = Block
+Count = 1
+Rect = (6100, 700, 7600, 10600)
+MaxLinesCount = 5
+----
+Obj type = TextPara
+Text = '2. Приказ Минсельхозпрода РТ от 8 февраля 2012 года N 27/2-пр "Об утверждении перечня форм для предоставления субсидий за счёт средств, поступающих из бюджета Республики Татарстан на государственную поддержку агропромышленного комплекса Республики Татарстан на 2012 год" признать утратившим силу.'
+Rect = (6100, 700, 7600, 10700)
+Dim = (9900, 1400)
+MaxLinesCount = 5
+LinesCount = 5
+----
+Obj type = Block
+Count = 1
+Rect = (7600, 700, 8100, 10600)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = '3. Контроль за исполнением настоящего приказа возложить на первого заместителя министра М.Г. Нуртдинова.'
+Rect = (7600, 700, 8100, 10700)
+Dim = (9900, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TextPara
+Text = ''
+Rect = (8100, 700, 8400, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = SBS
+Count = 1
+Rect = (8400, 700, 9200, 10600)
+Dim = (9900, 700)
+MaxLinesCount = 2
+----
+Obj type = SBSRow
+Count = 2
+Rect = (8500, 700, 9200, 10600)
+Dim = (9900, 600)
+MaxLinesCount = 2
+DeltaHeight = 600
+----
+Obj type = SBSCell
+Count = 1
+Rect = (8500, 700, 9200, 7300)
+Dim = (6500, 600)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = 'Заместитель Премьер-министра Республики Татарстан - министр'
+Rect = (8500, 700, 9100, 7300)
+Dim = (6500, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = SBSCell
+Count = 1
+Rect = (8500, 7300, 9200, 10600)
+Dim = (3200, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'М.Г. Ахметов'
+Rect = (8800, 7300, 9100, 10600)
+Dim = (3200, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (9200, 700, 9500, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (9500, 700, 9800, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Block
+Count = 13
+Rect = (9800, 700, 15400, 10600)
+MaxLinesCount = 41
+----
+Obj type = LeafParaDecorationsHolder
+Count = 2
+Rect = (9800, 700, 10100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 2
+----
+Obj type = DecorTextPara
+Text = '<1001>Приложение N 1. Справка-расчёт на возмещение части затрат сельскохозяйственным товаропроизводителям по приобретенным минеральным удобрениям под урожай 2013 года  KIND:   Формы документов'
+Rect = (9800, 700, 9800, 10600)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Приложение N 1'
+Rect = (9800, 700, 10100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'к приказу Минсельхозпрода РТ'
+Rect = (10100, 700, 10400, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'от 22 февраля 2013 г. N 23/2-пр'
+Rect = (10400, 700, 10700, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (10700, 700, 11000, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Заполняется организацией -'
+Rect = (11000, 700, 11300, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'получателем субсидий'
+Rect = (11300, 700, 11600, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (11600, 700, 11800, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Предоставляется в УСХиП РТ'
+Rect = (11800, 700, 12100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'в муниципальном районе РТ'
+Rect = (12100, 700, 12400, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (12400, 700, 12700, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Справка-расчёт на возмещение части затрат сельскохозяйственным товаропроизводителям по приобретенным минеральным удобрениям под урожай 2013 года по __________________________________________ (получатель субсидий, ИНН)'
+Rect = (12700, 700, 14700, 10700)
+Dim = (9900, 1900)
+MaxLinesCount = 6
+LinesCount = 6
+----
+Obj type = TextPara
+Text = ''
+Rect = (14700, 700, 15000, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 1
+Rect = (15000, 700, 15400, 10600)
+Dim = (10100, 5200)
+MaxLinesCount = 14
+----
+Obj type = TableRow
+Count = 5
+Rect = (15000, 700, 15400, 10900)
+Dim = (10100, 600)
+MaxLinesCount = 2
+DeltaHeight = 600
+----
+Obj type = TableCell
+Count = 1
+Rect = (15000, 700, 15200, 4600)
+Dim = (3800, 600)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = 'Приобретено минеральных удобрений'
+Rect = (15100, 800, 15100, 4500)
+Dim = (3600, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TableCell
+Count = 1
+Rect = (15000, 4600, 15200, 5800)
+Dim = (1200, 1200)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = 'Площадь посевов, гектар'
+Rect = (15100, 4700, 15100, 5700)
+Dim = (1000, 1100)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = TableCell
+Count = 1
+Rect = (15000, 5800, 15200, 7300)
+Dim = (1400, 1800)
+MaxLinesCount = 6
+----
+Obj type = TextPara
+Text = 'Затраты, на 1 гектар посевной площади,'
+Rect = (15100, 5900, 15100, 7200)
+Dim = (1200, 1400)
+MaxLinesCount = 5
+LinesCount = 5
+----
+Obj type = TableCell
+Count = 1
+Rect = (15000, 7300, 15200, 8700)
+Dim = (1400, 1500)
+MaxLinesCount = 5
+----
+Obj type = TextPara
+Text = 'Ставка субсидирования рублей/гектар'
+Rect = (15100, 7300, 15100, 8600)
+Dim = (1200, 1400)
+MaxLinesCount = 5
+LinesCount = 5
+----
+Obj type = TableCell
+Count = 1
+Rect = (15000, 8700, 15200, 10900)
+Dim = (2200, 1500)
+MaxLinesCount = 5
+----
+Obj type = TextPara
+Text = 'Сумма причитающихся субсидий, рублей'
+Rect = (15100, 8800, 15100, 10900)
+Dim = (2000, 1100)
+MaxLinesCount = 4
+LinesCount = 4

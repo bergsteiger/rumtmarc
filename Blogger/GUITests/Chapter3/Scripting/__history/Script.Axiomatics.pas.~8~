@@ -1,0 +1,34 @@
+unit Script.Axiomatics;
+
+interface
+
+uses
+ Script.Dictionary
+ ;
+
+type
+ TscriptAxiomatics = class(TscriptDictionary)
+  strict private
+   class var f_Instance : TscriptAxiomatics;
+  class function Instance: TscriptAxiomatics;
+ end;//TscriptAxiomatics
+
+implementation
+
+uses
+ System.SysUtils
+ ;
+
+class function TscriptAxiomatics.Instance: TscriptAxiomatics;
+begin
+ if (f_Instance = nil) then
+  f_Instance := TscriptAxiomatics.Create;
+ Result := f_Instance;
+end;
+
+initialization
+
+finalization
+ FreeAndNil(f_Instance);
+
+end.

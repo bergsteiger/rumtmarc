@@ -1,0 +1,1589 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Elements/Tag.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Elements::Tag
+//
+// Тег
+// ---
+// Структурный элемент. Может содержать дочерние элементы или атрибуты. Мета-класс для [TagValue].
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Tag::Class
+implementation @ <<Tag>>
+//? Тег
+//? Структурный элемент. Может содержать дочерние элементы или атрибуты. Мета-класс для [TagValue].
+//> TagValue::Class
+
+//= Atom::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_evd_tag.gif
+//L code_evd_tag
+// Параметры визуализации
+//$ C 127,255,212
+//$ L 0,0,0
+//$ l 127,255,212
+//$ F 0,0,0
+//$ f 127,255,212
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p IDIndex:s ? Атрибут, служащий ключём тега.
+//p SetNeedMarkModifiedAllExcept:s ? Все теги, кроме указанного взводят флаг модифицированности.
+//p need UC:b=false ? 
+//p Defines CompareTags:b=false ? Определяет собственую функцию сравнения тегов
+//p Defines CompareTagWithInt:b=false ? Определяет собственную функцию сравнения тега с целым
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{IDIndex}"!="%S{!IDIndex}"}%f_up_prefix(%S) *IDIndex* = *%S{IDIndex}* - Атрибут, служащий ключём тега.
+ ?inherited
+ %IF ( ( %S get_up ( 'IDIndex' ) ) %!= ( %S get_up_def ( 'IDIndex' ) ) ) 
+  [%f] up_prefix %( %S )% ' *IDIndex* = *'
+  %S get_up ( 'IDIndex' ) '* - Атрибут, служащий ключём тега.'
+//	][{"%S{SetNeedMarkModifiedAllExcept}"!="%S{!SetNeedMarkModifiedAllExcept}"}%f_up_prefix(%S) *SetNeedMarkModifiedAllExcept* = *%S{SetNeedMarkModifiedAllExcept}* - Все теги, кроме указанного взводят флаг модифицированности.
+ %END-IF
+ %IF ( ( %S get_up ( 'SetNeedMarkModifiedAllExcept' ) ) %!= ( %S get_up_def ( 'SetNeedMarkModifiedAllExcept' ) ) ) 
+  [%f] up_prefix %( %S )% ' *SetNeedMarkModifiedAllExcept* = *'
+  %S get_up ( 'SetNeedMarkModifiedAllExcept' ) '* - Все теги, кроме указанного взводят флаг модифицированности.'
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}*
+ %END-IF
+ %IF ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '*'
+//	][{"%S{Defines CompareTags}"!="%S{!Defines CompareTags}"}%f_up_prefix(%S) *Defines CompareTags* = *%S{Defines CompareTags}* - Определяет собственую функцию сравнения тегов
+ %END-IF
+ %IF ( ( %S get_up ( 'Defines CompareTags' ) ) %!= ( %S get_up_def ( 'Defines CompareTags' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Defines CompareTags* = *'
+  %S get_up ( 'Defines CompareTags' ) '* - Определяет собственую функцию сравнения тегов'
+//	][{"%S{Defines CompareTagWithInt}"!="%S{!Defines CompareTagWithInt}"}%f_up_prefix(%S) *Defines CompareTagWithInt* = *%S{Defines CompareTagWithInt}* - Определяет собственную функцию сравнения тега с целым
+ %END-IF
+ %IF ( ( %S get_up ( 'Defines CompareTagWithInt' ) ) %!= ( %S get_up_def ( 'Defines CompareTagWithInt' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Defines CompareTagWithInt* = *'
+  %S get_up ( 'Defines CompareTagWithInt' ) '* - Определяет собственную функцию сравнения тега с целым'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Atom::Class
+// Выводит реализацию элемента
+//%f _evd_OutElementImplementation
+; // wiki_up_print
+
+: evd_OutElementImplementation OBJECT IN %S
+//#UC START# *4BC4367C02DBfor48491DC20030*
+//	%S%[inherited]
+ inherited
+//#UC END# *4BC4367C02DBfor48491DC20030*
+; // evd_OutElementImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor48491DC20030*
+//	%S%[inherited]\
+ inherited
+//	[{%S{Parented}=true}\
+ %IF ( ( %S get_up ( 'Parented' ) ) %==  true ) 
+//	[{%S%f_evd_Implementation()=none}\
+  %IF ( ( %S %f evd_Implementation %( )% ) %== 'none' ) 
+//	[{%G#f_evd_Parented()!=true}\
+   %IF ( ( %G %?f evd_Parented %( )% ) %!=  true ) 
+//	[{<{}{%LS=TagImplementator}{C}>=0}{\
+    %IF ( 
+     %FOR %ITEM-CONDITION ( ( %L |S ) %== 'TagImplementator' ) 
+      ( 'C' ) 
+     %END-FOR
+     %== 0 ) 
+     %ELSE
+//	%f_error(Класс реализации для %SN:%SS уже задан - <{, }{%LS=TagImplementator}%LN:%LS>)\
+      [%f] error %( 'Класс реализации для '
+      %S |N ':'
+      %S |S ' уже задан - '
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %ITEM-CONDITION ( ( %L |S ) %== 'TagImplementator' ) 
+       %L |N ':'
+       %L |S 
+      %END-FOR
+)% //	}\
+     %THEN
+//	%P%P%f_add_class(%SU_Implementation,SimpleClass,T%PN%SNClass,Implementation_Inst)\
+     %P ->P %f add_class %( %S |U '_Implementation' %, 'SimpleClass' %, 'T'
+     %P |N %S |N 'Class' %, 'Implementation_Inst' )%  
+//	%{Implementation_Inst}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'Implementation_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Implementation_Inst}%f_set_documentation(Класс реализации для %SN)\
+     ( get_global_var ( 'Implementation_Inst' ) %f set_documentation %( 'Класс реализации для '
+     %S |N )% ) 
+
+//	%S%f_ImplementationClassToVar()\
+     %S %f ImplementationClassToVar %( )% 
+
+//	%{Implementation_Inst}%f_make_accessable(%{PARENT}U)\
+     ( get_global_var ( 'Implementation_Inst' ) %f make_accessable %( ( get_global_var ( 'PARENT' ) |U ) )% ) 
+//	%{Implementation_Inst}%f_add_inheritable(%{PARENT}U)\
+     ( get_global_var ( 'Implementation_Inst' ) %f add_inheritable %( ( get_global_var ( 'PARENT' ) |U ) )% ) 
+
+//	[{"%{k2ParentedTagObject}N"=""}%f_find_element(k2ParentedTagObject,k2ParentedTagObject)]\
+     %IF ( ( ( get_global_var ( 'k2ParentedTagObject' ) |N ) ) %== '' ) 
+      [%f] find_element %( 'k2ParentedTagObject' %, 'k2ParentedTagObject' )% 
+     %END-IF
+//	%{Implementation_Inst}%f_make_accessable(%{k2ParentedTagObject}U)\
+     ( get_global_var ( 'Implementation_Inst' ) %f make_accessable %( ( get_global_var ( 'k2ParentedTagObject' ) |U ) )% ) 
+//	%{Implementation_Inst}%f_add_inheritable(%{k2ParentedTagObject}U)\
+     ( get_global_var ( 'Implementation_Inst' ) %f add_inheritable %( ( get_global_var ( 'k2ParentedTagObject' ) |U ) )% ) 
+
+//	%P%P%f_add_class(%SU_Implementator,TagImplementator,TI%SN,Implementator_Inst)\
+     %P ->P %f add_class %( %S |U '_Implementator' %, 'TagImplementator' %, 'TI'
+     %S |N %, 'Implementator_Inst' )%  
+//	%{Implementator_Inst}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'Implementator_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Implementator_Inst}%f_set_documentation(Класс реализации для %SN)\
+     ( get_global_var ( 'Implementator_Inst' ) %f set_documentation %( 'Класс реализации для '
+     %S |N )% ) 
+
+//	%{Implementator_Inst}%f_add_inheritable(%{Implementation_Inst}U)\
+     ( get_global_var ( 'Implementator_Inst' ) %f add_inheritable %( ( get_global_var ( 'Implementation_Inst' ) |U ) )% ) 
+//	%{Implementator_Inst}%f_add_realized(%SU)\
+     ( get_global_var ( 'Implementator_Inst' ) %f add_realized %( %S |U )% ) 
+
+//	]\
+    %END-IF
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4B2A19E3038Bfor48491DC20030*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for48491DC20030*
+//	%f_N(%S)Tag
+ [%f] N %( %S )% 'Tag'
+//#UC END# *4947F8AD02A1for48491DC20030*
+; // pas_TypeName
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Tag::Class::Attribute
+end. // <<Tag>>
+
+implementation @ :: <<Tag>> <<Attribute>> ;
+//? Атрибут
+//? Определяет скалярный атрибут
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_attr.gif
+//L code_attr
+//l al
+// - возможные типы связи атрибута
+
+// Пользовательские свойства
+//p EmptyMapping:s ? Тег у которого берётся значение атрибута, если собственное значение не задано.
+//p HasAfterChangeTrigger:tribool=undefined ? 
+//p HasBeforeChangeTrigger:b=false ? 
+//p HasStoredTrigger:b=false ? Определяет, что значение stored вычисляется.
+//p NeedMarkModified:tribool=undefined ? 
+//p ReadOnly:tribool=undefined ? 
+//p need UC:b=false ? 
+//p stored:tribool=undefined ? 
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for48493312009A*
+//#UC END# *46E6D4BB0339for48493312009A*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor48493312009A*
+//#UC END# *470F1571031Cfor48493312009A*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor48493312009A*
+//	[  %S%f_open_ifdef()\n]\
+ %IF-NOT-EMPTY
+  '  '
+  %S %f open_ifdef %( )% #13#10 
+ %END-IF
+//	%S%f_Prologue()\
+ %S %f Prologue %( )% 
+//	#with %S%f_DefinitionHeader() do
+ out_indent 'with '
+ %S %f DefinitionHeader %( )% ' do'
+//	#begin\
+ out_indent 'begin'
+//	%S%f_Body()
+ %S %f Body %( )% 
+//	[{%S{need UC}=true}%f_with_gen_id(intf.pas,%U[{attr}\n])\n]\
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'attr' ) 
+   #13#10 
+  %END-IF
+ )%   #13#10 
+ %END-IF
+//	#end;//%SN\
+ out_indent 'end;//'
+ %S |N 
+//	[\n  %S%f_close_ifdef()]
+ %IF-NOT-EMPTY
+  #13#10'  '
+  %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *470F15B800CBfor48493312009A*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for48493312009A*
+//	[{%S%f_NeedsOwnType()=true}\
+ %IF ( ( %S %f NeedsOwnType %( )% ) %==  true ) 
+//	[\n\n%S%f_open_ifdef()]\
+  %IF-NOT-EMPTY
+   #13#10#13#10
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	\n%f_pas_OpenType(%S)\
+  #13#10
+  [%f] pas_OpenType %( %S )% 
+//	 %S%f_NewTypeName()_Tag = class(Tk2Type)
+  ' '
+  %S %f NewTypeName %( )% '_Tag = class(Tk2Type)'
+//	 protected
+  ' protected'
+//	   function GetAsPCharLen: Tl3PCharLenPrim; override;
+  '   function GetAsPCharLen: Tl3PCharLenPrim; override;'
+//	   function InheritsFrom(anAtomType: Tk2TypePrim): Boolean; override;
+  '   function InheritsFrom(anAtomType: Tk2TypePrim): Boolean; override;'
+//	[{%S%f_AncestorTypeName()=l3Base}\
+  %IF ( ( %S %f AncestorTypeName %( )% ) %== 'l3Base' ) 
+//	   function DoMakeTag(aType: Tk2Type): Ik2Tag; override;\n]\
+   '   function DoMakeTag(aType: Tk2Type): Ik2Tag; override;'#13#10 
+  %END-IF
+//	 end;//%S%f_NewTypeName()_Tag\
+  ' end;//'
+  %S %f NewTypeName %( )% '_Tag'
+//	[\n%S%f_close_ifdef()]\
+  %IF-NOT-EMPTY
+   #13#10
+   %S %f close_ifdef %( )% 
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *477398E501C0for48493312009A*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for48493312009A*
+//	[{%S%f_NeedsOwnType()=true}\
+ %IF ( ( %S %f NeedsOwnType %( )% ) %==  true ) 
+//	[%S%f_open_ifdef()\n#]\
+  %IF-NOT-EMPTY
+   %S %f open_ifdef %( )% #13#10
+   out_indent 
+  %END-IF
+//	t_%S%f_NewTypeName() : %S%f_NewTypeName()_Tag;\
+  't_'
+  %S %f NewTypeName %( )% ' : '
+  %S %f NewTypeName %( )% '_Tag;'
+//	[\n#%S%f_close_ifdef()]\
+  %IF-NOT-EMPTY
+   #13#10
+   out_indent %S %f close_ifdef %( )% 
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4774D2A20372for48493312009A*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor48493312009A*
+//#UC END# *49F5795900ECfor48493312009A*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for48493312009A*
+//#UC END# *4DE79AFC0030for48493312009A*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor48493312009A*
+//#UC END# *4E65F581015Afor48493312009A*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{ReadOnly}"!="%S{!ReadOnly}"}%f_up_prefix(%S) *ReadOnly* = *%S{ReadOnly}*
+ ?inherited
+ %IF ( ( %S get_up ( 'ReadOnly' ) ) %!= ( %S get_up_def ( 'ReadOnly' ) ) ) 
+  [%f] up_prefix %( %S )% ' *ReadOnly* = *'
+  %S get_up ( 'ReadOnly' ) '*'
+//	][{"%S{stored}"!="%S{!stored}"}%f_up_prefix(%S) *stored* = *%S{stored}*
+ %END-IF
+ %IF ( ( %S get_up ( 'stored' ) ) %!= ( %S get_up_def ( 'stored' ) ) ) 
+  [%f] up_prefix %( %S )% ' *stored* = *'
+  %S get_up ( 'stored' ) '*'
+//	][{"%S{EmptyMapping}"!="%S{!EmptyMapping}"}%f_up_prefix(%S) *EmptyMapping* = *%S{EmptyMapping}* - Тег у которого берётся значение атрибута, если собственное значение не задано.
+ %END-IF
+ %IF ( ( %S get_up ( 'EmptyMapping' ) ) %!= ( %S get_up_def ( 'EmptyMapping' ) ) ) 
+  [%f] up_prefix %( %S )% ' *EmptyMapping* = *'
+  %S get_up ( 'EmptyMapping' ) '* - Тег у которого берётся значение атрибута, если собственное значение не задано.'
+//	][{"%S{HasStoredTrigger}"!="%S{!HasStoredTrigger}"}%f_up_prefix(%S) *HasStoredTrigger* = *%S{HasStoredTrigger}* - Определяет, что значение stored вычисляется.
+ %END-IF
+ %IF ( ( %S get_up ( 'HasStoredTrigger' ) ) %!= ( %S get_up_def ( 'HasStoredTrigger' ) ) ) 
+  [%f] up_prefix %( %S )% ' *HasStoredTrigger* = *'
+  %S get_up ( 'HasStoredTrigger' ) '* - Определяет, что значение stored вычисляется.'
+//	][{"%S{HasBeforeChangeTrigger}"!="%S{!HasBeforeChangeTrigger}"}%f_up_prefix(%S) *HasBeforeChangeTrigger* = *%S{HasBeforeChangeTrigger}*
+ %END-IF
+ %IF ( ( %S get_up ( 'HasBeforeChangeTrigger' ) ) %!= ( %S get_up_def ( 'HasBeforeChangeTrigger' ) ) ) 
+  [%f] up_prefix %( %S )% ' *HasBeforeChangeTrigger* = *'
+  %S get_up ( 'HasBeforeChangeTrigger' ) '*'
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}*
+ %END-IF
+ %IF ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '*'
+//	][{"%S{HasAfterChangeTrigger}"!="%S{!HasAfterChangeTrigger}"}%f_up_prefix(%S) *HasAfterChangeTrigger* = *%S{HasAfterChangeTrigger}*
+ %END-IF
+ %IF ( ( %S get_up ( 'HasAfterChangeTrigger' ) ) %!= ( %S get_up_def ( 'HasAfterChangeTrigger' ) ) ) 
+  [%f] up_prefix %( %S )% ' *HasAfterChangeTrigger* = *'
+  %S get_up ( 'HasAfterChangeTrigger' ) '*'
+//	][{"%S{NeedMarkModified}"!="%S{!NeedMarkModified}"}%f_up_prefix(%S) *NeedMarkModified* = *%S{NeedMarkModified}*
+ %END-IF
+ %IF ( ( %S get_up ( 'NeedMarkModified' ) ) %!= ( %S get_up_def ( 'NeedMarkModified' ) ) ) 
+  [%f] up_prefix %( %S )% ' *NeedMarkModified* = *'
+  %S get_up ( 'NeedMarkModified' ) '*'
+//	]
+ %END-IF
+
+// Предок вновь определяемого типа. См. NeedsOwnType
+//%f _AncestorTypeName
+; // wiki_up_print
+
+: AncestorTypeName OBJECT IN %S
+//#UC START# *49A7CCE80269for48493312009A*
+//	[{%TS=Enum}{[{%t_simple_class(%T)=true}{%f_error("Неопределён родитель для типа %TN у свойства %PN %SN")}l3Base]}Enum]
+ %IF ( ( %T |S ) %== 'Enum' ) 
+  %ELSE
+   %IF ( ( [%t] simple_class %( %T )% ) %==  true ) 
+    %ELSE
+     [%f] error %( 'Неопределён родитель для типа '
+     %T |N ' у свойства '
+     %P |N ' '
+     %S |N )% 
+    %THEN
+    'l3Base' 
+   %END-IF
+  %THEN
+  'Enum' 
+ %END-IF
+//#UC END# *49A7CCE80269for48493312009A*
+; // AncestorTypeName
+
+
+// Тело атрибута.
+//%f _Body
+: Body OBJECT IN %S
+//#UC START# *484FBC200182for48493312009A*
+//	[{%Sl=lnk&%SS!=children&%SN!=Value}\n# Shared := true;]\
+ %IF ( ( %S |l ) %== 'lnk' %&& 
+   ( ( %S |S ) %!= 'children'  ) %&& 
+   ( ( %S |N ) %!= 'Value'  ) ) 
+  #13#10
+  out_indent ' Shared := true;' 
+ %END-IF
+//	[{%S{ReadOnly}!=undefined}\n# ReadOnly := %S{ReadOnly};]\
+ %IF ( ( %S get_up ( 'ReadOnly' ) ) %!= 'undefined' ) 
+  #13#10
+  out_indent ' ReadOnly := '
+  %S get_up ( 'ReadOnly' ) ';' 
+ %END-IF
+//	[\n# SortIndex := k2_ti%S{SortIndex};]\
+ %IF-NOT-EMPTY
+  #13#10
+  out_indent ' SortIndex := k2_ti'
+  %S get_up ( 'SortIndex' ) ';' 
+ %END-IF
+//	[{"%VN"!=""}\n# DefaultValue := \
+ %IF ( ( %V |N ) %!= '' ) 
+  #13#10
+  out_indent ' DefaultValue := '
+//	[{%VN!=MAX&%VN!=@}{Pred(High(Integer))}\
+  %IF ( ( %V |N ) %!= 'MAX' %&& 
+    ( ( %V |N ) %!= '@'  ) ) 
+   %ELSE
+    'Pred(High(Integer))' 
+   %THEN
+//	[{%TS=Enum|%f_pas_TypeName(%T)=Boolean}{\
+   %IF ( ( %T |S ) %== 'Enum' %|| 
+     ( ( [%f] pas_TypeName %( %T )% ) %== 'Boolean'  ) ) 
+    %ELSE
+//	[{%VN=true|%VN=false}{[{%V%TS=Enum}{%VN}Ord(%V%T#f_pas_ElementPrefix()%VN)]}Ord(%VN)]}Ord(%T#f_pas_ElementPrefix()%VN)]];]\
+     %IF ( ( %V |N ) %==  true %|| 
+       ( ( %V |N ) %==  false  ) ) 
+      %ELSE
+       %IF ( ( %V ->T |S  ) %== 'Enum' ) 
+        %ELSE
+         %V |N 
+        %THEN
+        'Ord('
+        %V ->T %?f pas_ElementPrefix %( )%  %V |N ')' 
+       %END-IF
+      %THEN
+      'Ord('
+      %V |N ')' 
+     %END-IF
+    %THEN
+    'Ord('
+    %T %?f pas_ElementPrefix %( )% %V |N ')' 
+   %END-IF
+  %END-IF
+  ';' 
+ %END-IF
+//	[\n# EmptyMapping := k2_ti%S{EmptyMapping};]\
+ %IF-NOT-EMPTY
+  #13#10
+  out_indent ' EmptyMapping := k2_ti'
+  %S get_up ( 'EmptyMapping' ) ';' 
+ %END-IF
+//	[{%S{stored}!=undefined}{\
+ %IF ( ( %S get_up ( 'stored' ) ) %!= 'undefined' ) 
+  %ELSE
+//	[{%T#f_evd_IsSchemaElement()!=true&%t_simple_class(%T)=true}\n# Stored := false;]\
+   %IF ( ( %T %?f evd_IsSchemaElement %( )% ) %!=  true %&& 
+     ( ( [%t] simple_class %( %T )% ) %==  true  ) ) 
+    #13#10
+    out_indent ' Stored := false;' 
+   %END-IF
+//	}\n# Stored := %S{stored};]\
+  %THEN
+  #13#10
+  out_indent ' Stored := '
+  %S get_up ( 'stored' ) ';' 
+ %END-IF
+//	[{%S{NeedMarkModified}!=undefined}\n# NeedMarkModified := %S{NeedMarkModified};]\
+ %IF ( ( %S get_up ( 'NeedMarkModified' ) ) %!= 'undefined' ) 
+  #13#10
+  out_indent ' NeedMarkModified := '
+  %S get_up ( 'NeedMarkModified' ) ';' 
+ %END-IF
+//	[{%S{HasBeforeChangeTrigger}=true}\n# BeforeChange := %PN%SNBeforeChange;]\
+ %IF ( ( %S get_up ( 'HasBeforeChangeTrigger' ) ) %==  true ) 
+  #13#10
+  out_indent ' BeforeChange := '
+  %P |N %S |N 'BeforeChange;' 
+ %END-IF
+//	[{%S{HasAfterChangeTrigger}=true}\n# AfterChange := %PN%SNAfterChange;]\
+ %IF ( ( %S get_up ( 'HasAfterChangeTrigger' ) ) %==  true ) 
+  #13#10
+  out_indent ' AfterChange := '
+  %P |N %S |N 'AfterChange;' 
+ %END-IF
+//	[{%S{HasAfterChangeTrigger}=false&%SS=override}\n# AfterChange := nil;]\
+ %IF ( ( %S get_up ( 'HasAfterChangeTrigger' ) ) %==  false %&& 
+   ( ( %S |S ) %== 'override'  ) ) 
+  #13#10
+  out_indent ' AfterChange := nil;' 
+ %END-IF
+//	[{%S{HasStoredTrigger}=true}\n# StoredProc := %PN%SNStored;]\
+ %IF ( ( %S get_up ( 'HasStoredTrigger' ) ) %==  true ) 
+  #13#10
+  out_indent ' StoredProc := '
+  %P |N %S |N 'Stored;' 
+ %END-IF
+//	[{%S{HasStoreChildTrigger}=true}\n# StoredChildProc := %PN%SNChildStored;]\
+ %IF ( ( %S get_up ( 'HasStoreChildTrigger' ) ) %==  true ) 
+  #13#10
+  out_indent ' StoredChildProc := '
+  %P |N %S |N 'ChildStored;' 
+ %END-IF
+//	[{"%S{SortTags}"!=""}\n# SetSortTags(\[%S{SortTags}\]);]
+ %IF ( ( %S get_up ( 'SortTags' ) ) %!= '' ) 
+  #13#10
+  out_indent ' SetSortTags(['
+  %S get_up ( 'SortTags' ) ']);' 
+ %END-IF
+//#UC END# *484FBC200182for48493312009A*
+; // Body
+
+
+// Собственно определение пового типа См. NeedOwnType
+//%f _DefineNewType
+: DefineNewType OBJECT IN %S
+//#UC START# *49A7CD3200CFfor48493312009A*
+//	[%S%f_open_ifdef()\n]\
+ %IF-NOT-EMPTY
+  %S %f open_ifdef %( )% #13#10 
+ %END-IF
+//	t_%S%f_NewTypeName().AtomType := TypeInfo(%f_pas_TypeName(%T))\
+ 't_'
+ %S %f NewTypeName %( )% '.AtomType := TypeInfo('
+ [%f] pas_TypeName %( %T )% ')'
+//	[\n%S%f_close_ifdef()]
+ %IF-NOT-EMPTY
+  #13#10
+  %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *49A7CD3200CFfor48493312009A*
+; // DefineNewType
+
+
+// Выводит заголовок определения атрибута.
+//%f _DefinitionHeader
+: DefinitionHeader OBJECT IN %S
+//#UC START# *484A918802EEfor48493312009A*
+//	[{%S%f_NeedsOwnType()!=true}{\
+ %IF ( ( %S %f NeedsOwnType %( )% ) %!=  true ) 
+  %ELSE
+//	Tk2CustomProperty(Prop\[k2_ti%SN\])\
+   'Tk2CustomProperty(Prop[k2_ti'
+   %S |N '])'
+//	}\
+  %THEN
+//	DefineProperty(k2_ti%SN, [{%T#f_evd_IsSchemaElement()=true}{%f_pas_TypeName(%T)}t_%TN], '%SD')]
+  'DefineProperty(k2_ti'
+  %S |N ', '
+  %IF ( ( %T %?f evd_IsSchemaElement %( )% ) %==  true ) 
+   %ELSE
+    [%f] pas_TypeName %( %T )% 
+   %THEN
+   't_'
+   %T |N 
+  %END-IF
+  ', '''
+  %S |D ''')' 
+ %END-IF
+//#UC END# *484A918802EEfor48493312009A*
+; // DefinitionHeader
+
+
+// Определяет, что атрибуту необходимо собственное определение типа
+//%f _NeedsOwnType
+: NeedsOwnType OBJECT IN %S
+//#UC START# *49A7BAF50197for48493312009A*
+//	[{%T#f_evd_IsSchemaElement()!=true&%TN!=a-string}{false}true]
+ %IF ( ( %T %?f evd_IsSchemaElement %( )% ) %!=  true %&& 
+   ( ( %T |N ) %!= 'a-string'  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *49A7BAF50197for48493312009A*
+; // NeedsOwnType
+
+
+// Имя типа, определяемого для свойства
+//%f _NewTypeName
+: NewTypeName OBJECT IN %S
+//#UC START# *49AD12F30104for48493312009A*
+//	%PN_%SN
+ %P |N '_'
+ %S |N 
+//#UC END# *49AD12F30104for48493312009A*
+; // NewTypeName
+
+
+// Пролог определения
+//%f _Prologue
+: Prologue OBJECT IN %S
+//#UC START# *49A7961C0289for48493312009A*
+//	[{%S%f_NeedsOwnType()=true}\
+ %IF ( ( %S %f NeedsOwnType %( )% ) %==  true ) 
+//	  t_%S%f_NewTypeName() := %S%f_NewTypeName()_Tag.Create(Self, '[{}{%PN}%PD] [{}{%SN}%SD]');
+  '  t_'
+  %S %f NewTypeName %( )% ' := '
+  %S %f NewTypeName %( )% '_Tag.Create(Self, '''
+  %IF ( ) 
+   %ELSE
+    %P |N 
+   %THEN
+   %P |D 
+  %END-IF
+  ' '
+  %IF ( ) 
+   %ELSE
+    %S |N 
+   %THEN
+   %S |D 
+  %END-IF
+  ''');'
+//	  try
+  '  try'
+//	   t_%S%f_NewTypeName().InheriteFrom(t_%S%f_AncestorTypeName());
+  '   t_'
+  %S %f NewTypeName %( )% '.InheriteFrom(t_'
+  %S %f AncestorTypeName %( )% ');'
+//	   t_%S%f_NewTypeName().StringID := g_InnerTypeID;
+  '   t_'
+  %S %f NewTypeName %( )% '.StringID := g_InnerTypeID;'
+//	   k2_id%S%f_NewTypeName() := g_InnerTypeID;
+  '   k2_id'
+  %S %f NewTypeName %( )% ' := g_InnerTypeID;'
+//	   Inc(g_InnerTypeID);
+  '   Inc(g_InnerTypeID);'
+//	[   %S%f_DefineNewType();\n]\
+  %IF-NOT-EMPTY
+   '   '
+   %S %f DefineNewType %( )% ';'#13#10 
+  %END-IF
+//	   [{%SS!=children}{\
+  '   '
+  %IF ( ( %S |S ) %!= 'children' ) 
+   %ELSE
+//	DefineChildrenPrim(t_%TN, t_%S%f_NewTypeName())}\
+    'DefineChildrenPrim(t_'
+    %T |N ', t_'
+    %S %f NewTypeName %( )% ')' 
+   %THEN
+//	DefineProperty(k2_ti%SN, t_%S%f_NewTypeName(), '%SD')];
+   'DefineProperty(k2_ti'
+   %S |N ', t_'
+   %S %f NewTypeName %( )% ', '''
+   %S |D ''')' 
+  %END-IF
+  ';'
+//	   t_%S%f_NewTypeName().Recalc;
+  '   t_'
+  %S %f NewTypeName %( )% '.Recalc;'
+//	  except
+  '  except'
+//	   FreeAndNil(t_%S%f_NewTypeName());
+  '   FreeAndNil(t_'
+  %S %f NewTypeName %( )% ');'
+//	  end;//try..except\n]
+  '  end;//try..except'#13#10 
+ %END-IF
+//#UC END# *49A7961C0289for48493312009A*
+; // Prologue
+
+
+// Выводит реализацию элемента
+//%f _evd_OutElementImplementation
+: evd_OutElementImplementation OBJECT IN %S
+//#UC START# *4BC439B602D4for48493312009A*
+//	[\n\n%S%f_open_ifdef()]\
+ %IF-NOT-EMPTY
+  #13#10#13#10
+  %S %f open_ifdef %( )% 
+ %END-IF
+//	[<%C#f_evd_OutElementImplementation()>]\
+ %IF-NOT-EMPTY
+  %FOR %C %?f evd_OutElementImplementation %( )% 
+  %END-FOR
+ %END-IF
+//	[{%S%f_NeedsOwnType()=true}\
+ %IF ( ( %S %f NeedsOwnType %( )% ) %==  true ) 
+//	%f_pas_OpenMethodImplementation("GetAsPCharLen","%S%f_NewTypeName()_Tag")\
+  [%f] pas_OpenMethodImplementation %( 'GetAsPCharLen"' %, %S %f NewTypeName %( )% '_Tag' )% 
+//	function %S%f_NewTypeName()_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+  'function '
+  %S %f NewTypeName %( )% '_Tag.GetAsPCharLen: Tl3PCharLenPrim;'
+//	begin
+  'begin'
+//	 Result := l3PCharLen('%S%f_NewTypeName()');
+  ' Result := l3PCharLen('''
+  %S %f NewTypeName %( )% ''');'
+//	end;\
+  'end;'
+//	%f_pas_OpenMethodImplementation("InheritsFrom","%S%f_NewTypeName()_Tag")\
+  [%f] pas_OpenMethodImplementation %( 'InheritsFrom"' %, %S %f NewTypeName %( )% '_Tag' )% 
+//	function %S%f_NewTypeName()_Tag.InheritsFrom(anAtomType: Tk2TypePrim): Boolean;
+  'function '
+  %S %f NewTypeName %( )% '_Tag.InheritsFrom(anAtomType: Tk2TypePrim): Boolean;'
+//	begin
+  'begin'
+//	 Result := (Self = anAtomType) OR %f_pas_TypeName(%P%P)(TypeTable).t_%S%f_AncestorTypeName().InheritsFrom(anAtomType);
+  ' Result := (Self = anAtomType) OR '
+  [%f] pas_TypeName %( %P ->P  )% '(TypeTable).t_'
+  %S %f AncestorTypeName %( )% '.InheritsFrom(anAtomType);'
+//	end;\
+  'end;'
+//	[{%S%f_AncestorTypeName()=l3Base}\
+  %IF ( ( %S %f AncestorTypeName %( )% ) %== 'l3Base' ) 
+//	%f_pas_OpenMethodImplementation("DoMakeTag","%S%f_NewTypeName()_Tag")\
+   [%f] pas_OpenMethodImplementation %( 'DoMakeTag"' %, %S %f NewTypeName %( )% '_Tag' )% 
+//	function %S%f_NewTypeName()_Tag.DoMakeTag(aType: Tk2Type): Ik2Tag;
+   'function '
+   %S %f NewTypeName %( )% '_Tag.DoMakeTag(aType: Tk2Type): Ik2Tag;'
+//	var
+   'var'
+//	 l_Inst : %f_pas_TypeName(%T);
+   ' l_Inst : '
+   [%f] pas_TypeName %( %T )% ';'
+//	begin
+   'begin'
+//	 l_Inst := %f_pas_TypeName(%T).Create;
+   ' l_Inst := '
+   [%f] pas_TypeName %( %T )% '.Create;'
+//	 try
+   ' try'
+//	  Result := TagFromIntRef(Integer(l_Inst));
+   '  Result := TagFromIntRef(Integer(l_Inst));'
+//	 finally
+   ' finally'
+//	  FreeAndNil(l_Inst);
+   '  FreeAndNil(l_Inst);'
+//	 end;//try..finally
+   ' end;//try..finally'
+//	end;]\
+   'end;' 
+  %END-IF
+
+//	%f_pas_OpenMethodImplementation("DoMakeTag","%S%f_NewTypeName()_Tag")\
+
+//	function %S%f_NewTypeName()_Tag.DoMakeTag(aType: Tk2Type): Ik2Tag;
+
+//	begin
+
+//	 Result := Wrapper.New(aType);
+
+//	end;\
+//	]\
+ %END-IF
+//	[{%S{HasStoredTrigger}=true}%f_pas_OpenMethodImplementation("%PN%SNStored")\
+ %IF ( ( %S get_up ( 'HasStoredTrigger' ) ) %==  true ) 
+  [%f] pas_OpenMethodImplementation %( %P |N %S |N 'Stored' )% 
+//	function %PN%SNStored(const aTag : Ik2Tag;
+  'function '
+  %P |N %S |N 'Stored(const aTag : Ik2Tag;'
+//	 const aValue   : Ik2Tag;
+  ' const aValue   : Ik2Tag;'
+//	 const aProp    : Tk2Prop;
+  ' const aProp    : Tk2Prop;'
+//	 const aContext : Ik2Op): Boolean;
+  ' const aContext : Ik2Op): Boolean;'
+//	%f_with_gen_id(intf.pas,%U[{var_stored}\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'var_stored' ) 
+   #13#10 
+  %END-IF
+ )% //	begin
+  'begin'
+//	%f_with_gen_id(intf.pas,%U[{stored}\n !!! не реализовано\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'stored' ) 
+   #13#10' !!! не реализовано'#13#10 
+  %END-IF
+ )% //	end;\
+  'end;'
+//	]\
+ %END-IF
+//	[{%S{HasBeforeChangeTrigger}=true}%f_pas_OpenMethodImplementation("%PN%SNBeforeChange")\
+ %IF ( ( %S get_up ( 'HasBeforeChangeTrigger' ) ) %==  true ) 
+  [%f] pas_OpenMethodImplementation %( %P |N %S |N 'BeforeChange' )% 
+//	function %PN%SNBeforeChange(const V : Tk2Values;
+  'function '
+  %P |N %S |N 'BeforeChange(const V : Tk2Values;'
+//	 const aProp    : Tk2Prop;
+  ' const aProp    : Tk2Prop;'
+//	 const aContext : Ik2Op): Boolean;
+  ' const aContext : Ik2Op): Boolean;'
+//	%f_with_gen_id(intf.pas,%U[{var_BeforeChange}\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'var_BeforeChange' ) 
+   #13#10 
+  %END-IF
+ )% //	begin
+  'begin'
+//	%f_with_gen_id(intf.pas,%U[{BeforeChange}\n !!! не реализовано\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'BeforeChange' ) 
+   #13#10' !!! не реализовано'#13#10 
+  %END-IF
+ )% //	end;\
+  'end;'
+//	]\
+ %END-IF
+//	[{%S{HasAfterChangeTrigger}=true}%f_pas_OpenMethodImplementation("%PN%SNAfterChange")\
+ %IF ( ( %S get_up ( 'HasAfterChangeTrigger' ) ) %==  true ) 
+  [%f] pas_OpenMethodImplementation %( %P |N %S |N 'AfterChange' )% 
+//	procedure %PN%SNAfterChange(const V : Tk2Values;
+  'procedure '
+  %P |N %S |N 'AfterChange(const V : Tk2Values;'
+//	 const aProp    : Tk2Prop;
+  ' const aProp    : Tk2Prop;'
+//	 const aContext : Ik2Op);
+  ' const aContext : Ik2Op);'
+//	%f_with_gen_id(intf.pas,%U[{var_AfterChange}\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'var_AfterChange' ) 
+   #13#10 
+  %END-IF
+ )% //	begin
+  'begin'
+//	%f_with_gen_id(intf.pas,%U[{AfterChange}\n !!! не реализовано\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'AfterChange' ) 
+   #13#10' !!! не реализовано'#13#10 
+  %END-IF
+ )% //	end;\
+  'end;'
+//	]\
+ %END-IF
+//	[{%S{HasStoreChildTrigger}=true}%f_pas_OpenMethodImplementation("%PN%SNChildStored")\
+ %IF ( ( %S get_up ( 'HasStoreChildTrigger' ) ) %==  true ) 
+  [%f] pas_OpenMethodImplementation %( %P |N %S |N 'ChildStored' )% 
+//	function %PN%SNChildStored(const aParent : Ik2Tag;
+  'function '
+  %P |N %S |N 'ChildStored(const aParent : Ik2Tag;'
+//	 const aChild   : Ik2Tag;
+  ' const aChild   : Ik2Tag;'
+//	 const aProp    : Tk2Prop;
+  ' const aProp    : Tk2Prop;'
+//	 const aContext : Ik2Op): Boolean;
+  ' const aContext : Ik2Op): Boolean;'
+//	%f_with_gen_id(intf.pas,%U[{var_childstored}\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'var_childstored' ) 
+   #13#10 
+  %END-IF
+ )% //	begin
+  'begin'
+//	%f_with_gen_id(intf.pas,%U[{childstored}\n !!! не реализовано\n])
+  [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'childstored' ) 
+   #13#10' !!! не реализовано'#13#10 
+  %END-IF
+ )% //	end;\
+  'end;'
+//	]\
+ %END-IF
+//	[\n%S%f_close_ifdef()]
+ %IF-NOT-EMPTY
+  #13#10
+  %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4BC439B602D4for48493312009A*
+; // evd_OutElementImplementation
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for48493312009A*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for48493312009A*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor48493312009A*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor48493312009A*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for48493312009A*
+//#UC END# *470484D50138for48493312009A*
+; // wiki_up_add_gen
+
+
+//: Tag::Class::children::Attribute
+end. // :: <<Tag>> <<Attribute>> ;
+
+implementation @ :: <<Tag>> <<children>> ;
+//? Дочерние теги
+//? Определяет тип элемента, который вкладывается в данный как дочерний.
+//= Tag::Class::Attribute
+
+// Пользовательские свойства
+//p Duplicates=Ignore|Accept|Change|Assign|Error ? Как обрабатывать дубликаты, если список сортированный.
+//p HasStoreChildTrigger:b=false ? Есть триггер на сохранение дочернего тега.
+//p MaxChildrenCount:s ? Ограничение количества дочерних элементов
+//p SortIndex:s ? Индекс сортировки.
+//p SortTags:s ? Теги для сортировки
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{SortIndex}"!="%S{!SortIndex}"}%f_up_prefix(%S) *SortIndex* = *%S{SortIndex}* - Индекс сортировки.
+ ?inherited
+ %IF ( ( %S get_up ( 'SortIndex' ) ) %!= ( %S get_up_def ( 'SortIndex' ) ) ) 
+  [%f] up_prefix %( %S )% ' *SortIndex* = *'
+  %S get_up ( 'SortIndex' ) '* - Индекс сортировки.'
+//	][{"%S{HasStoreChildTrigger}"!="%S{!HasStoreChildTrigger}"}%f_up_prefix(%S) *HasStoreChildTrigger* = *%S{HasStoreChildTrigger}* - Есть триггер на сохранение дочернего тега.
+ %END-IF
+ %IF ( ( %S get_up ( 'HasStoreChildTrigger' ) ) %!= ( %S get_up_def ( 'HasStoreChildTrigger' ) ) ) 
+  [%f] up_prefix %( %S )% ' *HasStoreChildTrigger* = *'
+  %S get_up ( 'HasStoreChildTrigger' ) '* - Есть триггер на сохранение дочернего тега.'
+//	][{"%S{MaxChildrenCount}"!="%S{!MaxChildrenCount}"}%f_up_prefix(%S) *MaxChildrenCount* = *%S{MaxChildrenCount}* - Ограничение количества дочерних элементов
+ %END-IF
+ %IF ( ( %S get_up ( 'MaxChildrenCount' ) ) %!= ( %S get_up_def ( 'MaxChildrenCount' ) ) ) 
+  [%f] up_prefix %( %S )% ' *MaxChildrenCount* = *'
+  %S get_up ( 'MaxChildrenCount' ) '* - Ограничение количества дочерних элементов'
+//	][{"%S{Duplicates}"!="%S{!Duplicates}"}%f_up_prefix(%S) *Duplicates* = *%S{Duplicates}* - Как обрабатывать дубликаты, если список сортированный.
+ %END-IF
+ %IF ( ( %S get_up ( 'Duplicates' ) ) %!= ( %S get_up_def ( 'Duplicates' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Duplicates* = *'
+  %S get_up ( 'Duplicates' ) '* - Как обрабатывать дубликаты, если список сортированный.'
+//	][{"%S{SortTags}"!="%S{!SortTags}"}%f_up_prefix(%S) *SortTags* = *%S{SortTags}* - Теги для сортировки
+ %END-IF
+ %IF ( ( %S get_up ( 'SortTags' ) ) %!= ( %S get_up_def ( 'SortTags' ) ) ) 
+  [%f] up_prefix %( %S )% ' *SortTags* = *'
+  %S get_up ( 'SortTags' ) '* - Теги для сортировки'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Предок вновь определяемого типа. См. NeedsOwnType
+//%f _AncestorTypeName
+; // wiki_up_print
+
+: AncestorTypeName OBJECT IN %S
+//#UC START# *49A7CCE80269for484938D00395*
+//	OList
+ 'OList'
+//#UC END# *49A7CCE80269for484938D00395*
+; // AncestorTypeName
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Тело атрибута.
+//%f _Body
+: Body OBJECT IN %S
+//#UC START# *484FBC200182for484938D00395*
+//	%S%[inherited]\
+ inherited
+//	[{%S{Duplicates}!=Ignore}\n# Duplicates := l3_dup%S{Duplicates};]\
+ %IF ( ( %S get_up ( 'Duplicates' ) ) %!= 'Ignore' ) 
+  #13#10
+  out_indent ' Duplicates := l3_dup'
+  %S get_up ( 'Duplicates' ) ';' 
+ %END-IF
+//	[\n# MaxChildrenCount := %S{MaxChildrenCount};]
+ %IF-NOT-EMPTY
+  #13#10
+  out_indent ' MaxChildrenCount := '
+  %S get_up ( 'MaxChildrenCount' ) ';' 
+ %END-IF
+//#UC END# *484FBC200182for484938D00395*
+; // Body
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Собственно определение пового типа См. NeedOwnType
+//%f _DefineNewType
+: DefineNewType OBJECT IN %S
+//#UC START# *49A7CD3200CFfor484938D00395*
+//	t_%S%f_NewTypeName().DefineChildrenPrim(t_%TN)
+ 't_'
+ %S %f NewTypeName %( )% '.DefineChildrenPrim(t_'
+ %T |N ')'
+//#UC END# *49A7CD3200CFfor484938D00395*
+; // DefineNewType
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Выводит заголовок определения атрибута.
+//%f _DefinitionHeader
+: DefinitionHeader OBJECT IN %S
+//#UC START# *484A918802EEfor484938D00395*
+//	[{%S%f_NeedsOwnType()!=true}{ArrayProp\[k2_tiChildren\]}DefineChildrenPrim(t_%TN)]
+ %IF ( ( %S %f NeedsOwnType %( )% ) %!=  true ) 
+  %ELSE
+   'ArrayProp[k2_tiChildren]' 
+  %THEN
+  'DefineChildrenPrim(t_'
+  %T |N ')' 
+ %END-IF
+//#UC END# *484A918802EEfor484938D00395*
+; // DefinitionHeader
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Определяет, что атрибуту необходимо собственное определение типа
+//%f _NeedsOwnType
+: NeedsOwnType OBJECT IN %S
+//#UC START# *49A7BAF50197for484938D00395*
+//	[{%PN=OList|%P<{}{%gN=OList}{C}>!=0|%P<{}{%rN=OList}{C}>!=0}{true}false]
+ %IF ( ( %P |N ) %== 'OList' %|| 
+   ( ( %P
+  %FOR %ITEM-CONDITION ( ( %g |N ) %== 'OList' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0  ) %|| 
+   ( ( %P
+  %FOR %ITEM-CONDITION ( ( %r |N ) %== 'OList' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0  ) ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *49A7BAF50197for484938D00395*
+; // NeedsOwnType
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Имя типа, определяемого для свойства
+//%f _NewTypeName
+: NewTypeName OBJECT IN %S
+//#UC START# *49AD12F30104for484938D00395*
+//	%PN_Children
+ %P |N '_Children'
+//#UC END# *49AD12F30104for484938D00395*
+; // NewTypeName
+
+
+//: Tag::Class::array::Attribute
+end. // :: <<Tag>> <<children>> ;
+
+implementation @ :: <<Tag>> <<array>> ;
+//? Атрибут-массив
+//? Определяет атрибут-массив.
+//= Tag::Class::children::Attribute
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Предок вновь определяемого типа. См. NeedsOwnType
+//%f _AncestorTypeName
+; // st_space_key
+
+: AncestorTypeName OBJECT IN %S
+//#UC START# *49A7CCE80269for4849393D00CB*
+//	OList
+ 'OList'
+//#UC END# *49A7CCE80269for4849393D00CB*
+; // AncestorTypeName
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Собственно определение пового типа См. NeedOwnType
+//%f _DefineNewType
+: DefineNewType OBJECT IN %S
+//#UC START# *49A7CD3200CFfor4849393D00CB*
+//	t_%S%f_NewTypeName().DefineChildrenPrim(t_%TN)
+ 't_'
+ %S %f NewTypeName %( )% '.DefineChildrenPrim(t_'
+ %T |N ')'
+//#UC END# *49A7CD3200CFfor4849393D00CB*
+; // DefineNewType
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Выводит заголовок определения атрибута.
+//%f _DefinitionHeader
+: DefinitionHeader OBJECT IN %S
+//#UC START# *484A918802EEfor4849393D00CB*
+//	t_%S%f_NewTypeName().ArrayProp\[k2_tiChildren\]
+ 't_'
+ %S %f NewTypeName %( )% '.ArrayProp[k2_tiChildren]'
+//#UC END# *484A918802EEfor4849393D00CB*
+; // DefinitionHeader
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Определяет, что атрибуту необходимо собственное определение типа
+//%f _NeedsOwnType
+: NeedsOwnType OBJECT IN %S
+//#UC START# *49A7BAF50197for4849393D00CB*
+//	true
+ true
+//#UC END# *49A7BAF50197for4849393D00CB*
+; // NeedsOwnType
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Имя типа, определяемого для свойства
+//%f _NewTypeName
+: NewTypeName OBJECT IN %S
+//#UC START# *49AD12F30104for4849393D00CB*
+//	%PN_%SN
+ %P |N '_'
+ %S |N 
+//#UC END# *49AD12F30104for4849393D00CB*
+; // NewTypeName
+
+
+//: Tag::Class::override::Attribute
+end. // :: <<Tag>> <<array>> ;
+
+implementation @ :: <<Tag>> <<override>> ;
+//? Переопределение атрибута
+//? Переопределяет тип, значение по-умолчанию, признак сохранённости от унаследованного атрибута.
+//= Tag::Class::Attribute
+
+// Параметры стереотипа
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Тело атрибута.
+//%f _Body
+; // st_space_key
+
+: Body OBJECT IN %S
+//#UC START# *484FBC200182for484FA5D60101*
+//	%S%[inherited]\
+ inherited
+//	[{%TN!=void&"%TN"!=""}\n# \
+ %IF ( ( %T |N ) %!= 'void' %&& 
+   ( ( %T |N ) %!= ''  ) ) 
+  #13#10
+  out_indent ' '
+//	[{%TS!=TagValue}{\
+  %IF ( ( %T |S ) %!= 'TagValue' ) 
+   %ELSE
+//	DefaultValue := %T#f_pas_Prefix()%TN}\
+    'DefaultValue := '
+    %T %?f pas_Prefix %( )% %T |N 
+   %THEN
+//	AtomType := t_%TN];]
+   'AtomType := t_'
+   %T |N 
+  %END-IF
+  ';' 
+ %END-IF
+//#UC END# *484FBC200182for484FA5D60101*
+; // Body
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Выводит заголовок определения атрибута.
+//%f _DefinitionHeader
+: DefinitionHeader OBJECT IN %S
+//#UC START# *484A918802EEfor484FA5D60101*
+//	Tk2CustomProperty(Prop\[k2_ti%SN\])
+ 'Tk2CustomProperty(Prop[k2_ti'
+ %S |N '])'
+//#UC END# *484A918802EEfor484FA5D60101*
+; // DefinitionHeader
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Определяет, что атрибуту необходимо собственное определение типа
+//%f _NeedsOwnType
+: NeedsOwnType OBJECT IN %S
+//#UC START# *49A7BAF50197for484FA5D60101*
+//	false
+ false
+//#UC END# *49A7BAF50197for484FA5D60101*
+; // NeedsOwnType
+
+
+//: Tag::Class::children_override::Attribute
+end. // :: <<Tag>> <<override>> ;
+
+implementation @ :: <<Tag>> <<children_override>> ;
+//? Переопределение дочерних тегов
+//? Переопределяет тип, значение по-умолчанию, признак сохранённости от унаследованного дочернего элемента.
+//= Tag::Class::children::Attribute
+
+// Параметры стереотипа
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Тело атрибута.
+//%f _Body
+; // st_space_key
+
+: Body OBJECT IN %S
+//#UC START# *484FBC200182for484FBFC70323*
+//	%S%[inherited]\
+ inherited
+//	[{%TN!=void&"%TN"!=""}\n# ChildType := t_%TN;]
+ %IF ( ( %T |N ) %!= 'void' %&& 
+   ( ( %T |N ) %!= ''  ) ) 
+  #13#10
+  out_indent ' ChildType := t_'
+  %T |N ';' 
+ %END-IF
+//#UC END# *484FBC200182for484FBFC70323*
+; // Body
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Выводит заголовок определения атрибута.
+//%f _DefinitionHeader
+: DefinitionHeader OBJECT IN %S
+//#UC START# *484A918802EEfor484FBFC70323*
+//	ArrayProp\[k2_tiChildren\]
+ 'ArrayProp[k2_tiChildren]'
+//#UC END# *484A918802EEfor484FBFC70323*
+; // DefinitionHeader
+
+
+// перекрытие базового стереотипа Tag::Class::Attribute
+// Определяет, что атрибуту необходимо собственное определение типа
+//%f _NeedsOwnType
+: NeedsOwnType OBJECT IN %S
+//#UC START# *49A7BAF50197for484FBFC70323*
+//	false
+ false
+//#UC END# *49A7BAF50197for484FBFC70323*
+; // NeedsOwnType
+
+
+//: Tag::Class::default_child::Attribute
+end. // :: <<Tag>> <<children_override>> ;
+
+implementation @ :: <<Tag>> <<default_child>> ;
+//? Тип дочернего элемента по-умолчанию
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for48578C1801EF*
+//#UC END# *46E6D4BB0339for48578C1801EF*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor48578C1801EF*
+//#UC END# *470F1571031Cfor48578C1801EF*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor48578C1801EF*
+//	#ArrayProp\[k2_tiChildren\].DefaultChildType := t_%TN;
+ out_indent 'ArrayProp[k2_tiChildren].DefaultChildType := t_'
+ %T |N ';'
+//#UC END# *470F15B800CBfor48578C1801EF*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for48578C1801EF*
+//#UC END# *477398E501C0for48578C1801EF*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for48578C1801EF*
+//#UC END# *4774D2A20372for48578C1801EF*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor48578C1801EF*
+//#UC END# *49F5795900ECfor48578C1801EF*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for48578C1801EF*
+//#UC END# *4DE79AFC0030for48578C1801EF*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor48578C1801EF*
+//#UC END# *4E65F581015Afor48578C1801EF*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for48578C1801EF*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for48578C1801EF*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor48578C1801EF*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor48578C1801EF*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for48578C1801EF*
+//#UC END# *470484D50138for48578C1801EF*
+; // wiki_up_add_gen
+
+
+//: Tag::Class::disabled_child::Attribute
+end. // :: <<Tag>> <<default_child>> ;
+
+implementation @ :: <<Tag>> <<disabled_child>> ;
+//? Запрещённый тип дочерних элементов
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4C178DB2019A*
+//#UC END# *46E6D4BB0339for4C178DB2019A*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4C178DB2019A*
+//#UC END# *470F1571031Cfor4C178DB2019A*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4C178DB2019A*
+//	#AddDisabledChildTypeID(t_%TN.ID);
+ out_indent 'AddDisabledChildTypeID(t_'
+ %T |N '.ID);'
+//#UC END# *470F15B800CBfor4C178DB2019A*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4C178DB2019A*
+//#UC END# *477398E501C0for4C178DB2019A*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for4C178DB2019A*
+//#UC END# *4774D2A20372for4C178DB2019A*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor4C178DB2019A*
+//#UC END# *49F5795900ECfor4C178DB2019A*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for4C178DB2019A*
+//#UC END# *4DE79AFC0030for4C178DB2019A*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor4C178DB2019A*
+//#UC END# *4E65F581015Afor4C178DB2019A*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4C178DB2019A*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4C178DB2019A*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4C178DB2019A*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4C178DB2019A*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4C178DB2019A*
+//#UC END# *470484D50138for4C178DB2019A*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Tag>> <<disabled_child>> ;
+

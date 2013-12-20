@@ -1,0 +1,26 @@
+: TestCallerAndWordWorker
+
+ CallerAndWordWorker DoIt
+  Caller -> 'X' DO WordToWork DO
+ ;
+ 
+ : A
+  VAR X
+  1025 =: X
+  
+  DoIt .
+ ;
+ 
+ : B
+  VAR X
+  'Hello' =: X
+  
+  DoIt .
+ ;
+ 
+ A
+ B
+
+;
+
+TestCallerAndWordWorker

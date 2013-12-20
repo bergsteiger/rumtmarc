@@ -1,0 +1,393 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/PureMixIn.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::PureMixIn
+//
+// Абстрактная примесь.
+// ---
+// Отличается от Impurity тем, что определяет только интерфейс, а не реализацию.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: PureMixIn::Class
+implementation @ <<PureMixIn>>
+//? Абстрактная примесь.
+//? Отличается от Impurity тем, что определяет только интерфейс, а не реализацию.
+//> ImpurityParamType::Class
+
+//= Facet::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_pure_mixin.gif
+//L code_pure_mixin
+// Параметры визуализации
+//$ C 192,255,255
+//$ L 0,0,0
+//$ l 0,128,192
+//$ F 0,0,0
+//$ f 0,128,192
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент может реализовываться классом
+//%f _ClassImplementable
+; // st_space_key
+
+: ClassImplementable OBJECT IN %S
+//#UC START# *49551CA202CFfor47D8087B0111*
+//	false
+ false
+//#UC END# *49551CA202CFfor47D8087B0111*
+; // ClassImplementable
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является интерфейсом
+//%f _IsInterface
+: IsInterface OBJECT IN %S
+//#UC START# *49809333028Cfor47D8087B0111*
+//	false
+ false
+//#UC END# *49809333028Cfor47D8087B0111*
+; // IsInterface
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является чистой примесью
+//%f _IsPureMixIn
+: IsPureMixIn OBJECT IN %S
+//#UC START# *4977065602B3for47D8087B0111*
+//	true
+ true
+//#UC END# *4977065602B3for47D8087B0111*
+; // IsPureMixIn
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47D8087B0111*
+//#UC END# *47022CCF00EAfor47D8087B0111*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47D8087B0111*
+//#UC END# *47022BBE0261for47D8087B0111*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for47D8087B0111*
+//#UC END# *47022C0F01E4for47D8087B0111*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor47D8087B0111*
+//#UC END# *49F5795900ECfor47D8087B0111*
+; // dfm
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47D8087B0111*
+//#UC END# *477398E501C0for47D8087B0111*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for47D8087B0111*
+//#UC END# *4DE79AFC0030for47D8087B0111*
+; // sd
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47D8087B0111*
+//#UC END# *4E65F581015Afor47D8087B0111*
+; // link_to_requests_hack
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47D8087B0111*
+//	<%FF>\
+ %FOR %F |F 
+ %END-FOR
+//	<{}{%CS=impurity value}%f_set_var(%CN,"%f_pas_TypeName(%C%T)")>\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+  [%f] set_var %( %C |N %, [%f] pas_TypeName %( %C ->T  )% )% 
+ %END-FOR
+//	[<{}{%CC=Class&%C%f_IsClassInner()!=true}%CX\n>]\
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+    ( ( %C %f IsClassInner %( )% ) %!=  true  ) ) 
+   %C |X #13#10 
+  %END-FOR
+ %END-IF
+//	<{}{%CS=impurity value}%f_set_var(%CN,"")>\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'impurity value' ) 
+  [%f] set_var %( %C |N %, '' )% 
+ %END-FOR
+//	\n(*
+ #13#10'(*'
+//	 %f_pas_TypeName(%S) = PureMixIn[(%f_pas_TypeName(%G))]\
+ ' '
+ [%f] pas_TypeName %( %S )% ' = PureMixIn'
+ %IF-NOT-EMPTY
+  '('
+  [%f] pas_TypeName %( %G )% ')' 
+ %END-IF
+//	[\n  \{* %f_Doc(%S) \}]\
+ %IF-NOT-EMPTY
+  #13#10'  {* '
+  [%f] Doc %( %S )% ' }' 
+ %END-IF
+//	[\n  Params : <{, }{%CS=impurity param}%f_pas_TypeName(%C%T)>]
+ %IF-NOT-EMPTY
+  #13#10'  Params : '
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |S ) %== 'impurity param' ) 
+   [%f] pas_TypeName %( %C ->T  )% 
+  %END-FOR
+ %END-IF
+//	%f_pas_OutFacetBody(%S)\
+ [%f] pas_OutFacetBody %( %S )% 
+//	 end;//%f_pas_TypeName(%S)
+ ' end;//'
+ [%f] pas_TypeName %( %S )% 
+//	*)
+ '*)'
+//#UC END# *470F1571031Cfor47D8087B0111*
+; // intf.pas
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: PureMixIn::Class::impurity param::Attribute
+end. // <<PureMixIn>>
+
+implementation @ :: <<PureMixIn>> <<"impurity param">> ;
+//? Параметр класса примеси.
+//= ClassBaseGenerator::MDAGenerator
+
+// Параметры стереотипа
+//Y code_impurity_param.gif
+//L code_impurity_param
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for47D809DF007B*
+//#UC END# *47022BBE0261for47D809DF007B*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for47D809DF007B*
+//#UC END# *47022C0F01E4for47D809DF007B*
+; // idl_ami
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47D809DF007B*
+//#UC END# *47022CCF00EAfor47D809DF007B*
+; // i.h
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47D809DF007B*
+//#UC END# *477398E501C0for47D809DF007B*
+; // intf2.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor47D809DF007B*
+//#UC END# *49F5795900ECfor47D809DF007B*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for47D809DF007B*
+//#UC END# *4DE79AFC0030for47D809DF007B*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47D809DF007B*
+//#UC END# *4E65F581015Afor47D809DF007B*
+; // link_to_requests_hack
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor47D809DF007B*
+//#UC END# *470F1571031Cfor47D809DF007B*
+; // intf.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47D809DF007B*
+//#UC END# *46E6D4BB0339for47D809DF007B*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47D809DF007B*
+//#UC END# *47022C88029Ffor47D809DF007B*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47D809DF007B*
+//#UC END# *47022CB8034Bfor47D809DF007B*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47D809DF007B*
+//#UC END# *470321950119for47D809DF007B*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47D809DF007B*
+//#UC END# *470321C1038Afor47D809DF007B*
+; // fctr.java
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor47D809DF007B*
+//#UC END# *470F15B800CBfor47D809DF007B*
+; // impl.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for47D809DF007B*
+//#UC END# *4774D2A20372for47D809DF007B*
+; // intf3.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47D809DF007B*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for47D809DF007B*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47D809DF007B*
+//#UC END# *4705CBD6003Efor47D809DF007B*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for47D809DF007B*
+//#UC END# *470484D50138for47D809DF007B*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<PureMixIn>> <<"impurity param">> ;
+

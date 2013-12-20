@@ -1,0 +1,131 @@
+tbcfSaveLoadBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOkExt : TvcmToolButtonDef
+Искать
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+bt_enResult_opClearAll : TvcmToolButtonDef
+Очистить
+
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+ : TvcmSeparatorDef
+
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+ : TvcmSeparatorDef
+
+ : TvcmSeparatorDef
+
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+ : TvcmSeparatorDef
+
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+ : TvcmSeparatorDef
+
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+ : TvcmSeparatorDef
+
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+ : TvcmSeparatorDef
+
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+
+tbcfSaveLoadTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+ : TvcmSeparatorDef
+
+bt_enFile_opLoadFromFolder : TvcmToolButtonDef
+Выбрать из Моих документов...
+ : TvcmSeparatorDef
+
+bt_enQuery_opGetOldQuery : TvcmToolButtonDef
+История запросов
+ : TvcmSeparatorDef
+
+bt_enLogicOperation_opLogicOr : TvcmToolButtonDef
+ИЛИ
+
+tbefTreeAttributeSelectTop : TvcmToolbar
+Order = 1
+---------------
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+ : TvcmSeparatorDef
+
+bt_enAttribute_opLogicOr : TvcmToolButtonDef
+ИЛИ
+bt_enAttribute_opLogicAnd : TvcmToolButtonDef
+И
+bt_enAttribute_opLogicNot : TvcmToolButtonDef
+КРОМЕ
+bt_enAttribute_opLogicOrShortcut : TvcmToolButtonDef
+ИЛИ (shortcut)
+
+tbefTreeAttributeSelectTop : TvcmToolbar
+Order = 1
+---------------
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+ : TvcmSeparatorDef
+
+bt_enAttribute_opLogicOr : TvcmToolButtonDef
+ИЛИ
+bt_enAttribute_opLogicAnd : TvcmToolButtonDef
+И
+bt_enAttribute_opLogicNot : TvcmToolButtonDef
+КРОМЕ
+bt_enAttribute_opLogicOrShortcut : TvcmToolButtonDef
+ИЛИ (shortcut)
+

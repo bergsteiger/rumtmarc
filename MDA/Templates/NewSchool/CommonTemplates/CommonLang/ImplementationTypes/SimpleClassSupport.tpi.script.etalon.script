@@ -1,0 +1,431 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/SimpleClassSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::SimpleClassSupport
+//
+// вспомогательные функции для генерации SimpleClass
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// нужен ли cpp-шник
+//f _need_cpp_file_for_servant
+: need_cpp_file_for_servant OBJECT IN %S
+//#UC START# *4717004202DE*
+//	[{%f_need_inline_file(%S)!=true&"%f_pure_abstract(%S)"!="true"}{false}true]
+ %IF ( ( [%f] need_inline_file %( %S )% ) %!=  true %&& 
+   ( ( [%f] pure_abstract %( %S )% ) %!= true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4717004202DE*
+; // need_cpp_file_for_servant
+
+
+// нужен ли inl-файл
+//f _need_inline_file
+: need_inline_file OBJECT IN %S
+//#UC START# *4717005201E4*
+//	[{"%S{need inline-file}"="true"|"%SK"="ParameterizedClass"|%f_has_only_templates(%S)=true}{false}true]
+ %IF ( ( %S get_up ( 'need inline-file' ) ) %== true %|| 
+   ( ( %S |K ) %== 'ParameterizedClass'  ) %|| 
+   ( ( [%f] has_only_templates %( %S )% ) %==  true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+
+//f _has_only_templates
+; // need_inline_file
+
+: has_only_templates OBJECT IN %S
+//	[{<{}{%CS=TemplateFunctions&%CC=Class}{C}>!=0&<{}{%CS!=TemplateFunctions&%CC=Class}{C}>=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'TemplateFunctions' %&& 
+    ( ( %C |C ) %== 'Class'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'TemplateFunctions' %&& 
+    ( ( %C |C ) %== 'Class'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4717005201E4*
+; // has_only_templates
+
+
+// генерация тела серванта
+//f _simple_class_impl_body
+: simple_class_impl_body OBJECT IN %S
+//#UC START# *4717005F0157*
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	[{"%SK"!="ParameterizedClass"}\#include %f_dump_include_path(%f_with_gen_id(h,%SW),%S)
+ %IF ( ( %S |K ) %!= 'ParameterizedClass' ) 
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |W )% %, %S )% 
+//	]%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+ %END-IF
+ %P
+ %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Environment::Class' ) 
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A |L )% %, %A )% 
+//	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+ %END-FOR
+  %FOR %ITEM-CONDITION ( ( %S get_up ( 'local supervisor' ) ) %!= true %|| 
+   ( ( %W ->P |U  ) %!= ( %P |U )  ) ) 
+  ( %W ) 
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %W |L )% %, %W )% 
+//	]>[// by \<\<uses\>\> dependencies
+  %END-IF
+ %END-FOR
+ %IF-NOT-EMPTY
+  '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}{%A}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'uses' %&& 
+    ( ( %A |C ) %== 'Dependency'  ) %&& 
+    ( %IF ( ( %A ->P |U  ) %== ( %S |U ) %|| 
+     ( ( %A ->P |o  ) %== ''  ) ) 
+     true 
+   %END-IF
+   %== true  ) ) 
+   ( %A ) 
+   %IF-NOT-EMPTY
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+   %END-IF
+   %IF-NOT-EMPTY
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>][// by \<\<friend\>\> dependencies
+   %END-IF
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  '// by <<friend>> dependencies'
+//	<{}{"%AS"="friend"&"%AC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'friend' %&& 
+    ( ( %A |C ) %== 'Dependency'  ) ) 
+   %IF-NOT-EMPTY
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>][{"%S{local supervisor}"="true"}// as local supervisor
+   %END-IF
+  %END-FOR
+ %END-IF
+ %IF ( ( %S get_up ( 'local supervisor' ) ) %== true ) 
+  '// as local supervisor'
+//	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"|"%CM"="SimpleClass::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+  %P
+  %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Servant::Class' %&& 
+    ( ( %C |U ) %!= ( ( get_global_var ( 'SELF' ) |U ) )  ) %|| 
+    ( ( %C |M ) %== 'SimpleClass::Class'  ) %&& 
+    ( ( %C |U ) %!= ( ( get_global_var ( 'SELF' ) |U ) )  ) ) 
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C |L )% %, %C )% 
+//	>][// local helpers
+  %END-FOR
+  %END-IF
+ %IF-NOT-EMPTY
+  '// local helpers'
+//	%P<{}{%C{local helper}=true}\#include %f_dump_include_path(%f_with_gen_id(h,%CW),%C)
+  %P
+  %FOR %ITEM-CONDITION ( ( %C get_up ( 'local helper' ) ) %==  true ) 
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C |W )% %, %C )% 
+//	>][{%S{need UC}=true}
+  %END-FOR
+  %END-IF
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[{_CUSTOM_INCLUDES}
+  %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ %END-IF
+//	%SP[{%S{need UC}=true}
+ %S |P %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[
+  %U%IF-NOT-EMPTY
+
+//	]
+  %END-IF
+ //	]][
+ %END-IF
+ ']'
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested implementation<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+  '// nested implementation'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+    ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+   %IF-NOT-EMPTY
+
+//	%CX
+    %C |X 
+//	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)[
+   %END-IF
+  %END-FOR
+ %END-IF
+ [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods
+  '// static member methods'
+//	<{}{"%CS"="static"|%t_is_static_accessor(%C)=true}[
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' %|| 
+    ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+   %IF-NOT-EMPTY
+
+//	%CX
+    %C |X 
+//	]>
+   %END-IF
+  %END-FOR
+//	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_ctor_n_dctor_cpp()][
+  %S %f ctor_n_dctor_cpp %( )% 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self implementation[
+  '// self implementation'
+  %IF-NOT-EMPTY
+
+//	%S%f_auto_self_methods_cpp()
+   %S %f auto_self_methods_cpp %( )% 
+//	]<{}{"%CC"="Operation"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"|"%CC"="Attribute"&"%CS"="cached"}{Sn}
+  %END-IF
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |a ) %!= 'abstract'  ) %&& 
+    ( ( %C |S ) %!= 'static'  ) %&& 
+    ( ( %C |S ) %!= 'ctor'  ) %|| 
+    ( ( %C |C ) %== 'Attribute'  ) %&& 
+    ( ( %C |S ) %== 'cached'  ) ) 
+   ( 'Sn' ) 
+
+//	
+
+//	%CX>]%f_self_data_accessor(%S)%f_static_data_accessor(%S)[
+   %C |X 
+  %END-FOR
+ %END-IF
+ [%f] self_data_accessor %( %S )% [%f] static_data_accessor %( %S )% %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// oneway methods impl<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  '// oneway methods impl'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |S ) %== 'oneway'  ) %|| 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) 
+   ( 'Sn' ) 
+
+//	%f_servant_cpp_oneway_operation_thr_cpp(%C)
+   [%f] servant_cpp_oneway_operation_thr_cpp %( %C )% 
+//	><{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |S ) %== 'oneway'  ) %|| 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) 
+   ( 'Sn' ) 
+
+//	%f_servant_cpp_oneway_operation_impl_cpp(%C)
+   [%f] servant_cpp_oneway_operation_impl_cpp %( %C )% 
+//	>][
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// template methods implementation
+  '// template methods implementation'
+//	<{}{"%CS"="TemplateFunctions"}{Sn}%CX
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'TemplateFunctions' ) 
+   ( 'Sn' ) 
+   %C |X 
+//	>]
+  %END-FOR
+ %END-IF
+//	%f_dump_cpp_derrived_impl_cpp(%S)%f_dump_cpp_functors_cpp(%S)
+ [%f] dump_cpp_derrived_impl_cpp %( %S )% [%f] dump_cpp_functors_cpp %( %S )% 
+//	%Sp
+ %S |p 
+//#UC END# *4717005F0157*
+; // simple_class_impl_body
+
+
+// является ли класс чисто абстрактным
+//f _pure_abstract
+: pure_abstract OBJECT IN %S
+//#UC START# *471700C70148*
+//	[{%Sa=abstract&<{}{%CC=Operation&%Ca!=abstract}{C}>=0&%Ox=false&%ox=false&<{}{%f_is_property(%C)=true&%Ca!=abstract}{C}>=0}{false}true]
+ %IF ( ( %S |a ) %== 'abstract' %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |a ) %!= 'abstract'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0  ) %&& 
+   ( ( %O |x ) %==  false  ) %&& 
+   ( ( %o |x ) %==  false  ) %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_property %( %C )% ) %==  true %&& 
+    ( ( %C |a ) %!= 'abstract'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *471700C70148*
+; // pure_abstract
+
+
+// нужен ли cpp-файл для UtilityPack
+//f _need_cpp_file_for_utility_pack
+: need_cpp_file_for_utility_pack OBJECT IN %S
+//#UC START# *471721E50213*
+//	[{"%S{need impl-file}"="true"|"<{}{%t_has_impl(%C)=true}{C}>"!="0"}{false}true]
+ %IF ( ( %S get_up ( 'need impl-file' ) ) %== true %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( [%t] has_impl %( %C )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *471721E50213*
+; // need_cpp_file_for_utility_pack
+
+
+// Генерация асинхронных операций в java
+//f _oneway_operation_impl_java
+: oneway_operation_impl_java OBJECT IN %S
+//#UC START# *480828130316*
+//	#//oneway implementation
+ out_indent '//oneway implementation'
+//	#%t_visibility(%S,"XU") void %f_to_java(%SN) (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>] {
+ out_indent [%t] visibility %( %S %, 'XU' )% ' void '
+ [%f] to_java %( %S |N )% ' ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  [%f] arg_full_decl %( %C )% 
+ %END-FOR
+ ')'
+ %IF-NOT-EMPTY
+  ' throws '
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   [%f] type %( %E )% 
+  %END-FOR
+ %END-IF
+ ' {'
+//	#	java.util.concurrent.Executor executor = ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ();
+ out_indent '	java.util.concurrent.Executor executor = ru.garant.shared.Core.Concurrent.ThreadPool.Factory.def ();'
+//	#	Runnable eval = new Runnable () {
+ out_indent '	Runnable eval = new Runnable () {'
+//	#		public void run() {
+ out_indent '		public void run() {'
+//	#			%f_to_java(%SNImpl) (<{, }%f_to_java(%CN)>);
+ out_indent '			'
+ [%f] to_java %( %S |N 'Impl' )% ' ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  [%f] to_java %( %C |N )% 
+ %END-FOR
+ ');'
+//	#		}
+ out_indent '		}'
+//	#	};
+ out_indent '	};'
+//	#	executor.execute(eval);
+ out_indent '	executor.execute(eval);'
+//	#}
+ out_indent '}'
+//	
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#[{%SV!=PrivateAccess}{private}protected] %t_abstract_type(%S)%f_ret(%S) %f_to_java(%SNImpl) (<{, }%f_arg_full_decl(%C)>)[ throws <{, }%f_type(%E)>][{%Sa!=abstract}{;} {
+ out_indent %IF ( ( %S |V ) %!= 'PrivateAccess' ) 
+  %ELSE
+   'private' 
+  %THEN
+  'protected' 
+ %END-IF
+ ' '
+ [%t] abstract_type %( %S )% [%f] ret %( %S )% ' '
+ [%f] to_java %( %S |N 'Impl' )% ' ('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  [%f] arg_full_decl %( %C )% 
+ %END-FOR
+ ')'
+ %IF-NOT-EMPTY
+  ' throws '
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   [%f] type %( %E )% 
+  %END-FOR
+ %END-IF
+ %IF ( ( %S |a ) %!= 'abstract' ) 
+  %ELSE
+   ';' 
+  %THEN
+  ' {'
+//	#	%U[{[{"%{SERV}U"!="%PU"}_%{SERV}U]!java!}
+  out_indent '	'
+  %U%IF ( %IF ( ( ( get_global_var ( 'SERV' ) |U ) ) %!= ( %P |U ) ) 
+    '_'
+    ( get_global_var ( 'SERV' ) |U ) 
+   %END-IF
+   '!java!' ) 
+
+//	#	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();
+   out_indent '	throw new ru.garant.shared.Core.Root.MDAGenNotImplemented ();'
+//	#	]
+   out_indent '	' 
+  %END-IF
+ //	#}]
+  out_indent '}' 
+ %END-IF
+//#UC END# *480828130316*
+; // oneway_operation_impl_java
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

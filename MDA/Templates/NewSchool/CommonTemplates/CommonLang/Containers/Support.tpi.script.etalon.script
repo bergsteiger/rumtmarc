@@ -1,0 +1,311 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::Support
+//
+// набор вспомогательных функций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// выводит тип функтора сравнения
+//f _comp_dump
+: comp_dump OBJECT IN %S
+//#UC START# *47187725031C*
+//	[{}{[{"<{}{%CS=allocator}{%CC}>"!="0"}, std::less\<[{%SM=Set::Class}{%f_key_dump(%S)}%f_data_dump(%S)]\>]}<{}{"%CS"="compare"}, %f_type(%C%T)>]
+ %IF ( ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'allocator' ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 ) 
+    ', std::less<'
+    %IF ( ( %S |M ) %== 'Set::Class' ) 
+     %ELSE
+      [%f] key_dump %( %S )% 
+     %THEN
+     [%f] data_dump %( %S )% 
+    %END-IF
+    '>' 
+   %END-IF
+  %THEN
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'compare' ) 
+   ', '
+   [%f] type %( %C ->T  )% 
+  %END-FOR
+ %END-IF
+
+//#UC END# *47187725031C*
+; // comp_dump
+
+
+// дампит тип данных для ассоциативного контэйнера
+//f _data_dump
+: data_dump OBJECT IN %S
+//#UC START# *4718773C0261*
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
+//	<{}{"%CS"=""}{%C}\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== '' ) 
+  ( %C ) 
+//	%C[%f_set_var(ATTR_TYPE,T)]\
+  %C%IF-NOT-EMPTY
+   [%f] set_var %( 'ATTR_TYPE' %, 'T' )% 
+  %END-IF
+ //	[{%{SELF}%PC=Category&%{SELF}%PS=Impl&%{SELF}%P<{}{%D<{}{%CU=%{ATTR_TYPE}U}{%CC}>!=0}{%DC}>=0}%f_set_var(__SCOPE,S)]\
+  %IF ( ( ( get_global_var ( 'SELF' )  ->P |C ) ) %== 'Category' %&& 
+    ( ( ( get_global_var ( 'SELF' )  ->P |S ) ) %== 'Impl'  ) %&& 
+    ( ( ( get_global_var ( 'SELF' )  ->P
+   %FOR %ITEM-CONDITION ( ( %D
+    %FOR %ITEM-CONDITION ( ( %C |U ) %== ( ( get_global_var ( 'ATTR_TYPE' ) |U ) ) ) 
+     ( %C |C ) 
+    %END-FOR
+ )     %!= 0 ) 
+    ( %D |C ) 
+   %END-FOR
+ ) )    %== 0  ) ) 
+   [%f] set_var %( '__SCOPE' %, 'S' )% 
+  %END-IF
+//	[{%C%TS=DataElement}{%f_attr(%C)}%t_attr(%C%T,"ref",%C)]\
+  %IF ( ( %C ->T |S  ) %== 'DataElement' ) 
+   %ELSE
+    [%f] attr %( %C )% 
+   %THEN
+   [%t] attr %( %C ->T  %, 'ref"' %, %C )% 
+  %END-IF
+//	%f_set_var(__SCOPE,"")>
+  [%f] set_var %( '__SCOPE' %, '' )% 
+ %END-FOR
+//#UC END# *4718773C0261*
+; // data_dump
+
+
+// дампит тип функтора-сравнения для хэш-мапы
+//f _equalto_dump
+: equalto_dump OBJECT IN %S
+//#UC START# *4718774402DE*
+//	[{}{[{<{}{%CS=allocator}{%CC}>!=0|%f_need_key_hash(%S)=true}Core::equal_to\<%f_key_dump(%S)\>]}<{}{%CS=compare}%f_type(%C%T)>]
+ %IF ( ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'allocator' ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 %|| 
+     ( ( [%f] need_key_hash %( %S )% ) %==  true  ) ) 
+    'Core::equal_to<'
+    [%f] key_dump %( %S )% '>' 
+   %END-IF
+  %THEN
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'compare' ) 
+   [%f] type %( %C ->T  )% 
+  %END-FOR
+ %END-IF
+
+//#UC END# *4718774402DE*
+; // equalto_dump
+
+
+// дампит тип хэш-функтора для хэш-мапы
+//f _hasher_dump
+: hasher_dump OBJECT IN %S
+//#UC START# *4718774C02BF*
+//	[{}{[{<{}{%CS=allocator|%CS=compare}{%CC}>!=0|%f_need_key_hash(%S)=true}Core::hash\<%f_key_dump(%S)\>]}<{}{%CS=hasher}%f_type(%C%T)>]
+ %IF ( ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'allocator' %|| 
+      ( ( %C |S ) %== 'compare'  ) ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 %|| 
+     ( ( [%f] need_key_hash %( %S )% ) %==  true  ) ) 
+    'Core::hash<'
+    [%f] key_dump %( %S )% '>' 
+   %END-IF
+  %THEN
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'hasher' ) 
+   [%f] type %( %C ->T  )% 
+  %END-FOR
+ %END-IF
+
+//f _allocator_dump
+; // hasher_dump
+
+: allocator_dump OBJECT IN %S
+//	<{}{%CS=allocator}%f_type(%C%T)>
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'allocator' ) 
+  [%f] type %( %C ->T  )% 
+ %END-FOR
+//#UC END# *4718774C02BF*
+; // allocator_dump
+
+
+// возвращает false, если элемент и его тип являются детьми одного родителя
+//f _is_foreign_target
+: is_foreign_target OBJECT IN %S
+//#UC START# *4718775800CB*
+//	[{%T<{}{%PC=Category}%PU>!=%P<{}{%PC=Category}%PU>}{false}true]
+ %IF ( ( %T
+  %FOR %ITEM-CONDITION ( ( %P |C ) %== 'Category' ) 
+   %P |U 
+  %END-FOR
+ )   %!= ( %P
+  %FOR %ITEM-CONDITION ( ( %P |C ) %== 'Category' ) 
+   %P |U 
+  %END-FOR
+ ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4718775800CB*
+; // is_foreign_target
+
+
+// дампит ключ ассоциативного контэйнера
+//f _key_dump
+: key_dump OBJECT IN %S
+//#UC START# *4718775F035B*
+//	[{%SS!=UnsortedSet&%SS!=Set}{%f_data_dump(%S)}%f_set_var(SELF,S)\
+ %IF ( ( %S |S ) %!= 'UnsortedSet' %&& 
+   ( ( %S |S ) %!= 'Set'  ) ) 
+  %ELSE
+   [%f] data_dump %( %S )% 
+  %THEN
+  [%f] set_var %( 'SELF' %, 'S' )% 
+//	<{}{"%CS"=""}{%C}\
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== '' ) 
+   ( %C ) 
+//	%C[%f_set_var(ATTR_TYPE,T)]\
+   %C%IF-NOT-EMPTY
+    [%f] set_var %( 'ATTR_TYPE' %, 'T' )% 
+   %END-IF
+ //	[{%{SELF}%PC=Category&%{SELF}%PS=Impl&%{SELF}%P<{}{%D<{}{%CU=%{ATTR_TYPE}U}{%CC}>!=0}{C}>=0}%f_set_var(__SCOPE,S)]\
+   %IF ( ( ( get_global_var ( 'SELF' )  ->P |C ) ) %== 'Category' %&& 
+     ( ( ( get_global_var ( 'SELF' )  ->P |S ) ) %== 'Impl'  ) %&& 
+     ( ( ( get_global_var ( 'SELF' )  ->P
+    %FOR %ITEM-CONDITION ( ( %D
+     %FOR %ITEM-CONDITION ( ( %C |U ) %== ( ( get_global_var ( 'ATTR_TYPE' ) |U ) ) ) 
+      ( %C |C ) 
+     %END-FOR
+ )      %!= 0 ) 
+     ( 'C' ) 
+    %END-FOR
+ ) )     %== 0  ) ) 
+    [%f] set_var %( '__SCOPE' %, 'S' )% 
+   %END-IF
+//	[{%C%Cl=agr}{%f_attr(%C%C)}[{%t_simple(%C%C%T)=true|%f_check_if_type(%C%C%T,"a-string")=true|%f_check_if_type(%C%C%T,"a-wstring")=true}{%t_attr(%C%C%T,"%C%Cl-const")}%f_attr(%C%C)]]\
+   %IF ( ( %C ->C |l  ) %== 'agr' ) 
+    %ELSE
+     [%f] attr %( %C ->C  )% 
+    %THEN
+    %IF ( ( [%t] simple %( %C ->C ->T   )% ) %==  true %|| 
+      ( ( [%f] check_if_type %( %C ->C ->T   %, 'a-string' )% ) %==  true  ) %|| 
+      ( ( [%f] check_if_type %( %C ->C ->T   %, 'a-wstring' )% ) %==  true  ) ) 
+     %ELSE
+      [%t] attr %( %C ->C ->T   %, %C ->C |l  '-const' )% 
+     %THEN
+     [%f] attr %( %C ->C  )% 
+    %END-IF
+   %END-IF
+//	%f_set_var(__SCOPE,"")>]
+   [%f] set_var %( '__SCOPE' %, '' )% 
+  %END-FOR
+ %END-IF
+
+//f _need_key_hash
+; // key_dump
+
+: need_key_hash OBJECT IN %S
+//	[{%SS!=UnsortedSet&%SS!=Set}{[{<{}{"%CS"=""&%Cx=true&%Cl=ref}{%CC}>!=0}{false}true]}[{<{}{"%CS"=""&%C%Cx=true&%C%Cl=ref}{%CC}>!=0}{false}true]]
+ %IF ( ( %S |S ) %!= 'UnsortedSet' %&& 
+   ( ( %S |S ) %!= 'Set'  ) ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== '' %&& 
+      ( ( %C |x ) %==  true  ) %&& 
+      ( ( %C |l ) %== 'ref'  ) ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 ) 
+    %ELSE
+      false 
+    %THEN
+     true 
+   %END-IF
+  %THEN
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== '' %&& 
+     ( ( %C ->C |x  ) %==  true  ) %&& 
+     ( ( %C ->C |l  ) %== 'ref'  ) ) 
+    ( %C |C ) 
+   %END-FOR
+   %!= 0 ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+//#UC END# *4718775F035B*
+; // need_key_hash
+
+
+// определяет нужно ли генерить определение контэйнера
+// или оно уже было сгенерено раньше как форвард декларация
+//f _need_container_def
+: need_container_def OBJECT IN %S
+//#UC START# *49015F0C0207*
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
+//	[{<{}{%n<{}{%{SELF}U=%FU}{%FC}>!=0}{%nC}>=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %n
+   %FOR %ITEM-CONDITION ( ( ( get_global_var ( 'SELF' ) |U ) ) %== ( %F |U ) ) 
+    ( %F |C ) 
+   %END-FOR
+ )    %!= 0 ) 
+   ( %n |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *49015F0C0207*
+; // need_container_def
+
+
+// гененрит необходимые форвард декларации типом, используемых контэйнером
+//f _dump_container_fwds_h
+: dump_container_fwds_h OBJECT IN %S
+//#UC START# *4901625A0198*
+//	[\
+ %IF-NOT-EMPTY
+
+//	<#%FF
+
+//	>\
+//	[{%f_need_container_def(%S)=false}[<{}{%AC=Attribute}#%A%TF
+  %IF ( ( [%f] need_container_def %( %S )% ) %==  false ) 
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %A |C ) %== 'Attribute' ) 
+     out_indent %A ->T |F  
+//	>]]
+    %END-FOR
+   %END-IF
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4901625A0198*
+; // dump_container_fwds_h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

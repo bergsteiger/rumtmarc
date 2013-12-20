@@ -1,0 +1,389 @@
+--------------- Контрол в фокусе: ------------------
+OkButton : TeeButton
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 1
+---------------
+efAbout : TefAbout
+О программе
+Position:0
+Width = 550
+Height = 345
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbLogo : TPaintBox
+
+Left = 10
+Top = 5
+Width = 200
+Height = 55
+Align: 0
+Anchors: 3
+---------------
+ShellInfoLabel : TvtLabel
+Заголовок не сравниваем
+Left = 190
+Top = 70
+Width = 65
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+AdapterInfoLabel : TvtLabel
+клиент-серверная версия для служебного пользования
+Left = 190
+Top = 90
+Width = 335
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+UserCountLabel : TvtLabel
+сетевая версия для 5001 стандартных рабочих мест, 2501 привилегированных
+Left = 190
+Top = 110
+Width = 325
+Height = 30
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+OwnerLabel : TvtLabel
+НЕЗАРЕГИСТРИРОВАН
+Left = 190
+Top = 150
+Width = 150
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+ShellCaptionLabel : TvtLabel
+Версия
+Left = 10
+Top = 70
+Width = 175
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+OwnerCaptionLabel : TvtLabel
+Зарегистрированный пользователь копии
+Left = 10
+Top = 150
+Width = 175
+Height = 30
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+CopyrightCaptionLabel : TvtLabel
+(C) ООО НПП "ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ", 1990-2013
+Left = 10
+Top = 290
+Width = 370
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserCountCaptionLabel : TvtLabel
+
+Left = 10
+Top = 110
+Width = 175
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+AdapterCaptionLabel : TvtLabel
+
+Left = 10
+Top = 90
+Width = 175
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserInfoGroupBox : TvtGroupBox
+ Учетная запись 
+Left = 5
+Top = 190
+Width = 530
+Height = 85
+TabOrder: 0
+Align: 0
+Anchors: 7
+---------------
+EMailCaptionLabel : TvtLabel
+E-mail:
+Left = 0
+Top = 60
+Width = 180
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+EMailLabel : TvtLabel
+
+Left = 190
+Top = 60
+Width = 5
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+LoginCaptionLabel : TvtLabel
+Регистрационное имя:
+Left = 0
+Top = 15
+Width = 180
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserCaptionLabel : TvtLabel
+ФИО пользователя:
+Left = 0
+Top = 35
+Width = 180
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserNameLabel : TvtLabel
+tester
+Left = 190
+Top = 35
+Width = 35
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+LoginLabel : TvtLabel
+tester
+Left = 190
+Top = 15
+Width = 35
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+OkButton : TeeButton
+OK
+Left = 460
+Top = 290
+Width = 75
+Height = 25
+TabOrder: 1
+TabStop: 1
+Anchors: 3
+---------------
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+OkButton : TeeButton
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 1
+---------------
+efAbout : TefAbout
+О программе
+Position:0
+Width = 550
+Height = 345
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbLogo : TPaintBox
+
+Left = 10
+Top = 5
+Width = 200
+Height = 55
+Align: 0
+Anchors: 3
+---------------
+ShellInfoLabel : TvtLabel
+Заголовок не сравниваем
+Left = 190
+Top = 70
+Width = 65
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+AdapterInfoLabel : TvtLabel
+клиент-серверная версия для служебного пользования
+Left = 190
+Top = 90
+Width = 335
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+UserCountLabel : TvtLabel
+сетевая версия для 5001 стандартных рабочих мест, 2501 привилегированных
+Left = 190
+Top = 110
+Width = 325
+Height = 30
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+OwnerLabel : TvtLabel
+НЕЗАРЕГИСТРИРОВАН
+Left = 190
+Top = 150
+Width = 150
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+ShellCaptionLabel : TvtLabel
+Версия
+Left = 10
+Top = 70
+Width = 175
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+OwnerCaptionLabel : TvtLabel
+Зарегистрированный пользователь копии
+Left = 10
+Top = 150
+Width = 175
+Height = 30
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+CopyrightCaptionLabel : TvtLabel
+(C) ООО НПП "ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ", 1990-2013
+Left = 10
+Top = 290
+Width = 370
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserCountCaptionLabel : TvtLabel
+
+Left = 10
+Top = 110
+Width = 175
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+AdapterCaptionLabel : TvtLabel
+
+Left = 10
+Top = 90
+Width = 175
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserInfoGroupBox : TvtGroupBox
+ Учетная запись 
+Left = 5
+Top = 190
+Width = 530
+Height = 85
+TabOrder: 0
+Align: 0
+Anchors: 7
+---------------
+EMailCaptionLabel : TvtLabel
+E-mail:
+Left = 0
+Top = 60
+Width = 180
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+EMailLabel : TvtLabel
+
+Left = 190
+Top = 60
+Width = 5
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+LoginCaptionLabel : TvtLabel
+Регистрационное имя:
+Left = 0
+Top = 15
+Width = 180
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserCaptionLabel : TvtLabel
+ФИО пользователя:
+Left = 0
+Top = 35
+Width = 180
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 1
+---------------
+UserNameLabel : TvtLabel
+tester
+Left = 190
+Top = 35
+Width = 35
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+LoginLabel : TvtLabel
+tester
+Left = 190
+Top = 15
+Width = 35
+Height = 15
+Align: 0
+Anchors: 7
+Transparent: 1
+---------------
+OkButton : TeeButton
+OK
+Left = 460
+Top = 290
+Width = 75
+Height = 25
+TabOrder: 1
+TabStop: 1
+Anchors: 3
+---------------

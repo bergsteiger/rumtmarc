@@ -1,0 +1,46 @@
+: K330695347
+
+ : "Совершить переход по Таб"
+  "Нажать {('Tab')}"
+ ; // "Совершить переход по Таб"
+
+ OBJECT VAR КЗ "Контрол в фокусе" >>> КЗ 
+ BOOLEAN FUNCTION "Дошли до первого поля"
+  false =: Result
+  ( КЗ РАВНО "Контрол в фокусе" ) И 
+  ( КЗ pop:QueryCard:GetCurrentReqName 'AT_TEXT_NAME' SameStr ) ?
+  (
+   'Попали в первое поле' .
+   true =: Result 
+  )
+ ; //   BOOLEAN FUNСTION
+
+ : Действия
+  OBJECT VAR КЗ 
+  "Контрол в фокусе" >>> КЗ 
+
+  1000 раз (  
+   VAR "Предыдущий параграф"
+   КЗ pop:editor:PushParaFromCursor >>> "Предыдущий параграф"
+   "Совершить переход по Таб"
+   evd::id_ControlsBlock КЗ pop:editor:PushParaFromCursor Para:Type:Inherits ? CONTINUE
+   evd::id_ControlPara КЗ pop:editor:PushParaFromCursor Para:Type:Inherits [[ 'Текущий параграф не является контролом, а: ' КЗ pop:editor:PushParaFromCursor Para:GetType pop:object:ClassName ]] strings:Cat ASSERTS
+   evd::ti_Type КЗ pop:editor:PushParaFromCursor Para:IntA РАВНО 0 ? "Совершить переход по Таб"
+   ( КЗ "НЕ РАВНО" "Контрол в фокусе" ) ? (
+     'Вышли за пределы КЗ' .
+     EXIT
+   )
+   "Дошли до первого поля" ? EXIT
+   VAR "Текущий параграф"
+   КЗ pop:editor:PushParaFromCursor >>> "Текущий параграф"
+   "Предыдущий параграф" "Текущий параграф" Para:IsSame ? ( 'Предыдущее поле совпало с текущим (залипли)' .
+   EXIT ) 
+  ) // 1000 раз
+ ; // Действия
+
+ ППР
+ "Выполнить {(@ Действия )} с развёрнутым полем Регистрация в МЮ"
+;
+
+K330695347
+

@@ -1,0 +1,26 @@
+: TestCallerWorker
+
+ CallerWorker DoIt
+  Caller -> 'X' DO .
+ ;
+ 
+ : A
+  VAR X
+  1025 =: X
+  
+  DoIt
+ ;
+ 
+ : B
+  VAR X
+  'Hello' =: X
+  
+  DoIt
+ ;
+ 
+ A
+ B
+
+;
+
+TestCallerWorker

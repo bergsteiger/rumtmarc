@@ -1,0 +1,235 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Testing/Elements/TestCase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::Testing::Elements::TestCase
+//
+// Тестовый сценарий
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TestCase::Class
+implementation @ <<TestCase>>
+//? Тестовый сценарий
+//> Test::Class
+//> method::Class
+
+//= SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_test_case.gif
+//L code_test_case
+// Параметры визуализации
+//$ C 255,192,203
+//$ l 50,205,50
+//$ f 255,104,32
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4B2A19080274*
+//	%S%[inherited]\
+ inherited
+
+//	[{"%SD"=""}\
+ %IF ( ( %S |D ) %== '' ) 
+//	[{%f_substr_from_begin(%SN,1)=K}{\
+  %IF ( ( [%f] substr_from_begin %( %S |N %, 1 )% ) %== 'K' ) 
+   %ELSE
+//	[{%f_substr_from_begin(%SN,1)=TK}\
+    %IF ( ( [%f] substr_from_begin %( %S |N %, 1 )% ) %== 'TK' ) 
+//	[{%f_consist_of(%f_cut_prefix(%SN,TK),1234567890)=true}\
+     %IF ( ( [%f] consist_of %( [%f] cut_prefix %( %S |N %, 'TK' )% %, '1234567890' )% ) %==  true ) 
+//	%S%f_set_documentation(\{RequestLink:%f_cut_prefix(%SN,TK)\})\
+      %S %f set_documentation %( '{RequestLink:'
+      [%f] cut_prefix %( %S |N %, 'TK' )% '}' )% 
+//	]\
+     %END-IF
+//	]\
+    %END-IF
+//	}\
+   %THEN
+//	[{%f_consist_of(%f_cut_prefix(%SN,K),1234567890)=true}\
+   %IF ( ( [%f] consist_of %( [%f] cut_prefix %( %S |N %, 'K' )% %, '1234567890' )% ) %==  true ) 
+//	%S%f_set_documentation(\{RequestLink:%f_cut_prefix(%SN,K)\})\
+    %S %f set_documentation %( '{RequestLink:'
+    [%f] cut_prefix %( %S |N %, 'K' )% '}' )% 
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]\
+ %END-IF
+
+//	[{%Gx!=true}\
+ %IF ( ( %G |x ) %!=  true ) 
+//	[{%P%P%PS=VCMTestProject}{\
+  %IF ( ( %P ->P ->P |S   ) %== 'VCMTestProject' ) 
+   %ELSE
+//	[{<{}{%CS=uses&%C%T#f_IsVCMForm()=true}{C}>=0}{\
+    %IF ( 
+     %FOR %ITEM-CONDITION ( ( %C |S ) %== 'uses' %&& 
+       ( ( %C ->T %?f IsVCMForm %( )%  ) %==  true  ) ) 
+      ( 'C' ) 
+     %END-FOR
+     %== 0 ) 
+     %ELSE
+//	[{"%{TVCMBaseTest}N"=""}%f_find_element(TVCMBaseTest,TVCMBaseTest)]\
+      %IF ( ( ( get_global_var ( 'TVCMBaseTest' ) |N ) ) %== '' ) 
+       [%f] find_element %( 'TVCMBaseTest' %, 'TVCMBaseTest' )% 
+      %END-IF
+//	%S%f_make_accessable(%{TVCMBaseTest}U)\
+      %S %f make_accessable %( ( get_global_var ( 'TVCMBaseTest' ) |U ) )% 
+//	%S%f_add_inheritable(%{TVCMBaseTest}U)\
+      %S %f add_inheritable %( ( get_global_var ( 'TVCMBaseTest' ) |U ) )% 
+//	}\
+     %THEN
+//	[{"%{TBaseTest}N"=""}%f_find_element(TBaseTest,TBaseTest)]\
+     %IF ( ( ( get_global_var ( 'TBaseTest' ) |N ) ) %== '' ) 
+      [%f] find_element %( 'TBaseTest' %, 'TBaseTest' )% 
+     %END-IF
+//	%S%f_make_accessable(%{TBaseTest}U)\
+     %S %f make_accessable %( ( get_global_var ( 'TBaseTest' ) |U ) )% 
+//	%S%f_add_inheritable(%{TBaseTest}U)\
+     %S %f add_inheritable %( ( get_global_var ( 'TBaseTest' ) |U ) )% 
+//	]\
+    %END-IF
+//	}\
+   %THEN
+//	[{"%{TvcmInsiderTest}N"=""}%f_find_element(4DAECE5D0060,TvcmInsiderTest)]\
+   %IF ( ( ( get_global_var ( 'TvcmInsiderTest' ) |N ) ) %== '' ) 
+    [%f] find_element %( '4DAECE5D0060' %, 'TvcmInsiderTest' )% 
+   %END-IF
+//	%S%f_make_accessable(%{TvcmInsiderTest}U)\
+   %S %f make_accessable %( ( get_global_var ( 'TvcmInsiderTest' ) |U ) )% 
+//	%S%f_add_inheritable(%{TvcmInsiderTest}U)\
+   %S %f add_inheritable %( ( get_global_var ( 'TvcmInsiderTest' ) |U ) )% 
+//	]\
+  %END-IF
+//	]\
+ %END-IF
+//	[{"%{TestFrameWork}N"=""}%f_find_element(TestFrameWork,TestFrameWork)]\
+ %IF ( ( ( get_global_var ( 'TestFrameWork' ) |N ) ) %== '' ) 
+  [%f] find_element %( 'TestFrameWork' %, 'TestFrameWork' )% 
+ %END-IF
+//	%S%f_make_accessable(%{TestFrameWork}U)\
+ %S %f make_accessable %( ( get_global_var ( 'TestFrameWork' ) |U ) )% 
+//	%S%f_add_dependency(%SU_%{TestFrameWork}U_uses,%{TestFrameWork}U,uses,,USES_Inst)\
+ %S %f add_dependency %( %S |U '_'
+ ( get_global_var ( 'TestFrameWork' ) |U ) '_uses' %, ( get_global_var ( 'TestFrameWork' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% 
+
+//	[{"%{TAbstractTest.GetFolder}N"=""}%f_find_element(4C937013031D,TAbstractTest.GetFolder)]\
+ %IF ( ( ( get_global_var ( 'TAbstractTest.GetFolder' ) |N ) ) %== '' ) 
+  [%f] find_element %( '4C937013031D' %, 'TAbstractTest.GetFolder' )% 
+ %END-IF
+//	%S%f_add_override(4C937013031D)\
+ %S %f add_override %( 4 'C937013031D' )% 
+//	%{TAbstractTest.GetFolder}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetFolder},%S)_var,\
+ ( get_global_var ( 'TAbstractTest.GetFolder' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'TAbstractTest.GetFolder' ) ) %, %S )% '_var' %, 
+//	 {-}\
+ ' {-}'
+//	)\
+)% ) //	%{TAbstractTest.GetFolder}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetFolder},%S)_impl,\
+ ( get_global_var ( 'TAbstractTest.GetFolder' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'TAbstractTest.GetFolder' ) ) %, %S )% '_impl' %, 
+//	 Result := '%PN';\
+ ' Result := '''
+ %P |N ''';'
+//	)
+)% ) 
+//	[{"%{TAbstractTest.GetModelElementGUID}N"=""}%f_find_element(4DAED6F60146,TAbstractTest.GetModelElementGUID)]\
+ %IF ( ( ( get_global_var ( 'TAbstractTest.GetModelElementGUID' ) |N ) ) %== '' ) 
+  [%f] find_element %( '4DAED6F60146' %, 'TAbstractTest.GetModelElementGUID' )% 
+ %END-IF
+//	%S%f_add_override(4DAED6F60146)\
+ %S %f add_override %( 4 'DAED6F60146' )% 
+//	%{TAbstractTest.GetModelElementGUID}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetModelElementGUID},%S)_var,\
+ ( get_global_var ( 'TAbstractTest.GetModelElementGUID' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'TAbstractTest.GetModelElementGUID' ) ) %, %S )% '_var' %, 
+//	 {-}\
+ ' {-}'
+//	)\
+)% ) //	%{TAbstractTest.GetModelElementGUID}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TAbstractTest.GetModelElementGUID},%S)_impl,\
+ ( get_global_var ( 'TAbstractTest.GetModelElementGUID' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'TAbstractTest.GetModelElementGUID' ) ) %, %S )% '_impl' %, 
+//	 Result := '%SU';\
+ ' Result := '''
+ %S |U ''';'
+//	)
+)% ) //#UC END# *4B2A19E3038Bfor4B2A19080274*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _pas_BeforeClassEnd
+: pas_BeforeClassEnd OBJECT IN %S
+//#UC START# *4A9293AE02DCfor4B2A19080274*
+//	%S%[inherited]
+ inherited
+//#UC END# *4A9293AE02DCfor4B2A19080274*
+; // pas_BeforeClassEnd
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _pas_BeforeCloseUnit
+: pas_BeforeCloseUnit OBJECT IN %S
+//#UC START# *4B2A253F0051for4B2A19080274*
+//	%S%[inherited]
+ inherited
+//#UC END# *4B2A253F0051for4B2A19080274*
+; // pas_BeforeCloseUnit
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит секции инициализации
+//%f _pas_OutIni
+: pas_OutIni OBJECT IN %S
+//#UC START# *4B3886890063for4B2A19080274*
+//	%S%[inherited]\
+ inherited
+//	[{%Sa!=abstract}\
+ %IF ( ( %S |a ) %!= 'abstract' ) 
+//	\n TestFramework.RegisterTest(%f_pas_TypeName(%S).Suite);]
+  #13#10' TestFramework.RegisterTest('
+  [%f] pas_TypeName %( %S )% '.Suite);' 
+ %END-IF
+//#UC END# *4B3886890063for4B2A19080274*
+; // pas_OutIni
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for4B2A19080274*
+//	T%f_cut_prefix(%SN,T)
+ 'T'
+ [%f] cut_prefix %( %S |N %, 'T' )% 
+//#UC END# *4947F8AD02A1for4B2A19080274*
+; // pas_TypeName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<TestCase>>
+

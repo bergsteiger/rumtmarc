@@ -1,0 +1,413 @@
+--------------- Контрол в фокусе: ------------------
+AttributeTree : TnscTreeView
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 2
+---------------
+cfAttributeSelect : TcfAttributeSelect
+Номер
+Position:0
+Width = 650
+Height = 480
+Align: 0
+Anchors: 3
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+BackgroundPanel : TvtProportionalPanel
+
+Left = 0
+Top = 0
+Width = 630
+Height = 405
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+SelectedZone : TvtSizeablePanel
+
+Left = 0
+Top = 255
+Width = 630
+Height = 145
+TabOrder: 0
+TabStop: 0
+Align: 2
+Anchors: 13
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+enSelectedAttributes : TenSelectedAttributes
+
+Left = 0
+Top = 5
+Width = 630
+Height = 140
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+SelectedTree : TnscTreeView
+Выбранные значения
+Left = 0
+Top = 0
+Width = 630
+Height = 140
+TabOrder: 2
+Align: 5
+Images: assigned
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 630
+Height = 15
+Images: nil
+---------------
+ValuesZone : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 630
+Height = 255
+TabOrder: 1
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+efTreeAttributeSelect : TefTreeAttributeSelect
+
+Left = 0
+Top = 0
+Width = 630
+Height = 255
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+BackgroundPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 630
+Height = 255
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ContextFilter : TnscContextFilter
+
+Left = 0
+Top = 0
+Width = 630
+Height = 35
+ImageIndex: 77
+Align: 1
+Anchors: 7
+Images: assigned
+---------------
+ContextFilterButton : TvtSpeedButton
+
+Left = 600
+Top = 0
+Width = 25
+Height = 25
+ImageIndex: 77
+Anchors: 3
+Images: assigned
+---------------
+InternalEditor : TnscComboBoxWithFilter
+
+Left = 165
+Top = 0
+Width = 425
+Height = 25
+TabOrder: 1
+Anchors: 3
+Выделить все
+---------------
+AttributeTree : TnscTreeView
+"(22994-А46-30)"
+Left = 0
+Top = 35
+Width = 630
+Height = 220
+TabOrder: 1
+Align: 5
+Images: assigned
+Вертикальный скроллер:True
+Горизонтальный скроллер:True
+Выделить все
+Снять выделение
+-
+ИЛИ
+-
+Очистить условия
+-
+Перенос по словам
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 630
+Height = 15
+Images: nil
+Выделить все
+Снять выделение
+-
+ИЛИ
+-
+Очистить условия
+-
+Перенос по словам
+---------------
+tbcfAttributeSelectBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOkExt : TvcmToolButtonDef
+Ок
+Активность:True
+---
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+---
+bt_enResult_opClearAll : TvcmToolButtonDef
+Очистить
+Активность:True
+---
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+AttributeTree : TnscTreeView
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 2
+---------------
+cfAttributeSelect : TcfAttributeSelect
+Номер
+Position:0
+Width = 650
+Height = 480
+Align: 0
+Anchors: 3
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+BackgroundPanel : TvtProportionalPanel
+
+Left = 0
+Top = 0
+Width = 630
+Height = 415
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+SelectedZone : TvtSizeablePanel
+
+Left = 0
+Top = 260
+Width = 630
+Height = 150
+TabOrder: 0
+TabStop: 0
+Align: 2
+Anchors: 13
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+enSelectedAttributes : TenSelectedAttributes
+
+Left = 0
+Top = 5
+Width = 630
+Height = 145
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+SelectedTree : TnscTreeView
+Выбранные значения
+Left = 0
+Top = 0
+Width = 630
+Height = 145
+TabOrder: 2
+Align: 5
+Images: assigned
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 630
+Height = 15
+Images: nil
+---------------
+ValuesZone : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 630
+Height = 260
+TabOrder: 1
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+Ок
+Отмена
+Очистить
+---------------
+efTreeAttributeSelect : TefTreeAttributeSelect
+
+Left = 0
+Top = 0
+Width = 630
+Height = 260
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+BackgroundPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 630
+Height = 260
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ContextFilter : TnscContextFilter
+
+Left = 0
+Top = 0
+Width = 630
+Height = 35
+ImageIndex: 77
+Align: 1
+Anchors: 7
+Images: assigned
+---------------
+ContextFilterButton : TvtSpeedButton
+
+Left = 600
+Top = 0
+Width = 25
+Height = 25
+ImageIndex: 77
+Anchors: 3
+Images: assigned
+---------------
+InternalEditor : TnscComboBoxWithFilter
+
+Left = 165
+Top = 0
+Width = 425
+Height = 25
+TabOrder: 1
+Anchors: 3
+Выделить все
+---------------
+AttributeTree : TnscTreeView
+"(22994-А46-30)"
+Left = 0
+Top = 35
+Width = 630
+Height = 225
+TabOrder: 1
+Align: 5
+Images: assigned
+Вертикальный скроллер:True
+Горизонтальный скроллер:True
+Выделить все
+Снять выделение
+-
+ИЛИ
+-
+Очистить условия
+-
+Перенос по словам
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 630
+Height = 15
+Images: nil
+Выделить все
+Снять выделение
+-
+ИЛИ
+-
+Очистить условия
+-
+Перенос по словам
+---------------
+tbcfAttributeSelectBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOkExt : TvcmToolButtonDef
+Ок
+Активность:True
+---
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+---
+bt_enResult_opClearAll : TvcmToolButtonDef
+Очистить
+Активность:True
+---
+

@@ -1,0 +1,7 @@
+//////////////////////////////////////////////////////////////////////////////////
+// includes
+# ./../CommonTemplates/CommonTemplates.inc.tpi
+# ./../DelphiSpecific/DelphiSpecific.inc.tpi
+# ./../MetaTemplate/MetaTemplate.inc.tpi
+# ./../VCMTemplates/VCMTemplates.inc.tpi
+# ./F1Templates/Redefinitions/Project.tpi

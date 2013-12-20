@@ -1,0 +1,323 @@
+USES
+ SysUtils.script
+;
+
+: "Убедиться, что фокус в редакторе"
+ OBJECT VAR l_Control
+ focused:control:push =: l_Control
+ l_Control ЯВЛЯЕТСЯ class::TevCustomEditorWindow 
+  [[ 'Фокус не в редакторе, а в ' l_Control pop:component:Name ':' l_Control pop:object:ClassName ]] strings:Cat 
+   ASSERTS
+// focused:control:push ЯВЛЯЕТСЯ class::TevCustomEditorWindow 'Фокус не в редакторе' ASSERTS
+;
+
+: "Перевести фокус в поле 'Название' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_THEMES_NAME' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Установить окно оболочки на передний план"
+  VAR l_Handle
+  'ГАРАНТ аэро - Создание индивидуальной ленты ' FindWindowByCaption =: l_Handle
+  l_Handle 0 ?!= ASSERT
+  l_Handle SetForegroundWindow
+;
+
+: "Установить фокус в КЗ"
+ OBJECT VAR l_Form
+ ANYUSERTYPE форма::QueryCard vcm:FindForm 'Не найдена форма QueryCard' ASSERTS
+ >>> l_Form
+ l_Form .TenQueryCard.Editor pop:control:SetFocus
+; // "Установить фокус в КЗ"
+
+: "Перевести фокус в поле 'Наименование обслуживающей организации' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_DEALER_NAME' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Перевести фокус в поле 'Вид информации' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_ANNO_KIND' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Перевести фокус в поле 'Ваша профессия' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_ANNO_USER' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Перевести фокус в поле 'Специфика вашей организации' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_ANNO_ORG' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Перевести фокус в поле 'Сфера интересов' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_ANNO_INTEREST' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Перевести фокус в поле 'Налоги и налогооблажение' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_ANNO_TAX' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Перевести фокус в поле 'E-mail рассылки' в Прайме"
+ "Убедиться, что фокус в редакторе"
+ 'AT_EMAIL' focused:control:push pop:QueryCard:Attribute:SetFocus
+;
+
+: "Подготовить поля"
+ "Нажать {('Ctrl+Del')}"
+ "Перевести фокус в поле 'Наименование обслуживающей организации' в Прайме"
+ "Выделить всё"
+ "Ввести строку {('Контактная информация отсутствует')}"
+; // "Подготовить поля"
+
+: "Сделать подготовку к следующему тесту"
+ "Установить окно оболочки на передний план"
+ "Установить фокус в КЗ" 
+ "Подготовить поля"
+ "Перевести фокус в поле 'Название' в Прайме"
+; // "Сделать подготовку к следующему тесту"
+
+: StyleTable:Restore
+ // заглушка
+ "Сделать подготовку к следующему тесту"
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=357338241&focusedCommentId=433557567&#comment-433557567
+;
+
+: ОсновноеМеню
+ // заглушка
+;
+
+: "Сбрасываем вкладку БП в умолчательное состояние"
+ // заглушка
+;
+
+: "Перебрать иерархию вложенности контролов" OBJECT IN aControl IN aProc
+ ПОКА ( aControl pop:object:IsNil ! )
+ BEGIN
+  aControl aProc DO
+  aControl pop:control:GetParent >>> aControl
+ END
+;  // "Перебрать иерархию вложенности контролов"
+
+: "Напечатать иерархию вложенности контролов" OBJECT IN aControl
+
+ : "Печатаем контрол" IN aControl
+  [[ 
+   aControl ЯВЛЯЕТСЯ class::TvcmForm IF
+   // - т.к. у формы к Name могут приклеиваться циферки, которые всю малину портят
+    aControl pop:vcm:form:FormID
+   ELSE
+    aControl pop:component:Name 
+   ENDIF //class::TvcmForm aControl pop:object:Inherits
+   ' : ' 
+   aControl pop:object:ClassName 
+  ]] strings:Cat .
+ ; 
+ 
+ aControl @ "Печатаем контрол" "Перебрать иерархию вложенности контролов"
+; // "Напечатать иерархию вложенности контролов" 
+
+OBJECT FUNCTION "Найти окно по имени для контрола" STRING IN "Имя окна" OBJECT IN "Контрол"
+ "Контрол" =: Result
+ VAR "Имя класса главного окна"
+[[ 'T' "Имя окна" ]] strings:Cat =: "Имя класса главного окна"
+
+ ПОКА ( Result pop:object:ClassName "НЕ РАВНО" "Имя класса главного окна" )
+ BEGIN
+  Result pop:control:GetAnotherParentForm =: Result
+  Result pop:object:IsNil ! 'Главное окно Прайма не найдено' ASSERTS
+ END
+; // "Найти окно по имени для контрола"
+ 
+OBJECT FUNCTION "Найти окно по имени" STRING IN "Имя окна"
+ VAR l_Control
+ focused:control:push =: l_Control
+//  'ГАРАНТ аэро - Создание индивидуальной ленты ' FindWindowByCaption byhandle:control:push =: l_Control
+//  'ГАРАНТ - утилита заказа рассылки' FindWindowByCaption byhandle:control:push =: l_Control
+ "Найти окно по имени {("Имя окна")} для контрола {( l_Control )}" =: Result
+; // "Найти окно по имени"
+
+OBJECT FUNCTION "Найти главное окно Прайма"
+ "Найти окно по имени {(форма::MonitoringsMain)}" =: Result
+; // "Найти главное окно Прайма"
+
+OBJECT FUNCTION "Найти контрол на форме" STRING IN aControl OBJECT IN aForm
+ aControl aForm pop:control:FindControlByName =: Result
+ Result pop:object:IsNil ! 'Не удалось найти ' aControl Cat
+  ASSERTS 
+; // "Найти контрол на форме"
+
+STRING FUNCTION "Узнать, в каком поле КЗ стоит фокус" OBJECT IN aQueryCard
+ aQueryCard ЯВЛЯЕТСЯ class::TevQueryCardEditor ASSERT 
+ aQueryCard pop:QueryCard:GetCurrentReqName >>> Result
+; // "Узнать, в каком поле КЗ стоит фокус"
+
+: "Сравнить с эталоном активное поле текущей КЗ"
+ focused:control:push  "Узнать, в каком поле КЗ стоит фокус" .
+; // "Сравнить с эталоном активное поле текущей КЗ"
+
+VAR g_EtalonCount
+[ 0 >>> g_EtalonCount ]
+
+: "Сравнить текст редактора с эталоном" OBJECT IN anEditor
+ ++! g_EtalonCount
+ OnTest
+ VAR l_File
+ ( g_EtalonCount РАВНО 1 ) IF
+  script:FileName '.evd' sysutils:ChangeFileExt
+ ELSE
+  script:FileName '.' g_EtalonCount IntToStr Cat '.evd' Cat sysutils:ChangeFileExt
+ ENDIF
+ sysutils:ExtractFileName >>> l_File
+ l_File anEditor pop:editor:TextToFile
+ l_File '%' tests:CheckEtalon
+; // "Сравнить текст редактора с эталоном"
+
+: "Сравнить выделенный текст редактора с эталоном в формате" OBJECT IN anEditor STRING INTEGER IN aFormat
+ cc:Copy
+ // - затычка, иначе не будет правильно имя формата в код формата преобразовываться
+ aFormat anEditor pop:editor:GetSelectionTextInFormat .
+; // "Сравнить выделенный текст редактора с эталоном в формате"
+
+: "Сравнить выделенный текст текущего редактора с эталоном в формате" STRING INTEGER IN aFormat
+ "Убедиться, что фокус в редакторе"
+ "Сравнить выделенный текст редактора {(focused:control:push)} с эталоном в формате {(aFormat)}"
+; // "Сравнить выделенный текст текущего редактора с эталоном в формате"
+
+: "Заполнить все обязательные поля Прайма"
+ "Перевести фокус в поле 'Ваша профессия' в Прайме"
+ "Ввести строку {('Бухгалтер, финансист')}"
+ "Нажать {('Enter')}"
+ "Перевести фокус в поле 'Специфика вашей организации' в Прайме"
+ "Ввести строку {('Бюджетная организация')}"
+ "Нажать {('Enter')}"
+ "Перевести фокус в поле 'Сфера интересов' в Прайме"
+ "Ввести строку {('Банки, кредитные организации')}"
+ "Нажать {('Enter')}"
+ "Перевести фокус в поле 'Налоги и налогооблажение' в Прайме"
+ "Ввести строку {('Налог на добавленную стоимость')}"
+ "Нажать {('Enter')}"
+; // "Заполнить все обязательные поля Прайма"
+
+: "Сравнить с эталоном размеры контрола" OBJECT IN aControl
+ aControl "Померить ширину" .
+ aControl "Померить высоту" .
+; // "Сравнить с эталоном размеры контрола"
+
+: "Сохранить активное окно"
+  //form:GetHandle
+  "Контрол в фокусе" pop:control:GetTopParentForm pop:control:GetHandle
+;
+
+: "Выполнить с новым окном Гаранта и переключиться на предыдущее окно" IN aProc
+ VAR l_Main
+ "Сохранить активное окно" >>> l_Main
+ TRY
+  "Открыть новое окно гаранта"
+  aProc DO
+ FINALLY
+  l_Main "Восстановить активное окно"
+ END
+; // "Выполнить с новым окном Гаранта и переключиться на предыдущее окно"
+
+: "Открыть новое окно Гаранта. Переключиться на старое. Выполнить и закрыть новое окно" IN aProc
+ VAR l_Main 0 >>> l_Main
+ : Действия
+  "Сохранить активное окно" >>> l_Main
+ ;
+ 
+ "Выполнить {(@ Действия)} с новым окном Гаранта и переключиться на предыдущее окно"
+ TRY
+  OnTest
+  aProc DO
+ FINALLY
+  l_Main !=0 'Не удалось запомнить активное окно' ASSERTS
+  l_Main "Закрыть сохраненное окно" 
+ END
+; // "Открыть новое окно Гаранта. Переключиться на старое. Выполнить и закрыть новое окно"
+
+: "Нажать кнопку Сохранить в Прайме"
+ OBJECT VAR "Сохранить"
+ "Найти контрол {('bt_enResult_opOkExt')} на форме {("Найти главное окно Прайма")}" =: "Сохранить"
+ "Сохранить" "Узнать, существует ли объект" ! 'Не нашли кнопку Сохранить' ASSERTS
+ "Сохранить" "Кликнуть"
+; // "Нажать кнопку Сохранить в Прайме"
+
+
+
+: "Выполнить и если было исключение, то выполнить" IN aProc1 IN aProc2
+ TRY
+  aProc1 DO
+ EXCEPT
+  "Сравнить текущее исключение с эталоном"
+  aProc2 DO
+ END
+;
+
+WORDWORKER анти-тест
+ VAR l_WasException
+ false =: l_WasException
+ "Выполнить {(@ ( WordToWork DO ) )} и если было исключение, то выполнить {(@ ( true =: l_WasException ) )}"
+ l_WasException
+  [[ 'Тест ' script:FileName ' почему-то стал проходить' ]] strings:Cat
+   ASSERTS
+; // анти-тест
+
+: "Удалить сохраненную новостную ленту"
+ "Найти контрол {(контрол::tvPostings)} на форме {("Найти главное окно Прайма")}" "Установить фокус"
+ "Дождаться переключения вкладок"
+ "Ответить один раз Да для {( @ "Удалить новостную ленту" )}"
+ "Установить фокус в КЗ"
+; // "Удалить сохраненную новостную ленту"
+
+: "Сравнить меню с эталоном расширенно" OBJECT IN aMenu BOOLEAN IN anItemName
+
+ FORWARD DoItem
+ 
+ INTEGER VAR l_Indent 
+ : DoItem OBJECT IN anItem
+  VAR l_Index
+  0 =: l_Index
+  anItem "Узнать количество элементов меню" LOOP (
+   VAR l_Item
+   l_Index anItem "Элемент меню" =: l_Item
+   l_Item "Узнать, видим ли элемент меню" ? (
+    [[ 
+      l_Indent #32 char:Dupe
+	  anItemName ? ( 'name' l_Item "Строковая переменная объекта" ':' Cat )
+      l_Item "Узнать заголовок элемента меню"
+      l_Item "Узнать активность элемента меню" ! ? (
+       ' [Запрещён]'
+       ' ' l_Item "Имя компонента"
+      )
+    ]] strings:Cat .
+    ++! l_Indent
+    TRY
+     l_Item DoItem
+    FINALLY
+     --! l_Indent
+    END // TRY..FINALLY
+   ) // l_Item "Узнать, видим ли элемент меню"
+   ++! l_Index
+  ) // anItem "Узнать количество элементов меню" LOOP
+ ; // DoItem
+ 
+ 0 =: l_Indent
+ 
+ aMenu DoItem
+; // "Сравнить меню с эталоном"
+
+: "Сравнить меню с эталоном" OBJECT IN aMenu
+ "Сравнить меню {(aMenu)} с эталоном расширенно {(false)}"
+;
+
+OBJECT FUNCTION  "Проверить доступность кнопки" IN aControl
+ aControl "Найти главное окно Прайма" "Найти контрол по имени на форме" =: Result
+ Result "Убедиться, что контрол активен" .
+; // "Проверить доступность кнопки"
+
+: "Отделить текст в эталоне"
+'----------' .
+; // "Отделить текст в эталоне"

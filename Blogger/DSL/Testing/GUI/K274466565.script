@@ -1,0 +1,10 @@
+USES
+ DocumentNumbers.script
+ HLTCLike.script
+; 
+
+: K274466565
+ "Открываем {(КОАП)}"
+;
+
+K274466565

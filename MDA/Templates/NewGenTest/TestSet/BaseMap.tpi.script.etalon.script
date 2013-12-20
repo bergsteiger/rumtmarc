@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/BaseMap.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::BaseMap
+//
+// базовый стереотип для различных карт
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: BaseMap::Class
+implementation @ <<BaseMap>>
+//? базовый стереотип для различных карт
+//= BaseContainer::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_map.gif
+//L code_map
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F01FA031C*
+//c                           {}
+//r "<{}{"%CS"=""}{C}>"!="1": {%SS must provide one Data type (by unstereotyped link)}
+//r "<{}{"%CS"="compare"}{C}>"!="1"&"<{}{"%CS"="compare"}{C}>"!="0": {%SS can provide only one Compare type (by \<\<compare\>\> link)}
+//r "<{}{"%CS"=""&"%C%Cx"="true"}{C}>"!="1": {%SS must provide one Key type (by subkey in Data type link)}
+//r "<{}{"%CS"="allocator"}{C}>"!="1"&"<{}{"%CS"="allocator"}{C}>"!="0": {%SS can provide only one Allocator type (by \<\<allocator\>\> link)}
+//r "<{}{"%CS"=""&"%C%Cl"="agr"&"%t_has_less(%C%C%T)"="false"&%f_is_foreign_target(%C)=true}{%CC}>"!="0"&"<{}{"%CS"="compare"}{C}>"="0": {%SS with agrigaited foreign Key type must provide Compare type %CN %C%CN %C%C%TN}
+//r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470F01FA031C*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: BaseMap::Class::allocator::Attribute
+end. // <<BaseMap>>
+
+implementation @ :: <<BaseMap>> <<allocator>> ;
+//? Аллокатор элементов контейнера
+// Параметры стереотипа
+//Y code_allocator.gif
+//L code_allocator
+//l l
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: BaseMap::Class::Attribute
+; // st_space_key
+
+end. // :: <<BaseMap>> <<allocator>> ;
+
+implementation @ :: <<BaseMap>> <<Attribute>> ;
+//= BaseContainer::Class::Attribute
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: BaseMap::Class::Attribute::Attribute
+; // st_space_key
+
+end. // :: <<BaseMap>> <<Attribute>> ;
+
+implementation @ :: <<BaseMap>> <<Attribute>> ;
+//? тип ключа, по которому хранятся данные в мапе
+// Параметры стереотипа
+//Y code_attr_key.gif
+//L code_attr_key
+//T 
+// - может не иметь "цели" (типа/результата)
+//A const
+// - стереотипы "цели" (типа/результата)
+//l arl
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<BaseMap>> <<Attribute>> ;
+

@@ -1,0 +1,5190 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/AbstractInterface.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::AbstractInterface
+//
+// Абстрактный стереотип интерфейса определяет реализацию общих генераторов для итерфейсов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: AbstractInterface::Class
+implementation @ <<AbstractInterface>>
+//? Абстрактный стереотип интерфейса определяет реализацию общих генераторов для итерфейсов
+//= WithFactory::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// генерация дополнительных объявлений для фабрик (C++)
+//%f _additional_fctr_def
+; // st_space_key
+
+: additional_fctr_def OBJECT IN %S
+//#UC START# *471F2C3D0232for47174CE200AB*
+//#UC END# *471F2C3D0232for47174CE200AB*
+; // additional_fctr_def
+
+
+// генерация дополнительных объявлений для фабрик (Java)
+//%f _additional_fctr_def_java
+: additional_fctr_def_java OBJECT IN %S
+//#UC START# *471F2C4302FDfor47174CE200AB*
+//#UC END# *471F2C4302FDfor47174CE200AB*
+; // additional_fctr_def_java
+
+
+// возвращает базовый менеджер фабрик (C++)
+//%f _base_fctr_mng
+: base_fctr_mng OBJECT IN %S
+//#UC START# *471F2C4701E4for47174CE200AB*
+//#UC END# *471F2C4701E4for47174CE200AB*
+; // base_fctr_mng
+
+
+// возвращает базовый менеджер фабрик (Java)
+//%f _base_fctr_mng_java
+: base_fctr_mng_java OBJECT IN %S
+//#UC START# *471F2C4B008Cfor47174CE200AB*
+//#UC END# *471F2C4B008Cfor47174CE200AB*
+; // base_fctr_mng_java
+
+
+// что это ??? (C++)
+//%f _publish_self_cpp
+: publish_self_cpp OBJECT IN %S
+//#UC START# *471F2C4F03B9for47174CE200AB*
+//#UC END# *471F2C4F03B9for47174CE200AB*
+; // publish_self_cpp
+
+
+// что это?  (C++)
+//%f _publish_self_h
+: publish_self_h OBJECT IN %S
+//#UC START# *471F2C52032Cfor47174CE200AB*
+//#UC END# *471F2C52032Cfor47174CE200AB*
+; // publish_self_h
+
+
+// что это?? (Java)
+//%f _publish_self_java
+: publish_self_java OBJECT IN %S
+//#UC START# *471F2C56032Cfor47174CE200AB*
+//#UC END# *471F2C56032Cfor47174CE200AB*
+; // publish_self_java
+
+
+// выводит тип селектора мульти фабрики
+//%f _dump_switch_type
+: dump_switch_type OBJECT IN %S
+//#UC START# *47B137CB000Bfor47174CE200AB*
+//	[{}{[{%GS=Interface|%GS=LocalInterface|%GS=ServerInterface|%GS=Entity}{[{%RS=Interface|%RS=LocalInterface|%RS=ServerInterface}%R%f_dump_switch_type()]}%G%f_dump_switch_type()]}<{}{%CC=Attribute&%CS=factory switch}[{%X{lid}!=java}{%t_convert_to_object_type(%C%T)}%f_type(%C%T)]>]
+//	%f_set_var(SWITCH,"")\
+ [%f] set_var %( 'SWITCH' %, '' )% 
+//	%S%f_find_switch("SWITCH")\
+ %S %f find_switch %( 'SWITCH' )% 
+//	[{%X{lid}!=java}{%t_convert_to_object_type(%{SWITCH}%T)}%f_type(%{SWITCH}%T)]
+ %IF ( ( %X get_up ( 'lid' ) ) %!= 'java' ) 
+  %ELSE
+   [%t] convert_to_object_type %( ( get_global_var ( 'SWITCH' )  ->T ) )% 
+  %THEN
+  [%f] type %( ( get_global_var ( 'SWITCH' )  ->T ) )% 
+ %END-IF
+
+//%f _dump_switch_type_name
+; // dump_switch_type
+
+: dump_switch_type_name OBJECT IN %S
+//	[{}{[{%GS=Interface|%GS=LocalInterface|%GS=ServerInterface|%GS=Entity}{[{%RS=Interface|%RS=LocalInterface|%RS=ServerInterface}%R%f_dump_switch_type_name()]}%G%f_dump_switch_type_name()]}<{}{%CC=Attribute&%CS=factory switch}[{%X{lid}!=java}{%t_convert_to_object_type(%C%T)}%C%TN]>]
+//	%f_set_var(SWITCH,"")\
+ [%f] set_var %( 'SWITCH' %, '' )% 
+//	%S%f_find_switch("SWITCH")\
+ %S %f find_switch %( 'SWITCH' )% 
+//	%{SWITCH}%TN
+ ( get_global_var ( 'SWITCH' )  ->T |N ) 
+
+//%f _dump_switch_arg_type
+; // dump_switch_type_name
+
+: dump_switch_arg_type OBJECT IN %S
+//	[{}{[{%GS=Interface|%GS=LocalInterface|%GS=ServerInterface|%GS=Entity}{[{%RS=Interface|%RS=LocalInterface|%RS=ServerInterface}%R%f_dump_switch_arg_type()]}%G%f_dump_switch_arg_type()]}<{}{%CC=Attribute&%CS=factory switch}[{%X{lid}!=java}{%t_convert_to_object_type(%C%T)}%t_arg(%C%T,"in")]>]
+//	%f_set_var(SWITCH,"")\
+ [%f] set_var %( 'SWITCH' %, '' )% 
+//	%S%f_find_switch("SWITCH")\
+ %S %f find_switch %( 'SWITCH' )% 
+//	[{%X{lid}!=java}{%t_convert_to_object_type(%{SWITCH}%T)}%t_arg(%{SWITCH}%T,"in")]
+ %IF ( ( %X get_up ( 'lid' ) ) %!= 'java' ) 
+  %ELSE
+   [%t] convert_to_object_type %( ( get_global_var ( 'SWITCH' )  ->T ) )% 
+  %THEN
+  [%t] arg %( ( get_global_var ( 'SWITCH' )  ->T ) %, 'in' )% 
+ %END-IF
+//#UC END# *47B137CB000Bfor47174CE200AB*
+; // dump_switch_arg_type
+
+
+// Генерация фабричных методов
+//%f _dump_factory_operation_h
+: dump_factory_operation_h OBJECT IN %S
+//#UC START# *496C411C0053for47174CE200AB*
+//	%f_docs(%1)\
+ [%f] docs %( %1 )% 
+//	[#%1%f_open_ifdef()
+ %IF-NOT-EMPTY
+  out_indent %1 %f open_ifdef %( )% 
+//	]\
+ %END-IF
+//	[{%1{const_type}=combo}{%f_dump_factory_operation_h_impl(%1)}%f_dump_factory_operation_h_impl(%1,"read-write")
+ %IF ( ( %1 get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   [%f] dump_factory_operation_h_impl %( %1 )% 
+  %THEN
+  [%f] dump_factory_operation_h_impl %( %1 %, 'read-write' )% 
+//	
+
+//	%f_dump_factory_operation_h_impl(%1,"read-only","_ro")]\
+  [%f] dump_factory_operation_h_impl %( %1 %, 'read-only"' %, '_ro' )% 
+ %END-IF
+//	[
+ %IF-NOT-EMPTY
+
+//	#%1%f_close_ifdef()]
+  out_indent %1 %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *496C411C0053for47174CE200AB*
+; // dump_factory_operation_h
+
+
+// Генерация реализации фабричных методов
+//%f _additional_fctr_impl
+: additional_fctr_impl OBJECT IN %S
+//#UC START# *496C817B0097for47174CE200AB*
+//#UC END# *496C817B0097for47174CE200AB*
+; // additional_fctr_impl
+
+
+// генерит реализацию фабрики интерфейса
+//%f _dump_factory_operation_cpp
+: dump_factory_operation_cpp OBJECT IN %S
+//#UC START# *496D98690096for47174CE200AB*
+//	[%1%f_open_ifdef()
+ %IF-NOT-EMPTY
+  %1 %f open_ifdef %( )% 
+//	][{%1{const_type}=combo}{%f_dump_factory_operation_cpp_impl(%1)}%f_dump_factory_operation_cpp_impl(%1,"read-write")
+ %END-IF
+ %IF ( ( %1 get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   [%f] dump_factory_operation_cpp_impl %( %1 )% 
+  %THEN
+  [%f] dump_factory_operation_cpp_impl %( %1 %, 'read-write' )% 
+//	
+
+//	%f_dump_factory_operation_cpp_impl(%1,"read-only","_ro")][
+  [%f] dump_factory_operation_cpp_impl %( %1 %, 'read-only"' %, '_ro' )% 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%1%f_close_ifdef()]
+  %1 %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *496D98690096for47174CE200AB*
+; // dump_factory_operation_cpp
+
+
+// генерит реалиазцию мульти-фабрики интерфейса
+//%f _dump_multi_factory_operation_cpp
+: dump_multi_factory_operation_cpp OBJECT IN %S
+//#UC START# *496DB8B70199for47174CE200AB*
+//	[%1%f_open_ifdef()
+ %IF-NOT-EMPTY
+  %1 %f open_ifdef %( )% 
+//	][{%1{const_type}=combo}{%f_dump_multi_factory_operation_cpp_impl(%1)}%f_dump_multi_factory_operation_cpp_impl(%1,"read-write")
+ %END-IF
+ %IF ( ( %1 get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   [%f] dump_multi_factory_operation_cpp_impl %( %1 )% 
+  %THEN
+  [%f] dump_multi_factory_operation_cpp_impl %( %1 %, 'read-write' )% 
+//	
+
+//	%f_dump_multi_factory_operation_cpp_impl(%1,"read-only","_ro")][
+  [%f] dump_multi_factory_operation_cpp_impl %( %1 %, 'read-only"' %, '_ro' )% 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%1%f_close_ifdef()]
+  %1 %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *496DB8B70199for47174CE200AB*
+; // dump_multi_factory_operation_cpp
+
+
+// Дополнительные объявления для производных стереотипов
+//%f _additional_fctr_mng_declarations
+: additional_fctr_mng_declarations OBJECT IN %S
+//#UC START# *496DE7E202F7for47174CE200AB*
+//#UC END# *496DE7E202F7for47174CE200AB*
+; // additional_fctr_mng_declarations
+
+
+// Генерация декларации мульти фабрик
+//%f _dump_multi_factory_operation_h
+: dump_multi_factory_operation_h OBJECT IN %S
+//#UC START# *496EE097022Cfor47174CE200AB*
+//	%f_docs(%1)\
+ [%f] docs %( %1 )% 
+//	[#%1%f_open_ifdef()
+ %IF-NOT-EMPTY
+  out_indent %1 %f open_ifdef %( )% 
+//	][{%1{const_type}=combo}{%f_dump_multi_factory_operation_h_impl(%1)}%f_dump_multi_factory_operation_h_impl(%1,"read-write")
+ %END-IF
+ %IF ( ( %1 get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   [%f] dump_multi_factory_operation_h_impl %( %1 )% 
+  %THEN
+  [%f] dump_multi_factory_operation_h_impl %( %1 %, 'read-write' )% 
+//	
+
+//	%f_dump_multi_factory_operation_h_impl(%1,"read-only","_ro")][
+  [%f] dump_multi_factory_operation_h_impl %( %1 %, 'read-only"' %, '_ro' )% 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	#%1%f_close_ifdef()]
+  out_indent %1 %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *496EE097022Cfor47174CE200AB*
+; // dump_multi_factory_operation_h
+
+
+// Для дополнитешльной генерации фабрик в менеджере фабрик
+//%f _additional_mgr_factory_mehods
+: additional_mgr_factory_mehods OBJECT IN %S
+//#UC START# *496EED59015Cfor47174CE200AB*
+//#UC END# *496EED59015Cfor47174CE200AB*
+; // additional_mgr_factory_mehods
+
+
+// Реализация дополнительных методов
+//%f _additional_mgr_factory_methods_impl
+: additional_mgr_factory_methods_impl OBJECT IN %S
+//#UC START# *496F0DDD00B6for47174CE200AB*
+//#UC END# *496F0DDD00B6for47174CE200AB*
+; // additional_mgr_factory_methods_impl
+
+
+// Дополнительные абстрактные фабрики
+//%f _additional_abstract_factories
+: additional_abstract_factories OBJECT IN %S
+//#UC START# *496F4112016Afor47174CE200AB*
+//#UC END# *496F4112016Afor47174CE200AB*
+; // additional_abstract_factories
+
+
+// Дополнительная инициализация конструктора менеджера фабрик
+//%f _additional_fctr_mng_ctor_initialization
+: additional_fctr_mng_ctor_initialization OBJECT IN %S
+//#UC START# *496F4CDE0178for47174CE200AB*
+//#UC END# *496F4CDE0178for47174CE200AB*
+; // additional_fctr_mng_ctor_initialization
+
+
+// Реализация методов менеджера фабрик.
+//%f _fctr_mng_fctr_cpp_impl
+: fctr_mng_fctr_cpp_impl OBJECT IN %S
+//#UC START# *4978567C01C5for47174CE200AB*
+//	%1[%t_ret(%{INT},"[{%{INT}S!=ServerInterface|%S#f_is_exported()=false}%f_factory_target_strereotype(%S,"%3N")]") %{INT}NFactoryManager::%SN%4N (%S%f_factory_params("%3N")) [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)*/] \
+ %1%IF-NOT-EMPTY
+  [%t] ret %( ( get_global_var ( 'INT' ) ) %, %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' %|| 
+    ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+   [%f] factory_target_strereotype %( %S %, %3 |N )% 
+  %END-IF
+)%   ' '
+  ( get_global_var ( 'INT' ) |N ) 'FactoryManager::'
+  %S |N %4 |N ' ('
+  %S %f factory_params %( %3 |N )% ') '
+  %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+    ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+   %ELSE
+    'throw (CORBA::SystemException, CoreSrv::NoActiveFactory'
+    %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+     ', Core::Root::ImpossibleConversion' 
+    %END-IF
+    %FOR ', '
+     [%f] type %( %E )% 
+    %END-FOR
+    ')' 
+   %THEN
+   '/*throw (Core::Root::NoActiveFactory'
+   %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+    ', Core::Root::ImpossibleConversion' 
+   %END-IF
+   %FOR ', '
+    [%f] type %( %E )% 
+   %END-FOR
+   ')*/' 
+  %END-IF
+  ' '
+//	{[{%f_is_it_cached(%S)=false}
+  '{'
+  %IF ( ( [%f] is_it_cached %( %S )% ) %==  false ) 
+
+//		if (m_single_active_factory.is_nil()) {
+   '	if (m_single_active_factory.is_nil()) {'
+//			throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+   '		throw Core::Root::NoActiveFactory ("'
+   %P ->P ->P |N   '::'
+   %P ->P |N  '::'
+   %P |N 'Factory");'
+//		}
+   '	}'
+//		%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") ret_ = m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]);
+   '	'
+   [%t] ret %( ( get_global_var ( 'INT' ) ) %, %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' ) 
+    %S |s 
+   %END-IF
+)%    ' ret_ = m_single_active_factory->'
+   %S |N ' ('
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    %C |N 
+   %END-FOR
+   %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+    %IF ( ( %C |x ) %==  true ) 
+     ', ' 
+    %END-IF
+    %IF ( ( %3 |N ) %== 'read-only' ) 
+     %ELSE
+       false 
+     %THEN
+      true 
+    %END-IF
+   %END-IF
+   ');'
+//		GDS_ASSERT_MSG (ret_ != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+   '	GDS_ASSERT_MSG (ret_ != 0, ("'
+   %P ->P ->P |N   '::'
+   %P ->P |N  '::'
+   %P |N 'Factory impl can''t return zerro"));'
+//		[{%{INT}S=ServerInterface&%2N=read-only}{return [{%3N=read-only}{ret_}new %{INT}NConstWrapper (ret_)];}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (ret_);
+   '	'
+   %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+     ( ( %2 |N ) %== 'read-only'  ) ) 
+    %ELSE
+     'return '
+     %IF ( ( %3 |N ) %== 'read-only' ) 
+      %ELSE
+       'ret_' 
+      %THEN
+      'new '
+      ( get_global_var ( 'INT' ) |N ) 'ConstWrapper (ret_)' 
+     %END-IF
+     ';' 
+    %THEN
+    ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+    ( get_global_var ( 'INT' ) |N ) 'ConstWrapper (ret_);'
+//		return wrapper-\>_this ();]
+    '	return wrapper->_this ();' 
+   %END-IF
+//	][{%TS!=FactoryMemory}[{%f_is_it_cached(%S)=true}[{%Cx=true}
+  %END-IF
+  %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+   %IF ( ( [%f] is_it_cached %( %S )% ) %==  true ) 
+    %IF ( ( %C |x ) %==  true ) 
+
+//		GUARD(m_mutex_for_%SN);
+     '	GUARD(m_mutex_for_'
+     %S |N ');'
+//		[{<{}{%CS=cache}{%CC}>!=0}<{}{%CS=cache}%S%f_cache_attr(%C);
+     '	'
+     %IF ( 
+      %FOR %ITEM-CONDITION ( ( %C |S ) %== 'cache' ) 
+       ( %C |C ) 
+      %END-FOR
+      %!= 0 ) 
+      %FOR %ITEM-CONDITION ( ( %C |S ) %== 'cache' ) 
+       %S %f cache_attr %( %C )% ';'
+//		>%U[{_INIT_CUSTOM_CACHE_ARGS}
+       '	' 
+      %END-FOR
+      %U%IF ( '_INIT_CUSTOM_CACHE_ARGS' ) 
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+       '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]
+       '	' 
+      %END-IF
+ //		]CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>));
+      '	' 
+     %END-IF
+     'CachedObjectsFor'
+     [%f] to_borland %( %S |N )% '::iterator f = m_cached_objects_for_'
+     %S |N '.find (ObjectCreationIdFor'
+     [%f] to_borland %( %S |N )% '('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+      %C |N 
+     %END-FOR
+     '));'
+//		if (f == m_cached_objects_for_%SN.end()[{%S{const_type}=combo|%S{const_type}=read-only} || f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0]) {
+     '	if (f == m_cached_objects_for_'
+     %S |N '.end()'
+     %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' %|| 
+       ( ( %S get_up ( 'const_type' ) ) %== 'read-only'  ) ) 
+      ' || f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, %3 |N )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr()' 
+      %END-IF
+      ' == 0' 
+     %END-IF
+     ') {'
+//		[{%S{const_type}=combo&%3N=read-only|%S{const_type}=read-only}{	if (m_single_active_factory.is_nil()) {
+     '	'
+     %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' %&& 
+       ( ( %3 |N ) %== 'read-only'  ) %|| 
+       ( ( %S get_up ( 'const_type' ) ) %== 'read-only'  ) ) 
+      %ELSE
+       '	if (m_single_active_factory.is_nil()) {'
+//				throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+       '			throw Core::Root::NoActiveFactory ("'
+       %P ->P ->P |N   '::'
+       %P ->P |N  '::'
+       %P |N 'Factory");'
+//			}
+       '		' 
+      %THEN
+
+//			f = m_cached_objects_for_%SN.insert (
+      '		f = m_cached_objects_for_'
+      %S |N '.insert ('
+//				CachedObjectsFor%f_to_borland(%SN)::value_type(
+      '			CachedObjectsFor'
+      [%f] to_borland %( %S |N )% '::value_type('
+//					ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+      '				ObjectCreationIdFor'
+      [%f] to_borland %( %S |N )% '('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+       %C |N 
+      %END-FOR
+      ')'
+//					, m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]])
+      '				, m_single_active_factory->'
+      %S |N ' ('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %C |N 
+      %END-FOR
+      %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+       %IF ( ( %C |x ) %==  true ) 
+        ', ' 
+       %END-IF
+       %IF ( ( %3 |N ) %== 'read-only' ) 
+        %ELSE
+          false 
+        %THEN
+         true 
+       %END-IF
+      %END-IF
+      ')'
+
+//					,[{%S{const_type}!=read-write}{ m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}, [{%1N=read-only}{false}true]])} ComboData[{%Ss=synchro}{Var}Ptr] (m_single_active_factory-\>%SN (<{, }%CN>))]
+//				)
+      '			)'
+//			).first;
+      '		).first;'
+//			m_cached_objects_index_for_%SN.insert (
+      '		m_cached_objects_index_for_'
+      %S |N '.insert ('
+//				CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+      '			CachedObjectsIndexFor'
+      [%f] to_borland %( %S |N )% '::value_type ('
+//					f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+      '				f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%t] cache_postfix %( %S %, 'read-write' )% 
+      %END-IF
+      %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+       %ELSE
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in()' 
+        %END-IF
+       %THEN
+       '->_hash (std::numeric_limits<CORBA::ULong>::max ())' 
+      %END-IF
+//					, f
+      '				, f'
+//				)
+      '			)'
+//			);[{%Ss=synchro}
+      '		);'
+      %IF ( ( %S |s ) %== 'synchro' ) 
+
+//			return f-\>second[.%f_cache_postfix(%S,"%3N")];]
+       '		return f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, %3 |N )% 
+       %END-IF
+       ';' 
+      %END-IF
+//		}	if (f == m_cached_objects_for_%SN.end()) {
+      '	}	if (f == m_cached_objects_for_'
+      %S |N '.end()) {'
+//				if (m_single_active_factory.is_nil()) {
+      '			if (m_single_active_factory.is_nil()) {'
+//					throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+      '				throw Core::Root::NoActiveFactory ("'
+      %P ->P ->P |N   '::'
+      %P ->P |N  '::'
+      %P |N 'Factory");'
+//				}
+      '			}'
+//				f = m_cached_objects_for_%SN.insert (
+      '			f = m_cached_objects_for_'
+      %S |N '.insert ('
+//					CachedObjectsFor%f_to_borland(%SN)::value_type(
+      '				CachedObjectsFor'
+      [%f] to_borland %( %S |N )% '::value_type('
+//						ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+      '					ObjectCreationIdFor'
+      [%f] to_borland %( %S |N )% '('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+       %C |N 
+      %END-FOR
+      ')'
+//						, ComboData[{%Ss=synchro}{Var}Ptr] (m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]))
+      '					, ComboData'
+      %IF ( ( %S |s ) %== 'synchro' ) 
+       %ELSE
+        'Var' 
+       %THEN
+       'Ptr' 
+      %END-IF
+      ' (m_single_active_factory->'
+      %S |N ' ('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %C |N 
+      %END-FOR
+      %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+       %IF ( ( %C |x ) %==  true ) 
+        ', ' 
+       %END-IF
+       %IF ( ( %3 |N ) %== 'read-only' ) 
+        %ELSE
+          false 
+        %THEN
+         true 
+       %END-IF
+      %END-IF
+      '))'
+//					)
+      '				)'
+//				).first;
+      '			).first;'
+//				m_cached_objects_index_for_%SN.insert (
+      '			m_cached_objects_index_for_'
+      %S |N '.insert ('
+//					CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+      '				CachedObjectsIndexFor'
+      [%f] to_borland %( %S |N )% '::value_type ('
+//						f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+      '					f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%t] cache_postfix %( %S %, 'read-write' )% 
+      %END-IF
+      %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+       %ELSE
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in()' 
+        %END-IF
+       %THEN
+       '->_hash (std::numeric_limits<CORBA::ULong>::max ())' 
+      %END-IF
+//						, f
+      '					, f'
+//					)
+      '				)'
+//				);
+      '			);'
+//				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);
+      '			'
+      %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+        ( ( %S %?f is_exported %( )% ) %==  true  ) ) 
+       %ELSE
+        'f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%f] cache_postfix %( %S %, 'read-only' )% 
+        %END-IF
+        ' = new '
+        ( get_global_var ( 'INT' ) |N ) 'ConstWrapper (f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%t] cache_postfix %( %S %, 'read-write' )% 
+        %END-IF
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in ()' 
+        %END-IF
+        ');' 
+       %THEN
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper (f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%t] cache_postfix %( %S %, 'read-write' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ');'
+//				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();]
+       '			f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ' = wrapper->_this ();' 
+      %END-IF
+//				f-\>second.is_ro_first = true;[{%Ss=synchro}
+      '			f->second.is_ro_first = true;'
+      %IF ( ( %S |s ) %== 'synchro' ) 
+
+//				GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+       '			GDS_ASSERT_MSG (f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ' != 0, ("'
+       %P ->P ->P |N   '::'
+       %P ->P |N  '::'
+       %P |N 'Factory impl can''t return zerro"));'
+//				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+       '			return f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ';' 
+      %END-IF
+//			} else if (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] == 0) {
+      '		} else if (f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr ()' 
+      %END-IF
+      ' == 0) {'
+//				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+      '			'
+      %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+        ( ( %S %?f is_exported %( )% ) %==  true  ) ) 
+       %ELSE
+        'f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%f] cache_postfix %( %S %, 'read-only' )% 
+        %END-IF
+        ' = new '
+        ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+        '				'
+        ( get_global_var ( 'INT' ) |N ) '::_duplicate (f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%t] cache_postfix %( %S %, 'read-write' )% 
+        %END-IF
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in ()' 
+        %END-IF
+        ')'
+//				);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+        '			);' 
+       %THEN
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+       '				'
+       ( get_global_var ( 'INT' ) |N ) '::_duplicate (f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%t] cache_postfix %( %S %, 'read-write' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ')'
+//				);
+       '			);'
+//				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();][{%Ss=synchro}
+       '			f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ' = wrapper->_this ();' 
+      %END-IF
+      %IF ( ( %S |s ) %== 'synchro' ) 
+
+//				GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+       '			GDS_ASSERT_MSG (f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ' != 0, ("'
+       %P ->P ->P |N   '::'
+       %P ->P |N  '::'
+       %P |N 'Factory impl can''t return zerro"));'
+//				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+       '			return f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ';' 
+      %END-IF
+//			}]
+      '		}' 
+     %END-IF
+//		}[{%f_is_ro_fctr_exists(%S)=true&%3N=read-write} else if (
+     '	}'
+     %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true %&& 
+       ( ( %3 |N ) %== 'read-write'  ) ) 
+      ' else if ('
+//			f != m_cached_objects_for_%SN.end()
+      '		f != m_cached_objects_for_'
+      %S |N '.end()'
+//			&& f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] != 0
+      '		&& f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr ()' 
+      %END-IF
+      ' != 0'
+//			&& f-\>second.is_ro_first == true
+      '		&& f->second.is_ro_first == true'
+//		) {
+      '	) {'
+//			f-\>second[.%f_cache_postfix(%S,"read-only")]-\>upgrade_rw ();
+      '		f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      '->upgrade_rw ();'
+//			f-\>second.is_ro_first = false;
+      '		f->second.is_ro_first = false;'
+//		}]
+      '	}' 
+     %END-IF
+//		GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+     '	GDS_ASSERT_MSG (f->second'
+     %IF-NOT-EMPTY
+      '.'
+      [%f] cache_postfix %( %S %, %3 |N )% 
+     %END-IF
+     %IF ( ( %S |s ) %!= 'synchro' ) 
+      '.in ()' 
+     %END-IF
+     ' != 0, ("'
+     %P ->P ->P |N   '::'
+     %P ->P |N  '::'
+     %P |N 'Factory impl can''t return zerro"));'
+//		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()!=true}{false}true]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()])}*f-\>second[.%f_cache_postfix(%S,"%3N")]];
+     '	return '
+     %IF ( %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' ) 
+       %ELSE
+        %IF ( ( %S %?f is_exported %( )% ) %!=  true ) 
+         %ELSE
+           false 
+         %THEN
+          true 
+        %END-IF
+       %THEN
+        true 
+      %END-IF
+      %==  true %&& 
+       ( ( %S |s ) %!= 'synchro'  ) ) 
+      %ELSE
+       ( get_global_var ( 'INT' ) |N ) '::_duplicate(f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, %3 |N )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ')' 
+      %THEN
+      '*f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, %3 |N )% 
+      %END-IF
+     %END-IF
+     ';'
+//	][{%Cx=false}
+    %END-IF
+    %IF ( ( %C |x ) %==  false ) 
+
+//		if (m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0) {
+     '	if (m_cached_object_for_'
+     %S |N %IF-NOT-EMPTY
+      '.'
+      [%f] cache_postfix %( %S %, %3 |N )% 
+     %END-IF
+     %IF ( ( %S |s ) %!= 'synchro' ) 
+      '.ptr()' 
+     %END-IF
+     ' == 0) {'
+//			GUARD(m_mutex_for_%SN);
+     '		GUARD(m_mutex_for_'
+     %S |N ');'
+//			if (m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0) {
+     '		if (m_cached_object_for_'
+     %S |N %IF-NOT-EMPTY
+      '.'
+      [%f] cache_postfix %( %S %, %3 |N )% 
+     %END-IF
+     %IF ( ( %S |s ) %!= 'synchro' ) 
+      '.ptr()' 
+     %END-IF
+     ' == 0) {'
+//			[{%S{const_type}=combo&%3N=read-only|%S{const_type}=read-only}{	if (m_single_active_factory.is_nil()) {
+     '		'
+     %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' %&& 
+       ( ( %3 |N ) %== 'read-only'  ) %|| 
+       ( ( %S get_up ( 'const_type' ) ) %== 'read-only'  ) ) 
+      %ELSE
+       '	if (m_single_active_factory.is_nil()) {'
+//					throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+       '				throw Core::Root::NoActiveFactory ("'
+       %P ->P ->P |N   '::'
+       %P ->P |N  '::'
+       %P |N 'Factory");'
+//				}
+       '			' 
+      %THEN
+
+//				m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")] = m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%2N=read-only}{false}true]]);
+      '			m_cached_object_for_'
+      %S |N %IF-NOT-EMPTY
+       '.'
+       [%t] cache_postfix %( %S %, 'read-write' )% 
+      %END-IF
+      ' = m_single_active_factory->'
+      %S |N ' ('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %C |N 
+      %END-FOR
+      %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+       %IF ( ( %C |x ) %==  true ) 
+        ', ' 
+       %END-IF
+       %IF ( ( %2 |N ) %== 'read-only' ) 
+        %ELSE
+          false 
+        %THEN
+         true 
+       %END-IF
+      %END-IF
+      ');'
+//			}	if (m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.ptr()] == 0) {
+      '		}	if (m_cached_object_for_'
+      %S |N %IF-NOT-EMPTY
+       '.'
+       [%t] cache_postfix %( %S %, 'read-write' )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr()' 
+      %END-IF
+      ' == 0) {'
+//					if (m_single_active_factory.is_nil()) {
+      '				if (m_single_active_factory.is_nil()) {'
+//						throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+      '					throw Core::Root::NoActiveFactory ("'
+      %P ->P ->P |N   '::'
+      %P ->P |N  '::'
+      %P |N 'Factory");'
+//					}
+      '				}'
+//					m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")] = m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]);
+      '				m_cached_object_for_'
+      %S |N %IF-NOT-EMPTY
+       '.'
+       [%t] cache_postfix %( %S %, 'read-write' )% 
+      %END-IF
+      ' = m_single_active_factory->'
+      %S |N ' ('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %C |N 
+      %END-FOR
+      %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+       %IF ( ( %C |x ) %==  true ) 
+        ', ' 
+       %END-IF
+       %IF ( ( %3 |N ) %== 'read-only' ) 
+        %ELSE
+          false 
+        %THEN
+         true 
+       %END-IF
+      %END-IF
+      ');'
+//					[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+      '				'
+      %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+        ( ( %S %?f is_exported %( )% ) %==  true  ) ) 
+       %ELSE
+        'm_cached_object_for_'
+        %S |N %IF-NOT-EMPTY
+         '.'
+         [%f] cache_postfix %( %S %, 'read-only' )% 
+        %END-IF
+        ' = new '
+        ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//						m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()]
+        '					m_cached_object_for_'
+        %S |N %IF-NOT-EMPTY
+         '.'
+         [%t] cache_postfix %( %S %, 'read-write' )% 
+        %END-IF
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in()' 
+        %END-IF
+//					);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+        '				);' 
+       %THEN
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//						m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()]
+       '					m_cached_object_for_'
+       %S |N %IF-NOT-EMPTY
+        '.'
+        [%t] cache_postfix %( %S %, 'read-write' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in()' 
+       %END-IF
+//					);
+       '				);'
+//					m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();][{%f_is_ro_fctr_exists(%S)=true}
+       '				m_cached_object_for_'
+       %S |N %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ' = wrapper->_this ();' 
+      %END-IF
+      %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+
+//					m_cached_object_for_%SN.is_ro_first = true;]
+       '				m_cached_object_for_'
+       %S |N '.is_ro_first = true;' 
+      %END-IF
+//				} else {
+      '			} else {'
+//					[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+      '				'
+      %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+        ( ( %S %?f is_exported %( )% ) %==  true  ) ) 
+       %ELSE
+        'm_cached_object_for_'
+        %S |N %IF-NOT-EMPTY
+         '.'
+         [%f] cache_postfix %( %S %, 'read-only' )% 
+        %END-IF
+        ' = new '
+        ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//						%{INT}N::_duplicate (m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()])
+        '					'
+        ( get_global_var ( 'INT' ) |N ) '::_duplicate (m_cached_object_for_'
+        %S |N %IF-NOT-EMPTY
+         '.'
+         [%t] cache_postfix %( %S %, 'read-write' )% 
+        %END-IF
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in()' 
+        %END-IF
+        ')'
+//					);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+        '				);' 
+       %THEN
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//						%{INT}N::_duplicate (m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()])
+       '					'
+       ( get_global_var ( 'INT' ) |N ) '::_duplicate (m_cached_object_for_'
+       %S |N %IF-NOT-EMPTY
+        '.'
+        [%t] cache_postfix %( %S %, 'read-write' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in()' 
+       %END-IF
+       ')'
+//					);
+       '				);'
+//					m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();]
+       '				m_cached_object_for_'
+       %S |N %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ' = wrapper->_this ();' 
+      %END-IF
+//				}
+      '			}'
+//			]
+      '		' 
+     %END-IF
+//				GDS_ASSERT_MSG (m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));[{%Ss=synchro}
+     '			GDS_ASSERT_MSG (m_cached_object_for_'
+     %S |N %IF-NOT-EMPTY
+      '.'
+      [%f] cache_postfix %( %S %, %3 |N )% 
+     %END-IF
+     %IF ( ( %S |s ) %!= 'synchro' ) 
+      '.ptr()' 
+     %END-IF
+     ' != 0, ("'
+     %P ->P ->P |N   '::'
+     %P ->P |N  '::'
+     %P |N 'Factory impl can''t return zerro"));'
+     %IF ( ( %S |s ) %== 'synchro' ) 
+
+//				return m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")];]
+      '			return m_cached_object_for_'
+      %S |N %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, %3 |N )% 
+      %END-IF
+      ';' 
+     %END-IF
+//			}
+     '		}'
+//		}[{%f_is_ro_fctr_exists(%S)=true&%3N=read-write}
+     '	}'
+     %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true %&& 
+       ( ( %3 |N ) %== 'read-write'  ) ) 
+
+//		if (
+      '	if ('
+//			m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr()] != 0
+      '		m_cached_object_for_'
+      %S |N %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr()' 
+      %END-IF
+      ' != 0'
+//			&& m_cached_object_for_%SN.is_ro_first == true
+      '		&& m_cached_object_for_'
+      %S |N '.is_ro_first == true'
+//		) {
+      '	) {'
+//			m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")]-\>upgrade_rw ();
+      '		m_cached_object_for_'
+      %S |N %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      '->upgrade_rw ();'
+//			m_cached_object_for_%SN.is_ro_first = false;
+      '		m_cached_object_for_'
+      %S |N '.is_ro_first = false;'
+//		}]
+      '	}' 
+     %END-IF
+//		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()=true}{true}false]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()])}*m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")]];
+     '	return '
+     %IF ( %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' ) 
+       %ELSE
+        %IF ( ( %S %?f is_exported %( )% ) %==  true ) 
+         %ELSE
+           true 
+         %THEN
+          false 
+        %END-IF
+       %THEN
+        true 
+      %END-IF
+      %==  true %&& 
+       ( ( %S |s ) %!= 'synchro'  ) ) 
+      %ELSE
+       ( get_global_var ( 'INT' ) |N ) '::_duplicate(m_cached_object_for_'
+       %S |N %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, %3 |N )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ')' 
+      %THEN
+      '*m_cached_object_for_'
+      %S |N %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, %3 |N )% 
+      %END-IF
+     %END-IF
+     ';'
+//	]]][{%TS=FactoryMemory}
+    %END-IF
+   %END-IF
+  %END-IF
+  %IF ( ( %T |S ) %== 'FactoryMemory' ) 
+
+//	%f_fctr_mng_mem_cpp(%S,"%3N")
+   [%f] fctr_mng_mem_cpp %( %S %, %3 |N )% 
+//	]}]
+  %END-IF
+  '}' 
+ %END-IF
+ //#UC END# *4978567C01C5for47174CE200AB*
+; // fctr_mng_fctr_cpp_impl
+
+
+// Дополнительные определения в public секции для менеджера фабрик
+//%f _additional_mgr_public_declarations
+: additional_mgr_public_declarations OBJECT IN %S
+//#UC START# *4978702C00D9for47174CE200AB*
+//#UC END# *4978702C00D9for47174CE200AB*
+; // additional_mgr_public_declarations
+
+
+// Базовая реализация мультифабрик для менеджера фабрик
+//%f _fctr_mng_m_fctr_cpp_impl
+: fctr_mng_m_fctr_cpp_impl OBJECT IN %S
+//#UC START# *497870EF0151for47174CE200AB*
+//	%1[[{%S{transparent multy}=false|"%S{transparent multy}"=""}\
+ %1%IF-NOT-EMPTY
+  %IF ( ( %S get_up ( 'transparent multy' ) ) %==  false %|| 
+    ( ( %S get_up ( 'transparent multy' ) ) %== ''  ) ) 
+
+////%S{transparent multy}=false
+//	%f_set_var(OP_PARAMS,"%S%f_factory_params("%1N")")\
+   [%f] set_var %( 'OP_PARAMS' %, %S %f factory_params %( %1 |N )% )% 
+//	%t_ret(%{INT},"[{%{INT}S!=ServerInterface|%S#f_is_exported()=false}%f_factory_target_strereotype(%S,"%3N")]") %{INT}NFactoryManager::%SN%4N ([{"%{OP_PARAMS}N"!=""}%{OP_PARAMS}N, ]%{INT}%f_dump_switch_arg_type() key) [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, Core::Root::UnknownFactoryKey[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)}/*throw (Core::Root::UnknownFactoryKey[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)*/] {\
+   [%t] ret %( ( get_global_var ( 'INT' ) ) %, %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' %|| 
+     ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+    [%f] factory_target_strereotype %( %S %, %3 |N )% 
+   %END-IF
+)%    ' '
+   ( get_global_var ( 'INT' ) |N ) 'FactoryManager::'
+   %S |N %4 |N ' ('
+   %IF ( ( ( get_global_var ( 'OP_PARAMS' ) |N ) ) %!= '' ) 
+    ( get_global_var ( 'OP_PARAMS' ) |N ) ', ' 
+   %END-IF
+   ( get_global_var ( 'INT' ) %f dump_switch_arg_type %( )% ) ' key) '
+   %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+     ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+    %ELSE
+     'throw (CORBA::SystemException, Core::Root::UnknownFactoryKey'
+     %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+      ', Core::Root::ImpossibleConversion' 
+     %END-IF
+     %FOR ', '
+      [%f] type %( %E )% 
+     %END-FOR
+     ')' 
+    %THEN
+    '/*throw (Core::Root::UnknownFactoryKey'
+    %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+     ', Core::Root::ImpossibleConversion' 
+    %END-IF
+    %FOR ', '
+     [%f] type %( %E )% 
+    %END-FOR
+    ')*/' 
+   %END-IF
+   ' {'
+//	[{%f_is_it_cached(%S)=false}
+   %IF ( ( [%f] is_it_cached %( %S )% ) %==  false ) 
+
+//		FactoryMap::iterator f = m_factories_map.find (key);
+    '	FactoryMap::iterator f = m_factories_map.find (key);'
+//		if (f == m_factories_map.end()) {
+    '	if (f == m_factories_map.end()) {'
+//			throw Core::Root::UnknownFactoryKey (
+    '		throw Core::Root::UnknownFactoryKey ('
+//				"%P%P%PN::%P%PN::%PNFactory"
+    '			"'
+    %P ->P ->P |N   '::'
+    %P ->P |N  '::'
+    %P |N 'Factory"'
+//				, [{%f_need_lexical_cast(%{INT})=true}{key}boost::lexical_cast\<std::string\> (key).c_str ()]
+    '			, '
+    %IF ( ( [%f] need_lexical_cast %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+     %ELSE
+      'key' 
+     %THEN
+     'boost::lexical_cast<std::string> (key).c_str ()' 
+    %END-IF
+//			);
+    '		);'
+//		}
+    '	}'
+//		[{%{INT}S=ServerInterface&%3N=read-only}{return [{%3N=read-only}{f-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]);}new %{INT}NConstWrapper (f-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]));]}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+    '	'
+    %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+      ( ( %3 |N ) %== 'read-only'  ) ) 
+     %ELSE
+      'return '
+      %IF ( ( %3 |N ) %== 'read-only' ) 
+       %ELSE
+        'f->second.factory->'
+        %S |N ' ('
+        %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+         %C |N 
+        %END-FOR
+        %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+         %IF ( ( %C |x ) %==  true ) 
+          ', ' 
+         %END-IF
+         %IF ( ( %3 |N ) %== 'read-only' ) 
+          %ELSE
+            false 
+          %THEN
+           true 
+         %END-IF
+        %END-IF
+        ');' 
+       %THEN
+       'new '
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper (f->second.factory->'
+       %S |N ' ('
+       %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+        %C |N 
+       %END-FOR
+       %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+        %IF ( ( %C |x ) %==  true ) 
+         ', ' 
+        %END-IF
+        %IF ( ( %3 |N ) %== 'read-only' ) 
+         %ELSE
+           false 
+         %THEN
+          true 
+        %END-IF
+       %END-IF
+       '));' 
+      %END-IF
+     %THEN
+     ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+     ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//			f-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ]true])
+     '		f->second.factory->'
+     %S |N ' ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %C |N 
+     %END-FOR
+     %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+      %IF ( ( %C |x ) %==  true ) 
+       ', ' 
+      %END-IF
+       true 
+     %END-IF
+     ')'
+//		);
+     '	);'
+//		return wrapper-\>_this ();]
+     '	return wrapper->_this ();' 
+    %END-IF
+//	][{%TS!=FactoryMemory}[{%f_is_it_cached(%S)=true}
+   %END-IF
+   %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+    %IF ( ( [%f] is_it_cached %( %S )% ) %==  true ) 
+
+//		GUARD(m_mutex_for_%SN);
+     '	GUARD(m_mutex_for_'
+     %S |N ');'
+//		[{<{}{%CS=cache}{%CC}>!=0}<{}{%CS=cache}%S%f_cache_attr(%C);
+     '	'
+     %IF ( 
+      %FOR %ITEM-CONDITION ( ( %C |S ) %== 'cache' ) 
+       ( %C |C ) 
+      %END-FOR
+      %!= 0 ) 
+      %FOR %ITEM-CONDITION ( ( %C |S ) %== 'cache' ) 
+       %S %f cache_attr %( %C )% ';'
+//		>%U[{_INIT_CUSTOM_CACHE_ARGS}
+       '	' 
+      %END-FOR
+      %U%IF ( '_INIT_CUSTOM_CACHE_ARGS' ) 
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+       '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]
+       '	' 
+      %END-IF
+ //		]CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key));
+      '	' 
+     %END-IF
+     'CachedObjectsFor'
+     [%f] to_borland %( %S |N )% '::iterator f = m_cached_objects_for_'
+     %S |N '.find (ObjectCreationIdFor'
+     [%f] to_borland %( %S |N )% '('
+     %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+      %C |N ', ' 
+     %END-FOR
+     'key));'
+//		if (f == m_cached_objects_for_%SN.end()[{%S{const_type}=combo|%S{const_type}=read-only} || f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0]) {
+     '	if (f == m_cached_objects_for_'
+     %S |N '.end()'
+     %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' %|| 
+       ( ( %S get_up ( 'const_type' ) ) %== 'read-only'  ) ) 
+      ' || f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, %3 |N )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr()' 
+      %END-IF
+      ' == 0' 
+     %END-IF
+     ') {'
+//		[{%S{const_type}=combo&%3N=read-only|%S{const_type}=read-only}{	FactoryMap::iterator f_fct = m_factories_map.find (key);
+     '	'
+     %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' %&& 
+       ( ( %3 |N ) %== 'read-only'  ) %|| 
+       ( ( %S get_up ( 'const_type' ) ) %== 'read-only'  ) ) 
+      %ELSE
+       '	FactoryMap::iterator f_fct = m_factories_map.find (key);'
+//			if (f_fct == m_factories_map.end()) {
+       '		if (f_fct == m_factories_map.end()) {'
+//				throw Core::Root::UnknownFactoryKey (
+       '			throw Core::Root::UnknownFactoryKey ('
+//					"%P%P%PN::%P%PN::%PNFactory"
+       '				"'
+       %P ->P ->P |N   '::'
+       %P ->P |N  '::'
+       %P |N 'Factory"'
+//					, [{%f_need_lexical_cast(%{INT})=true}{key}boost::lexical_cast\<std::string\> (key).c_str ()]
+       '				, '
+       %IF ( ( [%f] need_lexical_cast %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+        %ELSE
+         'key' 
+        %THEN
+        'boost::lexical_cast<std::string> (key).c_str ()' 
+       %END-IF
+//				);
+       '			);'
+//			}
+       '		' 
+      %THEN
+
+//			f = m_cached_objects_for_%SN.insert (
+      '		f = m_cached_objects_for_'
+      %S |N '.insert ('
+//				CachedObjectsFor%f_to_borland(%SN)::value_type(
+      '			CachedObjectsFor'
+      [%f] to_borland %( %S |N )% '::value_type('
+//					ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key)
+      '				ObjectCreationIdFor'
+      [%f] to_borland %( %S |N )% '('
+      %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+       %C |N ', ' 
+      %END-FOR
+      'key)'
+//					, f_fct-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]])
+      '				, f_fct->second.factory->'
+      %S |N ' ('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %C |N 
+      %END-FOR
+      %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+       %IF ( ( %C |x ) %==  true ) 
+        ', ' 
+       %END-IF
+       %IF ( ( %3 |N ) %== 'read-only' ) 
+        %ELSE
+          false 
+        %THEN
+         true 
+       %END-IF
+      %END-IF
+      ')'
+
+//					,[{%S{const_type}!=read-write}{ f_fct-\>second.factory-\>%SN (<{, }%CN>)} ComboData[{%Ss=synchro}{Var}Ptr] (f_fct-\>second.factory-\>%SN (<{, }%CN>))]
+//				)
+      '			)'
+//			).first;
+      '		).first;'
+//			m_cached_objects_index_for_%SN.insert (
+      '		m_cached_objects_index_for_'
+      %S |N '.insert ('
+//				CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+      '			CachedObjectsIndexFor'
+      [%f] to_borland %( %S |N )% '::value_type ('
+//					f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+      '				f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%t] cache_postfix %( %S %, 'read-write' )% 
+      %END-IF
+      %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+       %ELSE
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in()' 
+        %END-IF
+       %THEN
+       '->_hash (std::numeric_limits<CORBA::ULong>::max ())' 
+      %END-IF
+//					, f
+      '				, f'
+//				)
+      '			)'
+//			);[{%Ss=synchro}
+      '		);'
+      %IF ( ( %S |s ) %== 'synchro' ) 
+
+//			return f-\>second[.%f_cache_postfix(%S,"%3N")];]
+       '		return f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, %3 |N )% 
+       %END-IF
+       ';' 
+      %END-IF
+//		}	if (f == m_cached_objects_for_%SN.end()) {
+      '	}	if (f == m_cached_objects_for_'
+      %S |N '.end()) {'
+//				FactoryMap::iterator f_fct = m_factories_map.find (key);
+      '			FactoryMap::iterator f_fct = m_factories_map.find (key);'
+//				if (f_fct == m_factories_map.end()) {
+      '			if (f_fct == m_factories_map.end()) {'
+//					throw Core::Root::UnknownFactoryKey (
+      '				throw Core::Root::UnknownFactoryKey ('
+//						"%P%P%PN::%P%PN::%PNFactory"
+      '					"'
+      %P ->P ->P |N   '::'
+      %P ->P |N  '::'
+      %P |N 'Factory"'
+//						, [{%f_need_lexical_cast(%{INT})=true}{key}boost::lexical_cast\<std::string\> (key).c_str ()]
+      '					, '
+      %IF ( ( [%f] need_lexical_cast %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+       %ELSE
+        'key' 
+       %THEN
+       'boost::lexical_cast<std::string> (key).c_str ()' 
+      %END-IF
+//						);
+      '					);'
+//				}
+      '			}'
+//				f = m_cached_objects_for_%SN.insert (
+      '			f = m_cached_objects_for_'
+      %S |N '.insert ('
+//					CachedObjectsFor%f_to_borland(%SN)::value_type(
+      '				CachedObjectsFor'
+      [%f] to_borland %( %S |N )% '::value_type('
+//						ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key)
+      '					ObjectCreationIdFor'
+      [%f] to_borland %( %S |N )% '('
+      %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+       %C |N ', ' 
+      %END-FOR
+      'key)'
+//						, ComboData[{%Ss=synchro}{Var}Ptr] (f_fct-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]))
+      '					, ComboData'
+      %IF ( ( %S |s ) %== 'synchro' ) 
+       %ELSE
+        'Var' 
+       %THEN
+       'Ptr' 
+      %END-IF
+      ' (f_fct->second.factory->'
+      %S |N ' ('
+      %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+       %C |N 
+      %END-FOR
+      %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+       %IF ( ( %C |x ) %==  true ) 
+        ', ' 
+       %END-IF
+       %IF ( ( %3 |N ) %== 'read-only' ) 
+        %ELSE
+          false 
+        %THEN
+         true 
+       %END-IF
+      %END-IF
+      '))'
+//					)
+      '				)'
+//				).first;
+      '			).first;'
+//				m_cached_objects_index_for_%SN.insert (
+      '			m_cached_objects_index_for_'
+      %S |N '.insert ('
+//					CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+      '				CachedObjectsIndexFor'
+      [%f] to_borland %( %S |N )% '::value_type ('
+//						f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+      '					f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%t] cache_postfix %( %S %, 'read-write' )% 
+      %END-IF
+      %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+       %ELSE
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in()' 
+        %END-IF
+       %THEN
+       '->_hash (std::numeric_limits<CORBA::ULong>::max ())' 
+      %END-IF
+//						, f
+      '					, f'
+//					)
+      '				)'
+//				);
+      '			);'
+//				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);
+      '			'
+      %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+        ( ( %S %?f is_exported %( )% ) %==  true  ) ) 
+       %ELSE
+        'f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%f] cache_postfix %( %S %, 'read-only' )% 
+        %END-IF
+        ' = new '
+        ( get_global_var ( 'INT' ) |N ) 'ConstWrapper (f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%t] cache_postfix %( %S %, 'read-write' )% 
+        %END-IF
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in ()' 
+        %END-IF
+        ');' 
+       %THEN
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper (f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%t] cache_postfix %( %S %, 'read-write' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ');'
+//				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();]
+       '			f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ' = wrapper->_this ();' 
+      %END-IF
+//				f-\>second.is_ro_first = true;[{%Ss=synchro}
+      '			f->second.is_ro_first = true;'
+      %IF ( ( %S |s ) %== 'synchro' ) 
+
+//				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+       '			return f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ';' 
+      %END-IF
+//			} else if (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] == 0) {
+      '		} else if (f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr ()' 
+      %END-IF
+      ' == 0) {'
+//				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+      '			'
+      %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' %&& 
+        ( ( %S %?f is_exported %( )% ) %==  true  ) ) 
+       %ELSE
+        'f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%f] cache_postfix %( %S %, 'read-only' )% 
+        %END-IF
+        ' = new '
+        ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+        '				'
+        ( get_global_var ( 'INT' ) |N ) '::_duplicate (f->second'
+        %IF-NOT-EMPTY
+         '.'
+         [%t] cache_postfix %( %S %, 'read-write' )% 
+        %END-IF
+        %IF ( ( %S |s ) %!= 'synchro' ) 
+         '.in ()' 
+        %END-IF
+        ')'
+//				);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+        '			);' 
+       %THEN
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper_var wrapper = new '
+       ( get_global_var ( 'INT' ) |N ) 'ConstWrapper ('
+//					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+       '				'
+       ( get_global_var ( 'INT' ) |N ) '::_duplicate (f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%t] cache_postfix %( %S %, 'read-write' )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in ()' 
+       %END-IF
+       ')'
+//				);
+       '			);'
+//				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();][{%Ss=synchro}
+       '			f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ' = wrapper->_this ();' 
+      %END-IF
+      %IF ( ( %S |s ) %== 'synchro' ) 
+
+//				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+       '			return f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, 'read-only' )% 
+       %END-IF
+       ';' 
+      %END-IF
+//			}]
+      '		}' 
+     %END-IF
+//		}[{%f_is_ro_fctr_exists(%S)=true&%3N=read-write} else if (
+     '	}'
+     %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true %&& 
+       ( ( %3 |N ) %== 'read-write'  ) ) 
+      ' else if ('
+//			f != m_cached_objects_for_%SN.end()
+      '		f != m_cached_objects_for_'
+      %S |N '.end()'
+//			&& f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] != 0
+      '		&& f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      %IF ( ( %S |s ) %!= 'synchro' ) 
+       '.ptr ()' 
+      %END-IF
+      ' != 0'
+//			&& f-\>second.is_ro_first == true
+      '		&& f->second.is_ro_first == true'
+//		) {
+      '	) {'
+//			f-\>second[.%f_cache_postfix(%S,"read-only")]-\>upgrade_rw ();
+      '		f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, 'read-only' )% 
+      %END-IF
+      '->upgrade_rw ();'
+//			f-\>second.is_ro_first = false;
+      '		f->second.is_ro_first = false;'
+//		}]
+      '	}' 
+     %END-IF
+//		GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+     '	GDS_ASSERT_MSG (f->second'
+     %IF-NOT-EMPTY
+      '.'
+      [%f] cache_postfix %( %S %, %3 |N )% 
+     %END-IF
+     %IF ( ( %S |s ) %!= 'synchro' ) 
+      '.in ()' 
+     %END-IF
+     ' != 0, ("'
+     %P ->P ->P |N   '::'
+     %P ->P |N  '::'
+     %P |N 'Factory impl can''t return zerro"));'
+//		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()=true}{true}false]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(f-\>second[.%f_cache_postfix(%S,"%1N")][{%Ss!=synchro}.in()])}*f-\>second[.%f_cache_postfix(%S,"%3N")]];
+     '	return '
+     %IF ( %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' ) 
+       %ELSE
+        %IF ( ( %S %?f is_exported %( )% ) %==  true ) 
+         %ELSE
+           true 
+         %THEN
+          false 
+        %END-IF
+       %THEN
+        true 
+      %END-IF
+      %==  true %&& 
+       ( ( %S |s ) %!= 'synchro'  ) ) 
+      %ELSE
+       ( get_global_var ( 'INT' ) |N ) '::_duplicate(f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, %1 |N )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in()' 
+       %END-IF
+       ')' 
+      %THEN
+      '*f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, %3 |N )% 
+      %END-IF
+     %END-IF
+     ';'
+//	]][{%TS=FactoryMemory}
+    %END-IF
+   %END-IF
+   %IF ( ( %T |S ) %== 'FactoryMemory' ) 
+
+//	%f_fctr_mng_mem_cpp(%S,"%3N")
+    [%f] fctr_mng_mem_cpp %( %S %, %3 |N )% 
+//	]}][{%S{transparent multy}=true}\
+   %END-IF
+   '}' 
+  %END-IF
+  %IF ( ( %S get_up ( 'transparent multy' ) ) %==  true ) 
+
+////%S{transparent multy}=true
+//	%t_ret(%{INT},"[{%{INT}S!=ServerInterface|%S#f_is_exported()=false}%Ss]") %{INT}NFactoryManager::%SN (%S%f_factory_params("%1N")) [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/] {\
+   [%t] ret %( ( get_global_var ( 'INT' ) ) %, %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' %|| 
+     ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+    %S |s 
+   %END-IF
+)%    ' '
+   ( get_global_var ( 'INT' ) |N ) 'FactoryManager::'
+   %S |N ' ('
+   %S %f factory_params %( %1 |N )% ') '
+   %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+     ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+    %ELSE
+     'throw (CORBA::SystemException, CoreSrv::NoActiveFactory'
+     %FOR ', '
+      [%f] type %( %E )% 
+     %END-FOR
+     ')' 
+    %THEN
+    '/*throw (Core::Root::NoActiveFactory'
+    %FOR ', '
+     [%f] type %( %E )% 
+    %END-FOR
+    ')*/' 
+   %END-IF
+   ' {'
+//	[{%f_is_it_cached(%S)=false}
+   %IF ( ( [%f] is_it_cached %( %S )% ) %==  false ) 
+
+//		Core::Var\<%{INT}NAbstractFactory\> factory;
+    '	Core::Var<'
+    ( get_global_var ( 'INT' ) |N ) 'AbstractFactory> factory;'
+//		%U[{_CUSTOM_SELECT_FACTORY}
+    '	'
+    %U%IF ( '_CUSTOM_SELECT_FACTORY' ) 
+
+//		]
+     '	' 
+    %END-IF
+ //		if (factory.is_nil () == true) {
+    '	if (factory.is_nil () == true) {'
+//			throw [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{CoreSrv::NoActiveFactory ()}Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory")];
+    '		throw '
+    %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+      ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+     %ELSE
+      'CoreSrv::NoActiveFactory ()' 
+     %THEN
+     'Core::Root::NoActiveFactory ("'
+     %P ->P ->P |N   '::'
+     %P ->P |N  '::'
+     %P |N 'Factory")' 
+    %END-IF
+    ';'
+//		}
+    '	}'
+//		
+    '	'
+//		return factory-\>%SN (<{, }%CN>);
+    '	return factory->'
+    %S |N ' ('
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %C |N 
+    %END-FOR
+    ');'
+//	][{%TS!=FactoryMemory}[{%Ss=cached|%Ss=const,cached}
+   %END-IF
+   %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+    %IF ( ( %S |s ) %== 'cached' %|| 
+      ( ( %S |s ) %== 'const,cached'  ) ) 
+
+//		GUARD(m_mutex_for_%SN);
+     '	GUARD(m_mutex_for_'
+     %S |N ');'
+//		CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>));
+     '	CachedObjectsFor'
+     [%f] to_borland %( %S |N )% '::iterator f = m_cached_objects_for_'
+     %S |N '.find (ObjectCreationIdFor'
+     [%f] to_borland %( %S |N )% '('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+      %C |N 
+     %END-FOR
+     '));'
+//		if (f == m_cached_objects_for_%SN.end()) {
+     '	if (f == m_cached_objects_for_'
+     %S |N '.end()) {'
+//			Core::Var\<%{INT}NAbstractFactory\> factory;
+     '		Core::Var<'
+     ( get_global_var ( 'INT' ) |N ) 'AbstractFactory> factory;'
+//			%U[{_CUSTOM_SELECT_FACTORY}
+     '		'
+     %U%IF ( '_CUSTOM_SELECT_FACTORY' ) 
+
+//			]
+      '		' 
+     %END-IF
+ //			if (factory.is_nil () == true) {
+     '		if (factory.is_nil () == true) {'
+//				throw [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{CoreSrv::NoActiveFactory ()}Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory")];
+     '			throw '
+     %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+       ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+      %ELSE
+       'CoreSrv::NoActiveFactory ()' 
+      %THEN
+      'Core::Root::NoActiveFactory ("'
+      %P ->P ->P |N   '::'
+      %P ->P |N  '::'
+      %P |N 'Factory")' 
+     %END-IF
+     ';'
+//			}
+     '		}'
+//			f = m_cached_objects_for_%SN.insert (
+     '		f = m_cached_objects_for_'
+     %S |N '.insert ('
+//				CachedObjectsFor%f_to_borland(%SN)::value_type(
+     '			CachedObjectsFor'
+     [%f] to_borland %( %S |N )% '::value_type('
+//					ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+     '				ObjectCreationIdFor'
+     [%f] to_borland %( %S |N )% '('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+      %C |N 
+     %END-FOR
+     ')'
+//					, factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]])
+     '				, factory->'
+     %S |N ' ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %C |N 
+     %END-FOR
+     %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+      %IF ( ( %C |x ) %==  true ) 
+       ', ' 
+      %END-IF
+      %IF ( ( %3 |N ) %== 'read-only' ) 
+       %ELSE
+         false 
+       %THEN
+        true 
+      %END-IF
+     %END-IF
+     ')'
+//				)
+     '			)'
+//			).first;
+     '		).first;'
+//			m_cached_objects_index_for_%SN.insert (
+     '		m_cached_objects_index_for_'
+     %S |N '.insert ('
+//				CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+     '			CachedObjectsIndexFor'
+     [%f] to_borland %( %S |N )% '::value_type ('
+//					f-\>second[.%f_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())], f
+     '				f->second'
+     %IF-NOT-EMPTY
+      '.'
+      [%f] cache_postfix %( %S %, 'read-write' )% 
+     %END-IF
+     %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+      %ELSE
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in()' 
+       %END-IF
+      %THEN
+      '->_hash (std::numeric_limits<CORBA::ULong>::max ())' 
+     %END-IF
+     ', f'
+//				)
+     '			)'
+//			);[{%Ss=synchro}
+     '		);'
+     %IF ( ( %S |s ) %== 'synchro' ) 
+
+//			return f-\>second;]
+      '		return f->second;' 
+     %END-IF
+//		}
+     '	}'
+//		GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+     '	GDS_ASSERT_MSG (f->second'
+     %IF-NOT-EMPTY
+      '.'
+      [%f] cache_postfix %( %S %, %3 |N )% 
+     %END-IF
+     %IF ( ( %S |s ) %!= 'synchro' ) 
+      '.in ()' 
+     %END-IF
+     ' != 0, ("'
+     %P ->P ->P |N   '::'
+     %P ->P |N  '::'
+     %P |N 'Factory impl can''t return zerro"));'
+//		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()=true}{true}false]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in()])}*f-\>second[.%f_cache_postfix(%S,"%3N")]];
+     '	return '
+     %IF ( %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' ) 
+       %ELSE
+        %IF ( ( %S %?f is_exported %( )% ) %==  true ) 
+         %ELSE
+           true 
+         %THEN
+          false 
+        %END-IF
+       %THEN
+        true 
+      %END-IF
+      %==  true %&& 
+       ( ( %S |s ) %!= 'synchro'  ) ) 
+      %ELSE
+       ( get_global_var ( 'INT' ) |N ) '::_duplicate(f->second'
+       %IF-NOT-EMPTY
+        '.'
+        [%f] cache_postfix %( %S %, %3 |N )% 
+       %END-IF
+       %IF ( ( %S |s ) %!= 'synchro' ) 
+        '.in()' 
+       %END-IF
+       ')' 
+      %THEN
+      '*f->second'
+      %IF-NOT-EMPTY
+       '.'
+       [%f] cache_postfix %( %S %, %3 |N )% 
+      %END-IF
+     %END-IF
+     ';'
+//	]][{%TS=FactoryMemory}
+    %END-IF
+   %END-IF
+   %IF ( ( %T |S ) %== 'FactoryMemory' ) 
+
+//	%f_fctr_mng_mem_cpp(%S,"%3N")
+    [%f] fctr_mng_mem_cpp %( %S %, %3 |N )% 
+//	]}]]
+   %END-IF
+   '}' 
+  %END-IF
+ %END-IF
+ 
+//#UC END# *497870EF0151for47174CE200AB*
+; // fctr_mng_m_fctr_cpp_impl
+
+
+// Используется виртуальное/не виртуальное наследование в зависимости от стереотипа.
+//%f _is_virtual_inheritance
+: is_virtual_inheritance OBJECT IN %S
+//#UC START# *497AD7C30382for47174CE200AB*
+//	virtual
+ 'virtual'
+//#UC END# *497AD7C30382for47174CE200AB*
+; // is_virtual_inheritance
+
+
+// выводит имя метода на менеджере фабрик для получения экземпляра менеджера
+//%f _fctr_mng_get_instance_name
+: fctr_mng_get_instance_name OBJECT IN %S
+//#UC START# *4988233B02FDfor47174CE200AB*
+//	%t_language_style("get_instance_do_not_call_by_hand")
+ [%t] language_style %( 'get_instance_do_not_call_by_hand' )% 
+//#UC END# *4988233B02FDfor47174CE200AB*
+; // fctr_mng_get_instance_name
+
+
+// находит атрибут-селектор мульти фабрики и записывает его в переменную с заданным идентификатором
+//%f _find_switch
+: find_switch OBJECT IN %S
+// параметры: var: string = %1
+//#UC START# *499274E601E7for47174CE200AB*
+//	[{"%1N"=""}%f_error("_find_switch: Не задан идентификатор переменной")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( '_find_switch: Не задан идентификатор переменной' )% 
+ %END-IF
+//	%f_set_var(__SWITCH_ARG__,"%1N")\
+ [%f] set_var %( '__SWITCH_ARG__' %, %1 |N )% 
+//	%f_set_var(FOUNDED,"false")\
+ [%f] set_var %( 'FOUNDED' %, false )% 
+//	<{}{%CC=Attribute&%CS=factory switch}%f_set_var(%{__SWITCH_ARG__}N,C)%f_set_var(FOUNDED,"true")>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+   ( ( %C |S ) %== 'factory switch'  ) ) 
+  [%f] set_var %( ( get_global_var ( '__SWITCH_ARG__' ) |N ) %, 'C' )% [%f] set_var %( 'FOUNDED' %, true )% 
+ %END-FOR
+//	[{%{FOUNDED}N=false}<{}{%ga=abstract}\
+ %IF ( ( ( get_global_var ( 'FOUNDED' ) |N ) ) %==  false ) 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+//	%g<{}{%CC=Attribute&%CS=factory switch}%f_set_var(%{__SWITCH_ARG__}N,C)%f_set_var(FOUNDED,"true")>\
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+     ( ( %C |S ) %== 'factory switch'  ) ) 
+    [%f] set_var %( ( get_global_var ( '__SWITCH_ARG__' ) |N ) %, 'C' )% [%f] set_var %( 'FOUNDED' %, true )% 
+   %END-FOR
+ //	>]\
+  %END-FOR
+ %END-IF
+//	[{%{FOUNDED}N=false&%SS=LocalInterface}<{}{}%R#f_find_switch("%{__SWITCH_ARG__}N")>]
+ %IF ( ( ( get_global_var ( 'FOUNDED' ) |N ) ) %==  false %&& 
+   ( ( %S |S ) %== 'LocalInterface'  ) ) 
+  %FOR %R %?f find_switch %( ( get_global_var ( '__SWITCH_ARG__' ) |N ) )% 
+  %END-FOR
+ %END-IF
+//#UC END# *499274E601E7for47174CE200AB*
+; // find_switch
+
+
+// Генерация умолчального ремувера для сущности
+//%f _additional_remover_declaration
+: additional_remover_declaration OBJECT IN %S
+//#UC START# *49A643ED0131for47174CE200AB*
+//#UC END# *49A643ED0131for47174CE200AB*
+; // additional_remover_declaration
+
+
+// Генерит исключения в декларации фабрики
+//%f _dump_exceptions
+: dump_exceptions OBJECT IN %S
+//#UC START# *49ACD9EC0231for47174CE200AB*
+//	[{"%2N"="NEW_LINE"}{ }\n		]/*throw (Core::Root::NoActiveFactory, Core::Root::FactoryManagerWasDestroyed[{%f_need_conversion_exception(%1)=true}, Core::Root::ImpossibleConversion]%1<, %f_type(%E)>)*/[{"%XU"="h"};]
+ %IF ( ( %2 |N ) %== 'NEW_LINE' ) 
+  %ELSE
+   ' ' 
+  %THEN
+  #13#10'		' 
+ %END-IF
+ '/*throw (Core::Root::NoActiveFactory, Core::Root::FactoryManagerWasDestroyed'
+ %IF ( ( [%f] need_conversion_exception %( %1 )% ) %==  true ) 
+  ', Core::Root::ImpossibleConversion' 
+ %END-IF
+ %1
+ %FOR ', '
+  [%f] type %( %E )% 
+ %END-FOR
+  ')*/'
+ %IF ( ( %X |U ) %== 'h' ) 
+  ';' 
+ %END-IF
+//#UC END# *49ACD9EC0231for47174CE200AB*
+; // dump_exceptions
+
+
+// Дополнительная реализация для менеджера фабрик
+//%f _additional_mgr_factory_implementation
+: additional_mgr_factory_implementation OBJECT IN %S
+//#UC START# *49B11D7A001Cfor47174CE200AB*
+//#UC END# *49B11D7A001Cfor47174CE200AB*
+; // additional_mgr_factory_implementation
+
+
+// Генерит реализацию менеджеоа фабрик
+//%f _dump_fctr_mng_impl_cpp
+: dump_fctr_mng_impl_cpp OBJECT IN %S
+//#UC START# *49B6246F03B2for47174CE200AB*
+//	%f_set_var(INT,S)[{"%f_has_factory_methods(%S)"="true"}{[{%f_has_self_factory_methods(%S)=true}<{}{%CS=FactoryMemory}%CX>]}
+ [%f] set_var %( 'INT' %, 'S' )% %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+  %ELSE
+   %IF ( ( [%f] has_self_factory_methods %( %S )% ) %==  true ) 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+     %C |X 
+    %END-FOR
+   %END-IF
+  %THEN
+
+//	//////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////'
+//	// implementation of factory manager methods for %SN
+  '// implementation of factory manager methods for '
+  %S |N 
+//	bool %SNFactoryManager::s_was_destroyed = false;[{%f_need_const_wrapper(%S)=true}
+  'bool '
+  %S |N 'FactoryManager::s_was_destroyed = false;'
+  %IF ( ( [%f] need_const_wrapper %( %S )% ) %==  true ) 
+
+//	[
+   %IF-NOT-EMPTY
+
+//	%f_const_wrapper_operations_cpp(%S)
+    [%f] const_wrapper_operations_cpp %( %S )% 
+//	%SNConstWrapper::%SNConstWrapper ([{%SS!=ServerInterface}{%f_full_name(%S)}%SN]* impl)
+    %S |N 'ConstWrapper::'
+    %S |N 'ConstWrapper ('
+    %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+     %ELSE
+      [%f] full_name %( %S )% 
+     %THEN
+     %S |N 
+    %END-IF
+    '* impl)'
+//		: m_impl (impl), is_rw (false)
+    '	: m_impl (impl), is_rw (false)'
+//	{
+    '{'
+//	}
+    '}'
+//	]
+   %END-IF
+//	%SNFactoryManager::ComboDataVar::ComboDataVar ()
+   %S |N 'FactoryManager::ComboDataVar::ComboDataVar ()'
+//		: rw_data (0), ro_data (0), is_ro_first (false)
+   '	: rw_data (0), ro_data (0), is_ro_first (false)'
+//	{
+   '{'
+//	}
+   '}'
+//	
+
+//	%SNFactoryManager::ComboDataVar::ComboDataVar (%SN* rw_data_)
+   %S |N 'FactoryManager::ComboDataVar::ComboDataVar ('
+   %S |N '* rw_data_)'
+//		: rw_data (rw_data_), ro_data (0), is_ro_first (false)
+   '	: rw_data (rw_data_), ro_data (0), is_ro_first (false)'
+//	{
+   '{'
+//	}
+   '}'
+//	[{<{}{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+      ( ( %C |s ) %== 'synchro'  ) ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 ) 
+
+//	%SNFactoryManager::ComboDataPtr::ComboDataPtr ()
+    %S |N 'FactoryManager::ComboDataPtr::ComboDataPtr ()'
+//	: rw_data (0), ro_data (0), is_ro_first (false)
+    ': rw_data (0), ro_data (0), is_ro_first (false)'
+//	{
+    '{'
+//	}
+    '}'
+//	
+
+//	%SNFactoryManager::ComboDataPtr::ComboDataPtr (%SN* rw_data_)
+    %S |N 'FactoryManager::ComboDataPtr::ComboDataPtr ('
+    %S |N '* rw_data_)'
+//	: rw_data (rw_data_), ro_data (0), is_ro_first (false)
+    ': rw_data (rw_data_), ro_data (0), is_ro_first (false)'
+//	{
+    '{'
+//	}
+    '}'
+//	]]
+   %END-IF
+  %END-IF
+//	
+
+//	%SNFactoryManager::%SNFactoryManager () /*throw (Core::Root::FactoryManagerWasDestroyed)*/
+  %S |N 'FactoryManager::'
+  %S |N 'FactoryManager () /*throw (Core::Root::FactoryManagerWasDestroyed)*/'
+//		: m_has_registred_factories(false)
+  '	: m_has_registred_factories(false)'
+//	{
+  '{'
+//		if (s_was_destroyed == true) {
+  '	if (s_was_destroyed == true) {'
+//			throw Core::Root::FactoryManagerWasDestroyed ();
+  '		throw Core::Root::FactoryManagerWasDestroyed ();'
+//		}[
+  '	}'
+  %IF-NOT-EMPTY
+
+//		%S%f_additional_fctr_mng_ctor_initialization()]<{}{%f_is_factory(%C)=true&%Cs=synchro&%C%TS!=FactoryMemory}[{%C%Cx=true|%CS=multi factory}{
+   '	'
+   %S %f additional_fctr_mng_ctor_initialization %( )% 
+  %END-IF
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+    ( ( %C |s ) %== 'synchro'  ) %&& 
+    ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+   %IF ( ( %C ->C |x  ) %==  true %|| 
+     ( ( %C |S ) %== 'multi factory'  ) ) 
+    %ELSE
+
+//		[{%C{const_type}=combo|%C{const_type}=read-only}{m_cached_object_for_%CN = 0;}m_cached_object_for_%CN.rw_data = 0;
+     '	'
+     %IF ( ( %C get_up ( 'const_type' ) ) %== 'combo' %|| 
+       ( ( %C get_up ( 'const_type' ) ) %== 'read-only'  ) ) 
+      %ELSE
+       'm_cached_object_for_'
+       %C |N ' = 0;' 
+      %THEN
+      'm_cached_object_for_'
+      %C |N '.rw_data = 0;'
+//		m_cached_object_for_%CN.ro_data = 0;]}]>
+      '	m_cached_object_for_'
+      %C |N '.ro_data = 0;' 
+     %END-IF
+    %THEN
+   %END-IF
+  %END-FOR
+//	}
+  '}'
+//	
+
+//	%SNFactoryManager::~%SNFactoryManager () {
+  %S |N 'FactoryManager::~'
+  %S |N 'FactoryManager () {'
+//		s_was_destroyed = true;
+  '	s_was_destroyed = true;'
+//	}
+  '}'
+//	
+
+//	void %SNFactoryManager::register_factory (
+  'void '
+  %S |N 'FactoryManager::register_factory ('
+//		%SNAbstractFactory* factory, Core::Root::FactoryPriority priority
+  '	'
+  %S |N 'AbstractFactory* factory, Core::Root::FactoryPriority priority'
+//	) /*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/ {
+  ') /*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/ {'
+//		if (s_was_destroyed == true) {
+  '	if (s_was_destroyed == true) {'
+//			throw Core::Root::FactoryManagerWasDestroyed ();
+  '		throw Core::Root::FactoryManagerWasDestroyed ();'
+//		}
+  '	}'
+//		Singleton::instance()-\>register_factory_i (factory, priority);[{%SS=LocalInterface}
+  '	Singleton::instance()->register_factory_i (factory, priority);'
+  %IF ( ( %S |S ) %== 'LocalInterface' ) 
+
+//		<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager::register_factory (factory, priority);
+   '	'
+   %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true %&& 
+     ( ( [%f] has_factory_methods %( %R )% ) %==  true  ) ) 
+    [%f] type %( %R )% 'FactoryManager::register_factory (factory, priority);'
+//		><{}{%ga=abstract}%g<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager::register_factory (factory, priority);
+    '	' 
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true %&& 
+      ( ( [%f] has_factory_methods %( %R )% ) %==  true  ) ) 
+     [%f] type %( %R )% 'FactoryManager::register_factory (factory, priority);'
+//		>>]
+     '	' 
+    %END-FOR
+    %END-FOR
+  %END-IF
+//	}[{%S%f_has_multi_factory()=true&%Sa!=abstract}
+  '}'
+  %IF ( ( %S %f has_multi_factory %( )% ) %==  true %&& 
+    ( ( %S |a ) %!= 'abstract'  ) ) 
+
+//	
+
+//	%S%f_dump_fmng_keys_method()]
+   %S %f dump_fmng_keys_method %( )% 
+  %END-IF
+//	
+
+//	%S%f_publish_self_cpp()\
+  %S %f publish_self_cpp %( )% 
+//	void %SNFactoryManager::register_factory_i (
+  'void '
+  %S |N 'FactoryManager::register_factory_i ('
+//		%SNAbstractFactory* factory, Core::Root::FactoryPriority priority
+  '	'
+  %S |N 'AbstractFactory* factory, Core::Root::FactoryPriority priority'
+//	) /*throw (Core::Root::DuplicatedFactoryKey)*/ {
+  ') /*throw (Core::Root::DuplicatedFactoryKey)*/ {'
+//		m_has_registred_factories = true;
+  '	m_has_registred_factories = true;'
+//		FactoryMap::iterator f = m_factories_map.find(factory-\>key());
+  '	FactoryMap::iterator f = m_factories_map.find(factory->key());'
+//		if (f != m_factories_map.end() && f-\>second.priority == priority) {
+  '	if (f != m_factories_map.end() && f->second.priority == priority) {'
+//			throw Core::Root::DuplicatedFactoryKey (
+  '		throw Core::Root::DuplicatedFactoryKey ('
+//				"%P%PN::%PN::%SNFactory"
+  '			"'
+  %P ->P |N  '::'
+  %P |N '::'
+  %S |N 'Factory"'
+//				, [{%f_need_lexical_cast(%{INT})=true}{factory-\>key()[{%{INT}%f_dump_switch_type_name()=a-string}.c_str ()]}boost::lexical_cast\<std::string\> (factory-\>key()).c_str ()]
+  '			, '
+  %IF ( ( [%f] need_lexical_cast %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+   %ELSE
+    'factory->key()'
+    %IF ( ( ( get_global_var ( 'INT' ) %f dump_switch_type_name %( )% ) ) %== 'a-string' ) 
+     '.c_str ()' 
+    %END-IF
+   %THEN
+   'boost::lexical_cast<std::string> (factory->key()).c_str ()' 
+  %END-IF
+//			);
+  '		);'
+//		}
+  '	}'
+//		if (f == m_factories_map.end() || f-\>second.priority \<= priority) {
+  '	if (f == m_factories_map.end() || f->second.priority <= priority) {'
+//			m_factories_map\[factory-\>key()\].factory = %SNAbstractFactory::_duplicate(factory);
+  '		m_factories_map[factory->key()].factory = '
+  %S |N 'AbstractFactory::_duplicate(factory);'
+//			m_factories_map\[factory-\>key()\].priority = priority;
+  '		m_factories_map[factory->key()].priority = priority;'
+//		}
+  '	}'
+//		
+  '	'
+//		if (!m_single_active_factory || m_single_active_factory_priority \<= priority) {
+  '	if (!m_single_active_factory || m_single_active_factory_priority <= priority) {'
+//			m_single_active_factory = %SNAbstractFactory::_duplicate(factory);
+  '		m_single_active_factory = '
+  %S |N 'AbstractFactory::_duplicate(factory);'
+//			m_single_active_factory_priority = priority;
+  '		m_single_active_factory_priority = priority;'
+//		}
+  '	}'
+//	}[{%f_has_synchro_factory(%S)=true}
+  '}'
+  %IF ( ( [%f] has_synchro_factory %( %S )% ) %==  true ) 
+
+//	
+
+//	%SNFactoryManager::CacheLocker::CacheLocker () {
+   %S |N 'FactoryManager::CacheLocker::CacheLocker () {'
+//	%f_clear_list(MUTEX_LIST)<{}{%f_is_factory(%C)&%Cs=synchro}[%f_lock_mutex_for_cache_locker(%C)
+   [%f] clear_list %( 'MUTEX_LIST' )% 
+   %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %&& 
+     ( ( %C |s ) %== 'synchro'  ) ) 
+    %IF-NOT-EMPTY
+     [%f] lock_mutex_for_cache_locker %( %C )% 
+//	]><{}{%ga=abstract}%g<{}{%f_is_factory(%C)&%Cs=synchro}[%f_lock_mutex_for_cache_locker(%C)
+    %END-IF
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %&& 
+      ( ( %C |s ) %== 'synchro'  ) ) 
+     %IF-NOT-EMPTY
+      [%f] lock_mutex_for_cache_locker %( %C )% 
+//	]>>
+     %END-IF
+    %END-FOR
+    %END-FOR
+//	}
+   '}'
+//	
+
+//	%SNFactoryManager::CacheLocker::~CacheLocker () {
+   %S |N 'FactoryManager::CacheLocker::~CacheLocker () {'
+//	%f_clear_list(MUTEX_LIST)<{}{%f_is_factory(%C)&%Cs=synchro}[%f_unlock_mutex_for_cache_locker(%C)
+   [%f] clear_list %( 'MUTEX_LIST' )% 
+   %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %&& 
+     ( ( %C |s ) %== 'synchro'  ) ) 
+    %IF-NOT-EMPTY
+     [%f] unlock_mutex_for_cache_locker %( %C )% 
+//	]><{}{%ga=abstract}%g<{}{%f_is_factory(%C)&%Cs=synchro}[%f_unlock_mutex_for_cache_locker(%C)
+    %END-IF
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %&& 
+      ( ( %C |s ) %== 'synchro'  ) ) 
+     %IF-NOT-EMPTY
+      [%f] unlock_mutex_for_cache_locker %( %C )% 
+//	]>>
+     %END-IF
+    %END-FOR
+    %END-FOR
+//	}
+   '}'
+//	
+
+//	void %SNFactoryManager::clean (%t_arg_cpp(%S,"in") obj) {
+   'void '
+   %S |N 'FactoryManager::clean ('
+   [%t] arg_cpp %( %S %, 'in' )% ' obj) {'
+//		%SNFactoryManager::Singleton::instance ()-\>clean_i (obj);
+   '	'
+   %S |N 'FactoryManager::Singleton::instance ()->clean_i (obj);'
+//	}
+   '}'
+//	
+
+//	void %SNFactoryManager::clean_i (%t_arg_cpp(%S,"in") obj) {
+   'void '
+   %S |N 'FactoryManager::clean_i ('
+   [%t] arg_cpp %( %S %, 'in' )% ' obj) {'
+//		//удаляем объект из всех синхро фабрик
+   '	//удаляем объект из всех синхро фабрик'
+//	%f_clear_list(CACHE_LIST)<{}{%f_is_factory(%C)=true&%Cs=synchro}[%f_dump_clean_synchro_cache(%C)
+   [%f] clear_list %( 'CACHE_LIST' )% 
+   %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+     ( ( %C |s ) %== 'synchro'  ) ) 
+    %IF-NOT-EMPTY
+     [%f] dump_clean_synchro_cache %( %C )% 
+//	]><{}{%ga=abstract}%g<{}{%f_is_factory(%C)=true&%Cs=synchro}[%f_dump_clean_synchro_cache(%C)
+    %END-IF
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+      ( ( %C |s ) %== 'synchro'  ) ) 
+     %IF-NOT-EMPTY
+      [%f] dump_clean_synchro_cache %( %C )% 
+//	]>>
+     %END-IF
+    %END-FOR
+    %END-FOR
+//	}
+   '}'
+//	]\
+  %END-IF
+//	%f_set_var(INT,S)%f_dump_factories_impl_cpp(%S)[
+  [%f] set_var %( 'INT' %, 'S' )% [%f] dump_factories_impl_cpp %( %S )% %IF-NOT-EMPTY
+
+//	
+
+//	%S%f_additional_mgr_factory_methods_impl()
+   %S %f additional_mgr_factory_methods_impl %( )% 
+//	]<{}{%CS=FactoryMemory}%CX>]%S%f_additional_mgr_factory_implementation()
+  %END-IF
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+   %C |X 
+  %END-FOR
+ %END-IF
+ %S %f additional_mgr_factory_implementation %( )% 
+//	]
+ ']'
+//#UC END# *49B6246F03B2for47174CE200AB*
+; // dump_fctr_mng_impl_cpp
+
+
+// Генерит определения атрибутов и операций заданных на сущности или интерфейсе.
+//%f _dump_methods_decl
+: dump_methods_decl OBJECT IN %S
+//#UC START# *49B7DFE801D5for47174CE200AB*
+//	[#public:<{}{"%f_is_factory(%C)"="false"&%CV=PublicAccess}[
+ %IF-NOT-EMPTY
+  out_indent 'public:'
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== false %&& 
+    ( ( %C |V ) %== 'PublicAccess'  ) ) 
+   %IF-NOT-EMPTY
+
+//	%CX
+    %C |X 
+//	]>][#protected:<{}{"%f_is_factory(%C)"="false"&%CV!=PublicAccess}[
+   %END-IF
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  out_indent 'protected:'
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== false %&& 
+    ( ( %C |V ) %!= 'PublicAccess'  ) ) 
+   %IF-NOT-EMPTY
+
+//	%CX
+    %C |X 
+//	]>]
+   %END-IF
+  %END-FOR
+ %END-IF
+//#UC END# *49B7DFE801D5for47174CE200AB*
+; // dump_methods_decl
+
+
+// возвращает true, если интерфейс имеет мульти фабрику (либо наследует её от своих абстрактных
+// предков)
+//%f _has_multi_factory
+: has_multi_factory OBJECT IN %S
+//#UC START# *4B715A9D0094for47174CE200AB*
+//	[{%S%f_has_self_multi_factory()=false}{true}\
+ %IF ( ( %S %f has_self_multi_factory %( )% ) %==  false ) 
+  %ELSE
+    true 
+  %THEN
+//	[{<{}{%ga=abstract&%g#f_has_self_multi_factory()=true}{%gC}>=0}{true}\
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' %&& 
+     ( ( %g %?f has_self_multi_factory %( )% ) %==  true  ) ) 
+    ( %g |C ) 
+   %END-FOR
+   %== 0 ) 
+   %ELSE
+     true 
+   %THEN
+//	[{%SS=LocalInterface}{false}[{<{}{%R#f_has_self_multi_factory()=true}{%RC}>=0}{true}false]]]]
+   %IF ( ( %S |S ) %== 'LocalInterface' ) 
+    %ELSE
+      false 
+    %THEN
+    %IF ( 
+     %FOR %ITEM-CONDITION ( ( %R %?f has_self_multi_factory %( )% ) %==  true ) 
+      ( %R |C ) 
+     %END-FOR
+     %== 0 ) 
+     %ELSE
+       true 
+     %THEN
+      false 
+    %END-IF
+   %END-IF
+  %END-IF
+ %END-IF
+
+//%f _has_self_multi_factory
+; // has_multi_factory
+
+: has_self_multi_factory OBJECT IN %S
+//	[{<{}{%f_is_factory(%C)=true&%CS=multi factory}{%CC}>=0}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+    ( ( %C |S ) %== 'multi factory'  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *4B715A9D0094for47174CE200AB*
+; // has_self_multi_factory
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47174CE200AB*
+//	%f_set_var(__OPEN_IFDEF_STR__,"%S%f_open_ifdef()")\
+ [%f] set_var %( '__OPEN_IFDEF_STR__' %, %S %f open_ifdef %( )% )% 
+//	%f_set_var(IMPL_BODY,"%S%f_dump_fctr_mng_impl_cpp()")\
+ [%f] set_var %( 'IMPL_BODY' %, %S %f dump_fctr_mng_impl_cpp %( )% )% 
+//	%f_set_var(__CLOSE_IFDEF_STR__,"%S%f_close_ifdef()")\
+ [%f] set_var %( '__CLOSE_IFDEF_STR__' %, %S %f close_ifdef %( )% )% 
+//	[{"%{IMPL_BODY}N"!=""}[%{__OPEN_IFDEF_STR__}N
+ %IF ( ( ( get_global_var ( 'IMPL_BODY' ) |N ) ) %!= '' ) 
+  %IF-NOT-EMPTY
+   ( get_global_var ( '__OPEN_IFDEF_STR__' ) |N ) 
+//	]%{IMPL_BODY}N[
+  %END-IF
+  ( get_global_var ( 'IMPL_BODY' ) |N ) %IF-NOT-EMPTY
+
+//	%{__CLOSE_IFDEF_STR__}N
+   ( get_global_var ( '__CLOSE_IFDEF_STR__' ) |N ) 
+//	]]
+  %END-IF
+ %END-IF
+
+//f _dump_factories_impl_cpp
+; // fctr.cpp
+
+end. // <<AbstractInterface>>
+
+: dump_factories_impl_cpp OBJECT IN %S
+//	<{}{"%CS"="factory"}{%C}
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' ) 
+  ( %C ) 
+
+//	
+
+//	%C%f_fctr_mng_fctr_cpp()><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}{%C}
+  %C %f fctr_mng_fctr_cpp %( )% 
+ %END-FOR
+ %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+  %g
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' ) 
+   ( %C ) 
+
+//	
+
+//	%C%f_fctr_mng_fctr_cpp()>><{}{"%CS"="multi factory"}{%C}
+   %C %f fctr_mng_fctr_cpp %( )% 
+  %END-FOR
+  %END-FOR
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' ) 
+  ( %C ) 
+
+//	
+
+//	%C%f_fctr_mng_m_fctr_cpp()><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}{%C}
+  %C %f fctr_mng_m_fctr_cpp %( )% 
+ %END-FOR
+ %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+  %g
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' ) 
+   ( %C ) 
+
+//	
+
+//	%C%f_fctr_mng_m_fctr_cpp()>><{}{"%CS"="remover"}{%C}
+   %C %f fctr_mng_m_fctr_cpp %( )% 
+  %END-FOR
+  %END-FOR
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'remover' ) 
+  ( %C ) 
+
+//	
+
+//	%f_fctr_mng_rm_cpp(%C)><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+  [%f] fctr_mng_rm_cpp %( %C )% 
+ %END-FOR
+ %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+  %g
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'remover' ) 
+   ( %C ) 
+
+//	
+
+//	%f_fctr_mng_rm_cpp(%C)>>
+   [%f] fctr_mng_rm_cpp %( %C )% 
+  %END-FOR
+  %END-FOR
+
+//f _dump_inherited_factories_cpp
+; // dump_factories_impl_cpp
+
+: dump_inherited_factories_cpp OBJECT IN %S
+//	[<{}{%f_is_interface(%R)=true}%f_dump_factories_impl_cpp(%R)>]
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true ) 
+   [%f] dump_factories_impl_cpp %( %R )% 
+  %END-FOR
+ %END-IF
+
+//f _lock_mutex_for_cache_locker
+; // dump_inherited_factories_cpp
+
+: lock_mutex_for_cache_locker OBJECT IN %S
+//	[{%f_exists_in_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")=false}\
+ %IF ( ( [%f] exists_in_list %( 'MUTEX_LIST' %, %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+   %ELSE
+    'm_mutex_for_'
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   'm_mutex_for_'
+   %S |N 
+  %END-IF
+)% )   %==  false ) 
+//	%f_add_to_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")\
+  [%f] add_to_list %( 'MUTEX_LIST' %, %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+   %ELSE
+    'm_mutex_for_'
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   'm_mutex_for_'
+   %S |N 
+  %END-IF
+)% //		%{INT}NFactoryManager::Singleton::instance ()-\>[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN].acquire ();
+  '	'
+  ( get_global_var ( 'INT' ) |N ) 'FactoryManager::Singleton::instance ()->'
+  %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+   %ELSE
+    'm_mutex_for_'
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   'm_mutex_for_'
+   %S |N 
+  %END-IF
+  '.acquire ();'
+//	]
+ %END-IF
+
+//f _unlock_mutex_for_cache_locker
+; // lock_mutex_for_cache_locker
+
+: unlock_mutex_for_cache_locker OBJECT IN %S
+//	[{%f_exists_in_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")=false}\
+ %IF ( ( [%f] exists_in_list %( 'MUTEX_LIST' %, %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+   %ELSE
+    'm_mutex_for_'
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   'm_mutex_for_'
+   %S |N 
+  %END-IF
+)% )   %==  false ) 
+//	%f_add_to_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")\
+  [%f] add_to_list %( 'MUTEX_LIST' %, %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+   %ELSE
+    'm_mutex_for_'
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   'm_mutex_for_'
+   %S |N 
+  %END-IF
+)% //		%{INT}NFactoryManager::Singleton::instance ()-\>[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN].release ();
+  '	'
+  ( get_global_var ( 'INT' ) |N ) 'FactoryManager::Singleton::instance ()->'
+  %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+   %ELSE
+    'm_mutex_for_'
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   'm_mutex_for_'
+   %S |N 
+  %END-IF
+  '.release ();'
+//	]
+ %END-IF
+
+//f _dump_clean_synchro_cache
+; // unlock_mutex_for_cache_locker
+
+: dump_clean_synchro_cache OBJECT IN %S
+//	[{%TS!=FactoryMemory}[{%Cx=true|%SS=multi factory}{\
+ %IF ( ( %T |S ) %!= 'FactoryMemory' ) 
+  %IF ( ( %C |x ) %==  true %|| 
+    ( ( %S |S ) %== 'multi factory'  ) ) 
+   %ELSE
+//		if (m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-write")] && m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{ == obj}-\>_is_equivalent(obj)]) \{
+    '	if (m_cached_object_for_'
+    %S |N %IF-NOT-EMPTY
+     '.'
+     [%f] cache_postfix %( %S %, 'read-write' )% 
+    %END-IF
+    ' && m_cached_object_for_'
+    %S |N %IF-NOT-EMPTY
+     '.'
+     [%f] cache_postfix %( %S %, 'read-write' )% 
+    %END-IF
+    %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+     %ELSE
+      ' == obj' 
+     %THEN
+     '->_is_equivalent(obj)' 
+    %END-IF
+    ') {'
+//			[{%S{const_type}=combo|%S{const_type}=read-only}{m_cached_object_for_%SN = 0;}m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")] = 0;
+    '		'
+    %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' %|| 
+      ( ( %S get_up ( 'const_type' ) ) %== 'read-only'  ) ) 
+     %ELSE
+      'm_cached_object_for_'
+      %S |N ' = 0;' 
+     %THEN
+     'm_cached_object_for_'
+     %S |N %IF-NOT-EMPTY
+      '.'
+      [%t] cache_postfix %( %S %, 'read-write' )% 
+     %END-IF
+     ' = 0;'
+//			m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-only")] = 0;]
+     '		m_cached_object_for_'
+     %S |N %IF-NOT-EMPTY
+      '.'
+      [%t] cache_postfix %( %S %, 'read-only' )% 
+     %END-IF
+     ' = 0;' 
+    %END-IF
+//		\}}
+    '	}' 
+   %THEN
+
+//		{
+   '	{'
+//			CachedObjectsIndexFor%f_to_borland(%SN)::iterator it = m_cached_objects_index_for_%SN.find (obj[{%f_is_server_type(%{INT})=true}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]);
+   '		CachedObjectsIndexFor'
+   [%f] to_borland %( %S |N )% '::iterator it = m_cached_objects_index_for_'
+   %S |N '.find (obj'
+   %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+    '->_hash (std::numeric_limits<CORBA::ULong>::max ())' 
+   %END-IF
+   ');'
+//			if (it != m_cached_objects_index_for_%SN.end ()) {
+   '		if (it != m_cached_objects_index_for_'
+   %S |N '.end ()) {'
+//				m_cached_objects_for_%SN.erase (it-\>second);
+   '			m_cached_objects_for_'
+   %S |N '.erase (it->second);'
+//				m_cached_objects_index_for_%SN.erase (it);
+   '			m_cached_objects_index_for_'
+   %S |N '.erase (it);'
+//			}
+   '		}'
+//		}
+   '	}'
+//	]][{%TS=FactoryMemory&%f_exists_in_list(CACHE_LIST,"%TN")=false}%f_add_to_list(CACHE_LIST,"%TN")
+  %END-IF
+ %END-IF
+ %IF ( ( %T |S ) %== 'FactoryMemory' %&& 
+   ( ( [%f] exists_in_list %( 'CACHE_LIST' %, %T |N )% ) %==  false  ) ) 
+  [%f] add_to_list %( 'CACHE_LIST' %, %T |N )% 
+//		{
+  '	{'
+//			%f_to_borland(%TNIndexMap)::iterator it = m_%f_to_omg(%TN)_index.find (obj[{%f_is_server_type(%{INT})=true}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]);
+  '		'
+  [%f] to_borland %( %T |N 'IndexMap' )% '::iterator it = m_'
+  [%f] to_omg %( %T |N )% '_index.find (obj'
+  %IF ( ( [%f] is_server_type %( ( get_global_var ( 'INT' ) ) )% ) %==  true ) 
+   '->_hash (std::numeric_limits<CORBA::ULong>::max ())' 
+  %END-IF
+  ');'
+//			if (it != m_%f_to_omg(%TN)_index.end ()) {
+  '		if (it != m_'
+  [%f] to_omg %( %T |N )% '_index.end ()) {'
+//				m_%f_to_omg(%TN).erase (it-\>second);
+  '			m_'
+  [%f] to_omg %( %T |N )% '.erase (it->second);'
+//				m_%f_to_omg(%TN)_index.erase (it);
+  '			m_'
+  [%f] to_omg %( %T |N )% '_index.erase (it);'
+//			}
+  '		}'
+//		}
+  '	}'
+//	]
+ %END-IF
+//f _clear_fctr_mng_cache
+; // dump_clean_synchro_cache
+
+: clear_fctr_mng_cache OBJECT IN %S
+//		GUARD(m_mutex_for_%SN);
+ '	GUARD(m_mutex_for_'
+ %S |N ');'
+//	[{%Cx=true}{\
+ %IF ( ( %C |x ) %==  true ) 
+  %ELSE
+//	[{%PS=ServerInterface&%f_has_cached_factory(%P)=true}\
+   %IF ( ( %P |S ) %== 'ServerInterface' %&& 
+     ( ( [%f] has_cached_factory %( %P )% ) %==  true  ) ) 
+//		CachedObjectDeactivator deactivator;
+    '	CachedObjectDeactivator deactivator;'
+//		deactivator (m_cached_object_for_%SN);
+    '	deactivator (m_cached_object_for_'
+    %S |N ');'
+//	]	m_cached_object_for_%SN = 0;\
+   %END-IF
+   '	m_cached_object_for_'
+   %S |N ' = 0;'
+//	}[{%PS=ServerInterface&%f_has_cached_factory(%P)=true}
+  %THEN
+  %IF ( ( %P |S ) %== 'ServerInterface' %&& 
+    ( ( [%f] has_cached_factory %( %P )% ) %==  true  ) ) 
+
+//		CachedObjectDeactivator deactivator;
+   '	CachedObjectDeactivator deactivator;'
+//		
+   '	'
+//		CachedObjectsFor%f_to_borland(%SN)::const_iterator it = m_cached_objects_for_%SN.begin ();
+   '	CachedObjectsFor'
+   [%f] to_borland %( %S |N )% '::const_iterator it = m_cached_objects_for_'
+   %S |N '.begin ();'
+//		CachedObjectsFor%f_to_borland(%SN)::const_iterator it_end = m_cached_objects_for_%SN.end ();
+   '	CachedObjectsFor'
+   [%f] to_borland %( %S |N )% '::const_iterator it_end = m_cached_objects_for_'
+   %S |N '.end ();'
+//		
+   '	'
+//		for (; it != it_end; ++it) {
+   '	for (; it != it_end; ++it) {'
+//			deactivator (it-\>second);
+   '		deactivator (it->second);'
+//		}
+   '	}'
+//	]	m_cached_objects_for_%SN.clear ();]
+  %END-IF
+  '	m_cached_objects_for_'
+  %S |N '.clear ();' 
+ %END-IF
+//#UC END# *4705C54B01F4for47174CE200AB*
+; // clear_fctr_mng_cache
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+implementation @ <<AbstractInterface>>
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47174CE200AB*
+//	%f_set_var(INT,S)[{"%f_has_self_factory_methods(%S)"="true"}%S%f_additional_fctr_mng_declarations()][{"%f_has_factory_methods(%S)"="true"}{[{<{}{%CS=FactoryMemory}{%CC}>!=0}
+ [%f] set_var %( 'INT' %, 'S' )% %IF ( ( [%f] has_self_factory_methods %( %S )% ) %== true ) 
+  %S %f additional_fctr_mng_declarations %( )% 
+ %END-IF
+ %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 ) 
+
+//	class %SNFactoryManager%S%f_base_fctr_mng() \{
+    'class '
+    %S |N 'FactoryManager'
+    %S %f base_fctr_mng %( )% ' {'
+//	<{}{%CS=FactoryMemory}%CX>\};]}
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+     %C |X 
+    %END-FOR
+    '};' 
+   %END-IF
+  %THEN
+
+//	[%S%f_open_ifdef()
+  %IF-NOT-EMPTY
+   %S %f open_ifdef %( )% 
+//	][{%f_need_const_wrapper(%S)=true}////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+  %IF ( ( [%f] need_const_wrapper %( %S )% ) %==  true ) 
+   '////////////////////////////////////////////////////////////////////////////////////'
+//	// const wrapper for %SN
+   '// const wrapper for '
+   %S |N 
+//	class %SNConstWrapper: 
+   'class '
+   %S |N 'ConstWrapper: '
+//		virtual public [{%SS!=ServerInterface}{%f_dump_base_poa(%S)}%SN]
+   '	virtual public '
+   %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+    %ELSE
+     [%f] dump_base_poa %( %S )% 
+    %THEN
+    %S |N 
+   %END-IF
+//		, virtual public [{%SS!=ServerInterface}{::CoreSrv::RefCountServantBase}::Core::RefCountObjectBase]
+   '	, virtual public '
+   %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+    %ELSE
+     '::CoreSrv::RefCountServantBase' 
+    %THEN
+    '::Core::RefCountObjectBase' 
+   %END-IF
+//	{
+   '{'
+//	public:
+   'public:'
+//		%SNConstWrapper ([{%SS!=ServerInterface}{%f_full_name(%S)}%SN]* impl);
+   '	'
+   %S |N 'ConstWrapper ('
+   %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+    %ELSE
+     [%f] full_name %( %S )% 
+    %THEN
+    %S |N 
+   %END-IF
+   '* impl);'
+//	
+
+//	[private:
+   %IF-NOT-EMPTY
+    'private:'
+//	%f_const_wrapper_operations_h(%S)
+    [%f] const_wrapper_operations_h %( %S )% 
+//	]private:
+   %END-IF
+   'private:'
+//		friend class %SNFactoryManager;
+   '	friend class '
+   %S |N 'FactoryManager;'
+//		%SN_var m_impl;
+   '	'
+   %S |N '_var m_impl;'
+//		bool is_rw;
+   '	bool is_rw;'
+//	};
+   '};'
+//	
+
+//	typedef ::Core::Var\<%SNConstWrapper\> %SNConstWrapper_var;
+   'typedef ::Core::Var<'
+   %S |N 'ConstWrapper> '
+   %S |N 'ConstWrapper_var;'
+//	
+
+//	]////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+  '////////////////////////////////////////////////////////////////////////////////////'
+//	// factories definition for %SN
+  '// factories definition for '
+  %S |N 
+//	
+
+//	class %SNAbstractFactory;
+  'class '
+  %S |N 'AbstractFactory;'
+//	
+
+//	/// factory manager for %SN
+  '/// factory manager for '
+  %S |N 
+//	class %SNFactoryManager%S%f_base_fctr_mng() {
+  'class '
+  %S |N 'FactoryManager'
+  %S %f base_fctr_mng %( )% ' {'
+//	public:
+  'public:'
+//		static void register_factory (%SNAbstractFactory* factory, Core::Root::FactoryPriority priority)
+  '	static void register_factory ('
+  %S |N 'AbstractFactory* factory, Core::Root::FactoryPriority priority)'
+//			/*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/;[{%S%f_has_multi_factory()=true}
+  '		/*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/;'
+  %IF ( ( %S %f has_multi_factory %( )% ) %==  true ) 
+
+//		
+   '	'
+//	%f_shift_intend(1)%S%f_dump_fmng_keys_method()%f_shift_intend(-1)][
+   [%f] shift_intend %( 1 )% %S %f dump_fmng_keys_method %( )% [%f] shift_intend %( -1 )% 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//		%S%f_additional_mgr_public_declarations()]
+   '	'
+   %S %f additional_mgr_public_declarations %( )% 
+  %END-IF
+
+//		
+
+//		static void unregister_all_factories () /*throw (Core::Root::FactoryManagerWasDestroyed)*/;
+//	[<{}{"%CS"="remover"}{%C}
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'remover' ) 
+    ( %C ) 
+
+//		%f_dump_factory_manager_remover_h(%C,"static")
+    '	'
+    [%f] dump_factory_manager_remover_h %( %C %, 'static' )% 
+//	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'remover' ) 
+     ( %C ) 
+
+//		%f_dump_factory_manager_remover_h(%C,"static")
+     '	'
+     [%f] dump_factory_manager_remover_h %( %C %, 'static' )% 
+//	>>]
+    %END-FOR
+    %END-FOR
+  %END-IF
+//	%S%f_publish_self_h()\
+  %S %f publish_self_h %( )% 
+//	protected:
+  'protected:'
+//		%SNFactoryManager ();
+  '	'
+  %S |N 'FactoryManager ();'
+//		
+  '	'
+//		~%SNFactoryManager ();
+  '	~'
+  %S |N 'FactoryManager ();'
+//		
+  '	'
+//		void register_factory_i (%SNAbstractFactory* factory, Core::Root::FactoryPriority priority)
+  '	void register_factory_i ('
+  %S |N 'AbstractFactory* factory, Core::Root::FactoryPriority priority)'
+//			/*throw (Core::Root::DuplicatedFactoryKey)*/;
+  '		/*throw (Core::Root::DuplicatedFactoryKey)*/;'
+//	
+
+
+//		void unregister_all_factories_i ();
+
+//	
+//	protected:<{}{"%CS"="factory"}{%C}
+  'protected:'
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' ) 
+   ( %C ) 
+
+//		%C%f_dump_factory_manager_single_factory_h()
+   '	'
+   %C %f dump_factory_manager_single_factory_h %( )% 
+//	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}{%C}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' ) 
+    ( %C ) 
+
+//		%C%f_dump_factory_manager_single_factory_h()
+    '	'
+    %C %f dump_factory_manager_single_factory_h %( )% 
+//	>><{}{"%CS"="multi factory"}{%C}
+   %END-FOR
+   %END-FOR
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' ) 
+   ( %C ) 
+
+//		%C%f_dump_factory_manager_multi_factory_h()
+   '	'
+   %C %f dump_factory_manager_multi_factory_h %( )% 
+//	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}{%C}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' ) 
+    ( %C ) 
+
+//		%C%f_dump_factory_manager_multi_factory_h()
+    '	'
+    %C %f dump_factory_manager_multi_factory_h %( )% 
+//	>>[
+   %END-FOR
+   %END-FOR
+  %IF-NOT-EMPTY
+
+//	%S%f_additional_mgr_factory_mehods()
+   %S %f additional_mgr_factory_mehods %( )% 
+//	]<{}{"%CS"="remover"}{%C}
+  %END-IF
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'remover' ) 
+   ( %C ) 
+
+//		%f_dump_factory_manager_remover_h(%C)
+   '	'
+   [%f] dump_factory_manager_remover_h %( %C )% 
+//	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'remover' ) 
+    ( %C ) 
+
+//		%f_dump_factory_manager_remover_h(%C)
+    '	'
+    [%f] dump_factory_manager_remover_h %( %C )% 
+//	>>
+   %END-FOR
+   %END-FOR
+//		friend class %SNFactory;
+  '	friend class '
+  %S |N 'Factory;'
+//		typedef ACE_Singleton \<%SNFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+  '	typedef ACE_Singleton <'
+  %S |N 'FactoryManager, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;'
+//		friend class ACE_Singleton \<%SNFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX\>;
+  '	friend class ACE_Singleton <'
+  %S |N 'FactoryManager, ACE_SYNCH_RECURSIVE_MUTEX>;'
+//	
+
+//	private:
+  'private:'
+//	[{%f_need_const_wrapper(%S)=true}
+  %IF ( ( [%f] need_const_wrapper %( %S )% ) %==  true ) 
+
+//		struct ComboDataVar {
+   '	struct ComboDataVar {'
+//			ComboDataVar ();
+   '		ComboDataVar ();'
+//			ComboDataVar (%SN* rw_data_);
+   '		ComboDataVar ('
+   %S |N '* rw_data_);'
+//			%SN_var rw_data;
+   '		'
+   %S |N '_var rw_data;'
+//			[{%SS!=ServerInterface}{%SN_var}Core::Var\<%SNConstWrapper\>] ro_data;
+   '		'
+   %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+    %ELSE
+     %S |N '_var' 
+    %THEN
+    'Core::Var<'
+    %S |N 'ConstWrapper>' 
+   %END-IF
+   ' ro_data;'
+//			bool is_ro_first;
+   '		bool is_ro_first;'
+//		};
+   '	};'
+//	[{<{}{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+      ( ( %C |s ) %== 'synchro'  ) ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 ) 
+
+//		struct ComboDataPtr {
+    '	struct ComboDataPtr {'
+//			ComboDataPtr ();
+    '		ComboDataPtr ();'
+//			ComboDataPtr (%SN* rw_data_);
+    '		ComboDataPtr ('
+    %S |N '* rw_data_);'
+//			%SN* rw_data;
+    '		'
+    %S |N '* rw_data;'
+//			[{%SS!=ServerInterface}{%SN*}%SNConstWrapper*] ro_data;
+    '		'
+    %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+     %ELSE
+      %S |N '*' 
+     %THEN
+     %S |N 'ConstWrapper*' 
+    %END-IF
+    ' ro_data;'
+//			bool is_ro_first;
+    '		bool is_ro_first;'
+//		};
+    '	};'
+//	]
+   %END-IF
+//	]	static bool s_was_destroyed;
+  %END-IF
+  '	static bool s_was_destroyed;'
+//		
+  '	'
+//		bool m_has_registred_factories;
+  '	bool m_has_registred_factories;'
+//		
+  '	'
+//		struct FactoryData {
+  '	struct FactoryData {'
+//			Core::Var\<%SNAbstractFactory\> factory;
+  '		Core::Var<'
+  %S |N 'AbstractFactory> factory;'
+//			short priority;
+  '		short priority;'
+//		};
+  '	};'
+//		
+  '	'
+//		%f_set_var(SW_TN,"%S%f_dump_switch_type_name()")typedef std::map \<[{"%{SW_TN}N"!=""&"%{SW_TN}N"!="string"}{std::string}%S%f_dump_switch_type()], FactoryData\> FactoryMap;
+  '	'
+  [%f] set_var %( 'SW_TN' %, %S %f dump_switch_type_name %( )% )% 'typedef std::map <'
+  %IF ( ( ( get_global_var ( 'SW_TN' ) |N ) ) %!= '' %&& 
+    ( ( ( get_global_var ( 'SW_TN' ) |N ) ) %!= 'string'  ) ) 
+   %ELSE
+    'std::string' 
+   %THEN
+   %S %f dump_switch_type %( )% 
+  %END-IF
+  ', FactoryData> FactoryMap;'
+//		
+  '	'
+//		FactoryMap m_factories_map;
+  '	FactoryMap m_factories_map;'
+//		
+  '	'
+//		Core::Var\<%SNAbstractFactory\> m_single_active_factory;
+  '	Core::Var<'
+  %S |N 'AbstractFactory> m_single_active_factory;'
+//		
+  '	'
+//		short m_single_active_factory_priority;
+  '	short m_single_active_factory_priority;'
+//	[{%f_has_synchro_factory(%S)=true}
+  %IF ( ( [%f] has_synchro_factory %( %S )% ) %==  true ) 
+
+//	public:
+   'public:'
+//		class CacheLocker {
+   '	class CacheLocker {'
+//		public:
+   '	public:'
+//			CacheLocker ();
+   '		CacheLocker ();'
+//			
+   '		'
+//			~CacheLocker ();
+   '		~CacheLocker ();'
+//		};
+   '	};'
+//		
+   '	'
+//		static void clean (%t_arg_cpp(%S,"in") obj);
+   '	static void clean ('
+   [%t] arg_cpp %( %S %, 'in' )% ' obj);'
+//	
+
+//	protected:
+   'protected:'
+//		void clean_i (%t_arg_cpp(%S,"in") obj);
+   '	void clean_i ('
+   [%t] arg_cpp %( %S %, 'in' )% ' obj);'
+//	]\
+  %END-IF
+
+//	[{%SS=ServerInterface&%f_has_cached_factory(%S)=true}
+
+//	public:
+
+//		struct CachedObjectDeactivator {
+
+//			void operator () (const %SN_var& obj);[{%f_need_const_wrapper(%S)=true}
+
+//			void operator () (const ComboDataVar& obj);[{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+
+//			void operator () (const ComboDataPtr& obj);
+
+//			]]
+
+//		};
+
+//	]\
+//	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' %&& 
+    ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+    ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+   ( %C ) 
+
+//	%f_fctr_mng_fctr_h(%C)
+   [%f] fctr_mng_fctr_h %( %C )% 
+//	><{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' %&& 
+    ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+    ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+   ( %C ) 
+
+//	%f_fctr_mng_m_fctr_h(%C)
+   [%f] fctr_mng_m_fctr_h %( %C )% 
+//	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' %&& 
+     ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+     ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+    ( %C ) 
+
+//	%f_fctr_mng_fctr_h(%C)
+    [%f] fctr_mng_fctr_h %( %C )% 
+//	>%g<{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+   %END-FOR
+    %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+     ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+    ( %C ) 
+
+//	%f_fctr_mng_m_fctr_h(%C)
+    [%f] fctr_mng_m_fctr_h %( %C )% 
+//	>><{}{%ga=abstract}%g<{}{%CS=FactoryMemory}
+   %END-FOR
+   %END-FOR
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+
+//	%f_dump_common_mem_cache(%C)
+    [%f] dump_common_mem_cache %( %C )% 
+//	>><{}{%CS=FactoryMemory}%CX>};
+   %END-FOR
+   %END-FOR
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+   %C |X 
+  %END-FOR
+  '};'
+//	
+
+//	/// abstract factory for %SN
+  '/// abstract factory for '
+  %S |N 
+//	%f_set_var(DERIVED,"0")\
+  [%f] set_var %( 'DERIVED' %, 0 )% 
+//	class %SNAbstractFactory : virtual public Core::IObject[{%SS=LocalInterface}[<{}{%f_has_factory_methods(%R)=true}, virtual public %f_type(%R)AbstractFactory%f_set_var(DERIVED,"1")>\
+  'class '
+  %S |N 'AbstractFactory : virtual public Core::IObject'
+  %IF ( ( %S |S ) %== 'LocalInterface' ) 
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( [%f] has_factory_methods %( %R )% ) %==  true ) 
+     ', virtual public '
+     [%f] type %( %R )% 'AbstractFactory'
+     [%f] set_var %( 'DERIVED' %, 1 )% 
+    %END-FOR
+//	<{}{%ga=abstract}%g<{	, }{%f_has_factory_methods(%R)=true}, virtual public %f_type(%R)AbstractFactory%f_set_var(DERIVED,"1")>>]] {
+    %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+     %g
+     %FOR %ITEM-SEPARATOR '	, ' ; // %ITEM-SEPARATOR 
+      %ITEM-CONDITION ( ( [%f] has_factory_methods %( %R )% ) %==  true ) 
+      ', virtual public '
+      [%f] type %( %R )% 'AbstractFactory'
+      [%f] set_var %( 'DERIVED' %, 1 )% 
+     %END-FOR
+     %END-FOR
+   %END-IF
+  %END-IF
+  ' {'
+//		friend class %SNFactoryManager;
+  '	friend class '
+  %S |N 'FactoryManager;'
+//	protected:
+  'protected:'
+//	[{%{DERIVED}N=0}	virtual const [{}{char*}%S%f_dump_switch_type()] key () const = 0;
+  %IF ( ( ( get_global_var ( 'DERIVED' ) |N ) ) %== 0 ) 
+   '	virtual const '
+   %IF ( ) 
+    %ELSE
+     'char*' 
+    %THEN
+    %S %f dump_switch_type %( )% 
+   %END-IF
+   ' key () const = 0;'
+//	]%f_dump_factories_impl_h(%S)[
+  %END-IF
+  [%f] dump_factories_impl_h %( %S )% %IF-NOT-EMPTY
+
+//	%S%f_additional_abstract_factories()
+   %S %f additional_abstract_factories %( )% 
+//	]};[
+  %END-IF
+  '};'
+  %IF-NOT-EMPTY
+
+//	%S%f_close_ifdef()]]
+   %S %f close_ifdef %( )% 
+  %END-IF
+ %END-IF
+
+//f _dump_factories_impl_h
+; // fctr.h
+
+end. // <<AbstractInterface>>
+
+: dump_factories_impl_h OBJECT IN %S
+//	<{}{"%f_is_factory(%C)"="true"}{%C}
+ %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== true ) 
+  ( %C ) 
+
+//		%f_dump_abstract_factory_h(%C)
+  '	'
+  [%f] dump_abstract_factory_h %( %C )% 
+//	>%f_set_var(SELF,S)<{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"}{%C}
+ %END-FOR
+ [%f] set_var %( 'SELF' %, 'S' )% 
+ %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+  %g
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== true ) 
+   ( %C ) 
+
+//		%f_dump_abstract_factory_h(%C)
+   '	'
+   [%f] dump_abstract_factory_h %( %C )% 
+//	>>
+  %END-FOR
+  %END-FOR
+
+//f _dump_inherited_factories_h
+; // dump_factories_impl_h
+
+: dump_inherited_factories_h OBJECT IN %S
+//	[<{}{%f_is_interface(%R)=true}%f_dump_factories_impl_h(%R)>]
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true ) 
+   [%f] dump_factories_impl_h %( %R )% 
+  %END-FOR
+ %END-IF
+//f _has_synchro_factory
+; // dump_inherited_factories_h
+
+: has_synchro_factory OBJECT IN %S
+//	[{%f_has_synchro_factory_self(%S)=true|<{}{%ga=abstract&%f_has_synchro_factory_self(%g)=true}{%gC}>!=0}{false}true]
+ %IF ( ( [%f] has_synchro_factory_self %( %S )% ) %==  true %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' %&& 
+    ( ( [%f] has_synchro_factory_self %( %g )% ) %==  true  ) ) 
+   ( %g |C ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+
+//f _has_synchro_factory_self
+; // has_synchro_factory
+
+: has_synchro_factory_self OBJECT IN %S
+//	[{<{}{%f_is_factory(%C)&%Cs=synchro}{%CC}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %&& 
+    ( ( %C |s ) %== 'synchro'  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4705C5490109for47174CE200AB*
+; // has_synchro_factory_self
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+implementation @ <<AbstractInterface>>
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47174CE200AB*
+//O [{%f_has_factory_methods(%S)=true|<{}{%CS=FactoryMemory}{%CC}>!=0}%SNFactoryManager.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_set_var(INT,S)[{%f_has_factory_methods(%S)=true}{[{<{}{%CS=FactoryMemory}{%CC}>!=0}%f_header(%S)
+ [%f] set_var %( 'INT' %, 'S' )% %IF ( ( [%f] has_factory_methods %( %S )% ) %==  true ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 ) 
+    [%f] header %( %S )% 
+//	package %f_dump_java_package(%S);
+    'package '
+    [%f] dump_java_package %( %S )% ';'
+//	
+
+//	%f_dump_std_java_imports(%S)
+    [%f] dump_std_java_imports %( %S )% 
+//	%f_java_core_exceptions(%S)
+    [%f] java_core_exceptions %( %S )% 
+//	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHomeFactory;
+    'import '
+    [%f] dump_java_package %( %P )% '.'
+    %P ->P %f name_prefix %( )%  'LibHomeFactory;'
+//	
+
+//	public class %SNFactoryManager%S%f_base_fctr_mng_java() \{
+    'public class '
+    %S |N 'FactoryManager'
+    %S %f base_fctr_mng_java %( )% ' {'
+//	<{}{%CS=FactoryMemory}%CX>\};]}%f_header(%S)
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+     %C |X 
+    %END-FOR
+    '};' 
+   %END-IF
+  %THEN
+  [%f] header %( %S )% 
+//	package %f_dump_java_package(%S);
+  'package '
+  [%f] dump_java_package %( %S )% ';'
+//	
+
+//	%f_dump_std_java_imports(%S)
+  [%f] dump_std_java_imports %( %S )% 
+//	
+
+//	%f_java_core_exceptions(%S)
+  [%f] java_core_exceptions %( %S )% 
+//	[<{}{%ga=abstract}%g<{}{%CS=FactoryMemory}[import %f_type(%C%P)FactoryManager.%C%f_factory_mem_key_name();
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+     %IF-NOT-EMPTY
+      'import '
+      [%f] type %( %C ->P  )% 'FactoryManager.'
+      %C %f factory_mem_key_name %( )% ';'
+//	import %f_type(%C%P)FactoryManager.%C%f_factory_mem_key_name()Comparator;
+      'import '
+      [%f] type %( %C ->P  )% 'FactoryManager.'
+      %C %f factory_mem_key_name %( )% 'Comparator;'
+//	]>>]
+     %END-IF
+    %END-FOR
+    %END-FOR
+  %END-IF
+//	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHomeFactory;
+  'import '
+  [%f] dump_java_package %( %P )% '.'
+  %P ->P %f name_prefix %( )%  'LibHomeFactory;'
+//	
+
+//	[{%f_need_const_wrapper(%S)=true}////////////////////////////////////////////////////////////////////////////////////
+  %IF ( ( [%f] need_const_wrapper %( %S )% ) %==  true ) 
+   '////////////////////////////////////////////////////////////////////////////////////'
+//	// const wrapper for %SN
+   '// const wrapper for '
+   %S |N 
+//	class %SNConstWrapper[{%SS!=ServerInterface}{ extends %SNPOA} implements %SN%f_interface_postfix(%S)] {
+   'class '
+   %S |N 'ConstWrapper'
+   %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+    %ELSE
+     ' extends '
+     %S |N 'POA' 
+    %THEN
+    ' implements '
+    %S |N [%f] interface_postfix %( %S )% 
+   %END-IF
+   ' {'
+//		%SNConstWrapper (%SN impl) {
+   '	'
+   %S |N 'ConstWrapper ('
+   %S |N ' impl) {'
+//			impl_ = [{%f_need_private_def(%S)=true&%SS!=ServerInterface}(%SN%f_interface_postfix(%S))]impl;
+   '		impl_ = '
+   %IF ( ( [%f] need_private_def %( %S )% ) %==  true %&& 
+     ( ( %S |S ) %!= 'ServerInterface'  ) ) 
+    '('
+    %S |N [%f] interface_postfix %( %S )% ')' 
+   %END-IF
+   'impl;'
+//		}
+   '	}'
+//		
+   '	'
+//		public int hashCode () {
+   '	public int hashCode () {'
+//			return impl_.hashCode ();
+   '		return impl_.hashCode ();'
+//		}
+   '	}'
+//	[%f_const_wrapper_operations_java(%S)
+   %IF-NOT-EMPTY
+    [%f] const_wrapper_operations_java %( %S )% 
+//	]	private %SN[{%SS!=ServerInterface}%f_interface_postfix(%S)] impl_;
+   %END-IF
+   '	private '
+   %S |N %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+    [%f] interface_postfix %( %S )% 
+   %END-IF
+   ' impl_;'
+//		private boolean isRw_ = false;
+   '	private boolean isRw_ = false;'
+//	};
+   '};'
+//	
+
+//	]////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+  '////////////////////////////////////////////////////////////////////////////////////'
+//	/// factory manager for %SN
+  '/// factory manager for '
+  %S |N 
+//	public class %SNFactoryManager%S%f_base_fctr_mng_java() {
+  'public class '
+  %S |N 'FactoryManager'
+  %S %f base_fctr_mng_java %( )% ' {'
+//	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' %&& 
+    ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+    ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+   ( %C ) 
+
+//	%f_fctr_mng_fctr_java(%C)
+   [%f] fctr_mng_fctr_java %( %C )% 
+//	><{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' %&& 
+    ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+    ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+   ( %C ) 
+
+//	%f_fctr_mng_m_fctr_java(%C)
+   [%f] fctr_mng_m_fctr_java %( %C )% 
+//	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'factory' %&& 
+     ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+     ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+    ( %C ) 
+
+//	%f_fctr_mng_fctr_java(%C)
+    [%f] fctr_mng_fctr_java %( %C )% 
+//	>%g<{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+   %END-FOR
+    %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'multi factory' %&& 
+     ( ( [%f] is_it_cached %( %C )% ) %== true  ) %&& 
+     ( ( %C ->T |S  ) %!= 'FactoryMemory'  ) ) 
+    ( %C ) 
+
+//	%f_fctr_mng_m_fctr_java(%C)
+    [%f] fctr_mng_m_fctr_java %( %C )% 
+//	>>[{%f_need_const_wrapper(%S)=true}
+   %END-FOR
+   %END-FOR
+  %IF ( ( [%f] need_const_wrapper %( %S )% ) %==  true ) 
+
+//		public static class ComboDataVar {
+   '	public static class ComboDataVar {'
+
+//			ComboDataVar () {
+
+//			}
+
+//			
+//			ComboDataVar (%SN rwData) {
+   '		ComboDataVar ('
+   %S |N ' rwData) {'
+//				rwData_ = rwData;
+   '			rwData_ = rwData;'
+//			}
+   '		}'
+//			
+   '		'
+//			%SN rwData_ = null;
+   '		'
+   %S |N ' rwData_ = null;'
+//			[{%SS!=ServerInterface}{%SN}%SNConstWrapper] roData_ = null;
+   '		'
+   %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+    %ELSE
+     %S |N 
+    %THEN
+    %S |N 'ConstWrapper' 
+   %END-IF
+   ' roData_ = null;'
+//			boolean isRoFirst = false;
+   '		boolean isRoFirst = false;'
+//		};
+   '	};'
+//	[{<{}{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+      ( ( %C |s ) %== 'synchro'  ) ) 
+     ( %C |C ) 
+    %END-FOR
+    %!= 0 ) 
+
+//		public static class ComboDataPtr {
+    '	public static class ComboDataPtr {'
+
+//			ComboDataPtr () {
+
+//			}
+
+//			
+//			ComboDataPtr (java.lang.ref.WeakReference\<%SN\> rwData) {
+    '		ComboDataPtr (java.lang.ref.WeakReference<'
+    %S |N '> rwData) {'
+//				rwData_ = rwData;
+    '			rwData_ = rwData;'
+//			}
+    '		}'
+//			
+    '		'
+//			java.lang.ref.WeakReference\<%SN\> rwData_ = null;
+    '		java.lang.ref.WeakReference<'
+    %S |N '> rwData_ = null;'
+//			java.lang.ref.WeakReference\<[{%SS!=ServerInterface}{%SN}%SNConstWrapper]\> roData_ = null;
+    '		java.lang.ref.WeakReference<'
+    %IF ( ( %S |S ) %!= 'ServerInterface' ) 
+     %ELSE
+      %S |N 
+     %THEN
+     %S |N 'ConstWrapper' 
+    %END-IF
+    '> roData_ = null;'
+//			boolean isRoFirst = false;
+    '		boolean isRoFirst = false;'
+//		};
+    '	};'
+//	]
+   %END-IF
+//	]
+  %END-IF
+//		// abstract factory for %SN
+  '	// abstract factory for '
+  %S |N 
+//	%f_set_var(DERIVED,"0")\
+  [%f] set_var %( 'DERIVED' %, 0 )% 
+//		public interface %SNAbstractFactory[{%SS=LocalInterface}{ }[{}{ }
+  '	public interface '
+  %S |N 'AbstractFactory'
+  %IF ( ( %S |S ) %== 'LocalInterface' ) 
+   %ELSE
+    ' ' 
+   %THEN
+   %IF ( ) 
+    %ELSE
+     ' ' 
+    %THEN
+
+//			extends %f_set_var(COMMA,"0")<{	, }{%f_has_factory_methods(%R)=true}%f_set_var(COMMA,"1")%f_type(%R)FactoryManager.%RNAbstractFactory%f_set_var(DERIVED,"1")
+    '		extends '
+    [%f] set_var %( 'COMMA' %, 0 )% 
+    %FOR %ITEM-SEPARATOR '	, ' ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( [%f] has_factory_methods %( %R )% ) %==  true ) 
+     [%f] set_var %( 'COMMA' %, 1 )% [%f] type %( %R )% 'FactoryManager.'
+     %R |N 'AbstractFactory'
+     [%f] set_var %( 'DERIVED' %, 1 )% 
+//		><{}{%ga=abstract}%g<{	, }{%f_has_factory_methods(%R)=true}[{%{COMMA}N=1}, %f_set_var(COMMA,"0")]%f_type(%R)FactoryManager.%RNAbstractFactory%f_set_var(DERIVED,"1")
+     '	' 
+    %END-FOR
+    %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+     %g
+     %FOR %ITEM-SEPARATOR '	, ' ; // %ITEM-SEPARATOR 
+      %ITEM-CONDITION ( ( [%f] has_factory_methods %( %R )% ) %==  true ) 
+      %IF ( ( ( get_global_var ( 'COMMA' ) |N ) ) %== 1 ) 
+       ', '
+       [%f] set_var %( 'COMMA' %, 0 )% 
+      %END-IF
+      [%f] type %( %R )% 'FactoryManager.'
+      %R |N 'AbstractFactory'
+      [%f] set_var %( 'DERIVED' %, 1 )% 
+//		>>]]{
+      '	' 
+     %END-FOR
+     %END-FOR
+   %END-IF
+  %END-IF
+  '{'
+//	[{%{DERIVED}N=0}		public [{}{String}%S%f_dump_switch_type()] key ();
+  %IF ( ( ( get_global_var ( 'DERIVED' ) |N ) ) %== 0 ) 
+   '		public '
+   %IF ( ) 
+    %ELSE
+     'String' 
+    %THEN
+    %S %f dump_switch_type %( )% 
+   %END-IF
+   ' key ();'
+//	]<{}{"%f_is_factory(%C)"="true"|%C#f_is_factory()=true}{%C}
+  %END-IF
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== true %|| 
+    ( ( %C %?f is_factory %( )% ) %==  true  ) ) 
+   ( %C ) 
+
+//	[{%CS!=remover}%C%f_abstract_factory_operation()
+   %IF ( ( %C |S ) %!= 'remover' ) 
+    %C %f abstract_factory_operation %( )% 
+//	]>%f_set_var(SELF,S)<{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"|%C#f_is_factory()=true}{%C}
+   %END-IF
+  %END-FOR
+  [%f] set_var %( 'SELF' %, 'S' )% 
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %== true %|| 
+     ( ( %C %?f is_factory %( )% ) %==  true  ) ) 
+    ( %C ) 
+
+//	[{%CS!=remover}%C%f_abstract_factory_operation()
+    %IF ( ( %C |S ) %!= 'remover' ) 
+     %C %f abstract_factory_operation %( )% 
+//	]>>	} //%SNAbstractFactory
+    %END-IF
+   %END-FOR
+   %END-FOR
+  '	} //'
+  %S |N 'AbstractFactory'
+//		
+  '	'
+//		private static class FactoryData {
+  '	private static class FactoryData {'
+//			public FactoryData (%SNAbstractFactory factory, short priority) {
+  '		public FactoryData ('
+  %S |N 'AbstractFactory factory, short priority) {'
+//				factory_ = factory;
+  '			factory_ = factory;'
+//				priority_ = priority;
+  '			priority_ = priority;'
+//			}
+  '		}'
+//			
+  '		'
+//			public %SNAbstractFactory factory_;
+  '		public '
+  %S |N 'AbstractFactory factory_;'
+//			public short priority_;
+  '		public short priority_;'
+//		}
+  '	}'
+//		private java.util.Map\<[{}{String}%S%f_dump_switch_type()], FactoryData\> factoriesMap_ = new java.util.TreeMap\<[{}{String}%S%f_dump_switch_type()], FactoryData\> ();
+  '	private java.util.Map<'
+  %IF ( ) 
+   %ELSE
+    'String' 
+   %THEN
+   %S %f dump_switch_type %( )% 
+  %END-IF
+  ', FactoryData> factoriesMap_ = new java.util.TreeMap<'
+  %IF ( ) 
+   %ELSE
+    'String' 
+   %THEN
+   %S %f dump_switch_type %( )% 
+  %END-IF
+  ', FactoryData> ();'
+//		private %SNAbstractFactory singleActiveFactory_ = null;
+  '	private '
+  %S |N 'AbstractFactory singleActiveFactory_ = null;'
+//		private short singleActiveFactoryPriority_ = 0;
+  '	private short singleActiveFactoryPriority_ = 0;'
+//		private static %SNFactoryManager sInstance_ = null;
+  '	private static '
+  %S |N 'FactoryManager sInstance_ = null;'
+//		private boolean hasRegistredFactories_ = false;
+  '	private boolean hasRegistredFactories_ = false;'
+//	
+
+//		public static %SNFactoryManager %S%f_fctr_mng_get_instance_name() () {
+  '	public static '
+  %S |N 'FactoryManager '
+  %S %f fctr_mng_get_instance_name %( )% ' () {'
+//			if (sInstance_ == null) {
+  '		if (sInstance_ == null) {'
+//				sInstance_ = new %SNFactoryManager ();
+  '			sInstance_ = new '
+  %S |N 'FactoryManager ();'
+//			}
+  '		}'
+//			return sInstance_;
+  '		return sInstance_;'
+//		}
+  '	}'
+//	
+
+//		public static void registerFactory (%SNAbstractFactory factory, short priority) throws DuplicatedFactoryKey {
+  '	public static void registerFactory ('
+  %S |N 'AbstractFactory factory, short priority) throws DuplicatedFactoryKey {'
+//			%SNFactoryManager.%{INT}%f_fctr_mng_get_instance_name()().registerFactoryImpl (factory, priority);[{%SS=LocalInterface}
+  '		'
+  %S |N 'FactoryManager.'
+  ( get_global_var ( 'INT' ) %f fctr_mng_get_instance_name %( )% ) '().registerFactoryImpl (factory, priority);'
+  %IF ( ( %S |S ) %== 'LocalInterface' ) 
+
+//			<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager.registerFactory (factory, priority);
+   '		'
+   %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true %&& 
+     ( ( [%f] has_factory_methods %( %R )% ) %==  true  ) ) 
+    [%f] type %( %R )% 'FactoryManager.registerFactory (factory, priority);'
+//			><{}{%ga=abstract}%g<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager.registerFactory (factory, priority);
+    '		' 
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true %&& 
+      ( ( [%f] has_factory_methods %( %R )% ) %==  true  ) ) 
+     [%f] type %( %R )% 'FactoryManager.registerFactory (factory, priority);'
+//			>>]
+     '		' 
+    %END-FOR
+    %END-FOR
+  %END-IF
+//		}[{%S%f_has_multi_factory()=true}
+  '	}'
+  %IF ( ( %S %f has_multi_factory %( )% ) %==  true ) 
+
+//		
+   '	'
+//	%f_shift_intend(1)%S%f_dump_fmng_keys_method()%f_shift_intend(-1)]
+   [%f] shift_intend %( 1 )% %S %f dump_fmng_keys_method %( )% [%f] shift_intend %( -1 )% 
+  %END-IF
+//	
+
+//	[<{}{%CC=Operation&%CS=remover}{%C}
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'remover'  ) ) 
+    ( %C ) 
+
+//	%f_fctr_mng_remover_java(%C)
+    [%f] fctr_mng_remover_java %( %C )% 
+//	><{}{"%ga"="abstract"}%g<{}{%CC=Operation&%CS=remover}{%C}
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'remover'  ) ) 
+     ( %C ) 
+
+//	%f_fctr_mng_remover_java(%C)
+     [%f] fctr_mng_remover_java %( %C )% 
+//	>>
+    %END-FOR
+    %END-FOR
+//	]%S%f_publish_self_java()
+  %END-IF
+  %S %f publish_self_java %( )% 
+//		protected void registerFactoryImpl (%SNAbstractFactory factory, short priority) throws DuplicatedFactoryKey {
+  '	protected void registerFactoryImpl ('
+  %S |N 'AbstractFactory factory, short priority) throws DuplicatedFactoryKey {'
+//			hasRegistredFactories_ = true;
+  '		hasRegistredFactories_ = true;'
+//			FactoryData factoryData = factoriesMap_.get(factory.key());
+  '		FactoryData factoryData = factoriesMap_.get(factory.key());'
+//			if (factoryData != null && factoryData.priority_ == priority) {
+  '		if (factoryData != null && factoryData.priority_ == priority) {'
+//				throw new DuplicatedFactoryKey ("%{INT}%P%PN.%PN.%SNFactory ", factory.key().toString ());
+  '			throw new DuplicatedFactoryKey ("'
+  ( get_global_var ( 'INT' )  ->P ->P |N  ) '.'
+  %P |N '.'
+  %S |N 'Factory ", factory.key().toString ());'
+//			}
+  '		}'
+//			if (factoryData == null || factoryData.priority_ \<= priority) {
+  '		if (factoryData == null || factoryData.priority_ <= priority) {'
+//				factoriesMap_.put(factory.key(), new FactoryData (factory, priority));
+  '			factoriesMap_.put(factory.key(), new FactoryData (factory, priority));'
+//			}
+  '		}'
+//			if (singleActiveFactory_ == null || singleActiveFactoryPriority_ \<= priority) {
+  '		if (singleActiveFactory_ == null || singleActiveFactoryPriority_ <= priority) {'
+//				singleActiveFactory_ = factory;
+  '			singleActiveFactory_ = factory;'
+//				singleActiveFactoryPriority_ = priority;
+  '			singleActiveFactoryPriority_ = priority;'
+//			}
+  '		}'
+//		}
+  '	}'
+//	
+
+//		private %SNFactoryManager () {
+  '	private '
+  %S |N 'FactoryManager () {'
+//		}
+  '	}'
+//	[
+  %IF-NOT-EMPTY
+
+//	<{}{%CS=FactoryMemory}%CX>
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+    %C |X 
+   %END-FOR
+//	]%f_fctr_mng_factory_call_tpl(%S,"factory","\%C\%f_fctr_mng_factory_java()")\
+  %END-IF
+  [%f] fctr_mng_factory_call_tpl %( %S %, 'factory"' %, '%C%f_fctr_mng_factory_java()' )% 
+//	%f_fctr_mng_factory_call_tpl(%S,"multi factory","\%C\%f_fctr_mng_factory_java()")\
+  [%f] fctr_mng_factory_call_tpl %( %S %, 'multi factory"' %, '%C%f_fctr_mng_factory_java()' )% 
+//	%f_fctr_mng_factory_call_tpl(%S,"remover","\%f_dump_factory_manager_remover_java(\%C)")\
+  [%f] fctr_mng_factory_call_tpl %( %S %, 'remover"' %, '%f_dump_factory_manager_remover_java(%C)' )% 
+//	%f_fctr_mng_factory_call_tpl(%S,"finder","\%C\%f_fctr_mng_factory_java()")\
+  [%f] fctr_mng_factory_call_tpl %( %S %, 'finder"' %, '%C%f_fctr_mng_factory_java()' )% 
+//	<{}{%ga=abstract}%g<{}{%CS=FactoryMemory}
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   %g
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'FactoryMemory' ) 
+
+//	%f_dump_common_mem_cache_java(%C)
+    [%f] dump_common_mem_cache_java %( %C )% 
+//	>>
+   %END-FOR
+   %END-FOR
+//	}
+  '}'
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+
+//f _fctr_mng_factory_call_tpl
+; // fctr.java
+
+end. // <<AbstractInterface>>
+
+: fctr_mng_factory_call_tpl OBJECT IN %S
+//	<{}{"%CS"="%1N"}{%C}
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== ( %1 |N ) ) 
+  ( %C ) 
+
+//	%f_exec(%2N)
+  [%f] exec %( %2 |N )% 
+//	><{}{"%ga"="abstract"}%g<{}{"%CS"="%2N"}{%C}
+ %END-FOR
+ %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+  %g
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== ( %2 |N ) ) 
+   ( %C ) 
+
+//	%f_exec(%3N)
+   [%f] exec %( %3 |N )% 
+//	>>
+  %END-FOR
+  %END-FOR
+
+//%f _dump_fmng_keys_method
+; // fctr_mng_factory_call_tpl
+
+implementation @ <<AbstractInterface>>
+: dump_fmng_keys_method OBJECT IN %S
+//	[{%XU=fctr.java}#public static java.util.Set\<%S%f_dump_switch_type()\> keys () {
+ %IF ( ( %X |U ) %== 'fctr.java' ) 
+  out_indent 'public static java.util.Set<'
+  %S %f dump_switch_type %( )% '> keys () {'
+//	#	return %SNFactoryManager.%S%f_fctr_mng_get_instance_name()().factoriesMap_.keySet ();
+  out_indent '	return '
+  %S |N 'FactoryManager.'
+  %S %f fctr_mng_get_instance_name %( )% '().factoriesMap_.keySet ();'
+//	#}][{%XU=fctr.h}#static %SNFactory::KeySet* keys ();][{%XU=fctr.cpp}\
+  out_indent '}' 
+ %END-IF
+ %IF ( ( %X |U ) %== 'fctr.h' ) 
+  out_indent 'static '
+  %S |N 'Factory::KeySet* keys ();' 
+ %END-IF
+ %IF ( ( %X |U ) %== 'fctr.cpp' ) 
+//	%SNFactory::KeySet* %SNFactoryManager::keys () {
+  %S |N 'Factory::KeySet* '
+  %S |N 'FactoryManager::keys () {'
+//		Core::Aptr\<%SNFactory::KeySet\> keys (new %SNFactory::KeySet (Singleton::instance()-\>m_factories_map.size ()));
+  '	Core::Aptr<'
+  %S |N 'Factory::KeySet> keys (new '
+  %S |N 'Factory::KeySet (Singleton::instance()->m_factories_map.size ()));'
+//		
+  '	'
+//		std::transform (
+  '	std::transform ('
+//			Singleton::instance()-\>m_factories_map.begin ()
+  '		Singleton::instance()->m_factories_map.begin ()'
+//			, Singleton::instance()-\>m_factories_map.end ()
+  '		, Singleton::instance()->m_factories_map.end ()'
+//			, std::back_inserter(*keys)
+  '		, std::back_inserter(*keys)'
+//			, boost::bind (&FactoryMap::value_type::first, _1)
+  '		, boost::bind (&FactoryMap::value_type::first, _1)'
+//		);
+  '	);'
+//		
+  '	'
+//		return keys.forget ();
+  '	return keys.forget ();'
+//	}]
+  '}' 
+ %END-IF
+
+//%f _dump_interface_factory_keys_method
+; // dump_fmng_keys_method
+
+: dump_interface_factory_keys_method OBJECT IN %S
+//	[{%XU=java}#public static java.util.Set\<%{INT}%f_dump_switch_type()\> keys () {
+ %IF ( ( %X |U ) %== 'java' ) 
+  out_indent 'public static java.util.Set<'
+  ( get_global_var ( 'INT' ) %f dump_switch_type %( )% ) '> keys () {'
+//	#	return %{INT}NFactoryManager.keys ();
+  out_indent '	return '
+  ( get_global_var ( 'INT' ) |N ) 'FactoryManager.keys ();'
+//	#}][{%XU=h}%f_set_var(SWITCH,"")%S%f_find_switch("SWITCH")\
+  out_indent '}' 
+ %END-IF
+ %IF ( ( %X |U ) %== 'h' ) 
+  [%f] set_var %( 'SWITCH' %, '' )% %S %f find_switch %( 'SWITCH' )% 
+//	#typedef std::vector\<[{%{SWITCH}%TN!=string}{std::string}%f_type(%{SWITCH}%T)]\> KeySet;
+  out_indent 'typedef std::vector<'
+  %IF ( ( ( get_global_var ( 'SWITCH' )  ->T |N ) ) %!= 'string' ) 
+   %ELSE
+    'std::string' 
+   %THEN
+   [%f] type %( ( get_global_var ( 'SWITCH' )  ->T ) )% 
+  %END-IF
+  '> KeySet;'
+//	#
+  out_indent 
+//	#static KeySet* keys ();][{%XU=cpp}%SNFactory::KeySet* %SNFactory::keys () {
+  out_indent 'static KeySet* keys ();' 
+ %END-IF
+ %IF ( ( %X |U ) %== 'cpp' ) 
+  %S |N 'Factory::KeySet* '
+  %S |N 'Factory::keys () {'
+//		return %SNFactoryManager::keys ();
+  '	return '
+  %S |N 'FactoryManager::keys ();'
+//	}]
+  '}' 
+ %END-IF
+//#UC END# *470321C1038Afor47174CE200AB*
+; // dump_interface_factory_keys_method
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: AbstractInterface::Class::factory::Operation
+end. // <<AbstractInterface>>
+
+implementation @ :: <<AbstractInterface>> <<factory>> ;
+//? Базовый стереотип фабрики
+//= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+//e g
+// - возможность использовать исключения
+//a a
+// - тип абстракции
+//T 
+// - может не иметь "цели" (типа/результата)
+//A
+// - стереотипы "цели" (типа/результата)
+
+// Пользовательские свойства
+//p dll export:b=true ? определяет что данный метод будет экспортироваться наружу компоненты
+
+// Генераторы
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor497483770297*
+//#UC END# *470321C1038Afor497483770297*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for497483770297*
+//#UC END# *4705C5490109for497483770297*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for497483770297*
+//#UC END# *4705C54B01F4for497483770297*
+; // fctr.cpp
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor497483770297*
+//#UC END# *47022C88029Ffor497483770297*
+; // h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for497483770297*
+//#UC END# *470321950119for497483770297*
+; // java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor497483770297*
+//#UC END# *47032EC4032Cfor497483770297*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor497483770297*
+//#UC END# *47032ED002DEfor497483770297*
+; // dll.cpp
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{dll export}"!="%S{!dll export}"}%f_up_prefix(%S) *dll export* = *%S{dll export}* - определяет что данный метод будет экспортироваться наружу компоненты
+ ?inherited
+ %IF ( ( %S get_up ( 'dll export' ) ) %!= ( %S get_up_def ( 'dll export' ) ) ) 
+  [%f] up_prefix %( %S )% ' *dll export* = *'
+  %S get_up ( 'dll export' ) '* - определяет что данный метод будет экспортироваться наружу компоненты'
+//	]
+ %END-IF
+
+// Генерит исключения в декларации фабричных методов менеджера фабрик
+//%f _dump_exceptions
+; // wiki_up_print
+
+: dump_exceptions OBJECT IN %S
+//#UC START# *49AD28F50299for497483770297*
+//	[{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]%S<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]%S<, %f_type(%E)>)*/]
+ %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+   ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+  %ELSE
+   'throw (CORBA::SystemException, CoreSrv::NoActiveFactory'
+   %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+    ', Core::Root::ImpossibleConversion' 
+   %END-IF
+   %S
+   %FOR ', '
+    [%f] type %( %E )% 
+   %END-FOR
+    ')' 
+  %THEN
+  '/*throw (Core::Root::NoActiveFactory'
+  %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+   ', Core::Root::ImpossibleConversion' 
+  %END-IF
+  %S
+  %FOR ', '
+   [%f] type %( %E )% 
+  %END-FOR
+   ')*/' 
+ %END-IF
+//#UC END# *49AD28F50299for497483770297*
+; // dump_exceptions
+
+
+// Формирует список исключений для статических клиентских фабрик
+//%f _dump_exceptions_client_fctr
+: dump_exceptions_client_fctr OBJECT IN %S
+//#UC START# *49AF75740088for497483770297*
+//	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( 'Не задан идентифкатор списка' )% 
+ %END-IF
+//	%f_clear_list(%1N)\
+ [%f] clear_list %( %1 |N )% 
+//	[{%S{transparent multy}=true}{[{%S{transparent multy}=false|"%S{transparent multy}"=""}%f_add_to_list(%1N,"Core::Root::UnknownFactoryKey")]}%f_add_to_list(%1N,"Core::Root::NoActiveFactory")]\
+ %IF ( ( %S get_up ( 'transparent multy' ) ) %==  true ) 
+  %ELSE
+   %IF ( ( %S get_up ( 'transparent multy' ) ) %==  false %|| 
+     ( ( %S get_up ( 'transparent multy' ) ) %== ''  ) ) 
+    [%f] add_to_list %( %1 |N %, 'Core::Root::UnknownFactoryKey' )% 
+   %END-IF
+  %THEN
+  [%f] add_to_list %( %1 |N %, 'Core::Root::NoActiveFactory' )% 
+ %END-IF
+//	%f_add_to_list(%1N,"Core::Root::FactoryManagerWasDestroyed")\
+ [%f] add_to_list %( %1 |N %, 'Core::Root::FactoryManagerWasDestroyed' )% 
+//	[{%f_need_conversion_exception(%S)=true}%f_add_to_list(%1N,"Core::Root::ImpossibleConversion")]\
+ %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+  [%f] add_to_list %( %1 |N %, 'Core::Root::ImpossibleConversion' )% 
+ %END-IF
+//	<%f_add_to_list(%1N,"%f_type(%E)")>
+ %FOR [%f] add_to_list %( %1 |N %, [%f] type %( %E )% )% 
+ %END-FOR
+//#UC END# *49AF75740088for497483770297*
+; // dump_exceptions_client_fctr
+
+
+// Список исключений для методов менеджера фабрик
+//%f _dump_exceptions_multi_fctr_mngr
+: dump_exceptions_multi_fctr_mngr OBJECT IN %S
+//#UC START# *49AE8F4C01ABfor497483770297*
+//	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( 'Не задан идентифкатор списка' )% 
+ %END-IF
+//	[{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{%f_add_to_list(%1N,"CORBA::SystemException")}]\
+ %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+   ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+  %ELSE
+   [%f] add_to_list %( %1 |N %, 'CORBA::SystemException' )% 
+  %THEN
+ %END-IF
+//	[{%S{transparent multy}=true}{[{%S{transparent multy}=false|"%S{transparent multy}"=""}%f_add_to_list(%1N,"Core::Root::UnknownFactoryKey")]}%f_add_to_list(%1N,"[{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{CoreSrv::NoActiveFactory}Core::Root::NoActiveFactory]")]\
+ %IF ( ( %S get_up ( 'transparent multy' ) ) %==  true ) 
+  %ELSE
+   %IF ( ( %S get_up ( 'transparent multy' ) ) %==  false %|| 
+     ( ( %S get_up ( 'transparent multy' ) ) %== ''  ) ) 
+    [%f] add_to_list %( %1 |N %, 'Core::Root::UnknownFactoryKey' )% 
+   %END-IF
+  %THEN
+  [%f] add_to_list %( %1 |N %, %IF ( ( [%f] realize_srv_interface %( %S )% ) %==  false %|| 
+    ( ( %S %?f is_exported %( )% ) %==  false  ) ) 
+   %ELSE
+    'CoreSrv::NoActiveFactory' 
+   %THEN
+   'Core::Root::NoActiveFactory' 
+  %END-IF
+)%  %END-IF
+//	[{%f_need_conversion_exception(%S)=true}%f_add_to_list(%1N,"Core::Root::ImpossibleConversion")]\
+ %IF ( ( [%f] need_conversion_exception %( %S )% ) %==  true ) 
+  [%f] add_to_list %( %1 |N %, 'Core::Root::ImpossibleConversion' )% 
+ %END-IF
+//	<%f_add_to_list(%1N,"%f_type(%E)")>
+ %FOR [%f] add_to_list %( %1 |N %, [%f] type %( %E )% )% 
+ %END-FOR
+//#UC END# *49AE8F4C01ABfor497483770297*
+; // dump_exceptions_multi_fctr_mngr
+
+
+// генерит объявление мульти фабрики на менеджере фабрик
+//%f _dump_factory_manager_multi_factory_h
+: dump_factory_manager_multi_factory_h OBJECT IN %S
+//#UC START# *4A93BE2103BAfor497483770297*
+//	[{%S{const_type}=combo}{%f_dump_factory_manager_multi_factory_h_impl(%S)}%f_dump_factory_manager_multi_factory_h_impl(%S,"read-write")
+ %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   [%f] dump_factory_manager_multi_factory_h_impl %( %S )% 
+  %THEN
+  [%f] dump_factory_manager_multi_factory_h_impl %( %S %, 'read-write' )% 
+//	
+
+//	#%f_dump_factory_manager_multi_factory_h_impl(%S,"read-only","_ro")]
+  out_indent [%f] dump_factory_manager_multi_factory_h_impl %( %S %, 'read-only"' %, '_ro' )% 
+ %END-IF
+//#UC END# *4A93BE2103BAfor497483770297*
+; // dump_factory_manager_multi_factory_h
+
+
+// генерит объявление фабрики на менеджере фабрик
+//%f _dump_factory_manager_single_factory_h
+: dump_factory_manager_single_factory_h OBJECT IN %S
+//#UC START# *4A93BE6D030Afor497483770297*
+//	[#%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  out_indent %S %f open_ifdef %( )% 
+//	][{%S{const_type}=combo}{%f_dump_factory_manager_single_factory_h_impl(%S)}\
+ %END-IF
+ %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   [%f] dump_factory_manager_single_factory_h_impl %( %S )% 
+  %THEN
+//	%f_dump_factory_manager_single_factory_h_impl(%S,"read-write")
+  [%f] dump_factory_manager_single_factory_h_impl %( %S %, 'read-write' )% 
+//	
+
+//	#%f_dump_factory_manager_single_factory_h_impl(%S,"read-only","_ro")][
+  out_indent [%f] dump_factory_manager_single_factory_h_impl %( %S %, 'read-only"' %, '_ro' )% 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4A93BE6D030Afor497483770297*
+; // dump_factory_manager_single_factory_h
+
+
+// Генерация фабрик
+//%f _dump_fctr_cpp_factory_impl
+: dump_fctr_cpp_factory_impl OBJECT IN %S
+//#UC START# *498704DD033Cfor497483770297*
+//	[{"%1N"!="servant"}[{"%{SERV}{Factory default impl}"!="true"}[%f_str_split(%SD,// )
+ %IF ( ( %1 |N ) %!= 'servant' ) 
+  %IF ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %!= true ) 
+   %IF-NOT-EMPTY
+    [%f] str_split %( %S |D %, '// ' )% 
+//	]]%f_dump_fctr_header_cpp_i(%S,"%2N") {
+   %END-IF
+  %END-IF
+  [%f] dump_fctr_header_cpp_i %( %S %, %2 |N )% ' {'
+//		[{"%{SERV}{Factory default impl}"="true"}{%f_set_var(CTOR,S)%{CTOR_P}[{true}%U[{%{SERV}U_%{CTOR}U_IMPL}
+  '	'
+  %IF ( ( ( get_global_var ( 'SERV' ) get_up ( 'Factory default impl' ) ) ) %== true ) 
+   %ELSE
+    [%f] set_var %( 'CTOR' %, 'S' )% ( get_global_var ( 'CTOR_P' ) ) %IF (  true ) 
+     %U%IF ( ( ( get_global_var ( 'SERV' ) |U ) ) '_( '
+      ( get_global_var ( 'CTOR' ) |U ) ) '_IMPL' ) 
+
+//		]]}[{"%{SERV}{singleton}"="false"}{return Core::IObject::_duplicate (%{SERV}N::Singleton::instance());}%f_var(%{SERV}) ret = new %{SERV}N (%S<{, }%CN>[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")mem_key]\
+      '	' 
+     %END-IF
+     %END-IF
+   %THEN
+   %IF ( ( ( get_global_var ( 'SERV' ) get_up ( 'singleton' ) ) ) %== false ) 
+    %ELSE
+     'return Core::IObject::_duplicate ('
+     ( get_global_var ( 'SERV' ) |N ) '::Singleton::instance());' 
+    %THEN
+    [%f] var %( ( get_global_var ( 'SERV' ) ) )% ' ret = new '
+    ( get_global_var ( 'SERV' ) |N ) ' ('
+    %S
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %C |N 
+    %END-FOR
+     %IF ( ( %T |S ) %== 'FactoryMemory' %&& 
+      ( 
+     %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+      ( %C |C ) 
+     %END-FOR
+     %== 0  ) ) 
+     %IF ( ( %C |x ) %==  true ) 
+      ', ' 
+     %END-IF
+     [%f] set_var %( 'HAS_MEM_KEY' %, 1 )% 'mem_key' 
+    %END-IF
+//	[{"%f_equal_ctor(%{SERV},%S)"="true"}[{"%S%Cx"="true"|%S%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}, ]%f_set_var(HAS_FCT_ID,"1")%f_dump_factories_id_parent(%{SERV})FactoriesID::%f_to_borland(%SN)()][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%S%Cx=true}, ]ro_mode]);
+    %IF ( ( [%f] equal_ctor %( ( get_global_var ( 'SERV' ) ) %, %S )% ) %== true ) 
+     %IF ( ( %S ->C |x  ) %== true %|| 
+       ( ( %S ->T |S  ) %== 'FactoryMemory'  ) %&& 
+       ( 
+      %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+       ( %C |C ) 
+      %END-FOR
+      %== 0  ) ) 
+      ', ' 
+     %END-IF
+     [%f] set_var %( 'HAS_FCT_ID' %, 1 )% [%f] dump_factories_id_parent %( ( get_global_var ( 'SERV' ) ) )% 'FactoriesID::'
+     [%f] to_borland %( %S |N )% '()' 
+    %END-IF
+    %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+     %IF ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 %|| 
+       ( ( ( get_global_var ( 'HAS_FCT_ID' ) |N ) ) %== 1  ) %|| 
+       ( ( %S ->C |x  ) %==  true  ) ) 
+      ', ' 
+     %END-IF
+     'ro_mode' 
+    %END-IF
+    ');'
+//		%{SERV}%f_activate_and_ret()]]
+    '	'
+    ( get_global_var ( 'SERV' ) %f activate_and_ret %( )% ) 
+   %END-IF
+  %END-IF
+//	}]\
+  '}' 
+ %END-IF
+//	[{"%1N"="servant"}%t_ret(%{SERV},"%Ss") %{SERV}NServantFactory::%SN (%S%f_factory_params("%2N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%t_arg(%T,"inout") mem_key])[ /*throw (<{, }%f_type(%E)>)*/] {
+ %IF ( ( %1 |N ) %== 'servant' ) 
+  [%t] ret %( ( get_global_var ( 'SERV' ) ) %, %S |s )% ' '
+  ( get_global_var ( 'SERV' ) |N ) 'ServantFactory::'
+  %S |N ' ('
+  %S %f factory_params %( %2 |N %, '' %, '' %, 'servant' )% %IF ( ( %T |S ) %== 'FactoryMemory' %&& 
+    ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+    ( %C |C ) 
+   %END-FOR
+   %== 0  ) ) 
+   %IF ( ( %C |x ) %==  true ) 
+    ', ' 
+   %END-IF
+   [%t] arg %( %T %, 'inout' )% ' mem_key' 
+  %END-IF
+  ')'
+  %IF-NOT-EMPTY
+   ' /*throw ('
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    [%f] type %( %E )% 
+   %END-FOR
+   ')*/' 
+  %END-IF
+  ' {'
+//	[{%Ss!=cached&%Ss!=const,cached}	if (%{SERV}N_factory::s_instance) {
+  %IF ( ( %S |s ) %!= 'cached' %&& 
+    ( ( %S |s ) %!= 'const,cached'  ) ) 
+   '	if ('
+   ( get_global_var ( 'SERV' ) |N ) '_factory::s_instance) {'
+//			return dynamic_cast\<%t_ret(%{SERV})\>(\
+   '		return dynamic_cast<'
+   [%t] ret %( ( get_global_var ( 'SERV' ) ) )% '>('
+//	[{%{INT}S=ServerInterface}LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant (]\
+   %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' ) 
+    'LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant (' 
+   %END-IF
+//	%{SERV}N_factory::s_instance-\>%SN (<{, }%CN>)[{%{INT}S=ServerInterface})]);
+   ( get_global_var ( 'SERV' ) |N ) '_factory::s_instance->'
+   %S |N ' ('
+   %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+    %C |N 
+   %END-FOR
+   ')'
+   %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' ) 
+    ')' 
+   %END-IF
+   ');'
+//		} else {
+   '	} else {'
+//			throw Core::Root::NoActiveFactory (%{SERV}["%P%PN::%PN::%SN_factory"]);
+   '		throw Core::Root::NoActiveFactory ('
+   ( get_global_var ( 'SERV' ) ) %IF-NOT-EMPTY
+    %P ->P |N  '::'
+    %P |N '::'
+    %S |N '_factory' 
+   %END-IF
+   ');'
+//		}
+   '	}'
+//	]\
+  %END-IF
+//	[{%f_is_it_cached(%S)=true}	try {
+  %IF ( ( [%f] is_it_cached %( %S )% ) %==  true ) 
+   '	try {'
+//	[{%{INT}S=ServerInterface}{		return dynamic_cast\<%{SERV}N&\> (%f_type(%{INT})Factory::%SN (<{, }%CN>[{%SS=multi factory}[{%S%Cx=true}, ][{}{"%{SERV}N"}%{SERV}#f_key_impl()]]));}\
+   %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %== 'ServerInterface' ) 
+    %ELSE
+     '		return dynamic_cast<'
+     ( get_global_var ( 'SERV' ) |N ) '&> ('
+     [%f] type %( ( get_global_var ( 'INT' ) ) )% 'Factory::'
+     %S |N ' ('
+     %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+      %C |N 
+     %END-FOR
+     %IF ( ( %S |S ) %== 'multi factory' ) 
+      %IF ( ( %S ->C |x  ) %==  true ) 
+       ', ' 
+      %END-IF
+      %IF ( ) 
+       %ELSE
+        ( get_global_var ( 'SERV' ) |N ) 
+       %THEN
+       ( get_global_var ( 'SERV' ) ) out_indent 'f_key_impl()' 
+      %END-IF
+     %END-IF
+     '));' 
+    %THEN
+//			PortableServer::ServantBase_var serv = LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant (
+    '		PortableServer::ServantBase_var serv = LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant ('
+//				&%f_type(%{INT})Factory::%SN (%S<{, }%CN>[{%SS=multi factory}[{%S%Cx=true}, ][{}{"%{SERV}N"}%{SERV}#f_key_impl()]])
+    '			&'
+    [%f] type %( ( get_global_var ( 'INT' ) ) )% 'Factory::'
+    %S |N ' ('
+    %S
+    %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+     %C |N 
+    %END-FOR
+     %IF ( ( %S |S ) %== 'multi factory' ) 
+     %IF ( ( %S ->C |x  ) %==  true ) 
+      ', ' 
+     %END-IF
+     %IF ( ) 
+      %ELSE
+       ( get_global_var ( 'SERV' ) |N ) 
+      %THEN
+      ( get_global_var ( 'SERV' ) ) out_indent 'f_key_impl()' 
+     %END-IF
+    %END-IF
+    ')'
+//			);
+    '		);'
+//			return dynamic_cast\<%{SERV}N&\> (*(serv.in ()));]
+    '		return dynamic_cast<'
+    ( get_global_var ( 'SERV' ) |N ) '&> (*(serv.in ()));' 
+   %END-IF
+//		} catch (std::bad_cast& ) {
+   '	} catch (std::bad_cast& ) {'
+//			throw Core::Root::NoActiveFactory (%{SERV}["%P%PN::%PN::%SN_factory"]);
+   '		throw Core::Root::NoActiveFactory ('
+   ( get_global_var ( 'SERV' ) ) %IF-NOT-EMPTY
+    %P ->P |N  '::'
+    %P |N '::'
+    %S |N '_factory' 
+   %END-IF
+   ');'
+//		}
+   '	}'
+//	]}]
+  %END-IF
+  '}' 
+ %END-IF
+//#UC END# *498704DD033Cfor497483770297*
+; // dump_fctr_cpp_factory_impl
+
+
+// Генерит декларацию конкретных фабрик
+//%f _dump_fctr_h_impl
+: dump_fctr_h_impl OBJECT IN %S
+//#UC START# *49895C3202DFfor497483770297*
+//	%f_set_var(HAS_MEM_KEY,"0")\
+ [%f] set_var %( 'HAS_MEM_KEY' %, 0 )% 
+//	%f_set_var(SRV_FACTORY_OP,"[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (%S%f_factory_params("%2N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}, ]bool ro_mode])[ /*throw (%S<{, }%f_type(%E)>)*/];")\
+ [%f] set_var %( 'SRV_FACTORY_OP' %, %IF ( ( %1 |N ) %== 'servant' ) 
+  %ELSE
+   [%t] ret %( ( get_global_var ( 'INT' ) ) )% 
+  %THEN
+  'static '
+  [%t] ret %( ( get_global_var ( '__SERVANT' ) ) %, %S |s )% 
+ %END-IF
+ ' '
+ %S |N ' ('
+ %S %f factory_params %( %2 |N %, '' %, '' %, 'servant' )% %IF ( ( %T |S ) %== 'FactoryMemory' %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+   ( %C |C ) 
+  %END-FOR
+  %== 0  ) ) 
+  %IF ( ( %C |x ) %==  true ) 
+   ', ' 
+  %END-IF
+  [%f] set_var %( 'HAS_MEM_KEY' %, 1 )% [%t] arg %( %T %, 'inout' )% ' mem_key' 
+ %END-IF
+ %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+  %IF ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 %|| 
+    ( ( %C |x ) %==  true  ) ) 
+   ', ' 
+  %END-IF
+  'bool ro_mode' 
+ %END-IF
+ ')'
+ %IF-NOT-EMPTY
+  ' /*throw ('
+  %S
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   [%f] type %( %E )% 
+  %END-FOR
+   ')*/' 
+ %END-IF
+ ';' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (%S%f_factory_params("%2N","\n\t\t","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}\n\t\t, ]%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}\n\t\t, ]bool ro_mode]\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/];]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+  %ELSE
+   ( get_global_var ( 'SRV_FACTORY_OP' ) |N ) 
+  %THEN
+  %IF ( ( %1 |N ) %== 'servant' ) 
+   %ELSE
+    [%t] ret %( ( get_global_var ( 'INT' ) ) )% 
+   %THEN
+   'static '
+   [%t] ret %( ( get_global_var ( '__SERVANT' ) ) %, %S |s )% 
+  %END-IF
+  ' '
+  %S |N ' ('
+  %S %f factory_params %( %2 |N %, #13#10#9#9'"' %, '' %, 'servant' )% %IF ( ( %T |S ) %== 'FactoryMemory' %&& 
+    ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+    ( %C |C ) 
+   %END-FOR
+   %== 0  ) ) 
+   %IF ( ( %C |x ) %==  true ) 
+    #13#10#9#9', ' 
+   %END-IF
+   [%t] arg %( %T %, 'inout' )% ' mem_key' 
+  %END-IF
+  %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+   %IF ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 %|| 
+     ( ( %C |x ) %==  true  ) ) 
+    #13#10#9#9', ' 
+   %END-IF
+   'bool ro_mode' 
+  %END-IF
+  #13#10#9')'
+  %IF-NOT-EMPTY
+   ' /*throw ('#13#10#9#9
+   %S
+   %FOR %ITEM-SEPARATOR #13#10#9#9', ' ; // %ITEM-SEPARATOR 
+    [%f] type %( %E )% 
+   %END-FOR
+    #13#10#9')*/' 
+  %END-IF
+  ';' 
+ %END-IF
+//#UC END# *49895C3202DFfor497483770297*
+; // dump_fctr_h_impl
+
+
+// Генерит форматированный список исключений для клиентских мультифабрик
+//%f _dump_formated_exception_client_list
+: dump_formated_exception_client_list OBJECT IN %S
+//#UC START# *49AF75D50218for497483770297*
+//	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( 'Не задан идентифкатор списка' )% 
+ %END-IF
+//	%f_copy_list(%1N,%1N_COPY)\
+ [%f] copy_list %( %1 |N %, %1 |N '_COPY' )% 
+//	[{"%3N"="NEW_LINE"&"%XU"="h"}\n#	][{"%3N"!="NEW_LINE"} ]/*throw (<{%2N}{%f_is_empty(%1N_COPY)=false}{W}[%f_pop_first_to_var(%1N_COPY,EX)%{EX}N]>)*/
+ %IF ( ( %3 |N ) %== 'NEW_LINE' %&& 
+   ( ( %X |U ) %== 'h'  ) ) 
+  #13#10
+  out_indent '	' 
+ %END-IF
+ %IF ( ( %3 |N ) %!= 'NEW_LINE' ) 
+  ' ' 
+ %END-IF
+ '/*throw ('
+ %FOR %ITEM-SEPARATOR %2 |N ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( %1 |N '_COPY' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( %1 |N '_COPY' %, 'EX' )% ( get_global_var ( 'EX' ) |N ) 
+  %END-IF
+ %END-FOR
+ ')*/'
+//#UC END# *49AF75D50218for497483770297*
+; // dump_formated_exception_client_list
+
+
+// Генерит форматированный список исключений для реализации клиентских
+// фабрик
+//%f _dump_formated_exception_client_list_cpp
+: dump_formated_exception_client_list_cpp OBJECT IN %S
+//#UC START# *49AFC60A02BEfor497483770297*
+//	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( 'Не задан идентифкатор списка' )% 
+ %END-IF
+//	%f_copy_list(%1N,%1N_COPY)\
+ [%f] copy_list %( %1 |N %, %1 |N '_COPY' )% 
+//	 /*throw (<{%2N}{%f_is_empty(%1N_COPY)=false}{W}[%f_pop_first_to_var(%1N_COPY,EX)%{EX}N]>)*/
+ ' /*throw ('
+ %FOR %ITEM-SEPARATOR %2 |N ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( %1 |N '_COPY' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( %1 |N '_COPY' %, 'EX' )% ( get_global_var ( 'EX' ) |N ) 
+  %END-IF
+ %END-FOR
+ ')*/'
+//#UC END# *49AFC60A02BEfor497483770297*
+; // dump_formated_exception_client_list_cpp
+
+
+// Форматированный вывод списка исключений
+//%f _dump_formated_exception_list
+: dump_formated_exception_list OBJECT IN %S
+//#UC START# *49AE8F900025for497483770297*
+//	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( 'Не задан идентифкатор списка' )% 
+ %END-IF
+//	%f_copy_list(%1N,%1N_COPY)\
+ [%f] copy_list %( %1 |N %, %1 |N '_COPY' )% 
+//	<{%2N}{%f_is_empty(%1N_COPY)=false}{W}[%f_pop_first_to_var(%1N_COPY,EX)%{EX}N]>
+ %FOR %ITEM-SEPARATOR %2 |N ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( %1 |N '_COPY' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( %1 |N '_COPY' %, 'EX' )% ( get_global_var ( 'EX' ) |N ) 
+  %END-IF
+ %END-FOR
+//#UC END# *49AE8F900025for497483770297*
+; // dump_formated_exception_list
+
+
+// генерит список праметров фабрики (при это если нужна, выполняется  конвертация спецификаторов
+// параметров)
+//%f _factory_params
+: factory_params OBJECT IN %S
+//#UC START# *497963F4033Ffor497483770297*
+//	%f_set_var(TYPE,"[{%S{force use const arg}=true&%S{const_type}=combo&%1N=read-only}{read-write}read-only]")\
+ [%f] set_var %( 'TYPE' %, %IF ( ( %S get_up ( 'force use const arg' ) ) %==  true %&& 
+   ( ( %S get_up ( 'const_type' ) ) %== 'combo'  ) %&& 
+   ( ( %1 |N ) %== 'read-only'  ) ) 
+  %ELSE
+   'read-write' 
+  %THEN
+  'read-only' 
+ %END-IF
+)% //	[{"%4N"!="servant"}{%f_set_var(ARGS,"<{%2N, }{}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","%{TYPE}N")") %t_language_style("%CN")>")}\
+ %IF ( ( %4 |N ) %!= 'servant' ) 
+  %ELSE
+   [%f] set_var %( 'ARGS' %, 
+   %FOR %ITEM-SEPARATOR %2 |N ', ' ; // %ITEM-SEPARATOR 
+    ( %C ) 
+    [%t] arg %( %C ->T  %, [%t] r_w_param_specificator %( %C |S %, ( get_global_var ( 'TYPE' ) |N ) )% )% ' '
+    [%t] language_style %( %C |N )% 
+   %END-FOR
+)%   %THEN
+//	%f_set_var(ARGS,"<{%2N, }{%CS!=cache}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","%{TYPE}N")") %t_language_style("%CN")>")]\
+  [%f] set_var %( 'ARGS' %, 
+  %FOR %ITEM-SEPARATOR %2 |N ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |S ) %!= 'cache' ) 
+   ( %C ) 
+   [%t] arg %( %C ->T  %, [%t] r_w_param_specificator %( %C |S %, ( get_global_var ( 'TYPE' ) |N ) )% )% ' '
+   [%t] language_style %( %C |N )% 
+  %END-FOR
+)%  %END-IF
+//	[{"%{ARGS}N"!=""}%2N%{ARGS}N%3N]
+ %IF ( ( ( get_global_var ( 'ARGS' ) |N ) ) %!= '' ) 
+  %2 |N ( get_global_var ( 'ARGS' ) |N ) %3 |N 
+ %END-IF
+
+//генерит атрибут для типа кэша
+//%f _cache_attr
+; // factory_params
+
+: cache_attr OBJECT IN %S
+//	[{%f_check_if_type(%1%T,"string")=false&%f_check_if_type(%1%T,"a-string")=false}{std::string %1N}%f_arg_full_decl(%1)]
+ %IF ( ( [%f] check_if_type %( %1 ->T  %, 'string' )% ) %==  false %&& 
+   ( ( [%f] check_if_type %( %1 ->T  %, 'a-string' )% ) %==  false  ) ) 
+  %ELSE
+   'std::string '
+   %1 |N 
+  %THEN
+  [%f] arg_full_decl %( %1 )% 
+ %END-IF
+//#UC END# *497963F4033Ffor497483770297*
+; // cache_attr
+
+
+// Генерит реализацию конструктора для серванта
+//%f _fctr_def_impl_cpp_ctor_impl
+: fctr_def_impl_cpp_ctor_impl OBJECT IN %S
+//#UC START# *498AEC1101EEfor497483770297*
+//	%f_set_var(CTOR,S)\
+ [%f] set_var %( 'CTOR' %, 'S' )% 
+//	%f_fctr_def_impl_header_cpp_i(%S,"%1N")
+ [%f] fctr_def_impl_header_cpp_i %( %S %, %1 |N )% 
+//	%{SELF_OP}[{true}%U[{_%{CTOR}U_%{SELF}U_BASE_INIT[{%2N=read-only}_RO]}
+ ( get_global_var ( 'SELF_OP' ) ) %IF (  true ) 
+  %U%IF ( '_( '
+   ( get_global_var ( 'CTOR' ) |U ) ) '_( '
+   ( get_global_var ( 'SELF' ) |U ) ) '_BASE_INIT'
+   %IF ( ( %2 |N ) %== 'read-only' ) 
+    '_RO' 
+   %END-IF
+) 
+
+//	]
+  %END-IF
+ //	{%f_start_func_cpp(%{SELF},"%{SELF}N::%{SELF}N")
+  '{'
+  [%f] start_func_cpp %( ( get_global_var ( 'SELF' ) ) %, ( get_global_var ( 'SELF' ) |N ) '::'
+  ( get_global_var ( 'SELF' ) |N ) )% 
+//		%U[{_%{CTOR}U_%{SELF}U_BODY[{%2N=read-only}_RO]}
+  '	'
+  %U%IF ( '_( '
+   ( get_global_var ( 'CTOR' ) |U ) ) '_( '
+   ( get_global_var ( 'SELF' ) |U ) ) '_BODY'
+   %IF ( ( %2 |N ) %== 'read-only' ) 
+    '_RO' 
+   %END-IF
+) 
+
+//		]
+   '	' 
+  %END-IF
+ //	%f_end_func_cpp(%{SELF})}]
+  [%f] end_func_cpp %( ( get_global_var ( 'SELF' ) ) )% '}' 
+ %END-IF
+//#UC END# *498AEC1101EEfor497483770297*
+; // fctr_def_impl_cpp_ctor_impl
+
+
+// Генерит декларацию конструктора для серванта
+//%f _fctr_def_impl_h_impl
+: fctr_def_impl_h_impl OBJECT IN %S
+//#UC START# *498AACD601DAfor497483770297*
+//	%f_set_var(HAS_MEM_KEY,"0")\
+ [%f] set_var %( 'HAS_MEM_KEY' %, 0 )% 
+//	%f_set_var(HAS_FCT_ID,"0")\
+ [%f] set_var %( 'HAS_FCT_ID' %, 0 )% 
+//	%f_set_var(OPERATION_FACTORY,"%{SELF}N (%S%f_factory_params("%1N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")%t_arg(%T,"inout") mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"|%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}, ]%f_set_var(HAS_FCT_ID,"1")const %f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}, ]bool ro_mode]);")\
+ [%f] set_var %( 'OPERATION_FACTORY' %, ( get_global_var ( 'SELF' ) |N ) ' ('
+ %S %f factory_params %( %1 |N %, '' %, '' %, 'servant' )% %IF ( ( %T |S ) %== 'FactoryMemory' %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+   ( %C |C ) 
+  %END-FOR
+  %== 0  ) ) 
+  %IF ( ( %C |x ) %==  true ) 
+   ', ' 
+  %END-IF
+  [%f] set_var %( 'HAS_MEM_KEY' %, 1 )% [%t] arg %( %T %, 'inout' )% ' mem_key' 
+ %END-IF
+ %IF ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %S )% ) %== true ) 
+  %IF ( ( %S ->C |x  ) %== true %|| 
+    ( ( %T |S ) %== 'FactoryMemory'  ) %&& 
+    ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+    ( %C |C ) 
+   %END-FOR
+   %== 0  ) ) 
+   ', ' 
+  %END-IF
+  [%f] set_var %( 'HAS_FCT_ID' %, 1 )% 'const '
+  [%f] dump_factories_id_parent %( ( get_global_var ( 'SELF' ) ) )% 'FactoriesID::'
+  [%f] to_borland %( %S |N )% '& factory_id' 
+ %END-IF
+ %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+  %IF ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 %|| 
+    ( ( ( get_global_var ( 'HAS_FCT_ID' ) |N ) ) %== 1  ) %|| 
+    ( ( %C |x ) %==  true  ) ) 
+   ', ' 
+  %END-IF
+  'bool ro_mode' 
+ %END-IF
+ ');' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'OPERATION_FACTORY' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}%{SELF}N (%S%f_factory_params("%1N","\n\t\t","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%t_arg(%T,"inout") mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"|%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}\n\t\t, ]const %f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}, ]bool ro_mode]\n\t);]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+  %ELSE
+   ( get_global_var ( 'OPERATION_FACTORY' ) |N ) 
+  %THEN
+  ( get_global_var ( 'SELF' ) |N ) ' ('
+  %S %f factory_params %( %1 |N %, #13#10#9#9'"' %, '' %, 'servant' )% %IF ( ( %T |S ) %== 'FactoryMemory' %&& 
+    ( 
+   %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+    ( %C |C ) 
+   %END-FOR
+   %== 0  ) ) 
+   %IF ( ( %C |x ) %==  true ) 
+    ', ' 
+   %END-IF
+   [%t] arg %( %T %, 'inout' )% ' mem_key' 
+  %END-IF
+  %IF ( ( [%f] equal_ctor %( ( get_global_var ( 'SELF' ) ) %, %S )% ) %== true ) 
+   %IF ( ( %S ->C |x  ) %== true %|| 
+     ( ( %T |S ) %== 'FactoryMemory'  ) %&& 
+     ( 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %!= 'nokey' ) 
+     ( %C |C ) 
+    %END-FOR
+    %== 0  ) ) 
+    #13#10#9#9', ' 
+   %END-IF
+   'const '
+   [%f] dump_factories_id_parent %( ( get_global_var ( 'SELF' ) ) )% 'FactoriesID::'
+   [%f] to_borland %( %S |N )% '& factory_id' 
+  %END-IF
+  %IF ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true ) 
+   %IF ( ( ( get_global_var ( 'HAS_MEM_KEY' ) |N ) ) %== 1 %|| 
+     ( ( ( get_global_var ( 'HAS_FCT_ID' ) |N ) ) %== 1  ) %|| 
+     ( ( %C |x ) %==  true  ) ) 
+    ', ' 
+   %END-IF
+   'bool ro_mode' 
+  %END-IF
+  #13#10#9');' 
+ %END-IF
+//#UC END# *498AACD601DAfor497483770297*
+; // fctr_def_impl_h_impl
+
+
+// генерит определение менеджера фабрик для интерфейса
+//%f _fctr_mng_fctr_cpp
+: fctr_mng_fctr_cpp OBJECT IN %S
+//#UC START# *4A950A3D028Efor497483770297*
+//	[%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  %S %f open_ifdef %( )% 
+//	][{%S{const_type}=combo}{%{INT}%f_fctr_mng_fctr_cpp_impl(%S,"%S{const_type}")}%{INT}%f_fctr_mng_fctr_cpp_impl(%S,"read-write")
+ %END-IF
+ %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   ( get_global_var ( 'INT' ) %f fctr_mng_fctr_cpp_impl %( %S %, %S get_up ( 'const_type' ) )% ) 
+  %THEN
+  ( get_global_var ( 'INT' ) %f fctr_mng_fctr_cpp_impl %( %S %, 'read-write' )% ) 
+//	
+
+//	%{INT}%f_fctr_mng_fctr_cpp_impl(%S,"read-only","_ro")][
+  ( get_global_var ( 'INT' ) %f fctr_mng_fctr_cpp_impl %( %S %, 'read-only"' %, '_ro' )% ) 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_close_ifdef()]
+  %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *4A950A3D028Efor497483770297*
+; // fctr_mng_fctr_cpp
+
+
+// генерит релизацию мульти фабрики на менеджере фабрик
+//%f _fctr_mng_m_fctr_cpp
+: fctr_mng_m_fctr_cpp OBJECT IN %S
+//#UC START# *4A950A8402CBfor497483770297*
+//	[{%S{const_type}=combo}{%{INT}%f_fctr_mng_m_fctr_cpp_impl(%S,"%S{const_type}")}%{INT}%f_fctr_mng_m_fctr_cpp_impl(%S,"read-write")
+ %IF ( ( %S get_up ( 'const_type' ) ) %== 'combo' ) 
+  %ELSE
+   ( get_global_var ( 'INT' ) %f fctr_mng_m_fctr_cpp_impl %( %S %, %S get_up ( 'const_type' ) )% ) 
+  %THEN
+  ( get_global_var ( 'INT' ) %f fctr_mng_m_fctr_cpp_impl %( %S %, 'read-write' )% ) 
+//	
+
+//	%{INT}%f_fctr_mng_m_fctr_cpp_impl(%S,"read-only","_ro")]
+  ( get_global_var ( 'INT' ) %f fctr_mng_m_fctr_cpp_impl %( %S %, 'read-only"' %, '_ro' )% ) 
+ %END-IF
+//#UC END# *4A950A8402CBfor497483770297*
+; // fctr_mng_m_fctr_cpp
+
+
+// возвращает true, если RW и RO фабрики имеют различные синатуры
+//%f _has_two_different_signatures
+: has_two_different_signatures OBJECT IN %S
+//#UC START# *4979643901D3for497483770297*
+//	[{%S{force use const arg}=true&%S{const_type}=combo&<{}{}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","read-write")")>!=<{}{}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","read-only")")>}{false}true]
+ %IF ( ( %S get_up ( 'force use const arg' ) ) %==  true %&& 
+   ( ( %S get_up ( 'const_type' ) ) %== 'combo'  ) %&& 
+   ( 
+  %FOR ( %C ) 
+   [%t] arg %( %C ->T  %, [%t] r_w_param_specificator %( %C |S %, 'read-write' )% )% 
+  %END-FOR
+  %!= 
+  %FOR ( %C ) 
+   [%t] arg %( %C ->T  %, [%t] r_w_param_specificator %( %C |S %, 'read-only' )% )% 
+  %END-FOR
+ ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4979643901D3for497483770297*
+; // has_two_different_signatures
+
+
+// возвращает true, если фабрика кэшированная (в том числе если это синхро-фабрика), иначе - false
+//%f _is_cached
+: is_cached OBJECT IN %S
+//#UC START# *4A93E7EC0223for497483770297*
+//	[{%Ss=cached|%Ss=const,cached|%Ss=synchro}{false}true]
+ %IF ( ( %S |s ) %== 'cached' %|| 
+   ( ( %S |s ) %== 'const,cached'  ) %|| 
+   ( ( %S |s ) %== 'synchro'  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4A93E7EC0223for497483770297*
+; // is_cached
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for497483770297*
+//c                                                             {}
+//r {%S%f_is_cached(%S)=false&<{}{%CS=cache}{%CC}>!=0}:         {Стереотип "cache" может использоваться только для параметров кэшированной фабрики}
+//r {""=""}:                                                    {}
+//#UC END# *4704C0E30186for497483770297*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor497483770297*
+//	mng
+ 'mng'
+//#UC END# *4705CBD6003Efor497483770297*
+; // wiki_child_kind
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<AbstractInterface>> <<factory>> ;
+

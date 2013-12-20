@@ -1,0 +1,173 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Functors/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Functors::Support
+//
+// набор вспомогательных функций для генерации функторов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерация тела функтора
+//f _functor_impl_body
+: functor_impl_body OBJECT IN %S
+//#UC START# *471328B302BF*
+//	%t_functor_ret(%S) %f_function_scope(%S)operator () %t_functor_functor(%S) {
+ [%t] functor_ret %( %S )% ' '
+ [%f] function_scope %( %S )% 'operator () '
+ [%t] functor_functor %( %S )% ' {'
+//		%U[{_IMPL!cpp!}
+ '	'
+ %U%IF ( '_IMPL!cpp!' ) 
+
+//		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+  '	throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);'
+//		]
+  '	' 
+ %END-IF
+ //	}[
+ '}'
+ %IF-NOT-EMPTY
+
+//	
+
+//	%f_common_functors_impl_body(%S)]
+  [%f] common_functors_impl_body %( %S )% 
+ %END-IF
+//#UC END# *471328B302BF*
+; // functor_impl_body
+
+
+// возаращает тип результата функтора
+//t _functor_ret
+<<transformator>> functor_ret OBJECT IN %S
+//#UC START# *4713294A002E*
+//c                                              {}
+//r "%SS"="Predicate"|"%SS"="BinaryPredicate":   {bool}
+//r ""="":                                       {[{}{void}<{}{%CS=result}%f_ret(%C)>]}
+//#UC END# *4713294A002E*
+; // functor_ret
+
+
+// генерация параметра функтора
+//f _functor_arg
+: functor_arg OBJECT IN %S
+//#UC START# *471329B00138*
+//	[{"%{PARAM}l"!="ref"}{[{"%t_refcounted(%S)"="true"}{%t_arg(%S,%1)}%t_functor_arg(%S,%1)]}%t_arg(%S,%1)]
+ %IF ( ( ( get_global_var ( 'PARAM' ) |l ) ) %!= 'ref' ) 
+  %ELSE
+   %IF ( ( [%t] refcounted %( %S )% ) %== true ) 
+    %ELSE
+     [%t] arg %( %S %, %1 )% 
+    %THEN
+    [%t] functor_arg %( %S %, %1 )% 
+   %END-IF
+  %THEN
+  [%t] arg %( %S %, %1 )% 
+ %END-IF
+//#UC END# *471329B00138*
+; // functor_arg
+
+
+// генерация параметра функтора
+//t _functor_arg
+<<transformator>> functor_arg OBJECT IN %S
+//#UC START# *471329BF033C*
+//c                                         {in}                                              {inout}              {out}
+//r "%t_refcounted(%S)"="true":             {[{%f_is_server_type(%S)=false}const ]%f_tn(%S)_var&} {%f_tn(%S)_var&}         {%f_tn(%S)_var*&}
+//#UC END# *471329BF033C*
+; // functor_arg
+
+
+// общий код для функторов
+//f _common_functors_impl_body
+: common_functors_impl_body OBJECT IN %S
+//#UC START# *4716E5190213*
+//	%f_impl_dump_def_init_ctor(%S)[{<{}{%CC=Attribute&"%CS"=""}{C}>!=0}
+ [%f] impl_dump_def_init_ctor %( %S )% %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |S ) %== ''  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+
+//	%f_function_scope(%S)%SN (<{, }{%CC=Attribute&"%CS"=""}%t_arg(%C%T,"%f_get_arg_specifier(%C)") %CN_>) : <{, }{%CC=Attribute&"%CS"=""}%CN(%t_init_functor_memeber(%C))> {
+  [%f] function_scope %( %S )% %S |N ' ('
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |S ) %== ''  ) ) 
+   [%t] arg %( %C ->T  %, [%f] get_arg_specifier %( %C )% )% ' '
+   %C |N '_' 
+  %END-FOR
+  ') : '
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |S ) %== ''  ) ) 
+   %C |N '('
+   [%t] init_functor_memeber %( %C )% ')' 
+  %END-FOR
+  ' {'
+//		%U[{_INIT_CTOR!cpp!}
+  '	'
+  %U%IF ( '_INIT_CTOR!cpp!' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//	]<{}{%CC=Operation&%CS=ctor}
+ %END-IF
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+   ( ( %C |S ) %== 'ctor'  ) ) 
+
+//	%CX
+  %C |X 
+//	>
+ %END-FOR
+
+//t _init_functor_memeber
+; // common_functors_impl_body
+
+<<transformator>> init_functor_memeber OBJECT IN %S
+//c                                                                                                                                 {}
+//r {%f_suffix(%f_attr(%S),*)=*&%f_suffix(%t_arg(%T,"%f_get_arg_specifier(%S)"),%f_dump_apersand(%S))=%f_dump_apersand(%S)}:        {&%SN_}
+//r {%t_refcounted(%T)=true&%Sl=ref}:                                                                                               {%f_type(%T)::_duplicate(%SN_)}
+//r {""=""}:                                                                                                                        {%SN_}
+//#UC END# *4716E5190213*
+; // init_functor_memeber
+
+
+// выводит часть сигнатуры для оператора ()
+//t _functor_functor
+<<transformator>> functor_functor OBJECT IN %S
+//#UC START# *4716E55F03A9*
+//c                                                 {}
+//r "%SS"="Generator"|"%SS=FunctorBase":            {()[{%S{const functor}=true} const]}
+//r "%SS"="UnaryFunctor"|"%SS"="Predicate":         {(<{}{%CS=param}%f_set_var(PARAM,C)%f_functor_arg(%C%T,"[{%Cs!=chg}{inout}in]")> param_)[{%S{const functor}=true} const]}
+//r "%SS"="BinaryFunctor"|"%SS"="BinaryPredicate":  {(<{}{%CS=first param}%t_arg(%C%T,"[{%Cs!=chg}{inout}in]")> first_param_, <{}{%CS=second param}%t_arg(%C%T,"[{%Cs!=chg}{inout}in]")> second_param_)[{%S{const functor}=true} const]}
+
+//f _functor_arg_type
+; // functor_functor
+
+: functor_arg_type OBJECT IN %S
+//	%f_set_var(PARAM,S)\
+ [%f] set_var %( 'PARAM' %, 'S' )% 
+//	%f_str_replace(%f_str_replace(%f_functor_arg(%T,"inout"),&,),*,)%f_set_var(PARAM,"")
+ [%f] str_replace %( [%f] str_replace %( [%f] functor_arg %( %T %, 'inout' )% %, '&' %, )% %, '*' %, )% [%f] set_var %( 'PARAM' %, '' )% 
+
+//f _functor_ret_type
+; // functor_arg_type
+
+: functor_ret_type OBJECT IN %S
+//	%f_str_replace(%f_str_replace(%f_str_replace(%%t_functor_ret(%S,"inout"),&,),*,),const ,)
+//	%f_ret(%S)
+ [%f] ret %( %S )% 
+//#UC END# *4716E55F03A9*
+; // functor_ret_type
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

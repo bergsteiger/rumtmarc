@@ -1,0 +1,12 @@
+Text : TnscEditor
+TextForm : TTextForm
+ParentZone : TvtPanel
+ParentForm : TParentForm
+ParentZonePanel : TvtPanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow
+----------
+Текущая редакция:
+31.07.2004 - 31.07.2004 (от 29.12.2003)

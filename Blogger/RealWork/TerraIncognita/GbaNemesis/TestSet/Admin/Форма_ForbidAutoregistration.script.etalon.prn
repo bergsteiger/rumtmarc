@@ -1,0 +1,97 @@
+--------------- Контрол в фокусе: ------------------
+cbPhone : TnscEdit
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 1
+---------------
+efForbidAutoregistration : TefForbidAutoregistration
+Запретить авторегистрацию
+Position:0
+Width = 361
+Height = 237
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+lblReference : TvtLabel
+Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ.
+Left = 15
+Top = 7
+Width = 329
+Height = 48
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+gbInfo : TvtGroupBox
+ Администратор системы 
+Left = 10
+Top = 60
+Width = 340
+Height = 101
+TabOrder: 2
+Align: 0
+Anchors: 3
+---------------
+lblPhone : TvtLabel
+Телефон
+Left = 16
+Top = 24
+Width = 51
+Height = 16
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+lblEmail : TvtLabel
+E-mail
+Left = 22
+Top = 56
+Width = 37
+Height = 16
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+lblHint : TvtLabel
+(Заполнение одного из полей обязательно)
+Left = 8
+Top = 80
+Width = 261
+Height = 16
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+cbPhone : TnscEdit
+
+Left = 74
+Top = 20
+Width = 257
+Height = 21
+TabOrder: 0
+Anchors: 3
+Выделить все
+---------------
+cbEmail : TnscEdit
+
+Left = 74
+Top = 52
+Width = 257
+Height = 21
+TabOrder: 1
+Anchors: 3
+Выделить все
+---------------
+tbefForbidAutoregistrationBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+---
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+---
+

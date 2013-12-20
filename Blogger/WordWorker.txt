@@ -1,0 +1,85 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Предыдущая серия была тут -&nbsp;<a href="http://18delphi.blogspot.com/2013/11/gui-3-wordworker.html">http://18delphi.blogspot.com/2013/11/gui-3-wordworker.html</a><br />
+<br />
+Теперь как же в процедуру WorkTheWord передаётся управление и откуда берётся aWordToTheRight?<br />
+<br />
+Дело в том, что слово &nbsp;TscriptWordWorker - помечено, как слово "непосредственного исполнения". Т.е. оно выполняется в процессе компиляции кода.<br />
+<br />
+Как это выглядит?<br />
+<br />
+А вот так:<br />
+
+<pre class="brush:delphi">
+interface
+
+type
+  TscriptWordWorker = class(TscriptKeyWord)
+   protected
+    function IsImmediate: Boolean; override;
+    procedure DoIt(aContext: TscriptContext); override;
+    procedure WorkTheWord(aWordToTheRight : TscriptKeyWord; aContext: TscriptContext); virtual; abstract;
+  end;//TscriptWordWorker
+
+implementation
+
+function TscriptWordWorker.IsImmediate: Boolean;
+begin
+ Result := true;
+end;
+
+type
+  TscriptCompiledWordWorker = class(TscriptKeyWord)
+   private
+    f_Worker : TscriptWordWorker;
+    f_WordToRight : TscriptKeyWord;
+   protected
+    procedure DoIt(aContext: TscriptContext); override;
+    procedure Cleanup; override;
+   public
+    constructor Create(aWorker : TscriptWordWorker; aWordToRight: TscriptKeyWord);
+  end;//TscriptCompiledWordWorker
+
+constructor TscriptCompiledWordWorker.Create(aWorker : TscriptWordWorker; aWordToRight: TscriptKeyWord);
+begin
+ inherited Create;
+ f_Worker := aWorker.Use;
+ f_WordToRight := aWordToRight.Use;
+end;
+
+procedure TscriptCompiledWordWorker.Cleanup;
+begin
+ FreeAndNil(f_Worker);
+ FreeAndNil(f_WordToRight);
+ inherited;
+end;
+
+procedure TscriptCompiledWordWorker.DoIt(aContext: TscriptContext);
+begin
+ f_Worker.WorkTheWord(f_WordToRight);
+end;
+
+procedure TscriptWordWorker.DoIt(aContext: TscriptContext);
+var
+ l_CompileContext : TscriptCompileContext; 
+ l_WordToTheRight : TscriptKeyWord;
+ l_CompiledWordWorker : TscriptCompiledWordWorker;
+begin
+ l_CompileContext := (aContext As TscriptCompileContext);
+ l_WordToTheRight := l_CompileContext.CompileWordToTheRight; // - Об устройстве этого метода поговорим чуть позже
+ try
+  l_CompiledWordWorker := TscriptCompiledWordWorker.Create(Self, l_WordToTheRight);
+  try
+   l_CompileContext.Code.CompileKeyWord(l_CompiledWordWorker);
+  finally
+   FreeAndNil(l_CompiledWordWorker);
+  end;//try..finally
+ finally
+  FreeAndNil(l_WordToTheRight);
+ end;//try..finally
+end;
+
+</pre>
+
+Устройство метода CompileWordToTheRight - разберём в следующих сериях.
+<br />
+<br /></div>

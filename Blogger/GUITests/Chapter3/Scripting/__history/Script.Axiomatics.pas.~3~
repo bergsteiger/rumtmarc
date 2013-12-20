@@ -1,0 +1,18 @@
+unit Script.Axiomatics;
+
+interface
+
+uses
+ Script.Dictionary
+ ;
+
+type
+ TscriptAxiomatics = class(TscriptDictionary)
+  strict private
+   f_Instance : TscriptAxiomatics;
+  class function Instance: TscriptAxiomatics;
+ end;//TscriptAxiomatics
+
+implementation
+
+end.

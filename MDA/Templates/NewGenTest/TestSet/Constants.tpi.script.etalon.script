@@ -1,0 +1,665 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Constants.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Constants
+//
+// Определение констант
+// ---
+// Класс с этим стекреотипом служит виртуальным контейнером для констант. Т.е. сам класс не
+// определяет никаких артефактов генерации, однако его атрибуты как раз определяют константы.
+// Для задания констант внесите в класс атрибуты (не связи) нужного типа и определитие их значение.
+// Например: "MY_CONST : long = 123"
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Constants::Class
+implementation @ <<Constants>>
+//? Определение констант
+//? Класс с этим стекреотипом служит виртуальным контейнером для констант. Т.е. сам класс не определяет никаких артефактов генерации, однако его атрибуты как раз определяют константы.
+//? Для задания констант внесите в класс атрибуты (не связи) нужного типа и определитие их значение. Например: "MY_CONST : long = 123"
+//> ConstantArray::Class
+
+//= InterfaceGeneratorWithJava::MDAGenerator
+//= Генерация JavaScript::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_constants.gif
+//L code_constants
+// Параметры визуализации
+//$ C 245,245,245
+//$ l 100,100,100
+//$ f 100,100,100
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p spell names:b=false ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{spell names}"!="%S{!spell names}"}%f_up_prefix(%S) *spell names* = *%S{spell names}*
+ ?inherited
+ %IF ( ( %S get_up ( 'spell names' ) ) %!= ( %S get_up_def ( 'spell names' ) ) ) 
+  [%f] up_prefix %( %S )% ' *spell names* = *'
+  %S get_up ( 'spell names' ) '*'
+//	]
+ %END-IF
+
+//%f _WikiGParam
+; // wiki_up_print
+
+: WikiGParam OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4E09A34F0037for470F16EE0242*
+//	%PU
+ %P |U 
+//#UC END# *4E09A34F0037for470F16EE0242*
+; // WikiGParam
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor470F16EE0242*
+//	%S%[inherited]\
+ inherited
+//	[{%S{spell names}=true}\
+ %IF ( ( %S get_up ( 'spell names' ) ) %==  true ) 
+//	%P%f_add_class(%SU_Names,ConstantArray,%SNNames,Names_Inst)\
+  %P %f add_class %( %S |U '_Names' %, 'ConstantArray' %, %S |N 'Names' %, 'Names_Inst' )% 
+//	%{Names_Inst}%f_set_visibility_type(%SV)\
+  ( get_global_var ( 'Names_Inst' ) %f set_visibility_type %( %S |V )% ) 
+//	%{Names_Inst}%f_set_documentation(Имена для %SN)\
+  ( get_global_var ( 'Names_Inst' ) %f set_documentation %( 'Имена для '
+  %S |N )% ) 
+//	%{Names_Inst}%f_set_abstraction_type(final)\
+//	%{Names_Inst}%f_set_up(ifdef,%S{ifdef})\
+  ( get_global_var ( 'Names_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
+//	%{Names_Inst}%f_set_up(ifndef,%S{ifndef})\
+  ( get_global_var ( 'Names_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
+//	[{"%{string}N"=""}%f_find_element(3DBFFE240068,string)]\
+  %IF ( ( ( get_global_var ( 'string' ) |N ) ) %== '' ) 
+   [%f] find_element %( '3DBFFE240068' %, 'string' )% 
+  %END-IF
+//	%{Names_Inst}%f_make_accessable(%{string}U)\
+  ( get_global_var ( 'Names_Inst' ) %f make_accessable %( ( get_global_var ( 'string' ) |U ) )% ) 
+//	%{Names_Inst}%f_add_inheritable(%{string}U)\
+  ( get_global_var ( 'Names_Inst' ) %f add_inheritable %( ( get_global_var ( 'string' ) |U ) )% ) 
+//	<{}{}{%C}\
+  %FOR ( %C ) 
+//	%{Names_Inst}%f_add_attribute(%CU_Name,,\
+   ( get_global_var ( 'Names_Inst' ) %f add_attribute %( %C |U '_Name' %, '' %, 
+//	%CN = '%CN',\
+   %C |N ' = '''
+   %C |N '''' %, 
+//	Attr_Inst)\
+   'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Имя для %CN)\
+   ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Имя для '
+   %C |N )% ) 
+//	>\
+  %END-FOR
+//	]
+ %END-IF
+//#UC END# *4B2A19E3038Bfor470F16EE0242*
+; // DoSpell
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F16EE0242*
+//	[{"%PC"!="Category"&%P#f_IsUtilityPack()!=true}%f_docs(%S)\
+ %IF ( ( %P |C ) %!= 'Category' %&& 
+   ( ( %P %?f IsUtilityPack %( )% ) %!=  true  ) ) 
+  [%f] docs %( %S )% 
+//	[%S%f_open_ifdef()
+  %IF-NOT-EMPTY
+   %S %f open_ifdef %( )% 
+//	]<{\n}{%CC=Attribute}%f_shift_scope(true)const %f_const_type(%C)%f_shift_scope(false) %f_function_scope(%P)%CN = %f_init(%C);[ // %f_str_replace(%CD,\n,%f_space(%C))]>][
+  %END-IF
+  %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+   [%f] shift_scope %( true )% 'const '
+   [%f] const_type %( %C )% [%f] shift_scope %( false )% ' '
+   [%f] function_scope %( %P )% %C |N ' = '
+   [%f] init %( %C )% ';'
+   %IF-NOT-EMPTY
+    ' // '
+    [%f] str_replace %( %C |D %, #13#10 %, [%f] space %( %C )% )% 
+   %END-IF
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_close_ifdef()]<
+  %S %f close_ifdef %( )% 
+ %END-IF
+ %FOR 
+
+//	%CX>
+  %C |X 
+ %END-FOR
+//#UC END# *47022CB8034Bfor470F16EE0242*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F16EE0242*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  out_indent %S %f open_ifdef %( )% 
+//	]<{\n}{%CC=Attribute}{%C}#static const %f_const_type(%C) [%S{children prefix}_]%CN[{%PC=Category|%P#f_IsUtilityPack()=true} = [{"%C%TN"="string"|"%C%TN"="wstring"}{%f_init(%C)[ %C{suffix expr}]}"%CI"]];[ // %f_str_replace(%CD,\n,%f_space(%C))]>[%f_shift_intend(-1)
+ %END-IF
+ %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+  ( %C ) 
+  out_indent 'static const '
+  [%f] const_type %( %C )% ' '
+  %IF-NOT-EMPTY
+   %S get_up ( 'children prefix' ) '_' 
+  %END-IF
+  %C |N %IF ( ( %P |C ) %== 'Category' %|| 
+    ( ( %P %?f IsUtilityPack %( )% ) %==  true  ) ) 
+   ' = '
+   %IF ( ( %C ->T |N  ) %== 'string' %|| 
+     ( ( %C ->T |N  ) %== 'wstring'  ) ) 
+    %ELSE
+     [%f] init %( %C )% %IF-NOT-EMPTY
+      ' '
+      %C get_up ( 'suffix expr' ) 
+     %END-IF
+    %THEN
+    %C |I 
+   %END-IF
+  %END-IF
+  ';'
+  %IF-NOT-EMPTY
+   ' // '
+   [%f] str_replace %( %C |D %, #13#10 %, [%f] space %( %C )% )% 
+  %END-IF
+ %END-FOR
+ %IF-NOT-EMPTY
+  [%f] shift_intend %( -1 )% 
+//	<{\n}{%CC=Attribute}{%C}#static const %f_type(%C%T) %CN[{%PC=Category|%P#f_IsUtilityPack()=true} = [{"%C%TN"="string"|"%C%TN"="wstring"}{%f_init(%C)}"%CI"]];[ // %CD]>[%f_shift_intend(-1)
+//	<%CX>%f_shift_intend(1)][
+  %FOR %C |X 
+  %END-FOR
+  [%f] shift_intend %( 1 )% 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ %END-IF
+
+//f _const_type
+; // h
+
+end. // <<Constants>>
+
+: const_type OBJECT IN %S
+//	%f_set_var(TYPE,"")\
+ [%f] set_var %( 'TYPE' %, '' )% 
+//	[{%f_type(%T)!=void}{[{%S{forced type}!=none}{%f_set_var(TYPE,"long")%f_type(%{TYPE})}%f_set_var(TYPE,"%S{forced type}")%f_type(%{TYPE})]}%f_type(%T)]
+ %IF ( ( [%f] type %( %T )% ) %!= 'void' ) 
+  %ELSE
+   %IF ( ( %S get_up ( 'forced type' ) ) %!= 'none' ) 
+    %ELSE
+     [%f] set_var %( 'TYPE' %, 'long' )% [%f] type %( ( get_global_var ( 'TYPE' ) ) )% 
+    %THEN
+    [%f] set_var %( 'TYPE' %, %S get_up ( 'forced type' ) )% [%f] type %( ( get_global_var ( 'TYPE' ) ) )% 
+   %END-IF
+  %THEN
+  [%f] type %( %T )% 
+ %END-IF
+//#UC END# *47022C88029Ffor470F16EE0242*
+; // const_type
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+implementation @ <<Constants>>
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F16EE0242*
+//P
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	<{\n}%CX>
+ %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+  %C |X 
+ %END-FOR
+//#UC END# *47022BBE0261for470F16EE0242*
+; // idl
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F16EE0242*
+//R  
+//	[{%SV!=PublicAccess}[%f_with_gen_id(intf.pas,%SX)\n]]
+ %IF ( ( %S |V ) %!= 'PublicAccess' ) 
+  %IF-NOT-EMPTY
+   [%f] with_gen_id %( 'intf.pas' %, %S |X )% #13#10 
+  %END-IF
+ %END-IF
+//#UC END# *470F15B800CBfor470F16EE0242*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F16EE0242*
+//R  
+//	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+ %IF ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% ) %!=  true ) 
+//	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+  [%f] add_to_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% 
+//	<{}{%f_pas_IsSameUnit(%S,%C%T)=true}%C%TX>\
+  %FOR %ITEM-CONDITION ( ( [%f] pas_IsSameUnit %( %S %, %C ->T  )% ) %==  true ) 
+   %C ->T |X  
+  %END-FOR
+//	%f_set_var(CONST_IFDEF,"%f_dump_open_ifdef_str(%S)")\
+  [%f] set_var %( 'CONST_IFDEF' %, [%f] dump_open_ifdef_str %( %S )% )% 
+//	[\n%S%f_open_ifdef()]\
+  %IF-NOT-EMPTY
+   #13#10
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	%f_pas_OpenConst(%S)\
+  [%f] pas_OpenConst %( %S )% 
+//	# { [{"%SD"!=""&"%SD"!="undefined"}{%SN}%SD] }
+  out_indent ' { '
+  %IF ( ( %S |D ) %!= '' %&& 
+    ( ( %S |D ) %!= 'undefined'  ) ) 
+   %ELSE
+    %S |N 
+   %THEN
+   %S |D 
+  %END-IF
+  ' }'
+//	#<{\n#}%CX>\
+  out_indent 
+  %FOR %ITEM-SEPARATOR #13#10
+   out_indent ; // %ITEM-SEPARATOR 
+   %C |X 
+  %END-FOR
+//	[\n%S%f_close_ifdef()]\
+  %IF-NOT-EMPTY
+   #13#10
+   %S %f close_ifdef %( )% 
+  %END-IF
+
+
+//	[{"%{CONST_IFDEF}N"!=""}\
+  %IF ( ( ( get_global_var ( 'CONST_IFDEF' ) |N ) ) %!= '' ) 
+//	%f_set_var(WAS_CONST,"0")\
+   [%f] set_var %( 'WAS_CONST' %, 0 )% 
+//	%f_set_var(CONST_IFDEF,"")\
+   [%f] set_var %( 'CONST_IFDEF' %, '' )% 
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *470F1571031Cfor470F16EE0242*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F16EE0242*
+//O [{"%PO"=""&%f_is_server_type(%S)=false}%SN.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_is_server_type(%S)=false}[{"%PO"=""}\
+ %IF ( ( [%f] is_server_type %( %S )% ) %==  false ) 
+  %IF ( ( %P |O ) %== '' ) 
+//	%f_header(%S)
+   [%f] header %( %S )% 
+//	package %f_dump_java_package(%S);
+   'package '
+   [%f] dump_java_package %( %S )% ';'
+//	
+
+//	#%t_visibility(%S,"%XU")class %SN {
+   out_indent [%t] visibility %( %S %, %X |U )% 'class '
+   %S |N ' {'
+//	]%f_docs(%S)\
+  %END-IF
+  [%f] docs %( %S )% 
+//	<{\n}{%CC=Attribute}{%C}#[{"%PO"=""}	]%t_visibility(%S,"%XU")static final %f_const_type(%C) %CN[ = %f_init(%C)];[ // %f_str_replace(%CD,\n,%f_space(%C))]>[%f_shift_intend(-1)
+  %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+   ( %C ) 
+   out_indent %IF ( ( %P |O ) %== '' ) 
+    '	' 
+   %END-IF
+   [%t] visibility %( %S %, %X |U )% 'static final '
+   [%f] const_type %( %C )% ' '
+   %C |N %IF-NOT-EMPTY
+    ' = '
+    [%f] init %( %C )% 
+   %END-IF
+   ';'
+   %IF-NOT-EMPTY
+    ' // '
+    [%f] str_replace %( %C |D %, #13#10 %, [%f] space %( %C )% )% 
+   %END-IF
+  %END-FOR
+  %IF-NOT-EMPTY
+   [%f] shift_intend %( -1 )% 
+//	<%CX>%f_shift_intend(1)][{"%PO"=""}
+   %FOR %C |X 
+   %END-FOR
+   [%f] shift_intend %( 1 )% 
+  %END-IF
+  %IF ( ( %P |O ) %== '' ) 
+
+//	#} // %SN]][{%f_is_server_type(%S)=false}\
+   out_indent '} // '
+   %S |N 
+  %END-IF
+ %END-IF
+ %IF ( ( [%f] is_server_type %( %S )% ) %==  false ) 
+//	[{"%PO"=""}
+  %IF ( ( %P |O ) %== '' ) 
+
+//	%f_footer(%S)
+   [%f] footer %( %S )% 
+//	]]
+  %END-IF
+ %END-IF
+//#UC END# *470321950119for470F16EE0242*
+; // java
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F16EE0242*
+//	[%f_pas_OpenConst(%S)\n]\
+ %IF-NOT-EMPTY
+  [%f] pas_OpenConst %( %S )% #13#10 
+ %END-IF
+//	# { [{"%SD"!=""&"%SD"!="undefined"}{%SN}%f_Doc(%S)] }
+ out_indent ' { '
+ %IF ( ( %S |D ) %!= '' %&& 
+   ( ( %S |D ) %!= 'undefined'  ) ) 
+  %ELSE
+   %S |N 
+  %THEN
+  [%f] Doc %( %S )% 
+ %END-IF
+ ' }'
+//	<{\n}#\t%CN = [{"%f_type(%C%T)"!=""&"%f_type(%C%T)"!="PAnsiChar"}{%f_init(%C)}%f_type(%C%T)(%f_init(%C))];\
+ %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+  out_indent #9
+  %C |N ' = '
+  %IF ( ( [%f] type %( %C ->T  )% ) %!= '' %&& 
+    ( ( [%f] type %( %C ->T  )% ) %!= 'PAnsiChar'  ) ) 
+   %ELSE
+    [%f] init %( %C )% 
+   %THEN
+   [%f] type %( %C ->T  )% '('
+   [%f] init %( %C )% ')' 
+  %END-IF
+  ';'
+//	[\n# \{ %f_Doc(%C) \}]\
+  %IF-NOT-EMPTY
+   #13#10
+   out_indent ' { '
+   [%f] Doc %( %C )% ' }' 
+  %END-IF
+//	>
+ %END-FOR
+//#UC END# *470F152700FAfor470F16EE0242*
+; // pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F16EE0242*
+//G %S%f_WikiGParam()
+//#UC END# *46E6D4BB0339for470F16EE0242*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Constants::Class::Attribute
+end. // <<Constants>>
+
+implementation @ :: <<Constants>> <<Attribute>> ;
+//? константа
+//= CORBA IDL::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_attr.gif
+//L code_attr
+//T 
+// - может не иметь "цели" (типа/результата)
+//l al
+// - возможные типы связи атрибута
+
+// Пользовательские свойства
+//p AutoInc:b=false ? Определяет что значение константы будет генеироваться автоматический как инкрементальный счетчик, увеличивающийся на единицу при каждой генерации
+//p forced type=none|long|unsigned long|string ? принудительный тип константы - используется для генерации нетипизированных констант в С++
+//p is define:b=false ? Опредлеяет, что константа является дефайном (используется в Дельфи)
+//p suffix expr:s ? Выражение, приписываемое справа к значению константы.  --- Чтобы можно было задавать константы вида A = B + 1.
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F17590109*
+//#UC END# *46E6D4BB0339for470F17590109*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F17590109*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#const %f_const_type(%S) %SN = [{"%S{AutoInc}"="true"}{%f_init(%S)}%SA];
+ out_indent 'const '
+ [%f] const_type %( %S )% ' '
+ %S |N ' = '
+ %IF ( ( %S get_up ( 'AutoInc' ) ) %== true ) 
+  %ELSE
+   [%f] init %( %S )% 
+  %THEN
+  %S |A 
+ %END-IF
+ ';'
+//#UC END# *47022BBE0261for470F17590109*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F17590109*
+//#UC END# *47022C88029Ffor470F17590109*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470F17590109*
+//#UC END# *47022CB8034Bfor470F17590109*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470F17590109*
+//#UC END# *470321950119for470F17590109*
+; // java
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F17590109*
+//#UC END# *470F152700FAfor470F17590109*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F17590109*
+//	[%S%f_open_ifdef()\n#]\
+ %IF-NOT-EMPTY
+  %S %f open_ifdef %( )% #13#10
+  out_indent 
+ %END-IF
+//	%S%f_pas_Prefix()%f_N(%S)\
+ %S %f pas_Prefix %( )% [%f] N %( %S )% 
+
+//	[{%S{is define}!=true}\
+ %IF ( ( %S get_up ( 'is define' ) ) %!=  true ) 
+//	[ : %f_pas_TypeName(%S%T)]\
+  %IF-NOT-EMPTY
+   ' : '
+   [%f] pas_TypeName %( %S ->T  )% 
+  %END-IF
+//	]\
+ %END-IF
+
+//	[ = \
+ %IF-NOT-EMPTY
+  ' = '
+//	%S%f_OutValue()\
+  %S %f OutValue %( )% 
+//	]\
+ %END-IF
+
+//	;\
+ ';'
+//	[\n#\{ %f_Doc(%S) \}]\
+ %IF-NOT-EMPTY
+  #13#10
+  out_indent '{ '
+  [%f] Doc %( %S )% ' }' 
+ %END-IF
+//	[\n#%S%f_close_ifdef()]
+ %IF-NOT-EMPTY
+  #13#10
+  out_indent %S %f close_ifdef %( )% 
+ %END-IF
+//#UC END# *470F1571031Cfor470F17590109*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F17590109*
+//#UC END# *470F15B800CBfor470F17590109*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{AutoInc}"!="%S{!AutoInc}"}%f_up_prefix(%S) *AutoInc* = *%S{AutoInc}* - Определяет что значение константы будет генеироваться автоматический как инкрементальный счетчик, увеличивающийся на единицу при каждой генерации
+ ?inherited
+ %IF ( ( %S get_up ( 'AutoInc' ) ) %!= ( %S get_up_def ( 'AutoInc' ) ) ) 
+  [%f] up_prefix %( %S )% ' *AutoInc* = *'
+  %S get_up ( 'AutoInc' ) '* - Определяет что значение константы будет генеироваться автоматический как инкрементальный счетчик, увеличивающийся на единицу при каждой генерации'
+//	][{"%S{is define}"!="%S{!is define}"}%f_up_prefix(%S) *is define* = *%S{is define}* - Опредлеяет, что константа является дефайном (используется в Дельфи)
+ %END-IF
+ %IF ( ( %S get_up ( 'is define' ) ) %!= ( %S get_up_def ( 'is define' ) ) ) 
+  [%f] up_prefix %( %S )% ' *is define* = *'
+  %S get_up ( 'is define' ) '* - Опредлеяет, что константа является дефайном (используется в Дельфи)'
+//	][{"%S{suffix expr}"!="%S{!suffix expr}"}%f_up_prefix(%S) *suffix expr* = *%S{suffix expr}* - Выражение, приписываемое справа к значению константы.  --- Чтобы можно было задавать константы вида A = B + 1.
+ %END-IF
+ %IF ( ( %S get_up ( 'suffix expr' ) ) %!= ( %S get_up_def ( 'suffix expr' ) ) ) 
+  [%f] up_prefix %( %S )% ' *suffix expr* = *'
+  %S get_up ( 'suffix expr' ) '* - Выражение, приписываемое справа к значению константы.  --- Чтобы можно было задавать константы вида A = B + 1.'
+//	][{"%S{forced type}"!="%S{!forced type}"}%f_up_prefix(%S) *forced type* = *%S{forced type}* - принудительный тип константы - используется для генерации нетипизированных констант в С++
+ %END-IF
+ %IF ( ( %S get_up ( 'forced type' ) ) %!= ( %S get_up_def ( 'forced type' ) ) ) 
+  [%f] up_prefix %( %S )% ' *forced type* = *'
+  %S get_up ( 'forced type' ) '* - принудительный тип константы - используется для генерации нетипизированных констант в С++'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F17590109*
+//c                                                                         {}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%P%PN)=%f_to_lower(%SN)}:    {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {%TS=UMLPrimitive&%TN=void&%S{forced type}=none}:                      {Для нетипизированной константы должно быть задано свойство "forced type"}
+//r {"%SI"=""&%PS=Constants}:                                               {Не задано значение константы}
+//#UC END# *4704C0E30186for470F17590109*
+; // constraint
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Constants>> <<Attribute>> ;
+

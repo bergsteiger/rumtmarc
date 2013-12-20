@@ -1,0 +1,16 @@
+unit Script.Dictionary;
+
+interface
+
+uses
+ System.Generics.Collections,
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptDictionary = class()
+ end;//TscriptDictionary
+
+implementation
+
+end.

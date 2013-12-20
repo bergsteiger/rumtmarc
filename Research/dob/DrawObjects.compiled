@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="c:\lazarus\fpc\2.2.4\bin\i386-win32\fpc.exe" Date="995711722"/>
+  <Params Value=" -MDelphi -Scgi -O1 -gl -WG -vewnhi -l -FiW:\dob\ -FiC:\lazarus\components\printers\win32\ -FuW:\dob\Demo\ -FuC:\lazarus\components\printers\ -FuC:\lazarus\components\printers\win32\ -Fuc:\lazarus\lcl\units\i386-win32\ -Fuc:\lazarus\lcl\units\i386-win32\win32\ -Fuc:\lazarus\packager\units\i386-win32\ -FuW:\dob\ -Fu. -FEW:\dob\ -oDrawObjects.exe -dLCL -dLCLwin32 DrawObjects.lpr"/>
+</CONFIG>

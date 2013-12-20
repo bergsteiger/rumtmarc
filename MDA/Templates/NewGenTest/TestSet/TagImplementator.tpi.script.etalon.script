@@ -1,0 +1,392 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Implementation/TagImplementator.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Implementation::TagImplementator
+//
+// Класс, реализующий тег
+// ---
+// Связь реализации задаёт реализуемый тег. Связь наследования задаёт реализующий класс
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TagImplementator::Class
+implementation @ <<TagImplementator>>
+//? Класс, реализующий тег
+//? Связь реализации задаёт реализуемый тег. Связь наследования задаёт реализующий класс
+//= Typedef::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor484A925103A7*
+//#UC END# *4705CBD6003Efor484A925103A7*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for484A925103A7*
+//#UC END# *470484D50138for484A925103A7*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for484A925103A7*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for484A925103A7*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor484A925103A7*
+//#UC END# *47022CB8034Bfor484A925103A7*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor484A925103A7*
+//#UC END# *47022CCF00EAfor484A925103A7*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for484A925103A7*
+//#UC END# *47022C0F01E4for484A925103A7*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor484A925103A7*
+//#UC END# *49F5795900ECfor484A925103A7*
+; // dfm
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for484A925103A7*
+//#UC END# *477398E501C0for484A925103A7*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for484A925103A7*
+//#UC END# *4774D2A20372for484A925103A7*
+; // intf3.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for484A925103A7*
+//#UC END# *4DE79AFC0030for484A925103A7*
+; // sd
+
+
+// реализация абстрактного стереотипа Генерация JavaScript::MDAGenerator
+// генератор JavaScript
+//+ js
+<<generator>> js OBJECT IN %S
+//#UC START# *477395290327for484A925103A7*
+//#UC END# *477395290327for484A925103A7*
+; // js
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor484A925103A7*
+//#UC END# *47032ED002DEfor484A925103A7*
+; // dll.cpp
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor484A925103A7*
+//#UC END# *47032EC4032Cfor484A925103A7*
+; // dll.h
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor484A925103A7*
+//#UC END# *4E65F581015Afor484A925103A7*
+; // link_to_requests_hack
+
+
+// перекрытие базового стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor484A925103A7*
+//#UC END# *47022C88029Ffor484A925103A7*
+; // h
+
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for484A925103A7*
+//#UC END# *47022BBE0261for484A925103A7*
+; // idl
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor484A925103A7*
+//#UC END# *470F15B800CBfor484A925103A7*
+; // impl.pas
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor484A925103A7*
+//#UC END# *470F1571031Cfor484A925103A7*
+; // intf.pas
+
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor484A925103A7*
+//#UC END# *470F152700FAfor484A925103A7*
+; // pas
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for484A925103A7*
+//#UC END# *46E6D4BB0339for484A925103A7*
+; // wiki
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: TagImplementator::Class::uses::ClassDependency
+end. // <<TagImplementator>>
+
+implementation @ :: <<TagImplementator>> <<uses>> ;
+//? Использование других элементов для реализации
+// Параметры стереотипа
+//Y code_dep.gif
+//L code_dep
+
+// Генераторы
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for49A3E3DA028C*
+//#UC END# *47022C0F01E4for49A3E3DA028C*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor49A3E3DA028C*
+//#UC END# *47022CB8034Bfor49A3E3DA028C*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor49A3E3DA028C*
+//#UC END# *47022CCF00EAfor49A3E3DA028C*
+; // i.h
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor49A3E3DA028C*
+//#UC END# *47032EC4032Cfor49A3E3DA028C*
+; // dll.h
+
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor49A3E3DA028C*
+//#UC END# *47032ED002DEfor49A3E3DA028C*
+; // dll.cpp
+
+
+// генератор JavaScript
+//+ js
+<<generator>> js OBJECT IN %S
+//#UC START# *477395290327for49A3E3DA028C*
+//#UC END# *477395290327for49A3E3DA028C*
+; // js
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for49A3E3DA028C*
+//#UC END# *477398E501C0for49A3E3DA028C*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for49A3E3DA028C*
+//#UC END# *4774D2A20372for49A3E3DA028C*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor49A3E3DA028C*
+//#UC END# *49F5795900ECfor49A3E3DA028C*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for49A3E3DA028C*
+//#UC END# *4DE79AFC0030for49A3E3DA028C*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor49A3E3DA028C*
+//#UC END# *4E65F581015Afor49A3E3DA028C*
+; // link_to_requests_hack
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for49A3E3DA028C*
+//#UC END# *46E6D4BB0339for49A3E3DA028C*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for49A3E3DA028C*
+//#UC END# *47022BBE0261for49A3E3DA028C*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor49A3E3DA028C*
+//#UC END# *47022C88029Ffor49A3E3DA028C*
+; // h
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor49A3E3DA028C*
+//#UC END# *470F152700FAfor49A3E3DA028C*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor49A3E3DA028C*
+//#UC END# *470F1571031Cfor49A3E3DA028C*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor49A3E3DA028C*
+//#UC END# *470F15B800CBfor49A3E3DA028C*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<TagImplementator>> <<uses>> ;
+

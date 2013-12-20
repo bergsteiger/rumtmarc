@@ -1,0 +1,433 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/ClassInner/FactoryMixIn.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::ClassInner::FactoryMixIn
+//
+// Примесь, для реализации фабричного метода
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: FactoryMixIn::Class
+implementation @ <<FactoryMixIn>>
+//? Примесь, для реализации фабричного метода
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p check nil:b=false ? Проверять, что первый параметр nil и не создавать объекта
+//p need As:b=false ? Определяет, что нужно приводить класс к интерфейсу через As
+//p need AfterCreate:tribool=undefined ? 
+//p need Aggregate:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{check nil}"!="%S{!check nil}"}%f_up_prefix(%S) *check nil* = *%S{check nil}* - Проверять, что первый параметр nil и не создавать объекта
+ %IF ( ( %S get_up ( 'check nil' ) ) %!= ( %S get_up_def ( 'check nil' ) ) ) 
+  [%f] up_prefix %( %S )% ' *check nil* = *'
+  %S get_up ( 'check nil' ) '* - Проверять, что первый параметр nil и не создавать объекта'
+//	][{"%S{need As}"!="%S{!need As}"}%f_up_prefix(%S) *need As* = *%S{need As}* - Определяет, что нужно приводить класс к интерфейсу через As
+ %END-IF
+ %IF ( ( %S get_up ( 'need As' ) ) %!= ( %S get_up_def ( 'need As' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need As* = *'
+  %S get_up ( 'need As' ) '* - Определяет, что нужно приводить класс к интерфейсу через As'
+//	][{"%S{need AfterCreate}"!="%S{!need AfterCreate}"}%f_up_prefix(%S) *need AfterCreate* = *%S{need AfterCreate}*
+ %END-IF
+ %IF ( ( %S get_up ( 'need AfterCreate' ) ) %!= ( %S get_up_def ( 'need AfterCreate' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need AfterCreate* = *'
+  %S get_up ( 'need AfterCreate' ) '*'
+//	][{"%S{need Aggregate}"!="%S{!need Aggregate}"}%f_up_prefix(%S) *need Aggregate* = *%S{need Aggregate}*
+ %END-IF
+ %IF ( ( %S get_up ( 'need Aggregate' ) ) %!= ( %S get_up_def ( 'need Aggregate' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need Aggregate* = *'
+  %S get_up ( 'need Aggregate' ) '*'
+//	]
+ %END-IF
+
+//%f _OutFactoryBody
+; // wiki_up_print
+
+: OutFactoryBody OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2
+// возвращаемый результат: a-string
+//#UC START# *4AE05AD4015Afor4AE027EC00A7*
+//	[{%P#f_IsVCMForm()!=true}{\n\
+ %IF ( ( %P %?f IsVCMForm %( )% ) %!=  true ) 
+  %ELSE
+   #13#10
+//	[{%S%f_HasParams()=true&%S{need AfterCreate}!=false}
+   %IF ( ( %S %f HasParams %( )% ) %==  true %&& 
+     ( ( %S get_up ( 'need AfterCreate' ) ) %!=  false  ) ) 
+
+//	 procedure AfterCreate(aForm : %f_pas_TypeName(%P));
+    ' procedure AfterCreate(aForm : '
+    [%f] pas_TypeName %( %P )% ');'
+//	 begin
+    ' begin'
+//	  with aForm do
+    '  with aForm do'
+//	  begin
+    '  begin'
+//	%S%f_pas_MethodBodyImplementation(%1,%2)
+    %S %f pas_MethodBodyImplementation %( %1 %, %2 )% 
+//	  end;//with aForm
+    '  end;//with aForm'
+//	 end;
+    ' end;'
+//	
+
+
+//	[{"%{TvcmInitProc}N"=""}%f_find_element(TvcmInitProc,TvcmInitProc)]\
+
+//	%S%f_make_accessable(%{TvcmInitProc}U)\
+
+//	%S%f_add_inheritable(%{TvcmInitProc}U)\
+
+
+//	var
+    'var'
+//	 l_AC : TvcmInitProc;
+    ' l_AC : TvcmInitProc;'
+//	 l_ACHack : Pointer absolute l_AC;
+    ' l_ACHack : Pointer absolute l_AC;'
+//	]\
+   %END-IF
+//	begin
+   'begin'
+//	[{%S%f_HasParams()=true&%S{need AfterCreate}!=false}\
+   %IF ( ( %S %f HasParams %( )% ) %==  true %&& 
+     ( ( %S get_up ( 'need AfterCreate' ) ) %!=  false  ) ) 
+//	 l_AC := l3LocalStub(@AfterCreate);
+    ' l_AC := l3LocalStub(@AfterCreate);'
+//	 try
+    ' try'
+//	 ]\
+    ' ' 
+   %END-IF
+//	 Result := inherited %f_N(%S)(\
+   ' Result := inherited '
+   [%f] N %( %S )% '('
+//	[{%S%f_IsMakeSingleChild()=true}aCont, ]\
+   %IF ( ( %S %f IsMakeSingleChild %( )% ) %==  true ) 
+    'aCont, ' 
+   %END-IF
+
+
+//	[{%S%f_IsMakeSingleChild()=true}{\
+   %IF ( ( %S %f IsMakeSingleChild %( )% ) %==  true ) 
+    %ELSE
+//	aParams\
+     'aParams'
+//	}\
+    %THEN
+//	[{%S%f_NeedAggregate()=true}{\
+    %IF ( ( %S %f NeedAggregate %( )% ) %==  true ) 
+     %ELSE
+//	vcmMakeParams\
+      'vcmMakeParams'
+//	}\
+     %THEN
+//	vcmSetAggregate(anAgg, vcmMakeParams)\
+     'vcmSetAggregate(anAgg, vcmMakeParams)'
+//	]\
+    %END-IF
+//	], \
+   %END-IF
+   ', '
+
+
+//	aZoneType, aUserType, nil, \
+   'aZoneType, aUserType, nil, '
+//	[{%S%f_FirstParamIsViewAreaController()!=true}{\
+   %IF ( ( %S %f FirstParamIsViewAreaController %( )% ) %!=  true ) 
+    %ELSE
+//	%S%f_FirstParamName()\
+     %S %f FirstParamName %( )% 
+//	}\
+    %THEN
+//	aDataSource\
+    'aDataSource'
+//	]\
+   %END-IF
+//	[{%S%f_HasParams()=true&%S{need AfterCreate}!=false}{);}\
+   %IF ( ( %S %f HasParams %( )% ) %==  true %&& 
+     ( ( %S get_up ( 'need AfterCreate' ) ) %!=  false  ) ) 
+    %ELSE
+     ');' 
+    %THEN
+//	, vcm_utAny, l_AC);
+    ', vcm_utAny, l_AC);'
+//	 finally
+    ' finally'
+//	  l3FreeLocalStub(l_ACHack);
+    '  l3FreeLocalStub(l_ACHack);'
+//	 end;//try..finally\
+    ' end;//try..finally'
+//	]
+   %END-IF
+//	end;\
+   'end;'
+//	}\
+  %THEN
+//	[{%P{singleton}!=true}{\n\
+  %IF ( ( %P get_up ( 'singleton' ) ) %!=  true ) 
+   %ELSE
+    #13#10
+//	begin
+    'begin'
+//	 if (g_%f_pas_TypeName(%P,%1) = nil) then
+    ' if (g_'
+    [%f] pas_TypeName %( %P %, %1 )% ' = nil) then'
+//	 begin
+    ' begin'
+//	  l3System.AddExitProc(%f_pas_TypeName(%P,%1)Free);
+    '  l3System.AddExitProc('
+    [%f] pas_TypeName %( %P %, %1 )% 'Free);'
+//	  %f_pas_TypeName(%T)(g_%f_pas_TypeName(%P,%1)) := inherited %f_N(%S)%S%f_OutCallParams();
+    '  '
+    [%f] pas_TypeName %( %T )% '(g_'
+    [%f] pas_TypeName %( %P %, %1 )% ') := inherited '
+    [%f] N %( %S )% %S %f OutCallParams %( )% ';'
+//	 end;
+    ' end;'
+//	 Result := %f_pas_TypeName(%T)(g_%f_pas_TypeName(%P,%1));
+    ' Result := '
+    [%f] pas_TypeName %( %T )% '(g_'
+    [%f] pas_TypeName %( %P %, %1 )% ');'
+//	end;\
+    'end;'
+//	}\n\
+   %THEN
+   #13#10
+//	var
+   'var'
+//	 l_Inst : \
+   ' l_Inst : '
+//	[{%S#f_IsMethod()=true}{\
+   %IF ( ( %S %?f IsMethod %( )% ) %==  true ) 
+    %ELSE
+//	%f_pas_TypeName(%P,%1)\
+     [%f] pas_TypeName %( %P %, %1 )% 
+//	}\
+    %THEN
+//	[{}{\
+    %IF ( ) 
+     %ELSE
+//	%f_pas_TypeName(%P,%1)\
+      [%f] pas_TypeName %( %P %, %1 )% 
+//	}\
+     %THEN
+//	<{}{%G{is static}=true}%G<{}{%CC=Operation}%f_N(%C%T)>>\
+     %FOR %ITEM-CONDITION ( ( %G get_up ( 'is static' ) ) %==  true ) 
+      %G
+      %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' ) 
+       [%f] N %( %C ->T  )% 
+      %END-FOR
+      %END-FOR
+//	]\
+    %END-IF
+//	]\
+   %END-IF
+//	;
+   ';'
+//	begin
+   'begin'
+//	[{%S{check nil}=true}\
+   %IF ( ( %S get_up ( 'check nil' ) ) %==  true ) 
+//	 if ([{%S#f_IsMethod()=true}{%CN}{%C%CN}] = nil) then
+    ' if ('
+    %IF ( ( %S %?f IsMethod %( )% ) %==  true ) 
+     %ELSE
+      %C |N 
+     %THEN
+     '{'
+     %C ->C |N  '}' 
+    %END-IF
+    ' = nil) then'
+//	 begin
+    ' begin'
+//	  Result := nil;
+    '  Result := nil;'
+//	  Exit;
+    '  Exit;'
+//	 end;//%CN = nil
+    ' end;//'
+    %C |N ' = nil'
+//	]\
+   %END-IF
+//	 l_Inst := \
+   ' l_Inst := '
+//	[{%S#f_IsMethod()=true}{\
+   %IF ( ( %S %?f IsMethod %( )% ) %==  true ) 
+    %ELSE
+//	Create\
+     'Create'
+//	}\
+    %THEN
+//	[{}{Create}<{}{%GS=Constructor|%G{is static}=true}%f_N(%G)>]\
+    %IF ( ) 
+     %ELSE
+      'Create' 
+     %THEN
+     %FOR %ITEM-CONDITION ( ( %G |S ) %== 'Constructor' %|| 
+       ( ( %G get_up ( 'is static' ) ) %==  true  ) ) 
+      [%f] N %( %G )% 
+     %END-FOR
+    %END-IF
+//	]\
+   %END-IF
+//	%S%f_OutCallParams();
+   %S %f OutCallParams %( )% ';'
+//	 try
+   ' try'
+//	  Result := \
+   '  Result := '
+
+
+//	[{%TS!=ImpurityParamType&%RS!=ImpurityParamType}{\
+   %IF ( ( %T |S ) %!= 'ImpurityParamType' %&& 
+     ( ( %R |S ) %!= 'ImpurityParamType'  ) ) 
+    %ELSE
+
+
+//	[{%P#f_IsMixIn()!=true}{\
+     %IF ( ( %P %?f IsMixIn %( )% ) %!=  true ) 
+      %ELSE
+//	_Instance_R_(l_Inst)\
+       '_Instance_R_(l_Inst)'
+//	}\
+      %THEN
+//	l_Inst\
+      'l_Inst'
+//	]\
+     %END-IF
+
+//	%P#f_IsMixIn()!=true
+
+
+//	}\
+    %THEN
+//	l_Inst\
+    'l_Inst'
+//	]\
+   %END-IF
+
+//	%TS=ImpurityParamType
+
+
+//	[{%S{need As}=true} As \
+   %IF ( ( %S get_up ( 'need As' ) ) %==  true ) 
+    ' As '
+//	%S%f_OutFactoryResult()\
+    %S %f OutFactoryResult %( )% 
+//	];
+   %END-IF
+   ';'
+//	 finally
+   ' finally'
+//	  l_Inst.Free;
+   '  l_Inst.Free;'
+//	 end;//try..finally
+   ' end;//try..finally'
+//	end;\
+   'end;'
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4AE05AD4015Afor4AE027EC00A7*
+; // OutFactoryBody
+
+
+//%f _OutFactoryResult
+: OutFactoryResult OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4AE05AEE0071for4AE027EC00A7*
+//@ %SU
+//	[{%P#f_IsVCMForm()!=true}{\
+ %IF ( ( %P %?f IsVCMForm %( )% ) %!=  true ) 
+  %ELSE
+//	IvcmEntityForm\
+   'IvcmEntityForm'
+//	}\
+  %THEN
+//	[{%S#f_IsMethod()!=true}{\
+  %IF ( ( %S %?f IsMethod %( )% ) %!=  true ) 
+   %ELSE
+//	[{}{\
+    %IF ( ) 
+     %ELSE
+//	[{}{\
+      %IF ( ) 
+       %ELSE
+//	%f_error("Фабрика %PN.%SN не может конструировать объект без интерфейсов")
+        [%f] error %( 'Фабрика '
+        %P |N '.'
+        %S |N ' не может конструировать объект без интерфейсов' )% 
+//	}\
+       %THEN
+//	%P<{}{%t_interface(%R)=true&%RV=PublicAccess}%f_pas_TypeName(%R)>\
+       %P
+       %FOR %ITEM-CONDITION ( ( [%t] interface %( %R )% ) %==  true %&& 
+         ( ( %R |V ) %== 'PublicAccess'  ) ) 
+        [%f] pas_TypeName %( %R )% 
+       %END-FOR
+ //	]\
+      %END-IF
+//	}%f_pas_ResultTypeNamePrim(%C%T,%S)\
+     %THEN
+     [%f] pas_ResultTypeNamePrim %( %C ->T  %, %S )% 
+//	]\
+    %END-IF
+//	}\
+   %THEN
+//	[{}{\
+   %IF ( ) 
+    %ELSE
+//	[{}{\
+     %IF ( ) 
+      %ELSE
+//	%f_error("Фабрика %PN.%SN не может конструировать объект без интерфейсов")
+       [%f] error %( 'Фабрика '
+       %P |N '.'
+       %S |N ' не может конструировать объект без интерфейсов' )% 
+//	}\
+      %THEN
+//	%P<{}{%t_interface(%R)=true&%RV=PublicAccess}%f_pas_TypeName(%R)>\
+      %P
+      %FOR %ITEM-CONDITION ( ( [%t] interface %( %R )% ) %==  true %&& 
+        ( ( %R |V ) %== 'PublicAccess'  ) ) 
+       [%f] pas_TypeName %( %R )% 
+      %END-FOR
+ //	]\
+     %END-IF
+//	}%f_pas_ResultTypeNamePrim(%T,%S)\
+    %THEN
+    [%f] pas_ResultTypeNamePrim %( %T %, %S )% 
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4AE05AEE0071for4AE027EC00A7*
+; // OutFactoryResult
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<FactoryMixIn>>
+

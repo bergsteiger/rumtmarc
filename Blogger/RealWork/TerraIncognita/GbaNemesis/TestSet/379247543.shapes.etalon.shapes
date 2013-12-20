@@ -1,0 +1,726 @@
+----
+Obj type = QueryCard
+Count = 3
+Rect = (-700, 0, 7400, 14200)
+MaxLinesCount = 27
+----
+Obj type = ControlsBlock
+Count = 1
+Rect = (0, 0, 1800, 14200)
+Dim = (14200, 2800)
+MaxLinesCount = 6
+----
+Obj type = Table
+Count = 2
+Rect = (400, 0, 1800, 14200)
+Dim = (14200, 2400)
+MaxLinesCount = 6
+----
+Obj type = ReqRow
+Count = 5
+Rect = (400, 0, 1100, 14200)
+Dim = (14200, 1300)
+MaxLinesCount = 4
+DeltaHeight = 1300
+----
+Obj type = ReqCell
+Rect = (400, 0, 400, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Rect = (400, 3100, 400, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (-100, 3900, 1100, 12500)
+Dim = (8500, 1300)
+MaxLinesCount = 4
+----
+Obj type = ControlPara
+Text = 'Основы Таможенных законодательств государств-участников Содружества Независимых Государств (далее - Основы) определяют принципы правового, экономического и организационного регулирования таможенного дела'
+Rect = (-100, 4000, 1100, 12400)
+Dim = (8000, 1200)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = ReqCell
+Rect = (400, 12500, 400, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Rect = (400, 13300, 400, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ReqRow
+Count = 1
+Rect = (1100, 0, 1700, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (1100, 0, 1700, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Показать правила работы с контекстным поиском'
+Rect = (1200, 0, 1600, 14100)
+Dim = (14000, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 0, LastIndex = -1
+----
+Obj type = ControlsBlock
+Count = 1
+Rect = (1700, 0, 5100, 14200)
+Dim = (14200, 3000)
+MaxLinesCount = 5
+----
+Obj type = Table
+Count = 5
+Rect = (2200, 0, 5100, 14200)
+Dim = (14200, 2500)
+MaxLinesCount = 5
+----
+Obj type = ReqRow
+Count = 5
+Rect = (2300, 0, 2800, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2300, 0, 2800, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Тип'
+Rect = (2300, 0, 2700, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2300, 3100, 2800, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2300, 3200, 2700, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2300, 3900, 2800, 12500)
+Dim = (8500, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2300, 4000, 2800, 12400)
+Dim = (8000, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2300, 12500, 2800, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2300, 12600, 2700, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2300, 13300, 2800, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2300, 13400, 2700, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqRow
+Count = 5
+Rect = (2800, 0, 3400, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2800, 0, 3300, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Орган/Источник'
+Rect = (2900, 0, 3300, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2800, 3100, 3300, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2900, 3200, 3300, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2800, 3900, 3400, 12500)
+Dim = (8500, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2900, 4000, 3300, 12400)
+Dim = (8000, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2800, 12500, 3300, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2900, 12600, 3300, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (2800, 13300, 3300, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (2900, 13400, 3300, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqRow
+Count = 5
+Rect = (3400, 0, 3900, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (3400, 0, 3900, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Раздел/Тема'
+Rect = (3500, 0, 3800, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (3400, 3100, 3900, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (3500, 3200, 3800, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (3400, 3900, 3900, 12500)
+Dim = (8500, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (3500, 4000, 3900, 12400)
+Dim = (8000, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (3400, 12500, 3900, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (3500, 12600, 3800, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (3400, 13300, 3900, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (3500, 13400, 3800, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqRow
+Count = 7
+Rect = (4000, 0, 4500, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4000, 0, 4400, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Дата принятия'
+Rect = (4000, 0, 4400, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4000, 3100, 4400, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'С:'
+Rect = (4000, 3200, 4400, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4000, 3900, 4500, 7800)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (4000, 4000, 4400, 7700)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4000, 7800, 4400, 8600)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'По:'
+Rect = (4000, 7900, 4400, 8500)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4000, 8600, 4500, 12500)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (4000, 8700, 4400, 12400)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4000, 12500, 4400, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (4000, 12600, 4400, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4000, 13300, 4400, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (4000, 13400, 4400, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqRow
+Count = 5
+Rect = (4500, 0, 5100, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4500, 0, 5000, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Номер'
+Rect = (4600, 0, 4900, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4500, 3100, 5000, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (4600, 3200, 4900, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4500, 3900, 5100, 12500)
+Dim = (8500, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (4600, 4000, 5000, 12400)
+Dim = (8000, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4500, 12500, 5000, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (4600, 12600, 4900, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (4500, 13300, 5000, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (4600, 13400, 4900, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ControlsBlock
+Count = 1
+Rect = (5100, 0, 7400, 14200)
+Dim = (14200, 2600)
+MaxLinesCount = 4
+----
+Obj type = ReqGroup
+Count = 3
+Rect = (5600, 0, 7400, 14200)
+Dim = (14200, 1500)
+MaxLinesCount = 3
+----
+Obj type = ReqRow
+Count = 7
+Rect = (5600, 0, 6200, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (5600, 0, 6100, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Вступление в силу'
+Rect = (5700, 0, 6100, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (5600, 3100, 6100, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'С:'
+Rect = (5700, 3200, 6100, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (5600, 3900, 6200, 7800)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (5700, 4000, 6100, 7700)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (5600, 7800, 6100, 8600)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'По:'
+Rect = (5700, 7900, 6100, 8500)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (5600, 8600, 6200, 12500)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (5700, 8700, 6100, 12400)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (5600, 12500, 6100, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (5700, 12600, 6100, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (5600, 13300, 6100, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (5700, 13400, 6100, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqRow
+Count = 7
+Rect = (6200, 0, 6800, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6200, 0, 6700, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Утрата силы'
+Rect = (6300, 0, 6600, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6200, 3100, 6700, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'С:'
+Rect = (6300, 3200, 6600, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6200, 3900, 6800, 7800)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (6300, 4000, 6700, 7700)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6200, 7800, 6700, 8600)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'По:'
+Rect = (6300, 7900, 6600, 8500)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6200, 8600, 6800, 12500)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (6300, 8700, 6700, 12400)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6200, 12500, 6700, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (6300, 12600, 6600, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6200, 13300, 6700, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (6300, 13400, 6600, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqRow
+Count = 7
+Rect = (6800, 0, 7300, 14200)
+Dim = (14200, 400)
+MaxLinesCount = 1
+DeltaHeight = 400
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6800, 0, 7200, 3100)
+Dim = (3100, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'Внесение изменений'
+Rect = (6800, 0, 7200, 3000)
+Dim = (2900, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6800, 3100, 7200, 3900)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'С:'
+Rect = (6800, 3200, 7200, 3800)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6800, 3900, 7300, 7800)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (6800, 4000, 7300, 7700)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6800, 7800, 7200, 8600)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = 'По:'
+Rect = (6800, 7900, 7200, 8500)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6800, 8600, 7300, 12500)
+Dim = (3800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Text = '  .  .  '
+Rect = (6800, 8700, 7300, 12400)
+Dim = (3300, 300)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 1, LastIndex = -1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6800, 12500, 7200, 13300)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (6800, 12600, 7200, 13300)
+Dim = (600, 300)
+MaxLinesCount = 1
+----
+Obj type = ReqCell
+Count = 1
+Rect = (6800, 13300, 7200, 14200)
+Dim = (800, 400)
+MaxLinesCount = 1
+----
+Obj type = ControlPara
+Rect = (6800, 13400, 7200, 14100)
+Dim = (600, 300)
+MaxLinesCount = 1

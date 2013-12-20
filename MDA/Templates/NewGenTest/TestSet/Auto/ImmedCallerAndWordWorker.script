@@ -1,0 +1,15 @@
+: TestImmedWordWorker
+
+ [CallerAndWordWorker] Print
+  WordToWork DO .
+  Caller -> '%U'
+ ;
+ 
+ 'Hello' .
+ Print 123
+
+ 100 =: %U
+ %U .
+;
+
+TestImmedWordWorker

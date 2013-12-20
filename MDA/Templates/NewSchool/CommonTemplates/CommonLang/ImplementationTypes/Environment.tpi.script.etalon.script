@@ -1,0 +1,329 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/Environment.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::Environment
+//
+// Среда окружения
+// ---
+// Позволяет осуществлять внешнюю настройку пакета реализации, посредством задания значения
+// переменных окружения.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Environment::Class
+implementation @ <<Environment>>
+//? Среда окружения
+//? Позволяет осуществлять внешнюю настройку пакета реализации, посредством задания значения переменных окружения.
+//< *::Class,*::Category
+
+//= C++ интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_enviroment.gif
+//L code_enviroment
+// Параметры визуализации
+//$ C 180,250,255
+//$ l 5,120,155
+//$ f 5,120,155
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// ограничение на использование Enviroment
+//%f _environment_constraints
+; // st_space_key
+
+: environment_constraints OBJECT IN %S
+//#UC START# *471DE6E001B5for471DE69E000F*
+//	[{%P<{}{%CS=Environment}{C}>!=1}%f_error("<{}{}{r}%PN::>%SN - В одном пакете реализации может быть задан только один элемент \<\<%SS\>\>")]
+ %IF ( ( %P
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'Environment' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 1 ) 
+  [%f] error %( 
+  %FOR ( 'r' ) 
+   %P |N '::' 
+  %END-FOR
+  %S |N ' - В одном пакете реализации может быть задан только один элемент <<'
+  %S |S '>>' )% 
+ %END-IF
+//#UC END# *471DE6E001B5for471DE69E000F*
+; // environment_constraints
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471DE69E000F*
+//c                              {}
+//r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%a#f_IsUseCase()=true}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+//#UC END# *4704C0E30186for471DE69E000F*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471DE69E000F*
+//O Environment.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	%S%f_environment_constraints()%f_std_inc(%S)
+ %S %f environment_constraints %( )% [%f] std_inc %( %S )% 
+//	%f_includes_by_contents(%S)<\#include %f_dump_include_path(%wL,%w)
+ [%f] includes_by_contents %( %S )% 
+ %FOR '#include '
+  [%f] dump_include_path %( %w |L %, %w )% 
+//	>
+ %END-FOR
+//	%U[{_CUSTOM_INCLUDES}
+ %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	][
+ %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+  %S %f open_ifdef %( )% 
+ %END-IF
+//	%SP
+ %S |P 
+//	class Environment;
+ 'class Environment;'
+//	
+//	class Environment_i {
+ 'class Environment_i {'
+//		friend class Environment;
+ '	friend class Environment;'
+//		
+ '	'
+//	[	Environment_i () : <{, }{"%CI"!=""}m_%CN(%CI)> {
+ %IF-NOT-EMPTY
+  '	Environment_i () : '
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |I ) %!= '' ) 
+   'm_'
+   %C |N '('
+   %C |I ')' 
+  %END-FOR
+  ' {'
+//		}
+  '	}'
+//	
+
+//	]<%C%f_env_var_h()
+ %END-IF
+ %FOR %C %f env_var_h %( )% 
+//	>
+ %END-FOR
+//	private:
+ 'private:'
+//		typedef ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+ '	typedef ACE_Singleton<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;'
+//		friend class ACE_Singleton\<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX\>;
+ '	friend class ACE_Singleton<Environment_i, ACE_SYNCH_RECURSIVE_MUTEX>;'
+//	
+//	private:
+ 'private:'
+//	<%CX
+ %FOR %C |X 
+//	
+
+//	>}; // class Environment_i
+ %END-FOR
+ '}; // class Environment_i'
+//	
+//	class Environment {
+ 'class Environment {'
+//	public:<
+ 'public:'
+ %FOR 
+
+//		static %f_iget_attr(%C) get_%CN () {
+  '	static '
+  [%f] iget_attr %( %C )% ' get_'
+  %C |N ' () {'
+//			return Environment_i::Singleton::instance()-\>get_%CN ();
+  '		return Environment_i::Singleton::instance()->get_'
+  %C |N ' ();'
+//		}
+  '	}'
+//	
+
+//		static void set_%CN (%f_iset_attr(%C) %CN) {
+  '	static void set_'
+  %C |N ' ('
+  [%f] iset_attr %( %C )% ' '
+  %C |N ') {'
+//			Environment_i::Singleton::instance()-\>set_%CN (%CN);
+  '		Environment_i::Singleton::instance()->set_'
+  %C |N ' ('
+  %C |N ');'
+//		}	
+  '	}	'
+//	>}; // class Environment
+ %END-FOR
+ '}; // class Environment'
+//	
+//	%Sp
+ %S |p 
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47022C88029Ffor471DE69E000F*
+; // h
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Environment::Class::Attribute
+end. // <<Environment>>
+
+implementation @ :: <<Environment>> <<Attribute>> ;
+//? Переменная окружения
+//= ClassBase::Class::Attribute
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471DE6F2009C*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#[{%t_refcounted(%T)=true}{%f_attr(%S)}%t_attr(%T,"ref[-%Ss]",%S)] m_[{}{%f_to_omg(%TN)}%SN];
+ out_indent %IF ( ( [%t] refcounted %( %T )% ) %==  true ) 
+  %ELSE
+   [%f] attr %( %S )% 
+  %THEN
+  [%t] attr %( %T %, 'ref'
+  %IF-NOT-EMPTY
+   '-'
+   %S |s 
+  %END-IF
+%,   %S )% 
+ %END-IF
+ ' m_'
+ %IF ( ) 
+  %ELSE
+   [%f] to_omg %( %T |N )% 
+  %THEN
+  %S |N 
+ %END-IF
+ ';'
+//#UC END# *47022C88029Ffor471DE6F2009C*
+; // h
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// что-то для Enviroment
+//%f _env_var_h
+; // st_space_key
+
+: env_var_h OBJECT IN %S
+//#UC START# *471DEA9B0399for471DE6F2009C*
+//		%f_iget_attr(%S) get_%SN () const {
+ '	'
+ [%f] iget_attr %( %S )% ' get_'
+ %S |N ' () const {'
+//		[{"%t_interface(%T)"="true"}{	return m_[{}{%f_to_omg(%TN)}%SN];}\
+ '	'
+ %IF ( ( [%t] interface %( %T )% ) %== true ) 
+  %ELSE
+   '	return m_'
+   %IF ( ) 
+    %ELSE
+     [%f] to_omg %( %T |N )% 
+    %THEN
+    %S |N 
+   %END-IF
+   ';' 
+  %THEN
+//		if (m_[{}{%f_to_omg(%TN)}%SN].ptr()) {
+  '	if (m_'
+  %IF ( ) 
+   %ELSE
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   %S |N 
+  %END-IF
+  '.ptr()) {'
+//				return *m_[{}{%f_to_omg(%TN)}%SN].ptr();
+  '			return *m_'
+  %IF ( ) 
+   %ELSE
+    [%f] to_omg %( %T |N )% 
+   %THEN
+   %S |N 
+  %END-IF
+  '.ptr();'
+//			} else {
+  '		} else {'
+//				throw Core::Root::CachedAttrUninitialized (GDS_CURRENT_FUNCTION);
+  '			throw Core::Root::CachedAttrUninitialized (GDS_CURRENT_FUNCTION);'
+//			}]
+  '		}' 
+ %END-IF
+//		}
+ '	}'
+//	
+//		void set_%SN (%f_iset_attr(%S) %SN) {
+ '	void set_'
+ %S |N ' ('
+ [%f] iset_attr %( %S )% ' '
+ %S |N ') {'
+//			m_[{}{%f_to_omg(%TN)}%SN] = [{"%t_interface(%T)"="true"}%f_type(%T)::_duplicate(]%SN[{"%t_interface(%T)"="true"})];
+ '		m_'
+ %IF ( ) 
+  %ELSE
+   [%f] to_omg %( %T |N )% 
+  %THEN
+  %S |N 
+ %END-IF
+ ' = '
+ %IF ( ( [%t] interface %( %T )% ) %== true ) 
+  [%f] type %( %T )% '::_duplicate(' 
+ %END-IF
+ %S |N %IF ( ( [%t] interface %( %T )% ) %== true ) 
+  ')' 
+ %END-IF
+ ';'
+//		}
+ '	}'
+//#UC END# *471DEA9B0399for471DE6F2009C*
+; // env_var_h
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Environment>> <<Attribute>> ;
+

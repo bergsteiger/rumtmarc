@@ -1,0 +1,19 @@
+USES
+ HLTCLike.script
+; 
+
+: K284165571
+ OBJECT VAR l_QC
+ ППР
+ "Убедиться, что фокус в редакторе"
+ focused:control:push >>> l_QC
+ 'AT_TYPE' 'Комментарии' l_QC pop:QueryCard:SetAttribute
+ 'AT_TYPE' 'Нормативно-техническая документация' l_QC pop:QueryCard:SetAttribute
+ "Очистить КЗ"
+ 'AT_TYPE' 'Комментарии' l_QC pop:QueryCard:SetAttribute
+ 'AT_TYPE' 'Нормативно-техническая документация' l_QC pop:QueryCard:SetAttribute
+ "Нажать Искать"
+ "Проверить информацию о списке и первый документ"
+;
+
+K284165571

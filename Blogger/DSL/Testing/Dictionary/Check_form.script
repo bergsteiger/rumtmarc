@@ -1,0 +1,328 @@
+USES
+ WordsTranslation.script
+ WordsTuning.script
+ SysUtils.script
+ Mouse.script
+ Editor.script
+ Controls.script
+ Forms.script
+ HLTCLike.script
+;
+
+: "Сравнить с эталоном текст редактора " OBJECT IN aControl
+ aControl "Установить фокус"
+ "Дождаться переключения вкладок"
+ "Выделить всё"
+ "Сравнить выделенный текст текущего редактора с эталоном"
+; // "Сравнить с эталоном текст редактора"
+
+: "Вывести в эталон размеры и координаты контрола с округлением до " OBJECT IN aControl IN aNum
+  VAR L
+  VAR T
+  VAR W
+  VAR H
+ ( ( aControl  "Померить отступ слева" aNum / ) aNum * ) >>> L
+ [[ 'Left = ' L IntToStr ]] strings:Cat .
+ ( ( aControl  "Померить отступ сверху" aNum / ) aNum * ) >>> T
+ [[ 'Top = ' T IntToStr ]] strings:Cat .
+ ( ( aControl "Померить ширину" aNum / ) aNum * ) >>> W
+ [[ 'Width = ' W IntToStr ]] strings:Cat .
+ ( ( aControl "Померить высоту" aNum / ) aNum * )  >>> H
+ [[ 'Height = ' H IntToStr ]] strings:Cat .
+; // "Получить размеры и координаты контрола"
+
+: "Вывести в эталон размеры контрола с округлением до " OBJECT IN aControl IN aNum
+ VAR W
+ VAR H
+ ( ( aControl  "Померить ширину" aNum / ) aNum * ) >>> W
+ [[ 'Width = ' W IntToStr ]] strings:Cat .
+ ( ( aControl  "Померить высоту" aNum / ) aNum * )  >>> H
+ [[ 'Height = ' H IntToStr ]] strings:Cat .
+; // "Сравнить с эталоном размеры контрола"
+
+: "Аккуратно сравнить с эталоном целочисленное свойство объекта" STRING IN aProp OBJECT IN anObj
+ aProp anObj pop:object:HasProp ? ( 
+  STRING VAR l_Value
+  aProp anObj pop:object:GetOrdProp IntToStr >>> l_Value
+  [[ aProp ': ' l_Value ]] strings:Cat . 
+ )
+;
+
+: "Аккуратно сравнить с эталоном объектное свойство объекта" STRING IN aProp OBJECT IN anObj
+ aProp anObj pop:object:HasProp ? ( 
+  STRING VAR l_Value
+  aProp anObj pop:object:GetObjProp pop:object:IsNil IF 'nil' ELSE 'assigned' ENDIF >>> l_Value 
+  [[ aProp ': ' l_Value ]] strings:Cat . 
+ )
+;
+
+: "Аккуратно сравнить с эталоном целочисленные свойства объекта" IN anOrdProps OBJECT IN anObj
+ INTEGER VAR l_Loop
+ 0 >>> l_Loop
+ anOrdProps array:Count раз (
+  "Аккуратно сравнить с эталоном целочисленное свойство {( l_Loop anOrdProps [i] )} объекта {(anObj)}"
+  l_Loop 1 + >>> l_Loop
+ )
+;
+
+: "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров для формы" BOOLEAN IN aToolbar STRING IN aForm
+
+OBJECT FUNCTION "Форма от которой начинаем перебор"
+ "Найти окно по имени {(aForm)}" =: Result  
+;
+
+ : Действия_с_контролом OBJECT IN aCtrl
+   aCtrl "Узнать, существует ли объект" ! IF
+   ( 'TvcmDockPanel'  aCtrl pop:object:Inherits )
+   ИЛИ ( 'TvcmToolButtonDef' aCtrl pop:object:Inherits )
+   ИЛИ ( 'TvcmDockDef' aCtrl pop:object:Inherits )
+   ИЛИ ( 'TvcmToolbar' aCtrl pop:object:Inherits ) 
+   ИЛИ ( aCtrl "Узнать имя контрола" РАВНО '' ) IF
+    EXIT
+   ELSE
+     ( aCtrl  ЯВЛЯЕТСЯ class::Ten_MainMenuNew ) IF
+     'en_MainMenuNew : Ten_MainMenuNew' .
+     aCtrl "Заголовок контрола" .
+     // такая вот заплатка, чтобы не получать разницы с эталоном из-за разного номера en_MainMenuNew
+     ELSE   
+     aCtrl .
+     ( aCtrl  "Имя компонента" РАВНО контрол::ShellInfoLabel  ) 
+     ИЛИ ( aCtrl "Имя компонента" РАВНО 'dD1EqD2' )
+     ИЛИ ( aCtrl "Имя компонента" РАВНО 'dD1Only' )
+     ИЛИ ( aCtrl "Имя компонента" РАВНО 'dD2Only' )
+     ИЛИ ( aCtrl "Имя компонента" РАВНО 'dD1' )
+     ИЛИ ( aCtrl "Имя компонента" РАВНО 'dD2' ) 
+     ИЛИ ( aCtrl "Имя компонента" РАВНО контрол::trContactList ) 
+    IF
+     'Заголовок не сравниваем' .
+    ELSE
+     aCtrl "Заголовок контрола" .
+    ENDIF // заголовок контрола
+   ENDIF // исключаю MainMenuNew
+     ( 'TPanel' aCtrl pop:object:Inherits ) 
+     ИЛИ ( aCtrl ЯВЛЯЕТСЯ class::TvtPanel )
+     ИЛИ ( aCtrl ЯВЛЯЕТСЯ class::TnscEditor ) IF
+     "Аккуратно сравнить с эталоном целочисленные свойства {( [[ 'BevelWidth' 'BorderStyle' 'BevelOuter' 'BevelInner' ]] )} объекта {(aCtrl)}"
+     ENDIF
+     ( aCtrl "Перейти к родительской форме" "Узнать, существует ли объект" ) И
+     ( aCtrl "Форма от которой начинаем перебор" ?== ) IF   
+  // ( aCtrl pop:control:GetMainForm aCtrl ?== ) IF    
+     'Position:' 'Position' aCtrl  "Узнать численную переменную объекта" IntToStr Cat .
+  //   "Сравнить с эталоном размеры контрола {(aCtrl)}" 
+      "Вывести в эталон размеры контрола {(aCtrl)} с округлением до {(5)}" 
+     ELSE
+  //    "Получить размеры и координаты контрола {(aCtrl)}"
+      "Вывести в эталон размеры и координаты контрола {(aCtrl)} с округлением до {(5)}" 
+     ENDIF // исключаем координаты
+     "Аккуратно сравнить с эталоном целочисленные свойства {( [[ 'TabOrder' 'ImageIndex' 'TabStop' 'Align' 'Anchors' 'BorderWidth' 'ReadOnly' ]] )} объекта {(aCtrl)}"
+     "Аккуратно сравнить с эталоном объектное свойство {('Images')} объекта {(aCtrl)}"
+    ( aCtrl ЯВЛЯЕТСЯ class::TvtLabel ) IF
+    "Аккуратно сравнить с эталоном целочисленное свойство {('Transparent')} объекта {(aCtrl)}"
+    ENDIF // Transparent
+    ( aCtrl ЯВЛЯЕТСЯ class::TnscTreeView ) 
+    ИЛИ ( aCtrl ЯВЛЯЕТСЯ class::TnscEditor ) IF
+    'Вертикальный скроллер:' aCtrl "Узнать, есть ли у контрола вертикальный скроллер" ToPrintable Cat .
+    'Горизонтальный скроллер:' aCtrl "Узнать, есть ли у контрола горизонтальный скроллер" ToPrintable Cat .
+    ENDIF // скроллеры для деревьев и редакторов
+    ( 'Ttb97MoreButton' aCtrl pop:object:Inherits ) IF
+     'Не сравниваем контекстное меню' .
+    ELSE
+     "Сравнить контекстное меню для контрола {(aCtrl)} для точки {( 0 0 )} с эталоном"
+   ENDIF //  исключаем контекстное меню для Ttb97MoreButton
+   aCtrl ЯВЛЯЕТСЯ class::TnscEditor IF
+   '--- Текст редактора: ---' . 
+   "Сравнить с эталоном текст редактора {(aCtrl)}"
+   ENDIF  
+  ENDIF // исключаем TvcmDockPanel
+
+   '---------------' .
+  ENDIF // проверка контрола
+ ; // Действия_с_контролом
+
+ '--------------- Контрол в фокусе: ------------------' .
+ "Контрол в фокусе" .
+ '--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------' .
+ 'Форма:' .
+ "Аккуратно сравнить с эталоном целочисленное свойство {('BorderStyle')} объекта {("Форма от которой начинаем перебор")}" '---------------' .
+ "выполнить для всех контролов {("Форма от которой начинаем перебор")}" Действия_с_контролом 
+
+ aToolbar ? (  '--------------- Содержимое тулбаров: -------------------' .
+ "Сравнить содержимое тулбаров с эталоном полностью" )
+; // "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров для окна
+
+: "Проверить параметры и контекстное меню контролов, содержимое тулбаров для формы" STRING IN aForm
+ "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров {(true)} для формы {(aForm)}"
+; // "Проверить параметры и контекстное меню контролов, содержимое тулбаров для формы"
+
+: "Проверить параметры и контекстное меню контролов для формы" STRING IN aForm
+ "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров {(false)} для формы {(aForm)}"
+; // "Проверить параметры и контекстное меню контролов для формы"
+
+: "Подготовить окно Гаранта (запомнить состояние и размеры) к сравнению формы с эталоном и выполнить для ее открытия и сравнения " STRING IN aForm OBJECT IN aProc
+
+   : Сравнить_контролы_и_их_контекстные_меню_с_эталоном
+     aProc DO
+   ; // Сравнить_контролы_и_их_контекстные_меню_с_эталоном
+
+  : Установить_размеры_окну
+   "Выставить форме размеры {( 1150 800 )} и {(@ Сравнить_контролы_и_их_контекстные_меню_с_эталоном )}"
+  ; // Установить_размеры_окну 
+
+ "Восстановить все настройки текущей конфигурации"
+ "Сделать {(@ Установить_размеры_окну )} с изменением состояния и размеров окна {("Найти главное окно")}"
+; // "Подготовить окно Гаранта (запомнить состояние и размеры) к сравнению формы с эталоном и выполнить для ее открытия и сравнения "
+
+:  "Сравнить содержимое тулбара  на форме с эталоном" STRING IN aForm
+
+ : Действия OBJECT IN aObj
+  ( aObj ЯВЛЯЕТСЯ class::TvcmToolbar ) ? (
+   ( aObj pop:control:Visible И ( aObj pop:control:ControlCount БОЛЬШЕ 1 ) ) ? (
+    aObj .
+    'Order = ' 'DockRow' aObj pop:object:GetOrdProp IntToStr Cat .
+    '---------------' .
+    aObj EnumerateControls ( OBJECT IN aControl
+    ( aControl "НЕ ЯВЛЯЕТСЯ" class::Ttb97MoreButton ) ? (
+      aControl .
+      ( aControl "НЕ ЯВЛЯЕТСЯ" class::TvcmComboBox ) ? (
+       aControl pop:control:Caption .
+       'Активность:' aControl "Убедиться, что контрол активен" ToPrintable Cat .
+       '---' . 
+      )
+     )
+    )
+    '' .
+   )
+  )
+ ;
+
+ OBJECT VAR work_form
+ "Найти окно по имени {(aForm)}" >>> work_form
+ work_form "выполнить для всех контролов" Действия
+; // "Сравнить содержимое тулбара  на форме с эталоном"
+
+: "Сделать в обеих конфигурациях" OBJECT IN Действия
+ Действия DO
+'*********------------Расширенная конфигурация:---------------********' .
+
+ ОМ
+ "Сделать {(Действия)} в расширенной конфигурации"
+;
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+STRING FUNCTION "пробелов" INTEGER IN aCount
+ aCount ' ' char:Dupe >>> Result
+;
+
+: "Аккуратно сравнить с эталоном целочисленное свойство объекта с отступом" STRING IN aProp OBJECT IN anObj INTEGER IN aLevel
+ STRING VAR l_Indent
+ "{(aLevel)} пробелов" >>> l_Indent
+ aProp anObj pop:object:HasProp ? ( 
+  STRING VAR l_Value
+  aProp anObj pop:object:GetOrdProp IntToStr >>> l_Value
+  [[ l_Indent aProp ': ' l_Value ]] strings:Cat . 
+ )
+;
+
+: "Аккуратно сравнить с эталоном объектное свойство объекта с отступом" STRING IN aProp OBJECT IN anObj INTEGER IN aLevel
+ STRING VAR l_Indent
+ "{(aLevel)} пробелов" >>> l_Indent
+ aProp anObj pop:object:HasProp ? ( 
+  STRING VAR l_Value
+  aProp anObj pop:object:GetObjProp pop:object:IsNil IF 'nil' ELSE 'assigned' ENDIF >>> l_Value 
+  [[ l_Indent aProp ': ' l_Value ]] strings:Cat . 
+ )
+;
+
+: "Аккуратно сравнить с эталоном целочисленные свойства объекта с отступом" IN anOrdProps OBJECT IN anObj INTEGER IN aLevel
+ INTEGER VAR l_Loop
+ 0 >>> l_Loop
+ anOrdProps array:Count раз (
+  "Аккуратно сравнить с эталоном целочисленное свойство {( l_Loop anOrdProps [i] )} объекта {(anObj)} с отступом {(aLevel)}"
+  l_Loop 1 + >>> l_Loop
+ )
+;
+
+: "Вывести в эталон размеры и координаты контрола с округлением до и отступом" OBJECT IN aControl INTEGER IN aNum INTEGER IN aLevel
+ VAR L
+ VAR T
+ VAR W
+ VAR H
+ STRING VAR l_Indent
+ "{(aLevel)} пробелов" >>> l_Indent
+ ( ( aControl  "Померить отступ слева" aNum / ) aNum * ) >>> L
+ [[ l_Indent 'Left: ' L IntToStr ]] strings:Cat .
+ ( ( aControl  "Померить отступ сверху" aNum / ) aNum * ) >>> T
+ [[ l_Indent 'Top: ' T IntToStr ]] strings:Cat .
+ ( ( aControl "Померить ширину" aNum / ) aNum * ) >>> W
+ [[ l_Indent 'Width: ' W IntToStr ]] strings:Cat .
+ ( ( aControl "Померить высоту" aNum / ) aNum * )  >>> H
+ [[ l_Indent 'Height: ' H IntToStr ]] strings:Cat .
+; // "Получить размеры и координаты контрола"
+
+: "Сравнить с эталоном свойства контрола с отступом" OBJECT IN aControl INTEGER IN aLevel
+ STRING VAR l_Indent
+ "{(aLevel)} пробелов" >>> l_Indent
+ 
+ ( aControl ЯВЛЯЕТСЯ class::TCustomForm ) И ( aControl pop:control:GetParent pop:object:IsNil ) IF
+  "Аккуратно сравнить с эталоном целочисленное свойство {('Position')} объекта {(aControl)} с отступом {(aLevel)}"
+ ELSE
+  "Вывести в эталон размеры и координаты контрола {(aControl)} с округлением до {(5)} и отступом {(aLevel)}" 
+ ENDIF
+ "Аккуратно сравнить с эталоном целочисленные свойства {( [['BevelWidth' 'BorderStyle' 'BevelOuter' 
+                                                            'BevelInner' 'TabOrder' 'ImageIndex' 
+                                                            'TabStop' 'Align' 'Anchors' 'BorderWidth' 
+                                                            'ReadOnly' 'Transparent'
+                                                          ]] )} объекта {(aControl)} с отступом {(aLevel)}"
+ "Аккуратно сравнить с эталоном объектное свойство {('Images')} объекта {(aControl)} с отступом {(aLevel)}"
+
+ ( aControl ЯВЛЯЕТСЯ class::TnscTreeView ) ИЛИ ( aControl ЯВЛЯЕТСЯ class::TnscEditor ) ? (
+  [[ l_Indent 'Вертикальный скроллер: ' "Узнать, есть ли у контрола {(aControl)} вертикальный скроллер" ToPrintable ]] strings:Cat .
+  [[ l_Indent 'Горизонтальный скроллер: ' "Узнать, есть ли у контрола {(aControl)} горизонтальный скроллер" ToPrintable ]] strings:Cat .
+ )
+ 
+ ( aControl ЯВЛЯЕТСЯ 'Ttb97MoreButton' ) IF
+  l_Indent 'Не сравниваем контекстное меню' Cat .
+ ELSE
+  l_Indent 'Контекстное меню:' Cat .
+  "Сравнить контекстное меню для контрола {(aControl)} для точки {( 0 0 )} с эталоном"
+  l_Indent ';' Cat .
+ ENDIF //  исключаем контекстное меню для Ttb97MoreButton
+ ( aControl ЯВЛЯЕТСЯ class::TnscEditor ) IF
+  '--- Текст редактора: ---' . 
+  "Сравнить с эталоном текст редактора {(aControl)}"
+ ENDIF
+;
+
+FORWARD "Сравнить с эталоном контрол с отступом"
+
+: "Сравнить с эталоном контрол с отступом" OBJECT IN aControl INTEGER IN aLevel
+ STRING VAR l_Indent
+ "{(aLevel)} пробелов" >>> l_Indent
+ l_Indent aControl ToPrintable Cat .
+ "Сравнить с эталоном свойства контрола {(aControl)} с отступом {( 1 aLevel + )}"
+
+ ( aControl ЯВЛЯЕТСЯ class::TWinControl ) ? (
+   ARRAY l_ControlsArray
+   : FillArray OBJECT IN aChildControl
+    aChildControl >>>[] l_ControlsArray
+   ;
+   aControl EnumerateControls FillArray
+   INTEGER VAR l_Loop
+   0 >>> l_Loop
+   l_ControlsArray array:Count раз (
+    "Сравнить с эталоном контрол {( l_Loop l_ControlsArray [i] )} с отступом {( 1 aLevel + )}"
+    1 l_Loop + >>> l_Loop
+   )
+ )
+ l_Indent ';' Cat .
+;
+
+: "По-новому сравнить с эталоном форму" OBJECT IN aForm
+ "Сравнить с эталоном контрол {(aForm)} с отступом {(0)}"
+;

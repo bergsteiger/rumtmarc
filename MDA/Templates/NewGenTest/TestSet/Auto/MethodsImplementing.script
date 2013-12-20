@@ -1,0 +1,84 @@
+StereotypeStereotypeProducer P
+
+ : X1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+<<P>> MDAClass
+
+ : m1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+<<P>> MDACategory
+
+ : m1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+<<MDAClass>> SimpleClass
+
+ : m1
+ ;
+ 
+ : m2
+ ;
+ 
+;
+
+<<SimpleClass>> Tl3Base
+
+ : m1
+ ;
+ 
+;
+
+<<MDACategory>> Unit
+ : x1
+  ' World' .
+ ;
+ 
+ : x2
+ ;
+;
+
+[WordWorker] implementation
+ Ctx:PushCompiler
+ Ctx:PushFinder
+ VAR l_NewCompiler
+ WordToWork DO =: l_NewCompiler
+ l_NewCompiler pop:Compiler:SetToCtx
+ l_NewCompiler pop:Finder:SetToCtx
+;
+
+[:] end.
+ pop:Finder:SetToCtx
+ pop:Compiler:SetToCtx
+;
+
+implementation @ <<Unit>>
+
+ : NewMethod
+  'Hello' . x1
+ ;
+ 
+end.
+
+: XXX
+ 'Bang!' .
+;
+
+:: <<Unit>> NewMethod ;
+XXX

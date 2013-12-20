@@ -1,0 +1,746 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Что я ещё хочу сказать о TDD<br />
+<br />
+Предыдущая серия была тут - <a href="http://programmingmindstream.blogspot.ru/2013/11/tdd.html">http://programmingmindstream.blogspot.ru/2013/11/tdd.html</a><br />
+<br />
+Многие люди с которыми я общался насчёт тестов <b>вообще</b> и TDD в частности "разбивались" о следующее препятствие:<br />
+<br />
+TestFirst. TestDriven.<br />
+<br />
+Я не хочу "спорить", а тем более опровергать или критиковать никого из уважаемых "теоретиков TDD".&nbsp;
+<br />
+<br />
+Я лишь хочу описать свою трактовку. Ну или - как я это "для себя" понял.<br />
+<!--more--><br />
+<br />
+TDD говорит нам примерно следующее:<br />
+<br />
+1. Запустите ВСЕ тесты, убедитесь, что они прошли.<br />
+2. Добавьте новый тест для новой функциональности. Убедитесь, что он не прошёл.<br />
+3. Добавьте функциональность. Убедитесь, что тест прошёл.<br />
+<br />
+Какой вопрос сразу возникает у людей?<br />
+<br />
+А вот какой:
+
+"Как я могу написать тест к тому, чего НЕТ?"?<br />
+<br />
+И люди - ПРАВЫ.<br />
+<br />
+Я сам когда впервые смотрел на TTD - думал - "вот чушь собачья". (Это - "эпитет", а не "ругательство")<br />
+<br />
+"Как можно писать тест к тому чего НЕТ? Пусть даже и НЕ проходящий.<br />
+<br />
+"Пойди туда не знаю куда..."<br />
+<br />
+Я долго думал и вот, что я для себя надумал:<br />
+<br />
+НЕТУ TestFirst.<br />
+<br />
+НЕТУ TestFirst.<br />
+<br />
+В ПЕРВУЮ очередь - есть "набросок" АРХИТЕКТУРЫ. Не код, ни тесты, ни что-то ещё. А именно - "набросок" АРХИТЕКТУРЫ.<br />
+<br />
+И TestFirst делается не для чего-то "абстрактного", что "будет когда-то потом". А для ВПОЛНЕ КОНКРЕТНОГО.<br />
+<br />
+&nbsp;<b>Описанного</b> в архитектуре и растущими ногами <b>из ТЗ</b>.<br />
+<br />
+Простейший пример:<br />
+<br />
+&nbsp;Пусть нам надо сделать "кнопку", которая зовёт новую функциональность.<br />
+<br />
+Тогда тест может быть такой:
+<br />
+<br />
+<pre class="brush:delphi"> AssureThatButtonExists('SomeButton');
+</pre>
+<br />
+И он КОНЕЧНО не пройдёт - <b>пока</b> мы не <b>добавим кнопку</b> и пройдёт - КОГДА мы её таки ДОБАВИМ.<br />
+<br />
+Но! Тест "ЗНАЕТ" о существовании кнопки. Он знает хотя бы её имя. Т.е. он тестирует не "непонятно что", а вполне "понятно что". Часть <b>концепций</b> архитектуры. КНОПКА, <b>описанная</b> в ТЗ и архитектуре.<br />
+<br />
+Идём дальше.<br />
+<br />
+Например нам надо написать класс TmyIntegerList (я его разберу подробнее ниже).<br />
+<br />
+И что мы делаем?<br />
+<br />
+Мы пишем:<br />
+<br />
+"Дизайн архитектуры" и заготовку проектного класса.<br />
+<br />
+ИМЕННО их, а не ТЕСТ.<br />
+<br />
+Ещё раз:<br />
+<br />
+Мы пишем:
+
+"Дизайн архитектуры" и заготовку проектного класса.<br />
+<br />
+ИМЕННО их, а не ТЕСТ.<br />
+<br />
+Как-то так:
+
+<br />
+<br />
+<pre class="brush:delphi">type
+ TmyIntegerList = class
+  public
+   procedure Add(anItem: Integer);
+ end;//TmyIntegerList
+
+procedure TmyIntegerList.Add(anItem: Integer);
+begin
+ Assert(false, 'Не реализовано');
+end;
+</pre>
+<br />
+А ПОТОМ только, мы пишем ТЕСТ.<br />
+<br />
+Ещё РАЗ - ТОЛЬКО потом пишем ТЕСТ.<br />
+<br />
+Примерно такой:
+
+<br />
+<br />
+<pre class="brush:delphi">procedure TmyIntegerListTest.ListAdd;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Add(47879);
+ finally
+  FreeAndNil(l_List);
+ end;
+end;
+</pre>
+<br />
+И этот тест - КОНЕЧНО же - НЕ ПРОЙДЁТ. А вот ПОТОМ, когда мы <b>добавим РЕАЛИЗАЦИЮ</b> метода TmyIntegerList.Add - он <b>пройдёт</b>.<br />
+<br />
+Итак.<br />
+<br />
+Нету никакого TestFirst.<br />
+<br />
+Если уж говорить, про "first" - то ПЕРВИЧНЫ архитектура и дизайн, а лишь потом - ТЕСТЫ. А лишь потом - реализация.<br />
+<br />
+Итак цепочка разработки выглядит так:<br />
+&nbsp;ТЗ -&gt; Набросок архитектуры -&gt; Тест -&gt; Код<br />
+<br />
+А дальше возможны все разные варианты:<br />
+&nbsp;ТЗ -&gt; Набросок архитектуры -&gt; Тест -&gt; Код -&gt; Тест -&gt; Код<br />
+&nbsp;ТЗ -&gt; Набросок архитектуры -&gt; Тест -&gt; Код -&gt; Архитектура -&gt; Тест -&gt; Код<br />
+&nbsp;ТЗ -&gt; Набросок архитектуры -&gt; Тест -&gt; Код -&gt; Архитектура -&gt; Тест -&gt; Код -&gt; ТЗ -&gt; Архитектура -&gt; Тест -&gt; Код<br />
+<br />
+и т.д. и т.п.<br />
+<br />
+First - это - ТЗ и набросок архитектуры - дальше начинается - "итерационная разработка".<br />
+<br />
+И что - особенно ВКУСНО - это то, что как только мы написали тест - нам НЕ НАДО думать - "а где проверять работоспособность нашего класса".<br />
+<br />
+Мы УЖЕ настроили всю <b>инфраструктуру</b> для его тестирования и проверки.<br />
+<br />
+ИМЕННО в этом и заключается слово Driven в TDD.<br />
+<br />
+В том, что ТЕСТЫ - ПОМОГАЮТ, а не МЕШАЮТ процессу разработки.<br />
+<br />
+Тесты - "ведут" за собой разработчика.<br />
+<br />
+Тесты влияют на код, а код на тесты.<br />
+<br />
+А они в свою очередь ВСЕ ВМЕСТЕ влияют на архитектуру и ТЗ.<br />
+<br />
+А главное, что раз тесты "ведут" за собой, то они всё же так или иначе - написаны и проверяют работоспособность проектных классов. А значит - нет НИ МАЛЕЙШЕГО резона их не использовать.<br />
+<br />
+И даже если вы напишете что-то вроде:
+
+<br />
+<br />
+<pre class="brush:delphi">unit myListTests;
+
+interface
+
+uses
+ TestFramework
+ ;
+
+type
+ TmyIntegerListTests = class(TTestCase)
+  published
+   procedure ListAdd;
+ end;//TmyIntegerListTests
+
+implementation
+
+procedure TmyIntegerListTests.ListAdd;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+initialization
+  TestFramework.RegisterTest(TmyIntegerListTests.Suite);
+
+end.
+</pre>
+<br />
+И "типа" не использовали класс TmyIntegerList, то это не значит, что класса TmyIntegerList - "не существует в природе". Он есть как минимум "у вас в голове". Раз вы написали что-то вроде TmyIntegerListTests.ListAdd, то это - ОЗНАЧАЕТ, что есть нечто, на чём есть операция Add.<br />
+<br />
+Если вы скажете мне "фуу.. список целых чисел... как банально... протестируйте нам ядерный реактор..."<br />
+<br />
+Отвечу - "да банально". Но! "Дорога из тысячи ли начинается с одного шага". И "ядерные реакторы" где-то внутри "состоят из списков целых".<br />
+<br />
+А если захотите РЕАЛЬНЫЕ примеры тестов - так их "есть у меня". ЦЕЛЫЙ вагон. Готов показать, "в обмен" на ваш "хотя бы один тест". Чтобы "РАЗГОВАРИВАТЬ НА РАВНЫХ". А не лить воду на неработаущую мельницу.<br />
+<br />
+Теперь ремарка о том откуда по моему скромному пониманию взялось понятие TestFirst и "протестируй сначала то, чего - нету".<br />
+<br />
+Мне кажется, что тут всё дело, что всё ногами уходит в Java и JUnit, где очень сильно используется рефлексия, duck-typing, инъекции и прочие подобные "кунштюки".<br />
+<br />
+И там можно написать "примерно" такой тест:
+
+<br />
+<br />
+<pre class="brush:delphi">procedure TmyIntegerListTest.ListAdd;
+var
+ l_List : Object;
+begin
+ l_List := Framework.GetClassByName('TmyIntegerList').Create;
+ try
+  l_List.MethodByName.Execute('Add', [47879]);
+ finally
+  FreeAndNil(l_List);
+ end;
+end;
+</pre>
+<br />
+Я совсем не большой знаток Java, но надеюсь, что идея - понятна.<br />
+<br />
+И тут получается такой момент - "хвост виляет собакой". Мы "вроде бы" НИЧЕГО не знаем про тестируемый класс, но однако можем "протестировать" его не написав его сначала. TestFirst. Типа...<br />
+<br />
+Но давайте подумаем - "а действительно ли мы не знаем про тестируемый класс"? НЕТ КОНЕЧНО. Мы знаем его имя и знаем, что у него есть метод Add.<br />
+<br />
+TestFirst? Да - хрена лысого! ArchitectureFirst!!!<br />
+<br />
+Пусть мы даже и не написали НИ ОДНОЙ строчки нашего класса - мы УЖЕ начали ПРОЕКТИРОВАТЬ его АРХИТЕКТУРУ, а ТОЛЬКО потом - НАЧАЛИ писать тест.<br />
+<br />
+Пусть даже не написано НИ ОДНОЙ строчки кода, кроме теста, но! "Дизайн архитектуры" - ЕСТЬ и при подходе с рефлексией и duck-typing'ом. Он ЕСТЬ - ХОТЯ БЫ "у нас в голове".<br />
+<br />
+Но он - ЕСТЬ!<br />
+<br />
+ArchitectureFirst!!!<br />
+<br />
+Надеюсь, что моя мысль - понятна и развеявает сомнения насчёт "Как я могу написать тест к тому, чего НЕТ?"?<br />
+<br />
+Не то "чего нет"! А то "что находится в процессе разработки и дизайна". Надеюсь это - понятно.
+<br />
+И это - СОВСЕМ не значит, что я "критикую" TDD, СОВСЕМ наоборот - я пытаюсь сделать всё возможное, чтобы как можно больше программистов прониклись этой идеей.<br />
+<br />
+И пытаюсь "развеять сомнения" и показать, что "это совсем несложно".<br />
+<br />
+Теперь позволю себе привести пример - "как я обычно делаю".<br />
+<br />
+В примере я буду придерживаться САМОГО плохого и пессимистичного сценария - когда ни заказчики, ни "Группа Качества" <b>не реагируют</b> на вопросы разработчика.<br />
+<br />
+И разработчику приходится либо "придумывать от себя", либо писать Assert'ы -&nbsp;<a href="http://18delphi.blogspot.ru/2013/04/blog-post.html">http://18delphi.blogspot.ru/2013/04/blog-post.html</a><br />
+<br />
+Весь код примера доступен в SVN тут -&nbsp;<a href="https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/TDD/Chapter0/">https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/TDD/Chapter0/</a><br />
+<br />
+Пусть нам надо написать всё тот же класс TmyIntegerList.&nbsp;
+<br />
+<br />
+И пусть его спецификация такова:<br />
+<br />
+TmyIntegerList - список целых чисел.<br />
+<br />
+Поддерживает операции:<br />
+<br />
+1. Вставки элемента.<br />
+2. Добавления элемента.<br />
+3. Удаления элемента.<br />
+4. Получения количества элементов.<br />
+5. Получения значения элемента по его порядковому номеру.<br />
+<br />
+Это "типа" - ТЗ.<br />
+<br />
+Напишем "рыбу" теста:
+
+<br />
+<br />
+<pre class="brush:delphi">program TDD;
+
+uses
+  Vcl.Forms,
+  GUITestRunner,
+  myListTests in 'Tests\myListTests.pas';
+
+{$R *.res}
+
+begin
+ Application.Initialize;
+ GUITestRunner.RunRegisteredTests;
+end.
+
+unit myListTests;
+
+interface
+
+uses
+ TestFramework
+ ;
+
+type
+ TmyIntegerListTests = class(TTestCase)
+  published
+   procedure ListAdd;
+   procedure ListInsert;
+   procedure ListDelete;
+   procedure ListCount;
+   procedure ListItem;
+ end;//TmyIntegerListTests
+
+implementation
+
+procedure TmyIntegerListTests.ListAdd;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerListTests.ListInsert;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerListTests.ListDelete;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerListTests.ListCount;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerListTests.ListItem;
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+initialization
+  TestFramework.RegisterTest(TmyIntegerListTests.Suite);
+
+end.
+
+</pre>
+-- в ней мы "типа не знаем" о том, ЧТО тестируем, но на самом деле - "набросок архитектуры" УЖЕ сидит "у нас в голове". Мы знаем про методы Add, Insert, Delete, Count и Item.<br />
+<br />
+И тест - конечно же не пройдёт.<br />
+<br />
+Теперь зафиксируем "набросок архитектуры" в проектном классе.<br />
+<br />
+А именно - перенесём то, что "сидело в нашем мозгу" когда мы писали первый тест, на "бумагу".<br />
+<br />
+Опишем "прототип" нашего класса:
+
+<br />
+<br />
+<pre class="brush:delphi">unit myIntegerList;
+
+interface
+
+type
+ TmyIntegerList = class
+  public
+   type
+    IndexType = Integer;
+    ItemType = Integer;
+  protected
+   function pm_GetCount: IndexType;
+   function pm_GetItem(anIndex: IndexType): ItemType;
+  public
+   procedure Add(anItem: ItemType);
+   procedure Insert(anIndex: IndexType; anItem: ItemType);
+   procedure Delete(anIndex: IndexType);
+   property Count: IndexType
+    read pm_GetCount;
+   property Items[anIndex: IndexType]: ItemType
+    read pm_GetItem;
+ end;//TmyIntegerList
+
+implementation
+
+// TmyIntegerList
+
+function TmyIntegerList.pm_GetCount: IndexType;
+begin
+ Result := -1;
+ Assert(false, 'Не реализовано');
+end;
+
+function TmyIntegerList.pm_GetItem(anIndex: IndexType): ItemType;
+begin
+ Result := -1;
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerList.Add(anItem: ItemType);
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerList.Insert(anIndex: IndexType; anItem: ItemType);
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerList.Delete(anIndex: IndexType);
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+end.
+</pre>
+<br />
+И видоизменим тесты:
+
+<br />
+<br />
+<pre class="brush:delphi">unit myIntegerListTests;
+
+interface
+
+uses
+ TestFramework
+ ;
+
+type
+ TmyIntegerListTests = class(TTestCase)
+  published
+   procedure ListAdd;
+   procedure ListInsert;
+   procedure ListDelete;
+   procedure ListCount;
+   procedure ListItem;
+ end;//TmyIntegerListTests
+
+implementation
+
+uses
+ System.SysUtils,
+ myIntegerList
+ ;
+
+procedure TmyIntegerListTests.ListAdd;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Add(Random(1000));
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+end;
+
+procedure TmyIntegerListTests.ListInsert;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Insert(0, Random(1000));
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+end;
+
+procedure TmyIntegerListTests.ListDelete;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Delete(0);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+end;
+
+procedure TmyIntegerListTests.ListCount;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Count;
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+end;
+
+procedure TmyIntegerListTests.ListItem;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Item[0];
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+end;
+
+initialization
+  TestFramework.RegisterTest(TmyIntegerListTests.Suite);
+
+end.
+</pre>
+<br />
+-- теперь в тестах мы уже ЗНАЕМ про РЕАЛЬНЫЙ проектный класс и используем его.<br />
+<br />
+Тесты в таком виде - БЕЗУСЛОВНО не пройдут.<br />
+<br />
+Пойдём дальше.<br />
+<br />
+Реализуем хотя бы один из методов нашего проектного класса.<br />
+<br />
+А лучше - ДВА. Самых простых - Add и Count.<br />
+<br />
+Вот как это выглядит:
+
+<br />
+<br />
+<pre class="brush:delphi">unit myIntegerList;
+
+interface
+
+type
+ TmyIntegerList = class
+  public
+   type
+    IndexType = Integer;
+    ItemType = Integer;
+  private
+   type
+    ItemsArray = array of ItemType;
+  private
+   f_Items : ItemsArray;
+  protected
+   function pm_GetCount: IndexType;
+   function pm_GetItem(anIndex: IndexType): ItemType;
+  public
+   procedure Add(anItem: ItemType);
+   procedure Insert(anIndex: IndexType; anItem: ItemType);
+   procedure Delete(anIndex: IndexType);
+   property Count: IndexType
+    read pm_GetCount;
+   property Item[anIndex: IndexType]: ItemType
+    read pm_GetItem;
+ end;//TmyIntegerList
+
+implementation
+
+// TmyIntegerList
+
+function TmyIntegerList.pm_GetCount: IndexType;
+begin
+ Result := Length(f_Items);
+end;
+
+function TmyIntegerList.pm_GetItem(anIndex: IndexType): ItemType;
+begin
+ Result := -1;
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerList.Add(anItem: ItemType);
+begin
+ SetLength(f_Items, Length(f_Items) + 1);
+ f_Items[High(f_Items)] := anItem;
+end;
+
+procedure TmyIntegerList.Insert(anIndex: IndexType; anItem: ItemType);
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+procedure TmyIntegerList.Delete(anIndex: IndexType);
+begin
+ Assert(false, 'Не реализовано');
+end;
+
+end.
+</pre>
+<br />
+-- увидим, что два теста - ПРОШЛИ. Не ФАКТ, что ПРАВИЛЬНО, но ПРОШЛИ.<br />
+<br />
+Вот тут мы сталкиваемся именно с тем, что называется - Driven.<br />
+<br />
+Наполнили "скелет" прототипа "мясом" и сразу получили отклик от тестов.<br />
+<br />
+Пойдём дальше.<br />
+<br />
+Реализуем остальные методы нашего проектного класса:
+
+<br />
+<br />
+<pre class="brush:delphi">unit myIntegerList;
+
+interface
+
+type
+ TmyIntegerList = class
+  public
+   type
+    IndexType = Integer;
+    ItemType = Integer;
+  private
+   type
+    ItemsArray = array of ItemType;
+  private
+   f_Items : ItemsArray;
+  protected
+   function pm_GetCount: IndexType;
+   function pm_GetItem(anIndex: IndexType): ItemType;
+  public
+   procedure Add(anItem: ItemType);
+   procedure Insert(anIndex: IndexType; anItem: ItemType);
+   procedure Delete(anIndex: IndexType);
+   property Count: IndexType
+    read pm_GetCount;
+   property Item[anIndex: IndexType]: ItemType
+    read pm_GetItem;
+ end;//TmyIntegerList
+
+implementation
+
+// TmyIntegerList
+
+function TmyIntegerList.pm_GetCount: IndexType;
+begin
+ Result := Length(f_Items);
+end;
+
+function TmyIntegerList.pm_GetItem(anIndex: IndexType): ItemType;
+begin
+ Result := f_Items[anIndex];
+end;
+
+procedure TmyIntegerList.Add(anItem: ItemType);
+begin
+ SetLength(f_Items, Length(f_Items) + 1);
+ f_Items[High(f_Items)] := anItem;
+end;
+
+procedure TmyIntegerList.Insert(anIndex: IndexType; anItem: ItemType);
+begin
+ if (anIndex = Self.Count) then
+  Add(anItem)
+ else
+  Assert(false, 'Не реализовано');
+  // - ну не знаю я что тут делать, ТЗ типа - НЕПОЛНОЕ
+end;
+
+procedure TmyIntegerList.Delete(anIndex: IndexType);
+begin
+ if (anIndex &lt; 0) OR (anIndex &gt;= Self.Count) then
+ // - ну нечего тут удалять
+  Exit
+ else
+  Assert(false, 'Не реализовано');
+end;
+
+end.
+</pre>
+<br />
+Запускаем тесты и что мы видим?<br />
+<br />
+ОДИН тест - НЕ прошёл - TmyIntegerListTests.ListItem - там случилось AV.<br />
+<br />
+А причина в методе TmyIntegerList.pm_GetItem.<br />
+<br />
+Что делать?<br />
+<br />
+Давайте перепишем метод TmyIntegerList.pm_GetItem так:
+
+<br />
+<br />
+<pre class="brush:delphi">function TmyIntegerList.pm_GetItem(anIndex: IndexType): ItemType;
+begin
+ if (Self.Count = 0) then
+ // - ну не знаю я тут, ЧТО делать - в ТЗ - НЕ оговорено
+  Result := Random(5676)
+ else
+  Result := f_Items[anIndex];
+end;
+</pre>
+<br />
+Запускаем тесты и они - ПРОШЛИ!<br />
+<br />
+Сделали ли мы свою работу? <b>"Наверное"</b>. Но не факт.<br />
+<br />
+Давайте предположим, что мы отправили нашу разработку в "Группу Качества" и она нашла следующее:
+
+<br />
+<br />
+<pre class="brush:delphi">var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Add(Random(54365));
+  l_List.Delete(0);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+end;
+</pre>
+<br />
+И "открыла тикет в QC с номером 1".<br />
+<br />
+После "выяснения подробностей" и "переговоров с ГК" - УБЕЖДАЕМСЯ, что ошибка - <b>таки есть</b>.<br />
+<br />
+Пишем НОВЫЙ ТЕСТ:
+
+<br />
+<br />
+<pre class="brush:delphi">procedure TmyIntegerListTests.QCTicket1;
+var
+ l_List : TmyIntegerList;
+begin
+ l_List := TmyIntegerList.Create;
+ try
+  l_List.Add(Random(54365));
+  l_List.Delete(0);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+end;
+</pre>
+<br />
+И убеждаемся, что он <b>таки</b> НЕ проходит!<br />
+<br />
+Что делать?<br />
+<br />
+Правим код проектного класса:
+
+<br />
+<br />
+<pre class="brush:delphi">procedure TmyIntegerList.Delete(anIndex: IndexType);
+begin
+ if (anIndex &lt; 0) OR (anIndex &gt;= Self.Count) then
+ // - ну нечего тут удалять
+  Exit
+ else
+ if (anIndex = Self.Count - 1) then
+  SetLength(f_Items, Self.Count - 1)
+ else
+  Assert(false, 'Ну не знаю я что тут делать');
+end;
+</pre>
+<br />
+Запускаем тесты - они - проходят. Сделали ли мы свою работу? НЕ ЗНАЮ. Наверное...<br />
+<br />
+Теперь давайте предположим, что ГК нашла ещё одну ошибку:<br />
+<br />
+... to be continued ...
+
+</div>

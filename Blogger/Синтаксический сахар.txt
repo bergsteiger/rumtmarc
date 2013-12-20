@@ -1,0 +1,39 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+К этому <a href="http://delphiway.ru/enumerators-%D0%B2-delphi-%D1%87%D0%B0%D1%81%D1%82%D1%8C-2/">http://delphiway.ru/enumerators-%D0%B2-delphi-%D1%87%D0%B0%D1%81%D1%82%D1%8C-2/</a><br />
+<br />
+&nbsp;Еще можно объявить enumerator для for-in не как class, а как record с нужными методами и поэкономить "на спичках" за счет выделения память под этот enumerator (ибо компилятор генерит try..finally, в котором enumerator, объявленный как класс создается, с ним что-то делается, а в конце - ему зовется Destroy):
+
+<br />
+<br />
+<pre class="brush:delphi">type
+  TSomeListEnumerator = record
+  private
+   f_CurrentIndex: Integer;
+   f_List: TSomeList;
+   function GetCurrent: TSomeListItem;
+  public
+   constructor Create(AList: TSomeList);
+   function MoveNext: Boolean;
+   property Current: TSomeListItem;
+  end;
+</pre>
+<br />
+К нему же можно добавить class operator Increment, class operator Decrement и class operator Equal / NotEqual и тогда можно так:<br />
+<br />
+<pre class="brush:delphi">l_Enum := l_List.GetEnumerator;
+
+//в сторону к концу
+while (l_Enum &lt;&gt; l_List.EndEnum) do
+begin
+  ...
+  Inc(l_Enum);
+end;
+
+//обратно
+while (l_Enum &lt;&gt; l_List.StartEnum) do
+begin
+  ...
+  Dec(l_Enum);
+end;
+</pre>
+<br /></div>

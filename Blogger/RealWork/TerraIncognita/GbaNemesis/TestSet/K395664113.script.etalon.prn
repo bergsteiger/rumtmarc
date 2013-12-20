@@ -1,0 +1,9 @@
+TnscFormsPageControl
+ChildZone : TnscFormsPageControl
+ChildForm : TChildForm
+ChildZonePanel : TvtSizeablePanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow
+Текст

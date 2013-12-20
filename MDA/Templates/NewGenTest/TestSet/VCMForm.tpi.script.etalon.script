@@ -1,0 +1,1945 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/VCMForms/VCMForm.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::VCMForms::VCMForm
+//
+// Форма VCM
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMForm::Class
+implementation @ <<VCMForm>>
+//? Форма VCM
+//> UserType::Class
+//> Control::Class
+//> ControlOverride::Class
+//> ExcludeUserTypes::Class
+//> IncludeUserTypes::Class
+//> VCMFormDefinition::Class
+
+//= VCMCustomForm::Class
+//= OperationsPublisher::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p ZoneType=Any|Parent|Child|Main|Navigator|Modal|SimpleFloat ? Тип зоны
+//p restrict form def:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{ZoneType}"!="%S{!ZoneType}"}%f_up_prefix(%S) *ZoneType* = *%S{ZoneType}* - Тип зоны
+ ?inherited
+ %IF ( ( %S get_up ( 'ZoneType' ) ) %!= ( %S get_up_def ( 'ZoneType' ) ) ) 
+  [%f] up_prefix %( %S )% ' *ZoneType* = *'
+  %S get_up ( 'ZoneType' ) '* - Тип зоны'
+//	][{"%S{restrict form def}"!="%S{!restrict form def}"}%f_up_prefix(%S) *restrict form def* = *%S{restrict form def}*
+ %END-IF
+ %IF ( ( %S get_up ( 'restrict form def' ) ) %!= ( %S get_up_def ( 'restrict form def' ) ) ) 
+  [%f] up_prefix %( %S )% ' *restrict form def* = *'
+  %S get_up ( 'restrict form def' ) '*'
+//	]
+ %END-IF
+
+// Есть ли UserType'ы
+//%f _HasUserType
+; // wiki_up_print
+
+: HasUserType OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B5DE4800324for4B5DA84A00DD*
+//@ %SU
+//	[{<{}{%C#f_IsUserType()=true}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f IsUserType %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4B5DE4800324for4B5DA84A00DD*
+; // HasUserType
+
+
+// Есть ли UserType'ы (рекурсивно)
+//%f _HasUserTypeRec
+: HasUserTypeRec OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B5DE48F01D4for4B5DA84A00DD*
+//@ %SU
+//	[{%S%f_HasUserType()=true}{\
+ %IF ( ( %S %f HasUserType %( )% ) %==  true ) 
+  %ELSE
+//	[{<{}{%G#f_HasUserTypeRec()=true}{C}>!=0}{\
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %G %?f HasUserTypeRec %( )% ) %==  true ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0 ) 
+    %ELSE
+//	[{<{}{%R#f_HasUserTypeRec()=true}{C}>!=0}{\
+     %IF ( 
+      %FOR %ITEM-CONDITION ( ( %R %?f HasUserTypeRec %( )% ) %==  true ) 
+       ( 'C' ) 
+      %END-FOR
+      %!= 0 ) 
+      %ELSE
+//	false\
+        false 
+//	}\
+      %THEN
+//	true\
+       true 
+//	]\
+     %END-IF
+//	}\
+    %THEN
+//	true\
+     true 
+//	]\
+   %END-IF
+//	}\
+  %THEN
+//	true]
+   true 
+ %END-IF
+//#UC END# *4B5DE48F01D4for4B5DA84A00DD*
+; // HasUserTypeRec
+
+
+//%f _IsVCMFinalForm
+: IsVCMFinalForm OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B5F28CD00A9for4B5DA84A00DD*
+//	false
+ false
+//#UC END# *4B5F28CD00A9for4B5DA84A00DD*
+; // IsVCMFinalForm
+
+
+// Надо ли выводить перекрытие процедуры InitEntities
+//%f _NeedsInitEntities
+: NeedsInitEntities OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BDB046402D7for4B5DA84A00DD*
+//@ %SU
+//	[{%S%f_ImplementsSomeVCMOperation()=true|<{}{%CS=ExcludeUserTypes|%CS=IncludeUserTypes}{C}>!=0}{false}true]
+ %IF ( ( %S %f ImplementsSomeVCMOperation %( )% ) %==  true %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'ExcludeUserTypes' %|| 
+    ( ( %C |S ) %== 'IncludeUserTypes'  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4BDB046402D7for4B5DA84A00DD*
+; // NeedsInitEntities
+
+
+// Реализует ли хоть одну операцию VCM
+//%f _ImplementsSomeVCMOperation
+: ImplementsSomeVCMOperation OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4BDB047F02CDfor4B5DA84A00DD*
+//@ %SU
+//	[{<{}{%R#f_IsVCMOperations()=true}{C}>!=0}{\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %R %?f IsVCMOperations %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+//	%f_set_var(RESULT,"false")\
+   [%f] set_var %( 'RESULT' %, false )% 
+//	<{}{%O#f_IsVCMOperation()=true}\
+   %FOR %ITEM-CONDITION ( ( %O %?f IsVCMOperation %( )% ) %==  true ) 
+//	[{"%O{ShowInContextMenu}"!=""|%O{ShowInContextMenu}!=undefined|"%O{ShowInToolbar}"!=""|%O{ShowInToolbar}!=undefined}\
+    %IF ( ( %O get_up ( 'ShowInContextMenu' ) ) %!= '' %|| 
+      ( ( %O get_up ( 'ShowInContextMenu' ) ) %!= 'undefined'  ) %|| 
+      ( ( %O get_up ( 'ShowInToolbar' ) ) %!= ''  ) %|| 
+      ( ( %O get_up ( 'ShowInToolbar' ) ) %!= 'undefined'  ) ) 
+//	%f_set_var(RESULT,"true")\
+     [%f] set_var %( 'RESULT' %, true )% 
+//	%f_cycle_break(%S)\
+     [%f] cycle_break %( %S )% 
+//	]\
+    %END-IF
+//	>\
+   %END-FOR
+//	[{%{RESULT}N!=true}\
+   %IF ( ( ( get_global_var ( 'RESULT' ) |N ) ) %!=  true ) 
+//	<{}{%C#f_IsControl()=true}{%C}\
+    %FOR %ITEM-CONDITION ( ( %C %?f IsControl %( )% ) %==  true ) 
+     ( %C ) 
+//	[{%C<{}{%R#f_IsVCMOperations()=true}{C}>!=0}\
+     %IF ( ( %C
+      %FOR %ITEM-CONDITION ( ( %R %?f IsVCMOperations %( )% ) %==  true ) 
+       ( 'C' ) 
+      %END-FOR
+ )       %!= 0 ) 
+//	%f_set_var(RESULT,"true")\
+      [%f] set_var %( 'RESULT' %, true )% 
+//	%f_cycle_break(%S)\
+      [%f] cycle_break %( %S )% 
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+//	]\
+   %END-IF
+//	%{RESULT}N\
+   ( get_global_var ( 'RESULT' ) |N ) 
+//	}\
+  %THEN
+//	true\
+   true 
+//	]
+ %END-IF
+//#UC END# *4BDB047F02CDfor4B5DA84A00DD*
+; // ImplementsSomeVCMOperation
+
+
+// Набирает все UserType'ы в список ALLUUSERTYPES
+//%f _GetAllUserTypes
+: GetAllUserTypes OBJECT IN %S
+//#UC START# *4C3ACBF60387for4B5DA84A00DD*
+//	<{}{%CS=UserType}\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'UserType' ) 
+//	[{%f_exists_in_list(ALLUSERTYPES,C)!=true}\
+  %IF ( ( [%f] exists_in_list %( 'ALLUSERTYPES' %, 'C' )% ) %!=  true ) 
+//	%f_add_to_list(ALLUSERTYPES,C)\
+   [%f] add_to_list %( 'ALLUSERTYPES' %, 'C' )% 
+//	]\
+  %END-IF
+//	>\
+ %END-FOR
+//	<%G#f_GetAllUserTypes()>\
+ %FOR %G %?f GetAllUserTypes %( )% 
+ %END-FOR
+//	<%R#f_GetAllUserTypes()>
+ %FOR %R %?f GetAllUserTypes %( )% 
+ %END-FOR
+//#UC END# *4C3ACBF60387for4B5DA84A00DD*
+; // GetAllUserTypes
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+//%f _OperationsToFuncImpl
+: OperationsToFuncImpl OBJECT IN %S
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9F9502BBfor4B5DA84A00DD*
+//	<%R#f_OperationsToFuncImpl(%1)>\
+ %FOR %R %?f OperationsToFuncImpl %( %1 )% 
+ %END-FOR
+//	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToFuncImpl(%1)>\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsVCMMainForm %( )% ) %!=  true ) 
+  %G %?f OperationsToFuncImpl %( %1 )% 
+ %END-FOR
+//	<{}{%o#f_IsVCMOperation()=true}\
+ %FOR %ITEM-CONDITION ( ( %o %?f IsVCMOperation %( )% ) %==  true ) 
+//	%o#f_OperationsToFuncImpl(%1)\
+  %o %?f OperationsToFuncImpl %( %1 )% 
+//	>\
+ %END-FOR
+//	<%C%T#f_OperationsToFuncImpl(%1)>
+ %FOR %C ->T %?f OperationsToFuncImpl %( %1 )%  
+ %END-FOR
+//#UC END# *4A8E9F9502BBfor4B5DA84A00DD*
+; // OperationsToFuncImpl
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в функции
+//%f _OperationsToFuncIntf
+: OperationsToFuncIntf OBJECT IN %S
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9D5E0038for4B5DA84A00DD*
+//	<%R#f_OperationsToFuncIntf(%1)>\
+ %FOR %R %?f OperationsToFuncIntf %( %1 )% 
+ %END-FOR
+//	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToFuncIntf(%1)>\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsVCMMainForm %( )% ) %!=  true ) 
+  %G %?f OperationsToFuncIntf %( %1 )% 
+ %END-FOR
+//	<{}{%o#f_IsVCMOperation()=true}\
+ %FOR %ITEM-CONDITION ( ( %o %?f IsVCMOperation %( )% ) %==  true ) 
+//	%o#f_OperationsToFuncIntf(%1)>\
+  %o %?f OperationsToFuncIntf %( %1 )% 
+ %END-FOR
+//	>\
+ '>'
+//	<%C%T#f_OperationsToFuncIntf(%1)>
+ %FOR %C ->T %?f OperationsToFuncIntf %( %1 )%  
+ %END-FOR
+//#UC END# *4A8E9D5E0038for4B5DA84A00DD*
+; // OperationsToFuncIntf
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Определяет необходимые uses для операций
+//%f _OperationsToUses
+: OperationsToUses OBJECT IN %S
+//#UC START# *4A82DDA6016Afor4B5DA84A00DD*
+//	<%R#f_OperationsToUses()>\
+ %FOR %R %?f OperationsToUses %( )% 
+ %END-FOR
+//	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToUses()>\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsVCMMainForm %( )% ) %!=  true ) 
+  %G %?f OperationsToUses %( )% 
+ %END-FOR
+//	<{}{%o#f_IsVCMOperation()=true}\
+ %FOR %ITEM-CONDITION ( ( %o %?f IsVCMOperation %( )% ) %==  true ) 
+//	%o#f_OperationsToUses()\
+  %o %?f OperationsToUses %( )% 
+//	>\
+ %END-FOR
+//	<%C%T#f_OperationsToUses()>
+ %FOR %C ->T %?f OperationsToUses %( )%  
+ %END-FOR
+//#UC END# *4A82DDA6016Afor4B5DA84A00DD*
+; // OperationsToUses
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в секцию Var
+//%f _OperationsToVar
+: OperationsToVar OBJECT IN %S
+//#UC START# *4A8E9D3A01FEfor4B5DA84A00DD*
+//	<%R#f_OperationsToVar()>\
+ %FOR %R %?f OperationsToVar %( )% 
+ %END-FOR
+//	<{}{%G#f_IsVCMMainForm()!=true}%G#f_OperationsToVar()>\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsVCMMainForm %( )% ) %!=  true ) 
+  %G %?f OperationsToVar %( )% 
+ %END-FOR
+//	<{}{%o#f_IsVCMOperation()=true}\
+ %FOR %ITEM-CONDITION ( ( %o %?f IsVCMOperation %( )% ) %==  true ) 
+//	%o#f_OperationsToVar()\
+  %o %?f OperationsToVar %( )% 
+//	>\
+ %END-FOR
+//	<%C%T#f_OperationsToVar()>
+ %FOR %C ->T %?f OperationsToVar %( )%  
+ %END-FOR
+//#UC END# *4A8E9D3A01FEfor4B5DA84A00DD*
+; // OperationsToVar
+
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Публикует операции
+//%f _PublishOperations
+: PublishOperations OBJECT IN %S
+//#UC START# *4A770F770199for4B5DA84A00DD*
+//	<%R#f_PublishOperations()>\
+ %FOR %R %?f PublishOperations %( )% 
+ %END-FOR
+//	<{}{%G#f_IsVCMMainForm()!=true}%G#f_PublishOperations()>\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsVCMMainForm %( )% ) %!=  true ) 
+  %G %?f PublishOperations %( )% 
+ %END-FOR
+//	<{}{%o#f_IsVCMOperation()=true}\
+ %FOR %ITEM-CONDITION ( ( %o %?f IsVCMOperation %( )% ) %==  true ) 
+//	%o#f_PublishOperations()\
+  %o %?f PublishOperations %( )% 
+//	>\
+ %END-FOR
+//	<%C%T#f_PublishOperations()>
+ %FOR %C ->T %?f PublishOperations %( )%  
+ %END-FOR
+//#UC END# *4A770F770199for4B5DA84A00DD*
+; // PublishOperations
+
+
+// реализация абстрактного стереотипа VCMCustomForm::Class
+// Переопределение стандартного типа
+//%f _pas_HackRef
+: pas_HackRef OBJECT IN %S
+//#UC START# *498AFB440035for4B5DA84A00DD*
+//	TvcmEntityFormRef
+ 'TvcmEntityFormRef'
+//#UC END# *498AFB440035for4B5DA84A00DD*
+; // pas_HackRef
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4B5DA84A00DD*
+//	%S%[inherited]\
+ inherited
+
+//	[{%Sa=final}\
+ %IF ( ( %S |a ) %== 'final' ) 
+
+
+//	[{%S%f_HasUserTypeRec()!=true}\
+  %IF ( ( %S %f HasUserTypeRec %( )% ) %!=  true ) 
+//	%S%f_add_class(%SU_UserType,UserType,ut_%SN,Form_Def)\
+   %S %f add_class %( %S |U '_UserType' %, 'UserType' %, 'ut_'
+   %S |N %, 'Form_Def' )% 
+//	%{Form_Def}%f_set_documentation([{}{%SN}%SD])\
+   ( get_global_var ( 'Form_Def' ) %f set_documentation %( %IF ( ) 
+    %ELSE
+     %S |N 
+    %THEN
+    %S |D 
+   %END-IF
+)% ) //	%{Form_Def}%f_set_up(VisibleToUser,false)\
+   ( get_global_var ( 'Form_Def' ) %f set_up %( 'VisibleToUser' %, false )% ) 
+//	]\
+  %END-IF
+
+
+//	[{%S{restrict form def}!=true}\
+  %IF ( ( %S get_up ( 'restrict form def' ) ) %!=  true ) 
+//	[{<{}{%RS=VCMFormDefinition}{C}>=0}\
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %R |S ) %== 'VCMFormDefinition' ) 
+     ( 'C' ) 
+    %END-FOR
+    %== 0 ) 
+//	[{%S{finished}=true}\
+    %IF ( ( %S get_up ( 'finished' ) ) %==  true ) 
+//	%S%f_add_class(%SU_Def,VCMFormDefinition,%SN$Def,Form_Def)\
+     %S %f add_class %( %S |U '_Def' %, 'VCMFormDefinition' %, %S |N '$Def' %, 'Form_Def' )% 
+//	%{Form_Def}%f_set_documentation(Идентификатор формы %SN)\
+     ( get_global_var ( 'Form_Def' ) %f set_documentation %( 'Идентификатор формы '
+     %S |N )% ) 
+//	%S%f_add_realized(%{Form_Def}U)\
+     %S %f add_realized %( ( get_global_var ( 'Form_Def' ) |U ) )% 
+//	]\
+    %END-IF
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+//	]\
+ %END-IF
+
+//	<{}{%RS=VCMFormDefinition}\
+ %FOR %ITEM-CONDITION ( ( %R |S ) %== 'VCMFormDefinition' ) 
+//	[{%f_HasFactory(%S)!=true}\
+  %IF ( ( [%f] HasFactory %( %S )% ) %!=  true ) 
+//	[{%S{finished}=true}{\
+   %IF ( ( %S get_up ( 'finished' ) ) %==  true ) 
+    %ELSE
+//	%P%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%SN_%RN (),Op_Instance)\
+     %P %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini_FormFactory_'
+     %S |N '_'
+     %R |N ' ()' %, 'Op_Instance' )% 
+//	}\
+    %THEN
+//	%S%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%RN (),Op_Instance)\
+    %S %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini_FormFactory_'
+    %R |N ' ()' %, 'Op_Instance' )% 
+//	]\
+   %END-IF
+//	%{Op_Instance}%f_set_documentation(Регистрация фабрики формы %SN)\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация фабрики формы '
+   %S |N )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	 fm_%f_cut_prefix(%f_pas_TypeName(%S),T).SetFactory(%f_pas_TypeName(%S).Make);\
+   ' fm_'
+   [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% '.SetFactory('
+   [%f] pas_TypeName %( %S )% '.Make);'
+//	)\
+)% ) //	]\
+  %END-IF
+//	>\
+ %END-FOR
+
+//	[{%Sa=final}\
+ %IF ( ( %S |a ) %== 'final' ) 
+//	[{%S{finished}=true}{\
+  %IF ( ( %S get_up ( 'finished' ) ) %==  true ) 
+   %ELSE
+//	%P%f_add_class(%SU_Word,SimpleClass,Tkw_Form_%f_N(%S),Word_Inst)\
+    %P %f add_class %( %S |U '_Word' %, 'SimpleClass' %, 'Tkw_Form_'
+    [%f] N %( %S )% %, 'Word_Inst' )% 
+//	}\
+   %THEN
+//	%S%f_add_class(%SU_Word,SimpleClass,Tkw_Form_%f_N(%S),Word_Inst)\
+   %S %f add_class %( %S |U '_Word' %, 'SimpleClass' %, 'Tkw_Form_'
+   [%f] N %( %S )% %, 'Word_Inst' )% 
+//	]\
+  %END-IF
+//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
+  %IF ( ( ( get_global_var ( 'TtfwControlString' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'TtfwControlString' %, 'TtfwControlString' )% 
+  %END-IF
+//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwControlString' ) |U ) )% ) 
+//	%{Word_Inst}%f_add_inheritable(%{TtfwControlString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f add_inheritable %( ( get_global_var ( 'TtfwControlString' ) |U ) )% ) 
+
+//	[{%S{finished}!=true}\
+  %IF ( ( %S get_up ( 'finished' ) ) %!=  true ) 
+//	[{%P#f_IsVCMFormsPack()!=true&%P#f_IsVCMApplication()!=true}\
+   %IF ( ( %P %?f IsVCMFormsPack %( )% ) %!=  true %&& 
+     ( ( %P %?f IsVCMApplication %( )% ) %!=  true  ) ) 
+//	%{Word_Inst}%f_set_visibility_type(PublicAccess)\
+    ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Word_Inst}%f_add_dependency(%{Word_Inst}U_%SU_back_uses,%SU,uses,,USES_Inst)\
+    ( get_global_var ( 'Word_Inst' ) %f add_dependency %( ( get_global_var ( 'Word_Inst' ) |U ) '_'
+    %S |U '_back_uses' %, %S |U %, 'uses' %, '' %, 'USES_Inst' )% ) 
+//	%S%f_add_dependency(%SU_%{Word_Inst}U_uses,%{Word_Inst}U,uses,,USES_Inst)\
+    %S %f add_dependency %( %S |U '_'
+    ( get_global_var ( 'Word_Inst' ) |U ) '_uses' %, ( get_global_var ( 'Word_Inst' ) |U ) %, 'uses' %, '' %, 'USES_Inst' )% 
+//	]\
+   %END-IF
+//	]\
+  %END-IF
+
+
+//	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора формы %SN
+  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для идентификатора формы '
+  %S |N 
+//	----
+  '----'
+//	*Пример использования*:
+  '*Пример использования*:'
+//	\{code\}
+  '{code}'
+//	'aControl' форма::%f_str_replace(%f_N(%S), ,_) TryFocus ASSERT
+  '''aControl'' форма::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% ' TryFocus ASSERT'
+//	\{code\})\
+  '{code}' )% ) 
+//	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+
+
+//	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
+  %IF ( ( ( get_global_var ( 'TtfwControlString.GetString' ) |N ) ) %== '' ) 
+   [%f] find_element %( '4DDFD2EA0116' %, 'TtfwControlString.GetString' )% 
+  %END-IF
+//	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwControlString.GetString' ) |U ) )% ) 
+//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
+  ( get_global_var ( 'TtfwControlString.GetString' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwControlString.GetString' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
+  ( get_global_var ( 'TtfwControlString.GetString' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwControlString.GetString' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_impl' %, 
+//	 Result := '%f_cut_prefix(%f_pas_TypeName(%S),T)';\
+  ' Result := '''
+  [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% ''';'
+//	)\
+)% ) 
+
+//	%{Word_Inst}%f_add_operation(%{Word_Inst}U_Ini,ini,Ini (),Op_Instance)\
+  ( get_global_var ( 'Word_Inst' ) %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini ()' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Регистрация %{Word_Inst}N)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация '
+  ( get_global_var ( 'Word_Inst' ) |N ) )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+  ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	 %{Word_Inst}N.Register('форма::%f_str_replace(%f_N(%S), ,_)', %f_pas_TypeName(%S));\
+  ' '
+  ( get_global_var ( 'Word_Inst' ) |N ) '.Register(''форма::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '''' %, ' '
+  [%f] pas_TypeName %( %S )% ');'
+//	)\
+)% ) //	]
+ %END-IF
+
+//f _IsFormFactory
+; // DoSpell
+
+end. // <<VCMForm>>
+
+: IsFormFactory OBJECT IN %S
+//	[{%SN=Make}{false}[{%SS=factory|%SS=Factory}{false}true]]
+ %IF ( ( %S |N ) %== 'Make' ) 
+  %ELSE
+    false 
+  %THEN
+  %IF ( ( %S |S ) %== 'factory' %|| 
+    ( ( %S |S ) %== 'Factory'  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+
+//f _HasFactory
+; // IsFormFactory
+
+: HasFactory OBJECT IN %S
+//@ %SU
+//	[{<{}{%f_IsFormFactory(%C)=true}{C}>=0}{\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] IsFormFactory %( %C )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+//	true\
+    true 
+//	}\
+  %THEN
+//	[{<{}{%GS!=SimpleClass&%f_HasFactory(%G)=true}{C}>=0}{\
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %G |S ) %!= 'SimpleClass' %&& 
+     ( ( [%f] HasFactory %( %G )% ) %==  true  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0 ) 
+   %ELSE
+//	true\
+     true 
+//	}\
+   %THEN
+//	false\
+    false 
+//	]\
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4B2A19E3038Bfor4B5DA84A00DD*
+; // HasFactory
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+implementation @ <<VCMForm>>
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor4B5DA84A00DD*
+//	%S%[inherited]\
+ inherited
+//	[{%Gx!=true}%f_pas_PutToUses("vcmEntityForm")]\
+ %IF ( ( %G |x ) %!=  true ) 
+  [%f] pas_PutToUses %( 'vcmEntityForm' )% 
+ %END-IF
+//	[{%S%f_HasAnyNamedVCMController()=true}%f_pas_PutToUses("SysUtils")]\
+ %IF ( ( %S %f HasAnyNamedVCMController %( )% ) %==  true ) 
+  [%f] pas_PutToUses %( 'SysUtils' )% 
+ %END-IF
+//	[{%Sa=regular}\
+ %IF ( ( %S |a ) %== 'regular' ) 
+//	%f_pas_PutToUses("StdRes")\
+  [%f] pas_PutToUses %( 'StdRes' )% 
+//	]\
+ %END-IF
+//	[{<{}{%C#f_IsFactory()=true}{C}>!=0}\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f IsFactory %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+//	%f_pas_PutToUses("l3Base")\
+  [%f] pas_PutToUses %( 'l3Base' )% 
+//	]\
+ %END-IF
+//	<{}{%O#f_IsVCMOperation()=true}\
+ %FOR %ITEM-CONDITION ( ( %O %?f IsVCMOperation %( )% ) %==  true ) 
+//	[{"%O{ShowInContextMenu}"!=""|%O{ShowInContextMenu}!=undefined|"%O{ShowInToolbar}"!=""|%O{ShowInToolbar}!=undefined}\
+  %IF ( ( %O get_up ( 'ShowInContextMenu' ) ) %!= '' %|| 
+    ( ( %O get_up ( 'ShowInContextMenu' ) ) %!= 'undefined'  ) %|| 
+    ( ( %O get_up ( 'ShowInToolbar' ) ) %!= ''  ) %|| 
+    ( ( %O get_up ( 'ShowInToolbar' ) ) %!= 'undefined'  ) ) 
+//	%O#f_OperationsToUses()\
+   %O %?f OperationsToUses %( )% 
+//	]\
+  %END-IF
+//	>
+ %END-FOR
+//#UC END# *4948EB2601FAfor4B5DA84A00DD*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for4B5DA84A00DD*
+//	%S%[inherited]\
+ inherited
+//	[{%Sa=final}\
+ %IF ( ( %S |a ) %== 'final' ) 
+//	%f_pas_PutToUses("Classes")\
+  [%f] pas_PutToUses %( 'Classes' )% 
+//	%f_pas_PutToUses("l3InterfacedComponent")\
+  [%f] pas_PutToUses %( 'l3InterfacedComponent' )% 
+//	%f_pas_PutToUses("vcmComponent")\
+  [%f] pas_PutToUses %( 'vcmComponent' )% 
+//	%f_pas_PutToUses("vcmBaseEntities")\
+  [%f] pas_PutToUses %( 'vcmBaseEntities' )% 
+//	%f_pas_PutToUses("vcmEntities")\
+  [%f] pas_PutToUses %( 'vcmEntities' )% 
+//	]\
+ %END-IF
+//	%f_pas_PutToUses("vcmExternalInterfaces")\
+ [%f] pas_PutToUses %( 'vcmExternalInterfaces' )% 
+//	%f_pas_PutToUses("vcmInterfaces")\
+ [%f] pas_PutToUses %( 'vcmInterfaces' )% 
+//	%f_pas_PutToUses("vcmEntityForm")\
+ [%f] pas_PutToUses %( 'vcmEntityForm' )% 
+//	[{%S%f_HasAnyVCMController()=true}\
+ %IF ( ( %S %f HasAnyVCMController %( )% ) %==  true ) 
+//	%f_pas_PutToUses("vcmControllers")\
+  [%f] pas_PutToUses %( 'vcmControllers' )% 
+//	]\
+ %END-IF
+//	[{<{}{%C#f_IsFactory()=true}{C}>!=0}\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f IsFactory %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+//	%f_pas_PutToUses("vcmBase")\
+  [%f] pas_PutToUses %( 'vcmBase' )% 
+//	]
+ %END-IF
+//#UC END# *4948F2EE0334for4B5DA84A00DD*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит реализацию переопределённых методов
+//%f _pas_OutOverridesImpl
+: pas_OutOverridesImpl OBJECT IN %S
+//#UC START# *494B86B5014Bfor4B5DA84A00DD*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_HasAnyVCMController()=true}\
+ %IF ( ( %S %f HasAnyVCMController %( )% ) %==  true ) 
+//	%f_pas_OpenMethodImplementation("SignalDataSourceChanged",%S)\
+  [%f] pas_OpenMethodImplementation %( 'SignalDataSourceChanged"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).SignalDataSourceChanged(const anOld : IvcmViewAreaController;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.SignalDataSourceChanged(const anOld : IvcmViewAreaController;'
+//	 const aDsNew : IvcmViewAreaController);
+  ' const aDsNew : IvcmViewAreaController);'
+//	begin
+  'begin'
+//	 inherited;
+  ' inherited;'
+//	 if (aDsNew = nil) then
+  ' if (aDsNew = nil) then'
+//	 begin
+  ' begin'
+//	  <{\n  }{%C#f_IsVCMController()=true}%C%f_pas_AttrName() := nil;>
+  '  '
+  %FOR %ITEM-SEPARATOR #13#10'  ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C %?f IsVCMController %( )% ) %==  true ) 
+   %C %f pas_AttrName %( )% ' := nil;' 
+  %END-FOR
+//	 end//aDsNew = nil
+  ' end//aDsNew = nil'
+//	 else
+  ' else'
+//	 begin
+  ' begin'
+//	  <{\n  }{%C#f_IsVCMController()=true}\
+  '  '
+  %FOR %ITEM-SEPARATOR #13#10'  ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C %?f IsVCMController %( )% ) %==  true ) 
+//	[{%C#f_IsViewAreaController()=true}[{%C%T#f_IsViewAreaController()!=true}%f_error("Атрибут %CN:%CS у %SN:%SS неверного типа %C%TN:%C%TS")]]\
+   %IF ( ( %C %?f IsViewAreaController %( )% ) %==  true ) 
+    %IF ( ( %C ->T %?f IsViewAreaController %( )%  ) %!=  true ) 
+     [%f] error %( 'Атрибут '
+     %C |N ':'
+     %C |S ' у '
+     %S |N ':'
+     %S |S ' неверного типа '
+     %C ->T |N  ':'
+     %C ->T |S  )% 
+    %END-IF
+   %END-IF
+//	[{%C#f_IsUseCaseController()=true}[{%C%T#f_IsUseCaseController()!=true}%f_error("Атрибут %CN:%CS у %SN:%SS неверного типа %C%TN:%C%TS")]]\
+   %IF ( ( %C %?f IsUseCaseController %( )% ) %==  true ) 
+    %IF ( ( %C ->T %?f IsUseCaseController %( )%  ) %!=  true ) 
+     [%f] error %( 'Атрибут '
+     %C |N ':'
+     %C |S ' у '
+     %S |N ':'
+     %S |S ' неверного типа '
+     %C ->T |N  ':'
+     %C ->T |S  )% 
+    %END-IF
+   %END-IF
+//	[{%C#f_IsUseCaseController()=true}{\
+   %IF ( ( %C %?f IsUseCaseController %( )% ) %==  true ) 
+    %ELSE
+//	[{"%CN"=""}{Supports(aDsNew, %f_pas_TypeName(%C%T), %C%f_pas_AttrName());}\
+     %IF ( ( %C |N ) %== '' ) 
+      %ELSE
+       'Supports(aDsNew, '
+       [%f] pas_TypeName %( %C ->T  )% ', '
+       %C %f pas_AttrName %( )% ');' 
+      %THEN
+//	%C%f_pas_AttrName() := aDsNew As %f_pas_TypeName(%C%T);]\
+      %C %f pas_AttrName %( )% ' := aDsNew As '
+      [%f] pas_TypeName %( %C ->T  )% ';' 
+     %END-IF
+//	}\
+    %THEN
+//	aDsNew.CastUCC(%f_pas_TypeName(%C%T), %C%f_pas_AttrName()[{"%CN"=""}, true]);]\
+    'aDsNew.CastUCC('
+    [%f] pas_TypeName %( %C ->T  )% ', '
+    %C %f pas_AttrName %( )% %IF ( ( %C |N ) %== '' ) 
+     ', true' 
+    %END-IF
+    ');' 
+   %END-IF
+//	>
+  %END-FOR
+//	 end;//aDsNew = nil
+  ' end;//aDsNew = nil'
+//	end;\
+  'end;'
+//	]\
+ %END-IF
+//	[{%S%f_NeedsInitEntities()=true}\
+ %IF ( ( %S %f NeedsInitEntities %( )% ) %==  true ) 
+//	%f_pas_OpenMethodImplementation("InitEntities",%S)\
+  [%f] pas_OpenMethodImplementation %( 'InitEntities"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).InitEntities;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.InitEntities;'
+//	begin
+  'begin'
+//	 inherited;\
+  ' inherited;'
+//	[{%S%f_ImplementsSomeVCMOperation()=true}\
+  %IF ( ( %S %f ImplementsSomeVCMOperation %( )% ) %==  true ) 
+//	\n\
+   #13#10
+//	 with Entities.Entities do
+   ' with Entities.Entities do'
+//	 begin\
+   ' begin'
+
+
+//	%f_clear_list(FORM_PUBLISHED_ENTITIES_LIST)\
+   [%f] clear_list %( 'FORM_PUBLISHED_ENTITIES_LIST' )% 
+//	[\n  \
+   %IF-NOT-EMPTY
+    #13#10'  '
+//	<{\n  }{%R#f_IsVCMOperations()=true}\
+    %FOR %ITEM-SEPARATOR #13#10'  ' ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %R %?f IsVCMOperations %( )% ) %==  true ) 
+//	[{%f_exists_in_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")!=true}\
+     %IF ( ( [%f] exists_in_list %( 'FORM_PUBLISHED_ENTITIES_LIST' %, [%f] N %( %R )% )% ) %!=  true ) 
+//	%f_add_to_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")\
+      [%f] add_to_list %( 'FORM_PUBLISHED_ENTITIES_LIST' %, [%f] N %( %R )% )% 
+//	PublishFormEntity(en_%f_N(%R), [{}{nil}%S%f_OnGetTarget(%R)]);\
+      'PublishFormEntity(en_'
+      [%f] N %( %R )% ', '
+      %IF ( ) 
+       %ELSE
+        'nil' 
+       %THEN
+       %S %f OnGetTarget %( %R )% 
+      %END-IF
+      ');'
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+//	]\
+   %END-IF
+
+
+//	<{}{%C#f_NeedGroupItemsInContextMenu()=true&%C%T#f_IsVCMOperations()=true}{%C}\
+   %FOR %ITEM-CONDITION ( ( %C %?f NeedGroupItemsInContextMenu %( )% ) %==  true %&& 
+     ( ( %C ->T %?f IsVCMOperations %( )%  ) %==  true  ) ) 
+    ( %C ) 
+//	\n  GroupItemsInContextMenu(en_%f_N(%C%T));\
+    #13#10'  GroupItemsInContextMenu(en_'
+    [%f] N %( %C ->T  )% ');'
+//	>\
+   %END-FOR
+
+
+//	<{}{%C#f_ToolbarAtBottom()=true&%C%T#f_IsVCMOperations()=true}{%C}\
+   %FOR %ITEM-CONDITION ( ( %C %?f ToolbarAtBottom %( )% ) %==  true %&& 
+     ( ( %C ->T %?f IsVCMOperations %( )%  ) %==  true  ) ) 
+    ( %C ) 
+//	\n  ToolbarAtBottom(en_%f_N(%C%T));\
+    #13#10'  ToolbarAtBottom(en_'
+    [%f] N %( %C ->T  )% ');'
+//	>\
+   %END-FOR
+
+
+//	%f_PublishControls(%S,%S)\
+   [%f] PublishControls %( %S %, %S )% 
+//	%f_clear_list(FORM_PUBLISHED_ENTITIES_LIST)\
+   [%f] clear_list %( 'FORM_PUBLISHED_ENTITIES_LIST' )% 
+
+//	%f_clear_list(FORM_PUBLISHED_OPERATIONS_LIST)\
+   [%f] clear_list %( 'FORM_PUBLISHED_OPERATIONS_LIST' )% 
+
+//	[\n  \
+   %IF-NOT-EMPTY
+    #13#10'  '
+//	<{\n  }{%o#f_IsVCMOperation()=true}\
+    %FOR %ITEM-SEPARATOR #13#10'  ' ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %o %?f IsVCMOperation %( )% ) %==  true ) 
+//	[{%f_exists_in_list(FORM_PUBLISHED_OPERATIONS_LIST,"%f_N(%o%P)_%f_N(%o)")!=true}\
+     %IF ( ( [%f] exists_in_list %( 'FORM_PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %o ->P  )% '_'
+      [%f] N %( %o )% )% ) %!=  true ) 
+//	%f_add_to_list(FORM_PUBLISHED_OPERATIONS_LIST,"%f_N(%o%P)_%f_N(%o)")\
+      [%f] add_to_list %( 'FORM_PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %o ->P  )% '_'
+      [%f] N %( %o )% )% 
+//	[%o%f_open_ifdef()\n  ]\
+      %IF-NOT-EMPTY
+       %o %f open_ifdef %( )% #13#10'  ' 
+      %END-IF
+//	[{%o#f_IsInternalVCMOperation()=true}{\
+      %IF ( ( %o %?f IsInternalVCMOperation %( )% ) %==  true ) 
+       %ELSE
+//	PublishOp\
+        'PublishOp'
+//	}\
+       %THEN
+//	PublishOpWithResult\
+       'PublishOpWithResult'
+//	]\
+      %END-IF
+//	(en_%f_N(%o%P), op_%f_N(%o),\
+      '(en_'
+      [%f] N %( %o ->P  )% ', op_'
+      [%f] N %( %o )% ','
+//	 [{%o{is FormActivate}!=true|%o#f_IsInternalVCMOperation()=true}{nil}\
+      ' '
+      %IF ( ( %o get_up ( 'is FormActivate' ) ) %!=  true %|| 
+        ( ( %o %?f IsInternalVCMOperation %( )% ) %==  true  ) ) 
+       %ELSE
+        'nil' 
+       %THEN
+//	[{%o#f_IsInternalVCMOperation()=true}{\
+       %IF ( ( %o %?f IsInternalVCMOperation %( )% ) %==  true ) 
+        %ELSE
+//	%o%f_pas_MethodName("exec")}\
+         %o %f pas_MethodName %( 'exec' )% 
+        %THEN
+//	%o%f_pas_MethodName("callgate")\
+        %o %f pas_MethodName %( 'callgate' )% 
+//	]\
+       %END-IF
+//	],\
+      %END-IF
+      ','
+//	 [{%o{is query}!=true}{nil}%o%f_pas_MethodName("test")],\
+      ' '
+      %IF ( ( %o get_up ( 'is query' ) ) %!=  true ) 
+       %ELSE
+        'nil' 
+       %THEN
+       %o %f pas_MethodName %( 'test' )% 
+      %END-IF
+      ','
+//	 [{%o{has states}=true}{nil}%o%f_pas_MethodName("getstate")]\
+      ' '
+      %IF ( ( %o get_up ( 'has states' ) ) %==  true ) 
+       %ELSE
+        'nil' 
+       %THEN
+       %o %f pas_MethodName %( 'getstate' )% 
+      %END-IF
+//	[{%o{no prefix}=true}, true]);\
+      %IF ( ( %o get_up ( 'no prefix' ) ) %==  true ) 
+       ', true' 
+      %END-IF
+      ');'
+
+
+//	[{"%o{ShowInContextMenu}"!=""&%o{ShowInContextMenu}!=undefined}\
+      %IF ( ( %o get_up ( 'ShowInContextMenu' ) ) %!= '' %&& 
+        ( ( %o get_up ( 'ShowInContextMenu' ) ) %!= 'undefined'  ) ) 
+//	\n  ShowInContextMenu(en_%f_N(%o%P), op_%f_N(%o), %o{ShowInContextMenu}\
+       #13#10'  ShowInContextMenu(en_'
+       [%f] N %( %o ->P  )% ', op_'
+       [%f] N %( %o )% ', '
+       %o get_up ( 'ShowInContextMenu' ) 
+//	[{%o{no prefix}=true}, true]);\
+       %IF ( ( %o get_up ( 'no prefix' ) ) %==  true ) 
+        ', true' 
+       %END-IF
+       ');'
+//	]\
+      %END-IF
+
+// %o{ShowInContextMenu}!=undefined
+//	[{"%o{ShowInToolbar}"!=""&%o{ShowInToolbar}!=undefined}\
+      %IF ( ( %o get_up ( 'ShowInToolbar' ) ) %!= '' %&& 
+        ( ( %o get_up ( 'ShowInToolbar' ) ) %!= 'undefined'  ) ) 
+//	\n  ShowInToolbar(en_%f_N(%o%P), op_%f_N(%o), %o{ShowInToolbar}\
+       #13#10'  ShowInToolbar(en_'
+       [%f] N %( %o ->P  )% ', op_'
+       [%f] N %( %o )% ', '
+       %o get_up ( 'ShowInToolbar' ) 
+//	[{%o{no prefix}=true}, true]);\
+       %IF ( ( %o get_up ( 'no prefix' ) ) %==  true ) 
+        ', true' 
+       %END-IF
+       ');'
+//	]\
+      %END-IF
+
+// %o{ShowInToolbar}!=undefined
+//	[\n  %o%f_close_ifdef()]\
+      %IF-NOT-EMPTY
+       #13#10'  '
+       %o %f close_ifdef %( )% 
+      %END-IF
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+
+
+//	%f_clear_list(FORM_PUBLISHED_OPERATIONS_LIST)\
+    [%f] clear_list %( 'FORM_PUBLISHED_OPERATIONS_LIST' )% 
+
+//	<{\n  }{%O#f_IsVCMOperation()=true}\
+    %FOR %ITEM-SEPARATOR #13#10'  ' ; // %ITEM-SEPARATOR 
+     %ITEM-CONDITION ( ( %O %?f IsVCMOperation %( )% ) %==  true ) 
+//	[%O%f_open_ifdef()\n  ]\
+     %IF-NOT-EMPTY
+      %O %f open_ifdef %( )% #13#10'  ' 
+     %END-IF
+//	[{"%O{ShowInContextMenu}"!=""&%O{ShowInContextMenu}!=undefined}\
+     %IF ( ( %O get_up ( 'ShowInContextMenu' ) ) %!= '' %&& 
+       ( ( %O get_up ( 'ShowInContextMenu' ) ) %!= 'undefined'  ) ) 
+//	\n  ShowInContextMenu(en_%f_N(%O%P), op_%f_N(%O), %O{ShowInContextMenu}\
+      #13#10'  ShowInContextMenu(en_'
+      [%f] N %( %O ->P  )% ', op_'
+      [%f] N %( %O )% ', '
+      %O get_up ( 'ShowInContextMenu' ) 
+//	[{%O{no prefix}=true}, true]);\
+      %IF ( ( %O get_up ( 'no prefix' ) ) %==  true ) 
+       ', true' 
+      %END-IF
+      ');'
+//	]\
+     %END-IF
+
+// %O{ShowInContextMenu}!=undefined
+//	[{"%O{ShowInToolbar}"!=""&%O{ShowInToolbar}!=undefined}\
+     %IF ( ( %O get_up ( 'ShowInToolbar' ) ) %!= '' %&& 
+       ( ( %O get_up ( 'ShowInToolbar' ) ) %!= 'undefined'  ) ) 
+//	\n  ShowInToolbar(en_%f_N(%O%P), op_%f_N(%O), %O{ShowInToolbar}\
+      #13#10'  ShowInToolbar(en_'
+      [%f] N %( %O ->P  )% ', op_'
+      [%f] N %( %O )% ', '
+      %O get_up ( 'ShowInToolbar' ) 
+//	[{%O{no prefix}=true}, true]);\
+      %IF ( ( %O get_up ( 'no prefix' ) ) %==  true ) 
+       ', true' 
+      %END-IF
+      ');'
+//	]\
+     %END-IF
+
+// %O{ShowInToolbar}!=undefined
+//	[\n  %O%f_close_ifdef()]\
+     %IF-NOT-EMPTY
+      #13#10'  '
+      %O %f close_ifdef %( )% 
+     %END-IF
+//	>\
+    %END-FOR
+
+
+//	]
+   %END-IF
+//	 end;//with Entities.Entities\
+   ' end;//with Entities.Entities'
+//	]
+  %END-IF
+
+
+//	%f_clear_list(PUBLISHED_EXLUDES)\
+  [%f] clear_list %( 'PUBLISHED_EXLUDES' )% 
+
+//	<{}{%CS=ExcludeUserTypes}\
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'ExcludeUserTypes' ) 
+
+
+//	%f_set_var(THIS,C)\
+   [%f] set_var %( 'THIS' %, 'C' )% 
+//	%f_clear_list(EXCLUDES)\
+   [%f] clear_list %( 'EXCLUDES' )% 
+
+//	%C<{}{%GS=UserType}{%G}\
+   %C
+   %FOR %ITEM-CONDITION ( ( %G |S ) %== 'UserType' ) 
+    ( %G ) 
+//	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+    %IF ( ( [%f] exists_in_list %( 'EXCLUDES' %, 'G' )% ) %!=  true ) 
+//	%f_add_to_list(EXCLUDES,G)\
+     [%f] add_to_list %( 'EXCLUDES' %, 'G' )% 
+//	]\
+    %END-IF
+//	>\
+   %END-FOR
+ 
+//	%C<{}{%GS=UserType}{%G}\
+
+
+//	%C<{}{%gS=ExcludeUserTypes}{%g}\
+   %C
+   %FOR %ITEM-CONDITION ( ( %g |S ) %== 'ExcludeUserTypes' ) 
+    ( %g ) 
+//	%g<{}{%GS=UserType}{%G}\
+    %g
+    %FOR %ITEM-CONDITION ( ( %G |S ) %== 'UserType' ) 
+     ( %G ) 
+//	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+     %IF ( ( [%f] exists_in_list %( 'EXCLUDES' %, 'G' )% ) %!=  true ) 
+//	%f_add_to_list(EXCLUDES,G)\
+      [%f] add_to_list %( 'EXCLUDES' %, 'G' )% 
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+ 
+//	%g<{}{%GS=UserType}{%G}\
+//	>\
+   %END-FOR
+ 
+//	%C<{}{%gS=ExcludeUserTypes}{%g}\
+
+
+//	%{EXCLUDES}<{}{}{%C}\
+   ( get_global_var ( 'EXCLUDES' ) ) 
+   %FOR ( %C ) 
+//	%f_set_var(USERTYPE,C)\
+    [%f] set_var %( 'USERTYPE' %, 'C' )% 
+//	%{THIS}<{}{}{%o}\
+    ( get_global_var ( 'THIS' ) ) 
+    %FOR ( %o ) 
+//	[{%f_exists_in_list(PUBLISHED_EXLUDES,"%f_N(%{USERTYPE})_%f_N(%o%P)_%f_N(%o)")!=true}\
+     %IF ( ( [%f] exists_in_list %( 'PUBLISHED_EXLUDES' %, [%f] N %( ( get_global_var ( 'USERTYPE' ) ) )% '_'
+      [%f] N %( %o ->P  )% '_'
+      [%f] N %( %o )% )% ) %!=  true ) 
+//	%f_add_to_list(PUBLISHED_EXLUDES,"%f_N(%{USERTYPE})_%f_N(%o%P)_%f_N(%o)")\
+      [%f] add_to_list %( 'PUBLISHED_EXLUDES' %, [%f] N %( ( get_global_var ( 'USERTYPE' ) ) )% '_'
+      [%f] N %( %o ->P  )% '_'
+      [%f] N %( %o )% )% 
+//	[ %o%f_open_ifdef()\n]\
+      %IF-NOT-EMPTY
+       ' '
+       %o %f open_ifdef %( )% #13#10 
+      %END-IF
+//	 AddUserTypeExclude(%{USERTYPE}NName, en_%f_N(%o%P), op_%f_N(%o), %o{no prefix});\n\
+      ' AddUserTypeExclude('
+      ( get_global_var ( 'USERTYPE' ) |N ) 'Name, en_'
+      [%f] N %( %o ->P  )% ', op_'
+      [%f] N %( %o )% ', '
+      %o get_up ( 'no prefix' ) ');'#13#10
+//	[ %o%f_close_ifdef()\n]\
+      %IF-NOT-EMPTY
+       ' '
+       %o %f close_ifdef %( )% #13#10 
+      %END-IF
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+
+//	%{THIS}
+//	>\
+   %END-FOR
+
+//	%{EXCLUDES}<{}{}{%C}\
+//	>\
+  %END-FOR
+
+//	<{}{%CS=ExcludeUserTypes}\
+
+
+//	%f_clear_list(ALLUSERTYPES)\
+  [%f] clear_list %( 'ALLUSERTYPES' )% 
+//	%f_set_var(ALLUSERTYPESGOT,"false")\
+  [%f] set_var %( 'ALLUSERTYPESGOT' %, false )% 
+
+//	<{}{%CS=IncludeUserTypes}\
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'IncludeUserTypes' ) 
+
+
+//	[{%{ALLUSERTYPESGOT}N!=true}\
+   %IF ( ( ( get_global_var ( 'ALLUSERTYPESGOT' ) |N ) ) %!=  true ) 
+//	%f_set_var(ALLUSERTYPESGOT,"true")\
+    [%f] set_var %( 'ALLUSERTYPESGOT' %, true )% 
+//	%S%f_GetAllUserTypes()\
+    %S %f GetAllUserTypes %( )% 
+// - здесь набираем все UserType'ы рекурсивно для всех предков
+//	]\
+   %END-IF
+
+
+//	%f_clear_list(EXCLUDES)\
+   [%f] clear_list %( 'EXCLUDES' )% 
+
+//	%C<{}{%GS=UserType}{%G}\
+   %C
+   %FOR %ITEM-CONDITION ( ( %G |S ) %== 'UserType' ) 
+    ( %G ) 
+//	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+    %IF ( ( [%f] exists_in_list %( 'EXCLUDES' %, 'G' )% ) %!=  true ) 
+//	%f_add_to_list(EXCLUDES,G)\
+     [%f] add_to_list %( 'EXCLUDES' %, 'G' )% 
+//	]\
+    %END-IF
+//	>\
+   %END-FOR
+ 
+
+//	%C<{}{%gS=IncludeUserTypes}{%g}\
+   %C
+   %FOR %ITEM-CONDITION ( ( %g |S ) %== 'IncludeUserTypes' ) 
+    ( %g ) 
+//	%g<{}{%GS=UserType}{%G}\
+    %g
+    %FOR %ITEM-CONDITION ( ( %G |S ) %== 'UserType' ) 
+     ( %G ) 
+//	[{%f_exists_in_list(EXCLUDES,G)!=true}\
+     %IF ( ( [%f] exists_in_list %( 'EXCLUDES' %, 'G' )% ) %!=  true ) 
+//	%f_add_to_list(EXCLUDES,G)\
+      [%f] add_to_list %( 'EXCLUDES' %, 'G' )% 
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+ //	>\
+   %END-FOR
+ 
+
+//	%f_set_var(USERTYPE,C)\
+   [%f] set_var %( 'USERTYPE' %, 'C' )% 
+//	%C<{}{}{%o}\
+   %C
+   %FOR ( %o ) 
+//	%f_set_var(OP,o)\
+    [%f] set_var %( 'OP' %, 'o' )% 
+//	%{ALLUSERTYPES}<{}{%CS=UserType}{%C}\
+    ( get_global_var ( 'ALLUSERTYPES' ) ) 
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'UserType' ) 
+     ( %C ) 
+//	%f_set_var(THIS,C)\
+     [%f] set_var %( 'THIS' %, 'C' )% 
+//	[{%{EXCLUDES}<{}{%CU=%{THIS}U}{C}>=0}\
+     %IF ( ( ( get_global_var ( 'EXCLUDES' ) ) ) 
+      %FOR %ITEM-CONDITION ( ( %C |U ) %== ( ( get_global_var ( 'THIS' ) |U ) ) ) 
+       ( 'C' ) 
+      %END-FOR
+      %== 0 ) 
+//	[{%f_exists_in_list(PUBLISHED_EXLUDES,"%f_N(%C)_%f_N(%{OP}%P)_%f_N(%{OP})")!=true}\
+      %IF ( ( [%f] exists_in_list %( 'PUBLISHED_EXLUDES' %, [%f] N %( %C )% '_'
+       [%f] N %( ( get_global_var ( 'OP' )  ->P ) )% '_'
+       [%f] N %( ( get_global_var ( 'OP' ) ) )% )% ) %!=  true ) 
+//	%f_add_to_list(PUBLISHED_EXLUDES,"%f_N(%C)_%f_N(%{OP}%P)_%f_N(%{OP})")\
+       [%f] add_to_list %( 'PUBLISHED_EXLUDES' %, [%f] N %( %C )% '_'
+       [%f] N %( ( get_global_var ( 'OP' )  ->P ) )% '_'
+       [%f] N %( ( get_global_var ( 'OP' ) ) )% )% 
+//	[ %{OP}%f_open_ifdef()\n]\
+       %IF-NOT-EMPTY
+        ' '
+        ( get_global_var ( 'OP' ) %f open_ifdef %( )% ) #13#10 
+       %END-IF
+//	 AddUserTypeExclude(%CNName, en_%f_N(%{OP}%P), op_%f_N(%{OP}), %{OP}{no prefix});\n\
+       ' AddUserTypeExclude('
+       %C |N 'Name, en_'
+       [%f] N %( ( get_global_var ( 'OP' )  ->P ) )% ', op_'
+       [%f] N %( ( get_global_var ( 'OP' ) ) )% ', '
+       ( get_global_var ( 'OP' ) get_up ( 'no prefix' ) ) ');'#13#10
+//	[ %{OP}%f_close_ifdef()\n]\
+       %IF-NOT-EMPTY
+        ' '
+        ( get_global_var ( 'OP' ) %f close_ifdef %( )% ) #13#10 
+       %END-IF
+//	]\
+      %END-IF
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+//	>\
+   %END-FOR
+ //	>\
+  %END-FOR
+//	%f_clear_list(ALLUSERTYPES)\
+  [%f] clear_list %( 'ALLUSERTYPES' )% 
+//	%f_clear_list(PUBLISHED_EXLUDES)\
+  [%f] clear_list %( 'PUBLISHED_EXLUDES' )% 
+
+
+//	%S%f_ImplementsSomeVCMOperation()=true}
+//	end;\
+  'end;'
+//	]\
+ %END-IF
+//	[{%f_NeedMakeControls(%S)=true}\
+ %IF ( ( [%f] NeedMakeControls %( %S )% ) %==  true ) 
+//	%f_pas_OpenMethodImplementation("MakeControls",%S)\
+  [%f] pas_OpenMethodImplementation %( 'MakeControls"' %, %S )% 
+//	procedure %f_pas_TypeName(%S).MakeControls;
+  'procedure '
+  [%f] pas_TypeName %( %S )% '.MakeControls;'
+//	begin
+  'begin'
+//	 inherited;\
+  ' inherited;'
+//	<%C#f_PutToMakeControls()>
+  %FOR %C %?f PutToMakeControls %( )% 
+  %END-FOR
+//	end;\
+  'end;'
+//	]
+ %END-IF
+
+//f _PublishControls
+; // pas_OutOverridesImpl
+
+end. // <<VCMForm>>
+
+: PublishControls OBJECT IN %S
+//	%f_set_var(THE_FORM,1)\
+ [%f] set_var %( 'THE_FORM' %, 1 )% 
+//	<{}{%C#f_IsControl()=true}{%C}\
+ %FOR %ITEM-CONDITION ( ( %C %?f IsControl %( )% ) %==  true ) 
+  ( %C ) 
+//	%f_set_var(THE_CONTROL,C)\
+  [%f] set_var %( 'THE_CONTROL' %, 'C' )% 
+//	%C<{}{%R#f_IsVCMOperations()=true}\
+  %C
+  %FOR %ITEM-CONDITION ( ( %R %?f IsVCMOperations %( )% ) %==  true ) 
+//	[{%f_exists_in_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")!=true}\
+   %IF ( ( [%f] exists_in_list %( 'FORM_PUBLISHED_ENTITIES_LIST' %, [%f] N %( %R )% )% ) %!=  true ) 
+//	%f_add_to_list(FORM_PUBLISHED_ENTITIES_LIST,"%f_N(%R)")\
+    [%f] add_to_list %( 'FORM_PUBLISHED_ENTITIES_LIST' %, [%f] N %( %R )% )% 
+//	\n  PublishFormEntity(en_%f_N(%R), [{}{nil}%{THE_FORM}%f_OnGetTarget(%R)]);\
+    #13#10'  PublishFormEntity(en_'
+    [%f] N %( %R )% ', '
+    %IF ( ) 
+     %ELSE
+      'nil' 
+     %THEN
+     ( get_global_var ( 'THE_FORM' ) %f OnGetTarget %( %R )% ) 
+    %END-IF
+    ');'
+//	]\
+   %END-IF
+//	[\n  %{THE_CONTROL}%f_open_ifdef()]\
+   %IF-NOT-EMPTY
+    #13#10'  '
+    ( get_global_var ( 'THE_CONTROL' ) %f open_ifdef %( )% ) 
+   %END-IF
+//	\n  MakeEntitySupportedByControl(en_%f_N(%R), %f_N(%{THE_CONTROL}));\
+   #13#10'  MakeEntitySupportedByControl(en_'
+   [%f] N %( %R )% ', '
+   [%f] N %( ( get_global_var ( 'THE_CONTROL' ) ) )% ');'
+//	[\n  %{THE_CONTROL}%f_close_ifdef()]\
+   %IF-NOT-EMPTY
+    #13#10'  '
+    ( get_global_var ( 'THE_CONTROL' ) %f close_ifdef %( )% ) 
+   %END-IF
+//	>\
+  %END-FOR
+ //	%f_PublishControls(%C,%{THE_FORM})\
+  [%f] PublishControls %( %C %, ( get_global_var ( 'THE_FORM' ) ) )% 
+//	>
+ %END-FOR
+
+//f _NeedMakeControls
+; // PublishControls
+
+: NeedMakeControls OBJECT IN %S
+//@ %SU
+//	[{<{}{%C#f_NeedPutToMakeControls()=true}{C}>!=0}{\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f NeedPutToMakeControls %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+//	false\
+    false 
+//	}\
+  %THEN
+//	true\
+   true 
+//	]
+ %END-IF
+
+//%f _OnGetTarget
+; // NeedMakeControls
+
+implementation @ <<VCMForm>>
+: OnGetTarget OBJECT IN %S
+// - тут выводим метод НАШЕЙ формы, который "реализует" данную сущность
+//	%1<{}{%L%PU=%1U&%L#f_IsMethod()=true}%f_N(%L)>
+ %1
+ %FOR %ITEM-CONDITION ( ( %L ->P |U  ) %== ( %1 |U ) %&& 
+   ( ( %L %?f IsMethod %( )% ) %==  true  ) ) 
+  [%f] N %( %L )% 
+ %END-FOR
+ //#UC END# *494B86B5014Bfor4B5DA84A00DD*
+; // OnGetTarget
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит интерфейс переопределённых методов
+//%f _pas_OutOverridesIntf
+: pas_OutOverridesIntf OBJECT IN %S
+//#UC START# *494B856502ECfor4B5DA84A00DD*
+//	%S%[inherited]\
+ inherited
+//	[{%S%f_HasAnyVCMController()=true}\
+ %IF ( ( %S %f HasAnyVCMController %( )% ) %==  true ) 
+//	# procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
+  out_indent ' procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;'
+//	#                               const aDsNew : IvcmViewAreaController); override;
+  out_indent '                               const aDsNew : IvcmViewAreaController); override;'
+//	]\
+ %END-IF
+//	[{%S%f_NeedsInitEntities()=true}\
+ %IF ( ( %S %f NeedsInitEntities %( )% ) %==  true ) 
+//	# procedure InitEntities; override;
+  out_indent ' procedure InitEntities; override;'
+//	]\
+ %END-IF
+//	[{%f_NeedMakeControls(%S)=true}\
+ %IF ( ( [%f] NeedMakeControls %( %S )% ) %==  true ) 
+//	# procedure MakeControls; override;
+  out_indent ' procedure MakeControls; override;'
+//	]
+ %END-IF
+//#UC END# *494B856502ECfor4B5DA84A00DD*
+; // pas_OutOverridesIntf
+
+
+// перекрытие базового стереотипа VCMCustomForm::Class
+//%f _pas_BeforeDFMControls
+: pas_BeforeDFMControls OBJECT IN %S
+//#UC START# *4B5DDD5A02ACfor4B5DA84A00DD*
+//	%S%[inherited]\
+ inherited
+//	\n\
+ #13#10
+//	  Caption = '%SD'
+ '  Caption = '''
+ %S |D '''
+//	  Color = clBtnFace\
+//	  Color = $00F9F8FA\
+ '  Color = $00F9F8FA'
+//	[{"%S{ZoneType}"!="%S{!ZoneType}"}
+ %IF ( ( %S get_up ( 'ZoneType' ) ) %!= ( %S get_up_def ( 'ZoneType' ) ) ) 
+
+//	  ZoneType = vcm_zt%S{ZoneType}]\
+  '  ZoneType = vcm_zt'
+  %S get_up ( 'ZoneType' ) 
+ %END-IF
+//	[{%S%f_HasUserTypeRec()!=true}
+//	  UserTypes = \<
+//	    item
+//	      Name = 'ut%f_N(%S)'
+//	      Caption = '%SD'
+//	    end\>]\
+//	\n\
+ #13#10
+//	  PixelsPerInch = 96
+ '  PixelsPerInch = 96'
+//	  TextHeight = 13\
+ '  TextHeight = 13'
+
+//	[\n  Zones = \<<%G#f_pas_DefineZones()>\>]
+ %IF-NOT-EMPTY
+  #13#10'  Zones = <'
+  %FOR %G %?f pas_DefineZones %( )% 
+  %END-FOR
+  '>' 
+ %END-IF
+
+//	  object Entities: TvcmEntities\n\
+ '  object Entities: TvcmEntities'#13#10
+//	    Entities = \<
+//	      item
+//	        Name = 'enFake'
+//	        Operations = \<
+//	          item
+//	            Name = 'opFake'
+//	          end\>
+//	      end\
+//	\>\n\
+//	    Left = 24
+ '    Left = 24'
+//	    Top = 24
+ '    Top = 24'
+//	  end
+ '  end'
+//#UC END# *4B5DDD5A02ACfor4B5DA84A00DD*
+; // pas_BeforeDFMControls
+
+
+// перекрытие базового стереотипа VCMCustomForm::Class
+//%f _pas_OutEntities
+: pas_OutEntities OBJECT IN %S
+//#UC START# *4B5DE28502D6for4B5DA84A00DD*
+//	%S%[inherited]\
+ inherited
+//	\n  Entities : TvcmEntities;
+ #13#10'  Entities : TvcmEntities;'
+//#UC END# *4B5DE28502D6for4B5DA84A00DD*
+; // pas_OutEntities
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: VCMForm::Class::ViewArea::Attribute
+end. // <<VCMForm>>
+
+implementation @ :: <<VCMForm>> <<ViewArea>> ;
+//? Контроллер области вывода
+//= VCMController::Class
+
+// Параметры стереотипа
+//v #-
+// - типы видимости
+//a f
+// - тип абстракции
+//l l
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент является контролелром области вывода
+//%f _IsViewAreaController
+; // st_space_key
+
+: IsViewAreaController OBJECT IN %S
+//#UC START# *497DF8C8028Efor494B848E003E*
+//	true
+ true
+//#UC END# *497DF8C8028Efor494B848E003E*
+; // IsViewAreaController
+
+
+//: VCMForm::Class::UseCase::Attribute
+end. // :: <<VCMForm>> <<ViewArea>> ;
+
+implementation @ :: <<VCMForm>> <<UseCase>> ;
+//? Контроллер прецедента
+//= VCMController::Class
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет является ли элемент контроллером прецедента
+//%f _IsUseCaseController
+; // st_space_key
+
+: IsUseCaseController OBJECT IN %S
+//#UC START# *494B7E8B02B1for496A21CE0209*
+//	true
+ true
+//#UC END# *494B7E8B02B1for496A21CE0209*
+; // IsUseCaseController
+
+
+//: VCMForm::Class::GroupItemsInContextMenu::ClassDependency
+end. // :: <<VCMForm>> <<UseCase>> ;
+
+implementation @ :: <<VCMForm>> <<GroupItemsInContextMenu>> ;
+//? Группировать операции сущности в контекстном меню
+//= ClassBaseGenerator::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for502128C500BE*
+//#UC END# *46E6D4BB0339for502128C500BE*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor502128C500BE*
+//#UC END# *47022C88029Ffor502128C500BE*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor502128C500BE*
+//#UC END# *47022CB8034Bfor502128C500BE*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor502128C500BE*
+//#UC END# *47022CCF00EAfor502128C500BE*
+; // i.h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for502128C500BE*
+//#UC END# *470321950119for502128C500BE*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor502128C500BE*
+//#UC END# *470321C1038Afor502128C500BE*
+; // fctr.java
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor502128C500BE*
+//#UC END# *470F1571031Cfor502128C500BE*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor502128C500BE*
+//#UC END# *470F15B800CBfor502128C500BE*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for502128C500BE*
+//#UC END# *477398E501C0for502128C500BE*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for502128C500BE*
+//#UC END# *4774D2A20372for502128C500BE*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor502128C500BE*
+//#UC END# *49F5795900ECfor502128C500BE*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for502128C500BE*
+//#UC END# *4DE79AFC0030for502128C500BE*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor502128C500BE*
+//#UC END# *4E65F581015Afor502128C500BE*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _NeedGroupItemsInContextMenu
+; // st_space_key
+
+: NeedGroupItemsInContextMenu OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *502129440035for502128C500BE*
+//	true
+ true
+//#UC END# *502129440035for502128C500BE*
+; // NeedGroupItemsInContextMenu
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for502128C500BE*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for502128C500BE*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor502128C500BE*
+//	dep
+ 'dep'
+//#UC END# *4705CBD6003Efor502128C500BE*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for502128C500BE*
+//#UC END# *470484D50138for502128C500BE*
+; // wiki_up_add_gen
+
+
+//: VCMForm::Class::ToolbarAtBottom::ClassDependency
+end. // :: <<VCMForm>> <<GroupItemsInContextMenu>> ;
+
+implementation @ :: <<VCMForm>> <<ToolbarAtBottom>> ;
+//= ClassBaseGenerator::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for502149B8006C*
+//#UC END# *46E6D4BB0339for502149B8006C*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor502149B8006C*
+//#UC END# *47022C88029Ffor502149B8006C*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor502149B8006C*
+//#UC END# *47022CB8034Bfor502149B8006C*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor502149B8006C*
+//#UC END# *47022CCF00EAfor502149B8006C*
+; // i.h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for502149B8006C*
+//#UC END# *470321950119for502149B8006C*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor502149B8006C*
+//#UC END# *470321C1038Afor502149B8006C*
+; // fctr.java
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor502149B8006C*
+//#UC END# *470F1571031Cfor502149B8006C*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor502149B8006C*
+//#UC END# *470F15B800CBfor502149B8006C*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for502149B8006C*
+//#UC END# *477398E501C0for502149B8006C*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for502149B8006C*
+//#UC END# *4774D2A20372for502149B8006C*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor502149B8006C*
+//#UC END# *49F5795900ECfor502149B8006C*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for502149B8006C*
+//#UC END# *4DE79AFC0030for502149B8006C*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor502149B8006C*
+//#UC END# *4E65F581015Afor502149B8006C*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _ToolbarAtBottom
+; // st_space_key
+
+: ToolbarAtBottom OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *502149CA00B1for502149B8006C*
+//	true
+ true
+//#UC END# *502149CA00B1for502149B8006C*
+; // ToolbarAtBottom
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for502149B8006C*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for502149B8006C*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor502149B8006C*
+//	dep
+ 'dep'
+//#UC END# *4705CBD6003Efor502149B8006C*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for502149B8006C*
+//#UC END# *470484D50138for502149B8006C*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<VCMForm>> <<ToolbarAtBottom>> ;
+

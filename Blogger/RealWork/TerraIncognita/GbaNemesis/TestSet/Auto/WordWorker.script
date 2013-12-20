@@ -1,0 +1,29 @@
+: TestWordWorker
+
+ WORDWORKER CountIt INTEGER IN aCount
+  aCount LOOP ( WordToWork DO )
+ ;
+ 
+ 10 CountIt ( 'A' . )
+ 20 CountIt ( 'BC' . )
+ 
+ WORDWORKER =+ INTEGER IN anInc
+  WordToWork DO anInc + =:^ WordToWork
+ ;
+ 
+ WORDWORKER =- INTEGER IN anInc
+  WordToWork DO anInc - =:^ WordToWork
+ ;
+ 
+ VAR A
+ 0 =: A
+ 2 =+ A
+ A .
+
+ 0 =: A
+ 2 =- A
+ A .
+ 
+;
+
+TestWordWorker

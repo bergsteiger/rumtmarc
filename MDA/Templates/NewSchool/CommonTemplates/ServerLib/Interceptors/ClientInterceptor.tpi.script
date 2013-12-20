@@ -1,0 +1,1180 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/Interceptors/ClientInterceptor.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::ServerLib::Interceptors::ClientInterceptor
+//
+// Клиентский интерцептор
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ClientInterceptor::Class
+implementation @ <<ClientInterceptor>>
+//? Клиентский интерцептор
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= C++ интерфейсы и реализация::MDAGenerator
+//= Java::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_interceptor.gif
+//L code_interceptor
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 195,245,195
+//$ l 10,195,10
+//$ f 10,195,10
+//d 1
+// - может иметь унаследованную реализацию
+//W true
+// - может быть параметризован
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// Метод необходим для поддержки генерации через обую функцию, возвращает
+// true
+//%f _additional_condition
+; // st_space_key
+
+: additional_condition OBJECT IN %S
+//#UC START# *49B8FB1E0134for471349EE01E4*
+//	true
+ true
+//#UC END# *49B8FB1E0134for471349EE01E4*
+; // additional_condition
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471349EE01E4*
+//c                                                                      {}
+//r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}:    {%SS ни кем (включая прецеденты) не используется}
+//#UC END# *4704C0E30186for471349EE01E4*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor471349EE01E4*
+//O %SN.cpp
+//P
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+ '#include '
+ [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	[\#include %f_dump_include_path(%f_with_gen_id(h,%PW),%P)
+ %IF-NOT-EMPTY
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %P |W )% %, %P )% 
+//	]<{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+ %END-IF
+ %FOR ( %W ) 
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %W |L )% %, %W )% 
+//	]><{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%WL),%W)
+  %END-IF
+ %END-FOR
+ %FOR ( %W ) 
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %W |L )% %, %W )% 
+//	]>[// by \<\<uses\>\> dependencies
+  %END-IF
+ %END-FOR
+ %IF-NOT-EMPTY
+  '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'uses' %&& 
+    ( ( %A |C ) %== 'Dependency'  ) %&& 
+    ( %IF ( ( %A ->P |U  ) %== ( %S |U ) %|| 
+     ( ( %A ->P |o  ) %== ''  ) ) 
+     true 
+   %END-IF
+   %== true  ) ) 
+   %IF-NOT-EMPTY
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>]
+   %END-IF
+  %END-FOR
+ %END-IF
+//	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]%SP[{%S{need UC}=true}
+  %S %f open_ifdef %( )% 
+ %END-IF
+ %S |P %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[
+  %U%IF-NOT-EMPTY
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested implementation<{}{"%CC"="Class"}[
+  '// nested implementation'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' ) 
+   %IF-NOT-EMPTY
+
+//	%CX
+    %C |X 
+//	]>][
+   %END-IF
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods
+  '// static member methods'
+//	<{}{"%CS"="static"}
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' ) 
+
+//	%CX
+   %C |X 
+//	>
+  %END-FOR
+//	]
+ %END-IF
+//	//////////////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// interceptor methods
+ '// interceptor methods'
+//	%f_set_var(SLOT_ID,S)\
+ [%f] set_var %( 'SLOT_ID' %, 'S' )% 
+//	<{}{%CM=ClientInterceptor::Class::connect::ClassDependency}%C[%f_set_var(SLOT_ID,T)]>\
+ %FOR %ITEM-CONDITION ( ( %C |M ) %== 'ClientInterceptor::Class::connect::ClassDependency' ) 
+  %C%IF-NOT-EMPTY
+   [%f] set_var %( 'SLOT_ID' %, 'T' )% 
+  %END-IF
+  %END-FOR
+//	const IOP::ServiceId ISID_%f_to_upper(%f_to_omg(%{SLOT_ID}N)) = %f_string_hash(%f_full_name(%{SLOT_ID}N));
+ 'const IOP::ServiceId ISID_'
+ [%f] to_upper %( [%f] to_omg %( ( get_global_var ( 'SLOT_ID' ) |N ) )% )% ' = '
+ [%f] string_hash %( [%f] full_name %( ( get_global_var ( 'SLOT_ID' ) |N ) )% )% ';'
+//	
+//	char* %SN::name() throw (CORBA::SystemException) {
+ 'char* '
+ %S |N '::name() throw (CORBA::SystemException) {'
+//		return CORBA::string_dup("%f_full_name(%S)");
+ '	return CORBA::string_dup("'
+ [%f] full_name %( %S )% '");'
+//	}
+ '}'
+//		
+ '	'
+//	void %SN::destroy() throw (CORBA::SystemException) {
+ 'void '
+ %S |N '::destroy() throw (CORBA::SystemException) {'
+//		%U[{_DESTROY}
+ '	'
+ %U%IF ( '_DESTROY' ) 
+
+//		]
+  '	' 
+ %END-IF
+ //	}
+ '}'
+//	
+//	[{%SS=ClientInterceptor}void %SN::send_request (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+ %IF ( ( %S |S ) %== 'ClientInterceptor' ) 
+  'void '
+  %S |N '::send_request (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {'
+//		%U[{_SEND_R}
+  '	'
+  %U%IF ( '_SEND_R' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//	
+
+//	void %SN::send_poll (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException) {
+  'void '
+  %S |N '::send_poll (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException) {'
+//		%U[{_SEND_P}
+  '	'
+  %U%IF ( '_SEND_P' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//	
+
+//	void %SN::receive_reply (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException) {
+  'void '
+  %S |N '::receive_reply (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException) {'
+//		%U[{_RECEIVE_R}
+  '	'
+  %U%IF ( '_RECEIVE_R' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//	
+
+//	void %SN::receive_exception (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+  'void '
+  %S |N '::receive_exception (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {'
+//		%U[{_RECEIVE_E}
+  '	'
+  %U%IF ( '_RECEIVE_E' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//	
+
+//	void %SN::receive_other (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+  'void '
+  %S |N '::receive_other (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {'
+//		%U[{_RECEIVE_O}
+  '	'
+  %U%IF ( '_RECEIVE_O' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}]\
+  '}' 
+ %END-IF
+//	[{%SS=ServerInterceptor}void %SN::receive_request_service_contexts(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+ %IF ( ( %S |S ) %== 'ServerInterceptor' ) 
+  'void '
+  %S |N '::receive_request_service_contexts(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {'
+//		%U[{_RECEIVE_RSC}
+  '	'
+  %U%IF ( '_RECEIVE_RSC' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//		
+  '	'
+//	void %SN::receive_request(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+  'void '
+  %S |N '::receive_request(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {'
+//		%U[{_RECEIVE_R}
+  '	'
+  %U%IF ( '_RECEIVE_R' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//		
+  '	'
+//	void %SN::send_reply(PortableInterceptor::ServerRequestInfo_ptr ri) throw (CORBA::SystemException) {
+  'void '
+  %S |N '::send_reply(PortableInterceptor::ServerRequestInfo_ptr ri) throw (CORBA::SystemException) {'
+//		%U[{_SEND_R}
+  '	'
+  %U%IF ( '_SEND_R' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//		
+  '	'
+//	void %SN::send_exception(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+  'void '
+  %S |N '::send_exception(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {'
+//		%U[{_SEND_E}
+  '	'
+  %U%IF ( '_SEND_E' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}
+  '}'
+//		
+  '	'
+//	void %SN::send_other(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {
+  'void '
+  %S |N '::send_other(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException) {'
+//		%U[{_SEND_O}
+  '	'
+  %U%IF ( '_SEND_O' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	}]
+  '}' 
+ %END-IF
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self implementation<{}{"%CC"="Operation"&"%Ca"!="true"&"%CS"!="static"&"%CS"!="ctor"|"%CC"="Attribute"&"%CS"="cached"}{Sn}
+  '// self implementation'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |a ) %!= true  ) %&& 
+    ( ( %C |S ) %!= 'static'  ) %&& 
+    ( ( %C |S ) %!= 'ctor'  ) %|| 
+    ( ( %C |C ) %== 'Attribute'  ) %&& 
+    ( ( %C |S ) %== 'cached'  ) ) 
+   ( 'Sn' ) 
+
+//	
+
+//	%CX>]
+   %C |X 
+  %END-FOR
+ %END-IF
+//	%f_dump_cpp_derrived_impl_cpp(%S)
+ [%f] dump_cpp_derrived_impl_cpp %( %S )% 
+//	%Sp
+ %S |p 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47022CB8034Bfor471349EE01E4*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471349EE01E4*
+//O %SN.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	\#include [{%PS!=ServerLibrary}{"shared/CoreSrv/impl/Root_i/CorbaExecutorBase.h"}"shared/Core/impl/Root_i/ExecutorBase.h"]
+ '#include '
+ %IF ( ( %P |S ) %!= 'ServerLibrary' ) 
+  %ELSE
+   'shared/CoreSrv/impl/Root_i/CorbaExecutorBase.h' 
+  %THEN
+  'shared/Core/impl/Root_i/ExecutorBase.h' 
+ %END-IF
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)[%f_includes_by_contents(%S)
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% %IF-NOT-EMPTY
+  [%f] includes_by_contents %( %S )% 
+//	]<\#include %f_dump_include_path(%wL,%w)
+ %END-IF
+ %FOR '#include '
+  [%f] dump_include_path %( %w |L %, %w )% 
+//	>[{%S{need UC}=true}
+ %END-FOR
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[{_CUSTOM_INCLUDES}
+  %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]%SP
+  %S %f open_ifdef %( )% 
+ %END-IF
+ %S |P 
+//	%f_docs(%S)
+ [%f] docs %( %S )% 
+//	class %SN 
+ 'class '
+ %S |N ' '
+//		: virtual public PortableInterceptor::[{%SS=ClientInterceptor}{Server}Client]RequestInterceptor
+ '	: virtual public PortableInterceptor::'
+ %IF ( ( %S |S ) %== 'ClientInterceptor' ) 
+  %ELSE
+   'Server' 
+  %THEN
+  'Client' 
+ %END-IF
+ 'RequestInterceptor'
+//		, virtual public TAO_Local_RefCounted_Object
+ '	, virtual public TAO_Local_RefCounted_Object'
+//	{
+ '{'
+//		friend class [{%SS=ServerInterceptor}Server]LibHome;
+//	public:
+ 'public:'
+//		[{%SS=ClientInterceptor}{Server}Client]Security () {
+ '	'
+ %IF ( ( %S |S ) %== 'ClientInterceptor' ) 
+  %ELSE
+   'Server' 
+  %THEN
+  'Client' 
+ %END-IF
+ 'Security () {'
+//		}
+ '	}'
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested declorations
+  '// nested declorations'
+//	protected:
+  'protected:'
+//	<{}{"%CC"="Class"}
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' ) 
+
+//	%CX
+   %C |X 
+//	>][
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// additional static member methods
+  '// additional static member methods'
+//	[protected:<{}{"%CS"="static"&"%CV"!="PrivateAccess"}{Sn}
+  %IF-NOT-EMPTY
+   'protected:'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' %&& 
+     ( ( %C |V ) %!= 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][private:<{}{"%CS"="static"&"%CV"="PrivateAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   'private:'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]]
+  %END-IF
+ %END-IF
+//	//////////////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// interceptor methods
+ '// interceptor methods'
+//	private:
+ 'private:'
+//		char* name() throw (CORBA::SystemException);	
+ '	char* name() throw (CORBA::SystemException);	'
+//		
+ '	'
+//		void destroy() throw (CORBA::SystemException);
+ '	void destroy() throw (CORBA::SystemException);'
+//		
+ '	'
+//	[{%SS=ClientInterceptor}	void send_request (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+ %IF ( ( %S |S ) %== 'ClientInterceptor' ) 
+  '	void send_request (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);'
+//		
+  '	'
+//		void send_poll (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException);
+  '	void send_poll (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException);'
+//		
+  '	'
+//		void receive_reply (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException);
+  '	void receive_reply (PortableInterceptor::ClientRequestInfo_ptr ri) throw (CORBA::SystemException);'
+//		
+  '	'
+//		void receive_exception (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+  '	void receive_exception (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);'
+//		
+  '	'
+//		void receive_other (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+  '	void receive_other (PortableInterceptor::ClientRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);'
+//	][{%SS=ServerInterceptor}	void receive_request_service_contexts(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+ %END-IF
+ %IF ( ( %S |S ) %== 'ServerInterceptor' ) 
+  '	void receive_request_service_contexts(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);'
+//		
+  '	'
+//		void receive_request(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+  '	void receive_request(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);'
+//		
+  '	'
+//		void send_reply(PortableInterceptor::ServerRequestInfo_ptr ri) throw (CORBA::SystemException);
+  '	void send_reply(PortableInterceptor::ServerRequestInfo_ptr ri) throw (CORBA::SystemException);'
+//		
+  '	'
+//		void send_exception(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+  '	void send_exception(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);'
+//		
+  '	'
+//		void send_other(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);
+  '	void send_other(PortableInterceptor::ServerRequestInfo_ptr ri) throw (PortableInterceptor::ForwardRequest, CORBA::SystemException);'
+//	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// additional self methods
+  '// additional self methods'
+//	[protected:
+  %IF-NOT-EMPTY
+   'protected:'
+//	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"!="PrivateAccess"}{Sn}
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %!= 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][private:
+  %END-IF
+  %IF-NOT-EMPTY
+   'private:'
+//	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]][//////////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// addtional self data
+  '// addtional self data'
+//	private:<{}{"%CC"="Attribute"}{Sn}
+  'private:'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+   ( 'Sn' ) 
+
+//	%CX
+   %C |X 
+//	>][%f_dump_cpp_derrived_impl_h(%S)
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] dump_cpp_derrived_impl_h %( %S )% 
+//	]
+ %END-IF
+//	[{%S{need UC}=true}%U[
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  %U%IF-NOT-EMPTY
+
+//	]
+  %END-IF
+ //	]}; // class %SN
+ %END-IF
+ '}; // class '
+ %S |N 
+//	
+//	%Sp
+ %S |p 
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47022C88029Ffor471349EE01E4*
+; // h
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for471349EE01E4*
+//O %SN.java
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	package %f_dump_java_package(%S);
+ 'package '
+ [%f] dump_java_package %( %S )% ';'
+//	
+//	%f_dump_std_java_imports(%S)
+ [%f] dump_std_java_imports %( %S )% 
+//	
+//	%U[{_CUSTOM_INCLUDES}
+ %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+ %END-IF
+ //	
+//	public class %SN
+ 'public class '
+ %S |N 
+//		extends org.omg.CORBA.LocalObject
+ '	extends org.omg.CORBA.LocalObject'
+//		implements org.omg.PortableInterceptor.[{%SS=ClientInterceptor}{Server}Client]RequestInterceptor {
+ '	implements org.omg.PortableInterceptor.'
+ %IF ( ( %S |S ) %== 'ClientInterceptor' ) 
+  %ELSE
+   'Server' 
+  %THEN
+  'Client' 
+ %END-IF
+ 'RequestInterceptor {'
+//	
+//	%f_set_var(SLOT_ID,S)\
+ [%f] set_var %( 'SLOT_ID' %, 'S' )% 
+//	<{}{%CM=ClientInterceptor::Class::connect::ClassDependency}%C[%f_set_var(SLOT_ID,T)]>\
+ %FOR %ITEM-CONDITION ( ( %C |M ) %== 'ClientInterceptor::Class::connect::ClassDependency' ) 
+  %C%IF-NOT-EMPTY
+   [%f] set_var %( 'SLOT_ID' %, 'T' )% 
+  %END-IF
+  %END-FOR
+//		private final long ISID_%f_to_upper(%f_to_omg(%{SLOT_ID}N)) = %f_string_hash(%f_full_name(%{SLOT_ID}N))L;
+ '	private final long ISID_'
+ [%f] to_upper %( [%f] to_omg %( ( get_global_var ( 'SLOT_ID' ) |N ) )% )% ' = '
+ [%f] string_hash %( [%f] full_name %( ( get_global_var ( 'SLOT_ID' ) |N ) )% )% 'L;'
+//		private static final long serialVersionUID = %f_string_hash(%f_full_name(%{SLOT_ID}N))L;
+ '	private static final long serialVersionUID = '
+ [%f] string_hash %( [%f] full_name %( ( get_global_var ( 'SLOT_ID' ) |N ) )% )% 'L;'
+//	
+//		public %SN () {
+ '	public '
+ %S |N ' () {'
+//		}
+ '	}'
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested declorations	
+  '// nested declorations	'
+//	<{}{"%CC"="Class"}
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' ) 
+
+//	%CX
+   %C |X 
+//	>][
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// additional static member methods
+  '// additional static member methods'
+//	[<{}{"%CS"="static"}
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]]
+  %END-IF
+ %END-IF
+//	//////////////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// interceptor methods
+ '// interceptor methods'
+//	
+//		public String name() throws org.omg.CORBA.SystemException {
+ '	public String name() throws org.omg.CORBA.SystemException {'
+//			return "%f_full_name(%S)";
+ '		return "'
+ [%f] full_name %( %S )% '";'
+//		}
+ '	}'
+//	
+//		public void destroy() throws org.omg.CORBA.SystemException {
+ '	public void destroy() throws org.omg.CORBA.SystemException {'
+//			%U[{_DESTROY}
+ '		'
+ %U%IF ( '_DESTROY' ) 
+
+//			]
+  '		' 
+ %END-IF
+ //		}
+ '	}'
+//	
+//	[{%SS=ClientInterceptor}\
+ %IF ( ( %S |S ) %== 'ClientInterceptor' ) 
+//		public void send_request (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)
+  '	public void send_request (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)'
+//			 throws org.omg.PortableInterceptor.ForwardRequest
+  '		 throws org.omg.PortableInterceptor.ForwardRequest'
+//			 , org.omg.CORBA.SystemException
+  '		 , org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_SEND_R}
+  '		'
+  %U%IF ( '_SEND_R' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void send_poll (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)
+  '	public void send_poll (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)'
+//			throws org.omg.CORBA.SystemException
+  '		throws org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_SEND_P}
+  '		'
+  %U%IF ( '_SEND_P' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void receive_reply (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)
+  '	public void receive_reply (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)'
+//			throws org.omg.CORBA.SystemException
+  '		throws org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_RECEIVE_R}
+  '		'
+  %U%IF ( '_RECEIVE_R' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void receive_exception (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)
+  '	public void receive_exception (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)'
+//			throws org.omg.PortableInterceptor.ForwardRequest
+  '		throws org.omg.PortableInterceptor.ForwardRequest'
+//			, org.omg.CORBA.SystemException
+  '		, org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_RECEIVE_E}
+  '		'
+  %U%IF ( '_RECEIVE_E' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void receive_other (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)
+  '	public void receive_other (org.omg.PortableInterceptor.ClientRequestInfo requestInfo)'
+//			throws org.omg.PortableInterceptor.ForwardRequest
+  '		throws org.omg.PortableInterceptor.ForwardRequest'
+//			, org.omg.CORBA.SystemException
+  '		, org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_RECEIVE_O}
+  '		'
+  %U%IF ( '_RECEIVE_O' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	][{%SS=ServerInterceptor}\
+ %END-IF
+ %IF ( ( %S |S ) %== 'ServerInterceptor' ) 
+//		public void receive_request_service_contexts (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)
+  '	public void receive_request_service_contexts (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)'
+//			throws org.omg.PortableInterceptor.ForwardRequest
+  '		throws org.omg.PortableInterceptor.ForwardRequest'
+//			, org.omg.CORBA.SystemException
+  '		, org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_RECEIVE_RSC}
+  '		'
+  %U%IF ( '_RECEIVE_RSC' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void receive_request (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)
+  '	public void receive_request (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)'
+//			throws org.omg.PortableInterceptor.ForwardRequest
+  '		throws org.omg.PortableInterceptor.ForwardRequest'
+//			, org.omg.CORBA.SystemException
+  '		, org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_RECEIVE_R}
+  '		'
+  %U%IF ( '_RECEIVE_R' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void send_reply (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)
+  '	public void send_reply (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)'
+//			throws org.omg.CORBA.SystemException
+  '		throws org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_SEND_R}
+  '		'
+  %U%IF ( '_SEND_R' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void send_exception (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)
+  '	public void send_exception (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)'
+//			throws org.omg.PortableInterceptor.ForwardRequest
+  '		throws org.omg.PortableInterceptor.ForwardRequest'
+//			, org.omg.CORBA.SystemException
+  '		, org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_SEND_E}
+  '		'
+  %U%IF ( '_SEND_E' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	
+
+//		public void send_other (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)
+  '	public void send_other (org.omg.PortableInterceptor.ServerRequestInfo requestInfo)'
+//			throws org.omg.PortableInterceptor.ForwardRequest
+  '		throws org.omg.PortableInterceptor.ForwardRequest'
+//			, org.omg.CORBA.SystemException
+  '		, org.omg.CORBA.SystemException'
+//		{
+  '	{'
+//			%U[{_SEND_O}
+  '		'
+  %U%IF ( '_SEND_O' ) 
+
+//			]
+   '		' 
+  %END-IF
+ //		}
+  '	}'
+//	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// additional self methods
+  '// additional self methods'
+//	[<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"}
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]][//////////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// addtional self data
+  '// addtional self data'
+//	<{}{"%CC"="Attribute"}
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+
+//	%CX
+   %C |X 
+//	>][%f_dump_java_derrived_impl(%S)
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] dump_java_derrived_impl %( %S )% 
+//	]
+ %END-IF
+//	[{%S{need UC}=true}%U[
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  %U%IF-NOT-EMPTY
+
+//	]
+  %END-IF
+ //	]} // class %SN
+ %END-IF
+ '} // class '
+ %S |N 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *470321950119for471349EE01E4*
+; // java
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: ClientInterceptor::Class::Attribute
+end. // <<ClientInterceptor>>
+
+implementation @ :: <<ClientInterceptor>> <<Attribute>> ;
+//? атрибут
+//= ClassBase::Class::Attribute
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: ClientInterceptor::Class::Operation
+; // st_space_key
+
+end. // :: <<ClientInterceptor>> <<Attribute>> ;
+
+implementation @ :: <<ClientInterceptor>> <<Operation>> ;
+//? операция
+//= ClassBase::Class::Operation
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: ClientInterceptor::Class::Operation::Parameter
+; // st_space_key
+
+end. // :: <<ClientInterceptor>> <<Operation>> ;
+
+implementation @ :: <<ClientInterceptor>> <<Operation>> ;
+//? параметр операции
+//= ClassBase::Class::Operation::Parameter
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: ClientInterceptor::Class::uses::ClassDependency
+; // st_space_key
+
+end. // :: <<ClientInterceptor>> <<Operation>> ;
+
+implementation @ :: <<ClientInterceptor>> <<uses>> ;
+//? Использование
+//= Java::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47134AA601A5*
+//#UC END# *47022C88029Ffor47134AA601A5*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47134AA601A5*
+//#UC END# *47022CB8034Bfor47134AA601A5*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47134AA601A5*
+//#UC END# *470321950119for47134AA601A5*
+; // java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47134AA601A5*
+//	uses
+ 'uses'
+//#UC END# *4705CBD6003Efor47134AA601A5*
+; // wiki_child_kind
+
+
+//: ClientInterceptor::Class::connect::ClassDependency
+end. // :: <<ClientInterceptor>> <<uses>> ;
+
+implementation @ :: <<ClientInterceptor>> <<connect>> ;
+//? Серверная пара
+//? Определдляет парный интерцептор, который будет использовать тот же сервис-контекст для передачи данных
+//= Java::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_connect.gif
+//L code_dep_connect
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47134AB3003E*
+//#UC END# *47022C88029Ffor47134AB3003E*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47134AB3003E*
+//#UC END# *47022CB8034Bfor47134AB3003E*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47134AB3003E*
+//#UC END# *470321950119for47134AB3003E*
+; // java
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+; // st_space_key
+
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47134AB3003E*
+//	uses
+ 'uses'
+//#UC END# *4705CBD6003Efor47134AB3003E*
+; // wiki_child_kind
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<ClientInterceptor>> <<connect>> ;
+

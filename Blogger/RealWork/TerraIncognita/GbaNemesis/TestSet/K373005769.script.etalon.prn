@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<c:Document xmlns:c="c" xmlns:a="a" xmlns:p="p" xmlns:t="t" xmlns:b="b">
+ <p:Width v="11900"/>
+ <p:Height v="16800"/>
+ <p:LeftIndent v="1100"/>
+ <p:RightIndent v="800"/>
+ <a:Paras>
+  <p:Width v="11900"/>
+  <p:Height v="16800"/>
+  <p:LeftIndent v="1100"/>
+  <p:RightIndent v="800"/>
+  <p:SpaceBefore v="800"/>
+  <p:SpaceAfter v="800"/>
+  <p:Orientation v="ev_poPortrait"/>
+ </a:Paras>
+ <p:LineSpacing v="100"/>
+ <p:Style v="-1"/>
+ <p:ExternalHandle v="102015"/>
+ <c:DecorTextPara>
+  <p:Text v="&lt;0&gt;Документ 2015. Для проверки формирования списков реквизитов в карточке обзора изменения законодательства.&#x00A;&#x00A;Класс:&#x00A;  Основы государственно-правового устройства\Основы конституционного строя&#x00A;&#x00A;Тип:&#x00A;  Положение&#x00A;&#x00A;KIND:&#x00A;  Акты органов власти\Федеральные акты"/>
+ </c:DecorTextPara>
+ <c:TextPara/>
+ <c:TextPara>
+  <p:Handle v="1"/>
+  <p:Style v="-3"/>
+  <a:Segments>
+   <c:SegmentsLayer>
+    <p:Handle v="Hyperlinks"/>
+    <c:HyperLink>
+     <p:Finish v="105"/>
+     <c:Address>
+      <p:Type v="65540"/>
+      <p:DocID v="102015"/>
+     </c:Address>
+    </c:HyperLink>
+   </c:SegmentsLayer>
+  </a:Segments>
+  <p:Text v="Документ 2015. Для проверки формирования списков реквизитов в карточке обзора изменения законодательства."/>
+ </c:TextPara>
+ <c:TextPara/>
+ <c:TextPara>
+  <p:Handle v="2"/>
+  <p:Style v="-1"/>
+  <p:Text v="У этого документа есть аннотация."/>
+ </c:TextPara>
+ <c:TextPara/>
+</c:Document>
+

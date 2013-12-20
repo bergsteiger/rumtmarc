@@ -1,0 +1,41 @@
+----
+Obj type = Document
+Count = 6
+Rect = (900, -300, 4300, 11500)
+MaxLinesCount = 6
+----
+Obj type = TextPara
+Text = 'L-Тироксин 50 Берлин Хеми (Левотироксин натрий)'
+Rect = (1700, 700, 2200, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'таблетки 50 мкг (блистеры) [Германия; Berlin-Chemie AG/Menarini Group]'
+Rect = (2200, 700, 2600, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'таблетки 50 мкг [Германия; Berlin-Chemie AG/Menarini Group]'
+Rect = (2600, 700, 3000, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'таблетки 50 мкг [Германия; Berlin-Chemie AG/Menarini Group]'
+Rect = (3000, 700, 3400, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'L-Тироксин 25 Берлин-Хеми (Левотироксин натрий)'
+Rect = (3400, 700, 3900, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'таблетки 25 мкг [Германия; Berlin-Chemie AG/Menarini Group]'
+Rect = (3900, 700, 4300, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1

@@ -1,0 +1,22 @@
+// Разработчик: Селянкин Владимир
+
+: K281521532
+ 
+ "В БП ищем контекст {('Конституция')}"
+ "Выделить всё"
+ wait:Yes
+ TRY
+  "Нажать Del"
+ FINALLY
+  waited:? ASSERT
+ END
+ OBJECT VAR "Закладка"
+ INTEGER VAR Ind
+ 'Анализ списка' "Найти область вкладок" pop:PageControl:FindPageByCaption =: Ind
+ Ind "Найти область вкладок" pop:PageControl:PageByIndex =: "Закладка"
+ "Закладка" pop:object:IsNil ! 'Не нашли закладку Анализ списка' ASSERTS
+ 'Enabled' "Закладка" pop:object:GetOrdProp .
+ 'Visible' "Закладка" pop:object:GetOrdProp .
+;
+
+K281521532

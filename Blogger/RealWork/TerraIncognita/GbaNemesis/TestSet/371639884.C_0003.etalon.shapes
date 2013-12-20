@@ -1,0 +1,52 @@
+----
+Obj type = Document
+Count = 2
+Rect = (-800, -300, 7900, 11500)
+MaxLinesCount = 49
+----
+Obj type = Block
+Count = 3
+Rect = (0, 700, 7600, 10600)
+MaxLinesCount = 11
+----
+Obj type = TextPara
+Text = 'Просто текст для наполнения Просто текст для наполнения. Картинка * внутри текста в параграфе #46. Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения.'
+Count = 1
+Rect = (0, 700, 3600, 10600)
+Dim = (9400, 3600)
+MaxLinesCount = 4
+LinesCount = 4
+----
+ImageInfo FirstIndex = 6, LastIndex = -1
+----
+Obj type = BitmapPara
+Rect = (800, 1100, 2600, 11100)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (3600, 700, 3900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Просто текст для наполнения Просто текст для наполнения. Картинка (сдвиг вниз = 10) * внутри текста в параграфе #50. Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения.'
+Count = 1
+Rect = (3900, 700, 7600, 10600)
+Dim = (9400, 3600)
+MaxLinesCount = 4
+LinesCount = 4
+----
+ImageInfo FirstIndex = 4, LastIndex = -1
+----
+Obj type = BitmapPara
+Rect = (4800, 3300, 6600, 13200)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (7600, 700, 7900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1

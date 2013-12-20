@@ -1,0 +1,240 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/VCMControls.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::VCMControls
+//
+// Управляющие элементы VCM
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMControls::Category
+implementation @ <<VCMControls>>
+//? Управляющие элементы VCM
+//> !
+//> VCMOperations::Class
+//> VCMFacet::Class
+//> Facet::Class
+//> SimpleClass::Class
+//> Struct::Class
+//> Enum::Class
+//> Typedef::Class
+//> Vector::Class
+//> VCMFormDefinition::Class
+
+//= VCMInterfacesLike::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_vcm_controls.gif
+//L code_vcm_controls
+// Параметры визуализации
+//$ C 192,255,255
+//$ l 64,224,208
+//$ f 64,224,208
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит дополнительные модули необходимые элементу в интерфейсной секции
+//%f _pas_IntfUses
+; // st_space_key
+
+: pas_IntfUses OBJECT IN %S
+//#UC START# *4948F2EE0334for494F7EF903BC*
+//	%S%[inherited]\
+ inherited
+//	%f_pas_PutToUses("vcmExternalInterfaces")
+ [%f] pas_PutToUses %( 'vcmExternalInterfaces' )% 
+//#UC END# *4948F2EE0334for494F7EF903BC*
+; // pas_IntfUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor494F7EF903BC*
+//	%f_set_var(PARENT_NAME,"%f_str_replace(%f_N(%P%P), ,_)")\
+ [%f] set_var %( 'PARENT_NAME' %, [%f] str_replace %( [%f] N %( %P ->P  )% %, ' ' %, '_' )% )% 
+//	[{"%{PARENT_NAME}N"!="%f_N(%S)"}%{PARENT_NAME}N_]\
+ %IF ( ( ( get_global_var ( 'PARENT_NAME' ) |N ) ) %!= ( [%f] N %( %S )% ) ) 
+  ( get_global_var ( 'PARENT_NAME' ) |N ) '_' 
+ %END-IF
+//	%f_N(%S)_Controls
+ [%f] N %( %S )% '_Controls'
+//#UC END# *4948065C01DFfor494F7EF903BC*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа Interfaces::Category
+//%f _pas_BeforeUnitImplementation
+: pas_BeforeUnitImplementation OBJECT IN %S
+//#UC START# *4A82C8F9037Cfor494F7EF903BC*
+//	%S%[inherited]\
+ inherited
+//	%f_clear_list(PUBLISHED_ENTITIES_LIST)\
+ [%f] clear_list %( 'PUBLISHED_ENTITIES_LIST' )% 
+//	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
+ [%f] clear_list %( 'PUBLISHED_OPERATIONS_LIST' )% 
+//	[{<{}{%C#f_IsVCMOperations()=true}{C}>!=0}\
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C %?f IsVCMOperations %( )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+//	[\n%S%f_open_ifdef()]\
+  %IF-NOT-EMPTY
+   #13#10
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	%f_pas_OpenConst(%S)\
+  [%f] pas_OpenConst %( %S )% 
+//	[<{}{%C#f_IsVCMOperations()=true}\
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C %?f IsVCMOperations %( )% ) %==  true ) 
+//	[{%f_exists_in_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")!=true}\
+    %IF ( ( [%f] exists_in_list %( 'PUBLISHED_ENTITIES_LIST' %, [%f] N %( %C )% )% ) %!=  true ) 
+//	%f_add_to_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")\
+     [%f] add_to_list %( 'PUBLISHED_ENTITIES_LIST' %, [%f] N %( %C )% )% 
+//	[{%f_N(%C)=%f_N(%C%G)}{\
+     %IF ( ( [%f] N %( %C )% ) %== ( [%f] N %( %C ->G  )% ) ) 
+      %ELSE
+//	 en_%f_N(%C) = '%f_N(%C)';\n\
+       ' en_'
+       [%f] N %( %C )% ' = '''
+       [%f] N %( %C )% ''';'#13#10
+//	 en_cap%f_N(%C) = '%f_str_replace(%CD,\n, )';\n\
+       ' en_cap'
+       [%f] N %( %C )% ' = '''
+       [%f] str_replace %( %C |D %, #13#10 %, ' ' )% ''';'#13#10
+//	}\
+      %THEN
+//	 en_%f_N(%C) = %f_pas_Unit(%C%G).en_%f_N(%C);\n\
+      ' en_'
+      [%f] N %( %C )% ' = '
+      [%f] pas_Unit %( %C ->G  )% '.en_'
+      [%f] N %( %C )% ';'#13#10
+//	 en_cap%f_N(%C) = %f_pas_Unit(%C%G).en_cap%f_N(%C);\n\
+      ' en_cap'
+      [%f] N %( %C )% ' = '
+      [%f] pas_Unit %( %C ->G  )% '.en_cap'
+      [%f] N %( %C )% ';'#13#10
+//	]\
+     %END-IF
+//	]\
+    %END-IF
+//	%C<{}{%C#f_IsVCMOperation()=true}\
+    %C
+    %FOR %ITEM-CONDITION ( ( %C %?f IsVCMOperation %( )% ) %==  true ) 
+//	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")!=true}\
+     %IF ( ( [%f] exists_in_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %C )% )% ) %!=  true ) 
+//	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")\
+      [%f] add_to_list %( 'PUBLISHED_OPERATIONS_LIST' %, [%f] N %( %C )% )% 
+//	 op_%f_N(%C) = '%f_N(%C)';\n\
+      ' op_'
+      [%f] N %( %C )% ' = '''
+      [%f] N %( %C )% ''';'#13#10
+//	 op_cap%f_N(%C) = '%CD';\n\
+      ' op_cap'
+      [%f] N %( %C )% ' = '''
+      %C |D ''';'#13#10
+//	]\
+     %END-IF
+//	>\
+    %END-FOR
+ //	>\
+   %END-FOR
+//	]\
+  %END-IF
+
+
+//	[
+  %IF-NOT-EMPTY
+
+//	// Состояния операций:
+   '// Состояния операций:'
+//	<{}{%C#f_IsVCMOperations()=true}\
+   %FOR %ITEM-CONDITION ( ( %C %?f IsVCMOperations %( )% ) %==  true ) 
+//	%C<{}{%C#f_IsVCMOperation()=true}\
+    %C
+    %FOR %ITEM-CONDITION ( ( %C %?f IsVCMOperation %( )% ) %==  true ) 
+//	%C<{}{%CS=VCMOperationState}\
+     %C
+     %FOR %ITEM-CONDITION ( ( %C |S ) %== 'VCMOperationState' ) 
+//	[%C#f_open_ifdef()\n]\
+      %IF-NOT-EMPTY
+       %C %?f open_ifdef %( )% #13#10 
+      %END-IF
+//	var st_user_%f_N(%C%P%P)_%f_N(%C%P)_%f_N(%C) : TvcmOperationStateIndex = (rID : -1);\
+      'var st_user_'
+      [%f] N %( %C ->P ->P   )% '_'
+      [%f] N %( %C ->P  )% '_'
+      [%f] N %( %C )% ' : TvcmOperationStateIndex = (rID : -1);'
+//	\n  // [{}{%C%P%PN}%C%P%PD] -\> [{}{%C%PN}%C%PD] \<-\> [{}{%CN}%CD]\
+      #13#10'  // '
+      %IF ( ) 
+       %ELSE
+        %C ->P ->P |N   
+       %THEN
+       %C ->P ->P |D   
+      %END-IF
+      ' -> '
+      %IF ( ) 
+       %ELSE
+        %C ->P |N  
+       %THEN
+       %C ->P |D  
+      %END-IF
+      ' <-> '
+      %IF ( ) 
+       %ELSE
+        %C |N 
+       %THEN
+       %C |D 
+      %END-IF
+//	[\n%C#f_close_ifdef()]\
+      %IF-NOT-EMPTY
+       #13#10
+       %C %?f close_ifdef %( )% 
+      %END-IF
+//	\n\
+      #13#10
+//	>\
+     %END-FOR
+ //	>\
+    %END-FOR
+ //	>\
+   %END-FOR
+//	]\
+  %END-IF
+
+
+//	[%S%f_close_ifdef()\n]\
+  %IF-NOT-EMPTY
+   %S %f close_ifdef %( )% #13#10 
+  %END-IF
+//	]
+ %END-IF
+//#UC END# *4A82C8F9037Cfor494F7EF903BC*
+; // pas_BeforeUnitImplementation
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMControls>>
+

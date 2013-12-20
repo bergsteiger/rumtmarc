@@ -1,0 +1,1299 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/StateMachineClasses/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::StateMachineClasses::Support
+//
+// набор вспомогательных функций для енерации машины состояний
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// проверяет ограничения на использование событий, в случае нарушения ограничений возвращает
+// "нарушителей"
+//f _check_event
+: check_event OBJECT IN %S
+//#UC START# *470F3ECF0399*
+//	%f_clear_list(EVENT_LIST)\
+ [%f] clear_list %( 'EVENT_LIST' )% 
+////заполняем список именами Event'ов
+//	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}%f_add_to_list(EVENT_LIST,"%AN")>>\
+ %FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+   ( ( %A |S ) %== ''  ) ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+    ( ( %A |N ) %!= ''  ) ) 
+   [%f] add_to_list %( 'EVENT_LIST' %, %A |N )% 
+  %END-FOR
+  %END-FOR
+//	<{, }{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AN")","1","\>")=1}%AN in %A%PN]>>%f_clear_list(EVENT_LIST)
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+   ( ( %A |S ) %== ''  ) ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+    ( ( %A |N ) %!= ''  ) ) 
+   %IF ( ( [%f] number_cmp %( [%f] count_in_list %( 'EVENT_LIST' %, %A |N )% %, 1 %, '>' )% ) %== 1 ) 
+    %A |N ' in '
+    %A ->P |N  
+   %END-IF
+  %END-FOR
+  %END-FOR
+ [%f] clear_list %( 'EVENT_LIST' )% 
+
+//#UC END# *470F3ECF0399*
+; // check_event
+
+
+// проверяет ограничения на использование сторожевых условий, в случае нарушения ограничений
+// возвращает "нарушителей"
+//f _check_guard
+: check_guard OBJECT IN %S
+//#UC START# *470F3F28033C*
+//	%f_clear_list(EVENT_LIST)\
+ [%f] clear_list %( 'EVENT_LIST' )% 
+////заполняем список именами Guard'ов
+//	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AI"!=""}%f_add_to_list(EVENT_LIST,"%AI")>>\
+ %FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+   ( ( %A |S ) %== ''  ) ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+    ( ( %A |I ) %!= ''  ) ) 
+   [%f] add_to_list %( 'EVENT_LIST' %, %A |I )% 
+  %END-FOR
+  %END-FOR
+//	<{, }{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AI"!=""}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AI")","1","\>")=1}%AI in %A%PN]>>%f_clear_list(EVENT_LIST)
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+   ( ( %A |S ) %== ''  ) ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+    ( ( %A |I ) %!= ''  ) ) 
+   %IF ( ( [%f] number_cmp %( [%f] count_in_list %( 'EVENT_LIST' %, %A |I )% %, 1 %, '>' )% ) %== 1 ) 
+    %A |I ' in '
+    %A ->P |N  
+   %END-IF
+  %END-FOR
+  %END-FOR
+ [%f] clear_list %( 'EVENT_LIST' )% 
+
+//#UC END# *470F3F28033C*
+; // check_guard
+
+
+// проверяет ограничения на использование состояний, в случае нарушения ограничений возвращает
+// "состояния-нарушители"
+//f _check_state
+: check_state OBJECT IN %S
+//#UC START# *470F3F8B01F4*
+//	%f_clear_list(EVENT_LIST)\
+ [%f] clear_list %( 'EVENT_LIST' )% 
+////заполняем список именами State'ов
+//	<{}{%AC=State&"%AN"!=""&%AK=Initial}%f_add_to_list(EVENT_LIST,"%AN")>>\
+ %FOR %ITEM-CONDITION ( ( %A |C ) %== 'State' %&& 
+   ( ( %A |N ) %!= ''  ) %&& 
+   ( ( %A |K ) %== 'Initial'  ) ) 
+  [%f] add_to_list %( 'EVENT_LIST' %, %A |N )% 
+ %END-FOR
+ '>'
+//	<{, }{%AC=State&"%AN"!=""&%AK=Initial}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AN")","1","\>")=1}%AN in %A%PN]>>%f_clear_list(EVENT_LIST)
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %A |C ) %== 'State' %&& 
+   ( ( %A |N ) %!= ''  ) %&& 
+   ( ( %A |K ) %== 'Initial'  ) ) 
+  %IF ( ( [%f] number_cmp %( [%f] count_in_list %( 'EVENT_LIST' %, %A |N )% %, 1 %, '>' )% ) %== 1 ) 
+   %A |N ' in '
+   %A ->P |N  
+  %END-IF
+ %END-FOR
+ '>'
+ [%f] clear_list %( 'EVENT_LIST' )% 
+
+//#UC END# *470F3F8B01F4*
+; // check_state
+
+
+// проверяет, что элемента со стереотипом Event событию связанному с переходами
+//f _check_event_correspondence1
+: check_event_correspondence1 OBJECT IN %S
+//#UC START# *470F4012009C*
+//	%f_clear_list(EVENT_LIST)\
+ [%f] clear_list %( 'EVENT_LIST' )% 
+////заполняем список именами Event'ов
+//	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}%f_add_to_list(EVENT_LIST,"%AN")>>\
+ %FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+   ( ( %A |S ) %== ''  ) ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+    ( ( %A |N ) %!= ''  ) ) 
+   [%f] add_to_list %( 'EVENT_LIST' %, %A |N )% 
+  %END-FOR
+  %END-FOR
+//	<{;}{%AM=TransitionEvent::Class&%Aa!=abstract&%f_exists_in_list(EVENT_LIST,"%AN")=false}%AN>
+ %FOR %ITEM-SEPARATOR ';' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %A |M ) %== 'TransitionEvent::Class' %&& 
+   ( ( %A |a ) %!= 'abstract'  ) %&& 
+   ( ( [%f] exists_in_list %( 'EVENT_LIST' %, %A |N )% ) %==  false  ) ) 
+  %A |N 
+ %END-FOR
+//#UC END# *470F4012009C*
+; // check_event_correspondence1
+
+
+// ещё одна проверка на отображение Event::Class в событие
+//f _check_event_correspondence2
+: check_event_correspondence2 OBJECT IN %S
+//#UC START# *470F409200FA*
+//	%f_clear_list(EVENT_LIST)\
+ [%f] clear_list %( 'EVENT_LIST' )% 
+////заполняем список именами Event'ов
+//	<{}{%AM=TransitionEvent::Class&%Aa!=abstract}%f_add_to_list(EVENT_LIST,"%AN")>\
+ %FOR %ITEM-CONDITION ( ( %A |M ) %== 'TransitionEvent::Class' %&& 
+   ( ( %A |a ) %!= 'abstract'  ) ) 
+  [%f] add_to_list %( 'EVENT_LIST' %, %A |N )% 
+ %END-FOR
+//	<{;}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""&%f_exists_in_list(EVENT_LIST,"%AN")=false}%AN>>
+ %FOR %ITEM-SEPARATOR ';' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+   ( ( %A |S ) %== ''  ) ) 
+  %A
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+    ( ( %A |N ) %!= ''  ) %&& 
+    ( ( [%f] exists_in_list %( 'EVENT_LIST' %, %A |N )% ) %==  false  ) ) 
+   %A |N 
+  %END-FOR
+  %END-FOR
+//#UC END# *470F409200FA*
+; // check_event_correspondence2
+
+
+// возвращает true. если переход осуществляется по сторожевому условию, иначе false
+//f _is_guarded_transition
+: is_guarded_transition OBJECT IN %S
+//#UC START# *470F40DA006D*
+////проверяем есть ли у события, связанного с переходом 
+//	[{<{}{%AC=TransitionEvent}{C}>=0|<{}{%AC=TransitionEvent&"%AN"!=""}{C}>=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0 %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+    ( ( %A |N ) %!= ''  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *470F40DA006D*
+; // is_guarded_transition
+
+
+// дампит сторожевое условие
+//f _dump_guard
+: dump_guard OBJECT IN %S
+//#UC START# *470F4103035B*
+//	%f_set_var(GUARD,"<{}{%AC=TransitionEvent&"%AN"=""}%AI>")\
+ [%f] set_var %( 'GUARD' %, 
+ %FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+   ( ( %A |N ) %== ''  ) ) 
+  %A |I 
+ %END-FOR
+)% //	[{"%{GUARD}N"=""}{"%f_to_java(%{GUARD}N)"}null]
+ %IF ( ( ( get_global_var ( 'GUARD' ) |N ) ) %== '' ) 
+  %ELSE
+   [%f] to_java %( ( get_global_var ( 'GUARD' ) |N ) )% 
+  %THEN
+  'null' 
+ %END-IF
+
+//f _dump_access_cond
+; // dump_guard
+
+: dump_access_cond OBJECT IN %S
+//	[{}{null}"%f_to_java(%SI)"]
+ %IF ( ) 
+  %ELSE
+   'null' 
+  %THEN
+  [%f] to_java %( %S |I )% 
+ %END-IF
+//#UC END# *470F4103035B*
+; // dump_access_cond
+
+
+// дампит действие связанное с переходом
+//f _dump_action
+: dump_action OBJECT IN %S
+//#UC START# *470F411F0177*
+//	%f_set_var(ACTION,"<{}{%AC=Action&%AK=trigger}%AN>")\
+ [%f] set_var %( 'ACTION' %, 
+ %FOR %ITEM-CONDITION ( ( %A |C ) %== 'Action' %&& 
+   ( ( %A |K ) %== 'trigger'  ) ) 
+  %A |N 
+ %END-FOR
+)% //	[{"%{ACTION}N"=""}{"%f_to_java(%{ACTION}N)"}null]
+ %IF ( ( ( get_global_var ( 'ACTION' ) |N ) ) %== '' ) 
+  %ELSE
+   [%f] to_java %( ( get_global_var ( 'ACTION' ) |N ) )% 
+  %THEN
+  'null' 
+ %END-IF
+//#UC END# *470F411F0177*
+; // dump_action
+
+
+// дампит связь между состояними
+//f _dump_connect
+: dump_connect OBJECT IN %S
+//#UC START# *470F413001B5*
+//	%{SERV}N.%f_to_upper(st_%f_to_omg(%PN)).add[{%f_is_guarded_transition(%S)=true}{TriggedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%TN)), %S<{}{%CC=TransitionEvent&"%CN"!=""}%{SERV}N.%f_to_upper(ev_%f_to_omg(%CN))>, %f_dump_action(%S)[%f_dump_accessible(%S)])}\
+ ( get_global_var ( 'SERV' ) |N ) '.'
+ [%f] to_upper %( 'st_'
+ [%f] to_omg %( %P |N )% )% '.add'
+ %IF ( ( [%f] is_guarded_transition %( %S )% ) %==  true ) 
+  %ELSE
+   'TriggedTransition ('
+   ( get_global_var ( 'SERV' ) |N ) '.'
+   [%f] to_upper %( 'st_'
+   [%f] to_omg %( %T |N )% )% ', '
+   %S
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'TransitionEvent' %&& 
+     ( ( %C |N ) %!= ''  ) ) 
+    ( get_global_var ( 'SERV' ) |N ) '.'
+    [%f] to_upper %( 'ev_'
+    [%f] to_omg %( %C |N )% )% 
+   %END-FOR
+    ', '
+   [%f] dump_action %( %S )% %IF-NOT-EMPTY
+    [%f] dump_accessible %( %S )% 
+   %END-IF
+   ')' 
+  %THEN
+//	GuardedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%TN)), %f_dump_guard(%S), %f_dump_action(%S)[%f_dump_accessible(%S)])];
+  'GuardedTransition ('
+  ( get_global_var ( 'SERV' ) |N ) '.'
+  [%f] to_upper %( 'st_'
+  [%f] to_omg %( %T |N )% )% ', '
+  [%f] dump_guard %( %S )% ', '
+  [%f] dump_action %( %S )% %IF-NOT-EMPTY
+   [%f] dump_accessible %( %S )% 
+  %END-IF
+  ')' 
+ %END-IF
+ ';'
+
+//f _dump_combine
+; // dump_connect
+
+: dump_combine OBJECT IN %S
+//	%f_clear_list(ACCESS_LIST)\
+ [%f] clear_list %( 'ACCESS_LIST' )% 
+//	%f_set_var(TRANSITION,S)\
+ [%f] set_var %( 'TRANSITION' %, 'S' )% 
+//	%P<{}{%AC=Transition&%AS=combine&%A%TU=%{TRANSITION}%TU}%f_add_to_list(ACCESS_LIST,"new AccessibleData (true, %f_dump_access_cond(%A))")>\
+ %P
+ %FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+   ( ( %A |S ) %== 'combine'  ) %&& 
+   ( ( %A ->T |U  ) %== ( ( get_global_var ( 'TRANSITION' )  ->T |U ) )  ) ) 
+  [%f] add_to_list %( 'ACCESS_LIST' %, 'new AccessibleData (true' %, ' '
+  [%f] dump_access_cond %( %A )% ')' )% 
+ %END-FOR
+ //	%f_copy_list(ACCESS_LIST,SAVED_ACCESS_LIST)\
+ [%f] copy_list %( 'ACCESS_LIST' %, 'SAVED_ACCESS_LIST' )% 
+//если состояния связаны связью <<combine>> - нужно сгенерить дополнительный набор состояний
+//	[{%f_is_empty(ACCESS_LIST)=false}[%T<{\n}{%AC=Transition&"%AS"=""&%A%TU!=%{TRANSITION}%PU}[
+ %IF ( ( [%f] is_empty %( 'ACCESS_LIST' )% ) %==  false ) 
+  %IF-NOT-EMPTY
+   %T
+   %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+    %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+     ( ( %A |S ) %== ''  ) %&& 
+     ( ( %A ->T |U  ) %!= ( ( get_global_var ( 'TRANSITION' )  ->P |U ) )  ) ) 
+    %IF-NOT-EMPTY
+
+//	#%{SERV}N.%f_to_upper(st_%f_to_omg(%{TRANSITION}%PN)).add[{%f_is_guarded_transition(%A)=true}{TriggedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%A%TN)), %A<{}{%CC=TransitionEvent&"%CN"!=""}%{SERV}N.%f_to_upper(ev_%f_to_omg(%CN))>, %f_dump_action(%A), %f_dump_access_list(%A))}\
+     out_indent ( get_global_var ( 'SERV' ) |N ) '.'
+     [%f] to_upper %( 'st_'
+     [%f] to_omg %( ( get_global_var ( 'TRANSITION' )  ->P |N ) )% )% '.add'
+     %IF ( ( [%f] is_guarded_transition %( %A )% ) %==  true ) 
+      %ELSE
+       'TriggedTransition ('
+       ( get_global_var ( 'SERV' ) |N ) '.'
+       [%f] to_upper %( 'st_'
+       [%f] to_omg %( %A ->T |N  )% )% ', '
+       %A
+       %FOR %ITEM-CONDITION ( ( %C |C ) %== 'TransitionEvent' %&& 
+         ( ( %C |N ) %!= ''  ) ) 
+        ( get_global_var ( 'SERV' ) |N ) '.'
+        [%f] to_upper %( 'ev_'
+        [%f] to_omg %( %C |N )% )% 
+       %END-FOR
+        ', '
+       [%f] dump_action %( %A )% ', '
+       [%f] dump_access_list %( %A )% ')' 
+      %THEN
+//	GuardedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%A%TN), %f_dump_guard(%A), %f_dump_action(%A), %f_dump_access_list(%A))];]>][
+      'GuardedTransition ('
+      ( get_global_var ( 'SERV' ) |N ) '.'
+      [%f] to_upper %( 'st_'
+      [%f] to_omg %( %A ->T |N  )% %, ' '
+      [%f] dump_guard %( %A )% %, ' '
+      [%f] dump_action %( %A )% %, ' '
+      [%f] dump_access_list %( %A )% )% 
+     %END-IF
+     ';' 
+    %END-IF
+   %END-FOR
+   %END-IF
+  %IF-NOT-EMPTY
+
+//	%T<{\n}{%aC=Transition&"%aS"=""&%aU!=%{TRANSITION}U&%a%PU!=%{TRANSITION}%PU}[
+   %T
+   %FOR %ITEM-SEPARATOR #13#10 ; // %ITEM-SEPARATOR 
+    %ITEM-CONDITION ( ( %a |C ) %== 'Transition' %&& 
+     ( ( %a |S ) %== ''  ) %&& 
+     ( ( %a |U ) %!= ( ( get_global_var ( 'TRANSITION' ) |U ) )  ) %&& 
+     ( ( %a ->P |U  ) %!= ( ( get_global_var ( 'TRANSITION' )  ->P |U ) )  ) ) 
+    %IF-NOT-EMPTY
+
+//	#%{SERV}N.%f_to_upper(st_%f_to_omg(%a%PN).add[{%f_is_guarded_transition(%a)=true}{TriggedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%{TRANSITION}%PN)), %a<{}{%CC=TransitionEvent&"%CN"!=""}%{SERV}N.%f_to_upper(ev_%f_to_omg(%CN))>, %f_dump_action(%a), %f_dump_access_list(%a))}\
+     out_indent ( get_global_var ( 'SERV' ) |N ) '.'
+     [%f] to_upper %( 'st_'
+     [%f] to_omg %( %a ->P |N  )% '.add'
+     %IF ( ( [%f] is_guarded_transition %( %a )% ) %==  true ) 
+      %ELSE
+       'TriggedTransition ('
+       ( get_global_var ( 'SERV' ) |N ) '.'
+       [%f] to_upper %( 'st_'
+       [%f] to_omg %( ( get_global_var ( 'TRANSITION' )  ->P |N ) )% )% ', '
+       %a
+       %FOR %ITEM-CONDITION ( ( %C |C ) %== 'TransitionEvent' %&& 
+         ( ( %C |N ) %!= ''  ) ) 
+        ( get_global_var ( 'SERV' ) |N ) '.'
+        [%f] to_upper %( 'ev_'
+        [%f] to_omg %( %C |N )% )% 
+       %END-FOR
+        ', '
+       [%f] dump_action %( %a )% ', '
+       [%f] dump_access_list %( %a )% ')' 
+      %THEN
+//	GuardedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%{TRANSITION}%PN)), %f_dump_guard(%a), %f_dump_action(%a), %f_dump_access_list(%a))];]>]]
+      'GuardedTransition ('
+      ( get_global_var ( 'SERV' ) |N ) '.'
+      [%f] to_upper %( 'st_'
+      [%f] to_omg %( ( get_global_var ( 'TRANSITION' )  ->P |N ) )% )% ', '
+      [%f] dump_guard %( %a )% ', '
+      [%f] dump_action %( %a )% ', '
+      [%f] dump_access_list %( %a )% ')' 
+     %END-IF
+     ';'
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+
+
+)%  'f _dump_accessible'
+
+//	%f_set_var(TRANSITION,S)\
+//	%f_clear_list(ACCESS_LIST)\
+ [%f] clear_list %( 'ACCESS_LIST' )% 
+//	%T<{}{%aC=Transition&%aS=combine}%f_add_to_list(ACCESS_LIST,"new AccessibleData (false, %f_dump_access_cond(%a))")>\
+ %T
+ %FOR %ITEM-CONDITION ( ( %a |C ) %== 'Transition' %&& 
+   ( ( %a |S ) %== 'combine'  ) ) 
+  [%f] add_to_list %( 'ACCESS_LIST' %, 'new AccessibleData (false' %, ' '
+  [%f] dump_access_cond %( %a )% ')' )% 
+ %END-FOR
+ //	, %f_dump_access_list(%S)
+ ', '
+ [%f] dump_access_list %( %S )% 
+//	%P<{}{%AC=Transition&%AS=combine&%A%TU=%{TRANSITION}%TU}%f_set_var(COMBINE,A)>\
+
+//	, [{"%{COMBINE}U"=""}{false, %f_dump_guard(%{COMBINE})}true, [{}{null}<{}{%AC=TransitionEvent}"%f_to_java(%AI)">]]
+
+
+%END-IF
+'f _dump_access_list'
+//	%f_copy_list(ACCESS_LIST,TEMP_LIST)\
+[%f] copy_list %( 'ACCESS_LIST' %, 'TEMP_LIST' )% 
+//	[{%SC=Transition&"%SS"=""&"%SI"!=""}\
+%IF ( ( %S |C ) %== 'Transition' %&& 
+  ( ( %S |S ) %== ''  ) %&& 
+  ( ( %S |I ) %!= ''  ) ) 
+//	%f_add_to_list(TEMP_LIST,"new AccessibleData (true, %f_dump_access_cond(%S))")]\
+ [%f] add_to_list %( 'TEMP_LIST' %, 'new AccessibleData (true' %, ' '
+ [%f] dump_access_cond %( %S )% ')' )% 
+%END-IF
+//	[{%f_is_empty(TEMP_LIST)=false}{null}\
+%IF ( ( [%f] is_empty %( 'TEMP_LIST' )% ) %==  false ) 
+ %ELSE
+  'null' 
+ %THEN
+//	Arrays.asList(<{, }{%f_is_empty(TEMP_LIST)=false}{W}%f_pop_first_to_var(TEMP_LIST,TEMP)[%{TEMP}N]>)]
+ 'Arrays.asList('
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP_LIST' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'TEMP_LIST' %, 'TEMP' )% %IF-NOT-EMPTY
+   ( get_global_var ( 'TEMP' ) |N ) 
+  %END-IF
+ %END-FOR
+ ')' 
+%END-IF
+
+//#UC END# *470F413001B5*
+; // dump_combine
+
+
+
+
+// проверяет, что из одного состояния не может быть более ,чем один безусловный переход
+%END-FOR
+ 'f _check_unconditional_transition'
+
+//#UC START# *470F415903A9*
+//	[{%f_number_cmp("<{}{%AC=Transition&"%AS"=""&%f_is_guarded_transition(%A)=true&%f_dump_guard(%A)=null}{%AC}>","1","\>")=1}{true}false]
+%IF ( ( [%f] number_cmp %( 
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+  ( ( %A |S ) %== ''  ) %&& 
+  ( ( [%f] is_guarded_transition %( %A )% ) %==  true  ) %&& 
+  ( ( [%f] dump_guard %( %A )% ) %== 'null'  ) ) 
+ ( %A |C ) 
+%END-FOR
+%, 1 %, '>' )% ) %== 1 ) 
+%ELSE
+  true 
+%THEN
+ false 
+%END-IF
+
+//#UC END# *470F415903A9*
+
+
+
+// возвращает имя базового класса для состояния:
+
+// DefaultInitialState
+
+// DefaultFinalState
+
+// BaseState
+%END-IF
+'t _select_state'
+
+//#UC START# *470F419B001F*
+%END-IF
+'c                                 {}'
+//r "%SK"="Initial":                {DefaultInitialState}
+//r "%SK"="Final":                  {DefaultFinalState}
+//r ""="":                          {BaseState}
+//#UC END# *470F419B001F*
+
+// рекурсивно пробегает по всем реализуемым элементам
+// если находит элемент со стереотипом StateMachine - кладет
+// в переменную SM_IMPL
+//f _find_sm_impl
+: find_sm_impl OBJECT IN %S
+//#UC START# *470F41F8004E*
+//	%f_set_var(SM_IMPL,"")%f_find_sm_impl_i(%S)
+[%f] set_var %( 'SM_IMPL' %, '' )% [%f] find_sm_impl_i %( %S )% 
+//f _find_sm_impl_i
+; // find_sm_impl
+
+: find_sm_impl_i OBJECT IN %S
+//	<{}{}{%R}[{%RM=StateMachine::Class}%f_set_var(SM_IMPL,R)]%f_find_sm_impl_i(%R)>
+%FOR ( %R ) 
+%IF ( ( %R |M ) %== 'StateMachine::Class' ) 
+[%f] set_var %( 'SM_IMPL' %, 'R' )% 
+%END-IF
+[%f] find_sm_impl_i %( %R )% 
+%END-FOR
+//#UC END# *470F41F8004E*
+; // find_sm_impl_i
+
+
+// дампит необходимые методы и атрибуты для серванта, который реализует машину состояний
+//f _dump_servant_sm_java
+: dump_servant_sm_java OBJECT IN %S
+//#UC START# *470F420A00CB*
+//	%f_find_sm_impl(%S)\
+[%f] find_sm_impl %( %S )% 
+//	[{"%{SM_IMPL}U"!=""}#//IStateMachine and %{SM_IMPL}NImpl.%{SM_IMPL}NComm methods implementation
+%IF ( ( ( get_global_var ( 'SM_IMPL' ) |U ) ) %!= '' ) 
+out_indent '//IStateMachine and '
+( get_global_var ( 'SM_IMPL' ) |N ) 'Impl.'
+( get_global_var ( 'SM_IMPL' ) |N ) 'Comm methods implementation'
+
+//	#public void add (final ru.garant.shared.FSM.BaseState state) {
+
+//	#	m_sm_realize.add (state);
+
+//	#}
+//	[{%f_is_inherit_sm(%{SM_IMPL})=false}#private %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl smRealize_ = null;
+%IF ( ( [%f] is_inherit_sm %( ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  false ) 
+out_indent 'private '
+[%f] with_gen_id %( 'fctr.java' %, [%f] dump_java_package_ex %( ( get_global_var ( 'SM_IMPL' ) ) )% )% '.'
+( get_global_var ( 'SM_IMPL' ) |N ) 'Impl smRealize_ = null;'
+//	
+
+//	#public boolean isStopped () {
+out_indent 'public boolean isStopped () {'
+//	#	return getSMRealize ().isStopped ();
+out_indent '	return getSMRealize ().isStopped ();'
+//	#}
+out_indent '}'
+//	
+
+//	#public void setEvent (final ru.garant.shared.FSM.BaseEvent event) {
+out_indent 'public void setEvent (final ru.garant.shared.FSM.BaseEvent event) {'
+//	#	getSMRealize ().setEvent (event);
+out_indent '	getSMRealize ().setEvent (event);'
+//	#}
+out_indent '}'
+//	
+
+//	#public ru.garant.shared.FSM.BaseEvent getEvent () {
+out_indent 'public ru.garant.shared.FSM.BaseEvent getEvent () {'
+//	#	return getSMRealize ().getEvent ();
+out_indent '	return getSMRealize ().getEvent ();'
+//	#}
+out_indent '}'
+//	
+
+//	#public void commit ()
+out_indent 'public void commit ()'
+//	#	 throws ru.garant.shared.FSM.StateNotChanged
+out_indent '	 throws ru.garant.shared.FSM.StateNotChanged'
+//	#		, ru.garant.shared.FSM.SaveFailed
+out_indent '		, ru.garant.shared.FSM.SaveFailed'
+//	#		, ru.garant.shared.FSM.ValidationFailed
+out_indent '		, ru.garant.shared.FSM.ValidationFailed'
+//	#		, ru.garant.shared.FSM.PreEnterFailed
+out_indent '		, ru.garant.shared.FSM.PreEnterFailed'
+//	#		, ru.garant.shared.FSM.PreExitFailed
+out_indent '		, ru.garant.shared.FSM.PreExitFailed'
+//	#{
+out_indent '{'
+//	#	getSMRealize ().commit ();
+out_indent '	getSMRealize ().commit ();'
+//	#	try {
+out_indent '	try {'
+//	#		postCommit ();
+out_indent '		postCommit ();'
+//	#	} catch (Throwable e) {
+out_indent '	} catch (Throwable e) {'
+//	#		Logs.LOG_E ("%SN::commit () - exception in postCommit " + e);
+out_indent '		Logs.LOG_E ("'
+%S |N '::commit () - exception in postCommit " + e);'
+//	#	}
+out_indent '	}'
+//	#}
+out_indent '}'
+//	
+
+//	#public ru.garant.shared.FSM.State getCurrentState () {
+out_indent 'public ru.garant.shared.FSM.State getCurrentState () {'
+//	#	return getSMRealize ().getCurrentState ();
+out_indent '	return getSMRealize ().getCurrentState ();'
+//	#}
+out_indent '}'
+//	
+
+//	#public java.util.List\<ru.garant.shared.FSM.State\> getAllStates () {
+out_indent 'public java.util.List<ru.garant.shared.FSM.State> getAllStates () {'
+//	#	return getSMRealize ().getAllStates ();
+out_indent '	return getSMRealize ().getAllStates ();'
+//	#}
+out_indent '}'
+//	
+
+//	#public void restore (final ru.garant.shared.FSM.State storedState) throws ru.garant.shared.FSM.AlreadyStarted {
+out_indent 'public void restore (final ru.garant.shared.FSM.State storedState) throws ru.garant.shared.FSM.AlreadyStarted {'
+//	#	getSMRealize ().restore (storedState);
+out_indent '	getSMRealize ().restore (storedState);'
+//	#}
+out_indent '}'
+//	
+
+//	#public void validateTransition (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.ValidationFailed {
+out_indent 'public void validateTransition (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.ValidationFailed {'
+//	#	getSMRealize ().validateTransition (event);
+out_indent '	getSMRealize ().validateTransition (event);'
+//	#}
+out_indent '}'
+//	
+
+//	#public void executeTransitionAction (final String actionId, final ru.garant.shared.FSM.BaseEvent event) {
+out_indent 'public void executeTransitionAction (final String actionId, final ru.garant.shared.FSM.BaseEvent event) {'
+//	#	try {
+out_indent '	try {'
+//	#		java.lang.reflect.Method m = this.getClass().getMethod(actionId, new Class\[\]{ru.garant.shared.FSM.BaseEvent.class});
+out_indent '		java.lang.reflect.Method m = this.getClass().getMethod(actionId, new Class[]{ru.garant.shared.FSM.BaseEvent.class});'
+//	#		m.invoke(this, event);
+out_indent '		m.invoke(this, event);'
+//	#	} catch (java.lang.Throwable e) {
+out_indent '	} catch (java.lang.Throwable e) {'
+//	#		Logs.LOG_SEX (e);
+out_indent '		Logs.LOG_SEX (e);'
+//	#	}
+out_indent '	}'
+//	#}
+out_indent '}'
+//	
+
+//	#public boolean executeTransitionGuard (final String guard) {
+out_indent 'public boolean executeTransitionGuard (final String guard) {'
+//	#	Boolean res = false;
+out_indent '	Boolean res = false;'
+//	#	try {
+out_indent '	try {'
+//	#		java.lang.reflect.Method m = this.getClass().getMethod(guard);
+out_indent '		java.lang.reflect.Method m = this.getClass().getMethod(guard);'
+//	#		res = (Boolean)m.invoke(this);
+out_indent '		res = (Boolean)m.invoke(this);'
+//	#	} catch (java.lang.Throwable e) {
+out_indent '	} catch (java.lang.Throwable e) {'
+//	#		Logs.LOG_SEX (e);
+out_indent '		Logs.LOG_SEX (e);'
+//	#	}
+out_indent '	}'
+//	#	return res;
+out_indent '	return res;'
+//	#}
+out_indent '}'
+//	
+
+//	][#//Actions
+%END-IF
+%IF-NOT-EMPTY
+out_indent '//Actions'
+//	%f_clear_list(ACTION_LIST)%f_collect_sm_actions(%{SM_IMPL},"ACTION_LIST")\
+[%f] clear_list %( 'ACTION_LIST' )% [%f] collect_sm_actions %( ( get_global_var ( 'SM_IMPL' ) ) %, 'ACTION_LIST' )% 
+//	<{}{%f_is_empty(ACTION_LIST)=false}{W}[%f_pop_first_to_var(ACTION_LIST,ACTION)\
+%FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'ACTION_LIST' )% ) %==  false ) 
+( 'W' ) 
+%IF-NOT-EMPTY
+ [%f] pop_first_to_var %( 'ACTION_LIST' %, 'ACTION' )% 
+//		public void %f_to_java(%{ACTION}N) (final ru.garant.shared.FSM.BaseEvent event) {
+ '	public void '
+ [%f] to_java %( ( get_global_var ( 'ACTION' ) |N ) )% ' (final ru.garant.shared.FSM.BaseEvent event) {'
+//			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{ACTION}N)_ACTION_IMPL","[{%f_is_override_transition_action(%{ACTION},%{SM_IMPL})=true}super.%f_to_java(%{ACTION}N) (event);]")
+ '		'
+ [%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_'
+ [%f] to_upper %( ( get_global_var ( 'ACTION' ) |N ) )% '_ACTION_IMPL"' %, %IF ( ( [%f] is_override_transition_action %( ( get_global_var ( 'ACTION' ) ) %, ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+  'super.'
+  [%f] to_java %( ( get_global_var ( 'ACTION' ) |N ) )% ' (event);' 
+ %END-IF
+)% //		}
+ '	}'
+//	]
+%END-IF
+//	>%f_clear_list(ACTION_LIST)]%f_collect_sm_state_actions(%{SM_IMPL},"ACTION_LIST")[#//State actions
+%END-FOR
+[%f] clear_list %( 'ACTION_LIST' )% 
+%END-IF
+[%f] collect_sm_state_actions %( ( get_global_var ( 'SM_IMPL' ) ) %, 'ACTION_LIST' )% %IF-NOT-EMPTY
+out_indent '//State actions'
+//	<{}{%f_is_empty(ACTION_LIST)=false}{W}[%f_pop_first_to_var(ACTION_LIST,ACTION)\
+%FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'ACTION_LIST' )% ) %==  false ) 
+( 'W' ) 
+%IF-NOT-EMPTY
+ [%f] pop_first_to_var %( 'ACTION_LIST' %, 'ACTION' )% 
+//		public void %f_to_java(post_%f_to_omg(%{ACTION}%PN)_%{ACTION}N) (final ru.garant.shared.FSM.BaseEvent event) {
+ '	public void '
+ [%f] to_java %( 'post_'
+ [%f] to_omg %( ( get_global_var ( 'ACTION' )  ->P |N ) )% '_'
+ ( get_global_var ( 'ACTION' ) |N ) )% ' (final ru.garant.shared.FSM.BaseEvent event) {'
+//			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_ACTION_%f_to_upper(%{ACTION}%PN_%{ACTION}N)","[{%f_is_override(%{ACTION},%{SM_IMPL})=true}super.%f_to_java(post_%f_to_omg(%{ACTION}%PN)_%{ACTION}N) (event);]")
+ '		'
+ [%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_ACTION_'
+ [%f] to_upper %( ( get_global_var ( 'ACTION' )  ->P |N ) '_'
+ ( get_global_var ( 'ACTION' ) |N ) )% %, %IF ( ( [%f] is_override %( ( get_global_var ( 'ACTION' ) ) %, ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+  'super.'
+  [%f] to_java %( 'post_'
+  [%f] to_omg %( ( get_global_var ( 'ACTION' )  ->P |N ) )% '_'
+  ( get_global_var ( 'ACTION' ) |N ) )% ' (event);' 
+ %END-IF
+)% //		}
+ '	}'
+//	]
+%END-IF
+//	>]%f_collect_sm_guards(%{SM_IMPL},"GUARD_LIST")[#//Guards
+%END-FOR
+%END-IF
+[%f] collect_sm_guards %( ( get_global_var ( 'SM_IMPL' ) ) %, 'GUARD_LIST' )% %IF-NOT-EMPTY
+out_indent '//Guards'
+//	<{}{%f_is_empty(GUARD_LIST)=false}{W}[%f_pop_first_to_var(GUARD_LIST,GUARD)\
+%FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'GUARD_LIST' )% ) %==  false ) 
+( 'W' ) 
+%IF-NOT-EMPTY
+ [%f] pop_first_to_var %( 'GUARD_LIST' %, 'GUARD' )% 
+//		public boolean %f_to_java(%{GUARD}I) () {
+ '	public boolean '
+ [%f] to_java %( ( get_global_var ( 'GUARD' ) |I ) )% ' () {'
+//			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{GUARD}I)_GUARD_IMPL","[{%f_is_override_guard(%{GUARD},%{SM_IMPL})=true}{assert (false);\n\t\treturn false;}return super.%f_to_java(%{GUARD}I) ();]")
+ '		'
+ [%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_'
+ [%f] to_upper %( ( get_global_var ( 'GUARD' ) |I ) )% '_GUARD_IMPL"' %, %IF ( ( [%f] is_override_guard %( ( get_global_var ( 'GUARD' ) ) %, ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+  %ELSE
+   'assert (false);'#13#10#9#9'return false;' 
+  %THEN
+  'return super.'
+  [%f] to_java %( ( get_global_var ( 'GUARD' ) |I ) )% ' ();' 
+ %END-IF
+)% //		}
+ '	}'
+//	]
+%END-IF
+//	>%f_clear_list(GUARD_LIST)]%f_collect_sm_states(%{SM_IMPL},"STATES")[#//validation states methods and preEnter/preExit actions
+%END-FOR
+[%f] clear_list %( 'GUARD_LIST' )% 
+%END-IF
+[%f] collect_sm_states %( ( get_global_var ( 'SM_IMPL' ) ) %, 'STATES' )% %IF-NOT-EMPTY
+out_indent '//validation states methods and preEnter/preExit actions'
+//	<{}{%f_is_empty(STATES)=false}{W}[%f_pop_first_to_var(STATES,STATE)\
+%FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'STATES' )% ) %==  false ) 
+( 'W' ) 
+%IF-NOT-EMPTY
+ [%f] pop_first_to_var %( 'STATES' %, 'STATE' )% 
+//		public void validate%{STATE}N () throws ru.garant.shared.FSM.ValidationFailed {
+ '	public void validate'
+ ( get_global_var ( 'STATE' ) |N ) ' () throws ru.garant.shared.FSM.ValidationFailed {'
+//			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{STATE}N)_VALIDATE","[{%f_is_override(%{STATE},%{SM_IMPL})=true}super.validate%{STATE}N ();]")
+ '		'
+ [%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_'
+ [%f] to_upper %( ( get_global_var ( 'STATE' ) |N ) )% '_VALIDATE"' %, %IF ( ( [%f] is_override %( ( get_global_var ( 'STATE' ) ) %, ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+  'super.validate'
+  ( get_global_var ( 'STATE' ) |N ) ' ();' 
+ %END-IF
+)% //		}
+ '	}'
+//		
+ '	'
+//		public void preEnterAction%{STATE}N (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed {
+ '	public void preEnterAction'
+ ( get_global_var ( 'STATE' ) |N ) ' (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed {'
+//			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{STATE}N)_PRE_ENTER","[{%f_is_override(%{STATE},%{SM_IMPL})=true}super.preEnterAction%{STATE}N (event);]")
+ '		'
+ [%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_'
+ [%f] to_upper %( ( get_global_var ( 'STATE' ) |N ) )% '_PRE_ENTER"' %, %IF ( ( [%f] is_override %( ( get_global_var ( 'STATE' ) ) %, ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+  'super.preEnterAction'
+  ( get_global_var ( 'STATE' ) |N ) ' (event);' 
+ %END-IF
+)% //		}
+ '	}'
+//		
+ '	'
+//		public void preExitAction%{STATE}N (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed {
+ '	public void preExitAction'
+ ( get_global_var ( 'STATE' ) |N ) ' (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed {'
+//			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{STATE}N)_PRE_EXIT","[{%f_is_override(%{STATE},%{SM_IMPL})=true}super.preExitAction%{STATE}N (event);]")
+ '		'
+ [%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_'
+ [%f] to_upper %( ( get_global_var ( 'STATE' ) |N ) )% '_PRE_EXIT"' %, %IF ( ( [%f] is_override %( ( get_global_var ( 'STATE' ) ) %, ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+  'super.preExitAction'
+  ( get_global_var ( 'STATE' ) |N ) ' (event);' 
+ %END-IF
+)% //		}
+ '	}'
+//	]
+%END-IF
+//	>]
+%END-FOR
+%END-IF
+//	#public void executeSave () throws ru.garant.shared.FSM.SaveFailed {
+out_indent 'public void executeSave () throws ru.garant.shared.FSM.SaveFailed {'
+//	#	%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_SAVE_IMPL","[{%f_is_inherit_sm(%{SM_IMPL})=true}super.executeSave ();]")
+out_indent '	'
+[%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_SAVE_IMPL"' %, %IF ( ( [%f] is_inherit_sm %( ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+'super.executeSave ();' 
+%END-IF
+)% //	#}
+out_indent '}'
+//	
+
+//	#protected void postCommit () {
+out_indent 'protected void postCommit () {'
+//	#	%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_POST_COMMIT","[{%f_is_inherit_sm(%{SM_IMPL})=true}super.postCommit ();]")
+out_indent '	'
+[%f] dump_sm_user_section %( ( get_global_var ( 'SERV' ) ) %, ( get_global_var ( 'SM_IMPL' ) |U ) '_POST_COMMIT"' %, %IF ( ( [%f] is_inherit_sm %( ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  true ) 
+'super.postCommit ();' 
+%END-IF
+)% 
+//	#	%U[{_POST_COMMIT}[{%f_is_inherit_sm(%{SM_IMPL})=true}
+
+//	#	super.postCommit ();]
+
+//	#	]
+//	#}
+out_indent '}'
+//	
+
+//	#protected void finalize () {
+out_indent 'protected void finalize () {'
+//	#	getSMRealize ().unregisterComm ();
+out_indent '	getSMRealize ().unregisterComm ();'
+//	#}
+out_indent '}'
+//		
+'	'
+//	#protected %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl initSMRealize () {
+out_indent 'protected '
+[%f] with_gen_id %( 'fctr.java' %, [%f] dump_java_package_ex %( ( get_global_var ( 'SM_IMPL' ) ) )% )% '.'
+( get_global_var ( 'SM_IMPL' ) |N ) 'Impl initSMRealize () {'
+//	#	return new %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl (this);
+out_indent '	return new '
+[%f] with_gen_id %( 'fctr.java' %, [%f] dump_java_package_ex %( ( get_global_var ( 'SM_IMPL' ) ) )% )% '.'
+( get_global_var ( 'SM_IMPL' ) |N ) 'Impl (this);'
+//	#}
+out_indent '}'
+//	
+
+//	#protected %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl getSMRealize () {
+out_indent 'protected '
+[%f] with_gen_id %( 'fctr.java' %, [%f] dump_java_package_ex %( ( get_global_var ( 'SM_IMPL' ) ) )% )% '.'
+( get_global_var ( 'SM_IMPL' ) |N ) 'Impl getSMRealize () {'
+//	#	[{%f_is_inherit_sm(%{SM_IMPL})=false}{return (%f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl)super.getSMRealize ();}if (smRealize_ == null) {
+out_indent '	'
+%IF ( ( [%f] is_inherit_sm %( ( get_global_var ( 'SM_IMPL' ) ) )% ) %==  false ) 
+%ELSE
+'return ('
+[%f] with_gen_id %( 'fctr.java' %, [%f] dump_java_package_ex %( ( get_global_var ( 'SM_IMPL' ) ) )% )% '.'
+( get_global_var ( 'SM_IMPL' ) |N ) 'Impl)super.getSMRealize ();' 
+%THEN
+'if (smRealize_ == null) {'
+//	#		smRealize_ = initSMRealize ();
+out_indent '		smRealize_ = initSMRealize ();'
+//	#	}
+out_indent '	}'
+//	#	return smRealize_;]
+out_indent '	return smRealize_;' 
+%END-IF
+//	#}]
+out_indent '}' 
+%END-IF
+
+//f _is_override
+; // dump_servant_sm_java
+
+: is_override OBJECT IN %S
+//	%t_is_override(%S,"",%1)
+[%t] is_override %( %S %, '' %, %1 )% 
+
+//t _is_override
+; // is_override
+
+<<transformator>> is_override OBJECT IN %S
+//c                                                                                 {}
+//r {%SM=StateMachine::Class::StateMachine::State::Action}:                         {%f_is_override_state_action(%S,%2)}
+//r {%SM=StateMachine::Class::StateMachine::State}:                                 {%f_is_override_state(%S,%2)}
+//r {""=""}:                                                                        {false}
+
+
+//f _is_override_state_action
+; // is_override
+
+: is_override_state_action OBJECT IN %S
+//	%f_set_var(__ACTION__,S)\
+[%f] set_var %( '__ACTION__' %, 'S' )% 
+//	[{%f_has_state_action(%1,%{__ACTION__})=true}{true}\
+%IF ( ( [%f] has_state_action %( %1 %, ( get_global_var ( '__ACTION__' ) ) )% ) %==  true ) 
+%ELSE
+ true 
+%THEN
+//	[{%1<{}{%f_has_state_action(%g,%{__ACTION__})=true}{%gC}>!=0}{false}true]]
+%IF ( ( %1
+%FOR %ITEM-CONDITION ( ( [%f] has_state_action %( %g %, ( get_global_var ( '__ACTION__' ) ) )% ) %==  true ) 
+( %g |C ) 
+%END-FOR
+ ) %!= 0 ) 
+%ELSE
+ false 
+%THEN
+ true 
+%END-IF
+%END-IF
+
+//возаращает true, если состояние определяет действие с заданным именем
+//f _has_state_action
+; // is_override_state_action
+
+: has_state_action OBJECT IN %S
+//	%f_set_var(_ACTION_NAME_,"%1N")\
+[%f] set_var %( '_ACTION_NAME_' %, %1 |N )% 
+//	%f_set_var(_STATE_NAME_,"%1%PN")\
+[%f] set_var %( '_STATE_NAME_' %, %1 ->P |N  )% 
+//	[{"<{}{%AC=State&%AN=%{_STATE_NAME_}N&%A<{}{%CC=Action&%CN=%{_ACTION_NAME_}N}{%CC}>!=0}.>"!=""}{false}true]
+%IF ( 
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'State' %&& 
+ ( ( %A |N ) %== ( ( get_global_var ( '_STATE_NAME_' ) |N ) )  ) %&& 
+ ( ( %A
+%FOR %ITEM-CONDITION ( ( %C |C ) %== 'Action' %&& 
+ ( ( %C |N ) %== ( ( get_global_var ( '_ACTION_NAME_' ) |N ) )  ) ) 
+( %C |C ) 
+%END-FOR
+ ) %!= 0  ) ) 
+'.' 
+%END-FOR
+%!= '' ) 
+%ELSE
+ false 
+%THEN
+ true 
+%END-IF
+
+//f _is_override_guard
+; // has_state_action
+
+: is_override_guard OBJECT IN %S
+//	%f_set_var(__ARG__,S)\
+[%f] set_var %( '__ARG__' %, 'S' )% 
+//	[{%f_has_guard(%1,%{__ARG__})=true}{true}\
+%IF ( ( [%f] has_guard %( %1 %, ( get_global_var ( '__ARG__' ) ) )% ) %==  true ) 
+%ELSE
+ true 
+%THEN
+//	[{%1<{}{%f_has_guard(%g,%{__ARG__})=true}{%gC}>!=0}{false}true]]
+%IF ( ( %1
+%FOR %ITEM-CONDITION ( ( [%f] has_guard %( %g %, ( get_global_var ( '__ARG__' ) ) )% ) %==  true ) 
+( %g |C ) 
+%END-FOR
+ ) %!= 0 ) 
+%ELSE
+ false 
+%THEN
+ true 
+%END-IF
+%END-IF
+
+//f _has_guard
+; // is_override_guard
+
+: has_guard OBJECT IN %S
+//	%f_set_var(__GUARD__,1)\
+[%f] set_var %( '__GUARD__' %, 1 )% 
+//	[{<{}{%AC=Transition&[{%AI=%{__GUARD__}I|%A<{}{%AC=TransitionEvent&%AI=%{__GUARD__}I}{%AC}>!=0}{false}true]=true}{%AC}>!=0}{false}true]
+%IF ( 
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+ ( %IF ( ( %A |I ) %== ( ( get_global_var ( '__GUARD__' ) |I ) ) %|| 
+ ( ( %A
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+  ( ( %A |I ) %== ( ( get_global_var ( '__GUARD__' ) |I ) )  ) ) 
+ ( %A |C ) 
+%END-FOR
+ ) %!= 0  ) ) 
+%ELSE
+  false 
+%THEN
+ true 
+%END-IF
+%==  true  ) ) 
+( %A |C ) 
+%END-FOR
+%!= 0 ) 
+%ELSE
+ false 
+%THEN
+ true 
+%END-IF
+
+//f _is_override_transition_action
+; // has_guard
+
+: is_override_transition_action OBJECT IN %S
+//	%f_set_var(__ARG__,S)\
+[%f] set_var %( '__ARG__' %, 'S' )% 
+//	[{%f_has_transition_action(%1,%{__ARG__})=true}{true}\
+%IF ( ( [%f] has_transition_action %( %1 %, ( get_global_var ( '__ARG__' ) ) )% ) %==  true ) 
+%ELSE
+ true 
+%THEN
+//	[{%1<{}{%f_has_transition_action(%g,%{__ARG__})=true}{%gC}>!=0}{false}true]]
+%IF ( ( %1
+%FOR %ITEM-CONDITION ( ( [%f] has_transition_action %( %g %, ( get_global_var ( '__ARG__' ) ) )% ) %==  true ) 
+( %g |C ) 
+%END-FOR
+ ) %!= 0 ) 
+%ELSE
+ false 
+%THEN
+ true 
+%END-IF
+%END-IF
+
+//f _has_transition_action
+; // is_override_transition_action
+
+: has_transition_action OBJECT IN %S
+//	%f_set_var(__ACTION_,1)\
+[%f] set_var %( '__ACTION_' %, 1 )% 
+//	[{"<{}{%AC=Transition&"%AS"=""&%A<{}{%AC=Action&%AN=%{__ACTION_}N}{%AC}>!=0}.>"!=""}{false}true]
+%IF ( 
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+ ( ( %A |S ) %== ''  ) %&& 
+ ( ( %A
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'Action' %&& 
+ ( ( %A |N ) %== ( ( get_global_var ( '__ACTION_' ) |N ) )  ) ) 
+( %A |C ) 
+%END-FOR
+ ) %!= 0  ) ) 
+'.' 
+%END-FOR
+%!= '' ) 
+%ELSE
+ false 
+%THEN
+ true 
+%END-IF
+
+//f _is_override_state
+; // has_transition_action
+
+: is_override_state OBJECT IN %S
+//	%f_set_var(__ARG__,S)\
+[%f] set_var %( '__ARG__' %, 'S' )% 
+//	[{%f_has_state(%1,%{__ARG__})=true}{true}\
+%IF ( ( [%f] has_state %( %1 %, ( get_global_var ( '__ARG__' ) ) )% ) %==  true ) 
+%ELSE
+ true 
+%THEN
+//	%f_set_var(RES,"false")\
+[%f] set_var %( 'RES' %, false )% 
+//	%f_clear_list(__BASE_STATES__)\
+[%f] clear_list %( '__BASE_STATES__' )% 
+//	%f_collect_base_states(%S,"__BASE_STATES__")\
+[%f] collect_base_states %( %S %, '__BASE_STATES__' )% 
+//	<{}{%f_is_empty(__BASE_STATES__)=false&%{RES}N=false}{W}%f_pop_first_to_var(BASE_STATES,__STATE__)\
+%FOR %ITEM-CONDITION ( ( [%f] is_empty %( '__BASE_STATES__' )% ) %==  false %&& 
+ ( ( ( get_global_var ( 'RES' ) |N ) ) %==  false  ) ) 
+( 'W' ) 
+[%f] pop_first_to_var %( 'BASE_STATES' %, '__STATE__' )% 
+//	[{%{__ARG__}N=%{__STATE__}N}%f_set_var(RES,"true")]>\
+%IF ( ( ( get_global_var ( '__ARG__' ) |N ) ) %== ( ( get_global_var ( '__STATE__' ) |N ) ) ) 
+[%f] set_var %( 'RES' %, true )% 
+%END-IF
+%END-FOR
+//	%{RES}N]
+( get_global_var ( 'RES' ) |N ) 
+%END-IF
+
+//f _has_state
+; // is_override_state
+
+: has_state OBJECT IN %S
+//	%f_set_var(__STATE__,1)\
+[%f] set_var %( '__STATE__' %, 1 )% 
+//	[{<{}{%AC=State&%AN=%{__STATE__}N}{%AC}>=0}{true}false]
+%IF ( 
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'State' %&& 
+ ( ( %A |N ) %== ( ( get_global_var ( '__STATE__' ) |N ) )  ) ) 
+( %A |C ) 
+%END-FOR
+%== 0 ) 
+%ELSE
+ true 
+%THEN
+ false 
+%END-IF
+
+//f _collect_sm_states
+; // has_state
+
+: collect_sm_states OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_sm_states: Не задан идентификатор списка")]\
+%IF ( ( %1 |N ) %== '' ) 
+[%f] error %( '_collect_sm_states: Не задан идентификатор списка' )% 
+%END-IF
+//	%f_set_var(LIST_ID,"%1N")\
+[%f] set_var %( 'LIST_ID' %, %1 |N )% 
+//	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+[%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) )% [%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' )% 
+//	%f_collect_sm_states_i(%S)\
+[%f] collect_sm_states_i %( %S )% 
+//	<{}{}{%g}%f_collect_sm_states_i(%g)>
+%FOR ( %g ) 
+[%f] collect_sm_states_i %( %g )% 
+%END-FOR
+
+//f _collect_sm_states_i
+; // collect_sm_states
+
+: collect_sm_states_i OBJECT IN %S
+//	<{}{%AC=State}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%AN")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AN")%f_add_to_list(%{LIST_ID}N,A)]>
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'State' ) 
+%IF ( ( [%f] exists_in_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |N )% ) %==  false ) 
+[%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |N )% [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'A' )% 
+%END-IF
+%END-FOR
+
+//f _collect_sm_guards
+; // collect_sm_states_i
+
+: collect_sm_guards OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_sm_guards: Не задан идентификатор списка")]\
+%IF ( ( %1 |N ) %== '' ) 
+[%f] error %( '_collect_sm_guards: Не задан идентификатор списка' )% 
+%END-IF
+//	%f_set_var(LIST_ID,"%1N")\
+[%f] set_var %( 'LIST_ID' %, %1 |N )% 
+//	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+[%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) )% [%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' )% 
+//	%f_collect_sm_guards_i(%S)\
+[%f] collect_sm_guards_i %( %S )% 
+//	<{}{}{%g}%f_collect_sm_guards_i(%g)>
+%FOR ( %g ) 
+[%f] collect_sm_guards_i %( %g )% 
+%END-FOR
+
+//f _collect_sm_guards_i
+; // collect_sm_guards
+
+: collect_sm_guards_i OBJECT IN %S
+//	<{}{%AC=Transition}[{"%AI"!=""&%f_exists_in_list(%{LIST_ID}N_NAMES,"%AI")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AI")%f_add_to_list(%{LIST_ID}N,A)]\
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' ) 
+%IF ( ( %A |I ) %!= '' %&& 
+ ( ( [%f] exists_in_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |I )% ) %==  false  ) ) 
+[%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |I )% [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'A' )% 
+%END-IF
+//	%A<{}{%AC=TransitionEvent&"%AI"!=""}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%AI")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AI")%f_add_to_list(%{LIST_ID}N,A)]>>
+%A
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'TransitionEvent' %&& 
+ ( ( %A |I ) %!= ''  ) ) 
+%IF ( ( [%f] exists_in_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |I )% ) %==  false ) 
+[%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |I )% [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'A' )% 
+%END-IF
+%END-FOR
+ %END-FOR
+
+//f _collect_sm_state_actions
+; // collect_sm_guards_i
+
+: collect_sm_state_actions OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_sm_state_actions: Не задан идентификатор списка")]\
+%IF ( ( %1 |N ) %== '' ) 
+[%f] error %( '_collect_sm_state_actions: Не задан идентификатор списка' )% 
+%END-IF
+//	%f_set_var(LIST_ID,"%1N")\
+[%f] set_var %( 'LIST_ID' %, %1 |N )% 
+//	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+[%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) )% [%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' )% 
+//	%f_collect_sm_state_actions_i(%S)\
+[%f] collect_sm_state_actions_i %( %S )% 
+//	<{}{}{%g}%f_collect_sm_state_actions_i(%g)>
+%FOR ( %g ) 
+[%f] collect_sm_state_actions_i %( %g )% 
+%END-FOR
+
+//f _collect_sm_state_actions_i
+; // collect_sm_state_actions
+
+: collect_sm_state_actions_i OBJECT IN %S
+//	<{}{%AC=State}%A<{}{%CC=Action}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%C%PN_%CN")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%C%PN_%CN")%f_add_to_list(%{LIST_ID}N,C)]>>
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'State' ) 
+%A
+%FOR %ITEM-CONDITION ( ( %C |C ) %== 'Action' ) 
+%IF ( ( [%f] exists_in_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %C ->P |N  '_'
+%C |N )% ) %==  false ) 
+[%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %C ->P |N  '_'
+%C |N )% [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'C' )% 
+%END-IF
+%END-FOR
+ %END-FOR
+
+//f _collect_sm_actions
+; // collect_sm_state_actions_i
+
+: collect_sm_actions OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_sm_actions: Не задан идентификатор списка")]\
+%IF ( ( %1 |N ) %== '' ) 
+[%f] error %( '_collect_sm_actions: Не задан идентификатор списка' )% 
+%END-IF
+//	%f_set_var(LIST_ID,"%1N")\
+[%f] set_var %( 'LIST_ID' %, %1 |N )% 
+//	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+[%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) )% [%f] clear_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' )% 
+//	%f_collect_sm_actions_impl(%S)\
+[%f] collect_sm_actions_impl %( %S )% 
+//	<{}{}{%g}%f_collect_sm_actions_impl(%g)>
+%FOR ( %g ) 
+[%f] collect_sm_actions_impl %( %g )% 
+%END-FOR
+
+
+//f _collect_sm_actions_impl
+; // collect_sm_actions
+
+: collect_sm_actions_impl OBJECT IN %S
+//	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=Action}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%AN")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AN")%f_add_to_list(%{LIST_ID}N,A)]>>
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'Transition' %&& 
+ ( ( %A |S ) %== ''  ) ) 
+%A
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'Action' ) 
+%IF ( ( [%f] exists_in_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |N )% ) %==  false ) 
+[%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) '_NAMES' %, %A |N )% [%f] add_to_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'A' )% 
+%END-IF
+%END-FOR
+ %END-FOR
+
+//f _is_servant_realize_several_sm
+; // collect_sm_actions_impl
+
+: is_servant_realize_several_sm OBJECT IN %S
+//	[true]
+%IF-NOT-EMPTY
+ true 
+%END-IF
+
+//f _dump_sm_user_section
+; // is_servant_realize_several_sm
+
+: dump_sm_user_section OBJECT IN %S
+//	%f_set_var(UC_CODE,"%2N")\
+[%f] set_var %( 'UC_CODE' %, %2 |N )% 
+//	%U[{_%1N}[{"%{UC_CODE}N"!=""}
+%U%IF ( '_( '
+%1 |N ) ) 
+%IF ( ( ( get_global_var ( 'UC_CODE' ) |N ) ) %!= '' ) 
+
+//	#	%{UC_CODE}N]
+out_indent '	'
+( get_global_var ( 'UC_CODE' ) |N ) 
+%END-IF
+//	#	]
+out_indent '	' 
+%END-IF
+ //#UC END# *470F420A00CB*
+; // dump_sm_user_section
+
+
+// проверяет, что каждому не абстрактному элементу сос стереотипом State соответствует элемент на
+// диаграмме состояний, соответствие определяется по совпадению имён
+//f _check_correspondence_state
+: check_correspondence_state OBJECT IN %S
+//#UC START# *475F8DC801D0*
+////заполняем список именами Event'ов
+//	%f_clear_list(STATE_LIST)<{}{%AC=State}%f_add_to_list(STATE_LIST,"%AN")>\
+[%f] clear_list %( 'STATE_LIST' )% 
+%FOR %ITEM-CONDITION ( ( %A |C ) %== 'State' ) 
+[%f] add_to_list %( 'STATE_LIST' %, %A |N )% 
+%END-FOR
+//	<{;}{%CM=State::Class&%Ca!=abstract&%f_exists_in_list(STATE_LIST,"%CN")=false}%CN>
+%FOR %ITEM-SEPARATOR ';' ; // %ITEM-SEPARATOR 
+%ITEM-CONDITION ( ( %C |M ) %== 'State::Class' %&& 
+ ( ( %C |a ) %!= 'abstract'  ) %&& 
+ ( ( [%f] exists_in_list %( 'STATE_LIST' %, %C |N )% ) %==  false  ) ) 
+%C |N 
+%END-FOR
+//#UC END# *475F8DC801D0*
+; // check_correspondence_state
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,15 @@
+unit Script.WordsInterfaces;
+
+interface
+
+uses
+ Core.Obj
+ ;
+
+type
+ TscriptContext = class
+ end;//TscriptContext
+
+implementation
+
+end.

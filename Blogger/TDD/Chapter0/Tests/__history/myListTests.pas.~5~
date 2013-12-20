@@ -1,0 +1,19 @@
+unit myListTests;
+
+interface
+
+uses
+ TestFramework
+ ;
+
+type
+ TmyListTest = class(TTestCase)
+  published
+ end;//TmyListTest
+
+implementation
+
+initialization
+  TestFramework.RegisterTest(TmyListTest);
+
+end.

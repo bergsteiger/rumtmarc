@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.058,=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.230,=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.913,=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.920,=C:\Users\Александр\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.647,B:\GUITests\Chapter0\Scripting\CoreObject.pas=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.850,B:\GUITests\Chapter0\Scripting\Script.Engine.pas=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.933,B:\GUITests\Chapter0\Project1.dproj=C:\Users\Александр\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.470,B:\GUITests\Chapter0\Unit1.fmx=C:\Users\Александр\Documents\RAD Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.427,=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.941,B:\GUITests\Chapter0\Unit2.pas=B:\GUITests\Chapter0\Testing\Testing.Engine.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.752,B:\GUITests\Chapter0\Scripting\Script.Parser.pas=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.470,B:\GUITests\Chapter0\Unit1.pas=C:\Users\Александр\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2013.11.21 12:45:12.968,=B:\GUITests\Chapter0\ModelSupport_Project1\default.txaPackage</Transaction>
+    <Transaction>2013.11.21 12:45:31.595,=B:\GUITests\Chapter0\ModelSupport_Project1\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:45:42.954,=B:\GUITests\Chapter0\ModelSupport_Project1\Core\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:45:43.048,=B:\GUITests\Chapter0\ModelSupport_Project1\Project1\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:45:44.402,=B:\GUITests\Chapter0\ModelSupport_Project1\Core\Obj\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:46:06.722,=B:\GUITests\Chapter0\ModelSupport_Project1\Script\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:46:09.092,=B:\GUITests\Chapter0\ModelSupport_Project1\Script\Engine\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:46:24.202,=B:\GUITests\Chapter0\ModelSupport_Project1\Testing\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:46:25.540,=B:\GUITests\Chapter0\ModelSupport_Project1\Unit1\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:47:05.190,=B:\GUITests\Chapter0\ModelSupport_Project1\Script\Interfaces\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:47:05.230,=B:\GUITests\Chapter0\ModelSupport_Project1\Script\Parser\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:47:05.259,=B:\GUITests\Chapter0\ModelSupport_Project1\Testing\Engine\default.txvpck</Transaction>
+    <Transaction>2013.11.21 12:47:25.243,=B:\GUITests\Chapter0\ModelSupport_Project1\Testing\default.txaPackage</Transaction>
+    <Transaction>2013.11.21 12:48:03.090,=B:\GUITests\Chapter0\ModelSupport_Project1\Project1\default.txaPackage</Transaction>
+    <Transaction>2013.11.21 12:48:11.872,=B:\GUITests\Chapter0\ModelSupport_Project1\Script\default.txaPackage</Transaction>
+    <Transaction>2013.11.21 12:48:19.561,=B:\GUITests\Chapter0\ModelSupport_Project1\Script\Interfaces\default.txaPackage</Transaction>
+    <Transaction>2013.11.21 12:49:34.121,=B:\GUITests\Chapter0\ModelSupport_Project1\Core\default.txaPackage</Transaction>
+    <Transaction>2013.11.22 00:24:19.548,=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>2013.11.22 00:24:52.151,B:\GUITests\Chapter0\Scripting\Script.WordsInterfaces.pas=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>2013.11.22 01:05:41.289,=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>2013.11.22 01:06:01.151,B:\GUITests\Chapter0\Scripting\Script.Code.pas=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>2013.11.22 01:48:15.804,=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+    <Transaction>2013.11.22 01:48:41.994,B:\GUITests\Chapter0\Scripting\Script.Dictionary.pas=B:\GUITests\Chapter0\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

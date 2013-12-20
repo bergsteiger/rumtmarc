@@ -1,0 +1,43 @@
+MDProcess$NewGen$Interface : VCMProject - Интерфейс нового генератора
+version: 126
+Domain : VCMSubsystem - 
+ ApplicationResources : Library - 
+  StdRes : Unit - 
+   StdRes : UtilityPack - 
+NewGen : VCMGUI - 
+ NewGen : VCMApplication - 
+  NewGenMainPrim : VCMMainForm - 
+  Local : LocalConst - 
+   NewGenTitle - 
+  Main : VCMMainForm - НЕ Роза
+   ut_Main : UserType - НЕ Роза
+   Main$Def : VCMFormDefinition - Идентификатор формы Main
+   Ini_FormFactory_Main$Def : ini - Регистрация фабрики формы Main
+   Tkw_Form_Main : SimpleClass - Слово словаря для идентификатора формы Main
+----
+*Пример использования*:
+{code}
+'aControl' форма::Main TryFocus ASSERT
+{code}
+   Tkw_Main_StatusBar_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола StatusBar формы Main
+   Tkw_Main_ClientZone_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола ClientZone формы Main
+   Tkw_Main_MainZone_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола MainZone формы Main
+   Tkw_Main_ParentZonePanel_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола ParentZonePanel формы Main
+   Tkw_Main_ChildZonePanel_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола ChildZonePanel формы Main
+   Tkw_Main_BaseSearchPanel_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола BaseSearchPanel формы Main
+   Tkw_Main_LeftNavigator_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола LeftNavigator формы Main
+   Tkw_Main_RightNavigator_ControlInstance : SimpleClass - Слово словаря для доступа к экземпляру контрола RightNavigator формы Main
+   ut_MainLocalConstants : LocalConst - Локализуемые константы для типа формы ut_Main
+    : uses - undefined
+    : uses - undefined
+   LCImplut_MainLocalConstants : Constants - Локализуемые строки ut_MainLocalConstants
+   Init_ut_MainCaption : ini - Инициализация str_ut_MainCaption
+   : uses - 
+   : uses - 
+   : uses - 
+   : uses - undefined
+   : uses - undefined
+  LCImplLocal : Constants - Локализуемые строки Local
+   NewGenTitle - 'НЕ Роза'
+  Init_NewGenTitle : ini - Инициализация str_NewGenTitle
+   : uses - undefined

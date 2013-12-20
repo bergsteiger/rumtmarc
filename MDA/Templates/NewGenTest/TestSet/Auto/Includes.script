@@ -1,0 +1,27 @@
+NamedWordProducer %CHILDREN %C
+// - список дочерних элементов элемента
+
+: XXX
+
+ %INCLUDES
+  YYY.script
+ ;
+ 
+ : PPP
+  VAR F
+ ;
+ 
+;
+
+: OUT IN %S
+ %S pop:Word:Name .
+ %S pop:Word:Producer pop:Word:Name .
+;
+
+: OUT1 IN %S
+ %S XXX IterateMembers OUT
+;
+
+@ XXX IterateMembers OUT
+@ XXX IterateMembers OUT1
+//help

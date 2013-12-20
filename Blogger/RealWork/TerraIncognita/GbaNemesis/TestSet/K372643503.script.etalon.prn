@@ -1,0 +1,10 @@
+FiltersList : TnscTreeView
+enFilters : TenFilters
+ : TElTabSheet
+LeftNavigator : _nscPageControl_
+ : TnpContainerSurface
+ : TnpSurface
+LeftNavigator : TnscNavigator
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow

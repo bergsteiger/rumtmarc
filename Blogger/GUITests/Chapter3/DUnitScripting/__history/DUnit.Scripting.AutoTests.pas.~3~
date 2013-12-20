@@ -1,0 +1,12 @@
+unit DUnit.Scripting.AutoTests;
+
+interface
+
+uses
+  TestFrameWork,
+  Core.Obj
+  ;
+
+implementation
+
+end.

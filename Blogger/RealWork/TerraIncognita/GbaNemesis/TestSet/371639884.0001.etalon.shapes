@@ -1,0 +1,204 @@
+----
+Obj type = Document
+Count = 7
+Rect = (900, -300, 15400, 11500)
+MaxLinesCount = 49
+----
+Obj type = LeafParaDecorationsHolder
+Count = 2
+Rect = (1700, 700, 2200, 10600)
+Dim = (9900, 400)
+MaxLinesCount = 2
+----
+Obj type = DecorTextPara
+Text = '<0>Picture 2164  Класс:   Еще один класс. Верхний уровень\Еще один класс. Нижний уровень 2  KIND:   Акты органов власти\Федеральные акты'
+Rect = (1700, 700, 1700, 10600)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Это топик с номером 2164, VANONCED 17/05/2013 и VINCLUDED 24/05/2013'
+Rect = (1700, 700, 2200, 10600)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (2200, 700, 2500, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Просто текст документа. Документ предназначен для проверки обработки большого количества вновь подключенных документов. '
+Rect = (2500, 700, 3100, 10700)
+Dim = (9900, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TextPara
+Text = ''
+Rect = (3100, 700, 3400, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Block
+Count = 3
+Rect = (3400, 700, 9900, 10600)
+MaxLinesCount = 11
+----
+Obj type = TextPara
+Text = 'Просто текст для наполнения в параграфе с красной строкой. Просто текст для наполнения в параграфе с красной строкой. Просто текст для наполнения в параграфе с красной строкой. Просто текст для наполнения в параграфе с красной строкой. Просто текст для наполнения в параграфе с красной строкой. Картинка (разрешение - по умолчанию = 300, смещение вниз = 5) после текста в параграфе STYLE J: *'
+Count = 1
+Rect = (3400, 700, 6700, 10700)
+Dim = (9900, 3200)
+MaxLinesCount = 6
+LinesCount = 6
+----
+Obj type = BitmapPara
+Rect = (4800, 3300, 6600, 13200)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (6700, 700, 6900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 1
+Rect = (6900, 700, 9900, 14300)
+Dim = (13500, 2800)
+MaxLinesCount = 4
+----
+Obj type = TableRow
+Count = 2
+Rect = (7000, 700, 9800, 14300)
+Dim = (13500, 2700)
+MaxLinesCount = 4
+DeltaHeight = 2700
+----
+Obj type = TableCell
+Count = 1
+Rect = (7000, 700, 8600, 7500)
+Dim = (6700, 1500)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = '* Та же картинка (разрешение = 200, смещение вниз = 0) перед текстом в параграфе STYLE C. И в таблице.'
+Count = 1
+Rect = (7100, 800, 8500, 7500)
+Dim = (6600, 1400)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = BitmapPara
+Rect = (7000, 1000, 7900, 7600)
+Dim = (2400, 800)
+MaxLinesCount = 4
+----
+Obj type = TableCell
+Count = 1
+Rect = (7000, 7500, 9800, 14300)
+Dim = (6700, 2700)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = 'Та же картинка (все, что можно - по умолчанию) среди текста. В параграфе Style J. Это текст до картинки. * А это ткуст после картинки.'
+Count = 1
+Rect = (7100, 7600, 9800, 14200)
+Dim = (6400, 2600)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = BitmapPara
+Rect = (7600, 8900, 9400, 15500)
+Dim = (5200, 1800)
+MaxLinesCount = 10
+----
+Obj type = TextPara
+Text = ''
+Rect = (9900, 700, 10200, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Block
+Count = 3
+Rect = (10200, 700, 15400, 10600)
+MaxLinesCount = 7
+----
+Obj type = TextPara
+Text = 'Сначала картинка (разрешение 100):*, потом формула: * среди текста. '
+Count = 2
+Rect = (10200, 700, 12600, 10600)
+Dim = (9700, 2400)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = BitmapPara
+Rect = (10100, 5400, 11900, 15400)
+Dim = (5000, 1700)
+MaxLinesCount = 9
+----
+Obj type = Formula
+Text = 'At(DiffRF(f,x),x=0)=1'
+Rect = (11900, 2800, 12600, 12700)
+Dim = (1200, 600)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (12600, 700, 12900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 1
+Rect = (12900, 700, 15400, 14300)
+Dim = (13500, 4400)
+MaxLinesCount = 4
+----
+Obj type = TableRow
+Count = 2
+Rect = (12900, 700, 15400, 14300)
+Dim = (13500, 4300)
+MaxLinesCount = 4
+DeltaHeight = 4300
+----
+Obj type = TableCell
+Count = 1
+Rect = (12900, 700, 13700, 7500)
+Dim = (6700, 2800)
+MaxLinesCount = 3
+----
+Obj type = TextPara
+Text = 'Сначала формула: * потом картинка: * среди текста. В таблице.'
+Count = 1
+Rect = (13000, 800, 13700, 7400)
+Dim = (6400, 2700)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = Formula
+Text = 'At(DiffRF(f,x),x=0)=1'
+Rect = (13000, 3600, 13700, 10200)
+Dim = (1200, 600)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (12900, 7500, 15200, 14300)
+Dim = (6700, 4300)
+MaxLinesCount = 4
+----
+Obj type = TextPara
+Text = 'Две картинки подряд: * * среди текста. В таблице.'
+Count = 1
+Rect = (13000, 7600, 15100, 14200)
+Dim = (6400, 4200)
+MaxLinesCount = 4
+LinesCount = 4
+----
+Obj type = BitmapPara
+Rect = (13200, 7600, 15000, 14200)
+Dim = (5200, 1800)
+MaxLinesCount = 10

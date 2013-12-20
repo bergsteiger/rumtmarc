@@ -1,0 +1,22 @@
+: ArrayItem
+ ARRAY L
+ 0 10 FOR
+  ++
+  DUP
+  >>>[] L
+ NEXT
+ DROP
+ 
+ 0 L [i] .
+ 1 L [i] .
+ 2 L [i] .
+ 3 L [i] .
+ 4 L [i] .
+ 5 L [i] .
+ 6 L [i] .
+ 7 L [i] .
+ 8 L [i] .
+ 9 L [i] .
+;
+
+ArrayItem

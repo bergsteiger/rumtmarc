@@ -1,0 +1,36 @@
+: TestReadLines
+
+ : TestFile STRING IN aIn
+  VAR cOut 
+  aIn '.script' Cat =: cOut
+  
+  script:FileName sysutils:ExtractFileName '' sysutils:ChangeFileExt ' ' Cat cOut sysutils:ExtractFileName Cat =: cOut
+  
+  FILE VAR l_In
+  aIn file:OpenRead =: l_In
+  TRY
+   FILE VAR l_Out
+   cOut file:OpenWrite =: l_Out
+   TRY
+   
+   : DoLine W-STRING IN aStr
+    aStr l_Out file:WriteWStrLn
+   ;
+   
+   l_In file:ReadLines DoLine
+   
+   FINALLY
+    nil =: l_Out
+   END 
+  FINALLY 
+   nil =: l_In
+  END 
+  
+  cOut '%' tests:CheckEtalon
+ ;
+ 
+ 'G:\CommonTemplates\Integrated\Root\Project.tpi' TestFile
+ 'G:\CommonTemplates\AllGenerators\DelphiGens\Delphi интерфейсы и реализация.tpi' TestFile
+;
+
+TestReadLines

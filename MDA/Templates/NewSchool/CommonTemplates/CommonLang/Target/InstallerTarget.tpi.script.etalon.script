@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/InstallerTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::InstallerTarget
+//
+// Инсталлятор
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: InstallerTarget::Category
+implementation @ <<InstallerTarget>>
+//? Инсталлятор
+//< *::Class,*::Category
+
+//= Документация::MDAGenerator
+//= Проектные файлы C++::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_installer.gif
+//L code_installer
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 125,215,125
+//$ l 10,255,10
+//$ f 10,255,10
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470469A6035B*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for470469A6035B*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470469A6035B*
+//C /%SN:%SU
+//O %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[
+ %IF-NOT-EMPTY
+
+//	{info}Проводит установку для:
+  '{info}Проводит установку для:'
+//	<* %f_k_link(%D)
+  %FOR '* '
+   [%f] k_link %( %D )% 
+//	>{info}][{%mx=true&%Cx=true}
+  %END-FOR
+  '{info}' 
+ %END-IF
+ %IF ( ( %m |x ) %==  true %&& 
+   ( ( %C |x ) %==  true  ) ) 
+
+//	
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма:_
+  %FOR %ITEM-SEPARATOR '----'#13#10 ; // %ITEM-SEPARATOR 
+   '_'
+   %IF ( ( %m |N ) %!= 'Main' ) 
+    %ELSE
+     'Основная' 
+    %THEN
+    %m |N 
+   %END-IF
+   ' диаграмма:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+   [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+   %m |U '.jpg}'
+//	>][%f_config_docs(%S)]<%CX>
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] config_docs %( %S )% 
+ %END-IF
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for470469A6035B*
+; // wiki
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// настройки реестра (.reg)
+//+ s.reg
+<<generator>> s.reg OBJECT IN %S
+//#UC START# *47031EA5002Efor470469A6035B*
+//#UC END# *47031EA5002Efor470469A6035B*
+; // s.reg
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<InstallerTarget>>
+

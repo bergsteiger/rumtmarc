@@ -1,0 +1,368 @@
+object Form2: TForm2
+  Left = 290
+  Height = 450
+  Top = 175
+  Width = 611
+  Caption = 'Form2'
+  ClientHeight = 430
+  ClientWidth = 611
+  Menu = MainMenu1
+  LCLVersion = '0.9.28.2'
+  object ScrollBox1: TScrollBox
+    Left = 0
+    Height = 430
+    Top = 0
+    Width = 611
+    Align = alClient
+    ClientHeight = 426
+    ClientWidth = 607
+    TabOrder = 0
+    object PaintBox1: TPaintBox
+      Left = 0
+      Height = 426
+      Top = 0
+      Width = 607
+      Align = alClient
+      Visible = False
+    end
+  end
+  object MainMenu1: TMainMenu
+    left = 68
+    top = 76
+    object File1: TMenuItem
+      Caption = '&File'
+      object New1: TMenuItem
+        Caption = '&New'
+        OnClick = New1Click
+      end
+      object Open1: TMenuItem
+        Action = actOpen
+      end
+      object Save2: TMenuItem
+      end
+      object Save1: TMenuItem
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object DisableDesigning1: TMenuItem
+        Caption = '&Disable Designing'
+      end
+      object N6: TMenuItem
+        Caption = '-'
+      end
+      object Print1: TMenuItem
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'E&xit'
+      end
+    end
+    object Object1: TMenuItem
+      Caption = '&Objects'
+      object Properties2: TMenuItem
+      end
+      object N10: TMenuItem
+        Caption = '-'
+      end
+      object DeleteObjects1: TMenuItem
+      end
+      object N11: TMenuItem
+        Caption = '-'
+      end
+      object CutFocusedObjects2: TMenuItem
+      end
+      object CopyFocusedObjects1: TMenuItem
+      end
+      object CopyAllObjectsasImage1: TMenuItem
+      end
+      object CopyAllObjectsasMetafile1: TMenuItem
+      end
+      object PasteObjects1: TMenuItem
+      end
+      object N14: TMenuItem
+        Caption = '-'
+      end
+      object Align1: TMenuItem
+        Caption = '&Align'
+        object AlignLeft1: TMenuItem
+        end
+        object AlignTop1: TMenuItem
+        end
+        object AlignRight1: TMenuItem
+        end
+        object AlignBottom1: TMenuItem
+        end
+        object AlignCenterHorzontally1: TMenuItem
+        end
+        object AlignCenterHorzontally2: TMenuItem
+        end
+        object N15: TMenuItem
+          Caption = '-'
+        end
+        object SnaptoGrid1: TMenuItem
+        end
+      end
+      object Spacing1: TMenuItem
+        Caption = '&Spacing'
+        object SpaceEquallyHorizontally1: TMenuItem
+        end
+        object SpaceEquallyVertically1: TMenuItem
+        end
+      end
+      object Sizing1: TMenuItem
+        Caption = 'Si&zing'
+        object EqualWidths1: TMenuItem
+        end
+        object EqualHeights1: TMenuItem
+        end
+      end
+      object N12: TMenuItem
+        Caption = '-'
+      end
+      object GrowLinefromTop2: TMenuItem
+      end
+      object GrowLine2: TMenuItem
+      end
+      object ShrinkLinefromTop2: TMenuItem
+      end
+      object ShrinkLinefromBottom2: TMenuItem
+      end
+      object Rotate2: TMenuItem
+      end
+    end
+    object Configure1: TMenuItem
+      Caption = '&Configure'
+      object DefaultLineProperties1: TMenuItem
+        Caption = 'Default &Line Properties'
+      end
+      object DefaultSolidProperties1: TMenuItem
+        Caption = 'Default &Solid Properties'
+      end
+      object N13: TMenuItem
+        Caption = '-'
+      end
+      object SetBackgroundColor1: TMenuItem
+      end
+      object ShowGrid1: TMenuItem
+      end
+      object N8: TMenuItem
+        Caption = '-'
+      end
+      object UseTextDialogPrompt1: TMenuItem
+        Caption = 'Prompt for Text when creating new Solids'
+      end
+      object UseHitTest1: TMenuItem
+        Caption = 'Use HitTest for Object Selection'
+        Checked = True
+      end
+    end
+  end
+  object ActionManager1: TActionList
+    left = 160
+    top = 76
+    object actRectangle: TAction
+      Caption = 'New Rectangle'
+      Enabled = False
+    end
+    object actDiamond: TAction
+      Caption = 'New Diamond'
+      Enabled = False
+    end
+    object actEllipse: TAction
+      Caption = 'New Ellipse'
+      Enabled = False
+    end
+    object actPlainText: TAction
+      Caption = 'New Plain Text'
+      Enabled = False
+    end
+    object actArc: TAction
+      Caption = 'New Arc'
+      Enabled = False
+    end
+    object actPolygon: TAction
+      Caption = 'New Polygon'
+      Enabled = False
+    end
+    object actStar: TAction
+      Caption = 'New Star'
+      Enabled = False
+    end
+    object actArrow: TAction
+      Caption = 'New Solid Arrow'
+      Enabled = False
+    end
+    object actTextBezier: TAction
+      Caption = 'New Bezier Text'
+      Enabled = False
+    end
+    object actSolidBezier: TAction
+      Caption = 'New Solid Bezier'
+      Enabled = False
+    end
+    object actPic: TAction
+      Caption = 'New Bitmap Pic '
+      Enabled = False
+    end
+    object actSolidPoint: TAction
+      Caption = 'New Solid Point'
+      Enabled = False
+    end
+    object actLine: TAction
+      Caption = 'New Line'
+      Enabled = False
+    end
+    object actLLine: TAction
+      Caption = 'New LLine'
+      Enabled = False
+    end
+    object actZLine: TAction
+      Caption = 'New ZLine'
+      Enabled = False
+    end
+    object actBezier: TAction
+      Caption = 'New Bezier'
+      Enabled = False
+    end
+    object actSendToBack: TAction
+      Caption = 'Send to Back'
+      Enabled = False
+      ShortCut = 16450
+    end
+    object actBringToFront: TAction
+      Caption = 'Bring to Front'
+      Enabled = False
+      ShortCut = 16454
+    end
+    object actProperties: TAction
+      Caption = '&Properties'
+      Enabled = False
+    end
+    object actDelete: TAction
+      Caption = 'Delete Selected Objects'
+      Enabled = False
+      ShortCut = 46
+    end
+    object actCut: TAction
+      Caption = 'Cut Focused Objects'
+      ShortCut = 16472
+    end
+    object actCopy: TAction
+      Caption = 'Copy Focused Objects'
+      ShortCut = 16451
+    end
+    object actCopyAsBitmap: TAction
+      Caption = 'Copy Objects as Bitmap'
+    end
+    object actCopyAsMetafile: TAction
+      Caption = 'Copy Objects as Metafile'
+    end
+    object actPaste: TAction
+      Caption = '&Paste Objects'
+      ShortCut = 16470
+    end
+    object actGrowTop: TAction
+      Caption = 'Grow Line from Top'
+      Enabled = False
+    end
+    object actGrow: TAction
+      Caption = 'Grow Line from Bottom'
+      Enabled = False
+    end
+    object actShrinkTop: TAction
+      Caption = 'Shrink Line from Top'
+      Enabled = False
+    end
+    object actShrink: TAction
+      Caption = 'Shrink Line from Bottom'
+      Enabled = False
+    end
+    object actRotate: TAction
+      Caption = '&Rotate ...'
+      Enabled = False
+      ShortCut = 16466
+    end
+    object actPrint: TAction
+      Caption = '&Print Preview'
+      ShortCut = 16464
+    end
+    object actBackground: TAction
+      Caption = 'Bac&kground Color'
+      ShortCut = 16459
+    end
+    object actSaveAs: TAction
+      Caption = 'Save &As'
+    end
+    object actOpen: TAction
+      Caption = '&Open'
+      OnExecute = actOpenExecute
+      ShortCut = 16463
+    end
+    object actFlip: TAction
+      Caption = 'Flip &Horizontally'
+      Enabled = False
+    end
+    object actSave: TAction
+      Caption = '&Save'
+      ShortCut = 16467
+    end
+    object actSavePicToBMP: TAction
+      Caption = 'Save Pic to &BMP file ...'
+      Enabled = False
+    end
+    object actAlignLeft: TAction
+      Caption = 'Align &Left'
+    end
+    object actAlignTop: TAction
+      Caption = 'Align &Top'
+    end
+    object actAlignRight: TAction
+      Caption = 'Align &Right'
+    end
+    object actAlignBottom: TAction
+      Caption = 'Align &Bottom'
+    end
+    object actAlignCenterHorz: TAction
+      Caption = 'Align Center &Horizontally'
+    end
+    object actAlignCenterVert: TAction
+      Caption = 'Align Center &Vertically'
+    end
+    object actSpaceHorz: TAction
+      Caption = 'Space Equally &Horizontally'
+    end
+    object actSpaceVert: TAction
+      Caption = 'Space Equally &Vertically'
+    end
+    object actEqualWidths: TAction
+      Caption = 'Equal &Widths'
+    end
+    object actEqualHeights: TAction
+      Caption = 'Equal &Heights'
+    end
+    object actGrid: TAction
+      Caption = 'Show &Grid'
+      ShortCut = 16455
+    end
+    object actSnapToGrid: TAction
+      Caption = 'Snap to Grid'
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.dob'
+    Filter = 'DrawObject Files|*.dob'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    left = 64
+    top = 136
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.dob'
+    Filter = 'DrawObject Files|*.dob'
+    Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
+    left = 156
+    top = 140
+  end
+end

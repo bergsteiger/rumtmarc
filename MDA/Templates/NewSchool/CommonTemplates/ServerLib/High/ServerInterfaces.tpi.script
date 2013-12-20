@@ -1,0 +1,502 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/ServerLib/High/ServerInterfaces.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::ServerLib::High::ServerInterfaces
+//
+// Серверный интерфейсный пакет
+// ---
+// Содержит экспортируемые наружу компоненты типы и интерфейсы. Определяет неймспейс. Может
+// зависить только от других интерфейсных пакетов (своей компоненты или чужой)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ServerInterfaces::Category
+implementation @ <<ServerInterfaces>>
+//? Серверный интерфейсный пакет
+//? Содержит экспортируемые наружу компоненты типы и интерфейсы. Определяет неймспейс. Может зависить только от других интерфейсных пакетов (своей компоненты или чужой)
+//> ServerInterface::Class
+//> ServerFacet::Class
+//> Valuetype::Class
+//> ServerEvent::Class
+//> Settings::Class
+
+//= InterfacePackageBase::Category
+//= CORBA IDL::MDAGenerator
+//= C++ интерфейсы и реализация::MDAGenerator
+//= Java::MDAGenerator
+//= C++ Фабрики::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_server_interfaces.gif
+//L code_server_interfaces
+//D
+// - запрещена форвард-декларация
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[InterfacePackageBase::Category]f_wiki_up_print()[{"%S{ifdef}"!="%S{!ifdef}"}%f_up_prefix(%S) *ifdef* = *%S{ifdef}* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ call-inherited:: 'InterfacePackageBase' wiki_up_print %( )%
+ %IF ( ( %S get_up ( 'ifdef' ) ) %!= ( %S get_up_def ( 'ifdef' ) ) ) 
+  [%f] up_prefix %( %S )% ' *ifdef* = *'
+  %S get_up ( 'ifdef' ) '* - Oпределяет условный признак компиляции, который должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	][{"%S{ifndef}"!="%S{!ifndef}"}%f_up_prefix(%S) *ifndef* = *%S{ifndef}* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.
+ %END-IF
+ %IF ( ( %S get_up ( 'ifndef' ) ) %!= ( %S get_up_def ( 'ifndef' ) ) ) 
+  [%f] up_prefix %( %S )% ' *ifndef* = *'
+  %S get_up ( 'ifndef' ) '* - Oпределяет условный признак компиляции, который не должен быть определён. Для указания нескольких флагов условной компиляций нужно указать их через запятую.'
+//	]
+ %END-IF
+
+// нужно ли генерить idl
+//%f _need_idl
+; // wiki_up_print
+
+: need_idl OBJECT IN %S
+//#UC START# *47049322000Ffor4704926100AB*
+//	true
+ true
+//#UC END# *47049322000Ffor4704926100AB*
+; // need_idl
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа WikiPackageImpl::Category
+// Определяет, что пакет должен генериться в документации в секцию "Интерфейсные пакеты"
+//%f _wiki_interface_package
+: wiki_interface_package OBJECT IN %S
+//#UC START# *48578600008Dfor4704926100AB*
+//	true
+ true
+//#UC END# *48578600008Dfor4704926100AB*
+; // wiki_interface_package
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for4704926100AB*
+//P
+//C /%SN
+//O [{"%f_need_factory_files(%S)"="true"}%SNFactories.cpp]
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_need_factory_files(%S)"="true"}\
+ %IF ( ( [%f] need_factory_files %( %S )% ) %== true ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	[{%f_need_lexical_cast_pack(%S)=true}\#include "boost/lexical_cast.hpp"
+  %IF ( ( [%f] need_lexical_cast_pack %( %S )% ) %==  true ) 
+   '#include "boost/lexical_cast.hpp"'
+//	][\#include "%f_with_gen_id(fctr.h,%SL)"
+  %END-IF
+  %IF-NOT-EMPTY
+   '#include "'
+   [%f] with_gen_id %( 'fctr.h' %, %S |L )% 
+//	][\#include "%f_with_gen_id(h,%PL)"
+  %END-IF
+  %IF-NOT-EMPTY
+   '#include "'
+   [%f] with_gen_id %( 'h' %, %P |L )% 
+//	][{<{}{%CM=ServerEvent::Class}{%CC}>!=0}\#include "shared/Core/data/unsorted_containers.h"
+  %END-IF
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'ServerEvent::Class' ) 
+    ( %C |C ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include "shared/Core/data/unsorted_containers.h"'
+//	\#include "shared/CoreSrv/EventComm/EventComm.h"
+   '#include "shared/CoreSrv/EventComm/EventComm.h"'
+//	\#include "shared/CoreSrv/EventComm/EventCommC.h"
+   '#include "shared/CoreSrv/EventComm/EventCommC.h"'
+//	\#include "shared/CoreSrv/EventComm/EventCommFactories.h"
+   '#include "shared/CoreSrv/EventComm/EventCommFactories.h"'
+//	\#include "orbsvcs/orbsvcs/Event_Utilities.h"
+   '#include "orbsvcs/orbsvcs/Event_Utilities.h"'
+//	][
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   'namespace '
+   %S |N ' {'
+//	]<%CX>[{"%S{is namespace}"="true"}} // namespace %SN
+  %END-IF
+  %FOR %C |X 
+  %END-FOR
+  %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   '} // namespace '
+   %S |N 
+//	]%Sp
+  %END-IF
+  %S |p 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+
+//#UC END# *4705C54B01F4for4704926100AB*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for4704926100AB*
+//C /%SN
+//O [{"%f_need_factory_files(%S)"="true"}%SNFactories.h]
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_need_factory_files(%S)"="true"}\
+ %IF ( ( [%f] need_factory_files %( %S )% ) %== true ) 
+//	%f_h_header(%S)
+  [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	\#include \<map\>
+  '#include <map>'
+//	\#include \<string\>
+  '#include <string>'
+//	\#include "ace/Singleton.h"
+  '#include "ace/Singleton.h"'
+//	[{<{}{%CM=ServerInterface::Class}{C}>!=0}\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'ServerInterface::Class' ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	][%f_set_var(IDL_PATH,"%f_with_gen_id(idl,%SL)")\#include %f_dump_include_path(%f_str_replace(%{IDL_PATH}N,.idl,S.h),%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   [%f] set_var %( 'IDL_PATH' %, [%f] with_gen_id %( 'idl' %, %S |L )% )% '#include '
+   [%f] dump_include_path %( [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.h' )% %, %S )% 
+//	][{<{}{%CM=ServerEvent::Class}{%CC}>!=0}\#include "orbsvcs/orbsvcs/RtecEventCommC.h"
+  %END-IF
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'ServerEvent::Class' ) 
+    ( %C |C ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include "orbsvcs/orbsvcs/RtecEventCommC.h"'
+//	\#include "orbsvcs/orbsvcs/RtecEventChannelAdminC.h"
+   '#include "orbsvcs/orbsvcs/RtecEventChannelAdminC.h"'
+//	\#include "orbsvcs/orbsvcs/RtecEventCommS.h"
+   '#include "orbsvcs/orbsvcs/RtecEventCommS.h"'
+//	\#include "boost/unordered_set.hpp"
+   '#include "boost/unordered_set.hpp"'
+//	][
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   'namespace '
+   %S |N ' {'
+//	]<[%CX
+  %END-IF
+  %FOR %IF-NOT-EMPTY
+    %C |X 
+//	
+
+//	]>[{"%S{is namespace}"="true"}} // namespace %SN
+   %END-IF
+  %END-FOR
+  %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   '} // namespace '
+   %S |N 
+//	]%Sp
+  %END-IF
+  %S |p 
+//	%f_h_footer(%S)
+  [%f] h_footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *4705C5490109for4704926100AB*
+; // fctr.h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4704926100AB*
+//P
+//C /%SN
+//O [{%f_srv_need_cpp_files(%S)=true&"%f_need_factory_files(%S)"="true"}%SN.cpp]
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_srv_need_cpp_files(%S)=true&"%f_need_factory_files(%S)"="true"}
+ %IF ( ( [%f] srv_need_cpp_files %( %S )% ) %==  true %&& 
+   ( ( [%f] need_factory_files %( %S )% ) %== true  ) ) 
+
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%PL),%P)[{<{}{%C#f_has_non_exported_factory()=true}{%CC}>!=0}
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %P |L )% %, %P )% %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C %?f has_non_exported_factory %( )% ) %==  true ) 
+    ( %C |C ) 
+   %END-FOR
+   %!= 0 ) 
+
+//	\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)][
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %S |L )% %, %S )% 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	
+
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   'namespace '
+   %S |N ' {'
+//	]
+  %END-IF
+//	<{}{%CM=ServerInterface::Class}%CX
+  %FOR %ITEM-CONDITION ( ( %C |M ) %== 'ServerInterface::Class' ) 
+   %C |X 
+//	>[{"%S{is namespace}"="true"}} // namespace %SN
+  %END-FOR
+  %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   '} // namespace '
+   %S |N 
+//	]%Sp
+  %END-IF
+  %S |p 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022CB8034Bfor4704926100AB*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4704926100AB*
+//C /%SN
+//O [{%f_srv_need_cpp_files(%S)=true}%SN.h]
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_srv_need_cpp_files(%S)=true}
+ %IF ( ( [%f] srv_need_cpp_files %( %S )% ) %==  true ) 
+
+//	%f_h_header(%S)
+  [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	\#include %f_dump_include_path(%f_delsubstr_from_end(%SW,2)C.h,%S)
+  '#include '
+  [%f] dump_include_path %( [%f] delsubstr_from_end %( %S |W %, 2 )% 'C.h' %, %S )% 
+//	%f_includes_by_contents(%S)<[\#include %f_dump_include_path(%DL,%D)]
+  [%f] includes_by_contents %( %S )% 
+  %FOR %IF-NOT-EMPTY
+    '#include '
+    [%f] dump_include_path %( %D |L %, %D )% 
+   %END-IF
+//	>[
+  %END-FOR
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()][
+   %S %f open_ifdef %( )% 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	// forward decls for friend interface's servants<{}{"%f_has_factory_methods(%C)"="true"}{%C}%C[
+   '// forward decls for friend interface''s servants'
+   %FOR %ITEM-CONDITION ( ( [%f] has_factory_methods %( %C )% ) %== true ) 
+    ( %C ) 
+    %C%IF-NOT-EMPTY
+
+//	<{}{%aS=friend&%aC=Dependency}{Sp}%a%P<%f_in_scope_name(%L)
+     %FOR %ITEM-CONDITION ( ( %a |S ) %== 'friend' %&& 
+       ( ( %a |C ) %== 'Dependency'  ) ) 
+      ( 'Sp' ) 
+      %a ->P
+      %FOR [%f] in_scope_name %( %L )% 
+//	>>]>]
+      %END-FOR
+       %END-FOR
+    %END-IF
+    %END-FOR
+  %END-IF
+//	%SP[{"%S{is namespace}"="true"}namespace %SN {
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   'namespace '
+   %S |N ' {'
+//	]
+  %END-IF
+//	<{}{%CM=Typedef::Class&%C%GN=string}typedef const char* %CN_const;
+  %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Typedef::Class' %&& 
+    ( ( %C ->G |N  ) %== 'string'  ) ) 
+   'typedef const char* '
+   %C |N '_const;'
+//	
+
+//	><{}{%CM=ServerInterface::Class}[%CX
+  %END-FOR
+  %FOR %ITEM-CONDITION ( ( %C |M ) %== 'ServerInterface::Class' ) 
+   %IF-NOT-EMPTY
+    %C |X 
+//	
+
+//	]>[{"%S{is namespace}"="true"}} // namespace %SN
+   %END-IF
+  %END-FOR
+  %IF ( ( %S get_up ( 'is namespace' ) ) %== true ) 
+   '} // namespace '
+   %S |N 
+//	]%Sp
+  %END-IF
+  %S |p 
+//	%f_h_footer(%S)
+  [%f] h_footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022C88029Ffor4704926100AB*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4704926100AB*
+//C /%SN
+//P
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//#UC END# *47022CCF00EAfor4704926100AB*
+; // i.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for4704926100AB*
+//C /%SN
+//O %SN.idl
+//S [{"%S{is namespace}"="true"}#module %SN {]
+//s [{"%S{is namespace}"="true"}#};]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_idl_subsystem(%S)
+ [%f] idl_subsystem %( %S )% 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47022BBE0261for4704926100AB*
+; // idl
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for4704926100AB*
+//S [{"%S{is namespace}"="true"}#module %SN {]
+//s [{"%S{is namespace}"="true"}#};]
+//C /%SN
+//O [{"%f_need_ami(%S)"="true"}%SN_ami.idl]
+//	[{"%f_need_ami(%S)"="true"}
+ %IF ( ( [%f] need_ami %( %S )% ) %== true ) 
+
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_idl_subsystem(%S)
+  [%f] idl_subsystem %( %S )% 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022C0F01E4for4704926100AB*
+; // idl_ami
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4704926100AB*
+//C [{%S{is namespace}=true}/%SN]
+//P
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//#UC END# *470321C1038Afor4704926100AB*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for4704926100AB*
+//C [{%S{is namespace}=true}/%SN]
+//P
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//#UC END# *470321950119for4704926100AB*
+; // java
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ServerInterfaces>>
+

@@ -1,0 +1,23 @@
+unit Script.WordsInterfaces;
+
+interface
+
+uses
+ Core.Obj
+ ;
+
+type
+ TscriptContext = class(TCoreObject)
+ end;//TscriptContext
+
+ TscriptCompileContext = class(TscriptContext)
+ end;//TscriptCompileContext
+
+ IscriptWord = interface
+  procedure DoIt(aContext: TscriptContext);
+   {* - собственно процедура для выполнения слова словаря. }
+ end;//IscriptWord
+
+implementation
+
+end.

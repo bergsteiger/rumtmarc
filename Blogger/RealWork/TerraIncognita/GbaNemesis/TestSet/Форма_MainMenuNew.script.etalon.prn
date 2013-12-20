@@ -1,0 +1,952 @@
+--------------- Контрол в фокусе: ------------------
+ContextEdit : TnscTreeComboWithHistoryAndOperations
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+en_MainMenuNew : Ten_MainMenuNew
+Это длинное РУССКОЕ имя для тестовой базы. Больше 75 символов. Кончается на Ы. Версия от 24 мая 2013 г.
+Left = 0
+Top = 0
+Width = 1130
+Height = 675
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pnlMain : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 1130
+Height = 675
+TabOrder: 0
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+hfLastOpenDocs : TnscHideField
+Последние открытые документы
+Left = 235
+Top = 420
+Width = 890
+Height = 220
+TabOrder: 5
+TabStop: 0
+Align: 0
+Images: assigned
+---------------
+tvLastOpenDocs : TnscTreeViewHotTruck
+Документов нет
+Left = 20
+Top = 50
+Width = 790
+Height = 165
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 790
+Height = 15
+Images: nil
+---------------
+hfLastOpenDocsRightEdge : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 810
+Top = 50
+Width = 80
+Height = 165
+TabOrder: 1
+TabStop: 0
+Align: 4
+Anchors: 14
+BorderWidth: 0
+---------------
+hfReferences : TnscHideField
+Бизнес-справки
+Left = 235
+Top = 260
+Width = 445
+Height = 160
+TabOrder: 3
+TabStop: 0
+Align: 0
+Images: assigned
+---------------
+tvReferences : TnscTreeViewHotTruck
+Кодексы Российской Федерации
+Left = 20
+Top = 40
+Width = 425
+Height = 115
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 425
+Height = 15
+Images: nil
+---------------
+hfLawNews : TnscHideField
+Изменения в законодательстве
+Left = 235
+Top = 0
+Width = 445
+Height = 140
+TabOrder: 0
+TabStop: 0
+Align: 0
+Images: assigned
+---------------
+tvLawNews : TnscTreeViewHotTruck
+ПРАЙМ. Моя новостная лента
+Left = 20
+Top = 40
+Width = 425
+Height = 95
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 425
+Height = 15
+Images: nil
+---------------
+pnlBaseSearch : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 235
+Top = 140
+Width = 890
+Height = 100
+TabOrder: 1
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pnlBaseSearchZone : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 15
+Top = 10
+Width = 860
+Height = 100
+TabOrder: 0
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+NewBaseSearchForm : TNewBaseSearchForm
+Базовый поиск
+Left = 0
+Top = 0
+Width = 860
+Height = 100
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+vgScene1 : TvgScene
+
+Left = 0
+Top = 0
+Width = 860
+Height = 100
+TabStop: 1
+Align: 5
+---------------
+ContextEdit : TnscTreeComboWithHistoryAndOperations
+
+Left = 25
+Top = 40
+Width = 670
+Height = 20
+TabOrder: 1
+Anchors: 3
+Выделить все
+Найти далее
+---------------
+pnlLogo : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 140
+Width = 235
+Height = 100
+TabOrder: 6
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbLogo : TPaintBox
+
+Left = 15
+Top = 0
+Width = 205
+Height = 100
+Align: 0
+Anchors: 3
+---------------
+pnlSearches : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 235
+Top = 240
+Width = 890
+Height = 20
+TabOrder: 2
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+flAttributeSearch : TnscFocusLabel
+• По реквизитам
+Left = 15
+Top = 0
+Width = 100
+Height = 15
+TabOrder: 0
+---------------
+flSitiationSearch : TnscFocusLabel
+• По ситуации
+Left = 135
+Top = 0
+Width = 85
+Height = 15
+TabOrder: 1
+---------------
+flPublishedSourceSearch : TnscFocusLabel
+• По источнику опубликования
+Left = 240
+Top = 0
+Width = 185
+Height = 15
+TabOrder: 2
+---------------
+flDictionSearch : TnscFocusLabel
+• По Толковому словарю
+Left = 445
+Top = 0
+Width = 150
+Height = 15
+TabOrder: 3
+---------------
+pnlExpert : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 260
+Width = 235
+Height = 160
+TabOrder: 7
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbExpert : TPaintBox
+
+Left = 20
+Top = 100
+Width = 195
+Height = 60
+Align: 0
+Anchors: 3
+---------------
+pnlOnLine : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 420
+Width = 235
+Height = 220
+TabOrder: 8
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbOnLine : TPaintBox
+
+Left = 20
+Top = 35
+Width = 195
+Height = 60
+Align: 0
+Anchors: 3
+---------------
+pbIntranet : TPaintBox
+
+Left = 0
+Top = 0
+Width = 0
+Height = 0
+Align: 0
+Anchors: 3
+---------------
+pbCourtsOnline : TPaintBox
+
+Left = 20
+Top = 130
+Width = 195
+Height = 60
+Align: 0
+Anchors: 3
+---------------
+hfTaxes : TnscHideField
+Налоги, бухучет
+Left = 680
+Top = 260
+Width = 445
+Height = 160
+TabOrder: 4
+TabStop: 0
+Align: 0
+Images: nil
+---------------
+tvTaxes : TnscTreeViewHotTruck
+Налоговый кодекс с комментариями
+Left = 15
+Top = 40
+Width = 430
+Height = 115
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 430
+Height = 15
+Images: nil
+---------------
+pnlBanner : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 680
+Top = 0
+Width = 445
+Height = 140
+TabOrder: 9
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+ieBanner : TImageEnView
+
+Left = 10
+Top = 20
+Width = 310
+Height = 90
+TabOrder: 0
+TabStop: 0
+Align: 0
+Anchors: 3
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:False
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+ContextEdit : TnscTreeComboWithHistoryAndOperations
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+en_MainMenuNew : Ten_MainMenuNew
+Это длинное РУССКОЕ имя для тестовой базы. Больше 75 символов. Кончается на Ы. Версия от 24 мая 2013 г.
+Left = 0
+Top = 0
+Width = 780
+Height = 685
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pnlMain : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 845
+Height = 665
+TabOrder: 0
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+hfLastOpenDocs : TnscHideField
+Последние открытые документы
+Left = 235
+Top = 440
+Width = 610
+Height = 240
+TabOrder: 5
+TabStop: 0
+Align: 0
+Images: assigned
+---------------
+tvLastOpenDocs : TnscTreeViewHotTruck
+Документов нет
+Left = 20
+Top = 50
+Width = 510
+Height = 185
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:True
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 510
+Height = 15
+Images: nil
+---------------
+hfLastOpenDocsRightEdge : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 530
+Top = 50
+Width = 80
+Height = 185
+TabOrder: 1
+TabStop: 0
+Align: 4
+Anchors: 14
+BorderWidth: 0
+---------------
+hfReferences : TnscHideField
+Бизнес-справки
+Left = 235
+Top = 265
+Width = 305
+Height = 175
+TabOrder: 3
+TabStop: 0
+Align: 0
+Images: assigned
+---------------
+tvReferences : TnscTreeViewHotTruck
+Кодексы Российской Федерации
+Left = 20
+Top = 40
+Width = 285
+Height = 135
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 285
+Height = 15
+Images: nil
+---------------
+hfLawNews : TnscHideField
+Изменения в законодательстве
+Left = 235
+Top = 0
+Width = 305
+Height = 145
+TabOrder: 0
+TabStop: 0
+Align: 0
+Images: assigned
+---------------
+tvLawNews : TnscTreeViewHotTruck
+ПРАЙМ. Моя новостная лента
+Left = 20
+Top = 40
+Width = 285
+Height = 100
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 285
+Height = 15
+Images: nil
+---------------
+pnlBaseSearch : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 235
+Top = 145
+Width = 610
+Height = 100
+TabOrder: 1
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pnlBaseSearchZone : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 15
+Top = 10
+Width = 580
+Height = 100
+TabOrder: 0
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+NewBaseSearchForm : TNewBaseSearchForm
+Базовый поиск
+Left = 0
+Top = 0
+Width = 580
+Height = 100
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+vgScene1 : TvgScene
+
+Left = 0
+Top = 0
+Width = 580
+Height = 100
+TabStop: 1
+Align: 5
+---------------
+ContextEdit : TnscTreeComboWithHistoryAndOperations
+
+Left = 25
+Top = 40
+Width = 390
+Height = 20
+TabOrder: 1
+Anchors: 3
+Выделить все
+Найти далее
+---------------
+pnlLogo : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 145
+Width = 235
+Height = 100
+TabOrder: 6
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbLogo : TPaintBox
+
+Left = 15
+Top = 0
+Width = 205
+Height = 100
+Align: 0
+Anchors: 3
+---------------
+pnlSearches : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 235
+Top = 245
+Width = 610
+Height = 20
+TabOrder: 2
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+flAttributeSearch : TnscFocusLabel
+• По реквизитам
+Left = 15
+Top = 0
+Width = 100
+Height = 15
+TabOrder: 0
+---------------
+flSitiationSearch : TnscFocusLabel
+• По ситуации
+Left = 135
+Top = 0
+Width = 85
+Height = 15
+TabOrder: 1
+---------------
+flPublishedSourceSearch : TnscFocusLabel
+• По источнику опубликования
+Left = 240
+Top = 0
+Width = 185
+Height = 15
+TabOrder: 2
+---------------
+flDictionSearch : TnscFocusLabel
+• По Толковому словарю
+Left = 445
+Top = 0
+Width = 150
+Height = 15
+TabOrder: 3
+---------------
+pnlExpert : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 265
+Width = 235
+Height = 175
+TabOrder: 7
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbExpert : TPaintBox
+
+Left = 20
+Top = 115
+Width = 195
+Height = 60
+Align: 0
+Anchors: 3
+---------------
+pnlOnLine : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 440
+Width = 235
+Height = 240
+TabOrder: 8
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+pbOnLine : TPaintBox
+
+Left = 20
+Top = 35
+Width = 195
+Height = 60
+Align: 0
+Anchors: 3
+---------------
+pbIntranet : TPaintBox
+
+Left = 0
+Top = 0
+Width = 0
+Height = 0
+Align: 0
+Anchors: 3
+---------------
+pbCourtsOnline : TPaintBox
+
+Left = 20
+Top = 130
+Width = 195
+Height = 60
+Align: 0
+Anchors: 3
+---------------
+hfTaxes : TnscHideField
+Налоги, бухучет
+Left = 540
+Top = 265
+Width = 305
+Height = 175
+TabOrder: 4
+TabStop: 0
+Align: 0
+Images: nil
+---------------
+tvTaxes : TnscTreeViewHotTruck
+Налоговый кодекс с комментариями
+Left = 15
+Top = 40
+Width = 290
+Height = 135
+TabOrder: 0
+Align: 5
+Images: nil
+Вертикальный скроллер:False
+Горизонтальный скроллер:False
+---------------
+Header : TvtListerHeader
+ 
+Left = 0
+Top = 0
+Width = 290
+Height = 15
+Images: nil
+---------------
+pnlBanner : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 540
+Top = 0
+Width = 305
+Height = 145
+TabOrder: 9
+TabStop: 0
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+ieBanner : TImageEnView
+
+Left = 10
+Top = 20
+Width = 310
+Height = 90
+TabOrder: 0
+TabStop: 0
+Align: 0
+Anchors: 3
+---------------
+--------------- Содержимое тулбаров: -------------------
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:True
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:False
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:False
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+

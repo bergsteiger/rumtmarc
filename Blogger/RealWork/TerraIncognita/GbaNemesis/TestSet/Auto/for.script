@@ -1,0 +1,9 @@
+: Hello
+ 3 FOR
+  'Hello' .
+ NEXT
+;
+
+3 FOR
+ Hello
+NEXT

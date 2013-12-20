@@ -1,0 +1,20 @@
+: ArrayTest
+
+ ARRAY L
+ 0 10 FOR
+  ++
+  DUP
+  >>>[] L
+ NEXT
+ DROP
+ @ . ITERATE L
+ // - печатает числа от 1 до 10
+ '' .
+ 0 @ + ITERATE L .
+ // - суммирует числа от 1 до 10 и печатает результат
+ '' .
+ @ . ITERATEBACK L
+ // - печатает числа от 10 до 1
+;
+
+ArrayTest 

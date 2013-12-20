@@ -1,0 +1,148 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Integrated/Root/ProjectSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::Integrated::Root::ProjectSupport
+//
+// вспомогательные функции для генерации проекта
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// имеет ли элемент вложенные элементы использующие серверную часть
+//f _has_tragets_with_server
+: has_tragets_with_server OBJECT IN %S
+//#UC START# *4715A4EE004E*
+//	[{<{}{%f_use_server(%C)=true}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] use_server %( %C )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4715A4EE004E*
+; // has_tragets_with_server
+
+
+// имеет ли элемент вложенные элементы использующие НЕ серверную часть
+//f _has_tragets_without_server
+: has_tragets_without_server OBJECT IN %S
+//#UC START# *4715A5180000*
+//	[{<{}{%f_use_server(%C)=false}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] use_server %( %C )% ) %==  false ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4715A5180000*
+; // has_tragets_without_server
+
+
+// является ли элемент DLL - целью сборки
+//f _is_dll_target
+: is_dll_target OBJECT IN %S
+//#UC START# *4715A56300DA*
+//	[{%SS=ComTarget|%SS=AdapterTarget|%SS=DLL|%SS=ComDLL}{false}true]
+ %IF ( ( %S |S ) %== 'ComTarget' %|| 
+   ( ( %S |S ) %== 'AdapterTarget'  ) %|| 
+   ( ( %S |S ) %== 'DLL'  ) %|| 
+   ( ( %S |S ) %== 'ComDLL'  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *4715A56300DA*
+; // is_dll_target
+
+
+// генерация Exe - цели
+//f _dump_exe_target
+: dump_exe_target OBJECT IN %S
+//#UC START# *4715A580000F*
+//	[exe_target_%f_to_lower(%SN) {
+ %IF-NOT-EMPTY
+  'exe_target_'
+  [%f] to_lower %( %S |N )% ' {'
+//		\tcmdline += -ti dll_exe:msvc90-exe-generic-static
+  '	'#9'cmdline += -ti dll_exe:msvc90-exe-generic-static'
+//		\t%U[{_EXE_TARGET}
+  '	'#9
+  %U%IF ( '_EXE_TARGET' ) 
+
+//		\t]
+   '	'#9 
+  %END-IF
+ //		[\t%So
+  '	'
+  %IF-NOT-EMPTY
+   #9
+   %S |o 
+//		][\t%f_with_gen_id(mpc2,%So)]
+   '	' 
+  %END-IF
+  %IF-NOT-EMPTY
+   #9
+   [%f] with_gen_id %( 'mpc2' %, %S |o )% 
+  %END-IF
+//	\t}]
+  #9'}' 
+ %END-IF
+//#UC END# *4715A580000F*
+; // dump_exe_target
+
+
+// генерация DLL - цели
+//f _dump_dll_target
+: dump_dll_target OBJECT IN %S
+//#UC START# *4715A5D403B9*
+//	[dll_target_%f_to_lower(%SN) {
+ %IF-NOT-EMPTY
+  'dll_target_'
+  [%f] to_lower %( %S |N )% ' {'
+//		\tcmdline += -ti dll:msvc90-dll-generic-static
+  '	'#9'cmdline += -ti dll:msvc90-dll-generic-static'
+//		\t%U[{_DLL_TARGET}
+  '	'#9
+  %U%IF ( '_DLL_TARGET' ) 
+
+//		\t]
+   '	'#9 
+  %END-IF
+ //		[{%SS=ComTarget}\tcmdline += -value_template link_options+=/def:%f_normolized_path(com.def,S)
+  '	'
+  %IF ( ( %S |S ) %== 'ComTarget' ) 
+   #9'cmdline += -value_template link_options+=/def:'
+   [%f] normolized_path %( 'com.def' %, 'S' )% 
+//		][\t%So
+   '	' 
+  %END-IF
+  %IF-NOT-EMPTY
+   #9
+   %S |o 
+//		][\t%f_with_gen_id(mpc2,%So)]
+   '	' 
+  %END-IF
+  %IF-NOT-EMPTY
+   #9
+   [%f] with_gen_id %( 'mpc2' %, %S |o )% 
+  %END-IF
+//	\t}]
+  #9'}' 
+ %END-IF
+//#UC END# *4715A5D403B9*
+; // dump_dll_target
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

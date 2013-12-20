@@ -1,0 +1,305 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/HighLayers/MDAReport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::MetaTemplate::Meta::HighLayers::MDAReport
+//
+// Абстрактный отчёт
+// ---
+// Формирует иерархию отчётов, объединяя их в связанные группы посредством связи "group"
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDAReport::Class
+implementation @ <<MDAReport>>
+//? Абстрактный отчёт
+//? Формирует иерархию отчётов, объединяя их в связанные группы посредством связи "group"
+//< *::Class,*::Category
+
+//= Мета-MDA::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_mda_report.gif
+//L code_mda_report
+// Параметры визуализации
+//$ C 220,235,250
+//$ l 75,170,245
+//$ f 75,170,245
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4725C5D4004E*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4725C5D4004E*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4725C5D4004E*
+//#UC END# *4705CBD6003Efor4725C5D4004E*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4725C5D4004E*
+//#UC END# *470484D50138for4725C5D4004E*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor4725C5D4004E*
+//#UC END# *4E65F581015Afor4725C5D4004E*
+; // link_to_requests_hack
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4725C5D4004E*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[
+ %IF-NOT-EMPTY
+
+//	
+
+//	h2. Состав элемента[
+  'h2. Состав элемента'
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Отчёты типа "Ошибка":_<{}{%CC=Operation&%CS=report&%C{auto}=Error}
+   '_Отчёты типа "Ошибка":_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'report'  ) %&& 
+     ( ( %C get_up ( 'auto' ) ) %== 'Error'  ) ) 
+
+//	%f_k_method_dump(%C)>][
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Отчёты типа "Предупреждение":_<{}{%CC=Operation&%CS=report&%C{auto}=Warning}
+   '_Отчёты типа "Предупреждение":_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'report'  ) %&& 
+     ( ( %C get_up ( 'auto' ) ) %== 'Warning'  ) ) 
+
+//	%f_k_method_dump(%C)>
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+//	]]
+  %END-IF
+ %END-IF
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for4725C5D4004E*
+; // wiki
+
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for4725C5D4004E*
+//O [{<{}{%CS=group}{C}>=0}%SN.tpi]
+//	%f_dump_report_group(%S)
+ [%f] dump_report_group %( %S )% 
+
+//f _dump_report_user_code
+; // mda
+
+end. // <<MDAReport>>
+
+: dump_report_user_code OBJECT IN %S
+//	%U[{REPORT}\n]
+ %U%IF ( 'REPORT' ) 
+  #13#10 
+ %END-IF
+ 
+//f _dump_report_group
+; // dump_report_user_code
+
+: dump_report_group OBJECT IN %S
+//	group "%SN" {
+ 'group "'
+ %S |N '" {'
+//	<{}{%CS=report}{Sn}\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'report' ) 
+  ( 'Sn' ) 
+//		report "%CN" {[
+  '	report "'
+  %C |N ' {'
+  %IF-NOT-EMPTY
+
+//			auto: %C{auto}]
+   '		auto: '
+   %C get_up ( 'auto' ) 
+  %END-IF
+//	%f_dump_report_user_code(%C)
+  [%f] dump_report_user_code %( %C )% 
+//		}
+  '	}'
+//	>%f_shift_intend(1)<{}{%aM=MDAReport::Class::group::ClassDependency}{Sg}%f_dump_group(%a%P)
+ %END-FOR
+ [%f] shift_intend %( 1 )% 
+ %FOR %ITEM-CONDITION ( ( %a |M ) %== 'MDAReport::Class::group::ClassDependency' ) 
+  ( 'Sg' ) 
+  [%f] dump_group %( %a ->P  )% 
+//	>%f_shift_intend(-1)\
+ %END-FOR
+ [%f] shift_intend %( -1 )% 
+//	}
+ '}'
+//#UC END# *46E28D830109for4725C5D4004E*
+; // dump_report_group
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: MDAReport::Class::report::Operation
+implementation @ :: <<MDAReport>> <<report>> ;
+//? отчёт
+//? определяет конкретный отчёт.
+// Параметры стереотипа
+//Y code_mda_op_report.gif
+//L code_mda_op_report
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Пользовательские свойства
+//p auto=Warning|Error ? Определяет тип отчёта: Warning - отчёт типа "Предупреждение", в случае непустого отчета будет выдано предпреждение Error - отчёт "Ошибка", в случае непустого отчета дальнейшая генерация невозможна
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for4725C6630128*
+//#UC END# *46E28D830109for4725C6630128*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4725C6630128*
+//#UC END# *46E6D4BB0339for4725C6630128*
+; // wiki
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor4725C6630128*
+//#UC END# *4E65F581015Afor4725C6630128*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{auto}"!="%S{!auto}"}%f_up_prefix(%S) *auto* = *%S{auto}* - Определяет тип отчёта: Warning - отчёт типа "Предупреждение", в случае непустого отчета будет выдано предпреждение Error - отчёт "Ошибка", в случае непустого отчета дальнейшая генерация невозможна
+ %IF ( ( %S get_up ( 'auto' ) ) %!= ( %S get_up_def ( 'auto' ) ) ) 
+  [%f] up_prefix %( %S )% ' *auto* = *'
+  %S get_up ( 'auto' ) '* - Определяет тип отчёта: Warning - отчёт типа "Предупреждение", в случае непустого отчета будет выдано предпреждение Error - отчёт "Ошибка", в случае непустого отчета дальнейшая генерация невозможна'
+//	]
+ %END-IF
+
+
+//: MDAReport::Class::group::ClassDependency
+; // wiki_up_print
+
+end. // :: <<MDAReport>> <<report>> ;
+
+implementation @ :: <<MDAReport>> <<group>> ;
+//? Родительская группа
+//? Определяет родительскую "группу" для отчёта
+// Параметры стереотипа
+//Y code_mda_dep_group.gif
+//L code_mda_dep_group
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for4725C75E002E*
+//#UC END# *46E28D830109for4725C75E002E*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4725C75E002E*
+//#UC END# *46E6D4BB0339for4725C75E002E*
+; // wiki
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor4725C75E002E*
+//#UC END# *4E65F581015Afor4725C75E002E*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<MDAReport>> <<group>> ;
+

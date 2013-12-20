@@ -1,0 +1,836 @@
+--------------- Контрол в фокусе: ------------------
+Text : TnscEditor
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+en_MedicListSynchroView : Ten_MedicListSynchroView
+Синхронный просмотр
+Left = 0
+Top = 0
+Width = 780
+Height = 175
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ztChild : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 40
+Width = 780
+Height = 135
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+TextForm : TTextForm
+Описание препарата (синхронный просмотр)
+Left = 0
+Top = 10
+Width = 780
+Height = 120
+Align: 0
+Anchors: 3
+BorderWidth: 0
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+Text : TnscEditor
+
+Left = 5
+Top = 0
+Width = 775
+Height = 120
+TabOrder: 0
+Align: 5
+Вертикальный скроллер:True
+Горизонтальный скроллер:True
+Выделить все
+Подсвечивать найденный контекст
+-
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+-
+Установить закладку...
+Добавить мой комментарий
+Выделить текущее слово
+Выделить текущий абзац
+-
+Найти в Толковом словаре
+--- Текст редактора: ---
+Торговое название: 1,4-Диокси-5,8-ди (п-толуидино) антрахинон (1,4-Dioxy-5,8 di (n-toluidino) antrachinon)
+Фармакологическая группа: рентгеноконтрастное средство
+Фармакологическое действие: рентгеноконтрастное, составная часть хромолимфотраста
+Условия хранения: Список Б
+
+Страна: Россия
+Формы выпуска: субстанция-масса (банки темного стекла) 100 г
+Номер фармстатьи: ВФС 42-0605-76
+Срок годности: 3 года
+Отпускается по рецепту врача
+Состояние регистрационного удостоверения: действующее
+Номер регистрации: 77/38/3
+Даты регистрации, перерегистрации: 18.01.1977
+
+Ссылка на топик 2008
+Ссылка на перпарат "13-цис-Ретиноевая кислота (Изотретиноин)" (медтопик 51400003)
+Ссылка на фирму 3M Espe AG (фирмтопик 52005045)
+Ссылка на термин мед. словаря "Болезнь Лайма (боррелиоз)" (MDICTTOPIC 52100002)
+
+
+---------------
+SubPanel : TeeSubPanel
+
+Left = 0
+Top = 0
+Width = 5
+Height = 120
+TabOrder: 1
+Align: 3
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+-
+Показывать метки
+Показывать блоки в тексте
+Показывать спецсимволы
+---------------
+HScroll : TvtScrollBar
+
+Left = 0
+Top = 145
+Width = 780
+Height = 15
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnPreActive : TnscReminder
+
+Left = 350
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 5
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnRedaction : TnscReminder
+
+Left = 150
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 3
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnTimeMachineException : TnscReminder
+
+Left = 300
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 8
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnIsAbolished : TnscReminder
+
+Left = 250
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 0
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnJuror : TnscReminder
+
+Left = 50
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 1
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnOnControl : TnscReminder
+
+Left = 200
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 2
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnTimeMachineOn : TnscReminder
+
+Left = 100
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 7
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+-
+Включить Машину времени
+---------------
+WarnTimeMachineWarning : TnscReminder
+
+Left = 400
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 13
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnInactualDocument : TnscReminder
+
+Left = 450
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 16
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+BtnClose : TvcmDockPanelButton
+
+Left = 50
+Top = 0
+Width = 25
+Height = 20
+---------------
+BtnMaximized : TvcmDockPanelButton
+
+Left = 25
+Top = 0
+Width = 25
+Height = 20
+---------------
+BtnOpen : TvcmDockPanelButton
+
+Left = 0
+Top = 0
+Width = 25
+Height = 20
+---------------
+--------------- Содержимое тулбаров: -------------------
+tben_MedicListSynchroViewTop : TvcmToolbar
+Order = 0
+---------------
+bt_enMedicListSynchroView_opOpenDocument : TvcmToolButtonDef
+Описание препарата
+Активность:True
+bt_enMedicListSynchroView_opOpenAttributesForm : TvcmToolButtonDef
+Информация о документе
+Активность:True
+bt_enMedicListSynchroView_opOpenList : TvcmToolButtonDef
+Препараты-синонимы
+Активность:False
+
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddBookmark : TvcmToolButtonDef
+Установить закладку...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+
+tbenFiltersTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFilter_opEdit : TvcmToolButtonDef
+Редактировать фильтр
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilter_opCreateFilter : TvcmToolButtonDef
+Добавить фильтр из сохраненных запросов
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opNew : TvcmToolButtonDef
+Создать новый фильтр
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbefListTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+Text : TnscEditor
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+en_MedicListSynchroView : Ten_MedicListSynchroView
+Синхронный просмотр
+Left = 0
+Top = 0
+Width = 780
+Height = 180
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+ztChild : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 25
+Width = 780
+Height = 155
+TabOrder: 2
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+TextForm : TTextForm
+Описание препарата (синхронный просмотр)
+Left = 0
+Top = 10
+Width = 780
+Height = 140
+Align: 0
+Anchors: 3
+BorderWidth: 0
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+Text : TnscEditor
+
+Left = 5
+Top = 0
+Width = 775
+Height = 140
+TabOrder: 0
+Align: 5
+Вертикальный скроллер:True
+Горизонтальный скроллер:True
+Выделить все
+Подсвечивать найденный контекст
+-
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+-
+Установить закладку...
+Добавить мой комментарий
+Выделить текущее слово
+Выделить текущий абзац
+-
+Найти в Толковом словаре
+--- Текст редактора: ---
+Торговое название: 1,4-Диокси-5,8-ди (п-толуидино) антрахинон (1,4-Dioxy-5,8 di (n-toluidino) antrachinon)
+Фармакологическая группа: рентгеноконтрастное средство
+Фармакологическое действие: рентгеноконтрастное, составная часть хромолимфотраста
+Условия хранения: Список Б
+
+Страна: Россия
+Формы выпуска: субстанция-масса (банки темного стекла) 100 г
+Номер фармстатьи: ВФС 42-0605-76
+Срок годности: 3 года
+Отпускается по рецепту врача
+Состояние регистрационного удостоверения: действующее
+Номер регистрации: 77/38/3
+Даты регистрации, перерегистрации: 18.01.1977
+
+Ссылка на топик 2008
+Ссылка на перпарат "13-цис-Ретиноевая кислота (Изотретиноин)" (медтопик 51400003)
+Ссылка на фирму 3M Espe AG (фирмтопик 52005045)
+Ссылка на термин мед. словаря "Болезнь Лайма (боррелиоз)" (MDICTTOPIC 52100002)
+
+
+---------------
+SubPanel : TeeSubPanel
+
+Left = 0
+Top = 0
+Width = 5
+Height = 140
+TabOrder: 1
+Align: 3
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+-
+Показывать метки
+Показывать блоки в тексте
+Показывать спецсимволы
+---------------
+HScroll : TvtScrollBar
+
+Left = 0
+Top = 160
+Width = 780
+Height = 15
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnPreActive : TnscReminder
+
+Left = 350
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 5
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnRedaction : TnscReminder
+
+Left = 150
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 3
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnTimeMachineException : TnscReminder
+
+Left = 300
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 8
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnIsAbolished : TnscReminder
+
+Left = 250
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 0
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnJuror : TnscReminder
+
+Left = 50
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 1
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnOnControl : TnscReminder
+
+Left = 200
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 2
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnTimeMachineOn : TnscReminder
+
+Left = 100
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 7
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+-
+Включить Машину времени
+---------------
+WarnTimeMachineWarning : TnscReminder
+
+Left = 400
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 13
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+WarnInactualDocument : TnscReminder
+
+Left = 450
+Top = 10
+Width = 45
+Height = 45
+ImageIndex: 16
+Images: assigned
+Показывать технические комментарии
+Открыть документ в текущем окне
+Открыть документ в новом окне
+---------------
+BtnClose : TvcmDockPanelButton
+
+Left = 50
+Top = 0
+Width = 25
+Height = 20
+---------------
+BtnMaximized : TvcmDockPanelButton
+
+Left = 25
+Top = 0
+Width = 25
+Height = 20
+---------------
+BtnOpen : TvcmDockPanelButton
+
+Left = 0
+Top = 0
+Width = 25
+Height = 20
+---------------
+--------------- Содержимое тулбаров: -------------------
+tben_MedicListSynchroViewTop : TvcmToolbar
+Order = 0
+---------------
+bt_enMedicListSynchroView_opOpenDocument : TvcmToolButtonDef
+Описание препарата
+Активность:True
+bt_enMedicListSynchroView_opOpenAttributesForm : TvcmToolButtonDef
+Информация о документе
+Активность:True
+bt_enMedicListSynchroView_opOpenList : TvcmToolButtonDef
+Препараты-синонимы
+Активность:False
+
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enDocument_opAddBookmark : TvcmToolButtonDef
+Установить закладку...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:True
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:False
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:False
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:False
+
+tbenFiltersTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFilter_opEdit : TvcmToolButtonDef
+Редактировать фильтр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilter_opCreateFilter : TvcmToolButtonDef
+Добавить фильтр из сохраненных запросов
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opNew : TvcmToolButtonDef
+Создать новый фильтр
+Активность:True
+
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:True
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+tbefListTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+Активность:True
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+Активность:True
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+Активность:True
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enLocalList_opSearchDrugInList : TvcmToolButtonDef
+Искать препараты в текущем списке
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFilters_opFiltersListOpen : TvcmToolButtonDef
+Фильтры (вкладка)
+Активность:True
+

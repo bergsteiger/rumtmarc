@@ -1,0 +1,149 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/Features.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CoreTemplates::RequirementsLib::Requirements::Features
+//
+// Пакет возможностей
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Features::Category
+implementation @ <<Features>>
+//? Пакет возможностей
+//> Feature::Class
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y features.gif
+//L features
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 195,245,175
+//$ l 10,195,10
+//$ f 10,195,10
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+; // st_space_key
+
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470473D60213*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ %IF-NOT-EMPTY
+  'h2. Модель'
+  %IF-NOT-EMPTY
+
+//	{info}Решает проблемы из пакета:
+   '{info}Решает проблемы из пакета:'
+//	<{}{%DS=Problems}* %f_k_link_wp(%D,%S)
+   %FOR %ITEM-CONDITION ( ( %D |S ) %== 'Problems' ) 
+    '* '
+    [%f] k_link_wp %( %D %, %S )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	{info}Основывается на возможностях из пакета:
+   '{info}Основывается на возможностях из пакета:'
+//	<{}{%DS=Features}* %f_k_link_wp(%D,%S)
+   %FOR %ITEM-CONDITION ( ( %D |S ) %== 'Features' ) 
+    '* '
+    [%f] k_link_wp %( %D %, %S )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Реализован в пакете прецедентов:
+   '{info}Реализован в пакете прецедентов:'
+//	<{}{}{Sp}* %f_k_link_wp(%a,%S)
+   %FOR ( 'Sp' ) 
+    '* '
+    [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][{%mx=true&%Cx=true}
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF ( ( %m |x ) %==  true %&& 
+    ( ( %C |x ) %==  true  ) ) 
+
+//	
+
+//	_Диаграмма пакета:_
+   '_Диаграмма пакета:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+   [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+   %m |U '.jpg}'
+//	]][
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	
+
+//	h2. Состав пакета[
+  'h2. Состав пакета'
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Возможности:_<{}{%CS=Feature}
+   '_Возможности:_'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'Feature' ) 
+
+//	\# *%f_k_link(%C)*
+    '# *'
+    [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+    '_'
+    %C |? '_'
+    %IF-NOT-EMPTY
+     ', '
+     [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for470473D60213*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Features>>
+

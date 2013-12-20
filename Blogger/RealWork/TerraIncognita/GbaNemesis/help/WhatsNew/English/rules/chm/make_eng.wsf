@@ -1,0 +1,76 @@
+<job id="makeCHMHelp">
+<script language="JScript" src="..//common//common.js"/>
+<script language="JScript">
+
+ var shell = WScript.CreateObject("WScript.Shell");
+
+ var data = new ActiveXObject("Msxml2.DOMDocument.4.0");
+ data.async = false;
+ data.validateOnParse = true;
+ data.preserveWhiteSpace = true;
+
+
+
+ data.load(dataFile);
+
+// выливание топиков
+
+ var filename = data.documentElement.getAttribute('filename');
+
+ var project = data.transformNode(getStyle('project.xsl'));
+ writeHTML(filename + '.hhp', project);
+
+ var content = data.transformNode(getStyle('content.xsl'));
+ writeHTML(filename + '.hhc', content);
+ 
+ var index = data.transformNode(getStyle('index.xsl'));
+ writeHTML(filename + '.hhk', index);
+
+ style = getStyle('page.xsl');
+ var nodes = data.selectNodes("//topic");
+ 
+ var i, html;
+ 
+ for (i=0; i<nodes.length; i++){
+   html = nodes[i].transformNode(style);
+   writeHTML('page-' + nodes[i].getAttribute('id')  + '.htm', html);
+ }
+ 
+  shell.CurrentDirectory = '..\\..\\output\\chm\\screenshot';
+
+// Переход с JPEG на GIF. 3-шаговый алгоритм нужен потому, 
+// что масштабирование GIFа происходит коряво.
+
+//GIF
+//shell.Run('..\\..\\..\\tools\\nconvert.exe -out jpeg -truecolors -i -q 60 -o preview_%.jpg *.gif', 0, true);
+//shell.Run('..\\..\\..\\tools\\nconvert.exe -out jpeg -ratio -resize 250 0 -rflag decr preview_*.jpg', 0, true);
+//shell.Run('..\\..\\..\\tools\\nconvert.exe -out gif -colors 256 -D preview_*.jpg', 0, true);
+
+//JPEG
+//shell.Run('..\\..\\..\\tools\\nconvert.exe -out jpeg -i -q 90 -o preview_%.jpg -ratio -resize 250 0 -rflag decr *.jpg', 0, true);
+
+//OLD value
+//shell.Run('..\\..\\..\\tools\\nconvert.exe -out jpeg -o preview_%.jpg -ratio -resize 250 0 *.jpg', 0, true);
+//shell.Run('..\\..\\..\\tools\\nconvert.exe -out gif -o preview_%.gif -ratio -resize 250 0 *.gif', 0, true);
+
+//  shell.CurrentDirectory = '..\\icon';
+//  shell.Run('..\\..\\..\\tools\\nconvert.exe -out gif -colors 256 -transpcolor 256 256 256 *.bmp', 0, true);
+  
+  shell.CurrentDirectory = '..';
+ 
+  shell.Run('"C:\\Program Files\\HTML Help Workshop\\hhc.exe" ' + filename + '.hhp', 0, true);
+  shell.Run('hh ' + filename + '.chm', 1, false);
+ 
+// ==================================================
+ 
+  function getStyle(styleSheet) {
+  var style = new ActiveXObject("Msxml2.DOMDocument.4.0");
+  style.async = false;
+  style.load(styleSheet);
+  return style;
+ }
+ 
+</script>
+</job>
+ 
+ 

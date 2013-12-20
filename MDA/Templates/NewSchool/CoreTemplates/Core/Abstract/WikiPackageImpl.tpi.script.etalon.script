@@ -1,0 +1,279 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Core/Abstract/WikiPackageImpl.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CoreTemplates::Core::Abstract::WikiPackageImpl
+//
+// Базовый стереотип для всех стереотипов - папок, реализует генерацию в wiki.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: WikiPackageImpl::Category
+implementation @ <<WikiPackageImpl>>
+//? Базовый стереотип для всех стереотипов - папок, реализует генерацию в wiki.
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// Определяет, что пакет должен генериться в документации в секцию "Пакеты реализации и
+// вспомогательные пакеты"
+//%f _wiki_impl_or_support_package
+; // st_space_key
+
+: wiki_impl_or_support_package OBJECT IN %S
+//#UC START# *485784EC028Cfor471738DF00DA*
+//	false
+ false
+//#UC END# *485784EC028Cfor471738DF00DA*
+; // wiki_impl_or_support_package
+
+
+// Определяет, что пакет должен генериться в документации в секцию "Утилитные пакеты"
+//%f _wiki_utility_package
+: wiki_utility_package OBJECT IN %S
+//#UC START# *485785D603C1for471738DF00DA*
+//	false
+ false
+//#UC END# *485785D603C1for471738DF00DA*
+; // wiki_utility_package
+
+
+// Определяет, что пакет должен генериться в документации в секцию "Интерфейсные пакеты"
+//%f _wiki_interface_package
+: wiki_interface_package OBJECT IN %S
+//#UC START# *48578600008Dfor471738DF00DA*
+//	false
+ false
+//#UC END# *48578600008Dfor471738DF00DA*
+; // wiki_interface_package
+
+
+// Определяет, что пакет должен генериться в документации в секцию "Схемы данных"
+//%f _data_scheme_package
+: data_scheme_package OBJECT IN %S
+//#UC START# *485789C102E3for471738DF00DA*
+//	false
+ false
+//#UC END# *485789C102E3for471738DF00DA*
+; // data_scheme_package
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471738DF00DA*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for471738DF00DA*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471738DF00DA*
+//#UC END# *4705CBD6003Efor471738DF00DA*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for471738DF00DA*
+//#UC END# *470484D50138for471738DF00DA*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor471738DF00DA*
+//#UC END# *4E65F581015Afor471738DF00DA*
+; // link_to_requests_hack
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for471738DF00DA*
+//C /%SN:%SU
+//O %SN
+//S %SN
+
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ %IF-NOT-EMPTY
+  'h2. Модель'
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Включает реализацию пакетов прецедентов:
+   '{info}Включает реализацию пакетов прецедентов:'
+//	<{}{%aS=UseCases}{Sg}* %f_k_link_wp(%a,%S)
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'UseCases' ) 
+    ( 'Sg' ) 
+    '* '
+    [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Использует пакеты:
+   '{info}Использует пакеты:'
+//	<{}{%DS!=UseCases}{Sn}* %f_k_link_wp(%D,%S)
+   %FOR %ITEM-CONDITION ( ( %D |S ) %!= 'UseCases' ) 
+    ( 'Sn' ) 
+    '* '
+    [%f] k_link_wp %( %D %, %S )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Используется пакетами:
+   '{info}Используется пакетами:'
+//	<{}{%aS!=UseCases}{Sp}{Sn}* %f_k_link_wp(%a,%S)
+   %FOR %ITEM-CONDITION ( ( %a |S ) %!= 'UseCases' ) 
+    ( 'Sp' ) 
+    '{Sn}* '
+    [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][\
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+//	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+   [%f] k_common_elem_docs %( %S )% 
+  %END-IF
+  %IF ( ( %m |x ) %==  true %&& 
+    ( ( %C |x ) %==  true  ) ) 
+
+//	
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма пакета:_
+   %FOR %ITEM-SEPARATOR '----'#13#10 ; // %ITEM-SEPARATOR 
+    '_'
+    %IF ( ( %m |N ) %!= 'Main' ) 
+     %ELSE
+      'Основная' 
+     %THEN
+     %m |N 
+    %END-IF
+    ' диаграмма пакета:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+    [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+    %m |U '.jpg}'
+//	>]][
+   %END-FOR
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	
+
+//	h2. Состав пакета[
+  'h2. Состав пакета'
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Интерфейсы:_<{}{%t_interface(%C)=true}{Sn}
+   '_Интерфейсы:_'
+   %FOR %ITEM-CONDITION ( ( [%t] interface %( %C )% ) %==  true ) 
+    ( 'Sn' ) 
+
+//	\# *%f_k_link(%C)*
+    '# *'
+    [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>][
+    '_'
+    %C |? '_'
+    %IF-NOT-EMPTY
+     ', '
+     [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Дополнительные типы и утилиты:_<{}{%t_interface(%C)=false&%CS!=Servant&%CS!=ComServant}{Sn}
+   '_Дополнительные типы и утилиты:_'
+   %FOR %ITEM-CONDITION ( ( [%t] interface %( %C )% ) %==  false %&& 
+     ( ( %C |S ) %!= 'Servant'  ) %&& 
+     ( ( %C |S ) %!= 'ComServant'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_type_dump(%C)>][
+    [%f] k_type_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Реализация:_<{}{%CS=Servant|%CS=ComServant}{Sn}
+   '_Реализация:_'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'Servant' %|| 
+     ( ( %C |S ) %== 'ComServant'  ) ) 
+    ( 'Sn' ) 
+
+//	\# *%f_k_link(%C)*
+    '# *'
+    [%f] k_link %( %C )% '*'
+//	_%C?_[, [{"%CD"=""}{%f_str_replace(%CD,\n\n,\n\\\\)}реализация интерфейса %f_k_link(%C%R)]]>]]<%CX>
+    '_'
+    %C |? '_'
+    %IF-NOT-EMPTY
+     ', '
+     %IF ( ( %C |D ) %== '' ) 
+      %ELSE
+       [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+      %THEN
+      'реализация интерфейса '
+      [%f] k_link %( %C ->R  )% 
+     %END-IF
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for471738DF00DA*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<WikiPackageImpl>>
+

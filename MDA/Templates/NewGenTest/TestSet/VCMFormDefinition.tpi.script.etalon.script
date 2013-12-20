@@ -1,0 +1,171 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/VCMFormDefinition.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::VCMFormDefinition
+//
+// Описание формы VCM
+// ---
+// Служит для идентификации конкретного типа формы. От такого описания должна наследоваться
+// конкретная форма, идентифицировать которую и нужно.
+// 
+// Служит неким аналогом ключа для фабрики форм
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMFormDefinition::Class
+implementation @ <<VCMFormDefinition>>
+//? Описание формы VCM
+//? Служит для идентификации конкретного типа формы. От такого описания должна наследоваться конкретная форма, идентифицировать которую и нужно.
+//? 
+//? Служит неким аналогом ключа для фабрики форм
+//= Facet::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4BD853F50147*
+//	%S%[inherited]\
+ inherited
+//	<{}{%L#f_IsVCMForm()=true}\
+ %FOR %ITEM-CONDITION ( ( %L %?f IsVCMForm %( )% ) %==  true ) 
+//	%S%f_add_class(%SU_%LU_IDs,Constants,%LNIDs,Const_Inst)\
+  %S %f add_class %( %S |U '_'
+  %L |U '_IDs' %, 'Constants' %, %L |N 'IDs' %, 'Const_Inst' )% 
+
+//	[{"%{TvcmFormDescriptor}N"=""}%f_find_element(TvcmFormDescriptor,TvcmFormDescriptor)]\
+  %IF ( ( ( get_global_var ( 'TvcmFormDescriptor' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'TvcmFormDescriptor' %, 'TvcmFormDescriptor' )% 
+  %END-IF
+//	%S%f_make_accessable(%{TvcmFormDescriptor}U)\
+  %S %f make_accessable %( ( get_global_var ( 'TvcmFormDescriptor' ) |U ) )% 
+
+//	%{Const_Inst}%f_add_attribute(%SU_%LU_ID,,\
+  ( get_global_var ( 'Const_Inst' ) %f add_attribute %( %S |U '_'
+  %L |U '_ID' %, '' %, 
+//	fm_%f_cut_prefix(%f_pas_TypeName(%L),T) : %{TvcmFormDescriptor}U = \
+  'fm_'
+  [%f] cut_prefix %( [%f] pas_TypeName %( %L )% %, 'T' )% ' : '
+  ( get_global_var ( 'TvcmFormDescriptor' ) |U ) ' = '
+//	(rName : '%f_cut_prefix(%f_pas_TypeName(%L),T)'; rID : 0; rFactory : nil),Attr_Inst)\
+  '(rName : '''
+  [%f] cut_prefix %( [%f] pas_TypeName %( %L )% %, 'T' )% '''; rID : 0; rFactory : nil)' %, 'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Идентификатор формы %f_pas_TypeName(%L))\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Идентификатор формы '
+  [%f] pas_TypeName %( %L )% )% ) 
+//	>\
+ %END-FOR
+
+//	[{%P#f_IsVCMForm()!=true|%S#f_is_virtual()!=true}\
+ %IF ( ( %P %?f IsVCMForm %( )% ) %!=  true %|| 
+   ( ( %S %?f is_virtual %( )% ) %!=  true  ) ) 
+
+// - чтобы избежать дубликатов слов для автосгенерированных идентификаторов форм
+//	%P%f_add_class(%SU_Word,SimpleClass,Tkw_Form_%f_N(%S),Word_Inst)\
+  %P %f add_class %( %S |U '_Word' %, 'SimpleClass' %, 'Tkw_Form_'
+  [%f] N %( %S )% %, 'Word_Inst' )% 
+//	[{"%{TtfwString}N"=""}%f_find_element(TtfwString,TtfwString)]\
+  %IF ( ( ( get_global_var ( 'TtfwString' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'TtfwString' %, 'TtfwString' )% 
+  %END-IF
+//	%{Word_Inst}%f_make_accessable(%{TtfwString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwString' ) |U ) )% ) 
+//	%{Word_Inst}%f_add_inheritable(%{TtfwString}U)\
+  ( get_global_var ( 'Word_Inst' ) %f add_inheritable %( ( get_global_var ( 'TtfwString' ) |U ) )% ) 
+//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
+  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NeedsKeywordDoc' %, true )% ) 
+//	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора формы %SN
+  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для идентификатора формы '
+  %S |N 
+//	----
+  '----'
+//	*Пример использования*:
+  '*Пример использования*:'
+//	\{code\}
+  '{code}'
+//	'aControl' форма::%f_str_replace(%f_N(%S), ,_) TryFocus ASSERT
+  '''aControl'' форма::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% ' TryFocus ASSERT'
+//	\{code\})\
+  '{code}' )% ) 
+//	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+
+
+//	[{"%{TtfwString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwString.GetString)]\
+  %IF ( ( ( get_global_var ( 'TtfwString.GetString' ) |N ) ) %== '' ) 
+   [%f] find_element %( '4DDFD2EA0116' %, 'TtfwString.GetString' )% 
+  %END-IF
+//	%{Word_Inst}%f_add_override(4DDFD2EA0116)\
+  ( get_global_var ( 'Word_Inst' ) %f add_override %( 4 'DDFD2EA0116' )% ) 
+//	%{TtfwString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwString.GetString},%{Word_Inst})_var,\
+  ( get_global_var ( 'TtfwString.GetString' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwString.GetString' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
+//	 {-}\
+  ' {-}'
+//	)\
+)% ) //	%{TtfwString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwString.GetString},%{Word_Inst})_impl,\
+  ( get_global_var ( 'TtfwString.GetString' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwString.GetString' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_impl' %, 
+//	 Result := '%f_cut_prefix(%f_pas_TypeName(%L),T)';\
+  ' Result := '''
+  [%f] cut_prefix %( [%f] pas_TypeName %( %L )% %, 'T' )% ''';'
+//	)
+)% ) 
+
+//	%{Word_Inst}%f_add_operation(%{Word_Inst}U_Ini,ini,Ini (),Op_Instance)\
+  ( get_global_var ( 'Word_Inst' ) %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini ()' %, 'Op_Instance' )% ) 
+//	%{Op_Instance}%f_set_documentation(Регистрация %{Word_Inst}N)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Регистрация '
+  ( get_global_var ( 'Word_Inst' ) |N ) )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_uc_content(intf.pas,,\
+  ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	 %{Word_Inst}N.Register('форма::%f_str_replace(%f_N(%S), ,_)');\
+  ' '
+  ( get_global_var ( 'Word_Inst' ) |N ) '.Register(''форма::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% ''');'
+//	)\
+)% ) //	]
+ %END-IF
+//#UC END# *4B2A19E3038Bfor4BD853F50147*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for4BD853F50147*
+//	%f_N(%S)FormDef
+ [%f] N %( %S )% 'FormDef'
+//#UC END# *4947F8AD02A1for4BD853F50147*
+; // pas_TypeName
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMFormDefinition>>
+

@@ -1,0 +1,240 @@
+// Аналог System.pas и SysUtils.pas
+
+: VOID
+ // - кладёт значение Void на стек
+ VAR l_Void
+ l_Void
+ // - типа так Void на стек кладём
+;
+
+//: [[
+ // - слово начинает определение "константного массива"
+ //array:New
+// VOID
+//;
+
+//: ]]
+ // - слово заканчивает определение "константного массива"
+// ARRAY Tmp
+// array:New >>> Tmp
+ 
+// @ ( DUP IsVoid /*IsArray*/ ! ) WHILE
+// BEGIN
+//  >>>L[] Tmp
+// END
+// DROP
+// Tmp
+//;
+
+: strings:Cat
+ // - складывает строки массива на стеке
+
+ : DoCat STRING IN aStr1 STRING IN aStr2
+  aStr1 aStr2 Cat
+ ;
+ 
+ ARRAY Tmp
+ >>> Tmp
+ '' @ DoCat ITERATE Tmp
+;
+
+: array:HasString [] IN anArray STRING IN aString
+ VAR l_Result
+ false >>> l_Result
+ TRY
+ 
+  : Поиск STRING IN anItem
+   anItem aString SameStr IF
+    true >>> l_Result
+   ENDIF
+  ;
+  
+  @ Поиск ITERATE anArray
+ FINALLY
+  l_Result
+ END
+; //array:HasString
+
+WORDWORKER ++!
+ WordToWork DO 1 + =:^ WordToWork
+;
+
+WORDWORKER --!
+ WordToWork DO 1 - =:^ WordToWork
+;
+
+: array:StringCount [] IN anArray STRING IN aString
+ VAR l_Result
+ 0 >>> l_Result
+ TRY
+ 
+  : Поиск STRING IN anItem
+   anItem aString SameStr IF
+    ++! l_Result
+   ENDIF
+  ;
+  
+  @ Поиск ITERATE anArray
+ FINALLY
+  l_Result
+ END
+; //array:StringCount
+
+// http://mdp.garant.ru/pages/viewpage.action?pageId=284164589
+CONST LLO_AND 1
+CONST LLO_OR 2
+CONST LLO_AND_NOT 3
+CONST LLO_NONE 4
+// http://mdp.garant.ru/pages/viewpage.action?pageId=284164589
+
+: OnTest
+// - ждёт обновления контролов по OnTest
+  3 FOR
+   ProcessMessages
+   application:ActionIdle
+  NEXT
+  // - позволяем пройти всем OnTest
+;
+
+: RunInpharmSearch IN aProc
+ // - запускает поиск по КЗ Инфарма
+ моп::Поиск_Поиск_лекарственного_средства
+ aProc DO
+ Ok
+ OnTest
+ history:DeleteBackItem
+ // - удаляем предыдущий элемент истории (КЗ)
+;
+
+CONST CF_RTF 'Rich Text Format'
+
+: ППР
+ ППР_Prim
+ OnTest
+;
+
+: "ППС Стандартная"
+ ППС_Стандартная_Prim
+ OnTest
+;
+
+: "ППС Преемственная"
+ ППС_Преемственная_Prim
+ OnTest
+;
+
+: "Сравнить текущее исключение с эталоном"
+ VAR l_ClassName
+ current:exception:ClassName >>> l_ClassName
+ l_ClassName .
+ VAR l_Message
+ VAR l_Message_out
+ current:exception:Message >>> l_Message
+ 
+ l_ClassName 'EAssertionFailed' SameText IF
+  l_Message '(' string:Split DROP >>> l_Message
+ ELSE
+  l_ClassName 'EAccessViolation' SameText IF
+   l_Message ' at ' string:Split DROP >>> l_Message
+  ENDIF 
+ ENDIF
+ l_Message 'Главный файл:' string:Split =: l_Message_out =: l_Message
+ l_Message_out '. ' string:Split =: l_Message_out
+ l_Message l_Message_out Cat .
+;
+
+/* {
+: MODAL IN aProc
+ // - обрабатывает aProc в режиме модальности
+ VAR l_WasException
+ false >>> l_WasException
+ TRY
+  TRY
+   aProc DO
+  EXCEPT
+   true >>> l_WasException
+   "Сравнить текущее исключение с эталоном"
+  END 
+ FINALLY
+  l_WasException 'Почему-то перестали хотеть показать модальную форму' ASSERTS
+  // - тут пока объявляем неуспех успехом
+ END 
+ //DROP
+ // - чистим что-то, что залипло на стеке
+;
+} */
+
+: OK_DIALOG IN aProc
+ // ожидает от aProc неудачного диалога с Ok
+ wait:Ok
+ TRY
+  aProc DO
+ FINALLY 
+  VAR l_WasException1
+  false >>> l_WasException1
+  TRY
+   waited:? 'Не дождались диалога' ASSERTS
+  EXCEPT
+   // - тут давим пока исключение
+   true >>> l_WasException1
+   DROP
+   // - чистим что-то, что залипло на стеке
+   "Сравнить текущее исключение с эталоном"
+  END 
+  l_WasException1 'Почему-то перестало лететь исключение при показе диалога' ASSERTS
+ END 
+;
+
+: ASSUME STRING IN aStr
+ // Включает "условную директиву" aStr в тестируемом приложении
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=236719181 №44
+;
+
+: UNASSUME STRING IN aStr
+ // Выключает "условную директиву" aStr в тестируемом приложении
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=236719181 №44
+;
+
+// TFormStyle
+
+CONST fsNormal 0
+CONST fsMDIChild 1 
+CONST fsMDIForm 2
+CONST fsStayOnTop 3
+
+: "Задержка имени Жени Кусакина"
+ 3 LOOP OnTest
+ 200 SLEEP
+ 3 LOOP OnTest
+ // - это шаманство из-за таймера Жени Кусакина
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=296627734
+;
+
+WordAlias "Дождаться переключения вкладок" "Задержка имени Жени Кусакина"
+
+: RunSearch IN aProc
+ // - запускает поиск по КЗ ППР
+
+ OBJECT VAR l_QC
+ : "в поле 'Тип' ввести с операцией" STRING IN aStr INTEGER IN aL
+  aL 'AT_TYPE' aStr l_QC pop:QueryCard:Attribute:SetWithLogicOperation
+ ;
+
+ : "в поле 'Орган/Источник' ввести с операцией" STRING IN aStr INTEGER IN aL
+  aL 'AT_SOURCE' aStr l_QC pop:QueryCard:Attribute:SetWithLogicOperation
+ ; 
+
+ vcm:Dispatcher:Lock
+ TRY
+  ППР
+  focused:control:push >>> l_QC
+  class::TevQueryCardEditor l_QC pop:object:Inherits ASSERT
+  aProc DO
+  Ok
+  OnTest
+  history:DeleteBackItem
+  // - удаляем предыдущий элемент истории (КЗ)
+ FINALLY
+  vcm:Dispatcher:Unlock
+ END
+; // RunSearch 

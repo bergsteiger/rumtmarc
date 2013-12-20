@@ -1,0 +1,107 @@
+----
+Obj type = Document
+Count = 18
+Rect = (0, -300, 7200, 11500)
+MaxLinesCount = 78
+----
+Obj type = TextPara
+Text = 'При предоставлении информации по телекоммуникационным сетям Исполнитель имеет право привлекать к оказанию услуг Заказчику третьих лиц.'
+Rect = (900, 700, 1400, 10800)
+Dim = (9900, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TextPara
+Rect = (1400, 700, 1600, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (1600, 700, 1900, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (1900, 700, 2100, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '* Составляется если информационный блок "Прайм: законодательство, проекты законов и судебная практика" содержит часть "Новостная лента ПРАЙМ" и/или предусматривает дополнительное предоставление информации с использованием информационного блока "Прайм: законодательство, проекты законов и судебная практика" через сеть Интернет.'
+Rect = (2100, 700, 3400, 10800)
+Dim = (9900, 1300)
+MaxLinesCount = 5
+LinesCount = 5
+----
+Obj type = TextPara
+Text = '** Заполняется Заказчиком при выборе им параметров новостной ленты ПРАЙМ.'
+Rect = (3400, 700, 3700, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '*** Заполняется Заказчиком при выборе им дополнительного предоставления информации с использованием информационного блока  "Прайм: законодательство, проекты законов и судебная практика" через сеть Интернет.'
+Rect = (3700, 700, 4500, 10800)
+Dim = (9900, 700)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = TextPara
+Rect = (4500, 700, 4700, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (4700, 700, 4900, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (4900, 700, 5200, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Заказчик:'
+Rect = (5200, 700, 5400, 10700)
+Dim = (5400, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (5400, 700, 5600, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '________________________________________________'
+Rect = (5600, 700, 5900, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Должность                                                   ФИО'
+Rect = (5900, 700, 6200, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (6200, 700, 6400, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Rect = (6400, 700, 6600, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '___________________'
+Rect = (6600, 700, 6900, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'подпись      М.П.'
+Rect = (6900, 700, 7200, 10700)
+Dim = (9900, 200)
+MaxLinesCount = 1

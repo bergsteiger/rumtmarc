@@ -1,0 +1,124 @@
+----
+Obj type = Document
+Count = 1
+Rect = (900, -300, 7200, 11500)
+MaxLinesCount = 19
+----
+Obj type = Block
+Count = 19
+Rect = (1700, 700, 7200, 10600)
+MaxLinesCount = 19
+----
+Obj type = TextPara
+Text = 'Подробнее:'
+Rect = (1700, 700, 2000, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Стороны договора аренды'
+Rect = (2000, 700, 2300, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Существенные условия договора аренды'
+Rect = (2300, 700, 2600, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Объекты аренды'
+Rect = (2600, 700, 2900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Форма договора аренды'
+Rect = (2900, 700, 3200, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Срок договора аренды'
+Rect = (3200, 700, 3500, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Арендная плата'
+Rect = (3500, 700, 3700, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Капитальный и текущий ремонт арендованного имущества'
+Rect = (3700, 700, 4000, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Субаренда'
+Rect = (4000, 700, 4300, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Прекращение договора аренды'
+Rect = (4300, 700, 4600, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Выкуп арендованного имущества'
+Rect = (4600, 700, 4900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Общие положения о договорах'
+Rect = (4900, 700, 5200, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (5200, 700, 5500, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Тема:'
+Rect = (5500, 700, 5800, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Договоры и иные сделки'
+Rect = (5800, 700, 6100, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (6100, 700, 6400, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'См. также (смежные темы)'
+Rect = (6400, 700, 6600, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Безвозмездное пользование'
+Rect = (6600, 700, 6900, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Отличия договоров займа, аренды, ссуды, кредита'
+Rect = (6900, 700, 7200, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1

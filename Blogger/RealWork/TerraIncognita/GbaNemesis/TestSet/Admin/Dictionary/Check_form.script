@@ -1,0 +1,147 @@
+USES
+ WordsTranslation.script
+ WordsTuning.script
+ SysUtils.script
+ Forms.script
+ HLTCLike.script
+;
+
+: "Аккуратно сравнить с эталоном целочисленное свойство объекта" STRING IN aProp OBJECT IN anObj
+ aProp anObj pop:object:HasProp ? ( 
+  STRING VAR l_Value
+  aProp anObj pop:object:GetOrdProp IntToStr >>> l_Value
+  [[ aProp ': ' l_Value ]] strings:Cat . 
+ )
+;
+
+: "Аккуратно сравнить с эталоном объектное свойство объекта" STRING IN aProp OBJECT IN anObj
+ aProp anObj pop:object:HasProp ? ( 
+  STRING VAR l_Value
+  aProp anObj pop:object:GetObjProp pop:object:IsNil IF 'nil' ELSE 'assigned' ENDIF >>> l_Value 
+  [[ aProp ': ' l_Value ]] strings:Cat . 
+ )
+;
+
+: "Аккуратно сравнить с эталоном целочисленные свойства объекта" IN anOrdProps OBJECT IN anObj
+ INTEGER VAR l_Loop
+ 0 >>> l_Loop
+ anOrdProps array:Count раз (
+  "Аккуратно сравнить с эталоном целочисленное свойство {( l_Loop anOrdProps [i] )} объекта {(anObj)}"
+  l_Loop 1 + >>> l_Loop
+ )
+;
+
+: "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров для формы" BOOLEAN IN aToolbar STRING IN aForm
+
+OBJECT FUNCTION "Форма от которой начинаем перебор"
+ "Найти окно по имени {(aForm)}" =: Result  
+ ;
+
+ : Действия_с_контролом OBJECT IN aCtrl
+   aCtrl "Узнать, существует ли объект" ! IF
+   ( 'TvcmDockPanel'  aCtrl pop:object:Inherits )
+   ИЛИ ( 'TvcmToolButtonDef' aCtrl pop:object:Inherits )
+   ИЛИ ( 'TvcmDockDef' aCtrl pop:object:Inherits )
+   ИЛИ ( 'TvcmToolbar' aCtrl pop:object:Inherits ) 
+   ИЛИ ( aCtrl "Узнать имя контрола" РАВНО '' ) IF
+    EXIT
+   ELSE
+     aCtrl .
+    // ( aCtrl  "Имя компонента" РАВНО контрол::ShellInfoLabel  ) 
+    // IF
+    // 'Заголовок не сравниваем' .
+   // ELSE
+     aCtrl "Заголовок контрола" .
+    // ENDIF
+     ( 'TPanel' aCtrl pop:object:Inherits ) 
+     ИЛИ ( aCtrl ЯВЛЯЕТСЯ class::TvtPanel ) IF
+   //  ИЛИ ( aCtrl ЯВЛЯЕТСЯ class::TnscEditor ) IF
+     "Аккуратно сравнить с эталоном целочисленные свойства {( [[ 'BevelWidth' 'BorderStyle' 'BevelOuter' 'BevelInner' ]] )} объекта {(aCtrl)}"
+     ENDIF
+     ( aCtrl "Узнать главную форму" "НЕ ЯВЛЯЕТСЯ" class::TAdminMainForm ) И
+     ( aCtrl "Форма от которой начинаем перебор" ?== ) IF   
+     'Position:' 'Position' aCtrl  "Узнать численную переменную объекта" IntToStr Cat .
+     "Сравнить с эталоном размеры контрола {(aCtrl)}" 
+     ELSE
+      "Получить размеры и координаты контрола {(aCtrl)}"
+     ENDIF // исключаем координаты
+     "Аккуратно сравнить с эталоном целочисленные свойства {( [[ 'TabOrder' 'ImageIndex' 'TabStop' 'Align' 'Anchors' 'BorderWidth' 'ReadOnly' ]] )} объекта {(aCtrl)}"
+     "Аккуратно сравнить с эталоном объектное свойство {('Images')} объекта {(aCtrl)}"
+    ( aCtrl ЯВЛЯЕТСЯ class::TvtLabel ) IF
+    "Аккуратно сравнить с эталоном целочисленное свойство {('Transparent')} объекта {(aCtrl)}"
+    ENDIF // Transparent
+    ( aCtrl ЯВЛЯЕТСЯ class::TnscTreeView )  IF
+   // ИЛИ ( aCtrl ЯВЛЯЕТСЯ class::TnscEditor ) IF
+    'Вертикальный скроллер:' aCtrl "Узнать, есть ли у контрола вертикальный скроллер" ToPrintable Cat .
+    'Горизонтальный скроллер:' aCtrl "Узнать, есть ли у контрола горизонтальный скроллер" ToPrintable Cat .
+    ENDIF // скроллеры для деревьев и редакторов
+
+    ( 'Ttb97MoreButton' aCtrl pop:object:Inherits ) IF
+     'Не сравниваем контекстное меню' .
+    ELSE
+     "Сравнить контекстное меню для контрола {(aCtrl)} для точки {( 0 0 )} с эталоном"
+   ENDIF //  исключаем контекстное меню для Ttb97MoreButton
+  ENDIF // исключаем TvcmDockPanel
+   '---------------' .
+  ENDIF // проверка контрола
+ ; // Действия_с_контролом
+
+ '--------------- Контрол в фокусе: ------------------' .
+ "Контрол в фокусе" .
+ '--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------' .
+ 'Форма:' .
+ "Аккуратно сравнить с эталоном целочисленное свойство {('BorderStyle')} объекта {("Форма от которой начинаем перебор")}" '---------------' .
+ "выполнить для всех контролов {("Форма от которой начинаем перебор")}" Действия_с_контролом 
+
+ aToolbar ? (  '--------------- Содержимое тулбаров: -------------------' .
+ "Сравнить содержимое тулбаров с эталоном полностью" )
+; // "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров для окна
+
+: "Проверить параметры и контекстное меню контролов, содержимое тулбаров для формы" STRING IN aForm
+ "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров {(true)} для формы {(aForm)}"
+; // "Проверить параметры и контекстное меню контролов, содержимое тулбаров для формы"
+
+: "Проверить параметры и контекстное меню контролов для формы" STRING IN aForm
+ "Проверить расширенно параметры и контекстное меню контролов, содержимое тулбаров {(false)} для формы {(aForm)}"
+; // "Проверить параметры и контекстное меню контролов для формы"
+
+: "Подготовить окно Гаранта (запомнить состояние и размеры) к сравнению формы с эталоном и выполнить для ее открытия и сравнения " STRING IN aForm OBJECT IN aProc
+
+   : Сравнить_контролы_и_их_контекстные_меню_с_эталоном
+     aProc DO
+   ; // Сравнить_контролы_и_их_контекстные_меню_с_эталоном
+
+  : Установить_размеры_окну
+   "Выставить форме размеры {( 1150 800 )} и {(@ Сравнить_контролы_и_их_контекстные_меню_с_эталоном )}"
+  ; // Установить_размеры_окну 
+
+ "Сделать {(@ Установить_размеры_окну )} с изменением состояния и размеров окна {("Найти главное окно модуля Администратора")}"
+; // "Подготовить окно Гаранта (запомнить состояние и размеры) к сравнению формы с эталоном и выполнить для ее открытия и сравнения "
+
+:  "Сравнить содержимое тулбара  на форме с эталоном" STRING IN aForm
+
+ : Действия OBJECT IN aObj
+  ( aObj ЯВЛЯЕТСЯ class::TvcmToolbar ) ? (
+   ( aObj pop:control:Visible И ( aObj pop:control:ControlCount БОЛЬШЕ 1 ) ) ? (
+    aObj .
+    'Order = ' 'DockRow' aObj pop:object:GetOrdProp IntToStr Cat .
+    '---------------' .
+    aObj EnumerateControls ( OBJECT IN aControl
+    ( aControl "НЕ ЯВЛЯЕТСЯ" class::Ttb97MoreButton ) ? (
+      aControl .
+      ( aControl "НЕ ЯВЛЯЕТСЯ" class::TvcmComboBox ) ? (
+       aControl pop:control:Caption .
+       'Активность:' aControl "Убедиться, что контрол активен" ToPrintable Cat .
+       '---' . 
+      )
+     )
+    )
+    '' .
+   )
+  )
+ ;
+
+ OBJECT VAR work_form
+ "Найти окно по имени {(aForm)}" >>> work_form
+ work_form "выполнить для всех контролов" Действия
+; // "Сравнить содержимое тулбара  на форме с эталоном"

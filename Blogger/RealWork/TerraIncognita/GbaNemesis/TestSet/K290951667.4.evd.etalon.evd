@@ -1,0 +1,516 @@
+%producer 'ГАРАНТ аэро' date '25.08.2091'
+%format version 0.141 revision date '18/06/2010' 
+: Document = {
+ Width = 11900
+ Height = 16800
+ LeftIndent = 1100
+ RightIndent = 800
+ Paras = {
+  Width = 11900
+  Height = 16800
+  LeftIndent = 1100
+  RightIndent = 800
+  SpaceBefore = 800
+  SpaceAfter = 800
+  Orientation = ev_poPortrait
+ }
+ ExternalHandle = 1155340
+ ShortName = 'Оглавление'
+ Name = 'Решение о председательстве в Совете глав правительств Содружества Независимых Государств (Москва, 25 января 2000 г.)'
+ LineSpacing = 100
+ Style = -1
+ Children = 42
+ : DecorTextPara = {
+  Text = '<60>0>Решение о председательстве в Совете глав правительств Содружества Независимых Государств (Москва, 25 января 2000 г.)<10><10>Класс:<10>  My Class D<10>  Международное право, международные отношения\Содружество независимых государств\Органы СНГ\Совет глав правительств<10><10>Тип:<10>  Решение<10><10>KIND:<10>  Международные договоры'
+ }
+ : = {
+  Handle = 1
+  Style = -3
+  Text = 'Решение<10>о председательстве в Совете глав правительств<10>Содружества Независимых Государств<10>(Москва, 25 января 2000 г.)'
+ }
+ : = {
+ }
+ : Block = {
+  Handle = 10
+  : DecorTextPara = {
+   Text = '<60>10>Специальный блок про семейное право<10><10>Класс:<10>  Семейное право, акты гражданского состояния\Это специально добавленный мой раздел (тема) про семейное право для проверки мониторингов'
+  }
+  : = {
+   Handle = 2
+   Style = -26
+   Text = 'Я специально, для проверки мониторингов присвоил этому блоку в этом топике класс "Семейное право, акты гражданского состояния\Это специально добавленный мой раздел (тема) про семейное право для проверки мониторингов". Там, кажется, что-то будет фильтроваться.'
+  }
+ }
+ : = {
+ }
+ : = {
+  Handle = 3
+  Style = -1
+  Text = 'В соответствии с Решением Совета глав государств Содружества о порядке председательства в органах Содружества Независимых Государств от 2 апреля 1999 года Совет глав правительств Содружества решил:'
+ }
+ : = {
+  Handle = 4
+  Style = -1
+  Text = 'продолжить председательство в Совете глав правительств Содружества Украины в лице ее Премьер-министра Ющенко Виктора Андреевича.'
+ }
+ : = {
+ }
+ : = {
+  Handle = 5
+  Style = -1
+  Text = 'Совершено в городе Москве 25 января 2000 года в одном подлинном экземпляре на русском языке. Подлинный экземпляр хранится в Исполнительном комитете Содружества Независимых Государств, который направит каждому государству, подписавшему настоящее Решение, его заверенную копию.'
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 6
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 7
+     Style = -16
+     Text = 'Азербайджанской Республики'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 8
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 9
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 10
+     Style = -16
+     Text = 'Республики Армения'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 11
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 12
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 13
+     Style = -16
+     Text = 'Республики Беларусь'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 14
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 15
+     Style = -16
+     Text = 'За Правительство Грузии'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 16
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 17
+     Style = -16
+     Text = 'За Правительство Республики'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 18
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 19
+     Style = -16
+     Text = 'Казахстан'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 20
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 21
+     Style = -16
+     Text = 'Кыргызской Республики'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 22
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 23
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 24
+     Style = -16
+     Text = 'Республики Молдова'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 25
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 26
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 27
+     Style = -16
+     Text = 'Российской Федерации'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 28
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 29
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 30
+     Style = -16
+     Text = 'Республики Таджикистан'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 31
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 32
+     Style = -16
+     Text = 'За Правительство Туркменистана'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 33
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 34
+     Style = -16
+     Text = 'За Правительство'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+    }
+   }
+  }
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 35
+     Style = -16
+     Text = 'Республики Узбекистан'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 36
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+ : SBS = {
+  : = {
+   Children = 2
+   : = {
+    Width = 6803
+    : TextPara = {
+     Handle = 37
+     Style = -16
+     Text = 'За Правительство Украины'
+    }
+   }
+   : = {
+    Width = 3401
+    : TextPara = {
+     Handle = 38
+     FirstIndent = 0
+     Justification = ev_itRight
+     Text = '/подпись/'
+    }
+   }
+  }
+ }
+ : = {
+ }
+}
+ 

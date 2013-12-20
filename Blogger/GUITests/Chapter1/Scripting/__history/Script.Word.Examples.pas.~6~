@@ -1,0 +1,22 @@
+unit Script.Word.Examples;
+
+interface
+
+uses
+ Script.Word
+ ;
+
+type
+ TscriptWordExample1 = class(TscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+ end;//TscriptWordExample1
+
+ TscriptWordExample2 = class(TscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+ end;//TscriptWordExample2
+
+implementation
+
+end.

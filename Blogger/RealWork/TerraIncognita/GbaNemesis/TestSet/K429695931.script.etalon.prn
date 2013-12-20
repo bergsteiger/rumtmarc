@@ -1,0 +1,11 @@
+Editor : TevQueryCardEditor
+enQueryCard : TenQueryCard
+ParentZone : TvtPanel
+cfSaveLoad : TcfSaveLoad
+ParentZone : TvtPanel
+ParentForm : TParentForm
+ParentZonePanel : TvtPanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow

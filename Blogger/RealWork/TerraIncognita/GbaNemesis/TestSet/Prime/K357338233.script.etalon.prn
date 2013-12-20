@@ -1,0 +1,10 @@
+tvPostings : TeeTreeView
+enPostingsList : TenPostingsList
+ : TElTabSheet
+LeftNavigator : _nscPageControl_
+ : TnpContainerSurface
+ : TnpSurface
+LeftNavigator : TnscNavigator
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+MonitoringsMainForm : TMonitoringsMainForm

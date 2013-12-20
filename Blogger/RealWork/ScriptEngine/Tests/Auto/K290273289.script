@@ -1,0 +1,20 @@
+USES
+ HLTCLike.script
+; 
+
+: K290273289
+ "Импортировать консультацию, проверить наличие баллона и текст консультации"
+ 12 LOOP "Перейти к следующей ссылке"
+ // 12 раз "Перейти к следующей ссылке"
+ //http://mdp.garant.ru/pages/viewpage.action?pageId=236719181 #54
+ "Перейти по текущей ссылке"
+ TRY
+  OnTest
+  "Назад по истории"
+ FINALLY 
+  ОМ
+  // - чтобы уж огрести Assert(not Tk2OperationContainer.CheckWasExceptionInFreeInOwner);
+ END 
+;
+
+K290273289

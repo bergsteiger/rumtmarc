@@ -1,0 +1,360 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Typedef.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Typedef
+//
+// Тип
+// ---
+// Декларация типа определяет производный тип как копию исходного. Исходный задаются как базовый
+// класс (связь наследования).
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Typedef::Class
+implementation @ <<Typedef>>
+//? Тип
+//? Декларация типа определяет производный тип как копию исходного. Исходный задаются как базовый класс (связь наследования).
+//> Iterator::Class
+//> Const Iterator::Class
+
+//= InterfaceGenerator::MDAGenerator
+//= Генерация JavaScript::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_typedef.gif
+//L code_typedef
+// Параметры визуализации
+//$ C 240,230,210
+//$ l 100,75,35
+//$ f 100,75,35
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+//p is default ancestor:b=false ? является ли предком по-умолчанию
+//p newRTTI:b=false ? генерировать ли новые данные для RTTI
+//p isPointer:b=false ? Является ли TypeDef указателем на тип, а не самим типом (для переноса существующего кода).
+//p isClassRef:b=false ? Определяет, что тип является ссылкой на класс.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+ ?inherited
+ %IF ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) 
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - явно определяет, что элемент будет кем-то использован (нужно для проверки)'
+//	][{"%S{is default ancestor}"!="%S{!is default ancestor}"}%f_up_prefix(%S) *is default ancestor* = *%S{is default ancestor}* - является ли предком по-умолчанию
+ %END-IF
+ %IF ( ( %S get_up ( 'is default ancestor' ) ) %!= ( %S get_up_def ( 'is default ancestor' ) ) ) 
+  [%f] up_prefix %( %S )% ' *is default ancestor* = *'
+  %S get_up ( 'is default ancestor' ) '* - является ли предком по-умолчанию'
+//	][{"%S{newRTTI}"!="%S{!newRTTI}"}%f_up_prefix(%S) *newRTTI* = *%S{newRTTI}* - генерировать ли новые данные для RTTI
+ %END-IF
+ %IF ( ( %S get_up ( 'newRTTI' ) ) %!= ( %S get_up_def ( 'newRTTI' ) ) ) 
+  [%f] up_prefix %( %S )% ' *newRTTI* = *'
+  %S get_up ( 'newRTTI' ) '* - генерировать ли новые данные для RTTI'
+//	][{"%S{isPointer}"!="%S{!isPointer}"}%f_up_prefix(%S) *isPointer* = *%S{isPointer}* - Является ли TypeDef указателем на тип, а не самим типом (для переноса существующего кода).
+ %END-IF
+ %IF ( ( %S get_up ( 'isPointer' ) ) %!= ( %S get_up_def ( 'isPointer' ) ) ) 
+  [%f] up_prefix %( %S )% ' *isPointer* = *'
+  %S get_up ( 'isPointer' ) '* - Является ли TypeDef указателем на тип, а не самим типом (для переноса существующего кода).'
+//	][{"%S{isClassRef}"!="%S{!isClassRef}"}%f_up_prefix(%S) *isClassRef* = *%S{isClassRef}* - Определяет, что тип является ссылкой на класс.
+ %END-IF
+ %IF ( ( %S get_up ( 'isClassRef' ) ) %!= ( %S get_up_def ( 'isClassRef' ) ) ) 
+  [%f] up_prefix %( %S )% ' *isClassRef* = *'
+  %S get_up ( 'isClassRef' ) '* - Определяет, что тип является ссылкой на класс.'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for470F144E000F*
+//c                              {}
+//r {<{}{}{%GC}>!=1}: {%SS должен наследоваться от одного типа}
+//r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}:                                                            {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+//r {%Cx=true&%t_is_container(%G)=false&%f_check_if_type(%G,"a-string")=false&%f_check_if_type(%G,"a-wstring")=false}:            {%SS может определять итераторы, только если является контэйнером (в том числе и a-string/a-wstring)}
+//r {%M{force usage}=false&%S{force usage}=false&%S{is default ancestor}=false&%ax=false}:                                        {%SS ни кем не используется}
+
+//#UC END# *4704C0E30186for470F144E000F*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470F144E000F*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ %IF-NOT-EMPTY
+  out_indent %S %f open_ifdef %( )% 
+//	]#typedef %f_type(%G) %SN;[{%GN=string}
+ %END-IF
+ out_indent 'typedef '
+ [%f] type %( %G )% ' '
+ %S |N ';'
+ %IF ( ( %G |N ) %== 'string' ) 
+
+//	#typedef const char* %SN_const;
+  out_indent 'typedef const char* '
+  %S |N '_const;'
+//	][{%t_interface(%G)=true}
+ %END-IF
+ %IF ( ( [%t] interface %( %G )% ) %==  true ) 
+
+//	#typedef %G<%NN::>%GN_var %SN_var;
+  out_indent 'typedef '
+  %G
+  %FOR %N |N '::' 
+  %END-FOR
+   %G |N '_var '
+  %S |N '_var;'
+//	#typedef %G<%NN::>%GN_cvar %SN_cvar;][
+  out_indent 'typedef '
+  %G
+  %FOR %N |N '::' 
+  %END-FOR
+   %G |N '_cvar '
+  %S |N '_cvar;' 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ %END-IF
+
+
+//+ dll.h
+; // h
+
+<<generator>> dll.h OBJECT IN %S
+//	[{%f_need_tie(%G)=true}[#%S%f_open_ifdef()
+ %IF ( ( [%f] need_tie %( %G )% ) %==  true ) 
+  %IF-NOT-EMPTY
+   out_indent %S %f open_ifdef %( )% 
+//	]#typedef %f_type(%G) I%SN_tie;
+  %END-IF
+  out_indent 'typedef '
+  [%f] type %( %G )% ' I'
+  %S |N '_tie;'
+//	#typedef %f_str_replace(%f_type(%G),I%GN_tie,%GN_tie) %SN_tie;[
+  out_indent 'typedef '
+  [%f] str_replace %( [%f] type %( %G )% %, 'I'
+  %G |N '_tie' %, %G |N '_tie' )% ' '
+  %S |N '_tie;'
+  %IF-NOT-EMPTY
+
+//	#%S%f_close_ifdef()]]
+   out_indent %S %f close_ifdef %( )% 
+  %END-IF
+ %END-IF
+//#UC END# *47022C88029Ffor470F144E000F*
+; // dll.h
+
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F144E000F*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#typedef %G<%NN::>%GN %SN;
+ out_indent 'typedef '
+ %G
+ %FOR %N |N '::' 
+ %END-FOR
+  %G |N ' '
+ %S |N ';'
+//#UC END# *47022BBE0261for470F144E000F*
+; // idl
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor470F144E000F*
+//	[{%SV!=PublicAccess}[%f_with_gen_id(intf.pas,%SX)\n]]
+ %IF ( ( %S |V ) %!= 'PublicAccess' ) 
+  %IF-NOT-EMPTY
+   [%f] with_gen_id %( 'intf.pas' %, %S |X )% #13#10 
+  %END-IF
+ %END-IF
+//#UC END# *470F15B800CBfor470F144E000F*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F144E000F*
+//F [%SX\n]
+//	[{%SN!=IUnknown&%SN!=BOOL&%SN!=Boolean&%SN!=Integer&%SN!=Pointer&%SN!=Cardinal}\
+ %IF ( ( %S |N ) %!= 'IUnknown' %&& 
+   ( ( %S |N ) %!= 'BOOL'  ) %&& 
+   ( ( %S |N ) %!= 'Boolean'  ) %&& 
+   ( ( %S |N ) %!= 'Integer'  ) %&& 
+   ( ( %S |N ) %!= 'Pointer'  ) %&& 
+   ( ( %S |N ) %!= 'Cardinal'  ) ) 
+//	[{%f_exists_in_list(GENERATED_INTF,S)!=true}\
+  %IF ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, 'S' )% ) %!=  true ) 
+//	[{%f_exists_in_list(FORWARDED_INTF,S)!=true}\
+   %IF ( ( [%f] exists_in_list %( 'FORWARDED_INTF' %, 'S' )% ) %!=  true ) 
+//	%f_add_to_list(GENERATED_INTF,S)\
+    [%f] add_to_list %( 'GENERATED_INTF' %, 'S' )% 
+//	%f_add_to_list(FORWARDED_INTF,S)\
+    [%f] add_to_list %( 'FORWARDED_INTF' %, 'S' )% 
+//	%f_pas_OpenType(%S)\
+    [%f] pas_OpenType %( %S )% 
+//	[#%S%f_open_ifdef()\n]\
+    %IF-NOT-EMPTY
+     out_indent %S %f open_ifdef %( )% #13#10 
+    %END-IF
+//	[{%t_interface(%G)=true}\
+    %IF ( ( [%t] interface %( %G )% ) %==  true ) 
+//	[{%f_pas_IsSameUnit(%S,%G)=true}\
+     %IF ( ( [%f] pas_IsSameUnit %( %S %, %G )% ) %==  true ) 
+//	%GF\
+      %G |F 
+//	]\
+     %END-IF
+//	]\
+    %END-IF
+//	#%f_pas_TypeName(%S) = \
+    out_indent [%f] pas_TypeName %( %S )% ' = '
+//	[{%S{newRTTI}=true}type ]\
+    %IF ( ( %S get_up ( 'newRTTI' ) ) %==  true ) 
+     'type ' 
+    %END-IF
+//	[{%S{isPointer}=true}^]\
+    %IF ( ( %S get_up ( 'isPointer' ) ) %==  true ) 
+     '^' 
+    %END-IF
+//	[{%S{isClassRef}=true}class of ]\
+    %IF ( ( %S get_up ( 'isClassRef' ) ) %==  true ) 
+     'class of ' 
+    %END-IF
+//	[{%S{isPointer}!=true}[%f_pas_AncestorPrefix(%S).]]\
+    %IF ( ( %S get_up ( 'isPointer' ) ) %!=  true ) 
+     %IF-NOT-EMPTY
+      [%f] pas_AncestorPrefix %( %S )% '.' 
+     %END-IF
+    %END-IF
+//	%f_pas_TypeName(%G);\
+    [%f] pas_TypeName %( %G )% ';'
+//	[\n# \{* %SD \}]\
+    %IF-NOT-EMPTY
+     #13#10
+     out_indent ' {* '
+     %S |D ' }' 
+    %END-IF
+//	[\n#%S%f_close_ifdef()]\
+    %IF-NOT-EMPTY
+     #13#10
+     out_indent %S %f close_ifdef %( )% 
+    %END-IF
+//	]\
+   %END-IF
+
+//	{%f_exists_in_list(FORWARDED_INTF,S)!=true}
+//	]\
+  %END-IF
+
+//	{%f_exists_in_list(GENERATED_INTF,S)!=true}
+//	]
+ %END-IF
+//	[{%SN!=IUnknown&%SN!=BOOL&%SN!=Boolean&%SN!=Integer&%SN!=Pointer&%SN!=Cardinal}
+//#UC END# *470F1571031Cfor470F144E000F*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F144E000F*
+//F [{%t_interface(%S)=true}%S%f_interface_typedef_dump()]
+//	[{%t_interface(%S)!=true}[%f_pas_OpenType(%S)\n]\
+ %IF ( ( [%t] interface %( %S )% ) %!=  true ) 
+  %IF-NOT-EMPTY
+   [%f] pas_OpenType %( %S )% #13#10 
+  %END-IF
+//	%f_docs(%S)\
+  [%f] docs %( %S )% 
+//	#P%SN = ^T%SN;
+  out_indent 'P'
+  %S |N ' = ^T'
+  %S |N ';'
+//	#T%SN = %f_type(%G);]
+  out_indent 'T'
+  %S |N ' = '
+  [%f] type %( %G )% ';' 
+ %END-IF
+
+//%f _interface_typedef_dump
+; // pas
+
+: interface_typedef_dump OBJECT IN %S
+//	[%f_pas_OpenType(%S)\n]\
+ %IF-NOT-EMPTY
+  [%f] pas_OpenType %( %S )% #13#10 
+ %END-IF
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#%f_type(%S) = %f_type(%G);
+ out_indent [%f] type %( %S )% ' = '
+ [%f] type %( %G )% ';'
+//	#
+ out_indent 
+//	#
+ out_indent 
+//#UC END# *470F152700FAfor470F144E000F*
+; // interface_typedef_dump
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for470F144E000F*
+//G %PU
+//#UC END# *46E6D4BB0339for470F144E000F*
+; // wiki
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Typedef>>
+

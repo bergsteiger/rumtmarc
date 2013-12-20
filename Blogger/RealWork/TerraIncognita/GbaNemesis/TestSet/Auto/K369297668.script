@@ -1,0 +1,31 @@
+// Разработчик: Селянкин Владимир
+
+: K369297668
+
+ ТБ24
+ "Список фармацевтических фирм"
+
+ OBJECT VAR "Список фирм"
+ focused:control:push pop:control:GetAnotherParentForm =: "Список фирм"
+
+ OBJECT VAR "Комбобокс"
+ 'bt_enMedicFirmList_opCountryFilter' "Список фирм" pop:control:FindControlByName =: "Комбобокс"
+
+ "Комбобокс" pop:control:SetFocus ASSERT
+ 2 раза ( 
+  "Нажать {('Down')}"
+  "Дождаться переключения вкладок" 
+ )
+ "Нажать {('Enter')}"
+ оп::Список_(контекстные_операции)_Открыть_текущий_список_в_новом_окне
+
+ TRY
+  "Сравнить текущий список с эталоном"
+ FINALLY
+  VAR l_Main 0 >>> l_Main
+  "Сохранить активное окно" >>> l_Main 
+  l_Main "Закрыть сохраненное окно"
+ END
+;
+
+K369297668

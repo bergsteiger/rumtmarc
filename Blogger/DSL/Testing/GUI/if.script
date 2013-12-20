@@ -1,0 +1,26 @@
+: SIGN
+    DUP >0 IF 'онкнфхрекэмне вхякн' . DROP
+           ELSE =0
+             IF 'мнкэ' .
+             ELSE 'нрпхжюрекэмне вхякн' .
+             ENDIF
+           ENDIF 
+;
+
+: SIGN1 
+   ?DUP =0 IF
+     'мнкэ' .
+   ELSE
+     >0 IF
+     'онкнфхрекэмне вхякн' . ELSE
+     'нрпхжюрекэмне вхякн' . ENDIF
+   ENDIF
+;
+
+-1 SIGN
+0 SIGN
+1 SIGN
+
+-1 SIGN1
+0 SIGN1
+1 SIGN1

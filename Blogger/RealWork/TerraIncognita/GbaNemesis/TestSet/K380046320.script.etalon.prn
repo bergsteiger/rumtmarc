@@ -1,0 +1,26 @@
+Справка к списку [Запрещён] enList_opListInfo
+Сортировать список [Запрещён] enList_opSort
+ по юридической силе [Запрещён] 
+ по дате издания [Запрещён] 
+ по дате последнего изменения [Запрещён] 
+Установить направление сортировки [Запрещён] enList_opSortDirection
+-
+Справка к документу [Запрещён] enDocument_opGetRelatedDocFrmAct
+Аннотация [Запрещён] enDocument_opGetAnnotationDocFrmAct
+Ссылки на документ [Запрещён] enDocument_opGetCorrespondentList
+Ссылки из документа [Запрещён] enDocument_opGetRespondentList
+Информация о документе [Запрещён] enDocument_opGetAttributesFrmAct
+Похожие документы [Запрещён] enDocument_opSimilarDocuments
+Графическая копия официальной публикации [Запрещён] enDocument_opGetGraphicImage
+-
+Установить закладку...
+Список закладок...
+Комментарии
+ Скрыть комментарии ГАРАНТа
+ Выключить информацию об изменениях документа
+ Скрыть мои комментарии
+-
+Предыдущая редакция [Запрещён] enRedactions_opPrevRedaction
+Актуальная редакция [Запрещён] enRedactions_opActualRedaction
+Следующая редакция [Запрещён] enRedactions_opNextRedaction
+Список редакций [Запрещён] enRedactions_opOpenRedactionListFrmAct

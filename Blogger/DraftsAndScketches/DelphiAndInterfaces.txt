@@ -1,0 +1,58 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<span style="font-family: inherit;">Пост вот - <a href="http://blogs.embarcadero.com/vsevolodleonov/2013/12/13/bad_gui_in_delph/">http://blogs.embarcadero.com/vsevolodleonov/2013/12/13/bad_gui_in_delph/</a></span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Хочется сказать - "пост ни о чём".</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Простите за "резкость".</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Delphi - тут не причём.</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Самый УЖАСНЫЕ интерфейсы знаете какие я видел?</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">На MFC.</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">А самые ПРЕКРАСНЫЕ?</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Опять же - на MFC.</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">И на QT - "хрень" делают. И НЕ "хрень" - тоже.</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Просто - Delphi'стов - было МАССОВО. "На коленке".&nbsp;</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">И - ДА - не привлекали нормальных дизайнеров и специалистов по UI.</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Хотя если вон взять скажем AQTime - ведь - БОЛЕЕ ЧЕМ ДОСТОЙНЫЙ интерфейс.</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">А есть ещё и ИГРЫ на Delphi. Более чем достойные.</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">В общем - поделился своим мнением. Если интересно.</span><br />
+<span style="font-family: inherit;"><br /></span>
+И кстати - ГАРАНТ, который написан на Delphi и в котором "я тоже участвовал" - имеет ХОРОШИЙ интерфейс.<br />
+<br />
+И что уж... Консультант-Плюс, который написан на MFC, если я не ошибаюсь - тоже имеет ХОРОШИЙ интерфейс.<br />
+<br />
+И кстати САМА Delphi написанная на Delphi - имеет ХОРОШИЙ интерфейс. ОТВЕЧАЮЩИЙ решаемым ЗАДАЧАМ.<br />
+<br />
+(Правда по мне - XE5 стала "хуже", чем Delphi 7, но это моё частное мнение)<br />
+<br />
+Так что "средство разработки" и "качество интерфейса" - ВЕЩИ - очень СЛАБО взаимосвязанные.<br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">А что до цитаты "<span style="background-color: white; line-height: 20px;">В
+ до-дельфийском Borland C++4.x заготовка шаблона диалогового окна 
+подразумевала вертикальное расположение кнопок [Ok] [Cancel] справа. В 
+Delphi можно было кнопки размещать как угодно. Можно ли это считать 
+провокацией? Ровно настолько, насколько таковой считается «свобода» в 
+общем представлении и «гибкость» в сфере инструментов для разработки 
+ПО." - что я хочу сказать про эту цитату?</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;"><br /></span></span>
+<span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;"><b>Я</b> ПЕРВЫЙ, кто ЗА "битьё по рукам".<br />
+  </span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;"><br /></span></span><span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;">
+Но только это БИТЬЁ ПО РУКАМ <b>не</b> РАЗРАБОТЧИКОВ, а ЗАКАЗЧИКОВ и МАРКЕТОЛОГОВ.</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;"><br /></span></span>
+<span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;">Поймите меня ПРАВИЛЬНО.</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;"><br /></span></span><span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;">
+Но я - ЗА!</span></span><br />
+<span style="line-height: 20px;"><br /></span><span style="font-family: inherit;"><span style="line-height: 20px;">Кстати - "пример удачного битья по рукам" это - политика Apple. И стараниями этой политики там приложения - более менее - ЕДИНООБРАЗНЫЕ.</span></span><br />
+<br />
+<span style="font-family: inherit;"><span style="background-color: white; line-height: 20px;"><br /></span></span></div>

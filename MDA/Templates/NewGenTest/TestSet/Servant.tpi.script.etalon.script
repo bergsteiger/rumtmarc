@@ -1,0 +1,2808 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/Servant.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::Servant
+//
+// Сервант
+// ---
+// Класс реализации какого-либо интерфейса. Сервант обязан реализовывать один или несколько
+// интерфейсов. Сам или косвенно через наследование от других сервантов. Сервант может определять
+// собственные данные и методы (не реализующие интерфейс) а так же вложенные типы. Пользовательские
+// свойства могут определять наличие или отсутствие у серванта дефолтного конструктора, является ли
+// сервант синглетоном (т.е. в системе может существовать только один объект данного класса),
+// использование ПУЛА (одного из двух типов), дополнительную генерацию ЛОГИРОВАНИЯ всех операцй
+// серванта. также можно указать что сервант является ЛОКАЛЬНЫМ СУПЕРВИЗОРОМ - в этом случае ему
+// будут доступны все скрытые части всех других классов существующих в его неймспейсе.
+// "Абстрактный" сервант - не может быть создан (т.е. должен использоваться как примесь).
+// "Финальный" сервант, напротив не может быть использован в качестве базового класса.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Servant::Class
+implementation @ <<Servant>>
+//? Сервант
+//? Класс реализации какого-либо интерфейса. Сервант обязан реализовывать один или несколько интерфейсов. Сам или косвенно через наследование от других сервантов. Сервант может определять собственные данные и методы (не реализующие интерфейс) а так же вложенные типы. Пользовательские свойства могут определять наличие или отсутствие у серванта дефолтного конструктора, является ли сервант синглетоном (т.е. в системе может существовать только один объект данного класса), использование ПУЛА (одного из двух типов), дополнительную генерацию ЛОГИРОВАНИЯ всех операцй серванта. также можно указать что сервант является ЛОКАЛЬНЫМ СУПЕРВИЗОРОМ - в этом случае ему будут доступны все скрытые части всех других классов существующих в его неймспейсе. "Абстрактный" сервант - не может быть создан (т.е. должен использоваться как примесь). "Финальный" сервант, напротив не может быть использован в качестве базового класса.
+//> CustomFactory::Class
+
+//= ClassBase::Class
+//= IDLImpl::Class
+//= AbstractImplInclude::Class
+//= Java::MDAGenerator
+//= C++ Фабрики::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#
+// - типы видимости
+//a raf
+// - тип абстракции
+//Y code_servant.gif
+//L code_servant
+// Параметры визуализации
+//$ C 195,245,195
+//$ l 10,195,10
+//$ f 10,195,10
+//d 1
+// - может иметь унаследованную реализацию
+//W true
+// - может быть параметризован
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p Servant Pool=none|obj|mem ? определяет Пулл используемый для создания экземпляров серванта.  obj - PoolObjectManager (объектный пулл - кеширует сами экземпляры объектов); mem - PoolMemoryManager (пул памяти - кеширует память под объекты)
+//p singleton:b=false ? определяет что сервант является синглетоном
+//p debug log:b=false ? включает генерацию вывода в лог обращений ко всем методам серванта
+//p local supervisor:b=false ? определяет что данный сервант имет доуступ ко всем закрытым частям других классов своего пакета
+//p Factory default impl:b=true ? включает генерацию дефолтной реализации фабричных методов - вызов напрямую перенаправляется в соответствующий конструктор серванта. При включенной данной опции наличее не дефолтных на моделе запрещенно, вместо этого все конструкторы будут генериться а основе сигнатуры фабричных методов.
+//p Factory auto reg:b=true ? генерация кода регистрации фабрики в секции регистрации всех используемых в приложении фабрик
+//p factory priority:s=0 ? Опеределяет приоритет для фабрики данного серванта (используется при регистрации  фабрики серванта в менеджере фабрик). Если интерфейс реализуюется несколькими сервантами, то будет выбрана реализация с большим приоритетом. Если два серванта имеют одинаковый приоритет при регистрации их фабрик будет сгенерированно исключение.
+//p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+//p TODO:s ? напоминалка что-то сделать
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{Servant Pool}"!="%S{!Servant Pool}"}%f_up_prefix(%S) *Servant Pool* = *%S{Servant Pool}* - определяет Пулл используемый для создания экземпляров серванта.  obj - PoolObjectManager (объектный пулл - кеширует сами экземпляры объектов); mem - PoolMemoryManager (пул памяти - кеширует память под объекты)
+ ?inherited
+ %IF ( ( %S get_up ( 'Servant Pool' ) ) %!= ( %S get_up_def ( 'Servant Pool' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Servant Pool* = *'
+  %S get_up ( 'Servant Pool' ) '* - определяет Пулл используемый для создания экземпляров серванта.  obj - PoolObjectManager (объектный пулл - кеширует сами экземпляры объектов); mem - PoolMemoryManager (пул памяти - кеширует память под объекты)'
+//	][{"%S{singleton}"!="%S{!singleton}"}%f_up_prefix(%S) *singleton* = *%S{singleton}* - определяет что сервант является синглетоном
+ %END-IF
+ %IF ( ( %S get_up ( 'singleton' ) ) %!= ( %S get_up_def ( 'singleton' ) ) ) 
+  [%f] up_prefix %( %S )% ' *singleton* = *'
+  %S get_up ( 'singleton' ) '* - определяет что сервант является синглетоном'
+//	][{"%S{debug log}"!="%S{!debug log}"}%f_up_prefix(%S) *debug log* = *%S{debug log}* - включает генерацию вывода в лог обращений ко всем методам серванта
+ %END-IF
+ %IF ( ( %S get_up ( 'debug log' ) ) %!= ( %S get_up_def ( 'debug log' ) ) ) 
+  [%f] up_prefix %( %S )% ' *debug log* = *'
+  %S get_up ( 'debug log' ) '* - включает генерацию вывода в лог обращений ко всем методам серванта'
+//	][{"%S{local supervisor}"!="%S{!local supervisor}"}%f_up_prefix(%S) *local supervisor* = *%S{local supervisor}* - определяет что данный сервант имет доуступ ко всем закрытым частям других классов своего пакета
+ %END-IF
+ %IF ( ( %S get_up ( 'local supervisor' ) ) %!= ( %S get_up_def ( 'local supervisor' ) ) ) 
+  [%f] up_prefix %( %S )% ' *local supervisor* = *'
+  %S get_up ( 'local supervisor' ) '* - определяет что данный сервант имет доуступ ко всем закрытым частям других классов своего пакета'
+//	][{"%S{Factory default impl}"!="%S{!Factory default impl}"}%f_up_prefix(%S) *Factory default impl* = *%S{Factory default impl}* - включает генерацию дефолтной реализации фабричных методов - вызов напрямую перенаправляется в соответствующий конструктор серванта. При включенной данной опции наличее не дефолтных на моделе запрещенно, вместо этого все конструкторы будут генериться а основе сигнатуры фабричных методов.
+ %END-IF
+ %IF ( ( %S get_up ( 'Factory default impl' ) ) %!= ( %S get_up_def ( 'Factory default impl' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Factory default impl* = *'
+  %S get_up ( 'Factory default impl' ) '* - включает генерацию дефолтной реализации фабричных методов - вызов напрямую перенаправляется в соответствующий конструктор серванта. При включенной данной опции наличее не дефолтных на моделе запрещенно, вместо этого все конструкторы будут генериться а основе сигнатуры фабричных методов.'
+//	][{"%S{Factory auto reg}"!="%S{!Factory auto reg}"}%f_up_prefix(%S) *Factory auto reg* = *%S{Factory auto reg}* - генерация кода регистрации фабрики в секции регистрации всех используемых в приложении фабрик
+ %END-IF
+ %IF ( ( %S get_up ( 'Factory auto reg' ) ) %!= ( %S get_up_def ( 'Factory auto reg' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Factory auto reg* = *'
+  %S get_up ( 'Factory auto reg' ) '* - генерация кода регистрации фабрики в секции регистрации всех используемых в приложении фабрик'
+//	][{"%S{factory priority}"!="%S{!factory priority}"}%f_up_prefix(%S) *factory priority* = *%S{factory priority}* - Опеределяет приоритет для фабрики данного серванта (используется при регистрации  фабрики серванта в менеджере фабрик). Если интерфейс реализуюется несколькими сервантами, то будет выбрана реализация с большим приоритетом. Если два серванта имеют одинаковый приоритет при регистрации их фабрик будет сгенерированно исключение.
+ %END-IF
+ %IF ( ( %S get_up ( 'factory priority' ) ) %!= ( %S get_up_def ( 'factory priority' ) ) ) 
+  [%f] up_prefix %( %S )% ' *factory priority* = *'
+  %S get_up ( 'factory priority' ) '* - Опеределяет приоритет для фабрики данного серванта (используется при регистрации  фабрики серванта в менеджере фабрик). Если интерфейс реализуюется несколькими сервантами, то будет выбрана реализация с большим приоритетом. Если два серванта имеют одинаковый приоритет при регистрации их фабрик будет сгенерированно исключение.'
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+ %END-IF
+ %IF ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций Юзер-Кода'
+//	][{"%S{TODO}"!="%S{!TODO}"}%f_up_prefix(%S) *TODO* = *%S{TODO}* - напоминалка что-то сделать
+ %END-IF
+ %IF ( ( %S get_up ( 'TODO' ) ) %!= ( %S get_up_def ( 'TODO' ) ) ) 
+  [%f] up_prefix %( %S )% ' *TODO* = *'
+  %S get_up ( 'TODO' ) '* - напоминалка что-то сделать'
+//	]
+ %END-IF
+
+// выводит список наследования
+//%f _base_class_decl
+; // wiki_up_print
+
+: base_class_decl OBJECT IN %S
+//#UC START# *47145120007Dfor47144D340251*
+//	<{\n	, }{%RS!=ServerFacet&%RS!=ServerInterface}virtual public [{%f_use_as_srv_type(%{SERV})=false}{[{%f_use_as_srv_type(%R)=true}{%f_type(%R)%f_dump_parameterized_list(%R)}%f_dump_base_poa(%R)]}%f_type(%R)%f_dump_parameterized_list(%R)]>\
+ %FOR %ITEM-SEPARATOR #13#10'	, ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %R |S ) %!= 'ServerFacet' %&& 
+   ( ( %R |S ) %!= 'ServerInterface'  ) ) 
+  'virtual public '
+  %IF ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  false ) 
+   %ELSE
+    %IF ( ( [%f] use_as_srv_type %( %R )% ) %==  true ) 
+     %ELSE
+      [%f] type %( %R )% [%f] dump_parameterized_list %( %R )% 
+     %THEN
+     [%f] dump_base_poa %( %R )% 
+    %END-IF
+   %THEN
+   [%f] type %( %R )% [%f] dump_parameterized_list %( %R )% 
+  %END-IF
+ %END-FOR
+//	%f_set_var(FACET_COUNT,"<{}{%RS=ServerFacet|%RS=ServerInterface}{C}>")[{%{FACET_COUNT}N!=0&%f_realize_more_than_one_facet(%{SERV})=true}[{<{}{%RS!=ServerFacet&%RS!=ServerInterface}{C}>!=0}\n\t, ]virtual public %f_dump_base_poa(%{SERV})Combine]\
+ [%f] set_var %( 'FACET_COUNT' %, 
+ %FOR %ITEM-CONDITION ( ( %R |S ) %== 'ServerFacet' %|| 
+   ( ( %R |S ) %== 'ServerInterface'  ) ) 
+  ( 'C' ) 
+ %END-FOR
+)%  %IF ( ( ( get_global_var ( 'FACET_COUNT' ) |N ) ) %!= 0 %&& 
+   ( ( [%f] realize_more_than_one_facet %( ( get_global_var ( 'SERV' ) ) )% ) %==  true  ) ) 
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %R |S ) %!= 'ServerFacet' %&& 
+     ( ( %R |S ) %!= 'ServerInterface'  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   #13#10#9', ' 
+  %END-IF
+  'virtual public '
+  [%f] dump_base_poa %( ( get_global_var ( 'SERV' ) ) )% 'Combine' 
+ %END-IF
+//	[{%{FACET_COUNT}N!=0&%f_realize_more_than_one_facet(%{SERV})=false}[{<{}{%RS!=ServerFacet&%RS!=ServerInterface}{C}>!=0}\n\t, ]<{\n	, }{%RS=ServerFacet|%RS=ServerInterface}virtual public [{%f_use_as_srv_type(%{SERV})=false}{[{%f_use_as_srv_type(%R)=true}{%f_type(%R)%f_dump_parameterized_list(%R)}%f_dump_base_poa(%R)]}%f_type(%R)%f_dump_parameterized_list(%R)]>]\
+ %IF ( ( ( get_global_var ( 'FACET_COUNT' ) |N ) ) %!= 0 %&& 
+   ( ( [%f] realize_more_than_one_facet %( ( get_global_var ( 'SERV' ) ) )% ) %==  false  ) ) 
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %R |S ) %!= 'ServerFacet' %&& 
+     ( ( %R |S ) %!= 'ServerInterface'  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   #13#10#9', ' 
+  %END-IF
+  %FOR %ITEM-SEPARATOR #13#10'	, ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %R |S ) %== 'ServerFacet' %|| 
+    ( ( %R |S ) %== 'ServerInterface'  ) ) 
+   'virtual public '
+   %IF ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  false ) 
+    %ELSE
+     %IF ( ( [%f] use_as_srv_type %( %R )% ) %==  true ) 
+      %ELSE
+       [%f] type %( %R )% [%f] dump_parameterized_list %( %R )% 
+      %THEN
+      [%f] dump_base_poa %( %R )% 
+     %END-IF
+    %THEN
+    [%f] type %( %R )% [%f] dump_parameterized_list %( %R )% 
+   %END-IF
+  %END-FOR
+ %END-IF
+//	[{"%Rx"="true"}\n\t, ][{"<{}{"%GM"="Servant::Class"}{C}>"="0"}\
+ %IF ( ( %R |x ) %== true ) 
+  #13#10#9', ' 
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %G |M ) %== 'Servant::Class' ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0 ) 
+//	virtual public [{%f_realize_srv_type(%{SERV})=false}{::CoreSrv::RefCountServantBase}::Core::RefCountObjectBase][{"%Gx"="true"}\n\t, ]]
+  'virtual public '
+  %IF ( ( [%f] realize_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  false ) 
+   %ELSE
+    '::CoreSrv::RefCountServantBase' 
+   %THEN
+   '::Core::RefCountObjectBase' 
+  %END-IF
+  %IF ( ( %G |x ) %== true ) 
+   #13#10#9', ' 
+  %END-IF
+ %END-IF
+
+//#UC END# *47145120007Dfor47144D340251*
+; // base_class_decl
+
+
+// выводит forward-определение
+//%f _self_forward
+: self_forward OBJECT IN %S
+//#UC START# *4714514F00DAfor47144D340251*
+//	[{"%SK"!="ParameterizedClass"}class %SN; // self forward Var
+ %IF ( ( %S |K ) %!= 'ParameterizedClass' ) 
+  'class '
+  %S |N '; // self forward Var'
+//	typedef ::Core::Var\<%SN\> %SN_var;
+  'typedef ::Core::Var<'
+  %S |N '> '
+  %S |N '_var;'
+//	typedef ::Core::Var\<const %SN\> %SN_cvar;
+  'typedef ::Core::Var<const '
+  %S |N '> '
+  %S |N '_cvar;'
+//	]
+ %END-IF
+//#UC END# *4714514F00DAfor47144D340251*
+; // self_forward
+
+
+// генерация дополнительного кода
+//%f _servant_content
+: servant_content OBJECT IN %S
+//#UC START# *4714518703A9for47144D340251*
+//#UC END# *4714518703A9for47144D340251*
+; // servant_content
+
+
+// генерация списка включений в заколовочный файл серванта
+//%f _h_includes
+: h_includes OBJECT IN %S
+//#UC START# *471451A001B5for47144D340251*
+//	%f_include_factory_by_uses(%{SERV})<{}{}[\#include %f_dump_include_path(%wL,%w)
+ [%f] include_factory_by_uses %( ( get_global_var ( 'SERV' ) ) )% 
+ %FOR %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( %w |L %, %w )% 
+//	]><{}{}[{%f_use_as_srv_type(%{SERV})=true&%f_use_as_srv_type(%R)=true&%f_realize_more_than_one_facet(%{SERV})=false}\
+  %END-IF
+ %END-FOR
+ %FOR %IF ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true %&& 
+    ( ( [%f] use_as_srv_type %( %R )% ) %==  true  ) %&& 
+    ( ( [%f] realize_more_than_one_facet %( ( get_global_var ( 'SERV' ) ) )% ) %==  false  ) ) 
+//	%f_set_var(IDL_PATH,"%f_with_gen_id(idl,%RW)")[\#include "%f_str_replace(%{IDL_PATH}N,.idl,S.h)"
+   [%f] set_var %( 'IDL_PATH' %, [%f] with_gen_id %( 'idl' %, %R |W )% )% %IF-NOT-EMPTY
+    '#include "'
+    [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.h' )% 
+//	]]>[{%f_use_as_srv_type(%{SERV})=true&%f_realize_more_than_one_facet(%{SERV})=true}\
+   %END-IF
+  %END-IF
+ %END-FOR
+ %IF ( ( [%f] use_as_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  true %&& 
+   ( ( [%f] realize_more_than_one_facet %( ( get_global_var ( 'SERV' ) ) )% ) %==  true  ) ) 
+//	%f_set_var(IDL_PATH,"%f_with_gen_id(idl,%PW)")[\#include "%f_str_replace(%{IDL_PATH}N,.idl,S.h)"
+  [%f] set_var %( 'IDL_PATH' %, [%f] with_gen_id %( 'idl' %, %P |W )% )% %IF-NOT-EMPTY
+   '#include "'
+   [%f] str_replace %( ( get_global_var ( 'IDL_PATH' ) |N ) %, '.idl' %, 'S.h' )% 
+//	]]\
+  %END-IF
+ %END-IF
+//	%f_clear_list(ALL_FCTR)\
+ [%f] clear_list %( 'ALL_FCTR' )% 
+//	%f_collect_all_factories(%{SERV},"ALL_FCTR","\[{\%f_is_factory(\%S)=true&\%SS!=remover}{false}true\]")\
+ [%f] collect_all_factories %( ( get_global_var ( 'SERV' ) ) %, 'ALL_FCTR"' %, '[{%f_is_factory(%S)=true&%SS!=remover}{false}true]' )% 
+//	%f_sort_list(ALL_FCTR,g)%f_unique_list(ALL_FCTR)\
+ [%f] sort_list %( 'ALL_FCTR' %, 'g' )% [%f] unique_list %( 'ALL_FCTR' )% 
+//	[{"<{, }{%f_is_empty(ALL_FCTR)=false}{W}%f_pop_last_to_var(ALL_FCTR,ITEM)[{%{ITEM}%TS=FactoryMemory}%{ITEM}N%f_clear_list(ALL_FCTR)]>"!=""}\
+ %IF ( 
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( [%f] is_empty %( 'ALL_FCTR' )% ) %==  false ) 
+   ( 'W' ) 
+   [%f] pop_last_to_var %( 'ALL_FCTR' %, 'ITEM' )% %IF ( ( ( get_global_var ( 'ITEM' )  ->T |S ) ) %== 'FactoryMemory' ) 
+    ( get_global_var ( 'ITEM' ) |N ) [%f] clear_list %( 'ALL_FCTR' )% 
+   %END-IF
+  %END-FOR
+  %!= '' ) 
+//	[\#include %f_with_gen_id(fctr.h,%f_dump_include_path(%{ITEM}%PW,%{ITEM}%P))
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] with_gen_id %( 'fctr.h' %, [%f] dump_include_path %( ( get_global_var ( 'ITEM' )  ->P |W ) %, ( get_global_var ( 'ITEM' )  ->P ) )% )% 
+//	]][%f_dump_consumers_suppliers_include(%S)
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] dump_consumers_suppliers_include %( %S )% 
+//	]
+ %END-IF
+
+//собираем фабрики, реализуемые сервантом
+//f _collect_factories
+//	%f_clear_list(SERVANT_FACTORIES)\
+//	%f_collect_factories_impl(%S)
+//
+//f _collect_factories_impl
+//	<%f_collect_factory_impl(%R)%R<{}{"%ga"="abstract"}%f_collect_factory_impl(%g)>\
+//	[{%RS=LocalInterface}%R<%f_collect_factory_impl(%R)>]>\
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_collect_factories_impl(%R)>]}<%f_collect_factories_impl(%G)>]
+
+//f _collect_factory_impl
+//	<{}{%f_is_factory(%C)=true}%f_add_to_list(SERVANT_FACTORIES,C)>%f_unique_list(SERVANT_FACTORIES)
+//#UC END# *471451A001B5for47144D340251*
+; // h_includes
+
+
+// генерирует код активации серванта и код возвращающий сервант
+//%f _activate_and_ret
+: activate_and_ret OBJECT IN %S
+//#UC START# *471451C300ABfor47144D340251*
+//	[{%f_realize_srv_type(%{SERV})=false}{[{%{INT}S!=LocalInterface}{\
+ %IF ( ( [%f] realize_srv_type %( ( get_global_var ( 'SERV' ) ) )% ) %==  false ) 
+  %ELSE
+   %IF ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'LocalInterface' ) 
+    %ELSE
+//	PortableServer::ObjectId_var oid = LibHomeFactory::get ().get_orb_facet ().get_root_poa ().activate_object (ret.in ());
+     'PortableServer::ObjectId_var oid = LibHomeFactory::get ().get_orb_facet ().get_root_poa ().activate_object (ret.in ());'
+//		return ret._retn ();}return ret-\>_this ();]}return ret._retn ();]
+     '	return ret._retn ();' 
+    %THEN
+    'return ret->_this ();' 
+   %END-IF
+  %THEN
+  'return ret._retn ();' 
+ %END-IF
+//#UC END# *471451C300ABfor47144D340251*
+; // activate_and_ret
+
+
+// генерация списка наследования на Java
+//%f _java_base_class_decl
+: java_base_class_decl OBJECT IN %S
+//#UC START# *471451F90128for47144D340251*
+//	[{%f_realize_srv_type(%S)=false}{%f_java_base_srv(%S)}%f_java_base(%S)]
+ %IF ( ( [%f] realize_srv_type %( %S )% ) %==  false ) 
+  %ELSE
+   [%f] java_base_srv %( %S )% 
+  %THEN
+  [%f] java_base %( %S )% 
+ %END-IF
+//#UC END# *471451F90128for47144D340251*
+; // java_base_class_decl
+
+
+// генерация кода импорта классов на Java
+//%f _java_servant_import_self
+: java_servant_import_self OBJECT IN %S
+//#UC START# *4714521E0399for47144D340251*
+//#UC END# *4714521E0399for47144D340251*
+; // java_servant_import_self
+
+
+// генерация дополнительного кода на Java
+//%f _servant_content_java
+: servant_content_java OBJECT IN %S
+//#UC START# *471452380203for47144D340251*
+//#UC END# *471452380203for47144D340251*
+; // servant_content_java
+
+
+// генерация списка реализации для фабрики серванта (Java)
+//%f _fctr_base_class_java
+: fctr_base_class_java OBJECT IN %S
+//#UC START# *4714525A0213for47144D340251*
+//	 implements %f_dump_all_base_fctrs_java(%S)
+ ' implements '
+ [%f] dump_all_base_fctrs_java %( %S )% 
+//#UC END# *4714525A0213for47144D340251*
+; // fctr_base_class_java
+
+
+// генерация кода импорта фабрик серванта
+//%f _dump_all_incl_base_fctrs_java
+: dump_all_incl_base_fctrs_java OBJECT IN %S
+//#UC START# *471452840261for47144D340251*
+//	<{}{%RS=Interface|%RS=ServerInterface}%f_with_gen_id(java,%f_java_import(%R))
+ %FOR %ITEM-CONDITION ( ( %R |S ) %== 'Interface' %|| 
+   ( ( %R |S ) %== 'ServerInterface'  ) ) 
+  [%f] with_gen_id %( 'java' %, [%f] java_import %( %R )% )% 
+//	import %f_dump_java_package(%R).%RNFactoryManager;
+  'import '
+  [%f] dump_java_package %( %R )% '.'
+  %R |N 'FactoryManager;'
+//	>%f_java_core_exceptions()
+ %END-FOR
+ [%f] java_core_exceptions %( )% 
+//	[{%Rx=false}<%G%f_dump_all_incl_base_fctrs_java()>]
+ %IF ( ( %R |x ) %==  false ) 
+  %FOR %G %f dump_all_incl_base_fctrs_java %( )% 
+  %END-FOR
+ %END-IF
+//#UC END# *471452840261for47144D340251*
+; // dump_all_incl_base_fctrs_java
+
+
+// генерация кода регистрации серванта в фабрике
+//%f _reg_me_impl
+: reg_me_impl OBJECT IN %S
+//#UC START# *471452AF0196for47144D340251*
+//	%f_dump_all_registr_fctrs(%S)[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+ [%f] dump_all_registr_fctrs %( %S )% %IF ( 
+  %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+    ( ( %a |C ) %== 'Dependency'  ) ) 
+   ( 'CSp' ) 
+  %END-FOR
+  %!= 0 ) 
+//		s_instance = this;
+  '	s_instance = this;'
+//	]
+ %END-IF
+//#UC END# *471452AF0196for47144D340251*
+; // reg_me_impl
+
+
+// генерация кода, возвращающего ключ фабрики
+//%f _key_impl
+: key_impl OBJECT IN %S
+//#UC START# *471452CC035Bfor47144D340251*
+//	return "[{"%S{Factory key}"!=""}{%SN}%S{Factory key}]";
+//	return [{}{"%SN"}%S%f_dump_switch_value()];
+ 'return '
+ %IF ( ) 
+  %ELSE
+   %S |N 
+  %THEN
+  %S %f dump_switch_value %( )% 
+ %END-IF
+ ';'
+//#UC END# *471452CC035Bfor47144D340251*
+; // key_impl
+
+
+// генерит include на основе фабрик реализуемого интерфейса
+//%f _dump_all_incl_base_fctrs
+: dump_all_incl_base_fctrs OBJECT IN %S
+//#UC START# *4717075D0109for47144D340251*
+//	<{}{%RS=Interface|%RS=ServerInterface|%RS=LocalInterface|%RS=Entity}\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%RW),%R)
+ %FOR %ITEM-CONDITION ( ( %R |S ) %== 'Interface' %|| 
+   ( ( %R |S ) %== 'ServerInterface'  ) %|| 
+   ( ( %R |S ) %== 'LocalInterface'  ) %|| 
+   ( ( %R |S ) %== 'Entity'  ) ) 
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %R |W )% %, %R )% 
+//	>[{%Rx=false}<{}{%GS=Servant}%G%f_dump_all_incl_base_fctrs()>]
+ %END-FOR
+ %IF ( ( %R |x ) %==  false ) 
+  %FOR %ITEM-CONDITION ( ( %G |S ) %== 'Servant' ) 
+   %G %f dump_all_incl_base_fctrs %( )% 
+  %END-FOR
+ %END-IF
+//#UC END# *4717075D0109for47144D340251*
+; // dump_all_incl_base_fctrs
+
+
+// генерит список наследвания дл реалиазции фабрики серванта
+//%f _fctr_base_class
+: fctr_base_class OBJECT IN %S
+//#UC START# *47170772003Efor47144D340251*
+//	%f_set_var(SRV_FACTORY,": virtual public ::Core::RefCountObjectBase%f_dump_all_base_fctrs(%S,"false")")\
+ [%f] set_var %( 'SRV_FACTORY' %, ': virtual public ::Core::RefCountObjectBase'
+ [%f] dump_all_base_fctrs %( %S %, false )% )% 
+//	%f_set_var(OP_LEN,"%f_string_length("class %SN_factory%{SRV_FACTORY}N")")\
+ [%f] set_var %( 'OP_LEN' %, [%f] string_length %( 'class '
+ %S |N '_factory'
+ ( get_global_var ( 'SRV_FACTORY' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+ [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true}{%{SRV_FACTORY}N }:\n\tvirtual public ::Core::RefCountObjectBase%f_dump_all_base_fctrs(%S,"true")\n]
+ %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true ) 
+  %ELSE
+   ( get_global_var ( 'SRV_FACTORY' ) |N ) ' ' 
+  %THEN
+  ':'#13#10#9'virtual public ::Core::RefCountObjectBase'
+  [%f] dump_all_base_fctrs %( %S %, true )% #13#10 
+ %END-IF
+
+//#UC END# *47170772003Efor47144D340251*
+; // fctr_base_class
+
+
+// выводит значение селектора мульти-фабрики
+//%f _dump_switch_value
+: dump_switch_value OBJECT IN %S
+//#UC START# *47B1884A0398for47144D340251*
+//	<{}{%CC=Attribute&%CS=switch}%f_init(%C)>
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+   ( ( %C |S ) %== 'switch'  ) ) 
+  [%f] init %( %C )% 
+ %END-FOR
+//#UC END# *47B1884A0398for47144D340251*
+; // dump_switch_value
+
+
+// выводит тип селектора мульти-фабрики
+//%f _dump_switch_type
+: dump_switch_type OBJECT IN %S
+//#UC START# *47B18865035Dfor47144D340251*
+//	<{}{%CC=Attribute&%CS=switch}[{%X{lid}!=java}{%t_convert_to_object_type(%C%T)}%f_type(%C%T)]>
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+   ( ( %C |S ) %== 'switch'  ) ) 
+  %IF ( ( %X get_up ( 'lid' ) ) %!= 'java' ) 
+   %ELSE
+    [%t] convert_to_object_type %( %C ->T  )% 
+   %THEN
+   [%f] type %( %C ->T  )% 
+  %END-IF
+ %END-FOR
+//#UC END# *47B18865035Dfor47144D340251*
+; // dump_switch_type
+
+
+// Генерация дополнительных методов из переопределённых стереотипов
+//%f _additional_methods_declarations
+: additional_methods_declarations OBJECT IN %S
+//#UC START# *497EE2AB037Afor47144D340251*
+//#UC END# *497EE2AB037Afor47144D340251*
+; // additional_methods_declarations
+
+
+// Генерит декларацию пулов и переопределённые операции new/delete.
+//%f _dump_pool_declaration
+: dump_pool_declaration OBJECT IN %S
+//#UC START# *4982B1F90061for47144D340251*
+//	[{"%S{Servant Pool}"="mem"}
+ %IF ( ( %S get_up ( 'Servant Pool' ) ) %== 'mem' ) 
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// Memory Pool initialization
+  '// Memory Pool initialization'
+//	private:
+  'private:'
+//		typedef ::Core::PoolMemoryManager\<%SN%1N\>::PoolMemoryManagerSingleton Pool%SN%1N;
+  '	typedef ::Core::PoolMemoryManager<'
+  %S |N %1 |N '>::PoolMemoryManagerSingleton Pool'
+  %S |N %1 |N ';'
+//		typedef ::Core::PoolMemoryManager\<%SN%1N\> Pool;
+  '	typedef ::Core::PoolMemoryManager<'
+  %S |N %1 |N '> Pool;'
+//		friend class ::Core::PoolMemoryManager\<%SN%1N\>;
+  '	friend class ::Core::PoolMemoryManager<'
+  %S |N %1 |N '>;'
+//		void* operator new (size_t cs) {              
+  '	void* operator new (size_t cs) {              '
+//			return Pool%SN%1N::instance()-\>malloc(cs);
+  '		return Pool'
+  %S |N %1 |N '::instance()->malloc(cs);'
+//		}
+  '	}'
+//		void operator delete (void* p) {
+  '	void operator delete (void* p) {'
+//			Pool%SN%1N::instance()-\>free(p);
+  '		Pool'
+  %S |N %1 |N '::instance()->free(p);'
+//		}
+  '	}'
+//	][{"%S{Servant Pool}"="obj"}
+ %END-IF
+ %IF ( ( %S get_up ( 'Servant Pool' ) ) %== 'obj' ) 
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// Object Pool initialization
+  '// Object Pool initialization'
+//	private:
+  'private:'
+//		typedef ::Core::PoolObjectManager\<%SN%1N_tie\>::PoolObjectManagerSingleton Pool%SN%1NSing;
+  '	typedef ::Core::PoolObjectManager<'
+  %S |N %1 |N '_tie>::PoolObjectManagerSingleton Pool'
+  %S |N %1 |N 'Sing;'
+//		typedef ::Core::PoolObjectManager\<%SN%1N_tie\> Pool;
+  '	typedef ::Core::PoolObjectManager<'
+  %S |N %1 |N '_tie> Pool;'
+//		friend class ::Core::PoolObjectManager\<%SN_tie\>;
+  '	friend class ::Core::PoolObjectManager<'
+  %S |N '_tie>;'
+//		
+  '	'
+//		inline static %SN%1N* make_object_ () {
+  '	inline static '
+  %S |N %1 |N '* make_object_ () {'
+//			return Pool%SN%1NSing::instance()-\>new_obj();
+  '		return Pool'
+  %S |N %1 |N 'Sing::instance()->new_obj();'
+//		}
+  '	}'
+//		
+  '	'
+//		inline static void release_object_ (%SN%1N* obj) {
+  '	inline static void release_object_ ('
+  %S |N %1 |N '* obj) {'
+//			Pool%SN%1NSing::instance()-\>release_obj(obj);
+  '		Pool'
+  %S |N %1 |N 'Sing::instance()->release_obj(obj);'
+//		}
+  '	}'
+//		
+  '	'
+//		[{"%Sa"!="final"}virtual ]void init ();
+  '	'
+  %IF ( ( %S |a ) %!= 'final' ) 
+   'virtual ' 
+  %END-IF
+  'void init ();'
+//		
+  '	'
+//		[{"%Sa"!="final"}virtual ]void done ();
+  '	'
+  %IF ( ( %S |a ) %!= 'final' ) 
+   'virtual ' 
+  %END-IF
+  'void done ();'
+//	]
+ %END-IF
+//#UC END# *4982B1F90061for47144D340251*
+; // dump_pool_declaration
+
+
+// Генерит код реализации конкрентых фабрик
+//%f _dump_concrete_factory_impl
+: dump_concrete_factory_impl OBJECT IN %S
+//#UC START# *4988091300A8for47144D340251*
+//	[{"%f_has_factory_methods(%S)"="true"}[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+ %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'CSp' ) 
+   %END-FOR
+   %!= 0 ) 
+//	%SN_factory* %SN_factory::s_instance = 0;
+   %S |N '_factory* '
+   %S |N '_factory::s_instance = 0;'
+//	
+
+//	]%SN_factory::%SN_factory () {
+  %END-IF
+  %S |N '_factory::'
+  %S |N '_factory () {'
+//	}
+  '}'
+//	
+
+//	%f_set_var(REG_ME,"void %SN_factory::registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/ {")\
+  [%f] set_var %( 'REG_ME' %, 'void '
+  %S |N '_factory::registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/ {' )% 
+//	%f_set_var(OP_LEN,"%f_string_length("%{REG_ME}N")")\
+  [%f] set_var %( 'OP_LEN' %, [%f] string_length %( ( get_global_var ( 'REG_ME' ) |N ) )% )% 
+//	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+  [%f] set_var %( 'NEED_WRAP' %, [%f] number_cmp %( ( get_global_var ( 'OP_LEN' ) |N ) %, 120 %, '>' )% )% 
+//	[{%f_true(%{NEED_WRAP})=true}{%{REG_ME}N}void %SN_factory::registrate_me (\n\tCore::Root::FactoryPriority priority\n) /*throw (\n\tCore::Root::DuplicatedFactoryKey\n)*/ {]
+  %IF ( ( [%f] true %( ( get_global_var ( 'NEED_WRAP' ) ) )% ) %==  true ) 
+   %ELSE
+    ( get_global_var ( 'REG_ME' ) |N ) 
+   %THEN
+   'void '
+   %S |N '_factory::registrate_me ('#13#10#9'Core::Root::FactoryPriority priority'#13#10') /*throw ('#13#10#9'Core::Root::DuplicatedFactoryKey'#13#10')*/ {' 
+  %END-IF
+//	%S%f_reg_me_impl()}
+  %S %f reg_me_impl %( )% '}'
+//	
+
+//	const [{}{char*}%S%f_dump_switch_type()] %SN_factory::key () const {
+  'const '
+  %IF ( ) 
+   %ELSE
+    'char*' 
+   %THEN
+   %S %f dump_switch_type %( )% 
+  %END-IF
+  ' '
+  %S |N '_factory::key () const {'
+//		%S%f_key_impl()
+  '	'
+  %S %f key_impl %( )% 
+//	}%f_set_var(SERV,S)%f_dump_all_fctr_cpp(%S)][{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+  '}'
+  [%f] set_var %( 'SERV' %, 'S' )% [%f] dump_all_fctr_cpp %( %S )% 
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+    ( ( %a |C ) %== 'Dependency'  ) ) 
+   ( 'CSp' ) 
+  %END-FOR
+  %!= 0 ) 
+//	%f_shift_scope(true)[{"%f_has_factory_methods(%S)"="true"}{%f_dump_ctor_fctr_cpp(%S)}%f_dump_all_fctr_cpp(%S,"servant")[\n\n%f_dump_ctor_fctr_cpp(%S)]]%f_shift_scope(false)]
+  [%f] shift_scope %( true )% %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+   %ELSE
+    [%f] dump_ctor_fctr_cpp %( %S )% 
+   %THEN
+   [%f] dump_all_fctr_cpp %( %S %, 'servant' )% %IF-NOT-EMPTY
+    #13#10#13#10
+    [%f] dump_ctor_fctr_cpp %( %S )% 
+   %END-IF
+  %END-IF
+  [%f] shift_scope %( false )% 
+ %END-IF
+//	
+//#UC END# *4988091300A8for47144D340251*
+; // dump_concrete_factory_impl
+
+
+// Генерит декларацию для конкретных фабрик
+//%f _dump_concrete_factory_decl
+: dump_concrete_factory_decl OBJECT IN %S
+//#UC START# *49883D0B03A6for47144D340251*
+//	[{"%f_has_factory_methods(%S)"="true"}/// Interface-factory implementation for %SN
+ %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+  '/// Interface-factory implementation for '
+  %S |N 
+//	class %SN_factory%S%f_fctr_base_class(){[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}
+  'class '
+  %S |N '_factory'
+  %S %f fctr_base_class %( )% '{'
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'CSp' ) 
+   %END-FOR
+   %!= 0 ) 
+
+//		friend class %SNServantFactory;
+   '	friend class '
+   %S |N 'ServantFactory;'
+//	]
+  %END-IF
+//	public:
+  'public:'
+//		%SN_factory ();
+  '	'
+  %S |N '_factory ();'
+//	
+
+//		void registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/;
+  '	void registrate_me (Core::Root::FactoryPriority priority) /*throw (Core::Root::DuplicatedFactoryKey)*/;'
+//	
+
+//	protected:[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}
+  'protected:'
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'CSp' ) 
+   %END-FOR
+   %!= 0 ) 
+
+//		static %SN_factory* s_instance;
+   '	static '
+   %S |N '_factory* s_instance;'
+//	]
+  %END-IF
+//		const [{}{char*}%S%f_dump_switch_type()] key () const;
+  '	const '
+  %IF ( ) 
+   %ELSE
+    'char*' 
+   %THEN
+   %S %f dump_switch_type %( )% 
+  %END-IF
+  ' key () const;'
+//	%f_shift_scope(true)%f_dump_all_fctr_h(%S)%f_shift_scope(false)
+  [%f] shift_scope %( true )% [%f] dump_all_fctr_h %( %S )% [%f] shift_scope %( false )% 
+//	};
+  '};'
+//	
+
+//	typedef ::Core::Var\<%SN_factory\> %SN_factory_var;
+  'typedef ::Core::Var<'
+  %S |N '_factory> '
+  %S |N '_factory_var;'
+//	]
+ %END-IF
+//#UC END# *49883D0B03A6for47144D340251*
+; // dump_concrete_factory_decl
+
+
+// Дополнительные инклуды
+//%f _additional_includes
+: additional_includes OBJECT IN %S
+//#UC START# *49886D6001E0for47144D340251*
+//#UC END# *49886D6001E0for47144D340251*
+; // additional_includes
+
+
+// Дополнительные объявления рядом с сервантом
+//%f _additional_declarations
+: additional_declarations OBJECT IN %S
+//#UC START# *498987430180for47144D340251*
+//#UC END# *498987430180for47144D340251*
+; // additional_declarations
+
+
+// Генерирует декларацию конструктора/деструктора для серванта
+//%f _dump_ctor_dtor_decl
+: dump_ctor_dtor_decl OBJECT IN %S
+//#UC START# *4989A5F400C1for47144D340251*
+//	//////////////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// constructors and destructor
+ '// constructors and destructor'
+//	[{%f_use_as_srv_type(%S)=false|%Re=false}{public}[{"%Sa"!="final"}{private}protected]]:[{"%S{Factory default impl}"="true"}{[{%f_count_ctor(%S)=0}\n]}
+ %IF ( ( [%f] use_as_srv_type %( %S )% ) %==  false %|| 
+   ( ( %R |e ) %==  false  ) ) 
+  %ELSE
+   'public' 
+  %THEN
+  %IF ( ( %S |a ) %!= 'final' ) 
+   %ELSE
+    'private' 
+   %THEN
+   'protected' 
+  %END-IF
+ %END-IF
+ ':'
+ %IF ( ( %S get_up ( 'Factory default impl' ) ) %== true ) 
+  %ELSE
+   %IF ( ( [%f] count_ctor %( %S )% ) %== 0 ) 
+    #13#10 
+   %END-IF
+  %THEN
+
+//	%f_dump_all_fctr_def_impl_h(%S,%1)\
+  [%f] dump_all_fctr_def_impl_h %( %S %, %1 )% 
+//	]%f_dump_all_remover_def_impl_h(%S)[{"%S{Factory default impl}"!="true"|"%rx"="false"|%f_has_factory_methods(%S)=false}[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}\t%{SELF}N ();\n\n]}
+ %END-IF
+ [%f] dump_all_remover_def_impl_h %( %S )% %IF ( ( %S get_up ( 'Factory default impl' ) ) %!= true %|| 
+   ( ( %r |x ) %== false  ) %|| 
+   ( ( [%f] has_factory_methods %( %S )% ) %==  false  ) ) 
+  %IF ( ( [%f] count_ctor %( %S )% ) %!= 0 ) 
+   %ELSE
+    %IF ( ( [%f] need_empty_ctor %( %S )% ) %==  true ) 
+     #9
+     ( get_global_var ( 'SELF' ) |N ) ' ();'#13#10#13#10 
+    %END-IF
+   %THEN
+
+//	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'ctor'  ) ) 
+    ( 'Sn' ) 
+    %C |X 
+//	
+
+//	>][%f_dump_cpp_servant_derrived_constr_h(%S)]]#	[{%Sa!=final}virtual ]~%SN ();
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+   [%f] dump_cpp_servant_derrived_constr_h %( %S )% 
+  %END-IF
+ %END-IF
+ out_indent '	'
+ %IF ( ( %S |a ) %!= 'final' ) 
+  'virtual ' 
+ %END-IF
+ '~'
+ %S |N ' ();'
+//#UC END# *4989A5F400C1for47144D340251*
+; // dump_ctor_dtor_decl
+
+
+// Генерит реализацию конструкторов для серванта
+//%f _dump_ctor_dtor_impl
+: dump_ctor_dtor_impl OBJECT IN %S
+//#UC START# *498AE3FF011Ffor47144D340251*
+//	//////////////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// constructors and destructor[{"%S{Factory default impl}"="true"}%f_dump_all_fctr_def_impl_cpp(%S)]\
+ '// constructors and destructor'
+ %IF ( ( %S get_up ( 'Factory default impl' ) ) %== true ) 
+  [%f] dump_all_fctr_def_impl_cpp %( %S )% 
+ %END-IF
+//	%f_dump_all_remover_def_impl_cpp(%S)[{"%S{Factory default impl}"="false"|"%rx"="false"|%f_has_factory_methods(%S)=false}[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}\n\n%f_dump_empty_ctor_cpp(%S)]}<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+ [%f] dump_all_remover_def_impl_cpp %( %S )% %IF ( ( %S get_up ( 'Factory default impl' ) ) %== false %|| 
+   ( ( %r |x ) %== false  ) %|| 
+   ( ( [%f] has_factory_methods %( %S )% ) %==  false  ) ) 
+  %IF ( ( [%f] count_ctor %( %S )% ) %!= 0 ) 
+   %ELSE
+    %IF ( ( [%f] need_empty_ctor %( %S )% ) %==  true ) 
+     #13#10#13#10
+     [%f] dump_empty_ctor_cpp %( %S )% 
+    %END-IF
+   %THEN
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'ctor'  ) ) 
+    ( 'Sn' ) 
+
+//	
+
+//	%CX>][
+    %C |X 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	%f_dump_cpp_derrived_constr_cpp(%S)]][{}
+   [%f] dump_cpp_derrived_constr_cpp %( %S )% 
+  %END-IF
+ %END-IF
+ %IF ( ) 
+
+//	
+
+//	%f_servant_cpp_destructor_cpp(%S)
+  [%f] servant_cpp_destructor_cpp %( %S )% 
+//	]
+ %END-IF
+//#UC END# *498AE3FF011Ffor47144D340251*
+; // dump_ctor_dtor_impl
+
+
+// Дополнительная реализация
+//%f _additional_implemetations
+: additional_implemetations OBJECT IN %S
+//#UC START# *498AE74C00ABfor47144D340251*
+//#UC END# *498AE74C00ABfor47144D340251*
+; // additional_implemetations
+
+
+// Метод перекрывается в серванте сущности, для правильной генерации наследования серванта.
+//%f _dump_colon
+: dump_colon OBJECT IN %S
+//#UC START# *498BF0B20391for47144D340251*
+//	:
+ ':'
+//		
+ '	'
+//#UC END# *498BF0B20391for47144D340251*
+; // dump_colon
+
+
+// Функция генерирует определения ремуверов
+//%f _fctr_def_rm_impl_h_base
+: fctr_def_rm_impl_h_base OBJECT IN %S
+//#UC START# *49A3F77B000Ffor47144D340251*
+//	%f_fctr_def_rm_impl_h(%1)
+ [%f] fctr_def_rm_impl_h %( %1 )% 
+//#UC END# *49A3F77B000Ffor47144D340251*
+; // fctr_def_rm_impl_h_base
+
+
+// Функция генерирует реализацию ремуверов
+//%f _fctr_def_removers_impl_cpp_base
+: fctr_def_removers_impl_cpp_base OBJECT IN %S
+//#UC START# *49A3F7C9025Bfor47144D340251*
+//	%f_fctr_def_removers_impl_cpp(%1)
+ [%f] fctr_def_removers_impl_cpp %( %1 )% 
+//#UC END# *49A3F7C9025Bfor47144D340251*
+; // fctr_def_removers_impl_cpp_base
+
+
+// Функция перекрывается в серванте сущности для правильной генерации
+// ремуверов
+//%f _dump_fctr_additional_removers
+: dump_fctr_additional_removers OBJECT IN %S
+//#UC START# *49A533A503AFfor47144D340251*
+//#UC END# *49A533A503AFfor47144D340251*
+; // dump_fctr_additional_removers
+
+
+// Функция перекрывается в серванте сущности для реализации генерации
+// параметров заглушек для фабрки с одинаковой сигнатурой
+//%f _fctr_id_base
+: fctr_id_base OBJECT IN %S
+//#UC START# *49A7B68D01C8for47144D340251*
+//			class %f_to_borland(%1N) {}; // %1%P%PN::%1%PN::%1N
+ '		class '
+ [%f] to_borland %( %1 |N )% ' {}; // '
+ %1 ->P ->P |N   '::'
+ %1 ->P |N  '::'
+ %1 |N 
+//#UC END# *49A7B68D01C8for47144D340251*
+; // fctr_id_base
+
+
+// Метод перекрываетя в серванте сущности для правильной генерации конструкторов серванта в
+// соостветствии с заданными фабриками
+//%f _has_equal_fctr_base
+: has_equal_fctr_base OBJECT IN %S
+//#UC START# *49A7DD320116for47144D340251*
+//	%f_has_equal_fctr(%1,%2)
+ [%f] has_equal_fctr %( %1 %, %2 )% 
+//#UC END# *49A7DD320116for47144D340251*
+; // has_equal_fctr_base
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47144D340251*
+//c                              {}
+//r {<{}{%f_is_interface(%r)=true|%rS=LocalInterface|%rS=Entity|%rS=Persistent}{C}>=0&"<%r<{}{%f_is_interface(%r)=true|%rS=LocalInterface}.>>"=""}:                                                                                                                    {%SS должен реализовывать хотя бы один интерфейс}
+//r "<{}{%ra!=abstract&%f_is_interface(%r)=true}{C}>"="0"&"%Sa"!="abstract"&"<%r<{}{%ra!=abstract&%f_is_interface(%r)=true}.>>"=""&"[{"<{}{%f_is_interface(%r)=true}{C}>"!="0"}{false}true]"="true":   {Not abstract %SS can't implement abstract Interface only}
+//r "%Sa"="final"&"%Lx"="true"|"%Sa"="final"&"%Zx"="true":                                                                                                                                             {Final class can't be used as base class}
+//r "%S{Servant Pool}"="obj"&"%f_has_not_default_ctor(%S)"="true":                                                                                                                                     {Class under Object Pool can't have not default constructors}
+//r "%S{Servant Pool}"!="none"&"%S{singleton}"="true":                                                                                                                                                 {Singleton can't use any Pools}
+//r "%S{Factory default impl}"="true"&"%Rx"="true"&"%f_has_factory_methods(%S)"="true"&"<{}{"%CS"="ctor"}{%CC}>"!="0":                                                                                 {%SS's Factory default implementaion can't combine with any other defined constructors}
+//r "%S{singleton}"="true"&"%f_has_not_default_fctr(%S)"="true":                                                                                                                                       {Singleton can't implement interfaces with factories with args)}
+//r {"%S{singleton}"="true"&"%f_has_not_default_ctor(%S)"="true"}:                                                                                                                                     {Singleton can't have not default constructor}
+//r {%f_servant_realize_constraint(%S)=false}:                                                                                                                                                         {%SS can implement Interfaces, Facet, ServerFacet, StateMachine or Parameterized Class only (for other use generalization)}
+//r {<{}{%t_check_type(%G,"%SM")=false&%t_simple_class(%G)=false}{C}>!=0}:                                                                                                                             {%SS can inherit SimpleClass or other Servant only (for other use realization)}
+//r <{}{%f_is_interface(%R)=true}{C}>!=0&<{}{%f_is_interface(%R)=true}{C}>!=1&"<{}{%R%Gx=false}.>"!=".":                                                                                               {%SS can't directly implement more then one Interface}
+//r "%S{Factory default impl}"="true"&"%f_has_overloaded_ctors(%S)"="true"&"%f_has_factory_methods(%S)"="true":                                                                                        {%SS's Factory default implementaion can't combine with overwrited base constructors}
+//r {<{}{%f_template_specify(%S,%G)=false}{C%G}>!=0|<{}{%f_template_specify(%S,%R)=false}{C%R}>!=0}:                                                                                                   {%SS must specify all arguments defined in base}
+//r "%Sa"!="abstract"&"%f_has_factory_methods(%S)"="false"&"%f_need_servant_factory(%S)"="false":                                                                                                      {Неабстрактный %SS должен унаследовать хотя бы одну фабрику фабрики !%f_has_self_factory_methods(%S)!}
+//r %f_supply_realize_constraint(%S)!=true:                                                                                                                                                            {%SS can't recursively implement different Interfaces %f_supply_realize_constraint(%S)}
+//r {<{}{%t_check_type(%G,"ServerInterface::Class")=true}{C}>!=0&<{}{%PS=ServerLibrary}{C}>=0}:                                                                                                        {Реализация серверных интерфейсов возможна только внутри серверных библиотек}
+//r {%SK=ParameterizedClass&%Sa!=abstract}:                                                                                                                                                            {Шаблонный %SS должен быть абстрактным}
+//r {"%f_method_name_constraint(%S)"!=""}:                                                                                                                                                             {Имена методов %SS'а не могут совпадать с именами фабрик (%f_method_name_constraint(%S))}
+//r {"%f_is_implement_cached_factory(%S)"!=""&%S{singleton}=true}:                                                                                                                                     {%SS, реализующий интерфейс с кэшированной фабрикой не может быть синглтоном}
+//r {%Sa!=abstract&"%f_is_implement_multi_factory(%S)"!=""&<{}{%CC=Attribute&%CS=switch}{%CC}>=0}:                                                                                                     {%SS, реализующий интерфейс с мульти-фабрикой должен определять значение селектора}
+//r {%f_number_cmp("<{}{%CC=Attribute&%CS=switch}{%CC}>","1","\>")=1}:                                                                                                                                 {%SS, может определять только один селектор}
+//r {"%f_switch_constraint(%S)"!=""}:                                                                                                                                                                  {Тип селектора %SS должен совпадать с типом селектора реализуемого интерфейса !Self selector: %{M_FCTR_SELECTOR}N, interfaces selctors: %f_debug_selectors(%S)!}
+//r {<{}{%P{full constraint}=true}{C}>!=0&<{}{%CS=uses&%CC=Dependency&%C%TS=%SS}{%CC}>!=0}:                                                                                                            {%SS не может использовать другие %SS}
+//r {<{}{%P{full constraint}=true}{C}>!=0&%f_has_servant_consumer(%S,"CONSUMERS")=true}:                                                                                                               {%SS не может использоваться в других типах (только во вложенных)[: <{, }{%f_is_empty(CONSUMERS)=false}{W}[%f_pop_first_to_var(CONSUMERS,CONSUMER)%{CONSUMER}%PN::%{CONSUMER}N]>]}
+//r {<{}{%P{full constraint}=true}{C}>!=0&<{}{%CC=Class&%CV=PublicAccess}{%CC}>!=0}:                                                                                                                   {%SS не может содержать публичные типы[: <{, }{%CC=Class&%CV=PublicAccess}%CN>]}
+//r {%f_number_cmp("[{}{0}%S{factory priority}]","0","\<")!=0}:                                                                                                                                               {Приоритет %SS не может быть отрицательным}
+/////расскоментировать перед релизом
+
+//проверяем, что consumer - это интерфейс
+//если consumer операция, атрибут или связь - проверяем условие для родителя
+//f _is_interface_consumer
+; // constraint
+
+end. // <<Servant>>
+
+: is_interface_consumer OBJECT IN %S
+//	[{%SC!=Class&"%SU"!=""}{%f_is_interface_consumer(%P)}[{%t_interface(%S)=true|%SS=LocalInterface}{false}true]]
+ %IF ( ( %S |C ) %!= 'Class' %&& 
+   ( ( %S |U ) %!= ''  ) ) 
+  %ELSE
+   [%f] is_interface_consumer %( %P )% 
+  %THEN
+  %IF ( ( [%t] interface %( %S )% ) %==  true %|| 
+    ( ( %S |S ) %== 'LocalInterface'  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+
+//проверяем, что consumer - это атрибут или операция серванта
+//если consumer операция, атрибут или связь - проверяем условие для родителя
+//f _is_servant_child_consumer
+; // is_interface_consumer
+
+: is_servant_child_consumer OBJECT IN %S
+//	[{%SC!=Class&"%SU"!=""}[{%PS=Servant&%PU!=%1U}{false}true]]
+ %IF ( ( %S |C ) %!= 'Class' %&& 
+   ( ( %S |U ) %!= ''  ) ) 
+  %IF ( ( %P |S ) %== 'Servant' %&& 
+    ( ( %P |U ) %!= ( %1 |U )  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+ %END-IF
+
+//собриаем элементы, которые используют сервант
+//при этом элементы не являются вложенными в данный сервант
+//f _collect_servant_consumer
+; // is_servant_child_consumer
+
+: collect_servant_consumer OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_servant_consumer: Не задан идентификатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( '_collect_servant_consumer: Не задан идентификатор списка' )% 
+ %END-IF
+//	%f_set_var(__LIST_ID__,"%1N")\
+ [%f] set_var %( '__LIST_ID__' %, %1 |N )% 
+//	%f_set_var(SERV,S)\
+ [%f] set_var %( 'SERV' %, 'S' )% 
+//	<{}{}{%s}%f_set_var(CLASS_CONSUMER,"")[{%sC=Class}{%s<{}{%PC=Class}[{"%{CLASS_CONSUMER}U"=""}%f_set_var(CLASS_CONSUMER,P)]>}%f_set_var(CLASS_CONSUMER,s)]\
+ %FOR ( %s ) 
+  [%f] set_var %( 'CLASS_CONSUMER' %, '' )% %IF ( ( %s |C ) %== 'Class' ) 
+   %ELSE
+    %s
+    %FOR %ITEM-CONDITION ( ( %P |C ) %== 'Class' ) 
+     %IF ( ( ( get_global_var ( 'CLASS_CONSUMER' ) |U ) ) %== '' ) 
+      [%f] set_var %( 'CLASS_CONSUMER' %, 'P' )% 
+     %END-IF
+    %END-FOR
+    %THEN
+   [%f] set_var %( 'CLASS_CONSUMER' %, 's' )% 
+  %END-IF
+//	[{"%{CLASS_CONSUMER}U"!=""&%{CLASS_CONSUMER}S!=TemplateFunctions&%{CLASS_CONSUMER}<{}{%PU=%{SERV}U}{C}>=0&%{CLASS_CONSUMER}U!=%{SERV}U}\
+  %IF ( ( ( get_global_var ( 'CLASS_CONSUMER' ) |U ) ) %!= '' %&& 
+    ( ( ( get_global_var ( 'CLASS_CONSUMER' ) |S ) ) %!= 'TemplateFunctions'  ) %&& 
+    ( ( ( get_global_var ( 'CLASS_CONSUMER' ) ) ) 
+   %FOR %ITEM-CONDITION ( ( %P |U ) %== ( ( get_global_var ( 'SERV' ) |U ) ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0  ) %&& 
+    ( ( ( get_global_var ( 'CLASS_CONSUMER' ) |U ) ) %!= ( ( get_global_var ( 'SERV' ) |U ) )  ) ) 
+//	%f_add_to_list(%{__LIST_ID__}N,{CLASS_CONSUMER})]>\
+   [%f] add_to_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, '{CLASS_CONSUMER}' )% 
+  %END-IF
+ %END-FOR
+//	%f_set_var(CLASS_CONSUMER,"")\
+ [%f] set_var %( 'CLASS_CONSUMER' %, '' )% 
+//	<{}{%aC=Dependency}{%a}%f_set_var(CLASS_CONSUMER,"")[{%aC=Class}{%a<{}{%PC=Class}[{"%{CLASS_CONSUMER}U"=""}%f_set_var(CLASS_CONSUMER,P)]>}%f_set_var(CLASS_CONSUMER,a)]\
+ %FOR %ITEM-CONDITION ( ( %a |C ) %== 'Dependency' ) 
+  ( %a ) 
+  [%f] set_var %( 'CLASS_CONSUMER' %, '' )% %IF ( ( %a |C ) %== 'Class' ) 
+   %ELSE
+    %a
+    %FOR %ITEM-CONDITION ( ( %P |C ) %== 'Class' ) 
+     %IF ( ( ( get_global_var ( 'CLASS_CONSUMER' ) |U ) ) %== '' ) 
+      [%f] set_var %( 'CLASS_CONSUMER' %, 'P' )% 
+     %END-IF
+    %END-FOR
+    %THEN
+   [%f] set_var %( 'CLASS_CONSUMER' %, 'a' )% 
+  %END-IF
+//	[{"%{CLASS_CONSUMER}U"!=""&%{CLASS_CONSUMER}U!=%{SERV}U&%{SERV}<{}{%AU=%{CLASS_CONSUMER}U}{C}>=0}\
+  %IF ( ( ( get_global_var ( 'CLASS_CONSUMER' ) |U ) ) %!= '' %&& 
+    ( ( ( get_global_var ( 'CLASS_CONSUMER' ) |U ) ) %!= ( ( get_global_var ( 'SERV' ) |U ) )  ) %&& 
+    ( ( ( get_global_var ( 'SERV' ) ) ) 
+   %FOR %ITEM-CONDITION ( ( %A |U ) %== ( ( get_global_var ( 'CLASS_CONSUMER' ) |U ) ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0  ) ) 
+//	%f_add_to_list(%{__LIST_ID__}N,{CLASS_CONSUMER})]>\
+   [%f] add_to_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, '{CLASS_CONSUMER}' )% 
+  %END-IF
+ %END-FOR
+//	%f_unique_list(%{__LIST_ID__}N,g)
+ [%f] unique_list %( ( get_global_var ( '__LIST_ID__' ) |N ) %, 'g' )% 
+
+//проверяем используется ли элемент в НЕвложенных типах
+//f _has_servant_consumer
+; // collect_servant_consumer
+
+: has_servant_consumer OBJECT IN %S
+//	[{"%1N"=""}%f_error("_collect_servant_consumer: Не задан идентификатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( '_collect_servant_consumer: Не задан идентификатор списка' )% 
+ %END-IF
+//	%f_clear_list(%1N)\
+ [%f] clear_list %( %1 |N )% 
+//	%f_collect_servant_consumer(%S,%1)\
+ [%f] collect_servant_consumer %( %S %, %1 )% 
+//	[{%f_is_empty(%1N)=true}{true}false]
+ %IF ( ( [%f] is_empty %( %1 |N )% ) %==  true ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+
+//f _dump_switch_type_guid
+; // has_servant_consumer
+
+: dump_switch_type_guid OBJECT IN %S
+//	[{}{[{%GS=Interface|%GS=LocalInterface|%GS=ServerInterface}%f_dump_switch_type_guid(%G)]}<{}{%CC=Attribute&%CS=factory switch}%C%TU>]
+ %IF ( ) 
+  %ELSE
+   %IF ( ( %G |S ) %== 'Interface' %|| 
+     ( ( %G |S ) %== 'LocalInterface'  ) %|| 
+     ( ( %G |S ) %== 'ServerInterface'  ) ) 
+    [%f] dump_switch_type_guid %( %G )% 
+   %END-IF
+  %THEN
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |S ) %== 'factory switch'  ) ) 
+   %C ->T |U  
+  %END-FOR
+ %END-IF
+
+//ограничение на совпадение типов селекторов серванта и интерфейса
+//f _switch_constraint
+; // dump_switch_type_guid
+
+: switch_constraint OBJECT IN %S
+//	%f_clear_list(SELECTORS)\
+ [%f] clear_list %( 'SELECTORS' )% 
+//	%f_set_var(M_FCTR_SELECTOR,"")\
+ [%f] set_var %( 'M_FCTR_SELECTOR' %, '' )% 
+//	<{}{%CC=Attribute&%CS=switch}%f_set_var(M_FCTR_SELECTOR,"%C%TN(%C%TU)")>\
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+   ( ( %C |S ) %== 'switch'  ) ) 
+  [%f] set_var %( 'M_FCTR_SELECTOR' %, %C ->T |N  '('
+  %C ->T |U  ')' )% 
+ %END-FOR
+//	[{"%{M_FCTR_SELECTOR}N"!=""}%f_collect_interface_selector(%S)\
+ %IF ( ( ( get_global_var ( 'M_FCTR_SELECTOR' ) |N ) ) %!= '' ) 
+  [%f] collect_interface_selector %( %S )% 
+//	%f_unique_list(SELECTORS)\
+  [%f] unique_list %( 'SELECTORS' )% 
+//	[{%f_is_empty(SELECTORS)=false&%f_count_in_list(SELECTORS,"%{M_FCTR_SELECTOR}N")=0}false]]
+  %IF ( ( [%f] is_empty %( 'SELECTORS' )% ) %==  false %&& 
+    ( ( [%f] count_in_list %( 'SELECTORS' %, ( get_global_var ( 'M_FCTR_SELECTOR' ) |N ) )% ) %== 0  ) ) 
+    false 
+  %END-IF
+ %END-IF
+
+//f _debug_selectors
+; // switch_constraint
+
+: debug_selectors OBJECT IN %S
+//	<{, }{%f_is_empty(SELECTORS)=false}{W}[%f_pop_first_to_var(SELECTORS,TEMP)%{TEMP}N]>
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( 'SELECTORS' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'SELECTORS' %, 'TEMP' )% ( get_global_var ( 'TEMP' ) |N ) 
+  %END-IF
+ %END-FOR
+
+//f _collect_interface_selector
+; // debug_selectors
+
+: collect_interface_selector OBJECT IN %S
+//	<%f_realized_interface_selector_impl(%R)%R<{}{"%ga"="abstract"}%f_realized_interface_selector_impl(%g)[{%gS=LocalInterface}%f_collect_interface_selector(%g)]>[{%RS=LocalInterface}%f_collect_interface_selector(%R)]>\
+ %FOR [%f] realized_interface_selector_impl %( %R )% %R
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   [%f] realized_interface_selector_impl %( %g )% %IF ( ( %g |S ) %== 'LocalInterface' ) 
+    [%f] collect_interface_selector %( %g )% 
+   %END-IF
+  %END-FOR
+   %IF ( ( %R |S ) %== 'LocalInterface' ) 
+   [%f] collect_interface_selector %( %R )% 
+  %END-IF
+ %END-FOR
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0}<%f_collect_interface_selector(%R,%{ARG})>]}<%f_collect_interface_selector(%G)>]
+ %IF ( ( %R |x ) %==  false ) 
+  %ELSE
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %R |K ) %== 'ParameterizedClass' ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0 ) 
+    %FOR [%f] collect_interface_selector %( %R %, ( get_global_var ( 'ARG' ) ) )% 
+    %END-FOR
+   %END-IF
+  %THEN
+  %FOR [%f] collect_interface_selector %( %G )% 
+  %END-FOR
+ %END-IF
+
+//f _realized_interface_selector_impl
+; // collect_interface_selector
+
+: realized_interface_selector_impl OBJECT IN %S
+//	<{}{%CC=Attribute&%CS=factory switch}%f_add_to_list(SELECTORS,"%C%TN(%C%TU)")>
+ %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+   ( ( %C |S ) %== 'factory switch'  ) ) 
+  [%f] add_to_list %( 'SELECTORS' %, %C ->T |N  '('
+  %C ->T |U  ')' )% 
+ %END-FOR
+
+//ограничение на связь реализации
+//f _servant_realize_constraint
+; // realized_interface_selector_impl
+
+: servant_realize_constraint OBJECT IN %S
+//	[{<{}{%f_is_interface(%R)=false&%t_check_type(%R,"LocalInterface::Class")=false&%t_check_type(%R,"Facet::Class")=false&%t_check_type(%R,"ServerFacet::Class")=false&%RK!=ParameterizedClass&%t_check_type(%R,"StateMachine::Class")=false&%t_check_type(%R,"Entity::Class")=false&%t_check_type(%R,"Persistent::Class")=false}{C}>!=0}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  false %&& 
+    ( ( [%t] check_type %( %R %, 'LocalInterface::Class' )% ) %==  false  ) %&& 
+    ( ( [%t] check_type %( %R %, 'Facet::Class' )% ) %==  false  ) %&& 
+    ( ( [%t] check_type %( %R %, 'ServerFacet::Class' )% ) %==  false  ) %&& 
+    ( ( %R |K ) %!= 'ParameterizedClass'  ) %&& 
+    ( ( [%t] check_type %( %R %, 'StateMachine::Class' )% ) %==  false  ) %&& 
+    ( ( [%t] check_type %( %R %, 'Entity::Class' )% ) %==  false  ) %&& 
+    ( ( [%t] check_type %( %R %, 'Persistent::Class' )% ) %==  false  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+
+//ограничение на не совпадение имени метода и реализуемой фабрики
+//f _method_name_constraint
+; // servant_realize_constraint
+
+: method_name_constraint OBJECT IN %S
+//	%f_clear_list(SERVANT_FACTORIES)\
+ [%f] clear_list %( 'SERVANT_FACTORIES' )% 
+//	<%r<{}{%f_is_factory(%C)=true}%f_add_to_list(SERVANT_FACTORIES,"%CN")>>\
+ %FOR %r
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true ) 
+   [%f] add_to_list %( 'SERVANT_FACTORIES' %, %C |N )% 
+  %END-FOR
+  %END-FOR
+//	<{, }{%CC=Operation&%CS!=ctor&%f_exists_in_list(SERVANT_FACTORIES,"%CN")=true}%CN>%f_clear_list(SERVANT_FACTORIES)
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+   ( ( %C |S ) %!= 'ctor'  ) %&& 
+   ( ( [%f] exists_in_list %( 'SERVANT_FACTORIES' %, %C |N )% ) %==  true  ) ) 
+  %C |N 
+ %END-FOR
+ [%f] clear_list %( 'SERVANT_FACTORIES' )% 
+
+//f _has_cached_factory
+; // method_name_constraint
+
+: has_cached_factory OBJECT IN %S
+//	[{<{}{%f_is_factory(%C)=true&%f_is_it_cached(%C)=true}{%CC}>=0}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+    ( ( [%f] is_it_cached %( %C )% ) %==  true  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+
+//f _is_implement_cached_factory
+; // has_cached_factory
+
+: is_implement_cached_factory OBJECT IN %S
+//	<[{%RS=LocalInterface}%f_is_implement_cached_factory(%R)]%f_implement_cached_factory_impl(%R)%R<{}{"%ga"="abstract"}%f_implement_cached_factory_impl(%g)>>\
+ %FOR %IF ( ( %R |S ) %== 'LocalInterface' ) 
+   [%f] is_implement_cached_factory %( %R )% 
+  %END-IF
+  [%f] implement_cached_factory_impl %( %R )% %R
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   [%f] implement_cached_factory_impl %( %g )% 
+  %END-FOR
+  %END-FOR
+//	<%g<%f_implement_cached_factory_impl(%R)%R<{}{"%ga"="abstract"}%f_implement_cached_factory_impl(%g)>>>
+ %FOR %g
+  %FOR [%f] implement_cached_factory_impl %( %R )% %R
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+    [%f] implement_cached_factory_impl %( %g )% 
+   %END-FOR
+   %END-FOR
+  %END-FOR
+
+//f _implement_cached_factory_impl
+; // is_implement_cached_factory
+
+: implement_cached_factory_impl OBJECT IN %S
+//	[{%f_has_cached_factory(%S)=true}.]
+ %IF ( ( [%f] has_cached_factory %( %S )% ) %==  true ) 
+  '.' 
+ %END-IF
+
+//f _has_multi_factory
+; // implement_cached_factory_impl
+
+: has_multi_factory OBJECT IN %S
+//	[{<{}{%f_is_factory(%C)=true&%CS=multi factory}{%CC}>=0}{true}false]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( [%f] is_factory %( %C )% ) %==  true %&& 
+    ( ( %C |S ) %== 'multi factory'  ) ) 
+   ( %C |C ) 
+  %END-FOR
+  %== 0 ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+
+//f _is_implement_multi_factory
+; // has_multi_factory
+
+: is_implement_multi_factory OBJECT IN %S
+//	<%f_implement_multi_factory_impl(%R)%R<{}{"%ga"="abstract"}%f_implement_multi_factory_impl(%g)[{%gS=LocalInterface}%f_is_implement_multi_factory(%g)]>[{%RS=LocalInterface}%f_is_implement_multi_factory(%R)]>
+ %FOR [%f] implement_multi_factory_impl %( %R )% %R
+  %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' ) 
+   [%f] implement_multi_factory_impl %( %g )% %IF ( ( %g |S ) %== 'LocalInterface' ) 
+    [%f] is_implement_multi_factory %( %g )% 
+   %END-IF
+  %END-FOR
+   %IF ( ( %R |S ) %== 'LocalInterface' ) 
+   [%f] is_implement_multi_factory %( %R )% 
+  %END-IF
+ %END-FOR
+
+//f _implement_multi_factory_impl
+; // is_implement_multi_factory
+
+: implement_multi_factory_impl OBJECT IN %S
+//	[{%f_has_multi_factory(%S)=true}.]
+ %IF ( ( [%f] has_multi_factory %( %S )% ) %==  true ) 
+  '.' 
+ %END-IF
+//#UC END# *4704C0E30186for47144D340251*
+; // implement_multi_factory_impl
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+implementation @ <<Servant>>
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47144D340251*
+//S class %SN
+//O [{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}%SN_factory.cpp]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}\
+ %IF ( ( [%f] has_factory_methods %( %S )% ) %== true %|| 
+   ( ( [%f] need_servant_factory %( %S )% ) %==  true  ) ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_std_inc(%S)%f_set_var(SERV,S)
+  [%f] std_inc %( %S )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	\#include "%f_with_gen_id(fctr.h,%SL)"
+  '#include "'
+  [%f] with_gen_id %( 'fctr.h' %, %S |L )% 
+//	\#include "%f_with_gen_id(h,%SL)"[{%f_realize_srv_type(%S)=true}
+  '#include "'
+  [%f] with_gen_id %( 'h' %, %S |L )% %IF ( ( [%f] realize_srv_type %( %S )% ) %==  true ) 
+
+//	\#include "%f_with_gen_id(h,%P%PL)"][{<{}{%CM=CustomFactory::Class}{C}>!=0}
+   '#include "'
+   [%f] with_gen_id %( 'h' %, %P ->P |L  )% 
+  %END-IF
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'CustomFactory::Class' ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+
+//	%U[{CUSTOM_INLUDE}
+   %U%IF ( 'CUSTOM_INLUDE' ) 
+
+//	]]
+   %END-IF
+   %END-IF
+//	%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+  %P
+  %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Environment::Class' ) 
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A |L )% %, %A )% 
+//	>[
+  %END-FOR
+   %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	%SP
+  %S |P 
+//	%S%f_dump_concrete_factory_impl()
+  %S %f dump_concrete_factory_impl %( )% 
+//	%Sp
+  %S |p 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *4705C54B01F4for47144D340251*
+; // fctr.cpp
+
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47144D340251*
+//? Заголовк реализации фабрик интерфеса %RN для серванта %SN
+//S class %SN
+//O [{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}%SN_factory.h]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_has_factory_methods(%S)"="true"|%f_need_servant_factory(%S)=true}\
+ %IF ( ( [%f] has_factory_methods %( %S )% ) %== true %|| 
+   ( ( [%f] need_servant_factory %( %S )% ) %==  true  ) ) 
+//	%f_h_header(%S)
+  [%f] h_header %( %S )% 
+//	%f_std_inc(%S)%f_set_var(SERV,S)
+  [%f] std_inc %( %S )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	[%S%f_dump_all_incl_base_fctrs()][\#include %f_dump_include_path(%f_with_gen_id(h,%PL),%P)
+  %IF-NOT-EMPTY
+   %S %f dump_all_incl_base_fctrs %( )% 
+  %END-IF
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %P |L )% %, %P )% 
+//	][// by \<\<uses\>\> back dependencies
+  %END-IF
+  %IF-NOT-EMPTY
+   '// by <<uses>> back dependencies'
+//	[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}[\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+      ( ( %a |C ) %== 'Dependency'  ) ) 
+     ( 'CSp' ) 
+    %END-FOR
+    %!= 0 ) 
+    %IF-NOT-EMPTY
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	]]][
+    %END-IF
+   %END-IF
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()][{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}
+   %S %f open_ifdef %( )% 
+  %END-IF
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'CSp' ) 
+   %END-FOR
+   %!= 0 ) 
+
+//	/// Servant-factory implementation for %SN
+   '/// Servant-factory implementation for '
+   %S |N 
+//	[<{}{"%aS"="uses"&"%aC"="Dependency"}{Sp}%f_dump_friend_frwd(%a%P)
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+      ( ( %a |C ) %== 'Dependency'  ) ) 
+     ( 'Sp' ) 
+     [%f] dump_friend_frwd %( %a ->P  )% 
+//	>]]
+    %END-FOR
+   %END-IF
+  %END-IF
+//	%SP
+  %S |P 
+//	[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}\
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'CSp' ) 
+   %END-FOR
+   %!= 0 ) 
+//	class %SNServantFactory {
+   'class '
+   %S |N 'ServantFactory {'
+//	<{}{"%aS"="uses"&"%aC"="Dependency"}{Sp}%f_dump_friend_decl(%a%P)
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'Sp' ) 
+    [%f] dump_friend_decl %( %a ->P  )% 
+//	>%f_set_var(__SERVANT,S)%f_shift_scope(true)[{"%f_has_factory_methods(%S)"="true"}{%f_dump_ctor_fctr_h(%S)\};}%f_dump_all_fctr_h(%S,"servant")%f_dump_ctor_fctr_h(%S)};]%f_shift_scope(false)
+   %END-FOR
+   [%f] set_var %( '__SERVANT' %, 'S' )% [%f] shift_scope %( true )% %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+    %ELSE
+     [%f] dump_ctor_fctr_h %( %S )% '};' 
+    %THEN
+    [%f] dump_all_fctr_h %( %S %, 'servant' )% [%f] dump_ctor_fctr_h %( %S )% '};' 
+   %END-IF
+   [%f] shift_scope %( false )% 
+//	
+
+//	]\
+  %END-IF
+//	%S%f_dump_concrete_factory_decl()
+  %S %f dump_concrete_factory_decl %( )% 
+//	%Sp[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}
+  %S |p %IF ( 
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'CSp' ) 
+   %END-FOR
+   %!= 0 ) 
+
+//	// TypeTraits specializations
+   '// TypeTraits specializations'
+//	namespace Core {	
+   'namespace Core {	'
+//	template \<\>
+   'template <>'
+//	struct TypeTraits \<%f_full_name(%S)\> {
+   'struct TypeTraits <'
+   [%f] full_name %( %S )% '> {'
+//		typedef %f_full_name(%S)ServantFactory Factory;
+   '	typedef '
+   [%f] full_name %( %S )% 'ServantFactory Factory;'
+//	};
+   '};'
+//	} // namespace Core
+   '} // namespace Core'
+//	]
+  %END-IF
+//	%f_h_footer(%S)
+  [%f] h_footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *4705C5490109for47144D340251*
+; // fctr.h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47144D340251*
+//P
+//S class %SN;
+//O [{"%SK"!="ParameterizedClass"}%SN.cpp]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%SK"!="ParameterizedClass"}\
+ %IF ( ( %S |K ) %!= 'ParameterizedClass' ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_servant_impl_body(%S)
+  [%f] servant_impl_body %( %S )% 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022CB8034Bfor47144D340251*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47144D340251*
+//? Заголовок реализации класса серванта для интерфеса %RN
+//F [{"%SK"="ParameterizedClass"}template \<<{, }{"%CC"="Parameter"}%f_dump_template_param_h(%C)>\> ]class %SN;
+//S class %SN
+//O %SN.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	%f_std_inc(%S)%f_set_var(SERV,S)%f_set_var(SELF,S)
+ [%f] std_inc %( %S )% [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% 
+//	%f_includes_by_contents(%S)\
+ [%f] includes_by_contents %( %S )% 
+//	%S%f_h_includes()\
+ %S %f h_includes %( )% 
+//	%S%f_additional_includes()\
+ %S %f additional_includes %( )% 
+//	[{%S{need UC}=true}
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[{_CUSTOM_INCLUDES}
+  %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()][
+  %S %f open_ifdef %( )% 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	// forward decls for defined friends
+  '// forward decls for defined friends'
+//	<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}%a%PP\t%a%PF
+  %FOR %ITEM-CONDITION ( ( %a |S ) %== 'friend' %&& 
+    ( ( %a |C ) %== 'Dependency'  ) ) 
+   ( 'Sp' ) 
+   %a ->P |P  #9
+   %a ->P |F  
+//	%a%Pp
+   %a ->P |p  
+//	>]
+  %END-FOR
+ %END-IF
+//	%SP
+ %S |P 
+//	<%WF
+ %FOR %W |F 
+//	>%S%f_self_forward()
+ %END-FOR
+ %S %f self_forward %( )% 
+//	[[{%f_has_factory_methods(%S)=true}class %SN_factory;
+ %IF-NOT-EMPTY
+  %IF ( ( [%f] has_factory_methods %( %S )% ) %==  true ) 
+   'class '
+   %S |N '_factory;'
+//	][{%f_need_servant_factory(%S)=true}class %SNServantFactory;
+  %END-IF
+  %IF ( ( [%f] need_servant_factory %( %S )% ) %==  true ) 
+   'class '
+   %S |N 'ServantFactory;'
+//	]
+  %END-IF
+//	]%f_docs(%S)\
+ %END-IF
+ [%f] docs %( %S )% 
+//	[{"%SK"="ParameterizedClass"}template \<<{, }{"%CC"="Parameter"}%CX>\>%f_set_var(INST,S)	
+ %IF ( ( %S |K ) %== 'ParameterizedClass' ) 
+  'template <'
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Parameter' ) 
+   %C |X 
+  %END-FOR
+  '>'
+  [%f] set_var %( 'INST' %, 'S' )% '	'
+//	]class [{%SS=ComServant}ATL_NO_VTABLE ]%SN%S%f_dump_colon()%S%f_base_class_decl(%S)\
+ %END-IF
+ 'class '
+ %IF ( ( %S |S ) %== 'ComServant' ) 
+  'ATL_NO_VTABLE ' 
+ %END-IF
+ %S |N %S %f dump_colon %( )% %S %f base_class_decl %( %S )% 
+//	<{\n\t, }virtual public %f_type(%G)%f_dump_parameterized_list(%G)>
+ %FOR %ITEM-SEPARATOR #13#10#9', ' ; // %ITEM-SEPARATOR 
+  'virtual public '
+  [%f] type %( %G )% [%f] dump_parameterized_list %( %G )% 
+ %END-FOR
+//	{
+ '{'
+//		SET_OBJECT_COUNTER (%SN)
+ '	SET_OBJECT_COUNTER ('
+ %S |N ')'
+//	[{"%f_has_factory_methods(%S)"="true"}	friend class %SN_factory; // self factory
+ %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+  '	friend class '
+  %S |N '_factory; // self factory'
+//	][{%f_need_servant_factory(%S)=true}	friend class %SNServantFactory;
+ %END-IF
+ %IF ( ( [%f] need_servant_factory %( %S )% ) %==  true ) 
+  '	friend class '
+  %S |N 'ServantFactory;'
+//	][{%f_has_self_factory_methods(%S)=true}\
+ %END-IF
+ %IF ( ( [%f] has_self_factory_methods %( %S )% ) %==  true ) 
+//	[protected:
+  %IF-NOT-EMPTY
+   'protected:'
+//		// factories id
+   '	// factories id'
+//		struct FactoriesID {
+   '	struct FactoriesID {'
+//	%f_dump_all_fctr_id(%S)	};
+   [%f] dump_all_fctr_id %( %S )% '	};'
+//	]][<{}{"%aS"="friend"&"%aC"="Dependency"}{Sp}	friend class %f_type(%a%P); // defined friend
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( %a |S ) %== 'friend' %&& 
+    ( ( %a |C ) %== 'Dependency'  ) ) 
+   ( 'Sp' ) 
+   '	friend class '
+   [%f] type %( %a ->P  )% '; // defined friend'
+//	>][%P<{}{"%CU"!="%{SELF}U"&"%C{local supervisor}"="true"}	friend class %f_type(%C);// local supervisor
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  %P
+  %FOR %ITEM-CONDITION ( ( %C |U ) %!= ( ( get_global_var ( 'SELF' ) |U ) ) %&& 
+    ( ( %C get_up ( 'local supervisor' ) ) %== true  ) ) 
+   '	friend class '
+   [%f] type %( %C )% ';// local supervisor'
+//	>]%S%f_dump_pool_declaration()[{"%S{singleton}"="true"}
+  %END-FOR
+  %END-IF
+ %S %f dump_pool_declaration %( )% %IF ( ( %S get_up ( 'singleton' ) ) %== true ) 
+
+//		// singleton declaration
+  '	// singleton declaration'
+//		typedef ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+  '	typedef ACE_Singleton <'
+  %S |N ', ACE_SYNCH_RECURSIVE_MUTEX> Singleton;'
+//		friend class ACE_Singleton \<%SN, ACE_SYNCH_RECURSIVE_MUTEX\>;
+  '	friend class ACE_Singleton <'
+  %S |N ', ACE_SYNCH_RECURSIVE_MUTEX>;'
+//	
+
+//	][[{"<{}{"%CC"="Class"&%CM!=CustomFactory::Class&%CS!=TemplateFunctions}{C}>"!="0"}
+ %END-IF
+ %IF-NOT-EMPTY
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |M ) %!= 'CustomFactory::Class'  ) %&& 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested declorations[{"<{}{"%CC"="Class"&%CS!=TemplateFunctions}{C}>"!="0"}
+   '// nested declorations'
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+      ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0 ) 
+
+//	%f_visibility_spec(%C)%f_set_var(PREV_C,C)]
+    [%f] visibility_spec %( %C )% [%f] set_var %( 'PREV_C' %, 'C' )% 
+   %END-IF
+//	<{}{"%CC"="Class"&%CS!=TemplateFunctions}\
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+//	[{%f_visibility_spec(%C)!=%f_visibility_spec(%{PREV_C})}%f_visibility_spec(%C)\n]%CX%f_set_var(PREV_C,C)
+    %IF ( ( [%f] visibility_spec %( %C )% ) %!= ( [%f] visibility_spec %( ( get_global_var ( 'PREV_C' ) ) )% ) ) 
+     [%f] visibility_spec %( %C )% #13#10 
+    %END-IF
+    %C |X [%f] set_var %( 'PREV_C' %, 'C' )% 
+//	
+
+//	>]]%f_set_var(SERV,S)%f_set_var(SELF,S)[//////////////////////////////////////////////////////////////////////////////////////////
+   %END-FOR
+  %END-IF
+ %END-IF
+ [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% %IF-NOT-EMPTY
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods and data
+  '// static member methods and data'
+//	[public:<{}{%CC=Operation&"%CS"="static"&"%CV"="PublicAccess"}{Sn}[
+  %IF-NOT-EMPTY
+   'public:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'static'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>
+    %END-IF
+   %END-FOR
+//	][protected:<{}{%CC=Operation&"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}[
+  %END-IF
+  %IF-NOT-EMPTY
+   'protected:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'static'  ) %&& 
+     ( ( %C |V ) %== 'ProtectedAccess'  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>
+    %END-IF
+   %END-FOR
+//	][private:<{}{%CC=Operation&"%CS"="static"&"%CV"="PrivateAccess"}{Sn}[
+  %END-IF
+  %IF-NOT-EMPTY
+   'private:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %== 'static'  ) %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]><{}{%CC=Attribute&[{%CS=static|%t_is_static_accessor(%C)=true}{flase}true]=true}{Sn}[
+    %END-IF
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+     ( %IF ( ( %C |S ) %== 'static' %|| 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     %ELSE
+      'flase' 
+     %THEN
+      true 
+    %END-IF
+    %==  true  ) ) 
+    ( 'Sn' ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>
+    %END-IF
+   %END-FOR
+//	]][%f_static_data_accessor(%S)
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] static_data_accessor %( %S )% 
+//	]%S%f_dump_ctor_dtor_decl()
+ %END-IF
+ %S %f dump_ctor_dtor_decl %( )% 
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self methods
+  '// self methods'
+//	[public:<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PublicAccess"}{Sn}
+  %IF-NOT-EMPTY
+   'public:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'factory'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][protected:<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="ProtectedAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   'protected:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'factory'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'ProtectedAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][private:<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   'private:'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'factory'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>[%S%f_additional_methods_declarations()
+   %END-FOR
+   %IF-NOT-EMPTY
+    %S %f additional_methods_declarations %( )% 
+//	]
+   %END-IF
+//	]][//////////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// oneway methods impl
+  '// oneway methods impl'
+//	private:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  'private:'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |S ) %== 'oneway'  ) %|| 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) 
+   ( 'Sn' ) 
+
+//	%f_servant_cpp_oneway_operation_thr_h(%C)
+   [%f] servant_cpp_oneway_operation_thr_h %( %C )% 
+//	>
+  %END-FOR
+//	protected:<{}{"%CC"="Operation"&"%CS"="oneway"|"%CS"="oneway,chg"}{Sn}
+  'protected:'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |S ) %== 'oneway'  ) %|| 
+    ( ( %C |S ) %== 'oneway,chg'  ) ) 
+   ( 'Sn' ) 
+
+//	%f_servant_cpp_oneway_operation_impl_h(%C)
+   [%f] servant_cpp_oneway_operation_impl_h %( %C )% 
+//	>
+  %END-FOR
+//	][//////////////////////////////////////////////////////////////////////////////////////////
+ %END-IF
+ %IF-NOT-EMPTY
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self data
+  '// self data'
+//	private:
+  'private:'
+//	<{\n\n}{"%CC"="Attribute"&"%CS"!="static"&%t_is_static_accessor(%C)!=true}{Sn}%CX>
+  %FOR %ITEM-SEPARATOR #13#10#13#10 ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |S ) %!= 'static'  ) %&& 
+    ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) ) 
+   ( 'Sn' ) 
+   %C |X 
+  %END-FOR
+//	][{<{}{%CS=TemplateFunctions}{%CC}>!=0}
+ %END-IF
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'TemplateFunctions' ) 
+   ( %C |C ) 
+  %END-FOR
+  %!= 0 ) 
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// template methods implementation
+  '// template methods implementation'
+//	<{}{%CS=TemplateFunctions}{Sn}
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'TemplateFunctions' ) 
+   ( 'Sn' ) 
+
+//	%CX
+   %C |X 
+//	>][{%Sa!=abstract}[{%f_set_var(S_INT,"")%f_find_synchro_factory(%S)"%{S_INT}U"!=""}
+  %END-FOR
+ %END-IF
+ %IF ( ( %S |a ) %!= 'abstract' ) 
+  %IF ( ( [%f] set_var %( 'S_INT' %, '' )% ) ( [%f] find_synchro_factory %( %S )% ) ( ( get_global_var ( 'S_INT' ) |U ) ) %!= '' ) 
+
+//	public:
+   'public:'
+//	/////////////////////////////////////////////////////////////////////////////////////////
+   '/////////////////////////////////////////////////////////////////////////////////////////'
+//	// overload release method
+   '// overload release method'
+//		virtual unsigned long release () const;
+   '	virtual unsigned long release () const;'
+//	]]%f_self_data_accessor(%S)\
+  %END-IF
+ %END-IF
+ [%f] self_data_accessor %( %S )% 
+//	[%f_dump_cpp_derrived_impl_h(%S)
+ %IF-NOT-EMPTY
+  [%f] dump_cpp_derrived_impl_h %( %S )% 
+//	][#protected:
+ %END-IF
+ %IF-NOT-EMPTY
+  out_indent 'protected:'
+//	[%f_dump_consumers_methods_h(%S)
+  %IF-NOT-EMPTY
+   [%f] dump_consumers_methods_h %( %S )% 
+//	][%f_dump_suppliers_methods_h(%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   [%f] dump_suppliers_methods_h %( %S )% 
+//	]][#private:[%f_dump_consumers_datas(%S)
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  out_indent 'private:'
+  %IF-NOT-EMPTY
+   [%f] dump_consumers_datas %( %S )% 
+//	]][%S%f_servant_content(%S)
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  %S %f servant_content %( %S )% 
+//	][{%S{need UC}=true}
+ %END-IF
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[
+  %U%IF-NOT-EMPTY
+
+//	]
+  %END-IF
+ //	]}; // class %SN
+ %END-IF
+ '}; // class '
+ %S |N 
+//	%S%f_additional_declarations()
+ %S %f additional_declarations %( )% 
+//	%Sp[
+ %S |p %IF-NOT-EMPTY
+
+//	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+  '#include '
+  [%f] dump_include_path %( [%f] with_gen_id %( 'i.h' %, %S |L )% %, %S )% 
+ %END-IF
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+
+//f _find_synchro_factory
+; // h
+
+end. // <<Servant>>
+
+: find_synchro_factory OBJECT IN %S
+//	[{"%{S_INT}U"=""}<{}{"%{S_INT}U"=""}{%R}%f_find_synchro_factory_i(%R)%R<{}{"%ga"="abstract"&"%{S_INT}U"=""}%f_find_synchro_factory_i(%g)>>\
+ %IF ( ( ( get_global_var ( 'S_INT' ) |U ) ) %== '' ) 
+  %FOR %ITEM-CONDITION ( ( ( get_global_var ( 'S_INT' ) |U ) ) %== '' ) 
+   ( %R ) 
+   [%f] find_synchro_factory_i %( %R )% %R
+   %FOR %ITEM-CONDITION ( ( %g |a ) %== 'abstract' %&& 
+     ( ( ( get_global_var ( 'S_INT' ) |U ) ) %== ''  ) ) 
+    [%f] find_synchro_factory_i %( %g )% 
+   %END-FOR
+   %END-FOR
+//	[{%Rx=false}{[{<{}{%RK=ParameterizedClass}{C}>!=0&"%{S_INT}U"=""}<{}{"%{S_INT}U"=""}{%R}%f_find_synchro_factory(%R)>]}<{}{"%{S_INT}U"=""}{%G}%f_find_synchro_factory(%G)>]]
+  %IF ( ( %R |x ) %==  false ) 
+   %ELSE
+    %IF ( 
+     %FOR %ITEM-CONDITION ( ( %R |K ) %== 'ParameterizedClass' ) 
+      ( 'C' ) 
+     %END-FOR
+     %!= 0 %&& 
+      ( ( ( get_global_var ( 'S_INT' ) |U ) ) %== ''  ) ) 
+     %FOR %ITEM-CONDITION ( ( ( get_global_var ( 'S_INT' ) |U ) ) %== '' ) 
+      ( %R ) 
+      [%f] find_synchro_factory %( %R )% 
+     %END-FOR
+    %END-IF
+   %THEN
+   %FOR %ITEM-CONDITION ( ( ( get_global_var ( 'S_INT' ) |U ) ) %== '' ) 
+    ( %G ) 
+    [%f] find_synchro_factory %( %G )% 
+   %END-FOR
+  %END-IF
+ %END-IF
+
+//f _find_synchro_factory_i
+; // find_synchro_factory
+
+: find_synchro_factory_i OBJECT IN %S
+//	[{%f_has_synchro_factory(%S)=true}%f_set_var(S_INT,S)]
+ %IF ( ( [%f] has_synchro_factory %( %S )% ) %==  true ) 
+  [%f] set_var %( 'S_INT' %, 'S' )% 
+ %END-IF
+//#UC END# *47022C88029Ffor47144D340251*
+; // find_synchro_factory_i
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+implementation @ <<Servant>>
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47144D340251*
+//? Файл inline реализации класса серванта для интерфеса %RN
+//P
+//O [{%f_need_inline_file(%S)=true}%SN.i.h]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_need_inline_file(%S)=true}\
+ %IF ( ( [%f] need_inline_file %( %S )% ) %==  true ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)\
+  [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	[{%SK!=ParameterizedClass}{%f_servant_impl_body(%S)}
+  %IF ( ( %S |K ) %!= 'ParameterizedClass' ) 
+   %ELSE
+    [%f] servant_impl_body %( %S )% 
+   %THEN
+
+//	%f_std_inc(%S)
+   [%f] std_inc %( %S )% 
+//	%P<{}{"%AM"="Environment::Class"}\#include %f_dump_include_path(%f_with_gen_id(h,%AL),%A)
+   %P
+   %FOR %ITEM-CONDITION ( ( %A |M ) %== 'Environment::Class' ) 
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A |L )% %, %A )% 
+//	><{}{"%S{local supervisor}"!="true"|"%W%PU"!="%PU"}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+   %END-FOR
+    %FOR %ITEM-CONDITION ( ( %S get_up ( 'local supervisor' ) ) %!= true %|| 
+     ( ( %W ->P |U  ) %!= ( %P |U )  ) ) 
+    ( %W ) 
+    %IF-NOT-EMPTY
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %W |L )% %, %W )% 
+//	]>[// by \<\<uses\>\> dependencies
+    %END-IF
+   %END-FOR
+   %IF-NOT-EMPTY
+    '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+    %FOR %ITEM-CONDITION ( ( %A |S ) %== 'uses' %&& 
+      ( ( %A |C ) %== 'Dependency'  ) %&& 
+      ( %IF ( ( %A ->P |U  ) %== ( %S |U ) %|| 
+       ( ( %A ->P |o  ) %== ''  ) ) 
+       true 
+     %END-IF
+     %== true  ) ) 
+     %IF-NOT-EMPTY
+      '#include '
+      [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	][{%A%TS=Servant}\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+     %END-IF
+     %IF ( ( %A ->T |S  ) %== 'Servant' ) 
+      '#include '
+      [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>][{"%S{local supervisor}"="true"}%f_set_var(SELF,S)// as local supervisor
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF ( ( %S get_up ( 'local supervisor' ) ) %== true ) 
+    [%f] set_var %( 'SELF' %, 'S' )% '// as local supervisor'
+//	%P<{}{"%CM"="Servant::Class"&"%CU"!="%{SELF}U"}\#include %f_dump_include_path(%f_with_gen_id(h,%CL),%C)
+    %P
+    %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Servant::Class' %&& 
+      ( ( %C |U ) %!= ( ( get_global_var ( 'SELF' ) |U ) )  ) ) 
+     '#include '
+     [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C |L )% %, %C )% 
+//	>][{%S{need UC}=true}
+    %END-FOR
+    %END-IF
+   %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[{_CUSTOM_INCLUDES}
+    %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+    %END-IF
+ //	][
+   %END-IF
+   %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+    %S %f open_ifdef %( )% 
+   %END-IF
+//	%SP
+   %S |P 
+//	[
+   %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+    '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested implementation<{}{"%CC"="Class"}[
+    '// nested implementation'
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)[
+     %END-IF
+    %END-FOR
+   %END-IF
+   [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+    '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods
+    '// static member methods'
+//	<{}{"%CS"="static"|%t_is_static_accessor(%C)=true}[
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' %|| 
+      ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>
+     %END-IF
+    %END-FOR
+//	]//////////////////////////////////////////////////////////////////////////////////////////
+   %END-IF
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// constructors and destructor[{"%S{Factory default impl}"!="true"|"%rx"="false"}[<{}{"%CC"="Operation"&"%CS"="ctor"&"%Ca"="inline"}{Sn}
+   '// constructors and destructor'
+   %IF ( ( %S get_up ( 'Factory default impl' ) ) %!= true %|| 
+     ( ( %r |x ) %== false  ) ) 
+    %IF-NOT-EMPTY
+     %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+       ( ( %C |S ) %== 'ctor'  ) %&& 
+       ( ( %C |a ) %== 'inline'  ) ) 
+      ( 'Sn' ) 
+
+//	
+
+//	%CX>]][
+      %C |X 
+     %END-FOR
+    %END-IF
+   %END-IF
+   %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+    '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self implementation<{}{"%CC"="Operation"&"%CS"!="factory"&"%Ca"!="abstract"&"%CS"!="static"&"%CS"!="ctor"&"%Ca"="inline"}{Sn}
+    '// self implementation'
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %!= 'factory'  ) %&& 
+      ( ( %C |a ) %!= 'abstract'  ) %&& 
+      ( ( %C |S ) %!= 'static'  ) %&& 
+      ( ( %C |S ) %!= 'ctor'  ) %&& 
+      ( ( %C |a ) %== 'inline'  ) ) 
+     ( 'Sn' ) 
+
+//	
+
+//	%CX>]
+     %C |X 
+    %END-FOR
+   %END-IF
+//	
+
+//	%Sp		
+   %S |p '		'
+//	]
+  %END-IF
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022CCF00EAfor47144D340251*
+; // i.h
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47144D340251*
+//? Заголовок реализации фабрик интерфейса <{}{%t_check_type(%R,"StateMachine::Class")=false}%RN> для серванта %SN
+//O [{"%f_has_factory_methods(%S)"="true"}%SNFactoryImpl.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_has_factory_methods(%S)"="true"}\
+ %IF ( ( [%f] has_factory_methods %( %S )% ) %== true ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_set_var(SERV,S)
+  [%f] set_var %( 'SERV' %, 'S' )% 
+//	package %f_dump_java_package(%S);
+  'package '
+  [%f] dump_java_package %( %S )% ';'
+//	
+
+//	%f_dump_std_java_imports(%S)
+  [%f] dump_std_java_imports %( %S )% 
+//	
+
+//	[%S%f_dump_all_incl_base_fctrs_java()]%f_java_core_exceptions(%S)
+  %IF-NOT-EMPTY
+   %S %f dump_all_incl_base_fctrs_java %( )% 
+  %END-IF
+  [%f] java_core_exceptions %( %S )% 
+//	
+
+//	/// Interface-factory implementation for %SN
+  '/// Interface-factory implementation for '
+  %S |N 
+//	public final class %SNFactoryImpl%S%f_fctr_base_class_java(){
+  'public final class '
+  %S |N 'FactoryImpl'
+  %S %f fctr_base_class_java %( )% '{'
+//	[{<{}{"%aS"="uses"&"%aC"="Dependency"}{CSp}>!=0}	/// Servant-factory implementation for %SN
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'uses' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'CSp' ) 
+   %END-FOR
+   %!= 0 ) 
+   '	/// Servant-factory implementation for '
+   %S |N 
+//		public static class %SNServantFactoryImpl {
+   '	public static class '
+   %S |N 'ServantFactoryImpl {'
+//	%f_set_var(__SERVANT,S)%f_dump_all_fctr_java(%S,"servant")
+   [%f] set_var %( '__SERVANT' %, 'S' )% [%f] dump_all_fctr_java %( %S %, 'servant' )% 
+//		} //%SNServantFactoryImpl
+   '	} //'
+   %S |N 'ServantFactoryImpl'
+//	]
+  %END-IF
+//		public %SNFactoryImpl () {
+  '	public '
+  %S |N 'FactoryImpl () {'
+//		}
+  '	}'
+//	
+
+//		public final void registrateMe (short priority) throws DuplicatedFactoryKey {
+  '	public final void registrateMe (short priority) throws DuplicatedFactoryKey {'
+//		%f_dump_all_registr_fctrs_java(%S)
+  '	'
+  [%f] dump_all_registr_fctrs_java %( %S )% 
+//		}
+  '	}'
+//	
+
+//		public final [{}{String}%S%f_dump_switch_type()] key () {
+  '	public final '
+  %IF ( ) 
+   %ELSE
+    'String' 
+   %THEN
+   %S %f dump_switch_type %( )% 
+  %END-IF
+  ' key () {'
+//			return [{"%S%f_dump_switch_type()"!=""}{"%SN"}%S%f_dump_switch_value()];
+  '		return '
+  %IF ( ( %S %f dump_switch_type %( )% ) %!= '' ) 
+   %ELSE
+    %S |N 
+   %THEN
+   %S %f dump_switch_value %( )% 
+  %END-IF
+  ';'
+//		}
+  '	}'
+//	%f_dump_all_fctr_java(%S)
+  [%f] dump_all_fctr_java %( %S )% 
+//	}
+  '}'
+
+//	%Sp
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *470321C1038Afor47144D340251*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47144D340251*
+//S class %SN;
+//O [{%f_is_server_type(%S)=false}%SN.java]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{%f_is_server_type(%S)=false}\
+ %IF ( ( [%f] is_server_type %( %S )% ) %==  false ) 
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_set_var(SERV,S)%f_set_var(SELF,S)%f_set_var(SERVANT,S)package %f_dump_java_package(%S);
+  [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERVANT' %, 'S' )% 'package '
+  [%f] dump_java_package %( %S )% ';'
+//	
+
+//	%f_dump_std_java_imports(%S)
+  [%f] dump_std_java_imports %( %S )% 
+//	%f_servant_import(%S)%f_includes_by_contents_java(%S)[%S%f_java_servant_import_self(%S)
+  [%f] servant_import %( %S )% [%f] includes_by_contents_java %( %S )% %IF-NOT-EMPTY
+   %S %f java_servant_import_self %( %S )% 
+//	]
+  %END-IF
+//	%U[{_CUSTOM_IMPORT}
+  %U%IF ( '_CUSTOM_IMPORT' ) 
+
+//	]
+  %END-IF
+ //	
+
+//	%U[{_CUSTOM_CLASS_DEFINITION}
+  %U%IF ( '_CUSTOM_CLASS_DEFINITION' ) 
+
+//	]
+  %END-IF
+ //	
+
+//	%t_visibility(%S,"%XU")%t_abstract_type(%S)class %SN%S%f_java_base_class_decl(%S) {
+  [%t] visibility %( %S %, %X |U )% [%t] abstract_type %( %S )% 'class '
+  %S |N %S %f java_base_class_decl %( %S )% ' {'
+//	
+
+//	[
+  %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested declorations
+   '// nested declorations'
+//	<{}{"%CC"="Class"&%CS!=TemplateFunctions}[
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |S ) %!= 'TemplateFunctions'  ) ) 
+    %IF-NOT-EMPTY
+
+//	%CX
+     %C |X 
+//	]>]%f_set_var(SERV,S)%f_set_var(SELF,S)%f_set_var(SERVANT,S)[// static member methods and data
+    %END-IF
+   %END-FOR
+  %END-IF
+  [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERVANT' %, 'S' )% %IF-NOT-EMPTY
+   '// static member methods and data'
+//	[<{}{%CC=Operation&"%CS"="static"&"%CV"="PublicAccess"}{Sn}[
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'static'  ) %&& 
+      ( ( %C |V ) %== 'PublicAccess'  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>][<{}{%CC=Operation&"%CS"="static"&"%CV"="ProtectedAccess"}{Sn}[
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'static'  ) %&& 
+      ( ( %C |V ) %== 'ProtectedAccess'  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>][<{}{%CC=Operation&"%CS"="static"&"%CV"="PrivateAccess"}{Sn}[
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+      ( ( %C |S ) %== 'static'  ) %&& 
+      ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>][<{}{%CC=Attribute&[{%CS=static|%t_is_static_accessor(%C)=true}{flase}true]=true}{Sn}[
+     %END-IF
+    %END-FOR
+   %END-IF
+   %IF-NOT-EMPTY
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+      ( %IF ( ( %C |S ) %== 'static' %|| 
+       ( ( [%t] is_static_accessor %( %C )% ) %==  true  ) ) 
+      %ELSE
+       'flase' 
+      %THEN
+       true 
+     %END-IF
+     %==  true  ) ) 
+     ( 'Sn' ) 
+     %IF-NOT-EMPTY
+
+//	%CX
+      %C |X 
+//	]>]]%f_static_data_accessor(%S)[{%f_has_self_factory_methods(%S)=true}\
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+  [%f] static_data_accessor %( %S )% %IF ( ( [%f] has_self_factory_methods %( %S )% ) %==  true ) 
+//	[	// factories id
+   %IF-NOT-EMPTY
+    '	// factories id'
+//		public static class FactoriesID {
+    '	public static class FactoriesID {'
+//	%f_dump_all_fctr_id_java(%S)	};
+    [%f] dump_all_fctr_id_java %( %S )% '	};'
+//	]][[{"%S{Factory default impl}"="true"}{[{%f_count_ctor(%S)=0&"%S{Factory default impl}"="false"}\n]}
+   %END-IF
+  %END-IF
+  %IF-NOT-EMPTY
+   %IF ( ( %S get_up ( 'Factory default impl' ) ) %== true ) 
+    %ELSE
+     %IF ( ( [%f] count_ctor %( %S )% ) %== 0 %&& 
+       ( ( %S get_up ( 'Factory default impl' ) ) %== false  ) ) 
+      #13#10 
+     %END-IF
+    %THEN
+
+//	%f_set_var(SERV,S)%f_set_var(SELF,S)%f_set_var(SERVANT,S)%f_dump_all_fctr_def_impl_java(%S)\
+    [%f] set_var %( 'SERV' %, 'S' )% [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERVANT' %, 'S' )% [%f] dump_all_fctr_def_impl_java %( %S )% 
+//	]%f_dump_all_non_constructed_factory_method_def_impl_java(%S)[{"%S{Factory default impl}"!="true"|"%rx"="false"|%f_has_factory_methods(%S)=false}[{%f_count_ctor(%S)!=0}{[{%f_need_empty_ctor(%S)=true}{}%f_dump_empty_ctor_java(%S)\n]}\
+   %END-IF
+   [%f] dump_all_non_constructed_factory_method_def_impl_java %( %S )% %IF ( ( %S get_up ( 'Factory default impl' ) ) %!= true %|| 
+     ( ( %r |x ) %== false  ) %|| 
+     ( ( [%f] has_factory_methods %( %S )% ) %==  false  ) ) 
+    %IF ( ( [%f] count_ctor %( %S )% ) %!= 0 ) 
+     %ELSE
+      %IF ( ( [%f] need_empty_ctor %( %S )% ) %==  true ) 
+       %ELSE
+       %THEN
+       [%f] dump_empty_ctor_java %( %S )% #13#10 
+      %END-IF
+     %THEN
+//	<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}%CX
+     %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+       ( ( %C |S ) %== 'ctor'  ) ) 
+      ( 'Sn' ) 
+      %C |X 
+//	>][
+     %END-FOR
+    %END-IF
+    %IF-NOT-EMPTY
+
+//	%f_dump_cpp_servant_derrived_constr_java(%S)]]][//////////////////////////////////////////////////////////////////////////////////////////
+     [%f] dump_cpp_servant_derrived_constr_java %( %S )% 
+    %END-IF
+   %END-IF
+  %END-IF
+  %IF-NOT-EMPTY
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self data
+   '// self data'
+//	<{\n\n}{"%CC"="Attribute"&"%CS"!="static"&%t_is_static_accessor(%C)!=true&%f_can_dump_attr(%C%T)=true}%CX>
+   %FOR %ITEM-SEPARATOR #13#10#13#10 ; // %ITEM-SEPARATOR 
+    %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( [%t] is_static_accessor %( %C )% ) %!=  true  ) %&& 
+     ( ( [%f] can_dump_attr %( %C ->T  )% ) %==  true  ) ) 
+    %C |X 
+   %END-FOR
+//	][
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+   '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self methods
+   '// self methods'
+//	<{}{"%CC"="Operation"&"%CS"!="factory"&"%CS"!="static"&"%CS"!="ctor"}{Sp}
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'factory'  ) %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) ) 
+    ( 'Sp' ) 
+
+//	%CX
+    %C |X 
+//	>]%f_self_data_accessor(%S)[%f_dump_java_derrived_impl(%S)
+   %END-FOR
+  %END-IF
+  [%f] self_data_accessor %( %S )% %IF-NOT-EMPTY
+   [%f] dump_java_derrived_impl %( %S )% 
+//	][%S%f_servant_content_java(%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   %S %f servant_content_java %( %S )% 
+//	][%f_dump_consumers_methods_java(%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   [%f] dump_consumers_methods_java %( %S )% 
+//	][%f_dump_suppliers_methods_java(%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   [%f] dump_suppliers_methods_java %( %S )% 
+//	][%f_shift_intend(1)%f_dump_servant_sm_java(%S)%f_shift_intend(-1)
+  %END-IF
+  %IF-NOT-EMPTY
+   [%f] shift_intend %( 1 )% [%f] dump_servant_sm_java %( %S )% [%f] shift_intend %( -1 )% 
+//	]
+  %END-IF
+//		%U[{_CUSTOM_METHODS_AND_DATA}
+  '	'
+  %U%IF ( '_CUSTOM_METHODS_AND_DATA' ) 
+
+//		]
+   '	' 
+  %END-IF
+ //	
+
+//	} //class %SN
+  '} //class '
+  %S |N 
+//	
+
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *470321950119for47144D340251*
+; // java
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47144D340251*
+//#UC END# *4E65F581015Afor47144D340251*
+; // link_to_requests_hack
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Servant::Class::switch::Attribute
+end. // <<Servant>>
+
+implementation @ :: <<Servant>> <<switch>> ;
+//? Селектор мультифабрики
+//? Определяет значение ключа мультифабрики, с которым связан данный сервант. Тип селектора серванта должен совпадать с типом селектора реализуемого интерфейса
+//= C++ интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//Y code_switch.gif
+//L code_switch
+//l a
+// - возможные типы связи атрибута
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor47B1884300A7*
+//#UC END# *47022C88029Ffor47B1884300A7*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor47B1884300A7*
+//#UC END# *47022CB8034Bfor47B1884300A7*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor47B1884300A7*
+//#UC END# *47022CCF00EAfor47B1884300A7*
+; // i.h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for47B1884300A7*
+//#UC END# *470321950119for47B1884300A7*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47B1884300A7*
+//#UC END# *470321C1038Afor47B1884300A7*
+; // fctr.java
+
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
+//+ fctr.h
+<<generator>> fctr.h OBJECT IN %S
+//#UC START# *4705C5490109for47B1884300A7*
+//#UC END# *4705C5490109for47B1884300A7*
+; // fctr.h
+
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
+//+ fctr.cpp
+<<generator>> fctr.cpp OBJECT IN %S
+//#UC START# *4705C54B01F4for47B1884300A7*
+//#UC END# *4705C54B01F4for47B1884300A7*
+; // fctr.cpp
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47B1884300A7*
+//#UC END# *4E65F581015Afor47B1884300A7*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for47B1884300A7*
+//c                                      {}
+//r {"%t_can_use_for_switch(%T)"="false"}:           {В качестве селектора могут выступать только простые типы и перечисления}
+//r {"%VN"=""}:                                      {Значение селектора не может быть пустым}
+//#UC END# *4704C0E30186for47B1884300A7*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor47B1884300A7*
+//	property
+ 'property'
+//#UC END# *4705CBD6003Efor47B1884300A7*
+; // wiki_child_kind
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Servant>> <<switch>> ;
+

@@ -1,0 +1,435 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/PackagesIncludes/AbstractImplBase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::CommonTemplates::CommonLang::PackagesIncludes::AbstractImplBase
+//
+// Базовый стереотип для пакетов имплементации
+// ---
+// определяет набор стереотипов, который могут быть включены в пакет
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: AbstractImplBase::Category
+implementation @ <<AbstractImplBase>>
+//? Базовый стереотип для пакетов имплементации
+//? определяет набор стереотипов, который могут быть включены в пакет
+//> Box::Class
+//> FunctorBase::Class
+//> Environment::Class
+//> Event::Class
+
+//= AbstractUnitBase::Category
+//= CommonPackageInclude::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+; // st_space_key
+
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4714A0260109*
+//O [{"%f_need_impl_cpp(%S)"="true"}%SN.cpp]
+//C /impl/%SN
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_need_impl_cpp(%S)"="true"}{<%CX>}\
+ %IF ( ( [%f] need_impl_cpp %( %S )% ) %== true ) 
+  %ELSE
+   %FOR %C |X 
+   %END-FOR
+  %THEN
+//	%f_header(%S)
+  [%f] header %( %S )% 
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	[{%f_need_typeinfo_include_pack(%S)=true}\#include \<typeinfo\>
+  %IF ( ( [%f] need_typeinfo_include_pack %( %S )% ) %==  true ) 
+   '#include <typeinfo>'
+//	][\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	][\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)
+  %END-IF
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %S |L )% %, %S )% 
+//	][<{}{"%f_with_gen_id(h,%CO)"=""}
+  %END-IF
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( [%f] with_gen_id %( 'h' %, %C |O )% ) %== '' ) 
+
+//	%C<{}{"%CS"="uses"&"%CC"="Dependency"}[\#include %f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)
+    %C
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'uses' %&& 
+      ( ( %C |C ) %== 'Dependency'  ) ) 
+     %IF-NOT-EMPTY
+      '#include '
+      [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %C ->T |W  )% %, %C ->T  )% 
+//	]>>][[{<{}{%f_realize_srv_type(%C)=true}{C}>!=0}\#include "%f_with_gen_id(h,%PL)"]
+     %END-IF
+    %END-FOR
+    %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+   %IF ( 
+    %FOR %ITEM-CONDITION ( ( [%f] realize_srv_type %( %C )% ) %==  true ) 
+     ( 'C' ) 
+    %END-FOR
+    %!= 0 ) 
+    '#include "'
+    [%f] with_gen_id %( 'h' %, %P |L )% 
+   %END-IF
+//	][{%S{need UC}=true}%U[{_CUSTOM_INCLUDE}
+  %END-IF
+  %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+   %U%IF ( '_CUSTOM_INCLUDE' ) 
+
+//	]
+   %END-IF
+ //	][
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]
+   %S %f open_ifdef %( )% 
+  %END-IF
+//	
+
+//	%SP[{%S{is namespace}=true}namespace %SN {
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+   'namespace '
+   %S |N ' {'
+//	]
+  %END-IF
+//	<{\n\n}{}[%CX]>
+  %FOR %ITEM-SEPARATOR #13#10#13#10 ; // %ITEM-SEPARATOR 
+   %IF-NOT-EMPTY
+    %C |X 
+   %END-IF
+  %END-FOR
+//	
+
+//	[{%S{is namespace}=true}} //namespace %SN
+  %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+   '} //namespace '
+   %S |N 
+//	]%Sp
+  %END-IF
+  %S |p 
+//	%f_footer(%S)
+  [%f] footer %( %S )% 
+//	]
+ %END-IF
+//#UC END# *47022CB8034Bfor4714A0260109*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4714A0260109*
+//P
+//v #-i
+//O [{"%f_need_impl_header(%S)"="true"}%SN.h]
+//C /impl/%SN
+//S [{"%S{is namespace}"="true"}namespace %SN {\n]
+//s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	[{"%f_need_impl_header(%S)"="true"}{<%CX>}\
+ %IF ( ( [%f] need_impl_header %( %S )% ) %== true ) 
+  %ELSE
+   %FOR %C |X 
+   %END-FOR
+  %THEN
+//	%f_h_header(%S)
+  [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+  [%f] std_inc %( %S )% 
+//	[{"<{}{"%CM"="Set::Class"}{C}>"!="0"}\#include \<set\>
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Set::Class' ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include <set>'
+//	][{"<{}{"%CM"="Map::Class"|"%CM"="MultiMap::Class"}{C}>"!="0"}\#include \<map\>
+  %END-IF
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Map::Class' %|| 
+     ( ( %C |M ) %== 'MultiMap::Class'  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include <map>'
+//	][{"<{}{"%CM"="Vector::Class"}{C}>"!="0"}\#include \<vector\>
+  %END-IF
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Vector::Class' ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include <vector>'
+//	][{"<{}{"%CM"="List::Class"}{C}>"!="0"}\#include \<list\>
+  %END-IF
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'List::Class' ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include <list>'
+//	]\
+  %END-IF
+//	[{"<{}{"%CM"="Queue::Class"}{C}>"!="0"}\#include \<queue\>
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Queue::Class' ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include <queue>'
+//	]\
+  %END-IF
+
+
+//	[{"<{}{"%CM"="Deque::Class"}{C}>"!="0"}\#include \<deque\>
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'Deque::Class' ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include <deque>'
+//	]\
+  %END-IF
+
+
+//	[{<{}{%CM=UnsortedMap::Class|%CM=UnsortedSet::Class}{C}>!=0}\#include "shared/Core/data/unsorted_containers.h"
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |M ) %== 'UnsortedMap::Class' %|| 
+     ( ( %C |M ) %== 'UnsortedSet::Class'  ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %!= 0 ) 
+   '#include "shared/Core/data/unsorted_containers.h"'
+//	][<{}{}{%D}[\#include %f_dump_include_path(%DL,%D)
+  %END-IF
+  %IF-NOT-EMPTY
+   %FOR ( %D ) 
+    %IF-NOT-EMPTY
+     '#include '
+     [%f] dump_include_path %( %D |L %, %D )% 
+//	]>]<{}{%CM=LocalInterface::Class&%f_use_as_srv_type(%C)=true}[\#include "%f_str_replace(%f_with_gen_id(idl,%C%RW),.idl,S.h)"
+    %END-IF
+   %END-FOR
+  %END-IF
+  %FOR %ITEM-CONDITION ( ( %C |M ) %== 'LocalInterface::Class' %&& 
+    ( ( [%f] use_as_srv_type %( %C )% ) %==  true  ) ) 
+   %IF-NOT-EMPTY
+    '#include "'
+    [%f] str_replace %( [%f] with_gen_id %( 'idl' %, %C ->R |W  )% %, '.idl' %, 'S.h' )% 
+//	]>
+   %END-IF
+  %END-FOR
+//	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDE}
+  %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+   %U%IF ( '_CUSTOM_INCLUDE' ) 
+
+//	]
+   %END-IF
+ //	][
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]%f_dump_package_fwd(%S)
+   %S %f open_ifdef %( )% 
+  %END-IF
+  [%f] dump_package_fwd %( %S )% 
+//	%SP[{%S{is namespace}=true}namespace %SN {
+  %S |P %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+   'namespace '
+   %S |N ' {'
+//	][
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	<[{"%CO"=""}{%CX}[%CX
+   %FOR %IF ( ( %C |O ) %== '' ) 
+     %ELSE
+      %C |X 
+     %THEN
+     %IF-NOT-EMPTY
+      %C |X 
+//	
+
+//	]]>][{%S{is namespace}=true}} //namespace %SN
+     %END-IF
+    %END-IF
+   %END-FOR
+  %END-IF
+  %IF ( ( %S get_up ( 'is namespace' ) ) %==  true ) 
+   '} //namespace '
+   %S |N 
+//	]%Sp[
+  %END-IF
+  %S |p %IF-NOT-EMPTY
+
+//	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'i.h' %, %S |L )% %, %S )% 
+  %END-IF
+//	%f_h_footer(%S)
+  [%f] h_footer %( %S )% 
+//	]
+ %END-IF
+
+//f _dump_package_fwd
+; // h
+
+end. // <<AbstractImplBase>>
+
+: dump_package_fwd OBJECT IN %S
+//	%f_clear_list(FWD_LIST)\
+ [%f] clear_list %( 'FWD_LIST' )% 
+//	%f_set_var(PACK,S)\
+ [%f] set_var %( 'PACK' %, 'S' )% 
+//	<{}{"%CO"=""&%t_is_container(%C)=true}%C<{}{%CC=Attribute&"%CS"=""}%C[%f_set_var(TYPE,T)]>[{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]>\
+ %FOR %ITEM-CONDITION ( ( %C |O ) %== '' %&& 
+   ( ( [%t] is_container %( %C )% ) %==  true  ) ) 
+  %C
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' %&& 
+    ( ( %C |S ) %== ''  ) ) 
+   %C%IF-NOT-EMPTY
+    [%f] set_var %( 'TYPE' %, 'T' )% 
+   %END-IF
+   %END-FOR
+   %IF ( ( ( get_global_var ( 'TYPE' ) |W ) ) %!= ( ( get_global_var ( 'PACK' ) |W ) ) %&& 
+    ( ( ( get_global_var ( 'PACK' ) ) ) 
+   %FOR %ITEM-CONDITION ( ( %D |W ) %== ( ( get_global_var ( 'TYPE' ) |W ) ) ) 
+    ( 'C' ) 
+   %END-FOR
+   %== 0  ) ) 
+   [%f] add_to_list %( 'FWD_LIST' %, '{TYPE}' )% 
+  %END-IF
+ %END-FOR
+//	<{}{"%CO"=""&%CC=Class}[{%CS=InstanceDef}%C[%f_set_var(TYPE,R)][{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]]\
+ %FOR %ITEM-CONDITION ( ( %C |O ) %== '' %&& 
+   ( ( %C |C ) %== 'Class'  ) ) 
+  %IF ( ( %C |S ) %== 'InstanceDef' ) 
+   %C%IF-NOT-EMPTY
+    [%f] set_var %( 'TYPE' %, 'R' )% 
+   %END-IF
+    %IF ( ( ( get_global_var ( 'TYPE' ) |W ) ) %!= ( ( get_global_var ( 'PACK' ) |W ) ) %&& 
+     ( ( ( get_global_var ( 'PACK' ) ) ) 
+    %FOR %ITEM-CONDITION ( ( %D |W ) %== ( ( get_global_var ( 'TYPE' ) |W ) ) ) 
+     ( 'C' ) 
+    %END-FOR
+    %== 0  ) ) 
+    [%f] add_to_list %( 'FWD_LIST' %, '{TYPE}' )% 
+   %END-IF
+  %END-IF
+//	%C<{}{%CC=Operation}%C<{}{%CC=Parameter}%C[%f_set_var(TYPE,T)][{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]>>\
+  %C
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' ) 
+   %C
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Parameter' ) 
+    %C%IF-NOT-EMPTY
+     [%f] set_var %( 'TYPE' %, 'T' )% 
+    %END-IF
+     %IF ( ( ( get_global_var ( 'TYPE' ) |W ) ) %!= ( ( get_global_var ( 'PACK' ) |W ) ) %&& 
+      ( ( ( get_global_var ( 'PACK' ) ) ) 
+     %FOR %ITEM-CONDITION ( ( %D |W ) %== ( ( get_global_var ( 'TYPE' ) |W ) ) ) 
+      ( 'C' ) 
+     %END-FOR
+     %== 0  ) ) 
+     [%f] add_to_list %( 'FWD_LIST' %, '{TYPE}' )% 
+    %END-IF
+   %END-FOR
+   %END-FOR
+ //	%C<{}{%CC=Attribute}%C[%f_set_var(TYPE,T)][{%{TYPE}W!=%{PACK}W&%{PACK}<{}{%DW=%{TYPE}W}{C}>=0}%f_add_to_list(FWD_LIST,{TYPE})]>\
+  %C
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+   %C%IF-NOT-EMPTY
+    [%f] set_var %( 'TYPE' %, 'T' )% 
+   %END-IF
+    %IF ( ( ( get_global_var ( 'TYPE' ) |W ) ) %!= ( ( get_global_var ( 'PACK' ) |W ) ) %&& 
+     ( ( ( get_global_var ( 'PACK' ) ) ) 
+    %FOR %ITEM-CONDITION ( ( %D |W ) %== ( ( get_global_var ( 'TYPE' ) |W ) ) ) 
+     ( 'C' ) 
+    %END-FOR
+    %== 0  ) ) 
+    [%f] add_to_list %( 'FWD_LIST' %, '{TYPE}' )% 
+   %END-IF
+  %END-FOR
+ //	>\
+ %END-FOR
+//	%f_unique_list(FWD_LIST,"%SU")\
+ [%f] unique_list %( 'FWD_LIST' %, %S |U )% 
+//	[//forward decl
+ %IF-NOT-EMPTY
+  '//forward decl'
+//	<{}{%f_is_empty(FWD_LIST)=false}{W}[%f_pop_first_to_var(FWD_LIST,FWD)[{"%{FWD}F"!=""}[%{FWD}P\t]%{FWD}F[
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'FWD_LIST' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'FWD_LIST' %, 'FWD' )% %IF ( ( ( get_global_var ( 'FWD' ) |F ) ) %!= '' ) 
+     %IF-NOT-EMPTY
+      ( get_global_var ( 'FWD' ) |P ) #9 
+     %END-IF
+     ( get_global_var ( 'FWD' ) |F ) %IF-NOT-EMPTY
+
+//	%{FWD}p]]
+      ( get_global_var ( 'FWD' ) |p ) 
+     %END-IF
+    %END-IF
+//	]>]
+   %END-IF
+  %END-FOR
+ %END-IF
+
+//%S - где осуществляем проверку
+//%1 - что проверяем
+//f _need_to_be_fwded
+; // dump_package_fwd
+
+: need_to_be_fwded OBJECT IN %S
+//	%f_set_var(__TYPE__,1)\
+ [%f] set_var %( '__TYPE__' %, 1 )% 
+//	[{%{__TYPE__}W!=%SW&%{PACK}<{}{%DW=%{__TYPE__}W}{C}>=0}{C}>=0}{false}true]
+ %IF ( ( ( get_global_var ( '__TYPE__' ) |W ) ) %!= ( %S |W ) %&& 
+   ( ( ( get_global_var ( 'PACK' ) ) ) 
+  %FOR %ITEM-CONDITION ( ( %D |W ) %== ( ( get_global_var ( '__TYPE__' ) |W ) ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %== 0  ) ) 
+  %ELSE
+   'C' 
+  %THEN
+  '>=0}{false}true' 
+ %END-IF
+//#UC END# *47022C88029Ffor4714A0260109*
+; // need_to_be_fwded
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

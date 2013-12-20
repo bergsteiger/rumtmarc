@@ -1,0 +1,475 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormSetFactory/VCMZone.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormSetFactory::VCMZone
+//
+// Зона сборки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMZone::Class
+implementation @ <<VCMZone>>
+//? Зона сборки
+//> VCMZone::Class
+
+//= VCMZonePrim::Class
+//= User::Class
+//= UserTypeIDHolder::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_vcm_zone.gif
+//L code_vcm_zone
+// Параметры визуализации
+//$ C 255,173,91
+//$ l 255,104,32
+//$ f 255,104,32
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p ActivateIfUpdate=None|Always|IfNotActivated ? 
+//p Need GetFormCount:b=false ? 
+//p Need OnFormWeight:tribool=undefined ? 
+//p Caption:s ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{ActivateIfUpdate}"!="%S{!ActivateIfUpdate}"}%f_up_prefix(%S) *ActivateIfUpdate* = *%S{ActivateIfUpdate}*
+ ?inherited
+ %IF ( ( %S get_up ( 'ActivateIfUpdate' ) ) %!= ( %S get_up_def ( 'ActivateIfUpdate' ) ) ) 
+  [%f] up_prefix %( %S )% ' *ActivateIfUpdate* = *'
+  %S get_up ( 'ActivateIfUpdate' ) '*'
+//	][{"%S{Need GetFormCount}"!="%S{!Need GetFormCount}"}%f_up_prefix(%S) *Need GetFormCount* = *%S{Need GetFormCount}*
+ %END-IF
+ %IF ( ( %S get_up ( 'Need GetFormCount' ) ) %!= ( %S get_up_def ( 'Need GetFormCount' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Need GetFormCount* = *'
+  %S get_up ( 'Need GetFormCount' ) '*'
+//	][{"%S{Need OnFormWeight}"!="%S{!Need OnFormWeight}"}%f_up_prefix(%S) *Need OnFormWeight* = *%S{Need OnFormWeight}*
+ %END-IF
+ %IF ( ( %S get_up ( 'Need OnFormWeight' ) ) %!= ( %S get_up_def ( 'Need OnFormWeight' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Need OnFormWeight* = *'
+  %S get_up ( 'Need OnFormWeight' ) '*'
+//	][{"%S{Caption}"!="%S{!Caption}"}%f_up_prefix(%S) *Caption* = *%S{Caption}*
+ %END-IF
+ %IF ( ( %S get_up ( 'Caption' ) ) %!= ( %S get_up_def ( 'Caption' ) ) ) 
+  [%f] up_prefix %( %S )% ' *Caption* = *'
+  %S get_up ( 'Caption' ) '*'
+//	]
+ %END-IF
+
+// Имя обработчика события NeedMakeForm
+//%f _NeedMakeFormEvent
+; // wiki_up_print
+
+: NeedMakeFormEvent OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *49F5C2C4018Bfor49F5A46300C9*
+//@ %SU
+//	%f_ExtendedName(%S)_NeedMakeForm
+ [%f] ExtendedName %( %S )% '_NeedMakeForm'
+
+//f _ExtendedName
+; // NeedMakeFormEvent
+
+end. // <<VCMZone>>
+
+: ExtendedName OBJECT IN %S
+//	%SN_%S{ZoneType}[_[<{}{%G#f_IsUserType()=true}%GN>]]
+ %S |N '_'
+ %S get_up ( 'ZoneType' ) %IF-NOT-EMPTY
+  '_'
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %G %?f IsUserType %( )% ) %==  true ) 
+    %G |N 
+   %END-FOR
+  %END-IF
+ %END-IF
+//#UC END# *49F5C2C4018Bfor49F5A46300C9*
+; // ExtendedName
+
+
+// Тип контроллера прецедента
+//%f _UseCaseType
+implementation @ <<VCMZone>>
+: UseCaseType OBJECT IN %S
+//#UC START# *4A37E29002BCfor49F5A46300C9*
+//	[{%R#f_IsVCMArea()=true}{%f_pas_TypeName(%R)}%f_pas_TypeName(%R%P)]
+ %IF ( ( %R %?f IsVCMArea %( )% ) %==  true ) 
+  %ELSE
+   [%f] pas_TypeName %( %R )% 
+  %THEN
+  [%f] pas_TypeName %( %R ->P  )% 
+ %END-IF
+//#UC END# *4A37E29002BCfor49F5A46300C9*
+; // UseCaseType
+
+
+// Фабрика, в которой существует данная зона
+//%f _FormSetFactory
+: FormSetFactory OBJECT IN %S
+// возвращаемый результат: VCMFormSetFactory
+//#UC START# *4A6ECA55001Afor49F5A46300C9*
+//@ %SU
+//	[{%P#f_IsVCMFormSetFactory()=true}{%P%f_FormSetFactory()}%f_pas_TypeName(%P)]
+ %IF ( ( %P %?f IsVCMFormSetFactory %( )% ) %==  true ) 
+  %ELSE
+   %P %f FormSetFactory %( )% 
+  %THEN
+  [%f] pas_TypeName %( %P )% 
+ %END-IF
+//#UC END# *4A6ECA55001Afor49F5A46300C9*
+; // FormSetFactory
+
+
+//%f _GetFormCountEvent
+: GetFormCountEvent OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4D77760B01D7for49F5A46300C9*
+//@ %SU
+//	%f_ExtendedName(%S)GetFormCount
+ [%f] ExtendedName %( %S )% 'GetFormCount'
+//#UC END# *4D77760B01D7for49F5A46300C9*
+; // GetFormCountEvent
+
+
+//%f _OnFormWeightEvent
+: OnFormWeightEvent OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4FF67EAD0359for49F5A46300C9*
+//@ %SU
+//	%f_ExtendedName(%S)GetFormWeight
+ [%f] ExtendedName %( %S )% 'GetFormWeight'
+//#UC END# *4FF67EAD0359for49F5A46300C9*
+; // OnFormWeightEvent
+
+
+//%f _AddZone
+: AddZone OBJECT IN %S
+// параметры: aFactory: void = %1
+//#UC START# *4FFC5EB50029for49F5A46300C9*
+//	\n# with AddZone(\
+ #13#10
+ out_indent ' with AddZone('
+//	'%SN',\
+ ''''
+ %S |N ''','
+//	 vcm_zt%S{ZoneType},\
+ ' vcm_zt'
+ %S get_up ( 'ZoneType' ) ','
+//	 fm_\
+ ' fm_'
+//	[{}{\
+ %IF ( ) 
+  %ELSE
+//	<{}{%GS=VCMFormDefinition}%G<{}{%L#f_IsVCMFinalForm()=true}\
+   %FOR %ITEM-CONDITION ( ( %G |S ) %== 'VCMFormDefinition' ) 
+    %G
+    %FOR %ITEM-CONDITION ( ( %L %?f IsVCMFinalForm %( )% ) %==  true ) 
+//	%f_cut_prefix(%f_pas_TypeName(%L),T)>>\
+     [%f] cut_prefix %( [%f] pas_TypeName %( %L )% %, 'T' )% 
+    %END-FOR
+    %END-FOR
+//	}\
+  %THEN
+//	<{}{%G#f_IsVCMFinalForm()=true}%f_cut_prefix(%f_pas_TypeName(%G),T)>\
+  %FOR %ITEM-CONDITION ( ( %G %?f IsVCMFinalForm %( )% ) %==  true ) 
+   [%f] cut_prefix %( [%f] pas_TypeName %( %G )% %, 'T' )% 
+  %END-FOR
+//	]\
+ %END-IF
+//	) do\
+ ') do'
+//	\n# begin\
+ #13#10
+ out_indent ' begin'
+
+//	[{"%S{Caption}"!=""}\n#  Caption := str_fsz%f_ExtendedName(%S)Caption.AsCStr;]\
+ %IF ( ( %S get_up ( 'Caption' ) ) %!= '' ) 
+  #13#10
+  out_indent '  Caption := str_fsz'
+  [%f] ExtendedName %( %S )% 'Caption.AsCStr;' 
+ %END-IF
+
+//	[\n#  UserType := %S%f_UserTypeID();]\
+ %IF-NOT-EMPTY
+  #13#10
+  out_indent '  UserType := '
+  %S %f UserTypeID %( )% ';' 
+ %END-IF
+//	[{"%S{ActivateIfUpdate}"!="%S{!ActivateIfUpdate}"&"%S{ActivateIfUpdate}"!=""}\
+ %IF ( ( %S get_up ( 'ActivateIfUpdate' ) ) %!= ( %S get_up_def ( 'ActivateIfUpdate' ) ) %&& 
+   ( ( %S get_up ( 'ActivateIfUpdate' ) ) %!= ''  ) ) 
+//	\n#  ActivateIfUpdate := waf%S{ActivateIfUpdate};\
+  #13#10
+  out_indent '  ActivateIfUpdate := waf'
+  %S get_up ( 'ActivateIfUpdate' ) ';'
+//	]\
+ %END-IF
+//	<%C#f_AddZone(%1)>\
+ %FOR %C %?f AddZone %( %1 )% 
+ %END-FOR
+
+//	[{%S{Need GetFormCount}=true}\
+ %IF ( ( %S get_up ( 'Need GetFormCount' ) ) %==  true ) 
+//	\n#  OnFormCount := %f_to_borland(%S%f_GetFormCountEvent());\
+  #13#10
+  out_indent '  OnFormCount := '
+  [%f] to_borland %( %S %f GetFormCountEvent %( )% )% ';'
+//	]\
+ %END-IF
+
+//	[{%S{Need OnFormWeight}=true}\
+ %IF ( ( %S get_up ( 'Need OnFormWeight' ) ) %==  true ) 
+//	\n#  OnFormWeight := %f_to_borland(%S%f_OnFormWeightEvent());\
+  #13#10
+  out_indent '  OnFormWeight := '
+  [%f] to_borland %( %S %f OnFormWeightEvent %( )% )% ';'
+//	]\
+ %END-IF
+
+//	\n#  OnNeedMakeForm := %f_to_borland(%S%f_NeedMakeFormEvent());\
+ #13#10
+ out_indent '  OnNeedMakeForm := '
+ [%f] to_borland %( %S %f NeedMakeFormEvent %( )% )% ';'
+//	\n# end;
+ #13#10
+ out_indent ' end;'
+//#UC END# *4FFC5EB50029for49F5A46300C9*
+; // AddZone
+
+
+//%f _IsVCMZone
+: IsVCMZone OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *50095D560295for49F5A46300C9*
+//	true
+ true
+//#UC END# *50095D560295for49F5A46300C9*
+; // IsVCMZone
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа UserTypeIDHolder::Class
+// Идентификатор пользовательского типа
+//%f _UserTypeID
+: UserTypeID OBJECT IN %S
+// возвращаемый результат: long
+//#UC START# *4BD70B950302for49F5A46300C9*
+//@ %SU
+//	[{}{0}<[%G#f_UserTypeID()]>]
+ %IF ( ) 
+  %ELSE
+   0 
+  %THEN
+  %FOR %IF-NOT-EMPTY
+    %G %?f UserTypeID %( )% 
+   %END-IF
+  %END-FOR
+ %END-IF
+//#UC END# *4BD70B950302for49F5A46300C9*
+; // UserTypeID
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor49F5A46300C9*
+//	%S%[inherited]\
+ inherited
+
+//	<{}{%G#f_IsVCMFinalForm()=true}\
+ %FOR %ITEM-CONDITION ( ( %G %?f IsVCMFinalForm %( )% ) %==  true ) 
+//	%G<{}{%RS=VCMFormDefinition}\
+  %G
+  %FOR %ITEM-CONDITION ( ( %R |S ) %== 'VCMFormDefinition' ) 
+//	%1%f_make_accessable(%RU)\
+   %1 %f make_accessable %( %R |U )% 
+//	%1%f_add_dependency(%SU_%RU_uses,%RU,uses,,USES_Inst)\
+   %1 %f add_dependency %( %S |U '_'
+   %R |U '_uses' %, %R |U %, 'uses' %, '' %, 'USES_Inst' )% 
+//	>\
+  %END-FOR
+ //	>\
+ %END-FOR
+
+//	%f_set_var(FORM_SET_FACTORY,"")\
+ [%f] set_var %( 'FORM_SET_FACTORY' %, '' )% 
+//	<{}{%P#f_IsVCMFormSetFactory()=true}\
+ %FOR %ITEM-CONDITION ( ( %P %?f IsVCMFormSetFactory %( )% ) %==  true ) 
+//	%f_set_var(FORM_SET_FACTORY,P)\
+  [%f] set_var %( 'FORM_SET_FACTORY' %, 'P' )% 
+//	%f_cycle_break(%S)\
+  [%f] cycle_break %( %S )% 
+//	>\
+ %END-FOR
+
+//	[{"%S{Caption}"!=""}\
+ %IF ( ( %S get_up ( 'Caption' ) ) %!= '' ) 
+//	%{FORM_SET_FACTORY}%f_add_class(%SU_Caption_Constants,LocalConst,%SNCaptionLocalConstants,LocalConstants_Inst)\
+  ( get_global_var ( 'FORM_SET_FACTORY' ) %f add_class %( %S |U '_Caption_Constants' %, 'LocalConst' %, %S |N 'CaptionLocalConstants' %, 'LocalConstants_Inst' )% ) 
+//	%{LocalConstants_Inst}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'LocalConstants_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{LocalConstants_Inst}%f_set_documentation(Локализуемые константы для зоны %SN сборки форм %{FORM_SET_FACTORY}N)\
+  ( get_global_var ( 'LocalConstants_Inst' ) %f set_documentation %( 'Локализуемые константы для зоны '
+  %S |N ' сборки форм '
+  ( get_global_var ( 'FORM_SET_FACTORY' ) |N ) )% ) 
+//	%{LocalConstants_Inst}%f_add_attribute(%SU_CAPTION_ID,,\
+  ( get_global_var ( 'LocalConstants_Inst' ) %f add_attribute %( %S |U '_CAPTION_ID' %, '' %, 
+//	fsz%f_ExtendedName(%S)Caption = %S{Caption},\
+  'fsz'
+  [%f] ExtendedName %( %S )% 'Caption = '
+  %S get_up ( 'Caption' ) %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Заголовок зоны "%SN" фабрики сборки форм "%{FORM_SET_FACTORY}N")\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Заголовок зоны "'
+  %S |N ' фабрики сборки форм "'
+  ( get_global_var ( 'FORM_SET_FACTORY' ) |N ) )% ) 
+//	]\
+ %END-IF
+
+//	[{"%{TvcmNeedMakeFormEvent}N"=""}%f_find_element(TvcmNeedMakeFormEvent,TvcmNeedMakeFormEvent)]\
+ %IF ( ( ( get_global_var ( 'TvcmNeedMakeFormEvent' ) |N ) ) %== '' ) 
+  [%f] find_element %( 'TvcmNeedMakeFormEvent' %, 'TvcmNeedMakeFormEvent' )% 
+ %END-IF
+//	%{FORM_SET_FACTORY}%f_make_accessable(%{TvcmNeedMakeFormEvent}U)\
+ ( get_global_var ( 'FORM_SET_FACTORY' ) %f make_accessable %( ( get_global_var ( 'TvcmNeedMakeFormEvent' ) |U ) )% ) 
+
+//	%{FORM_SET_FACTORY}%f_add_class(%SU_NeedMakeFormEvent,method,\
+ ( get_global_var ( 'FORM_SET_FACTORY' ) %f add_class %( %S |U '_NeedMakeFormEvent' %, 'method' %, 
+//	%S%f_NeedMakeFormEvent(),Op_Instance\
+ %S %f NeedMakeFormEvent %( )% %, 'Op_Instance'
+//	)\
+)% ) //	%{Op_Instance}%f_add_inheritable(%{TvcmNeedMakeFormEvent}U)\
+ ( get_global_var ( 'Op_Instance' ) %f add_inheritable %( ( get_global_var ( 'TvcmNeedMakeFormEvent' ) |U ) )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+ ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_documentation(Обработчик OnNeedMakeForm для %SN)\
+ ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Обработчик OnNeedMakeForm для '
+ %S |N )% ) 
+
+//	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{FORM_SET_FACTORY})_var,\
+ ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'FORM_SET_FACTORY' ) ) )% '_var' %, 
+//	var
+ 'var'
+//	 l_UseCase : %S%f_UseCaseType();\
+ ' l_UseCase : '
+ %S %f UseCaseType %( )% ';'
+//	)\
+)% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{FORM_SET_FACTORY})_impl,\
+ ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'FORM_SET_FACTORY' ) ) )% '_impl' %, 
+//	 if Supports(aDataSource, %S%f_UseCaseType(), l_UseCase) then
+ ' if Supports(aDataSource' %, ' '
+ %S %f UseCaseType %( )% %, ' l_UseCase) then'
+//	  try
+ '  try'
+//	[{%R#f_IsVCMArea()=true}{\
+ %IF ( ( %R %?f IsVCMArea %( )% ) %==  true ) 
+  %ELSE
+//	%f_with_gen_id(intf.pas,%U[{NeedMake_impl}
+   [%f] with_gen_id %( 'intf.pas' %, %U%IF ( 'NeedMake_impl' ) 
+
+//	 !!! Needs to be implemented !!!
+    ' !!! Needs to be implemented !!!'
+//	])\
+   %END-IF
+ )% //	}\
+  %THEN
+//	   aNew := l_UseCase.%RN;\
+  '   aNew := l_UseCase.'
+  %R |N ';'
+//	]
+ %END-IF
+//	  finally
+ '  finally'
+//	   l_UseCase := nil;
+ '   l_UseCase := nil;'
+//	  end;//try..finally
+ '  end;//try..finally'
+//	 Result := (aNew \<\> nil);\
+ ' Result := (aNew <> nil);'
+//	)\
+)% ) 
+//	[{%S{Need GetFormCount}=true}\
+ %IF ( ( %S get_up ( 'Need GetFormCount' ) ) %==  true ) 
+
+
+//	[{"%{TvcmFormCountEvent}N"=""}%f_find_element(TvcmFormCountEvent,TvcmFormCountEvent)]\
+  %IF ( ( ( get_global_var ( 'TvcmFormCountEvent' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'TvcmFormCountEvent' %, 'TvcmFormCountEvent' )% 
+  %END-IF
+//	%{FORM_SET_FACTORY}%f_make_accessable(%{TvcmFormCountEvent}U)\
+  ( get_global_var ( 'FORM_SET_FACTORY' ) %f make_accessable %( ( get_global_var ( 'TvcmFormCountEvent' ) |U ) )% ) 
+
+//	%{FORM_SET_FACTORY}%f_add_class(%SU_GetFormCountEvent,method,\
+  ( get_global_var ( 'FORM_SET_FACTORY' ) %f add_class %( %S |U '_GetFormCountEvent' %, 'method' %, 
+//	%S%f_GetFormCountEvent(),Op_Instance\
+  %S %f GetFormCountEvent %( )% %, 'Op_Instance'
+//	)\
+)% ) //	%{Op_Instance}%f_add_inheritable(%{TvcmFormCountEvent}U)\
+  ( get_global_var ( 'Op_Instance' ) %f add_inheritable %( ( get_global_var ( 'TvcmFormCountEvent' ) |U ) )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_documentation(Обработчик OnFormCount для %SN)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Обработчик OnFormCount для '
+  %S |N )% ) 
+//	]\
+ %END-IF
+
+//	[{%S{Need OnFormWeight}=true}\
+ %IF ( ( %S get_up ( 'Need OnFormWeight' ) ) %==  true ) 
+
+
+//	[{"%{TvcmOnFormWeight}N"=""}%f_find_element(TvcmOnFormWeight,TvcmOnFormWeight)]\
+  %IF ( ( ( get_global_var ( 'TvcmOnFormWeight' ) |N ) ) %== '' ) 
+   [%f] find_element %( 'TvcmOnFormWeight' %, 'TvcmOnFormWeight' )% 
+  %END-IF
+//	%{FORM_SET_FACTORY}%f_make_accessable(%{TvcmOnFormWeight}U)\
+  ( get_global_var ( 'FORM_SET_FACTORY' ) %f make_accessable %( ( get_global_var ( 'TvcmOnFormWeight' ) |U ) )% ) 
+
+//	%{FORM_SET_FACTORY}%f_add_class(%SU_OnFormWeightEvent,method,\
+  ( get_global_var ( 'FORM_SET_FACTORY' ) %f add_class %( %S |U '_OnFormWeightEvent' %, 'method' %, 
+//	%S%f_OnFormWeightEvent(),Op_Instance\
+  %S %f OnFormWeightEvent %( )% %, 'Op_Instance'
+//	)\
+)% ) //	%{Op_Instance}%f_add_inheritable(%{TvcmOnFormWeight}U)\
+  ( get_global_var ( 'Op_Instance' ) %f add_inheritable %( ( get_global_var ( 'TvcmOnFormWeight' ) |U ) )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_documentation(Обработчик OnFormWeight для %SN)\
+  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Обработчик OnFormWeight для '
+  %S |N )% ) 
+//	]\
+ %END-IF
+
+//	<%C#f_DoSpell()>
+ %FOR %C %?f DoSpell %( )% 
+ %END-FOR
+//#UC END# *4B2A19E3038Bfor49F5A46300C9*
+; // DoSpell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMZone>>
+

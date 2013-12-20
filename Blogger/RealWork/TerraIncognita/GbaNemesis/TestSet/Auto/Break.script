@@ -1,0 +1,42 @@
+: TestBreak
+ VAR l_Index 
+ 
+ 0 >>> l_Index
+ 10 LOOP 
+ BEGIN 
+  l_Index .
+  l_Index 6 == IF
+   BREAK
+  ENDIF
+  ++! l_Index
+ END
+
+ 0 >>> l_Index
+ @ ( l_Index 10 < ) WHILE
+ BEGIN
+  l_Index .
+  l_Index 7 == IF
+   BREAK
+  ENDIF
+  ++! l_Index
+ END
+
+ 0 >>> l_Index
+ 10 LOOP 
+ BEGIN 
+  l_Index .
+  l_Index 6 == ? BREAK
+  ++! l_Index
+ END
+
+ 0 >>> l_Index
+ @ ( l_Index 10 < ) WHILE
+ BEGIN
+  l_Index .
+  l_Index 7 == ? BREAK
+  ++! l_Index
+ END
+ 
+;
+
+TestBreak

@@ -1,0 +1,47 @@
+object RotationForm: TRotationForm
+  Left = 771
+  Height = 122
+  Top = 530
+  Width = 218
+  BorderStyle = bsToolWindow
+  Caption = 'DrawObjects'
+  ClientHeight = 122
+  ClientWidth = 218
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnShow = FormShow
+  LCLVersion = '0.9.28.2'
+  object lblAngle: TLabel
+    Left = 30
+    Height = 14
+    Top = 22
+    Width = 83
+    Caption = '&Rotation Angle: 0'
+    FocusControl = TrackBar1
+    ParentColor = False
+  end
+  object btnOK: TButton
+    Left = 70
+    Height = 25
+    Top = 79
+    Width = 75
+    Cancel = True
+    Caption = '&OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+  end
+  object TrackBar1: TTrackBar
+    Left = 21
+    Height = 23
+    Top = 45
+    Width = 173
+    Frequency = 5
+    Max = 180
+    Min = -180
+    OnChange = TrackBar1Change
+    Position = 0
+    TickStyle = tsNone
+    TabOrder = 0
+  end
+end

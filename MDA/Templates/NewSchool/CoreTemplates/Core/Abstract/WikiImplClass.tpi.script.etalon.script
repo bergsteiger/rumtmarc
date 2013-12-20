@@ -1,0 +1,918 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/Core/Abstract/WikiImplClass.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CoreTemplates::Core::Abstract::WikiImplClass
+//
+// Базовый стереотип для всех стереотипов уровня классов, реализует генерацию в wiki.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: WikiImplClass::Class
+implementation @ <<WikiImplClass>>
+//? Базовый стереотип для всех стереотипов уровня классов, реализует генерацию в wiki.
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// Собирает ссылки на все элементы, которые используют данный в список, заданный идентифкатором
+// list_id.
+//%f _collect_used_in_links
+; // st_space_key
+
+: collect_used_in_links OBJECT IN %S
+// параметры: list_id: string = %1
+//#UC START# *49ABB47001E2for471723E1037A*
+//	[{"%1N"=""}%f_error("_collect_used_in_links: Не указан идентификатор списка")]\
+ %IF ( ( %1 |N ) %== '' ) 
+  [%f] error %( '_collect_used_in_links: Не указан идентификатор списка' )% 
+ %END-IF
+//	<{}{%aS!=friend&%a#f_IsUseCase()!=true&%f_is_rg_derived(%a,%S)!=true}{Sp}\
+ %FOR %ITEM-CONDITION ( ( %a |S ) %!= 'friend' %&& 
+   ( ( %a %?f IsUseCase %( )% ) %!=  true  ) %&& 
+   ( ( [%f] is_rg_derived %( %a %, %S )% ) %!=  true  ) ) 
+  ( 'Sp' ) 
+//	%f_set_var(LINK,"[{%t_is_container(%a%P)=true|%aC=Parameter}{* %f_k_link_wp(%a,%S)}* %f_k_link_wp(%a%P,%S)]")\
+  [%f] set_var %( 'LINK' %, %IF ( ( [%t] is_container %( %a ->P  )% ) %==  true %|| 
+    ( ( %a |C ) %== 'Parameter'  ) ) 
+   %ELSE
+    '* '
+    [%f] k_link_wp %( %a %, %S )% 
+   %THEN
+   '* '
+   [%f] k_link_wp %( %a ->P  %, %S )% 
+  %END-IF
+)% //	[{%f_exists_in_list(%1N,"%{LINK}N")=false}%f_add_to_list(%1N,"%{LINK}N")]>
+  %IF ( ( [%f] exists_in_list %( %1 |N %, ( get_global_var ( 'LINK' ) |N ) )% ) %==  false ) 
+   [%f] add_to_list %( %1 |N %, ( get_global_var ( 'LINK' ) |N ) )% 
+  %END-IF
+ %END-FOR
+
+//f _is_rg_derived
+; // collect_used_in_links
+
+end. // <<WikiImplClass>>
+
+: is_rg_derived OBJECT IN %S
+//	%f_set_var(TEMP_ARG,1)[{<{}{%GU=%{TEMP_ARG}U}{C}>!=0|<{}{%RU=%{TEMP_ARG}U}{C}>!=0}{false}true]
+ [%f] set_var %( 'TEMP_ARG' %, 1 )% %IF ( 
+  %FOR %ITEM-CONDITION ( ( %G |U ) %== ( ( get_global_var ( 'TEMP_ARG' ) |U ) ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %R |U ) %== ( ( get_global_var ( 'TEMP_ARG' ) |U ) ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *49ABB47001E2for471723E1037A*
+; // is_rg_derived
+
+
+//%f _WikiImplClassGParam
+implementation @ <<WikiImplClass>>
+: WikiImplClassGParam OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4E09A6E0018Dfor471723E1037A*
+//	[{%Cx=true}{%GU}%SU]
+ %IF ( ( %C |x ) %==  true ) 
+  %ELSE
+   %G |U 
+  %THEN
+  %S |U 
+ %END-IF
+//#UC END# *4E09A6E0018Dfor471723E1037A*
+; // WikiImplClassGParam
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor471723E1037A*
+//#UC END# *4705CBD6003Efor471723E1037A*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for471723E1037A*
+//#UC END# *470484D50138for471723E1037A*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for471723E1037A*
+//G %S%f_WikiImplClassGParam()
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+
+// WST = WasSpelledTo
+//	[{"%S{NameForScript}"!=""}{\
+ %IF ( ( %S get_up ( 'NameForScript' ) ) %!= '' ) 
+  %ELSE
+//	[{"%S%{WST}N"!=""}\
+   %IF ( ( %S ( get_object_var ( 'WST' ) |N )  ) %!= '' ) 
+//	(!) *Имя слова скрипта* - \
+    '(!) *Имя слова скрипта* - '
+//	[{"%f_loc_GetNameForScript(%S%{WST})"!=""}{\
+    %IF ( ( [%f] loc_GetNameForScript %( %S ( get_object_var ( 'WST' ) )  )% ) %!= '' ) 
+     %ELSE
+//	[%S%{WST}%P#f_pas_ElementPrefixBase():]%f_str_replace(%f_cut_prefix(%f_cut_prefix(%f_N(%S%{WST}),Tkw),_),_,:)\
+      %IF-NOT-EMPTY
+       %S ( get_object_var ( 'WST' )  ->P %?f pas_ElementPrefixBase %( )% )  ':' 
+      %END-IF
+      [%f] str_replace %( [%f] cut_prefix %( [%f] cut_prefix %( [%f] N %( %S ( get_object_var ( 'WST' ) )  )% %, 'Tkw' )% %, '_' )% %, '_' %, ':' )% 
+//	}\
+     %THEN
+//	%f_loc_GetNameForScript(%S%{WST})\
+     [%f] loc_GetNameForScript %( %S ( get_object_var ( 'WST' ) )  )% 
+//	]\
+    %END-IF
+//	\n\
+    #13#10
+//	]\
+   %END-IF
+//	}\
+  %THEN
+//	(!) *Имя слова скрипта* - %S{NameForScript}\n\
+  '(!) *Имя слова скрипта* - '
+  %S get_up ( 'NameForScript' ) #13#10
+//	]\
+ %END-IF
+
+//	[{"%S%{WST}N"!=""}\
+ %IF ( ( %S ( get_object_var ( 'WST' ) |N )  ) %!= '' ) 
+
+
+//	{tip}Документирует:
+  '{tip}Документирует:'
+//	* %f_k_link_wp(%S%{WST},%S)
+  '* '
+  [%f] k_link_wp %( %S ( get_object_var ( 'WST' ) )  %, %S )% 
+//	{tip}\
+  '{tip}'
+//	]\
+ %END-IF
+
+//	[h2. Модель\
+ %IF-NOT-EMPTY
+  'h2. Модель'
+
+
+//	[
+  %IF-NOT-EMPTY
+
+
+
+//	{tip}Специализирует:
+   '{tip}Специализирует:'
+//	<* %f_k_link_wp(%G,%S)
+   %FOR '* '
+    [%f] k_link_wp %( %G %, %S )% 
+//	>{tip}\
+   %END-FOR
+   '{tip}'
+//	]\
+  %END-IF
+
+
+//	[
+  %IF-NOT-EMPTY
+
+
+
+//	{info}Реализует прецеденты:
+   '{info}Реализует прецеденты:'
+//	<{}{%R#f_IsUseCase()=true}* %f_k_link_wp(%R,%S)
+   %FOR %ITEM-CONDITION ( ( %R %?f IsUseCase %( )% ) %==  true ) 
+    '* '
+    [%f] k_link_wp %( %R %, %S )% 
+//	>\
+   %END-FOR
+//	<{}{%aS=realized_by}* %f_k_link_wp(%a%P,%S)
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'realized_by' ) 
+    '* '
+    [%f] k_link_wp %( %a ->P  %, %S )% 
+//	>\
+   %END-FOR
+//	{info}][
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+
+
+//	{info}Использует прецеденты:
+   '{info}Использует прецеденты:'
+//	<{}{%CS=uses&%C%T#f_IsUseCase()=true}* %f_k_link_wp(%C%T,%S)
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'uses' %&& 
+     ( ( %C ->T %?f IsUseCase %( )%  ) %==  true  ) ) 
+    '* '
+    [%f] k_link_wp %( %C ->T  %, %S )% 
+//	>{info}]\
+   %END-FOR
+   '{info}' 
+  %END-IF
+
+
+//	%f_set_var(NEED_SEP,"false")\
+  [%f] set_var %( 'NEED_SEP' %, false )% 
+//	[
+  %IF-NOT-EMPTY
+
+
+
+//	{info}Конструируется из примесей:
+   '{info}Конструируется из примесей:'
+//	<{}{%R#f_IsPureMixIn()=true|%R#f_IsMixIn()=true}\
+   %FOR %ITEM-CONDITION ( ( %R %?f IsPureMixIn %( )% ) %==  true %|| 
+     ( ( %R %?f IsMixIn %( )% ) %==  true  ) ) 
+//	%f_set_var(NEED_SEP,"true")\
+    [%f] set_var %( 'NEED_SEP' %, true )% 
+//	* %f_k_link_wp(%R,%S)
+    '* '
+    [%f] k_link_wp %( %R %, %S )% 
+//	>\
+   %END-FOR
+//	<{}{%gS!=MixInMirror}%g<{}{%R#f_IsPureMixIn()=true|%R#f_IsMixIn()=true}\
+   %FOR %ITEM-CONDITION ( ( %g |S ) %!= 'MixInMirror' ) 
+    %g
+    %FOR %ITEM-CONDITION ( ( %R %?f IsPureMixIn %( )% ) %==  true %|| 
+      ( ( %R %?f IsMixIn %( )% ) %==  true  ) ) 
+//	[{%{NEED_SEP}N=true}\
+     %IF ( ( ( get_global_var ( 'NEED_SEP' ) |N ) ) %==  true ) 
+//	%f_set_var(NEED_SEP,"false")\
+      [%f] set_var %( 'NEED_SEP' %, false )% 
+//	----
+      '----'
+//	]\
+     %END-IF
+//	* %f_k_link_wp(%R,%1)
+     '* '
+     [%f] k_link_wp %( %R %, %1 )% 
+//	>>\
+    %END-FOR
+    %END-FOR
+//	<{}{%rS!=MixInMirror}%r<{}{%R#f_IsPureMixIn()=true|%R#f_IsMixIn()=true}\
+   %FOR %ITEM-CONDITION ( ( %r |S ) %!= 'MixInMirror' ) 
+    %r
+    %FOR %ITEM-CONDITION ( ( %R %?f IsPureMixIn %( )% ) %==  true %|| 
+      ( ( %R %?f IsMixIn %( )% ) %==  true  ) ) 
+//	[{%{NEED_SEP}N=true}\
+     %IF ( ( ( get_global_var ( 'NEED_SEP' ) |N ) ) %==  true ) 
+//	%f_set_var(NEED_SEP,"false")\
+      [%f] set_var %( 'NEED_SEP' %, false )% 
+//	----
+      '----'
+//	]\
+     %END-IF
+//	* %f_k_link_wp(%R,%1)
+     '* '
+     [%f] k_link_wp %( %R %, %1 )% 
+//	>>\
+    %END-FOR
+    %END-FOR
+//	{info}]\
+   '{info}' 
+  %END-IF
+
+
+//	[
+  %IF-NOT-EMPTY
+
+
+
+//	{info}Реализует интерфейсы/фасеты:
+   '{info}Реализует интерфейсы/фасеты:'
+//	<{}{%t_interface(%R)=true|%RS=VCMFacet|%RS=VCMOperations}* %f_k_link_wp(%R,%S)
+   %FOR %ITEM-CONDITION ( ( [%t] interface %( %R )% ) %==  true %|| 
+     ( ( %R |S ) %== 'VCMFacet'  ) %|| 
+     ( ( %R |S ) %== 'VCMOperations'  ) ) 
+    '* '
+    [%f] k_link_wp %( %R %, %S )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+
+
+//	{info}Реализует машину состояний:
+   '{info}Реализует машину состояний:'
+//	<{}{%t_check_type(%R,"StateMachine::Class")=true}* %f_k_link_wp(%R,%S)
+   %FOR %ITEM-CONDITION ( ( [%t] check_type %( %R %, 'StateMachine::Class' )% ) %==  true ) 
+    '* '
+    [%f] k_link_wp %( %R %, %S )% 
+//	>{info}]\
+   %END-FOR
+   '{info}' 
+  %END-IF
+
+
+//	[
+  %IF-NOT-EMPTY
+
+
+
+//	{info}Связан контрактами:
+   '{info}Связан контрактами:'
+//	<{}{%RS=MixInMirror}* %f_k_link_wp(%R,%S)
+   %FOR %ITEM-CONDITION ( ( %R |S ) %== 'MixInMirror' ) 
+    '* '
+    [%f] k_link_wp %( %R %, %S )% 
+//	>{info}]\
+   %END-FOR
+   '{info}' 
+  %END-IF
+//	[
+  %IF-NOT-EMPTY
+
+
+
+//	{info}Используется в реализации прецедентов:
+   '{info}Используется в реализации прецедентов:'
+//	<{}{%aM=UseCase::Class}{Sg}* %f_k_link_wp(%a,%S)
+   %FOR %ITEM-CONDITION ( ( %a |M ) %== 'UseCase::Class' ) 
+    ( 'Sg' ) 
+    '* '
+    [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][\
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+//	%f_k_common_elem_docs(%S)]\
+   [%f] k_common_elem_docs %( %S )% 
+  %END-IF
+//	[{%mx=true}\
+  %IF ( ( %m |x ) %==  true ) 
+
+//	[{%Cx=true}\
+//	
+
+//	
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+   %FOR %ITEM-SEPARATOR '----'#13#10 ; // %ITEM-SEPARATOR 
+    '_'
+    %IF ( ( %m |N ) %!= 'Main' ) 
+     %ELSE
+      'Основная' 
+     %THEN
+     %m |N 
+    %END-IF
+    ' диаграмма элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+    [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+    %m |U '.jpg}'
+//	>\
+   %END-FOR
+
+//	]\
+//	]\
+  %END-IF
+//	[{<{}{%CC=StateMachine&%C%mx=true}{%CC}>!=0}
+  %IF ( 
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'StateMachine' %&& 
+     ( ( %C ->m |x  ) %==  true  ) ) 
+    ( %C |C ) 
+   %END-FOR
+   %!= 0 ) 
+
+//	
+
+//	<{}{%CC=StateMachine}%C<{----\n}_диаграмма состояний элемента:_
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'StateMachine' ) 
+    %C
+    %FOR %ITEM-SEPARATOR '----'#13#10 ; // %ITEM-SEPARATOR 
+     '_диаграмма состояний элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+     [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+     %m |U '.jpg}'
+//	>>][
+    %END-FOR
+    %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Специализирован:_
+   '_Специализирован:_'
+//	<* %f_k_link_wp(%Z,%S)
+   %FOR '* '
+    [%f] k_link_wp %( %Z %, %S )% 
+//	>][
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Реализован:_
+   '_Реализован:_'
+//	<* %f_k_link_wp(%L,%S)
+   %FOR '* '
+    [%f] k_link_wp %( %L %, %S )% 
+//	>][
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Используется элементами:_
+   '_Используется элементами:_'
+//	%f_clear_list(USED_IN_LINKS)\
+   [%f] clear_list %( 'USED_IN_LINKS' )% 
+//	%S%f_collect_used_in_links("USED_IN_LINKS")\
+   %S %f collect_used_in_links %( 'USED_IN_LINKS' )% 
+//	<{}{%f_is_empty(USED_IN_LINKS)=false}{W}[%f_pop_first_to_var(USED_IN_LINKS,LINK)%{LINK}N
+   %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'USED_IN_LINKS' )% ) %==  false ) 
+    ( 'W' ) 
+    %IF-NOT-EMPTY
+     [%f] pop_first_to_var %( 'USED_IN_LINKS' %, 'LINK' )% ( get_global_var ( 'LINK' ) |N ) 
+//	]>][
+    %END-IF
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Дополнительные связи:_
+   '_Дополнительные связи:_'
+//	<{}{%CS=uses&%CC=Dependency&%C%T#f_IsUseCase()!=true}* использует %f_k_link_wp(%C%T,%S)
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'uses' %&& 
+     ( ( %C |C ) %== 'Dependency'  ) %&& 
+     ( ( %C ->T %?f IsUseCase %( )%  ) %!=  true  ) ) 
+    '* использует '
+    [%f] k_link_wp %( %C ->T  %, %S )% 
+//	><{}{%CS=friend&%CC=Dependency}* использует как друга %f_k_link_wp(%C%T,%S)
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'friend' %&& 
+     ( ( %C |C ) %== 'Dependency'  ) ) 
+    '* использует как друга '
+    [%f] k_link_wp %( %C ->T  %, %S )% 
+//	><{}{%aS=friend&%aC=Dependency}{Sp}* дружит с %f_k_link(%a%P,%S)
+   %END-FOR
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'friend' %&& 
+     ( ( %a |C ) %== 'Dependency'  ) ) 
+    ( 'Sp' ) 
+    '* дружит с '
+    [%f] k_link %( %a ->P  %, %S )% 
+//	>]][
+   %END-FOR
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	
+
+//	h2. Состав элемента[{%SK=ParameterizedClass}[
+  'h2. Состав элемента'
+  %IF ( ( %S |K ) %== 'ParameterizedClass' ) 
+   %IF-NOT-EMPTY
+
+//	
+
+//	_Шаблонные параметры:_<{}{%CC=Parameter}
+    '_Шаблонные параметры:_'
+    %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Parameter' ) 
+
+//	\# *%CN*[ = %f_k_text_convert(%CI)][ - %f_str_replace(%CD,\n\n,\n\\\\)]>]][
+     '# *'
+     %C |N '*'
+     %IF-NOT-EMPTY
+      ' = '
+      [%f] k_text_convert %( %C |I )% 
+     %END-IF
+     %IF-NOT-EMPTY
+      ' - '
+      [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+     %END-IF
+    %END-FOR
+   %END-IF
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Вложенные типы (публичные):_<{}{%CC=Class&%CV=PublicAccess}{Sn}
+   '_Вложенные типы (публичные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_type_dump(%C)>][
+    [%f] k_type_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Вложенные типы (приватные):_<{}{%CC=Class&%CV!=PublicAccess}{Sn}
+   '_Вложенные типы (приватные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' %&& 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_type_dump(%C)>][
+    [%f] k_type_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Статические методы (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_method&%CV=PublicAccess}{Sn}
+   '_Статические методы (публичные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'static_method'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_method_dump(%C)>][
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Статические методы (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_method&%CV!=PublicAccess}{Sn}
+   '_Статические методы (приватные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'static_method'  ) %&& 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_method_dump(%C)>][
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Статические данные:_<{}{%CC!=Class&%C%f_wiki_child_kind()=static_attr}{Sn}
+   '_Статические данные:_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'static_attr'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_attr_dump(%C)>][
+    [%f] k_attr_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Менеджеры (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=mng&%CV=PublicAccess}{Sn}
+   '_Менеджеры (публичные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'mng'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_method_dump(%C)>][
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Менеджеры (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=mng&%CV!=PublicAccess}{Sn}
+   '_Менеджеры (приватные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'mng'  ) %&& 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_method_dump(%C)>][
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Методы (публичные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=method&%CV=PublicAccess}{Sn}
+   '_Методы (публичные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'method'  ) %&& 
+     ( ( %C |V ) %== 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_method_dump(%C)>][
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Методы (приватные):_<{}{%CC!=Class&%C%f_wiki_child_kind()=method&%CV!=PublicAccess}{Sn}
+   '_Методы (приватные):_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'method'  ) %&& 
+     ( ( %C |V ) %!= 'PublicAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_method_dump(%C)>][
+    [%f] k_method_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Атрибуты:_<{}{%CC!=Class&%C%f_wiki_child_kind()=attr}{Sn}
+   '_Атрибуты:_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'attr'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_attr_dump(%C)>][
+    [%f] k_attr_dump %( %C )% 
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Свойства:_<{}{%CC!=Class&%C%f_wiki_child_kind()=property}{Sn}
+   '_Свойства:_'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %!= 'Class' %&& 
+     ( ( %C %f wiki_child_kind %( )% ) %== 'property'  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_attr_dump(%C)>]\
+    [%f] k_attr_dump %( %C )% 
+   %END-FOR
+  %END-IF
+//	[
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Реализуемые методы:_<{}{%oC=Operation|%o#f_IsMethod()=true|%o#f_wiki_child_kind()=method}{Sn}\
+   '_Реализуемые методы:_'
+   %FOR %ITEM-CONDITION ( ( %o |C ) %== 'Operation' %|| 
+     ( ( %o %?f IsMethod %( )% ) %==  true  ) %|| 
+     ( ( %o %?f wiki_child_kind %( )% ) %== 'method'  ) ) 
+    ( 'Sn' ) 
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%o%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_method_dump(%o)]>]\
+    %IF ( ( %S |S ) %!= 'Factory' %&& 
+      ( ( %S |S ) %!= 'TestClass'  ) %&& 
+      ( ( [%t] interface %( %S )% ) %!=  true  ) %&& 
+      ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) %&& 
+      ( ( %o ->P |U  ) %!= ( %S |U )  ) %&& 
+      ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) 
+     #13#10
+     [%f] k_method_dump %( %o )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+//	[
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Реализуемые свойства:_<{}{%oC=Attribute|%o#f_IsAttribute()=true}{Sn}\
+   '_Реализуемые свойства:_'
+   %FOR %ITEM-CONDITION ( ( %o |C ) %== 'Attribute' %|| 
+     ( ( %o %?f IsAttribute %( )% ) %==  true  ) ) 
+    ( 'Sn' ) 
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%o%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_attr_dump(%o)]>]\
+    %IF ( ( %S |S ) %!= 'Factory' %&& 
+      ( ( %S |S ) %!= 'TestClass'  ) %&& 
+      ( ( [%t] interface %( %S )% ) %!=  true  ) %&& 
+      ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) %&& 
+      ( ( %o ->P |U  ) %!= ( %S |U )  ) %&& 
+      ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) 
+     #13#10
+     [%f] k_attr_dump %( %o )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+//	[
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Переопределяемые методы:_<{}{%OC=Operation|%O#f_IsMethod()=true|%O#f_wiki_child_kind()=method}{Sn}\
+   '_Переопределяемые методы:_'
+   %FOR %ITEM-CONDITION ( ( %O |C ) %== 'Operation' %|| 
+     ( ( %O %?f IsMethod %( )% ) %==  true  ) %|| 
+     ( ( %O %?f wiki_child_kind %( )% ) %== 'method'  ) ) 
+    ( 'Sn' ) 
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%O%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_method_dump(%O)]>]\
+    %IF ( ( %S |S ) %!= 'Factory' %&& 
+      ( ( %S |S ) %!= 'TestClass'  ) %&& 
+      ( ( [%t] interface %( %S )% ) %!=  true  ) %&& 
+      ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) %&& 
+      ( ( %O ->P |U  ) %!= ( %S |U )  ) %&& 
+      ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) 
+     #13#10
+     [%f] k_method_dump %( %O )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+//	[
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Переопределяемые свойства:_<{}{%OC=Attribute|%O#f_IsAttribute()=true}{Sn}\
+   '_Переопределяемые свойства:_'
+   %FOR %ITEM-CONDITION ( ( %O |C ) %== 'Attribute' %|| 
+     ( ( %O %?f IsAttribute %( )% ) %==  true  ) ) 
+    ( 'Sn' ) 
+//	[{%SS!=Factory&%SS!=TestClass&%t_interface(%S)!=true&%S#f_IsPureMixIn()!=true&%O%PU!=%SU&%S#f_IsVCMArea()!=true}\n%f_k_attr_dump(%O)]>]\
+    %IF ( ( %S |S ) %!= 'Factory' %&& 
+      ( ( %S |S ) %!= 'TestClass'  ) %&& 
+      ( ( [%t] interface %( %S )% ) %!=  true  ) %&& 
+      ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) %&& 
+      ( ( %O ->P |U  ) %!= ( %S |U )  ) %&& 
+      ( ( %S %?f IsVCMArea %( )% ) %!=  true  ) ) 
+     #13#10
+     [%f] k_attr_dump %( %O )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+//	[
+  %IF-NOT-EMPTY
+
+//	
+
+//	h2. Элементы машины состояний:%f_set_var(STATE_MACHINE,S)<{}{%CC=StateMachine}{Sn}
+   'h2. Элементы машины состояний:'
+   [%f] set_var %( 'STATE_MACHINE' %, 'S' )% 
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'StateMachine' ) 
+    ( 'Sn' ) 
+
+//	[
+    %IF-NOT-EMPTY
+
+//	_Состояния_:%C<{}{%CC=State}{Sn}
+     '_Состояния_:'
+     %C
+     %FOR %ITEM-CONDITION ( ( %C |C ) %== 'State' ) 
+      ( 'Sn' ) 
+
+//	%f_k_state_dump(%C)>
+      [%f] k_state_dump %( %C )% 
+     %END-FOR
+ //	]>][
+    %END-IF
+   %END-FOR
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Авто-генерируемые методы:_
+   '_Авто-генерируемые методы:_'
+//	%S%f_wiki_up_add_gen()]]<%CX>
+   %S %f wiki_up_add_gen %( )% 
+  %END-IF
+ %END-IF
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+
+//f _loc_GetNameForScript
+; // wiki
+
+end. // <<WikiImplClass>>
+
+: loc_GetNameForScript OBJECT IN %S
+//	%S{NameForScript}
+ %S get_up ( 'NameForScript' ) 
+
+
+//f _k_state_dump
+; // loc_GetNameForScript
+
+: k_state_dump OBJECT IN %S
+//	%f_set_var(STATE,S)\# *%f_k_link(%S)*[([{%SK=Initial}{[{%SK=Final}конечное]}начальное])][%{STATE_MACHINE}<{, }{%CM=State::Class&%CN=%{STATE}N}{Sn} _соответствующий элемент: %f_k_link(%C)_>][
+ [%f] set_var %( 'STATE' %, 'S' )% '# *'
+ [%f] k_link %( %S )% '*'
+ %IF-NOT-EMPTY
+  '('
+  %IF ( ( %S |K ) %== 'Initial' ) 
+   %ELSE
+    %IF ( ( %S |K ) %== 'Final' ) 
+     'конечное' 
+    %END-IF
+   %THEN
+   'начальное' 
+  %END-IF
+  ')' 
+ %END-IF
+ %IF-NOT-EMPTY
+  ( get_global_var ( 'STATE_MACHINE' ) ) 
+  %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+   %ITEM-CONDITION ( ( %C |M ) %== 'State::Class' %&& 
+    ( ( %C |N ) %== ( ( get_global_var ( 'STATE' ) |N ) )  ) ) 
+   ( 'Sn' ) 
+   ' _соответствующий элемент: '
+   [%f] k_link %( %C )% '_' 
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%SD][
+  %S |D 
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	_Возможные переходы_:[<{}{%CC=Transition&"%CS"=""}{Sn}
+  '_Возможные переходы_:'
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Transition' %&& 
+     ( ( %C |S ) %== ''  ) ) 
+    ( 'Sn' ) 
+
+//	%f_k_transition_dump(%C)>]]
+    [%f] k_transition_dump %( %C )% 
+   %END-FOR
+  %END-IF
+ %END-IF
+
+//f _k_transition_dump
+; // k_state_dump
+
+: k_transition_dump OBJECT IN %S
+//	\#* [{%f_is_guarded_transition(%S)=true}{по событию *<{}{%CC=TransitionEvent&"%CN"!=""}{Sn}%CN>*}[{%f_dump_guard(%S)!=null}{безусловный}по условию *%f_dump_guard(%S)*]] в состояние: *%f_k_link(%T)*[
+ '#* '
+ %IF ( ( [%f] is_guarded_transition %( %S )% ) %==  true ) 
+  %ELSE
+   'по событию *'
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'TransitionEvent' %&& 
+     ( ( %C |N ) %!= ''  ) ) 
+    ( 'Sn' ) 
+    %C |N 
+   %END-FOR
+   '*' 
+  %THEN
+  %IF ( ( [%f] dump_guard %( %S )% ) %!= 'null' ) 
+   %ELSE
+    'безусловный' 
+   %THEN
+   'по условию *'
+   [%f] dump_guard %( %S )% '*' 
+  %END-IF
+ %END-IF
+ ' в состояние: *'
+ [%f] k_link %( %T )% '*'
+ %IF-NOT-EMPTY
+
+//	%SD][{%f_dump_action(%S)!=null}
+  %S |D 
+ %END-IF
+ %IF ( ( [%f] dump_action %( %S )% ) %!= 'null' ) 
+
+//	действие связанное с переходом: *%f_dump_action(%S)*]
+  'действие связанное с переходом: *'
+  [%f] dump_action %( %S )% '*' 
+ %END-IF
+//#UC END# *46E6D4BB0339for471723E1037A*
+; // k_transition_dump
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

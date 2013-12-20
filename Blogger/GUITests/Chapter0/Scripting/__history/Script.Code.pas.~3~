@@ -1,0 +1,11 @@
+unit Script.Code;
+
+interface
+
+uses
+ Script.WordsInterfaces
+ ;
+
+implementation
+
+end.

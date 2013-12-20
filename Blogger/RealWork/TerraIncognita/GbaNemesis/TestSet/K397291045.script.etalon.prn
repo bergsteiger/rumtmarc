@@ -1,0 +1,52 @@
+%producer 'ГАРАНТ аэро' date '25.08.2091'
+%format version 0.141 revision date '18/06/2010' 
+: Document = {
+ Width = 11900
+ Height = 16800
+ LeftIndent = 1100
+ RightIndent = 800
+ Paras = {
+  Width = 11900
+  Height = 16800
+  LeftIndent = 1100
+  RightIndent = 800
+  SpaceBefore = 800
+  SpaceAfter = 800
+  Orientation = ev_poPortrait
+ }
+ LineSpacing = 100
+ Style = -1
+ ExternalHandle = 102015
+ : DecorTextPara = {
+  Text = '<60>0>Документ 2015. Для проверки формирования списков реквизитов в карточке обзора изменения законодательства.<10><10>Класс:<10>  Основы государственно-правового устройства\Основы конституционного строя<10><10>Тип:<10>  Положение<10><10>KIND:<10>  Акты органов власти\Федеральные акты'
+ }
+ : = {
+ }
+ : = {
+  Handle = 1
+  Style = -3
+  Segments = {
+   : = {
+    Handle = Hyperlinks
+    : HyperLink = {
+     Finish = 105
+     : = {
+      Type = 65540
+      DocID = 102015
+     }
+    }
+   }
+  }
+  Text = 'Документ 2015. Для проверки формирования списков реквизитов в карточке обзора изменения законодательства.'
+ }
+ : = {
+ }
+ : = {
+  Handle = 2
+  Style = -1
+  Text = 'У этого документа есть аннотация.'
+ }
+ : = {
+ }
+}
+

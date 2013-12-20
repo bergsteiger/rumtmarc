@@ -1,0 +1,775 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Об асинхронности и модальности в GUI тестах<br />
+<br />
+О тестах GUI я писал тут - <a href="http://18delphi.blogspot.ru/2013/11/gui.html">http://18delphi.blogspot.ru/2013/11/gui.html</a> ну и "в последующих сериях".<br />
+<br />
+Сегодня я размышлял над одной хорошей заметкой моего товарища по цеху - Романа Янковского.<br />
+<br />
+О Awaitable-значениях (<a href="http://roman.yankovsky.me/?p=1100">http://roman.yankovsky.me/?p=1100</a>).<br />
+<br />
+И неожиданно понял - что ещё я хочу сказать о GUI-тестировании.<br />
+<br />
+Есть два момента с которыми рано или поздно сталкиваются GUI-тестировщики.
+
+Когда система входит в такое состояние, когда она блокирует управление и крутит какой-то "внутренний цикл".<br />
+<br />
+А именно:<br />
+<br />
+1. Например показ контекстного меню или что-то подобное.<br />
+2. Показ модального диалога и ожидание ввода пользователя.<br />
+<br />
+И это <b>далеко</b> не самая <b>простая</b> проблема.<br />
+<br />
+Ведь код теста - "замораживается" и система "ждёт ввода от пользователя" и тесты на это повлиять никак уже не могут.<br />
+<br />
+Им банально - не отдаётся управление. И они <b>не могут</b> продолжать свою работу.<br />
+<br />
+А ведь - они <b>автоматические</b> и никакой пользователь им не поможет.<br />
+<br />
+Что же делать?<br />
+<!--more--><br />
+У нас тоже была такая проблема и мы её решили.<br />
+<br />
+Мы ввели два слова тестовой машины - THREAD и MODAL.<br />
+<br />
+Формат их таков:<br />
+<br />
+<pre class="brush:delphi">THREAD ( 
+ код который выполняется внутри отдельного потока выполнения 
+)
+</pre>
+<br />
+<pre class="brush:delphi">
+@ ( 
+    код который приводит к вызову модального диалога 
+  ) MODAL 
+  ( 
+    код который выполняется внутри run-loop цикла модального диалога 
+  )
+</pre>
+<br />
+"По-русски" это выглядит так:<br />
+<br />
+<pre class="brush:delphi">
+"Выполнить асинхронно" ( 
+ код который выполняется внутри отдельного потока выполнения 
+)
+</pre>
+<br />
+<pre class="brush:delphi">
+"Выполнить действия {(@ ( код который приводит к вызову модального диалога ) )} и обработать модальность следующим образом" (
+ код который выполняется внутри run-loop цикла модального диалога 
+)
+</pre>
+<br />
+Приведу "развесистый" набор примеров, чтобы <b>интересующиеся</b> "прониклись".<br />
+<br />
+Дальше реально будет "хардкор". Но он именно для "особых ценителей".<br />
+<br />
+Примеры использования THREAD в нашей тестовой машине:
+
+<br />
+<br />
+<pre class="brush:delphi">: K296095220
+ : Сохраняем_размеры_навигатора
+  "Открываем НК"
+  150 "Левый навигатор" "Установить ширину"
+  "Перевести фокус в оглавление"
+  "Сделать оглавление неплавающим"
+  "Сделать левый навигатор автораспахивающимся"
+  //10 -10 "Найти главное окно" pop:control:ClientToScreen mouse:SetCursorPosition
+  "Установить курсор мыши по координатам {(10 -10)} относительно контрола {("Найти главное окно")}"
+  THREAD (  6650 SLEEP "Клик левой кнопкой мыши" )
+  THREAD (  700 SLEEP "Провести мышью вниз на {(360)} пикселей" 
+  "Левый навигатор" "Померить ширину" .  )
+  "Зажать левую кнопку мыши"
+ ;
+
+ : Действия
+  "Запомнить ширину левого навигатора и выполнить {(@ Сохраняем_размеры_навигатора )}"
+ ;
+
+ TRY
+  "Запомнить позицию мыши и выполнить {(@ Действия )}"
+ FINALLY 
+  "Перевести фокус в оглавление"
+  "Сделать левый навигатор НЕавтораспахивающимся"
+ END
+; // K296095220
+
+: K321983826
+
+: "Закрыть второе окно и переключиться на первое"
+ VAR l_Main 0 &gt;&gt;&gt; l_Main
+ "Сохранить активное окно" &gt;&gt;&gt; l_Main 
+ l_Main "Закрыть сохраненное окно"
+;
+
+ : Сценарий_теста
+  "Открыть НК"
+  "Список редакций"
+  "Открыть текущую редакцию в новом окне"
+  СР
+  TRY
+   : Действия
+    "Установить курсор мыши по координатам {( 10 50 )} относительно контрола {("Контрол в фокусе")}"
+    THREAD ( 800 SLEEP 
+    "Установить курсор мыши по координатам {( 40 145 )} относительно контрола {("Контрол в фокусе")}"
+    "Клик левой кнопкой мыши")
+    "Клик правой кнопкой мыши"
+   ; // Действия
+ 
+   "Вызвать Список редакций из статусной строки и сделать {(@ Действия)}"
+  FINALLY
+   "Закрыть второе окно и переключиться на первое"
+   "Дать системе перерисоваться" 
+  END
+ ; // Сценарий_теста 
+
+ "Запомнить позицию мыши и выполнить {(@ Сценарий_теста )}"
+; // K321983826
+
+: K342853493
+
+ : Действия
+  "Установить фокус в баллон зелёной медали МВ"
+  "Установить курсор мыши на правый край текущего редактора" 
+  INTEGER VAR X
+  INTEGER VAR Y
+  "Запомнить позицию мыши" =: Y =: X
+  "Установить курсор мыши на левый край текущего редактора"
+  THREAD ( 300 SLEEP 
+           X Y "Восстановить позицию мыши"
+           100 SLEEP
+           "Отпустить левую кнопку мыши" )
+  "Зажать левую кнопку мыши"
+  "Сравнить выделенный текст текущего редактора с эталоном"
+ ;
+
+ ТБ24
+ "Открываем {(900100)}"
+ "Устанавливаем дату машины времени {('01.10.2003')}"
+ "Нажать на зелёную медаль МВ и проверить наличие баллона"
+ "Запомнить позицию мыши и выполнить {(@ Действия)}"
+; // K342853493
+
+: K377162741
+ 
+ "Открываем НК"
+ THREAD ( 3000 SLEEP "Закрыть F1." )
+ "Предварительный просмотр"
+ "Список всех документов"
+ ОМ
+; // K377162741
+
+: K377163047
+
+ ТБ24
+ "Открываем НК"
+ TRY
+  "Выделить всё"
+  THREAD ( 3000 SLEEP ТБ27 ) 
+  "Сохранить выделенный текст в формате {(CF_RTF)}"
+ FINALLY 
+  3000 SLEEP
+  ТБ24
+ END 
+; // K377163047
+
+: K390561811
+
+ : Сохраняем_позицию_курсора
+  : Тест
+   : Действия
+    "Нажать {('Enter')}"
+    "Открыть список документов с комментариями"
+    "Нажать {('Enter')}"
+    "Стрелка вниз"
+    THREAD ( 600 SLEEP
+    "Дождаться переключения вкладок"
+    "Ставим указатель мыши на конец текущего параграфа редактора  {("Контрол в фокусе")} со смещением {( 10 10 )}"
+    "Клик левой кнопкой мыши" )
+    // убираем вызванное контекстное меню
+    "Ставим указатель мыши на конец текущего параграфа редактора  {("Контрол в фокусе")} со смещением {( 0 0 )}"
+    "Клик правой кнопкой мыши"
+    // для повторения ошибки достаточно было вызвать контекстное меню
+    ; // Действия 
+   "Сделать {(@ Действия )} с комментариями в документе {(10003000)}" 
+  ; // Тест
+ 
+  // анти-тест Тест
+  Тест
+
+ ; // Сохраняем_позицию_курсора
+
+ "Вывести окно оболочки на первый план"
+ "Запомнить позицию мыши и выполнить {(@ Сохраняем_позицию_курсора )}"
+; // K390561811
+
+: K390568127
+
+: "Кликаем кнопку на координатах , и кликаем выпадающий список по координатам" IN aControl  INTEGER IN X INTEGER IN Y  INTEGER IN Xx INTEGER IN Yy
+
+ : Действия
+  OBJECT VAR "Нужная кнопка"
+  "Найти контрол {(aControl)} на форме {("Найти главное окно")}" =: "Нужная кнопка" 
+  "Нужная кнопка" "Узнать, существует ли объект" ! 'Не нашли кнопку' ASSERTS
+     THREAD ( 1000 SLEEP 
+       "Установить курсор мыши по координатам {( Xx Yy )} относительно контрола {("Нужная кнопка" )}"
+       "Клик левой кнопкой мыши" )
+     THREAD (  500 SLEEP 
+        "Установить курсор мыши по координатам {( X Y )} относительно контрола {("Нужная кнопка" )}"
+        "Клик левой кнопкой мыши" )
+   4000 SLEEP
+   "Дождаться переключения вкладок"
+   'Down'  "Нужная кнопка"  "Узнать численную переменную объекта" 0 ?!= .
+  ; // Действия
+ "Запомнить позицию мыши и выполнить {(@ Действия)}"
+ OnTest
+; // "Кликаем кнопку на координатах, и кликаем выпадающий список по координатам" 
+
+ : Повторяем_ошибку
+  "Кликаем кнопку {('bt_mo_Common_OpenMainMenuNew')} на координатах {( 108 10 )}, и кликаем выпадающий список по координатам {( 10 90)}"
+ ; // Повторяем_ошибку
+
+ "Переместить медали по координатам {( 600 10 )} и выполнить {(@ Повторяем_ошибку )}"
+; // K390568127
+
+: K392168746
+
+   : Проверяем_статусбар OBJECT IN l_It 
+   l_It "Убедиться, что контрол активен" IF
+    STRING VAR str1
+    STRING VAR str2
+    CONST cSeparator '...'
+    l_It "Заголовок контрола" &gt;&gt;&gt; str1
+    ( str1 "НЕ РАВНО" '' ) IF
+      str1 cSeparator string:Split =: str2 =: str1
+       ( str1 РАВНО 'Подсчет числа страниц' ) IF
+         [[ str1 '... Надпись ЕСТЬ'  ]] strings:Cat &gt;&gt;&gt; str1
+         str1 .
+       ENDIF
+    ENDIF
+   ENDIF 
+  ; // Проверяем_статусбар
+
+ "Очистить историю"
+ "Открываем {(12044185)}"
+ THREAD ( 500 SLEEP
+ "Для всех видимых элементов статусбара {(контрол::StatusBar:push)} выполнить {(@ Проверяем_статусбар )}" )
+ "Предварительный просмотр"
+; // K392168746
+
+</pre>
+Примеры использования MODAL в нашей тестовой машине:
+
+<br />
+<br />
+<pre class="brush:delphi">: K227478809
+
+ ППР
+ "Установить фокус в поле 'Раздел/Тема' "
+ "Выбрать в дереве атрибутов контекст {('Бухгалтерский учет, аудит, статистическая отчетность')}"
+ "Нажать Искать"
+ "Назад по истории"
+ "Установить фокус в поле 'Раздел/Тема' "
+ "Добавить ещё один атрибут"
+ @ ( "Нажать {('Enter')}" ) MODAL (
+ "Стрелка вниз" 
+ "Нажать {('Enter')}"
+ "Выбрать атрибут ИЛИ" )
+ "Нажать Искать"
+ "Назад по истории"
+ "Установить фокус в поле 'Раздел/Тема' "
+ "Выделить текст в поле"
+ "Сравнить выделенный текст текущего редактора с эталоном"
+ "Стрелка вниз"
+ "Выделить текст в поле"
+ "Сравнить выделенный текст текущего редактора с эталоном"
+; // K227478809
+
+: K278833441
+
+ : "В тексте слева кликаем по ссылке внизу 'Список редакций, открываемых по скрипту'"
+   "Перевести фокус в левую редакцию"
+   "В конец документа"
+   "Ставим указатель мыши на конец текущего параграфа редактора {("Контрол в фокусе")} со смещением {(0 -30)}"
+   "Узнать индекс курсора мыши" РАВНО '0' IF
+   @ ( "Клик левой кнопкой мыши" ) MODAL ( "Перевести фокус в дерево редакций" "Получить имя текущего элемента дерева {(контрол::RedactionTree)}" )
+   ELSE
+   'Почему-то не попали на ссылку' .
+   ENDIF  
+ ; // "В тексте слева кликаем по ссылке внизу 'Список редакций, открываемых по скрипту'"
+
+  : Действия
+   "Открываем {(8901001)}"
+   СР
+   "В тексте слева кликаем по ссылке внизу 'Список редакций, открываемых по скрипту'"
+  ; // Действия
+
+  : Ставим_размеры_окну
+   "Запомнить позицию мыши и выполнить {(@ Действия )}"
+  ;
+
+ : Восстанавливаем_состояние_окна 
+  "Выставить форме размеры {( 900 700 )} и {(@ Ставим_размеры_окну )}"
+ ;
+
+ "Сделать {(@ Восстанавливаем_состояние_окна )} с изменением состояния и размеров окна {("Найти главное окно")}"
+; // K278833441
+
+: K96480889
+
+  "Восстановить все настройки текущей конфигурации"
+ @ "Настройка конфигурации" MODAL ( "Проверить доступность кнопки {('bt_enResult_opRestoreAllSettings')} в модальном окне"
+ "Нажать кнопку Отмена в Настройке конфигурации" )
+; // K96480889
+
+: K87196896
+
+ : "Померить высоту и ширину модального окна"
+  OBJECT VAR "Диалог ввода номера"
+  focused:control:push pop:control:GetAnotherParentForm =: "Диалог ввода номера"
+  "Диалог ввода номера" "Померить высоту" .
+  "Диалог ввода номера" "Померить ширину" .
+ ;
+
+ @ ( "Нажать {('Alt+N')}" ) MODAL (  "Померить высоту и ширину модального окна" )
+; // K87196896
+</pre>
+<br />
+Теперь о том, как "это устроено".&nbsp;
+<br />
+<br />
+Код доступен тут - <a href="https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/RealWork/ScriptEngine/">https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/RealWork/ScriptEngine/</a><br />
+<br />
+Приведу часть кода.<br />
+<br />
+Он - большой. И НЕ компилируется. Но он - для ОСОБЫХ ценителей.<br />
+<br />
+Код для слова THREAD:
+<br />
+<br />
+<pre class="brush:delphi">unit kwTHREAD;
+
+interface
+
+uses
+  tfwScriptingInterfaces,
+  kwCompiledWord,
+  kwCompiledWordWorker,
+  l3Interfaces,
+  l3ParserInterfaces
+  ;
+
+type
+ {$Include ..\ScriptEngine\tfwWordWorker.imp.pas}
+ TkwTHREAD = {final} class(_tfwWordWorker_)
+ protected
+ // realized methods
+   function CompiledWorkerClass: RkwCompiledWordWorker; override;
+ public
+ // overridden public methods
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//TkwTHREAD
+
+implementation
+
+uses
+  kwCompiledThread,
+  l3Parser,
+  kwInteger,
+  kwString,
+  SysUtils,
+  TypInfo,
+  l3Base,
+  kwIntegerFactory,
+  kwStringFactory,
+  l3String,
+  l3Chars,
+  tfwAutoregisteredDiction,
+  tfwScriptEngine
+  ;
+
+type _Instance_R_ = TkwTHREAD;
+
+{$Include ..\ScriptEngine\tfwWordWorker.imp.pas}
+
+// start class TkwTHREAD
+
+function TkwTHREAD.CompiledWorkerClass: RkwCompiledWordWorker;
+begin
+ Result := TkwCompiledThread;
+end;//TkwTHREAD.CompiledWorkerClass
+
+class function TkwTHREAD.GetWordNameForRegister: AnsiString;
+ {-}
+begin
+ Result := 'THREAD';
+end;//TkwTHREAD.GetWordNameForRegister
+
+initialization
+ {$Include ..\ScriptEngine\tfwWordWorker.imp.pas}
+
+end.
+
+unit kwCompiledThread;
+
+{$Include ..\ScriptEngine\seDefine.inc}
+
+interface
+
+uses
+  kwCompiledWordWorker,
+  tfwScriptingInterfaces
+  ;
+
+type
+ TkwCompiledThread = class(TkwCompiledWordWorker)
+ protected
+ // realized methods
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+ end;//TkwCompiledThread
+
+implementation
+
+uses
+  seThreadSupport
+  ;
+
+// start class TkwCompiledThread
+
+procedure TkwCompiledThread.DoDoIt(const aCtx: TtfwContext);
+begin
+ TseWorkThreadList.Instance.AddAndResumeThread(aCtx, f_Word);
+end;//TkwCompiledThread.DoDoIt
+
+end.
+
+unit seThreadSupport;
+
+{$Include ..\ScriptEngine\seDefine.inc}
+
+interface
+
+uses
+  Classes,
+  l3ProtoDataContainer,
+  tfwScriptingInterfaces,
+  l3Types,
+  l3Memory,
+  l3Interfaces,
+  l3Core,
+  l3Except
+  ;
+
+type
+ TWordThread = class(TThread)
+ private
+ // private fields
+   f_Context : TtfwContext;
+   f_Word : TtfwWord;
+ protected
+ // realized methods
+   procedure Execute; override;
+ public
+ // overridden public methods
+   destructor Destroy; override;
+ end;//TWordThread
+
+ _ItemType_ = TWordThread;
+ _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
+ TseWorkThreadList = class(_l3ObjectPtrList_)
+ public
+ // public methods
+   class function WasInit: Boolean;
+   procedure WaitForAllThreads;
+   procedure AddAndResumeThread(const aContext: TtfwContext;
+     const aWord: TtfwWord);
+ public
+ // singleton factory method
+   class function Instance: TseWorkThreadList;
+    {- возвращает экземпляр синглетона. }
+ end;//TseWorkThreadList
+
+implementation
+
+uses
+  SysUtils,
+  l3Base {a},
+  l3MinMax,
+  RTLConsts
+  ;
+
+// start class TWordThread
+
+procedure TWordThread.Execute;
+begin
+ f_Word.DoIt(f_Context);
+end;//TWordThread.Execute
+
+destructor TWordThread.Destroy;
+begin
+ FreeAndNil(f_Word);
+ Finalize(f_Context);
+ inherited;
+end;//TWordThread.Destroy
+
+// start class TseWorkThreadList
+
+var g_TseWorkThreadList : TseWorkThreadList = nil;
+
+procedure TseWorkThreadListFree;
+begin
+ l3Free(g_TseWorkThreadList);
+end;
+
+class function TseWorkThreadList.Instance: TseWorkThreadList;
+begin
+ if (g_TseWorkThreadList = nil) then
+ begin
+  l3System.AddExitProc(TseWorkThreadListFree);
+  g_TseWorkThreadList := Create;
+ end;
+ Result := g_TseWorkThreadList;
+end;
+
+type _Instance_R_ = TseWorkThreadList;
+
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
+
+// start class TseWorkThreadList
+
+class function TseWorkThreadList.WasInit: Boolean;
+begin
+ Result := g_TseWorkThreadList &lt;&gt; nil;
+end;//TseWorkThreadList.WasInit
+
+procedure TseWorkThreadList.WaitForAllThreads;
+var
+ l_Thread : TWordThread;
+begin
+ while (Count &gt; 0) do
+ begin
+  try
+   l_Thread := Items[0];
+   try
+    l_Thread.WaitFor;
+   except
+   end;//try..except 
+   l_Thread.Free;
+   Delete(0);
+  except
+  end;//try..except
+ end; // for i := 0 to Count - 1 do
+end;//TseWorkThreadList.WaitForAllThreads
+
+procedure TseWorkThreadList.AddAndResumeThread(const aContext: TtfwContext;
+  const aWord: TtfwWord);
+var
+ l_Thread: TWordThread;
+begin
+ l_Thread := TWordThread.Create(True);
+ aWord.SetRefTo(l_Thread.f_Word);
+ l_Thread.f_Context := aContext;
+ l_Thread.f_Context.rEngine := l_Thread.f_Context.rEngine.Clone;
+ l_Thread.Resume;
+ Add(l_Thread);
+end;//TseWorkThreadList.AddAndResumeThread
+
+end.
+</pre>
+<br />
+Код слова MODAL:
+
+<br />
+<br />
+<pre class="brush:delphi">unit kwMODAL;
+
+{$Include ..\ScriptEngine\seDefine.inc}
+
+interface
+
+uses
+  tfwScriptingInterfaces,
+  kwCompiledWord,
+  kwCompiledWordWorker,
+  l3Interfaces,
+  l3ParserInterfaces
+  ;
+
+type
+ {$Include ..\ScriptEngine\tfwWordWorker.imp.pas}
+ TkwMODAL = {final} class(_tfwWordWorker_)
+ protected
+ // realized methods
+   function CompiledWorkerClass: RkwCompiledWordWorker; override;
+ public
+ // overridden public methods
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//TkwMODAL
+ 
+implementation
+
+uses
+  kwCompiledModal,
+  l3Parser,
+  kwInteger,
+  kwString,
+  SysUtils,
+  TypInfo,
+  l3Base,
+  kwIntegerFactory,
+  kwStringFactory,
+  l3String,
+  l3Chars,
+  tfwAutoregisteredDiction,
+  tfwScriptEngine
+  ;
+
+type _Instance_R_ = TkwMODAL;
+
+{$Include ..\ScriptEngine\tfwWordWorker.imp.pas}
+
+// start class TkwMODAL
+
+function TkwMODAL.CompiledWorkerClass: RkwCompiledWordWorker;
+begin
+ Result := TkwCompiledModal;
+end;//TkwMODAL.CompiledWorkerClass
+
+class function TkwMODAL.GetWordNameForRegister: AnsiString;
+ {-}
+begin
+ Result := 'MODAL';
+end;//TkwMODAL.GetWordNameForRegister
+
+initialization
+ {$Include ..\ScriptEngine\tfwWordWorker.imp.pas}
+
+end.
+
+unit kwCompiledModal;
+
+interface
+
+uses
+  kwCompiledWordWorker,
+  tfwScriptingInterfaces
+  ;
+
+type
+ TkwCompiledModal = class(TkwCompiledWordWorker)
+ protected
+ // realized methods
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+ end;//TkwCompiledModal
+
+implementation
+
+uses
+  seModalSupport
+  ,
+  afwAnswer
+  ;
+  
+// start class TkwCompiledModal
+
+procedure TkwCompiledModal.DoDoIt(const aCtx: TtfwContext);
+var
+ l_Count : Integer;
+begin
+ l_Count := seAddModalWorker(f_Word, aCtx);
+ try
+  try
+   (aCtx.rEngine.PopObj As TTfwWord).DoIt(aCtx);
+  except
+   on EvcmTryEnterModalState do
+    Exit;
+  end;//try..except
+ finally
+  RunnerAssert(seIsValidModalWorkersCount(l_Count), 'Видимо не выполнился код модального окна', aCtx);
+ end;//try..finally
+end;//TkwCompiledModal.DoDoIt
+
+end.
+
+unit seModalSupport;
+
+{$Include ..\ScriptEngine\seDefine.inc}
+
+interface
+
+uses
+  tfwScriptingInterfaces
+  ;
+
+function SeAddModalWorker(aWorker: TtfwWord;
+  const aCtx: TtfwContext): Integer;
+function SeExecuteCurrentModalWorker: Boolean;
+function SeHasModalWorker: Boolean;
+function SeIsValidModalWorkersCount(aCount: Integer): Boolean;
+
+implementation
+
+uses
+  afwFacade,
+  kwCompiledWord,
+  seModalWorkerList
+  ,
+  afwAnswer
+  ,
+  seModalWorker
+  ;
+
+function SeAddModalWorker(aWorker: TtfwWord;
+  const aCtx: TtfwContext): Integer;
+begin
+ TseModalWorkerList.Instance.Add(TseModalWorker_C(aWorker, aCtx));
+ Result := TseModalWorkerList.Instance.Count;
+end;//SeAddModalWorker
+
+function SeExecuteCurrentModalWorker: Boolean;
+var
+ l_W : TseModalWorker;
+begin
+ Result := false;
+ if not g_BatchMode then
+  Exit;
+ if TseModalWorkerList.Instance.Empty then
+  Exit;
+ afw.ProcessMessages; 
+ l_W := TseModalWorkerList.Instance.Last;
+ TseModalWorkerList.Instance.Delete(Pred(TseModalWorkerList.Instance.Count));
+ l_W.rWord.DoIt(l_W.rContext^);
+ afw.ProcessMessages; 
+ Result := true;
+end;//SeExecuteCurrentModalWorker
+
+function SeHasModalWorker: Boolean;
+begin
+ Result := not TseModalWorkerList.Instance.Empty;
+end;//SeHasModalWorker
+
+function SeIsValidModalWorkersCount(aCount: Integer): Boolean;
+begin
+ Result := (TseModalWorkerList.Instance.Count &lt; aCount);
+ // - проверяем, что предыдущий модальный код выполнися
+ if not Result then
+  TseModalWorkerList.Instance.Delete(Pred(TseModalWorkerList.Instance.Count));
+  // - снимаем этот код со стека, если он не выполнился
+end;//SeIsValidModalWorkersCount
+
+end.
+</pre>
+<br />
+Засим - я закончу.<br />
+<br />
+Ибо "разжёвывать" - не входило в план этой заметки.<br />
+<br />
+Это всё же - "поток сознания", а не "учебник".<br />
+<br />
+Главное было - обрисовать проблемы и указать на то, что они решаемы <b>вообще</b> и решены <b>хотя бы</b> в одном "частном случае".
+</div>

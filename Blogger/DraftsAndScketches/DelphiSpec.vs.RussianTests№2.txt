@@ -1,0 +1,90 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Предыдущая серия была тут -&nbsp;<a href="http://programmingmindstream.blogspot.ru/2013/12/delphispec_20.html">http://programmingmindstream.blogspot.ru/2013/12/delphispec_20.html</a><br />
+<br />
+Можно пойти дальше и избавится от глобальной переменной gTestedObject&nbsp;
+<br />
+<br />
+Таким образом:<br />
+<br />
+Делаем переменную gTestedObject локальной:
+
+<br />
+<br />
+<pre class="brush:delphi">WordWorker2 Scenario: FUNCTOR IN anObjectConstructor
+  STRING VAR l_ScenarioName
+  // - объявляем переменную для имени сценария
+  l_ScenarioName := ( WordToWork1 DO )
+  // - получаем имя сценария
+  l_ScenarioName 
+  // - кладём имя сценария на стек
+  @ (
+   OBJECT VAR gTestedObject
+   // - текущий тестируемый объект
+   gTestedObject := ( 
+    [ 
+    // - Обратно переключаемся в режим выполнения
+    anObjectConstructor CompileValue
+    // - компилируем значение anObjectConstructor как "литерал" в коде
+    ]
+    // - Обратно переключаемся в режим компиляции 
+    DO
+   )
+   // - создаём тестируемый объект
+   TRY
+    [ WordToWork2 CompileValue ] DO
+    // - выполняем код сценария
+   FINALLY
+    gTestedObject TObject.Free
+    // - уничтожаем тестируемый объект
+   END
+  ) 
+  // - компилируем код сценария на стек
+  TestEngine.RegisterTest
+  // - регистрируем в тестовой машине тест с именем сценария и указанным кодом
+; // Scenario:
+</pre>
+<br />
+Делаем вызываемые слова "зависимыми от контекста вызова" (метим их "директивой" CallerWorker) и используем в них контекст (через конструкцию Caller -&gt; gTestedObject):
+
+<br />
+<pre class="brush:delphi">OBJECT FUNCTON Calculator
+ Resut := ( @ TCalculator.Create )
+ // - возвращаем указатель на конструктор объекта
+;
+ 
+PROCEDURE CallerWorker "I have entered {(INTEGER IN aValue)} in calculator"
+ aValue Caller -&gt; gTestedObject TCalculator.Push
+;
+ 
+PROCEDURE CallerWorker "I press Add"
+ Caller -&gt; gTestedObject TCalculator.Add
+;
+ 
+PROCEDURE CallerWorker "I press mul"
+ Caller -&gt; gTestedObject TCalculator.Mul
+;
+ 
+[] FUNCTION CallerWorker "the result should be {(INTEGER IN aValue)} on the screen"
+ Result := 
+  [[  
+   ( Caller -&gt; gTestedObject TCalculator.GetValue = aValue ) 
+   'Incorrect result on calculator screen'
+  ]]
+;
+</pre>
+<br />
+Что мы тут имеем?<br />
+<br />
+Внутри Scenario: мы <b>скомпилировали</b> код, который объявляет переменную gTestedObject.<br />
+<br />
+И <b>зарегистировали</b> его в тестовой машине.<br />
+<br />
+И мы пометили наши "слова обвязки" как "слова зависящие от контекста" ("директивой" CallerWorker).<br />
+<br />
+Этот контекст передаётся в них как "параметр" Caller. "Скрытый". Примерно как Self в методах объектов в ООП.<br />
+<br />
+От которого конструкцией Caller -&gt; gTestedObject мы получаем переменную gTestedObject от КОНКРЕТНОГО контекста вызова.<br />
+<br />
+По-моему - прикольно :-)
+
+</div>

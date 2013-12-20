@@ -1,0 +1,142 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Мне тут написали, что мол "вы пишете в формате лекции, а хотелось бы в формате семинара".<br />
+<br />
+Попробую в формате семинара.<br />
+<br />
+Итак.<br />
+<br />
+Тезисы:<br />
+1. тест должен быть линейным<br />
+2. похожим на тест-кейс<br />
+3. читаться человеком<br />
+4. оперировать терминами 
+предметной области<br />
+<br />
+Попробую теперь сделать законченный пример в "классическом RAD-стиле".<br />
+<br />
+Ну и в некотором смысле "в стиле XP" -&nbsp;<a href="http://18delphi.blogspot.ru/2013/04/blog-post.html">http://18delphi.blogspot.ru/2013/04/blog-post.html</a><br />
+<br />
+Там где что-то непонятно, что делать - буду писать Assert.<br />
+<br />
+Пример доступен тут -&nbsp;<a href="https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter0/">https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter0/</a><br />
+<br />
+Сделаем форму TForm1 с кнопками Button1, Button2, Button3 и строкой ввода Edit1.<br />
+<br />
+Сделаем это для пущей "рекламы" и "новизны подхода" на FM.<br />
+<br />
+Итак наша форма:<br />
+<br />
+<pre class="brush:delphi">unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
+  System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,
+  FMX.StdCtrls, FMX.Edit;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Edit1: TEdit;
+    Run: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure RunClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses
+ Script.Engine
+ ;
+
+{$R *.fmx}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+ Edit1.Text := (Sender As TButton).Text;
+end;
+
+procedure TForm1.RunClick(Sender: TObject);
+begin
+ TScriptEngine.RunScript('FirstScript.script');
+end;
+
+end.
+
+</pre>
+<br />
+И её fmx:
+<br />
+<br />
+<pre class="brush:delphi">object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [dkDesktop, dkiPhone, dkiPad]
+  DesignerMobile = False
+  DesignerWidth = 0
+  DesignerHeight = 0
+  DesignerDeviceName = ''
+  DesignerOrientation = 0
+  object Button1: TButton
+    Height = 22.000000000000000000
+    Position.X = 24.000000000000000000
+    Position.Y = 24.000000000000000000
+    TabOrder = 0
+    Text = 'Button1'
+    Width = 80.000000000000000000
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Height = 22.000000000000000000
+    Position.X = 24.000000000000000000
+    Position.Y = 64.000000000000000000
+    TabOrder = 1
+    Text = 'Button2'
+    Width = 80.000000000000000000
+    OnClick = Button1Click
+  end
+  object Button3: TButton
+    Height = 22.000000000000000000
+    Position.X = 24.000000000000000000
+    Position.Y = 104.000000000000000000
+    TabOrder = 2
+    Text = 'Button3'
+    Width = 80.000000000000000000
+    OnClick = Button1Click
+  end
+  object Edit1: TEdit
+    TabOrder = 3
+    Position.X = 136.000000000000000000
+    Position.Y = 24.000000000000000000
+    Width = 100.000000000000000000
+    Height = 22.000000000000000000
+    KillFocusByReturn = False
+  end
+  object Run: TButton
+    Height = 22.000000000000000000
+    Position.X = 24.000000000000000000
+    Position.Y = 144.000000000000000000
+    TabOrder = 4
+    Text = 'Run'
+    Width = 80.000000000000000000
+    OnClick = RunClick
+  end
+end
+</pre>
+<br />
+Пока читатели могут просмотреть sketch. И комментарии к коммитам.</div>

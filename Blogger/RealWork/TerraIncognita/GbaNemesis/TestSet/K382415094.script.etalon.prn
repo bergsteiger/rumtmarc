@@ -1,0 +1,13 @@
+Text : TnscEditor
+TextForm : TTextForm
+ParentZone : TvtPanel
+pnWorkArea : TvtProportionalPanel
+pnBackground : TvtProportionalPanel
+DictionContainerForm : TDictionContainerForm
+ParentZone : TvtPanel
+ParentForm : TParentForm
+ParentZonePanel : TvtPanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow

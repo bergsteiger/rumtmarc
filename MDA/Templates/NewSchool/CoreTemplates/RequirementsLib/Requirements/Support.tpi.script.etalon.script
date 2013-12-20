@@ -1,0 +1,130 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CoreTemplates::RequirementsLib::Requirements::Support
+//
+// ввспомогательные функции для генерации элементов требований
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _specialize_usecase_that_used_by_actor
+: specialize_usecase_that_used_by_actor OBJECT IN %S
+//#UC START# *47184CA10232*
+//	[{<{}{%Ga!=abstract&%f_used_by_actor_anyway(%G)=true}{C}>!=0|<{}{%Ga=abstract&%f_use_by_actor(%G)=true|%Ga=abstract&%f_use_by_usecase_that_used_by_actor(%G)=true}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %G |a ) %!= 'abstract' %&& 
+    ( ( [%f] used_by_actor_anyway %( %G )% ) %==  true  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 %|| 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %G |a ) %== 'abstract' %&& 
+    ( ( [%f] use_by_actor %( %G )% ) %==  true  ) %|| 
+    ( ( %G |a ) %== 'abstract'  ) %&& 
+    ( ( [%f] use_by_usecase_that_used_by_actor %( %G )% ) %==  true  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47184CA10232*
+; // specialize_usecase_that_used_by_actor
+
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _specialized_by_usecase_that_used_by_actor
+: specialized_by_usecase_that_used_by_actor OBJECT IN %S
+//#UC START# *47184CB002AF*
+//	[{%Sa=abstract&<{}{%f_used_by_actor_anyway(%Z)=true}{C}>!=0}{false}true]
+ %IF ( ( %S |a ) %== 'abstract' %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( [%f] used_by_actor_anyway %( %Z )% ) %==  true ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47184CB002AF*
+; // specialized_by_usecase_that_used_by_actor
+
+
+// используется ли актёром
+//f _use_by_actor
+: use_by_actor OBJECT IN %S
+//#UC START# *47184CBB0399*
+//	[{<{}{%a%PS=Actor}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %a ->P |S  ) %== 'Actor' ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47184CBB0399*
+; // use_by_actor
+
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _use_by_usecase_that_used_by_actor
+: use_by_usecase_that_used_by_actor OBJECT IN %S
+//#UC START# *47184CC400EA*
+//	[{<{}{%aS=include&%f_used_by_actor_anyway(%a%P)=true|%aS=extend&%f_used_by_actor_anyway(%a%P)=true}{C}>!=0}{false}true]
+ %IF ( 
+  %FOR %ITEM-CONDITION ( ( %a |S ) %== 'include' %&& 
+    ( ( [%f] used_by_actor_anyway %( %a ->P  )% ) %==  true  ) %|| 
+    ( ( %a |S ) %== 'extend'  ) %&& 
+    ( ( [%f] used_by_actor_anyway %( %a ->P  )% ) %==  true  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0 ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+//#UC END# *47184CC400EA*
+; // use_by_usecase_that_used_by_actor
+
+
+// вспомогательная функция для проверки правильности использования юзкейсов
+//f _used_by_actor_anyway
+: used_by_actor_anyway OBJECT IN %S
+//#UC START# *47184CCB02FD*
+//	[{%f_exists_in_list(REQURSION_CHECK_LIST,S)=false}{false}%f_add_to_list(REQURSION_CHECK_LIST,S)\
+ %IF ( ( [%f] exists_in_list %( 'REQURSION_CHECK_LIST' %, 'S' )% ) %==  false ) 
+  %ELSE
+    false 
+  %THEN
+  [%f] add_to_list %( 'REQURSION_CHECK_LIST' %, 'S' )% 
+//	[{%f_use_by_actor(%S)=true|%f_specialized_by_usecase_that_used_by_actor(%S)=true|%f_use_by_usecase_that_used_by_actor(%S)=true|%f_specialize_usecase_that_used_by_actor(%S)=true}{false}true]\
+  %IF ( ( [%f] use_by_actor %( %S )% ) %==  true %|| 
+    ( ( [%f] specialized_by_usecase_that_used_by_actor %( %S )% ) %==  true  ) %|| 
+    ( ( [%f] use_by_usecase_that_used_by_actor %( %S )% ) %==  true  ) %|| 
+    ( ( [%f] specialize_usecase_that_used_by_actor %( %S )% ) %==  true  ) ) 
+   %ELSE
+     false 
+   %THEN
+    true 
+  %END-IF
+//	%f_remove_from_list(REQURSION_CHECK_LIST,S)]
+  [%f] remove_from_list %( 'REQURSION_CHECK_LIST' %, 'S' )% 
+ %END-IF
+//#UC END# *47184CCB02FD*
+; // used_by_actor_anyway
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

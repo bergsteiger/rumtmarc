@@ -1,0 +1,1945 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div style="text-align: left;">
+<span style="font-family: inherit;">Предыдущая серия была тут -&nbsp;<a href="http://18delphi.blogspot.ru/2013/11/5.html">http://18delphi.blogspot.ru/2013/11/5.html</a></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;">И тут -&nbsp;<a href="http://18delphi.blogspot.ru/2013/11/gui-back-to-basics.html">http://18delphi.blogspot.ru/2013/11/gui-back-to-basics.html</a></span><br />
+И вот тут -&nbsp;<a href="http://18delphi.blogspot.ru/2013/11/gui.html">http://18delphi.blogspot.ru/2013/11/gui.html</a></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><br /></span></div>
+<div style="text-align: left;">
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Мне тут написали, что мол "вы пишете в формате <b>лекции</b>, а хотелось бы в формате <b>семинара</b>".</span></span></div>
+<span style="font-family: inherit;"><br style="background-color: white; color: #222222; line-height: 21px;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Попробую в формате семинара.</span></span><br />
+<span style="font-family: inherit;"><br style="background-color: white; color: #222222; line-height: 21px;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Итак.</span></span><br />
+<span style="font-family: inherit;"><br style="background-color: white; color: #222222; line-height: 21px;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Тезисы:</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;"><br /></span></span>
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">1. тест должен быть линейным</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">2. похожим на тест-кейс</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">3. читаться человеком</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">4. оперировать терминами предметной области</span></span><br />
+<!--more--><span style="font-family: inherit;">(к этим тезисам мы ещё не раз будем возвращаться)</span><br />
+<span style="font-family: inherit;"><br /></span>
+<span style="font-family: inherit;">Частично эти тезисы затронуты вот тут -&nbsp;</span><a href="http://18delphi.blogspot.ru/2013/11/blog-post_19.html">http://18delphi.blogspot.ru/2013/11/blog-post_19.html</a><br />
+<span style="font-family: inherit;"><br style="background-color: white; color: #222222; line-height: 21px;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Попробую теперь сделать законченный пример в "классическом RAD-стиле".</span></span><br />
+<span style="font-family: inherit;"><br style="background-color: white; color: #222222; line-height: 21px;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Ну и в некотором смысле "в стиле XP" -&nbsp;</span><a href="http://18delphi.blogspot.ru/2013/04/blog-post.html">http://18delphi.blogspot.ru/2013/04/blog-post.html</a></span><br />
+<span style="font-family: inherit;"><br style="background-color: white;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Там где что-то непонятно, что делать - буду писать Assert.</span></span><br />
+<span style="font-family: inherit;"><br style="background-color: white; color: #222222; line-height: 21px;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Пример доступен тут -&nbsp;</span><a href="https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter0/">https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter0/</a></span><br />
+<span style="font-family: inherit;"><br style="background-color: white;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Сделаем форму TForm1 с кнопками Button1, Button2, Button3 и строкой ввода Edit1.</span></span><br />
+<span style="font-family: inherit;"><br style="background-color: white; color: #222222; line-height: 21px;" /></span><span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Сделаем это для пущей "рекламы" и "новизны подхода" на FM.</span></span><br />
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;"><br /></span></span>
+<span style="font-family: inherit;"><span style="background-color: white; color: #222222; line-height: 21px;">Код формы приведён тут -&nbsp;</span></span><a href="http://18delphi.blogspot.ru/2013/11/gui-back-to-basics.html">http://18delphi.blogspot.ru/2013/11/gui-back-to-basics.html</a><br />
+Повторять его - не вижу смысла.<br />
+<br />
+Весь код примера доступен тут -&nbsp;<a href="https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter1/">https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter1/</a><br />
+<br />
+Также по-максимуму постараемся использовать обобщения (generics) и интерфейсы, а также TInterfacedObject.<br />
+<br />
+У меня есть свои контейнеры вот -&nbsp;<a href="http://18delphi.blogspot.ru/2013/07/blog-post_3683.html">http://18delphi.blogspot.ru/2013/07/blog-post_3683.html</a>&nbsp;и вот -&nbsp;<a href="http://18delphi.blogspot.ru/2013/07/2.html">http://18delphi.blogspot.ru/2013/07/2.html</a>&nbsp;и вот -&nbsp;<a href="http://18delphi.blogspot.ru/2013/07/blog-post_8789.html">http://18delphi.blogspot.ru/2013/07/blog-post_8789.html</a><br />
+<br />
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">А также у меня есть своё виденье на "подсчёт ссылок" - вот -&nbsp;</span></span><a href="http://18delphi.blogspot.ru/2013/04/iunknown.html">http://18delphi.blogspot.ru/2013/04/iunknown.html</a>&nbsp;<span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">и вот -&nbsp;</span><a href="http://18delphi.blogspot.ru/2013/09/arc.html">http://18delphi.blogspot.ru/2013/09/arc.html</a><span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">.</span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;"><br /></span></div>
+<div style="text-align: left;">
+<span style="color: #222222;"><span style="line-height: 21px;">Но я оставлю эти темы за рамками данной статьи, дабы на "расплываться мыслью по древу". Пытливые читатели - могут сделать выводы из приведённых ссылок - самостоятельно.</span></span></div>
+<div style="text-align: left;">
+<span style="color: #222222;"><span style="line-height: 21px;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="color: #222222;"><span style="line-height: 21px;">Я же, повторюсь - постараюсь обойтись <b>стандартными</b> средствами языка и библиотек.</span></span></div>
+<div style="text-align: left;">
+<span style="color: #222222;"><span style="line-height: 21px;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">А теперь "поучимся" нажимать кнопки на этой форме.</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="color: #222222;"><span style="line-height: 21px;">Но не просто "нажимать", а "средствами скриптовой машины".</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">Введём понятия:</span></span><br />
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">1. Тестовый сценарий (script, скрипт) - это код на "псевдо-языке", который нацелен на то, чтобы описывать действия "максимально приближенные к действиям пользователя". Такие как "нажатия на кнопки", "ввод с клавиатуры" и "управление мышью".</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">2. Скриптовая машина (TscriptEngine) - это программная сущность (класс), которая умеет исполнять скрипты.</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">3. Контекст выполнения (TscriptContext) - это программная сущность, которая обеспечивает <b>контекст</b> (опять не обошлось без тавтологии) выполнения скриптов и их составляющих. Это некий <b>аналог</b> стека значений.</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">4. Слово скрипта (IscriptWord) - это "кирпичик", составляющий тело скрипта. Обладает среди прочего одним из самых важных методов - DoIt. Это собственно метод, выполняющий код слова. (Слова бывают "периода компиляции" и "периода исполнения", тут я забежал вперёд, если интересно читайте тут -&nbsp;</span></span><a href="http://ru.wikipedia.org/wiki/Forth">http://ru.wikipedia.org/wiki/Forth</a><span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">).</span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">5. Код скрипта (TscriptCode) - скомпилированный код скрипта состоящий из IscriptWord. Который последовательно вызывает методы IscriptWord.DoIt.</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">6. Словарь скриптовой машины (TscriptDictionary) - это программная сущность в которой регистрируются слова скрипта (IscriptWord). Словарь это важный момент в компиляции скрипта <b>все</b>&nbsp;"токены" входного потока (о которых было написано тут -&nbsp;</span></span><a href="http://18delphi.blogspot.ru/2013/11/5.html">http://18delphi.blogspot.ru/2013/11/5.html</a><span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">) сопоставляются со словами в словаре. (Строить этот класс мы будем на "родном" generic-классе TDictionary от Embarcadero, хотя у меня к нему и есть вопросы и "настоящая" скриптовая машина построена на самописных абстрактных котейнерах)</span><br />
+<span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">7. Аксиоматика скриптовой машины (</span><span style="background-color: white; color: #222222; line-height: 21px;">TscriptAxiomatiсs</span><span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">) - разновидность словаря скриптовой машины (TscriptDictionary). Это "базовый словарь" в котором определены "базовые термины" скриптовой машины (аксиоматика) на стороне Delphi. Если кому интересно - аксиоматика представляется singleton'ом (</span><a href="http://ru.wikipedia.org/wiki/Singleton">http://ru.wikipedia.org/wiki/Singleton</a><span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">). Все остальные словари - вложенные и строятся по мере компиляции кода скрипта (но это я опять забегаю вперёд).</span><br />
+<span style="background-color: white; color: #222222; font-family: inherit; line-height: 21px;">8. Лог выполнения (</span><span style="color: #222222;"><span style="line-height: 21px;">IscriptLog) - это "нечто", скажем так "консоль", куда и скриптовая машина и слова скриптовой машины - могут выводить всё что они думают о процессе компиляции и выполнения. Лог выполнения служит для целей отладки.</span></span><br />
+<span style="color: #222222;"><span style="line-height: 21px;">9. На самом деле есть два лога - IscriptCompileLog и IscriptRunLog. Это лог компиляции и лог выполнения. По "ходу пьесы" мы увидим их оба.</span></span><br />
+<span style="color: #222222;"><span style="line-height: 21px;">10. Парсер входного потока (TscriptParser) - машина для разбора входного потока скрипта с целью дробления этого входного потока на токены. О ней вкратце было написано тут -&nbsp;</span></span><a href="http://18delphi.blogspot.ru/2013/11/5.html">http://18delphi.blogspot.ru/2013/11/5.html</a>.<br />
+11. Стек значений. Это основной механизм передачи значений в нашей скриптовой машине. Он содержит значения&nbsp;TscriptValue. И связан с контекстами компиляции и выполнения. В любой момент слово скриптовой машины может положить в стек какое-то значение или прочитать его с верхушки стека.</div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">Отмечу тот факт, что наша скриптовая машина работает как "компилятор". Сначала она строит <b>код скрипта</b>, проверяя его на валидность, а потом только - выполняет.</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">Код <b>скомпилированный единожды</b> - может <b>исполняться</b> сколько угодно раз.</span></span><br />
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;"><br /></span></span>
+<span style="color: #222222;"><span style="line-height: 21px;">Давайте для НАЧАЛА опишем фейковую <b>скриптовую машину</b>, которая просто из <b>токенов</b> входного потока скомпилирует <b>код</b>, который будет выводить в лог названия этих токенов.</span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;"><br /></span></span></div>
+<div style="text-align: left;">
+<span style="background-color: white; color: #222222; line-height: 21px;"><span style="font-family: inherit;">Итак код введённых выше понятий:</span></span><br />
+<br />
+Для начала TscriptCode.<br />
+<br />
+Он - <b>БОЛЕЕ</b> чем прост. Благодаря наличию <b>обобщений</b> (generics):<br />
+<br />
+<pre class="brush:delphi">unit Script.Code;
+
+interface
+
+uses
+ System.Generics.Collections,
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptCode = class(TList&lt;IscriptWord&gt;)
+  public
+   procedure Run(aContext : TscriptContext);
+    {* - выполняет компилированный код. }
+   procedure CompileWord(const aWord: IscriptWord);
+    {* - компилирует указанное слово в код. }
+ end;//TscriptCode
+
+implementation
+
+procedure TscriptCode.Run(aContext : TscriptContext);
+var
+ l_Word : IscriptWord;
+begin
+ for l_Word in Self do
+  l_Word.DoIt(aContext);
+end;
+
+procedure TscriptCode.CompileWord(const aWord: IscriptWord);
+ {* - компилирует указанное слово в код. }
+begin
+ Self.Add(aWord);
+end;
+
+end.</pre>
+<br />
+Далее:<br />
+<br />
+&nbsp;Код скриптовой машины:
+<br />
+<br />
+<pre class="brush:delphi">unit Script.Engine;
+
+interface
+
+uses
+ Script.Interfaces
+ ;
+
+type
+ TscriptEngine = class
+   public
+    class procedure RunScript(const aFileName: String; const aLog: IscriptLog);
+ end;//TscriptEngine
+
+implementation
+
+uses
+ System.SysUtils,
+ Script.Parser,
+ Testing.Engine,
+ Script.Code,
+ Script.WordsInterfaces,
+ Script.StringWord
+;
+
+class procedure TscriptEngine.RunScript(const aFileName: String; const aLog: IscriptLog);
+var
+ l_Parser : TscriptParser;
+ l_Context : TscriptCompileContext;
+ l_Code : TscriptCode;
+ l_StringWord : IscriptWord;
+begin
+ TtestEngine.StartTest(aFileName);
+ try
+  l_Code := TscriptCode.Create;
+  try
+   l_Context := TscriptCompileContext.Create(aLog);
+   try
+    l_Parser := TscriptParser.Create(aFileName);
+    try
+     while not l_Parser.EOF do
+     begin
+      l_Parser.NextToken;
+//      if (aLog &lt;&gt; nil) then
+//       aLog.Log(l_Parser.TokenString);
+      l_StringWord := TscriptStringWord.Make(l_Parser.TokenString);
+      try
+       l_Code.CompileWord(l_StringWord);
+      finally
+       l_StringWord := nil;
+      end;//try..finally
+     end;//while not l_Parser.EOF
+    finally
+     FreeAndNil(l_Parser);
+    end;//try..finally
+    l_Code.Run(l_Context);
+    // - выполняем скомпилированный код
+   finally
+    FreeAndNil(l_Context);
+   end;//try..finally
+  finally
+   FreeAndNil(l_Code);
+  end;//try..finally
+ finally
+  TtestEngine.StopTest;
+ end;//try..finally
+end;
+
+end.
+</pre>
+<br />
+Код базового слова:
+<br />
+<br />
+<pre class="brush:delphi">unit Script.Word;
+
+interface
+
+uses
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptWord = class(TinterfacedObject, IscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); virtual; abstract;
+    {* - собственно процедура для выполнения слова словаря. }
+  protected
+   procedure Cleanup; virtual;
+  public
+   class function Make: IscriptWord;
+    {* - фабрика }
+   destructor Destroy; override;
+ end;//TscriptWord
+ RscriptWord = class of TscriptWord;
+
+implementation
+
+class function TscriptWord.Make: IscriptWord;
+ {* - фабрика }
+begin
+ Result := Create;
+end;
+
+destructor TscriptWord.Destroy;
+begin
+  Cleanup;
+  inherited;
+end;
+
+procedure TscriptWord.Cleanup;
+begin
+  // - тут ничего не делаем, потомки всё сделают
+end;
+
+end.
+</pre>
+<br />
+И код "фейкового" слова:
+<br />
+<br />
+<pre class="brush:delphi">unit Script.StringWord;
+
+interface
+
+uses
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TscriptStringWord = class(TscriptWord)
+  private
+   f_String : String;
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+  public
+   constructor Create(const aString: String);
+   class function Make(const aString: String): IscriptWord;
+ end;//TscriptStringWord
+
+implementation
+
+constructor TscriptStringWord.Create(const aString: String);
+begin
+ inherited Create;
+ f_String := aString;
+end;
+
+class function TscriptStringWord.Make(const aString: String): IscriptWord;
+begin
+ Result := Create(aString);
+end;
+
+procedure TscriptStringWord.DoIt(aContext: TscriptContext);
+begin
+ aContext.Log(Self.f_String);
+end;
+
+end.
+</pre>
+<br />
+Вуаля! Мы получили код скрипта, который компилируется и выполняется. И где каждый токен выводит своё имя в лог.<br />
+<br />
+Далее мы продолжим с "нажатиями на кнопки".<br />
+<br />
+(Пока писал всё это - задумался - сразу ли писать про <b>внедрение зависимостей</b> (<a href="http://ru.wikipedia.org/wiki/Dependency_Injection">http://ru.wikipedia.org/wiki/Dependency_Injection</a>) и <b>фабрики интерфейсов</b> (<a href="http://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%B0%D1%8F_%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">http://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%B0%D1%8F_%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)</a>)? Эту технику можно применить уже в нескольких местах. Или оставить "для следующих статей"? Подумаю ещё пока буду писать.)<br />
+<br />
+Теперь давайте разделим компиляцию кода и его запуск.<br />
+<br />
+А также разделим лог компиляции и лог запуска:<br />
+<br />
+Введём новые интерфейсы - IscriptCompileLog и IscriptRunLog:
+<br />
+<br />
+<pre class="brush:delphi">unit Script.Interfaces;
+
+interface
+
+type
+  IscriptLog = interface
+   procedure Log(const aString: String);
+  end;//IscriptLog
+
+  IscriptCompileLog = interface(IscriptLog)
+  end;//IscriptCompileLog
+
+  IscriptRunLog = interface(IscriptLog)
+  end;//IscriptRunLog
+
+implementation
+
+end.
+</pre>
+<br />
+Введём новый класс - TscriptRunContext:
+<br />
+<br />
+<pre class="brush:delphi">unit Script.WordsInterfaces;
+
+interface
+
+uses
+ Core.Obj,
+ Script.Interfaces
+ ;
+
+type
+ TscriptContext = class(TCoreObject)
+  private
+   f_Log : IscriptLog;
+  protected
+   procedure Cleanup; override;
+  public
+   constructor Create(const aLog: IscriptLog);
+   procedure Log(const aString: String);
+    {* - Выводит сообщение в лог. }
+ end;//TscriptContext
+
+ TscriptCompileContext = class(TscriptContext)
+  public
+   constructor Create(const aLog: IscriptCompileLog);
+ end;//TscriptCompileContext
+
+ TscriptRunContext = class(TscriptContext)
+  public
+   constructor Create(const aLog: IscriptRunLog);
+ end;//TscriptRunContext
+
+ IscriptWord = interface
+  procedure DoIt(aContext: TscriptContext);
+   {* - собственно процедура для выполнения слова словаря. }
+ end;//IscriptWord
+
+implementation
+
+// TscriptContext
+
+constructor TscriptContext.Create(const aLog: IscriptLog);
+begin
+ inherited Create;
+ f_Log := aLog;
+end;
+
+procedure TscriptContext.Log(const aString: String);
+ {* - Выводит сообщение в лог. }
+begin
+ if (f_Log &lt;&gt; nil) then
+  f_Log.Log(aString);
+end;
+
+procedure TscriptContext.Cleanup;
+begin
+ f_Log := nil;
+ inherited;
+end;
+
+// TscriptCompileContext
+
+constructor TscriptCompileContext.Create(const aLog: IscriptCompileLog);
+begin
+ inherited Create(aLog);
+end;
+
+// TscriptRunContext
+
+constructor TscriptRunContext.Create(const aLog: IscriptRunLog);
+begin
+ inherited Create(aLog);
+end;
+
+end.
+</pre>
+<br />
+И видоизменим скриптовую машину:
+<br />
+<br />
+<pre class="brush:delphi">unit Script.Engine;
+
+interface
+
+uses
+ Script.Interfaces
+ ;
+
+type
+ TscriptEngine = class
+   public
+    class procedure RunScript(const aFileName: String;
+                              const aCompileLog: IscriptCompileLog;
+                              const aRunLog : IscriptRunLog);
+ end;//TscriptEngine
+
+implementation
+
+uses
+ System.SysUtils,
+ Script.Parser,
+ Testing.Engine,
+ Script.Code,
+ Script.WordsInterfaces,
+ Script.StringWord
+;
+
+class procedure TscriptEngine.RunScript(const aFileName: String;
+                                        const aCompileLog: IscriptCompileLog;
+                                        const aRunLog : IscriptRunLog);
+var
+ l_Parser : TscriptParser;
+ l_CompileContext : TscriptCompileContext;
+ l_RunContext : TscriptRunContext;
+ l_Code : TscriptCode;
+ l_StringWord : IscriptWord;
+begin
+ TtestEngine.StartTest(aFileName);
+ try
+  l_Code := TscriptCode.Create;
+  try
+   l_CompileContext := TscriptCompileContext.Create(aCompileLog);
+   try
+    l_Parser := TscriptParser.Create(aFileName);
+    try
+     while not l_Parser.EOF do
+     begin
+      l_Parser.NextToken;
+      if (aCompileLog &lt;&gt; nil) then
+       aCompileLog.Log(l_Parser.TokenString);
+      l_StringWord := TscriptStringWord.Make(l_Parser.TokenString);
+      try
+       l_Code.CompileWord(l_StringWord);
+      finally
+       l_StringWord := nil;
+      end;//try..finally
+     end;//while not l_Parser.EOF
+    finally
+     FreeAndNil(l_Parser);
+    end;//try..finally
+   finally
+    FreeAndNil(l_CompileContext);
+   end;//try..finally
+   l_RunContext := TscriptRunContext.Create(aRunLog);
+   try
+    l_Code.Run(l_RunContext);
+    // - выполняем скомпилированный код
+   finally
+    FreeAndNil(l_RunContext);
+   end;//try..finally
+  finally
+   FreeAndNil(l_Code);
+  end;//try..finally
+ finally
+  TtestEngine.StopTest;
+ end;//try..finally
+end;
+
+end.
+</pre>
+<br />
+Видно, что процесс компиляции "стоит отдельно", а "процесс выполнения" - отдельно.<br />
+<br />
+При этом компиляция логируется отдельно, а выполнение логируется отдельно.<br />
+<br />
+Следующим образом:<br />
+<br />
+<pre class="brush:delphi">unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
+  System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs,
+  FMX.StdCtrls, FMX.Edit, FMX.Layouts, FMX.Memo,
+  Script.Interfaces
+  ;
+
+type
+  TForm1 = class(TForm, IscriptCompileLog, IscriptRunLog)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Edit1: TEdit;
+    Run: TButton;
+    CompileLog: TMemo;
+    RunLog: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure RunClick(Sender: TObject);
+  private
+    { Private declarations }
+   procedure IscriptCompileLog_Log(const aString: String);
+   procedure IscriptCompileLog.Log = IscriptCompileLog_Log;
+   procedure IscriptRunLog_Log(const aString: String);
+   procedure IscriptRunLog.Log = IscriptRunLog_Log;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses
+ Script.Engine
+ ;
+
+{$R *.fmx}
+
+procedure TForm1.IscriptCompileLog_Log(const aString: String);
+begin
+ CompileLog.Lines.Add(aString);
+end;
+
+procedure TForm1.IscriptRunLog_Log(const aString: String);
+begin
+ RunLog.Lines.Add(aString);
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+ Edit1.Text := (Sender As TButton).Text;
+end;
+
+procedure TForm1.RunClick(Sender: TObject);
+begin
+ CompileLog.Lines.Clear;
+ RunLog.Lines.Clear;
+ TScriptEngine.RunScript('FirstScript.script', Self, Self);
+end;
+
+end.
+</pre>
+<br />
+- тут видно, что форма TForm1 стала реализовывать <b>два</b> интерфейса - IscriptCompileLog и IscriptRunLog.<br />
+<br />
+<b>Причём</b> - разными методами.<br />
+<br />
+И лог компиляции выводится в компонент CompileLog, а лог запуска в компонент RunLog. 
+
+<br />
+<br />
+Теперь давайте реально разделим компиляцию и запуск.<br />
+<br />
+Выделим из метода RunScript метод CompileScript, который будет возвращать скомпилированный код, а также интерфейс IscriptCode, который собственно и представляет скомпилированный код.<br />
+<br />
+А также введём интерфейс&nbsp;IscriptCompiler - компилятор кода скрипта.<br />
+<br />
+(Ещё ремарка - во <b>всех</b> интерфейсах, что я описал - <b>нету</b> GUID. Это сделано преднамеренно. Причины описаны вот тут -&nbsp;<a href="http://18delphi.blogspot.ru/2013/11/supports.html">http://18delphi.blogspot.ru/2013/11/supports.html</a>&nbsp;и тут -&nbsp;<a href="http://18delphi.blogspot.ru/2013/11/queryinterface-supports.html">http://18delphi.blogspot.ru/2013/11/queryinterface-supports.html</a>&nbsp;и тут -&nbsp;<a href="http://18delphi.blogspot.ru/2013/10/supports.html">http://18delphi.blogspot.ru/2013/10/supports.html</a><br />
+Когда нам РЕАЛЬНО понадобятся GUID'ы - мы их конечно же введём)<br />
+<br />
+Вот что получается:<br />
+<br />
+(Самые пытливые читатели могут посмотреть лог коммитов в SVN. Он сам по себе - интересен. Я <b>ОБЫЧНО</b> смотрю чужие логи, чтобы "следить за мыслью автора")<br />
+<br />
+Интерфейс IscriptCode и IscriptCompiler&nbsp;тут:
+
+<br />
+<br />
+<pre class="brush:delphi">unit Script.WordsInterfaces;
+
+interface
+
+uses
+ Core.Obj,
+ Script.Interfaces
+ ;
+
+type
+ TscriptContext = class(TCoreObject)
+  private
+   f_Log : IscriptLog;
+  protected
+   procedure Cleanup; override;
+  public
+   constructor Create(const aLog: IscriptLog);
+   procedure Log(const aString: String);
+    {* - Выводит сообщение в лог. }
+ end;//TscriptContext
+
+ TscriptCompileContext = class(TscriptContext)
+  public
+   constructor Create(const aLog: IscriptCompileLog);
+ end;//TscriptCompileContext
+
+ TscriptRunContext = class(TscriptContext)
+  public
+   constructor Create(const aLog: IscriptRunLog);
+ end;//TscriptRunContext
+
+ IscriptWord = interface
+  {* - слово скриптовой машины. }
+  procedure DoIt(aContext: TscriptContext);
+   {* - собственно процедура для выполнения слова словаря. }
+ end;//IscriptWord
+
+ IscriptCode = interface
+  {* - компилированный код скриптовой машины. }
+  procedure Run(aContext : TscriptRunContext);
+   {* - выполняет компилированный код. }
+ end;//IscriptCode
+
+ IscriptCompiler = interface
+  {* - компилятор кода скриптовой машины. }
+   procedure CompileWord(const aWord: IscriptWord);
+    {* - компилирует указанное слово в код. }
+   function CompiledCode: IscriptCode;
+    {* - скомпилированный код }
+ end;//IscriptCompiler
+
+implementation
+
+// TscriptContext
+
+constructor TscriptContext.Create(const aLog: IscriptLog);
+begin
+ inherited Create;
+ f_Log := aLog;
+end;
+
+procedure TscriptContext.Log(const aString: String);
+ {* - Выводит сообщение в лог. }
+begin
+ if (f_Log &lt;&gt; nil) then
+  f_Log.Log(aString);
+end;
+
+procedure TscriptContext.Cleanup;
+begin
+ f_Log := nil;
+ inherited;
+end;
+
+// TscriptCompileContext
+
+constructor TscriptCompileContext.Create(const aLog: IscriptCompileLog);
+begin
+ inherited Create(aLog);
+end;
+
+// TscriptRunContext
+
+constructor TscriptRunContext.Create(const aLog: IscriptRunLog);
+begin
+ inherited Create(aLog);
+end;
+
+end.
+</pre>
+<br />
+(Ещё одна ремарка - "смешение объектов и интерфейсов" - не должно <b>пугать</b> вас. Это - "<b>не страшно</b>". Ибо "интерфейсы" - <b>внутренние</b>. Они не пересекают "границы сред. Они <b>служат лишь одному</b> - подсчёту ссылок. Это можно было бы сделать и по-другому вот пример -&nbsp;<a href="http://18delphi.blogspot.ru/2013/04/iunknown.html">http://18delphi.blogspot.ru/2013/04/iunknown.html</a>&nbsp;и вот - &nbsp;<a href="http://18delphi.blogspot.ru/2013/03/blog-post_4606.html">http://18delphi.blogspot.ru/2013/03/blog-post_4606.html</a>. Если <b>пытливый</b> читатель хочет "подискутировать" насчёт "объектов и интерфейсов" и "чистоты арийской расы" - пусть изучит приведённый ссылки и потом только "пишет письма"&nbsp;. У меня был <b>ХОРОШИЙ</b> преподаватель - <b>Евсеев Олег</b> (отчество - забыл) - он обычно говорил - "Хороший вопрос" Вы Люлин останьтесь - после семинара - обсудим")<br />
+<br />
+Реализация интерфейсов IscriptCode и IscriptCompiler тут:
+<br />
+<br />
+<pre class="brush:delphi">unit Script.Code;
+
+interface
+
+uses
+ Core.Obj,
+ System.Generics.Collections,
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptCodeContainer = class(TList&lt;IscriptWord&gt;)
+ end;//TscriptCodeContainer
+
+ TscriptCode = class(TCoreInterfacedObject, IscriptCode, IscriptCompiler)
+  private
+   f_Code : TscriptCodeContainer;
+  protected
+  // interfaces methods
+   procedure Run(aContext : TscriptRunContext);
+    {* - выполняет компилированный код. }
+   procedure CompileWord(const aWord: IscriptWord);
+    {* - компилирует указанное слово в код. }
+   function CompiledCode: IscriptCode;
+    {* - скомпилированный код }
+  protected
+   procedure Cleanup; override;
+  public
+   class function Make: IscriptCompiler;
+    {* - фабрика. }
+ end;//TscriptCode
+
+ TscriptCompiler = TscriptCode;
+
+implementation
+
+uses
+ System.SysUtils
+ ;
+
+// TscriptCode
+
+class function TscriptCode.Make: IscriptCompiler;
+ {* - фабрика. }
+begin
+ Result := Create;
+end;
+
+procedure TscriptCode.Cleanup;
+begin
+ FreeAndNil(f_Code);
+ inherited;
+end;
+
+procedure TscriptCode.Run(aContext : TscriptRunContext);
+var
+ l_Word : IscriptWord;
+begin
+ if (Self.f_Code &lt;&gt; nil) then
+  for l_Word in Self.f_Code do
+   l_Word.DoIt(aContext);
+end;
+
+procedure TscriptCode.CompileWord(const aWord: IscriptWord);
+ {* - компилирует указанное слово в код. }
+begin
+ if (Self.f_Code = nil) then
+  Self.f_Code := TscriptCodeContainer.Create;
+ Self.f_Code.Add(aWord);
+end;
+
+function TscriptCode.CompiledCode: IscriptCode;
+ {* - скомпилированный код }
+begin
+ Result := Self;
+end;
+
+end.
+</pre>
+<br />
+(ох как чешутся руки про <b>внедрение зависимостей</b> рассказать...)<br />
+<br />
+Теперь использование интерфейсов IscriptCode и IscriptCompiler и опять видоизменённая скриптовая машина:<br />
+<br />
+<pre class="brush:delphi">unit Script.Engine;
+
+interface
+
+uses
+ Script.Interfaces,
+ Script.WordsInterfaces
+ ;
+
+type
+ TscriptEngine = class
+   public
+    class function CompileScript(const aFileName: String;
+                              const aCompileLog: IscriptCompileLog): IscriptCode;
+    class procedure RunScript(const aFileName: String;
+                              const aCompileLog: IscriptCompileLog;
+                              const aRunLog : IscriptRunLog);
+ end;//TscriptEngine
+
+implementation
+
+uses
+ System.SysUtils,
+ Script.Parser,
+ Testing.Engine,
+ Script.Code,
+ Script.StringWord
+;
+
+class function TscriptEngine.CompileScript(const aFileName: String;
+                                           const aCompileLog: IscriptCompileLog): IscriptCode;
+var
+ l_CodeCompiler : IscriptCompiler;
+ l_CompileContext : TscriptCompileContext;
+ l_Parser : TscriptParser;
+ l_StringWord : IscriptWord;
+begin
+ TtestEngine.StartTest(aFileName);
+ try
+  l_CodeCompiler := TscriptCompiler.Make;
+  try
+   l_CompileContext := TscriptCompileContext.Create(aCompileLog);
+   try
+    l_Parser := TscriptParser.Create(aFileName);
+    try
+     while not l_Parser.EOF do
+     begin
+      l_Parser.NextToken;
+      if (aCompileLog &lt;&gt; nil) then
+       aCompileLog.Log(l_Parser.TokenString);
+      l_StringWord := TscriptStringWord.Make(l_Parser.TokenString);
+      try
+       l_CodeCompiler.CompileWord(l_StringWord);
+      finally
+       l_StringWord := nil;
+      end;//try..finally
+     end;//while not l_Parser.EOF
+    finally
+     FreeAndNil(l_Parser);
+    end;//try..finally
+   finally
+    FreeAndNil(l_CompileContext);
+   end;//try..finally
+   Result := l_CodeCompiler.CompiledCode;
+  finally
+   l_CodeCompiler := nil;
+  end;//try..finally
+ finally
+  TtestEngine.StopTest;
+ end;//try..finally
+end;
+
+class procedure TscriptEngine.RunScript(const aFileName: String;
+                                        const aCompileLog: IscriptCompileLog;
+                                        const aRunLog : IscriptRunLog);
+var
+ l_RunContext : TscriptRunContext;
+ l_Code : IscriptCode;
+begin
+ l_Code := Self.CompileScript(aFileName, aCompileLog);
+ try
+  l_RunContext := TscriptRunContext.Create(aRunLog);
+  try
+   l_Code.Run(l_RunContext);
+   // - выполняем скомпилированный код
+  finally
+   FreeAndNil(l_RunContext);
+  end;//try..finally
+ finally
+  l_Code := nil;
+ end;//try..finally
+end;
+
+end.
+</pre>
+<br />
+Вот как-то так пока.<br />
+<br />
+(И главное - мы совсем забыли про тесты описанные тут -&nbsp;http://18delphi.blogspot.com/2013/11/5.html. Они <b>ВСЕГДА</b> проходят. TDD (<a href="http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0_%D1%87%D0%B5%D1%80%D0%B5%D0%B7_%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0_%D1%87%D0%B5%D1%80%D0%B5%D0%B7_%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5</a>) - <b>рулит</b>)<br />
+<br />
+(Семинар не очень длинный получается? Не на <b>"две пары"</b>?)<br />
+<br />
+Теперь давайте отдельно скомпилируем токены (script_ttToken) и строки (script_ttString).<br />
+<br />
+Появляется новый класс - TscriptUnknownToken. Он похож на TscriptStringWord, но я <b>специально</b> не обобщаю их код:<br />
+<br />
+<pre class="brush:delphi">unit Script.UnknownToken;
+
+interface
+
+uses
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TscriptUnknownToken = class(TscriptWord)
+  private
+   f_String : String;
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+  public
+   constructor Create(const aString: String);
+   class function Make(const aString: String): IscriptWord;
+ end;//TscriptUnknownToken
+
+implementation
+
+constructor TscriptUnknownToken.Create(const aString: String);
+begin
+ inherited Create;
+ f_String := aString;
+end;
+
+class function TscriptUnknownToken.Make(const aString: String): IscriptWord;
+begin
+ Result := Create(aString);
+end;
+
+procedure TscriptUnknownToken.DoIt(aContext: TscriptContext);
+begin
+ aContext.Log('Unknown token: ' + Self.f_String);
+end;
+
+end.
+</pre>
+<br />
+И вот так видоизменяется метод TscriptEngine.CompileScript:
+<br />
+<br />
+<pre class="brush:delphi">class function TscriptEngine.CompileScript(const aFileName: String;
+                                           const aCompileLog: IscriptCompileLog): IscriptCode;
+var
+ l_CodeCompiler : IscriptCompiler;
+ l_CompileContext : TscriptCompileContext;
+ l_Parser : TscriptParser;
+begin
+ TtestEngine.StartTest(aFileName);
+ try
+  l_CodeCompiler := TscriptCompiler.Make;
+  try
+   l_CompileContext := TscriptCompileContext.Create(aCompileLog);
+   try
+    l_Parser := TscriptParser.Create(aFileName);
+    try
+     while not l_Parser.EOF do
+     begin
+      l_Parser.NextToken;
+      if (aCompileLog &lt;&gt; nil) then
+       aCompileLog.Log(l_Parser.TokenString);
+      Case l_Parser.TokenType of
+       script_ttEOF:
+        break;
+       script_ttToken:
+        l_CodeCompiler.CompileWord(TscriptUnknownToken.Make(l_Parser.TokenString));
+       script_ttString:
+        l_CodeCompiler.CompileWord(TscriptStringWord.Make(l_Parser.TokenString));
+       else
+        Assert(false, 'Неизвестный тип токена: ' + GetEnumName(TypeInfo(TscriptTokenType), Ord(l_Parser.TokenType)));
+      end;//Case l_Parser.TokenType
+     end;//while not l_Parser.EOF
+    finally
+     FreeAndNil(l_Parser);
+    end;//try..finally
+   finally
+    FreeAndNil(l_CompileContext);
+   end;//try..finally
+   Result := l_CodeCompiler.CompiledCode;
+  finally
+   l_CodeCompiler := nil;
+  end;//try..finally
+ finally
+  TtestEngine.StopTest;
+ end;//try..finally
+end;
+</pre>
+<br />
+Теперь подумаем - "а какие же <b>токены</b>", не являются Unknown?<br />
+<br />
+Разберём регистрацию слов <b>в словаре</b>.<br />
+<br />
+Посмотрим на реализацию класса словаря - TscriptDictionary.
+
+Он опять же - <b>более</b>, чем прост.<br />
+<br />
+Благодаря всё тем же обобщениям:
+
+<br />
+<br />
+<pre class="brush:delphi">unit Script.Dictionary;
+
+interface
+
+uses
+ System.Generics.Collections,
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TscriptDictionary = class(TDictionary&lt;String, IscriptWord&gt;)
+  public
+   procedure AddWord(const aKey: String; aWordClass : RscriptWord);
+ end;//TscriptDictionary
+
+implementation
+
+procedure TscriptDictionary.AddWord(const aKey: String; aWordClass : RscriptWord);
+var
+ l_Word : IscriptWord;
+begin
+ l_Word := aWordClass.Make;
+ try
+  Self.Add(aKey, l_Word);
+ finally
+  l_Word := nil
+ end;//try..finally
+end;
+
+end.
+</pre>
+<br />
+Теперь посмотрим на "аксиоматику" -&nbsp;<span style="background-color: white; color: #222222; line-height: 21px;">TscriptAxiomatiсs.</span><br />
+<span style="background-color: white; color: #222222; line-height: 21px;"><br /></span>
+<span style="background-color: white; color: #222222; line-height: 21px;">На данный момент унаследуем этот класс от&nbsp;</span><span style="color: #222222;"><span style="line-height: 21px;">TscriptDictionary и сделаем "одиночкой" (</span></span><a href="http://ru.wikipedia.org/wiki/Singleton">http://ru.wikipedia.org/wiki/Singleton</a><span style="color: #222222; line-height: 21px;">).</span><br />
+<span style="color: #222222; line-height: 21px;"><br /></span>
+<span style="color: #222222;"><span style="line-height: 21px;">Вот наш новый класс:</span></span><br />
+<br />
+<pre class="brush:delphi">unit Script.Axiomatics;
+
+interface
+
+uses
+ Script.Dictionary
+ ;
+
+type
+ TscriptAxiomatics = class(TscriptDictionary)
+  private
+   class var f_Instance : TscriptAxiomatics;
+  public
+   class function Instance: TscriptAxiomatics;
+ end;//TscriptAxiomatics
+
+implementation
+
+uses
+ System.SysUtils
+ ;
+
+class function TscriptAxiomatics.Instance: TscriptAxiomatics;
+begin
+ if (f_Instance = nil) then
+  f_Instance := TscriptAxiomatics.Create;
+ Result := f_Instance;
+end;
+
+initialization
+
+finalization
+ FreeAndNil(TscriptAxiomatics.f_Instance);
+
+end.
+</pre>
+<br />
+Эта реализация небезупречна и не потокобезопасна, но цель статьи не в том, чтобы рассказать о том как правильно делать "одиночек.<br />
+<br />
+Код скриптовой машины видоизменяется так:<br />
+<pre class="brush:delphi">class function TscriptEngine.CompileScript(const aFileName: String;
+                                           const aCompileLog: IscriptCompileLog): IscriptCode;
+var
+ l_CodeCompiler : IscriptCompiler;
+ l_CompileContext : TscriptCompileContext;
+ l_Parser : TscriptParser;
+ l_FoundWord : IscriptWord;
+begin
+ TtestEngine.StartTest(aFileName);
+ try
+  l_CodeCompiler := TscriptCompiler.Make;
+  try
+   l_CompileContext := TscriptCompileContext.Create(aCompileLog);
+   try
+    l_Parser := TscriptParser.Create(aFileName);
+    try
+     while not l_Parser.EOF do
+     begin
+      l_Parser.NextToken;
+      if (aCompileLog &lt;&gt; nil) then
+       aCompileLog.Log(l_Parser.TokenString);
+      Case l_Parser.TokenType of
+       script_ttEOF:
+        break;
+       script_ttToken:
+       begin
+        if TscriptAxiomatics.Instance.TryGetValue(l_Parser.TokenString, l_FoundWord) then
+        // - слово зарегистрировано в аксиоматике
+         l_CodeCompiler.CompileWord(l_FoundWord)
+         // - компилируем его
+        else
+         l_CodeCompiler.CompileWord(TscriptUnknownToken.Make(l_Parser.TokenString));
+         // - пока компилируем заглушку
+       end;//script_ttToken
+       script_ttString:
+        l_CodeCompiler.CompileWord(TscriptStringWord.Make(l_Parser.TokenString));
+       else
+        Assert(false, 'Неизвестный тип токена: ' + GetEnumName(TypeInfo(TscriptTokenType), Ord(l_Parser.TokenType)));
+      end;//Case l_Parser.TokenType
+     end;//while not l_Parser.EOF
+    finally
+     FreeAndNil(l_Parser);
+    end;//try..finally
+   finally
+    FreeAndNil(l_CompileContext);
+   end;//try..finally
+   Result := l_CodeCompiler.CompiledCode;
+  finally
+   l_CodeCompiler := nil;
+  end;//try..finally
+ finally
+  TtestEngine.StopTest;
+ end;//try..finally
+end;
+</pre>
+<br />
+Теперь используем этот класс &nbsp;(TscriptAxiomatics) для регистрации хотя бы одного слова аксиоматики:<br />
+<br />
+<pre class="brush:delphi">unit Script.Word.Examples;
+
+interface
+
+uses
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TscriptWordExample1 = class(TscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+ end;//TscriptWordExample1
+
+ TscriptWordExample2 = class(TscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+ end;//TscriptWordExample2
+
+implementation
+
+uses
+ Script.Engine
+ ;
+
+// TscriptWordExample1
+
+procedure TscriptWordExample1.DoIt(aContext: TscriptContext);
+begin
+ aContext.Log('Example 1');
+end;
+
+// TscriptWordExample2
+
+procedure TscriptWordExample2.DoIt(aContext: TscriptContext);
+begin
+ aContext.Log('Example 2');
+end;
+
+initialization
+ TscriptEngine.RegisterKeyWord('DoNothing', TscriptWordExample1);
+ TscriptEngine.RegisterKeyWord('DoNothing2', TscriptWordExample2);
+
+end.
+</pre>
+<br />
+На самом деле мы зарегистрировали два слова DoNothing и DoNothing2, связав их с классами TscriptWordExample1 и TscriptWordExample2 соответственно.<br />
+<br />
+Запускаем наш пример и видим, что вывод в лог - изменился.<br />
+<br />
+Теперь отвлечёмся от "наращивания функционала" и немного порефакторим.<br />
+<br />
+Выделим из метода&nbsp;TscriptEngine.CompileScript - фабричный метод (<a href="http://18delphi.blogspot.ru/2013/04/blog-post_7483.html">http://18delphi.blogspot.ru/2013/04/blog-post_7483.html</a>) TscriptEngine.CompileToken.<br />
+<br />
+Предварительно введём интерфейс IscriptParser и фабричный метод TscriptParser.Make. А также свяжем контекст компиляции&nbsp;TscriptCompileContext с парсером&nbsp;IscriptParser и компилятором&nbsp;IscriptCompiler.<br />
+<br />
+Вот что получается.<br />
+<br />
+Вводим интерфейс парсера:<br />
+<br />
+<pre class="brush:delphi">unit Script.Interfaces;
+
+interface
+
+type
+  IscriptLog = interface
+   procedure Log(const aString: String);
+  end;//IscriptLog
+
+  TscriptTokenType = (script_ttUnknown, script_ttToken, script_ttString, script_ttEOF);
+
+  IscriptParser = interface
+   function Get_TokenType: TscriptTokenType;
+   function Get_TokenString: String;
+   function EOF: Boolean;
+    {* - Достигнут конец входного потока. }
+   procedure NextToken;
+    {* - Выбрать следующий токен из входного потока. }
+   property TokenType: TscriptTokenType
+    read Get_TokenType;
+   property TokenString: String
+    read Get_TokenString;
+  end;//IscriptParser
+
+  IscriptCompileLog = interface(IscriptLog)
+  end;//IscriptCompileLog
+
+  IscriptRunLog = interface(IscriptLog)
+  end;//IscriptRunLog
+
+implementation
+
+end.
+</pre>
+<br />
+Связываем парсер и компилятор с контекстом:
+
+<br />
+<br />
+<pre class="brush:delphi">unit Script.WordsInterfaces;
+
+interface
+
+uses
+ Core.Obj,
+ Script.Interfaces
+ ;
+
+type
+ TscriptContext = class(TCoreObject)
+  private
+   f_Log : IscriptLog;
+  protected
+   procedure Cleanup; override;
+  public
+   constructor Create(const aLog: IscriptLog);
+   procedure Log(const aString: String);
+    {* - Выводит сообщение в лог. }
+ end;//TscriptContext
+
+ IscriptCompiler = interface;
+
+ TscriptCompileContext = class(TscriptContext)
+  private
+   f_Parser : IscriptParser;
+   f_Compiler : IscriptCompiler;
+  protected
+   procedure Cleanup; override;
+  public
+   constructor Create(const aLog      : IscriptCompileLog;
+                      const aParser   : IscriptParser;
+                      const aCompiler : IscriptCompiler);
+   property Parser: IscriptParser
+    read f_Parser;
+   property Compiler: IscriptCompiler
+    read f_Compiler;
+ end;//TscriptCompileContext
+
+ TscriptRunContext = class(TscriptContext)
+  public
+   constructor Create(const aLog: IscriptRunLog);
+ end;//TscriptRunContext
+
+ IscriptWord = interface
+  {* - слово скриптовой машины. }
+  procedure DoIt(aContext: TscriptContext);
+   {* - собственно процедура для выполнения слова словаря. }
+ end;//IscriptWord
+
+ IscriptCode = interface
+  {* - компилированный код скриптовой машины. }
+  procedure Run(aContext : TscriptRunContext);
+   {* - выполняет компилированный код. }
+ end;//IscriptCode
+
+ IscriptCompiler = interface
+  {* - компилятор кода скриптовой машины. }
+   procedure CompileWord(const aWord: IscriptWord);
+    {* - компилирует указанное слово в код. }
+   function CompiledCode: IscriptCode;
+    {* - скомпилированный код }
+ end;//IscriptCompiler
+
+implementation
+
+// TscriptContext
+
+constructor TscriptContext.Create(const aLog: IscriptLog);
+begin
+ inherited Create;
+ f_Log := aLog;
+end;
+
+procedure TscriptContext.Log(const aString: String);
+ {* - Выводит сообщение в лог. }
+begin
+ if (f_Log &lt;&gt; nil) then
+  f_Log.Log(aString);
+end;
+
+procedure TscriptContext.Cleanup;
+begin
+ f_Log := nil;
+ inherited;
+end;
+
+// TscriptCompileContext
+
+constructor TscriptCompileContext.Create(const aLog      : IscriptCompileLog;
+                                         const aParser   : IscriptParser;
+                                         const aCompiler : IscriptCompiler);
+begin
+ Assert(aParser &lt;&gt; nil);
+ Assert(aCompiler &lt;&gt; nil);
+ inherited Create(aLog);
+ f_Parser := aParser;
+ f_Compiler := aCompiler;
+end;
+
+procedure TscriptCompileContext.Cleanup;
+begin
+ f_Parser := nil;
+ f_Compiler := nil;
+ inherited;
+end;
+
+// TscriptRunContext
+
+constructor TscriptRunContext.Create(const aLog: IscriptRunLog);
+begin
+ inherited Create(aLog);
+end;
+
+end.
+</pre>
+<br />
+И вот реализация TscriptParser.Make:
+
+<br />
+<br />
+<pre class="brush:delphi">unit Script.Parser;
+
+interface
+
+uses
+ Classes,
+ Core.Obj,
+ Script.Interfaces
+ ;
+
+{$IfNDef NoTesting}
+ {$Define TestParser}
+{$EndIf  NoTesting}
+
+type
+ TscriptParser = class(TCoreObject)
+  private
+   f_Stream : TStream;
+   f_EOF : Boolean;
+   f_CurrentLine : String;
+   f_PosInCurrentLine : Integer;
+   f_Token : String;
+   f_TokenType : TscriptTokenType;
+  protected
+   procedure Cleanup; override;
+   function ReadLn: String;
+  protected
+   function GetChar(out aChar: AnsiChar): Boolean;
+  public
+   constructor Create(const aStream : TStream); overload;
+   constructor Create(const aFileName : String); overload;
+   class function Make(const aFileName : String): IscriptParser;
+    {* - Фабрика интерфейса IscriptParser. }
+   function EOF: Boolean;
+    {* - Достигнут конец входного потока. }
+   procedure NextToken;
+    {* - Выбрать следующий токен из входного потока. }
+  public
+   property TokenString: String
+    read f_Token;
+    {* - текущий токен. }
+   property TokenType: TscriptTokenType
+    read f_TokenType;
+    {* - тип текущего токена. }
+ end;//TscriptParser
+
+implementation
+
+uses
+ System.SysUtils
+ {$IfDef TestParser}
+ ,
+ Testing.Engine
+ {$EndIf TestParser}
+ ;
+
+type
+ TscriptParserContainer = class(TCoreInterfacedObject, IscriptParser)
+  private
+   f_Parser : TscriptParser;
+  private
+   function Get_TokenType: TscriptTokenType;
+   function Get_TokenString: String;
+   function EOF: Boolean;
+    {* - Достигнут конец входного потока. }
+   procedure NextToken;
+    {* - Выбрать следующий токен из входного потока. }
+  protected
+   procedure Cleanup; override;
+  public
+   constructor Create(aParser: TscriptParser);
+   class function Make(aParser: TscriptParser): IscriptParser;
+ end;//TscriptParserContainer
+
+constructor TscriptParserContainer.Create(aParser: TscriptParser);
+begin
+ Assert(aParser &lt;&gt; nil);
+ inherited Create;
+ f_Parser := aParser;
+end;
+
+class function TscriptParserContainer.Make(aParser: TscriptParser): IscriptParser;
+begin
+ Result := TscriptParserContainer.Create(aParser);
+end;
+
+procedure TscriptParserContainer.Cleanup;
+begin
+ FreeAndNil(f_Parser);
+ inherited;
+end;
+
+function TscriptParserContainer.Get_TokenType: TscriptTokenType;
+begin
+ Result := f_Parser.TokenType;
+end;
+
+function TscriptParserContainer.Get_TokenString: String;
+begin
+ Result := f_Parser.TokenString;
+end;
+
+function TscriptParserContainer.EOF: Boolean;
+ {* - Достигнут конец входного потока. }
+begin
+ Result := f_Parser.EOF;
+end;
+
+procedure TscriptParserContainer.NextToken;
+ {* - Выбрать следующий токен из входного потока. }
+begin
+ f_Parser.NextToken;
+end;
+
+// TscriptParser
+
+constructor TscriptParser.Create(const aStream : TStream);
+begin
+ inherited Create;
+ f_PosInCurrentLine := 1;
+ f_EOF := false;
+ f_Stream := aStream;
+end;
+
+constructor TscriptParser.Create(const aFileName : String);
+var
+ l_FileName : String;
+begin
+ l_FileName := ExtractFilePath(ParamStr(0)) + '\' + aFileName;
+ Create(TFileStream.Create(l_FileName, fmOpenRead));
+end;
+
+class function TscriptParser.Make(const aFileName : String): IscriptParser;
+ {* - Фабрика интерфейса IscriptParser. }
+begin
+ Result := TscriptParserContainer.Make(Self.Create(aFileName));
+end;
+
+...
+
+end.
+</pre>
+<br />
+- тут есть одна тонкость.<br />
+<br />
+Для того, чтобы реализовать интерфейс IscriptParser - мы не стали "ломать наследование" и менять структуру класса TscriptParser, а ввели дополнительный скрытый класс TscriptParserContainer, который агрегирует в себя TscriptParser и реализует интерфейс IscriptParser, пользуясь функционалом агрегированного класса TscriptParser. Эта техника сродни шаблону&nbsp;<b>адаптер</b>&nbsp;(<a href="http://ru.wikipedia.org/wiki/Adapter">http://ru.wikipedia.org/wiki/Adapter</a>) или шаблону&nbsp;<b>фасад</b> (<a href="http://18delphi.blogspot.ru/2013/11/gui-back-to-basics_22.html#more">http://18delphi.blogspot.ru/2013/11/gui-back-to-basics_22.html#more</a>).<br />
+<br />
+Итак. Класс TscriptEngine опять видоизменяется:<br />
+<br />
+<pre class="brush:delphi">unit Script.Engine;
+
+interface
+
+uses
+ Script.Interfaces,
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TscriptEngine = class
+   protected
+    class function CompileToken(aContext : TscriptCompileContext): Boolean;
+   public
+    class function CompileScript(const aFileName: String;
+                              const aCompileLog: IscriptCompileLog): IscriptCode;
+    class procedure RunScript(const aFileName: String;
+                              const aCompileLog: IscriptCompileLog;
+                              const aRunLog : IscriptRunLog);
+    class procedure RegisterKeyWord(const aKeyWord: String; aWordClass: RscriptWord);
+ end;//TscriptEngine
+
+implementation
+
+uses
+ TypInfo,
+ System.SysUtils,
+ Script.Parser,
+ Testing.Engine,
+ Script.Code,
+ Script.StringWord,
+ Script.UnknownToken,
+ Script.Axiomatics
+ ;
+
+class function TscriptEngine.CompileToken(aContext : TscriptCompileContext): Boolean;
+var
+ l_FoundWord : IscriptWord;
+begin
+ Result := true;
+ aContext.Parser.NextToken;
+ aContext.Log(aContext.Parser.TokenString);
+ Case aContext.Parser.TokenType of
+  script_ttEOF:
+   Result := false;
+  script_ttToken:
+  begin
+   if TscriptAxiomatics.Instance.TryGetValue(aContext.Parser.TokenString, l_FoundWord) then
+   // - слово зарегистрировано в аксиоматике
+    aContext.Compiler.CompileWord(l_FoundWord)
+    // - компилируем его
+   else
+    aContext.Compiler.CompileWord(TscriptUnknownToken.Make(aContext.Parser.TokenString));
+    // - пока компилируем заглушку
+  end;//script_ttToken
+  script_ttString:
+   aContext.Compiler.CompileWord(TscriptStringWord.Make(aContext.Parser.TokenString));
+  else
+   Assert(false, 'Неизвестный тип токена: ' + GetEnumName(TypeInfo(TscriptTokenType), Ord(aContext.Parser.TokenType)));
+ end;//Case l_CompileContext.Parser.TokenType
+end;
+
+class function TscriptEngine.CompileScript(const aFileName: String;
+                                           const aCompileLog: IscriptCompileLog): IscriptCode;
+var
+ l_CompileContext : TscriptCompileContext;
+ l_FoundWord : IscriptWord;
+begin
+ l_CompileContext := TscriptCompileContext.Create(aCompileLog,
+                                                  TscriptParser.Make(aFileName),
+                                                  TscriptCompiler.Make);
+ try
+  while CompileToken(l_CompileContext) do
+   ;
+  Result := l_CompileContext.Compiler.CompiledCode;
+ finally
+  FreeAndNil(l_CompileContext);
+ end;//try..finally
+end;
+
+class procedure TscriptEngine.RunScript(const aFileName: String;
+                                        const aCompileLog: IscriptCompileLog;
+                                        const aRunLog : IscriptRunLog);
+var
+ l_RunContext : TscriptRunContext;
+ l_Code : IscriptCode;
+begin
+ l_Code := Self.CompileScript(aFileName, aCompileLog);
+ try
+  l_RunContext := TscriptRunContext.Create(aRunLog);
+  try
+   l_Code.Run(l_RunContext);
+   // - выполняем скомпилированный код
+  finally
+   FreeAndNil(l_RunContext);
+  end;//try..finally
+ finally
+  l_Code := nil;
+ end;//try..finally
+end;
+
+class procedure TscriptEngine.RegisterKeyWord(const aKeyWord: String; aWordClass: RscriptWord);
+begin
+ TscriptAxiomatics.Instance.AddWord(aKeyWord, aWordClass);
+end;
+
+end.
+</pre>
+<br />
+Теперь вернёмся к тому "ради чего всё делалось".
+
+Научимся "программно нажимать на кнопки".<br />
+<br />
+Тут мы добрались до стека значений.<br />
+<br />
+Посмотрим как он выглядит:<br />
+<pre class="brush:delphi">unit Script.WordsInterfaces;
+
+interface
+
+uses
+ System.Generics.Collections,
+ Core.Obj,
+ Script.Interfaces
+ ;
+
+type
+ TscriptValueType = (script_vtUnknown, script_vtString, script_vtObject);
+
+ TscriptValue = record
+  public
+   rValueType : TscriptValueType;
+  private
+   rAsString : String;
+   rAsObject : TObject;
+  public
+   constructor Create(const aString: String); overload;
+   constructor Create(anObject: TObject); overload;
+   function AsString: String;
+   function AsObject: TObject;
+ end;//TscriptValue
+
+ TscriptValuesStack = TList&lt;TscriptValue&gt;;
+
+ TscriptContext = class(TCoreObject)
+  private
+   f_Log : IscriptLog;
+   f_Stack : TscriptValuesStack;
+  protected
+   procedure Cleanup; override;
+  public
+   constructor Create(const aLog: IscriptLog);
+   procedure Log(const aString: String);
+    {* - Выводит сообщение в лог. }
+   function PopString: String;
+   procedure PushString(const aString: String);
+   function PopObject: TObject;
+   procedure PushObject(const anObject: TObject);
+ end;//TscriptContext
+
+ IscriptCompiler = interface;
+
+ TscriptCompileContext = class(TscriptContext)
+  private
+   f_Parser : IscriptParser;
+   f_Compiler : IscriptCompiler;
+  protected
+   procedure Cleanup; override;
+  public
+   constructor Create(const aLog      : IscriptCompileLog;
+                      const aParser   : IscriptParser;
+                      const aCompiler : IscriptCompiler);
+   property Parser: IscriptParser
+    read f_Parser;
+   property Compiler: IscriptCompiler
+    read f_Compiler;
+ end;//TscriptCompileContext
+
+ TscriptRunContext = class(TscriptContext)
+  public
+   constructor Create(const aLog: IscriptRunLog);
+ end;//TscriptRunContext
+
+ IscriptWord = interface
+  {* - слово скриптовой машины. }
+  procedure DoIt(aContext: TscriptContext);
+   {* - собственно процедура для выполнения слова словаря. }
+ end;//IscriptWord
+
+ IscriptCode = interface
+  {* - компилированный код скриптовой машины. }
+  procedure Run(aContext : TscriptRunContext);
+   {* - выполняет компилированный код. }
+ end;//IscriptCode
+
+ IscriptCompiler = interface
+  {* - компилятор кода скриптовой машины. }
+   procedure CompileWord(const aWord: IscriptWord);
+    {* - компилирует указанное слово в код. }
+   function CompiledCode: IscriptCode;
+    {* - скомпилированный код }
+ end;//IscriptCompiler
+
+implementation
+
+uses
+ System.SysUtils
+ ;
+
+// TscriptValue
+
+constructor TscriptValue.Create(const aString: String);
+begin
+ inherited;
+ rValueType := script_vtString;
+ rAsString := aString;
+end;
+
+constructor TscriptValue.Create(anObject: TObject);
+begin
+ inherited;
+ rValueType := script_vtObject;
+ rAsObject := anObject;
+end;
+
+function TscriptValue.AsString: String;
+begin
+ Assert(rValueType = script_vtString);
+ Result := rAsString;
+end;
+
+function TscriptValue.AsObject: TObject;
+begin
+ Assert(rValueType = script_vtObject);
+ Result := rAsObject;
+end;
+
+// TscriptContext
+
+constructor TscriptContext.Create(const aLog: IscriptLog);
+begin
+ inherited Create;
+ f_Log := aLog;
+ f_Stack := TscriptValuesStack.Create;
+end;
+
+procedure TscriptContext.Log(const aString: String);
+ {* - Выводит сообщение в лог. }
+begin
+ if (f_Log &lt;&gt; nil) then
+  f_Log.Log(aString);
+end;
+
+function TscriptContext.PopString: String;
+begin
+ Assert(f_Stack.Count &gt; 0);
+ Result := f_Stack.Last.AsString;
+ f_Stack.Delete(f_Stack.Count - 1);
+end;
+
+procedure TscriptContext.PushString(const aString: String);
+begin
+ f_Stack.Add(TscriptValue.Create(aString));
+end;
+
+function TscriptContext.PopObject: TObject;
+begin
+ Assert(f_Stack.Count &gt; 0);
+ Result := f_Stack.Last.AsObject;
+ f_Stack.Delete(f_Stack.Count - 1);
+end;
+
+procedure TscriptContext.PushObject(const anObject: TObject);
+begin
+ f_Stack.Add(TscriptValue.Create(anObject));
+end;
+
+procedure TscriptContext.Cleanup;
+begin
+ f_Log := nil;
+ FreeAndNil(f_Stack);
+ inherited;
+end;
+
+// TscriptCompileContext
+
+constructor TscriptCompileContext.Create(const aLog      : IscriptCompileLog;
+                                         const aParser   : IscriptParser;
+                                         const aCompiler : IscriptCompiler);
+begin
+ Assert(aParser &lt;&gt; nil);
+ Assert(aCompiler &lt;&gt; nil);
+ inherited Create(aLog);
+ f_Parser := aParser;
+ f_Compiler := aCompiler;
+end;
+
+procedure TscriptCompileContext.Cleanup;
+begin
+ f_Parser := nil;
+ f_Compiler := nil;
+ inherited;
+end;
+
+// TscriptRunContext
+
+constructor TscriptRunContext.Create(const aLog: IscriptRunLog);
+begin
+ inherited Create(aLog);
+end;
+
+end.
+</pre>
+<br />
+- тут мы опять использовали обобщения из стандартной библиотеки.
+
+<br />
+<br />
+Теперь на основе всех полученных знаний введём два слова аксиоматики -&nbsp;TkwFindComponent и&nbsp;TkwButtonClick.<br />
+<br />
+Первое слово ищет на текущей форме приложения компонент с заданным именем и кладёт его в стек.<br />
+Второе слово выбирает из стека значение объекта и трактует его как кнопку и пытается нажать указанную кнопку.<br />
+<br />
+Вот эти слова:<br />
+<br />
+<pre class="brush:delphi">unit Script.Word.Buttons;
+
+interface
+
+uses
+ Script.WordsInterfaces,
+ Script.Word
+ ;
+
+type
+ TkwFindComponent = class(TscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+ end;//TkwFindComponent
+
+ TkwButtonClick = class(TscriptWord)
+  protected
+   procedure DoIt(aContext: TscriptContext); override;
+ end;//TkwButtonClick
+
+ implementation
+
+uses
+ System.Classes,
+
+ Script.Engine,
+
+ FMX.Controls,
+ FMX.StdCtrls,
+ FMX.Forms
+ ;
+
+// TkwFindComponent
+
+procedure TkwFindComponent.DoIt(aContext: TscriptContext);
+var
+ l_Name : String;
+ l_Component : TComponent;
+begin
+ aContext.Log(ClassName);
+ l_Name := aContext.PopString;
+ Assert(l_Name &lt;&gt; '');
+ l_Component := Screen.ActiveForm.FindComponent(l_Name);
+ Assert(l_Component &lt;&gt; nil);
+ aContext.PushObject(l_Component);
+end;
+
+// TkwButtonClick
+
+type
+ TControlAccess = class(TControl)
+ end;//TControlAccess
+
+procedure TkwButtonClick.DoIt(aContext: TscriptContext);
+var
+ l_Component : TComponent;
+begin
+ aContext.Log(ClassName);
+ l_Component := aContext.PopObject As TComponent;
+ Assert(l_Component Is TButton);
+ TControlAccess(l_Component).Click;
+end;
+
+initialization
+ TscriptEngine.RegisterKeyWord('FindComponent', TkwFindComponent);
+ TscriptEngine.RegisterKeyWord('ButtonClick', TkwButtonClick);
+
+end.
+</pre>
+<br />
+<b>Ремарка.</b> Тип TControlAccess - служит для доступа к protected методу Click класса TControl. Это известный "трюк". Сами Borland и Embarcadero этим частенько пользуются. Позже мы рассмотрим "новый" RTTI. Там нам подобные "трюки" - не понадобятся.<br />
+<br />
+<b>Итак</b>.<br />
+<br />
+Всё готово для программного нажатия на кнопки из скрипта.<br />
+<br />
+Код скрипта такой:
+<br />
+<br />
+<pre class="brush:delphi">'Button1' FindComponent ButtonClick // - нажимаем на кнопку
+</pre>
+<br />
+или такой:
+<br />
+<br />
+<pre class="brush:delphi">'Button2' FindComponent ButtonClick // - нажимаем на кнопку
+</pre>
+<br />
+Попробуйте их оба. Может быть вам понравится.
+
+<br />
+<br />
+<b>Заключение.</b><br />
+<br />
+Итак. На достаточно простом примере "нажатия кнопки на форме" мы разобрали в общем не самые простые вещи.<br />
+<br />
+1. Мы описали скриптовую машину.<br />
+2. Описали процесс компиляции скриптов.<br />
+3. Описали регистрацию слов в словаре аксиоматики.<br />
+4. Разобрали процесс запуска скриптов.<br />
+5. Описали стек значений и посмотрели на примеры его использования.<br />
+<br />
+Ну и "на поверхности" мы добились поставленной цели - научились "программно нажимать кнопки приложения из скриптов".<br />
+<br />
+Надеюсь, что понятна одна из основных идей - уже описанная скриптовая машина <b>может расширяться</b> путём регистрации новых слов в аксиоматике на стороне Delphi.<br />
+<br />
+На этом данную статью я заканчиваю.<br />
+<br />
+Если будет интерес у читателей - продолжу тему скриптовой машины и того "как она устроена".<br />
+<br />
+Там вообще говоря можно многое обсудить:<br />
+1. Условные операторы.<br />
+2. Циклы.<br />
+3. Переменные.<br />
+4. Определение новых слов пользователем из кода скрипта.<br />
+5. Включение в код скрипта кода из других файлов.<br />
+6. И многое другое.<br />
+<br />
+P.S. ДАВНО я не набивал СТОЛЬКО кода ВРУЧНУЮ.<br />
+Я давно уже "рисую квадраты <b>на модели</b>". Это - СИЛЬНО быстрее...<br />
+<br />
+P.P.S. Повторюсь. Delphi - это всего лишь язык, на котором написано "это". Но "это" может быть написано на любом языке. Хоть Objective-C, хоть Python, хоть C++, хоть классический C, хоть классический Паскаль (в стиле Turbo Professional). Разница только в "запятых".<br />
+<br />
+Главное это - суть ПОДХОДА.<br />
+<br />
+P.P.P.S. Есть ещё одна "хотелка" - нарисовать GUITestRunner для DUnit для проектов на базе FM. Я постараюсь её реализовать.<br />
+<br />
+P.P.P.P.S. Ну и анонс. Вот тут лежит новая версия примера -&nbsp;<a href="https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter2/">https://sourceforge.net/p/rumtmarc/code-0/HEAD/tree/trunk/Blogger/GUITests/Chapter2/</a>&nbsp;Там же доступен пример и VCL-проекта. Там же есть пример и для мобильных устройств, но я его пока запускал только под эмулятором.</div>
+</div>

@@ -1,0 +1,155 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Delphi Specific/Range.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Delphi Specific::Range
+//
+// Диапазон
+// ---
+// Декларация типа определяет производный тип как диапазон в исходном. Исходный задаётся как
+// базовый класс (связь наследования). Границы диапазона задаются атрибутами.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Range::Class
+implementation @ <<Range>>
+//? Диапазон
+//? Декларация типа определяет производный тип как диапазон в исходном. Исходный задаётся как базовый класс (связь наследования). Границы диапазона задаются атрибутами.
+//= Constants::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_range.gif
+//L code_range
+// Параметры визуализации
+//$ C 240,230,210
+//$ l 100,75,35
+//$ f 100,75,35
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Constants::Class]f_wiki_up_print()[{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+ call-inherited:: 'Constants' wiki_up_print %( )%
+ %IF ( ( %S get_up ( 'force usage' ) ) %!= ( %S get_up_def ( 'force usage' ) ) ) 
+  [%f] up_prefix %( %S )% ' *force usage* = *'
+  %S get_up ( 'force usage' ) '* - явно определяет, что элемент будет кем-то использован (нужно для проверки)'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4721B0380203*
+//c                               {}
+//r {<{}{}{%GC}>!=1}:             {%SS должен наследоваться точно от одного типа}
+//r {%f_is_used(%S)=false}:       {%SS ни кем не используется}
+//#UC END# *4704C0E30186for4721B0380203*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4721B0380203*
+//	%S%[Constants::Class]f_DoSpell()
+ call-inherited:: 'Constants' DoSpell %( )%
+//#UC END# *4B2A19E3038Bfor4721B0380203*
+; // DoSpell
+
+
+// перекрытие базового стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor4721B0380203*
+//#UC END# *47022CB8034Bfor4721B0380203*
+; // cpp
+
+
+// перекрытие базового стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4721B0380203*
+//#UC END# *47022C88029Ffor4721B0380203*
+; // h
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4721B0380203*
+//R  
+//	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+ %IF ( ( [%f] exists_in_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% ) %!=  true ) 
+//	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+  [%f] add_to_list %( 'GENERATED_INTF' %, [%f] pas_TypeName %( %S )% )% 
+//	%f_pas_OpenType(%S)\
+  [%f] pas_OpenType %( %S )% 
+//	#%f_pas_TypeName(%S) = [{<{}{}{%CC}>=1}{<{..}{}{%C}[{}{%CN}%G#f_pas_ElementPrefix()%C%VN]>}%CN..%CN];\
+  out_indent [%f] pas_TypeName %( %S )% ' = '
+  %IF ( 
+   %FOR ( %C |C ) 
+   %END-FOR
+   %== 1 ) 
+   %ELSE
+    %FOR %ITEM-SEPARATOR '..' ; // %ITEM-SEPARATOR 
+     ( %C ) 
+     %IF ( ) 
+      %ELSE
+       %C |N 
+      %THEN
+      %G %?f pas_ElementPrefix %( )% %C ->V |N  
+     %END-IF
+    %END-FOR
+   %THEN
+   %C |N '..'
+   %C |N 
+  %END-IF
+  ';'
+//	[\n# \{* %SD \}]]
+  %IF-NOT-EMPTY
+   #13#10
+   out_indent ' {* '
+   %S |D ' }' 
+  %END-IF
+ %END-IF
+//#UC END# *470F1571031Cfor4721B0380203*
+; // intf.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Range>>
+

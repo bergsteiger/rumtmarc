@@ -1,0 +1,784 @@
+%producer 'ГАРАНТ аэро' date '25.08.2091'
+%format version 0.141 revision date '18/06/2010' 
+: Document = {
+ Width = 11900
+ Height = 16800
+ LeftIndent = 1100
+ RightIndent = 800
+ Paras = {
+  Width = 11900
+  Height = 16800
+  LeftIndent = 1100
+  RightIndent = 800
+  SpaceBefore = 800
+  SpaceAfter = 800
+  Orientation = ev_poPortrait
+ }
+ ExternalHandle = 8901001
+ Children = 12
+ : = {
+  Style = -65530
+  Text = 'Обзор изменений документа'
+ }
+ : = {
+  Style = -3
+  Text = 'Документ с нормальной цепочкой редакций. ACTIVE 21/04/2003'
+ }
+ : = {
+  Style = -65530
+  Text = 'Подготовлено экспертами компании "Гарант"'
+ }
+ : = {
+  Style = -65529
+  Text = 'Далее приведены изменившиеся фрагменты редакций:'
+ }
+ : Table = {
+  Children = 2
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '01.04.2003 - 20.04.2003 (от 30.03.2003)'
+    }
+   }
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '21.04.2003 - 31.12.2019 (от 20.04.2003)'
+    }
+   }
+  }
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    Children = 29
+    : TextPara = {
+     Handle = 35
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Start = 49
+        Finish = 63
+       }
+      }
+     }
+     FirstIndent = 0
+     Justification = ev_itCenter
+     Text = 'Документ с нормальной цепочкой редакций. ACTIVE 01/04/2003 - 20/04/2003'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 13
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 40
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Просто текст документа. Начало блока 100'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 24
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 18
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Начало блока 110. '
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 150
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 40
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Это предыдущая редакция текста блока 110'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 151
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 18
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 18
+        : = {
+         DocID = 102001
+         SubID = 100
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на 2001.100'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 152
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 33
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 33
+        : = {
+         SubID = 20
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на блок 20 этого же топика'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 153
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 32
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 32
+        : = {
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на начало этого документа'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 154
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 76
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 76
+        : = {
+         Type = 65543
+         SubID = 20
+         Revision = 9001100
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на самую старую редакцию блока 20, которая находится в топике 8901100'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 1073741979
+     Style = -22
+     Segments = {
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 34
+        Finish = 92
+        : = {
+         Type = 65543
+         SubID = 110
+         Revision = 9001100
+        }
+       }
+      }
+     }
+     Text = 'версионный комментарий. style V. см текст блока 110 в самой старой редакции в топике 8901100'
+    }
+    : TextPara = {
+     Style = -22
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 31
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 29
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Просто текст. Конец блока 100'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 1073741980
+     Style = -22
+     Segments = {
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Start = 34
+        Finish = 137
+        : = {
+         Type = 65543
+         SubID = 200
+         Revision = 9001100
+        }
+       }
+      }
+     }
+     Text = 'версионный комментарий. style V. см текст блока 20 в старой редакции. На самом деле ссылка ведет на sub 200, который находится в блоке 20'
+    }
+    : TextPara = {
+     Style = -22
+    }
+    : TextPara = {
+     Handle = 33
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 14
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'текст блока 20'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 22
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -42
+        Finish = 52
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Также у этого документа есть справка (топик 8901002)'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+    }
+   }
+   : = {
+    Width = 5102
+    : TextPara = {
+     Segments = {
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        URL = 'script:оп::Документ_Сравнение_редакций'
+        : = {
+         Type = 65552
+        }
+       }
+      }
+     }
+     Text = 'Данные изменения не могут быть отображены в сводном обзоре. Для их просмотра необходимо построить полное сравнение редакций'
+    }
+   }
+  }
+ }
+ : = {
+  Style = -3
+  Text = 'Блок 100'
+ }
+ : Table = {
+  Children = 2
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '01.04.2003 - 20.04.2003 (от 30.03.2003)'
+    }
+   }
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '21.04.2003 - 31.12.2019 (от 20.04.2003)'
+    }
+   }
+  }
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Style = -9
+     Text = 'Фрагмент в данной редакции отсутствовал'
+    }
+   }
+   : = {
+    Width = 5102
+    Children = 6
+    : TextPara = {
+     Handle = 13
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 40
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Просто текст документа. Начало блока 100'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 38
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 22
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 22
+        : = {
+         DocID = 102001
+         SubID = 10
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на блок 2001.10'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 1073741863
+     Style = -22
+     Segments = {
+      : = {
+       Handle = Hyperlinks
+       Children = 2
+       : HyperLink = {
+        Start = 53
+        Finish = 73
+        : = {
+         Type = 65543
+         SubID = 110
+         Revision = 9001010
+        }
+       }
+       : HyperLink = {
+        Start = 77
+        Finish = 99
+        : = {
+         Type = 65543
+         SubID = 110
+         Revision = 9001100
+        }
+       }
+      }
+     }
+     Text = 'версионный комментарий. style V. см текст блока 110 в предыдущей редакции и в самой старой редакции'
+    }
+    : TextPara = {
+     Style = -22
+    }
+   }
+  }
+ }
+ : = {
+  Style = -3
+  Text = 'Собственно текст. Блок 110'
+ }
+ : Table = {
+  Children = 2
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '01.04.2003 - 20.04.2003 (от 30.03.2003)'
+    }
+   }
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '21.04.2003 - 31.12.2019 (от 20.04.2003)'
+    }
+   }
+  }
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Style = -9
+     Text = 'Фрагмент в данной редакции отсутствовал'
+    }
+   }
+   : = {
+    Width = 5102
+    Children = 7
+    : TextPara = {
+     Handle = 24
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 18
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Начало блока 110. '
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 40
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 23
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Текущий Текст блока 110'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 41
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 23
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 23
+        : = {
+         DocID = 102001
+         SubID = 200
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на блок 2001.200'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 42
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 18
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 18
+        : = {
+         DocID = 102008
+         SubID = 100
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на 2008.100'
+    }
+   }
+  }
+ }
+ : Table = {
+  Children = 2
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '01.04.2003 - 20.04.2003 (от 30.03.2003)'
+    }
+   }
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '21.04.2003 - 31.12.2019 (от 20.04.2003)'
+    }
+   }
+  }
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Style = -9
+     Text = 'Фрагмент в данной редакции отсутствовал'
+    }
+   }
+   : = {
+    Width = 5102
+    Children = 2
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 31
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 29
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Просто текст. Конец блока 100'
+    }
+   }
+  }
+ }
+ : Table = {
+  Children = 2
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '01.04.2003 - 20.04.2003 (от 30.03.2003)'
+    }
+   }
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '21.04.2003 - 31.12.2019 (от 20.04.2003)'
+    }
+   }
+  }
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Style = -9
+     Text = 'Фрагмент в данной редакции отсутствовал'
+    }
+   }
+   : = {
+    Width = 5102
+    Children = 4
+    : TextPara = {
+     Handle = 33
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 14
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'текст блока 20'
+    }
+    : TextPara = {
+     Handle = 43
+     Style = -1
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 247
+       }
+      }
+     }
+     Text = 'Этот параграф имеет стиль STYLE L 0 73 5. По словам господина Марчука из ООО "Гарант Алтай", г. Барнаул, Алтайский край, параграф с таким оформлением должен иметь отступ, даже несмотря на то, что команда STYLE L означает прижатость по левому краю.'
+    }
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 44
+     LeftIndent = 139
+     Segments = {
+      Children = 2
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 23
+       }
+      }
+      : = {
+       Handle = Hyperlinks
+       : HyperLink = {
+        Finish = 23
+        : = {
+         DocID = 102001
+         SubID = 100
+        }
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'ссылка на блок 2001.100'
+    }
+   }
+  }
+ }
+ : Table = {
+  Children = 2
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '01.04.2003 - 20.04.2003 (от 30.03.2003)'
+    }
+   }
+   : = {
+    Width = 5102
+    : TextPara = {
+     Text = '21.04.2003 - 31.12.2019 (от 20.04.2003)'
+    }
+   }
+  }
+  : = {
+   Children = 2
+   : = {
+    Width = 5102
+    : TextPara = {
+     Style = -9
+     Text = 'Фрагмент в данной редакции отсутствовал'
+    }
+   }
+   : = {
+    Width = 5102
+    Children = 3
+    : TextPara = {
+    }
+    : TextPara = {
+     Handle = 22
+     LeftIndent = 139
+     Segments = {
+      : = {
+       Handle = Diff
+       : = {
+        Style = -41
+        Finish = 52
+       }
+      }
+     }
+     FirstIndent = 139
+     Text = 'Также у этого документа есть справка (топик 8901002)'
+    }
+    : TextPara = {
+    }
+   }
+  }
+ }
+}
+ 

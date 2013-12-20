@@ -1,0 +1,182 @@
+tbfcSynchroViewTop : TvcmToolbar
+Order = 0
+---------------
+bt_enSynchroView_ShowText : TvcmToolButtonDef
+Текст документа
+bt_enSynchroView_opAnnotation : TvcmToolButtonDef
+Аннотация к документу
+bt_enSynchroView_ShowAttributes : TvcmToolButtonDef
+Информация о документе
+bt_enSynchroView_ShowRelated : TvcmToolButtonDef
+Справка к документу
+bt_enSynchroView_ShowUserCRList1 : TvcmToolButtonDef
+Настраиваемая вкладка связанных документов 1
+bt_enSynchroView_ShowUserCRList2 : TvcmToolButtonDef
+Настраиваемая вкладка связанных документов 2
+bt_enSynchroView_opSimilarDocuments : TvcmToolButtonDef
+Похожие документы
+
+tbTextFormTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+ : TvcmSeparatorDef
+
+bt_enDocument_opAddBookmark : TvcmToolButtonDef
+Установить закладку...
+ : TvcmSeparatorDef
+
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+ : TvcmSeparatorDef
+
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+ : TvcmSeparatorDef
+
+bt_enDocument_opShowJurorComments : TvcmToolButtonDef
+Показать/скрыть комментарии ГАРАНТа
+bt_enDocument_opShowUserComments : TvcmToolButtonDef
+Показать/скрыть мои комментарии
+ : TvcmSeparatorDef
+
+bt_enSelection_opFindInDict : TvcmToolButtonDef
+Найти в Толковом словаре
+
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+ : TvcmSeparatorDef
+
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+ : TvcmSeparatorDef
+
+ : TvcmSeparatorDef
+
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+
+tbenFiltersTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFilter_opEdit : TvcmToolButtonDef
+Редактировать фильтр
+ : TvcmSeparatorDef
+
+bt_enFilter_opCreateFilter : TvcmToolButtonDef
+Добавить фильтр из сохраненных запросов
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+ : TvcmSeparatorDef
+
+bt_enFilters_opNew : TvcmToolButtonDef
+Создать новый фильтр
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+ : TvcmSeparatorDef
+
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+ : TvcmSeparatorDef
+
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+ : TvcmSeparatorDef
+
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+ : TvcmSeparatorDef
+
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+
+tbefListTop : TvcmToolbar
+Order = 1
+---------------
+bt_enFile_opSave : TvcmToolButtonDef
+Сохранить в файл...
+bt_enFile_SendMailAsAttachment : TvcmToolButtonDef
+Переслать по E-mail
+bt_enFile_opToMSWord : TvcmToolButtonDef
+Экспорт в MS-Word
+ : TvcmSeparatorDef
+
+bt_enFile_opSaveToFolder : TvcmToolButtonDef
+Сохранить в Мои документы...
+bt_enFile_opLoadFromFolder : TvcmToolButtonDef
+Выбрать из Моих документов...
+ : TvcmSeparatorDef
+
+bt_enFile_opPrintDialog : TvcmToolButtonDef
+Печать...
+bt_enFile_opPrintPreview : TvcmToolButtonDef
+Предварительный просмотр
+ : TvcmSeparatorDef
+
+bt_enEdit_opFindContext : TvcmToolButtonDef
+Поиск контекста...
+ : TvcmSeparatorDef
+
+bt_enDocument_opAddToControl : TvcmToolButtonDef
+Поставить на контроль
+ : TvcmSeparatorDef
+
+bt_enList_opSpecifyList : TvcmToolButtonDef
+Уточнить список
+ : TvcmSeparatorDef
+
+bt_enList_opSortDirection : TvcmToolButtonDef
+Отсортировано по убыванию
+ : TvcmSeparatorDef
+
+bt_enList_opWorkWithList : TvcmToolButtonDef
+Работа со списком
+bt_enList_opSort : TvcmComboBox
+

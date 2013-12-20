@@ -1,0 +1,442 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/List.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::List
+//
+// Список
+// ---
+// Абстракция уровня реализации. Представляет собой двусвязный список. Тип данных определяется
+// атрибутом без стереотипа.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: List::Class
+implementation @ <<List>>
+//? Список
+//? Абстракция уровня реализации. Представляет собой двусвязный список. Тип данных определяется атрибутом без стереотипа.
+//= Vector::Class
+//= Генерация JavaScript::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа BaseContainer::Class
+// сгенерить определение контэйнера для C++
+//%f _dump_container_def_h
+; // st_space_key
+
+: dump_container_def_h OBJECT IN %S
+//#UC START# *49015EE401E1for470F0BDF0271*
+//	%f_dump_container_fwds_h(%S)\
+ [%f] dump_container_fwds_h %( %S )% 
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	#typedef std::list \< %f_data_dump(%S)<{}{"%CS"="allocator"}, %f_type(%C%T)> \> %SN;
+ out_indent 'typedef std::list < '
+ [%f] data_dump %( %S )% 
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'allocator' ) 
+  ', '
+  [%f] type %( %C ->T  )% 
+ %END-FOR
+ ' > '
+ %S |N ';'
+//#UC END# *49015EE401E1for470F0BDF0271*
+; // dump_container_def_h
+
+
+// перекрытие базового стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for470F0BDF0271*
+//	<#%FF
+ %FOR out_indent %F |F 
+//	>%f_docs(%S)\
+ %END-FOR
+ [%f] docs %( %S )% 
+//	#typedef sequence\<%C[%T<%NN::>]%C[%TN]\> %SN;
+ out_indent 'typedef sequence<'
+ %C%IF-NOT-EMPTY
+  %T
+  %FOR %N |N '::' 
+  %END-FOR
+  %END-IF
+  %C%IF-NOT-EMPTY
+  %T |N 
+ %END-IF
+  '> '
+ %S |N ';'
+//#UC END# *47022BBE0261for470F0BDF0271*
+; // idl
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor470F0BDF0271*
+//#UC END# *470F1571031Cfor470F0BDF0271*
+; // intf.pas
+
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.cpp)
+//+ dll.cpp
+<<generator>> dll.cpp OBJECT IN %S
+//#UC START# *47032ED002DEfor470F0BDF0271*
+//P
+//	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== '' ) 
+  %C%IF-NOT-EMPTY
+   [%f] set_var %( 'CONT_TYPE' %, 'T' )% 
+  %END-IF
+  %END-FOR
+//	%f_tie_container_refcount_base_cpp(%S)
+ [%f] tie_container_refcount_base_cpp %( %S )% 
+//	
+//	long %SN_tie::get_count () const {
+ 'long '
+ %S |N '_tie::get_count () const {'
+//		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::get_count"));
+ '	'
+ %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+  'LOG_D(("'
+  %S |N '_tie::get_count"));'
+//		]return m_impl-\>size();
+  '	' 
+ %END-IF
+ 'return m_impl->size();'
+//	}
+ '}'
+//	
+//	void %SN_tie::set_count (long count) {
+ 'void '
+ %S |N '_tie::set_count (long count) {'
+//		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::set_count"));
+ '	'
+ %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+  'LOG_D(("'
+  %S |N '_tie::set_count"));'
+//		]m_impl-\>resize(count);
+  '	' 
+ %END-IF
+ 'm_impl->resize(count);'
+//	}
+ '}'
+//	
+//	void %SN_tie::clear () {
+ 'void '
+ %S |N '_tie::clear () {'
+//		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::clear"));
+ '	'
+ %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+  'LOG_D(("'
+  %S |N '_tie::clear"));'
+//		]m_impl-\>clear();
+  '	' 
+ %END-IF
+ 'm_impl->clear();'
+//	}
+ '}'
+//	
+//	void %SN_tie::delete_item (long index) {
+ 'void '
+ %S |N '_tie::delete_item (long index) {'
+//		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::delete_item"));
+ '	'
+ %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+  'LOG_D(("'
+  %S |N '_tie::delete_item"));'
+//		]if ((size_t)index \< m_impl-\>size()) {
+  '	' 
+ %END-IF
+ 'if ((size_t)index < m_impl->size()) {'
+//			m_impl-\>erase(m_impl-\>begin() + index);
+ '		m_impl->erase(m_impl->begin() + index);'
+//		} else {
+ '	} else {'
+//			throw Core::IndexOutOfBounds_tie ();
+ '		throw Core::IndexOutOfBounds_tie ();'
+//		}
+ '	}'
+//	}
+ '}'
+//	
+//	[{%t_simple(%{CONT_TYPE})=true}%t_ret(%{CONT_TYPE},"const,cached") %SN_tie::get_back () {
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+  [%t] ret %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'const' %, 'cached' )% ' '
+  %S |N '_tie::get_back () {'
+//	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::get_back"));
+  %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+   '	LOG_D(("'
+   %S |N '_tie::get_back"));'
+//	]][{%t_simple(%{CONT_TYPE})=false}void %SN_tie::get_back (long index, %t_arg(%{CONT_TYPE},"out") ret_) {
+  %END-IF
+ %END-IF
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  false ) 
+  'void '
+  %S |N '_tie::get_back (long index, '
+  [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'out' )% ' ret_) {'
+//	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::get_back"));
+  %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+   '	LOG_D(("'
+   %S |N '_tie::get_back"));'
+//	]][{%t_simple(%{CONT_TYPE})=true}		return m_impl->back ();]\
+  %END-IF
+ %END-IF
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+  '		return m_impl->back ();' 
+ %END-IF
+//	[{%t_simple(%{CONT_TYPE})=false}		%f_type_tie(%{CONT_TYPE})::make_tie (m_impl->back ()[{%t_interface(%{CONT_TYPE})=true}.in()], [{%t_interface(%{CONT_TYPE})=true}{*ret_}ret_, true]);]
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  false ) 
+  '		'
+  [%f] type_tie %( ( get_global_var ( 'CONT_TYPE' ) ) )% '::make_tie (m_impl->back ()'
+  %IF ( ( [%t] interface %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+   '.in()' 
+  %END-IF
+  ', '
+  %IF ( ( [%t] interface %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+   %ELSE
+    '*ret_' 
+   %THEN
+   'ret_, true' 
+  %END-IF
+  ');' 
+ %END-IF
+//	}
+ '}'
+//	
+//	long %SN_tie::add (%t_arg(%{CONT_TYPE},"inout") item) {
+ 'long '
+ %S |N '_tie::add ('
+ [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'inout' )% ' item) {'
+//	[{%f_need_tie_log(%S)=true}	LOG_D(("%SN_tie::add"));
+ %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+  '	LOG_D(("'
+  %S |N '_tie::add"));'
+//	][{%t_simple(%{CONT_TYPE})=true}	m_impl-\>push_back (item);]\
+ %END-IF
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+  '	m_impl->push_back (item);' 
+ %END-IF
+//	[{%t_simple(%{CONT_TYPE})=false}	%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  false ) 
+  '	'
+  [%f] cpp_type %( ( get_global_var ( 'CONT_TYPE' ) ) )% %IF ( ( [%t] interface %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+   '*' 
+  %END-IF
+  ' item_;'
+//		%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+  '	'
+  [%f] type_tie %( ( get_global_var ( 'CONT_TYPE' ) ) )% '::make_cpp (item, item_'
+  %IF ( ( [%t] interface %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+   ', true' 
+  %END-IF
+  ');'
+//		m_impl-\>push_back (item_);]
+  '	m_impl->push_back (item_);' 
+ %END-IF
+//		return m_impl-\>size() - 1;
+ '	return m_impl->size() - 1;'
+//	}
+ '}'
+//	
+//	long %SN_tie::insert (long index, %t_arg(%{CONT_TYPE},"inout") item) {
+ 'long '
+ %S |N '_tie::insert (long index, '
+ [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'inout' )% ' item) {'
+//		[{%f_need_tie_log(%S)=true}LOG_D(("%SN_tie::insert"));
+ '	'
+ %IF ( ( [%f] need_tie_log %( %S )% ) %==  true ) 
+  'LOG_D(("'
+  %S |N '_tie::insert"));'
+//		]if ((size_t)index \< m_impl-\>size()) {
+  '	' 
+ %END-IF
+ 'if ((size_t)index < m_impl->size()) {'
+//	[{%t_simple(%{CONT_TYPE})=true}		return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item));]\
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+  '		return std::distance (m_impl->begin(), m_impl->insert (m_impl->begin() + index, item));' 
+ %END-IF
+//	[{%t_simple(%{CONT_TYPE})=false}		%f_cpp_type(%{CONT_TYPE})[{%t_interface(%{CONT_TYPE})=true}*] item_;
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  false ) 
+  '		'
+  [%f] cpp_type %( ( get_global_var ( 'CONT_TYPE' ) ) )% %IF ( ( [%t] interface %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+   '*' 
+  %END-IF
+  ' item_;'
+//			%f_type_tie(%{CONT_TYPE})::make_cpp (item, item_[{%t_interface(%{CONT_TYPE})=true}, true]);
+  '		'
+  [%f] type_tie %( ( get_global_var ( 'CONT_TYPE' ) ) )% '::make_cpp (item, item_'
+  %IF ( ( [%t] interface %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+   ', true' 
+  %END-IF
+  ');'
+//			return std::distance (m_impl-\>begin(), m_impl-\>insert (m_impl-\>begin() + index, item_));]
+  '		return std::distance (m_impl->begin(), m_impl->insert (m_impl->begin() + index, item_));' 
+ %END-IF
+//		} else {
+ '	} else {'
+//			throw Core::IndexOutOfBounds_tie ();
+ '		throw Core::IndexOutOfBounds_tie ();'
+//		}
+ '	}'
+//	}
+ '}'
+//#UC END# *47032ED002DEfor470F0BDF0271*
+; // dll.cpp
+
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor470F0BDF0271*
+//F class %SN_tie;
+//	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== '' ) 
+  %C%IF-NOT-EMPTY
+   [%f] set_var %( 'CONT_TYPE' %, 'T' )% 
+  %END-IF
+  %END-FOR
+//	<%FF
+ %FOR %F |F 
+//	
+
+//	>class %SN_tie: public Core::TIEBase {
+ %END-FOR
+ 'class '
+ %S |N '_tie: public Core::TIEBase {'
+//		SET_OBJECT_COUNTER (%SN_tie)
+ '	SET_OBJECT_COUNTER ('
+ %S |N '_tie)'
+//	protected:
+ 'protected:'
+//	%f_tie_container_refcount_base_h(%S)
+ [%f] tie_container_refcount_base_h %( %S )% 
+//	
+//	protected:
+ 'protected:'
+//		virtual long get_count () const;
+ '	virtual long get_count () const;'
+//		virtual void set_count (long count);
+ '	virtual void set_count (long count);'
+//		virtual void clear ();
+ '	virtual void clear ();'
+//		virtual void delete_item (long index);
+ '	virtual void delete_item (long index);'
+//		[{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") get_back ();
+ '	'
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+  'virtual '
+  [%t] ret %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'const' %, 'cached' )% ' get_back ();'
+//		][{%t_simple(%{CONT_TYPE})=false}virtual void get_back (%t_arg(%{CONT_TYPE},"out") ret_);
+  '	' 
+ %END-IF
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  false ) 
+  'virtual void get_back ('
+  [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'out' )% ' ret_);'
+//		][{%t_simple(%{CONT_TYPE})=true}virtual %t_ret(%{CONT_TYPE},"const,cached") get_front ();
+  '	' 
+ %END-IF
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  true ) 
+  'virtual '
+  [%t] ret %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'const' %, 'cached' )% ' get_front ();'
+//		][{%t_simple(%{CONT_TYPE})=false}virtual void get_front (%t_arg(%{CONT_TYPE},"out") ret_);
+  '	' 
+ %END-IF
+ %IF ( ( [%t] simple %( ( get_global_var ( 'CONT_TYPE' ) ) )% ) %==  false ) 
+  'virtual void get_front ('
+  [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'out' )% ' ret_);'
+//		]virtual void set_item (long index, %t_arg(%{CONT_TYPE},"inout") item);
+  '	' 
+ %END-IF
+ 'virtual void set_item (long index, '
+ [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'inout' )% ' item);'
+//		virtual long add (%t_arg(%{CONT_TYPE},"inout") item);
+ '	virtual long add ('
+ [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'inout' )% ' item);'
+//		virtual long insert (long index, %t_arg(%{CONT_TYPE},"inout") item);
+ '	virtual long insert (long index, '
+ [%t] arg %( ( get_global_var ( 'CONT_TYPE' ) ) %, 'inout' )% ' item);'
+//	};
+ '};'
+//#UC END# *47032EC4032Cfor470F0BDF0271*
+; // dll.h
+
+
+// перекрытие базового стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor470F0BDF0271*
+//	<{}{"%CS"=""}%C[%f_set_var(CONT_TYPE,T)]>\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== '' ) 
+  %C%IF-NOT-EMPTY
+   [%f] set_var %( 'CONT_TYPE' %, 'T' )% 
+  %END-IF
+  %END-FOR
+//	I%SN = interface(Il3List)
+ 'I'
+ %S |N ' = interface(Il3List)'
+//	\['{%SG}'\]
+ '[''{'
+ %S |G '}'']'
+//	  // property methods
+ '  // property methods'
+//	    function  pm_GetItem(anIndex: LongInt): %f_type(%{CONT_TYPE});
+ '    function  pm_GetItem(anIndex: LongInt): '
+ [%f] type %( ( get_global_var ( 'CONT_TYPE' ) ) )% ';'
+//	    procedure pm_SetItem(anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+//	      {-}
+ '      {-}'
+//	  // public methods
+ '  // public methods'
+//	    function  Add(const anItem: %f_type(%{CONT_TYPE})): Long;
+ '    function  Add(const anItem: '
+ [%f] type %( ( get_global_var ( 'CONT_TYPE' ) ) )% '): Long;'
+//	      {* - добавляет элемент Item в конец. }
+ '      {* - добавляет элемент Item в конец. }'
+//	    procedure Insert(const anIndex: Long; anItem: %f_type(%{CONT_TYPE}));
+ '    procedure Insert(const anIndex: Long; anItem: '
+ [%f] type %( ( get_global_var ( 'CONT_TYPE' ) ) )% ');'
+//	      {* - вставляет элемент Item по индексу Index. }
+ '      {* - вставляет элемент Item по индексу Index. }'
+//	  // public properties
+ '  // public properties'
+//	    property  Items\[anIndex: LongInt\]: %f_type(%{CONT_TYPE})
+ '    property  Items[anIndex: LongInt]: '
+ [%f] type %( ( get_global_var ( 'CONT_TYPE' ) ) )% 
+//	      read pm_GetItem
+ '      read pm_GetItem'
+//	      write pm_SetItem;
+//	      default;
+ '      default;'
+//	      {* - элементы списка. }
+ '      {* - элементы списка. }'
+//	end;//I%SN
+ 'end;//I'
+ %S |N 
+//#UC END# *470F152700FAfor470F0BDF0271*
+; // pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<List>>
+

@@ -1,0 +1,138 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+У нас был код для перебора файлов:
+
+<br />
+<br />
+<pre class="brush:delphi"> type
+  TFileProcessingFunc = function (const aFileName: string;
+                                  aData: Pointer): Boolean;
+
+function ConcatDirName(aDirName : TFileName; aFileName : TFileName) : TFileName;
+ begin
+  if Length(aDirName) = 0 then
+   Result := aFileName
+  else
+  begin
+   Result := aDirName;
+   If (Length(aFileName) = 0) then Exit;
+   If Result[Length(Result)] &lt;&gt; '\' then Result := Result + '\';
+   If (aFileName[1] = '\') then Delete(aFileName,1,1);
+   Result := Result + aFileName;
+  end;
+ end;
+
+procedure ProcessFilesWithMask(const aDir, aFileNameMask: TFileName;
+                               aFileProcessingFunc: TFileProcessingFunc;
+                               aData: Pointer = nil);
+var
+ l_SearchRec: TSearchRec;
+ l_FindResult: Integer;
+begin
+ l_FindResult := FindFirst(ConcatDirName(aDir, aFileNameMask),
+                           faAnyFile,
+                           l_SearchRec);
+ try
+  while l_FindResult = 0 do
+  begin
+   if (l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0 then
+    if not aFileProcessingFunc(ConcatDirName(aDir, l_SearchRec.Name), aData) then
+     Break;
+
+   l_FindResult:=FindNext(l_SearchRec);
+  end;
+ finally
+  FindClose(l_SearchRec);
+ end;
+end;
+
+</pre>
+Он переписывается с помощью <b>анонимных функций</b> так:
+
+<br />
+<br />
+<pre class="brush:delphi"> type
+  TFileProcessingFunc = reference to function (const aFileName: string): Boolean;
+
+function ConcatDirName(aDirName : TFileName; aFileName : TFileName) : TFileName;
+ begin
+  if Length(aDirName) = 0 then
+   Result := aFileName
+  else
+  begin
+   Result := aDirName;
+   If (Length(aFileName) = 0) then Exit;
+   If Result[Length(Result)] &lt;&gt; '\' then Result := Result + '\';
+   If (aFileName[1] = '\') then Delete(aFileName,1,1);
+   Result := Result + aFileName;
+  end;
+ end;
+
+
+procedure ProcessFilesWithMask(const aDir, aFileNameMask: TFileName;
+                               aFileProcessingFunc: TFileProcessingFunc);
+var
+ l_SearchRec: TSearchRec;
+ l_FindResult: Integer;
+begin
+ l_FindResult := FindFirst(ConcatDirName(aDir, aFileNameMask),
+                           faAnyFile,
+                           l_SearchRec);
+ try
+  while l_FindResult = 0 do
+  begin
+   if (l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0 then
+    if not aFileProcessingFunc(ConcatDirName(aDir, l_SearchRec.Name)) then
+     Break;
+
+   l_FindResult:=FindNext(l_SearchRec);
+  end;
+ finally
+  FindClose(l_SearchRec);
+ end;
+end;
+</pre>
+<br />
+И используется так:
+
+<br />
+<br />
+<pre class="brush:delphi">ProcessFilesWithMask('c:\temp', '*.tmp', 
+  function (const aFileName: string): Boolean
+  begin 
+   Result := true; 
+   WriteLn(aFileName); 
+  end
+ );
+</pre>
+<br />
+Ну это из разряда "tips'n'tricks"....<br />
+<br />
+P.S. Аналогично можно "переписать" и вот это:
+
+<br />
+<br />
+<pre class="brush:delphi">procedure ProcessDirectory(const aDir: TFileName;
+                           aFileProcessingFunc: TFileProcessingFunc;
+                           aData: Pointer = nil);
+var
+ l_SearchRec: TSearchRec;
+ l_FindResult: Integer;
+begin
+ l_FindResult := FindFirst(ConcatDirName(aDir, '*.*'),
+                           faDirectory ,
+                           l_SearchRec);
+ try
+  while l_FindResult = 0 do
+  begin
+   if ((l_SearchRec.Attr and faDirectory) &lt;&gt; 0) and (l_SearchRec.Name &lt;&gt; '.') and (l_SearchRec.Name &lt;&gt; '..') then
+    if not aFileProcessingFunc(l_SearchRec.Name, aData) then
+     Break;
+
+   l_FindResult:= FindNext(l_SearchRec);
+  end;
+ finally
+  FindClose(l_SearchRec);
+ end;
+end;
+</pre>
+</div>

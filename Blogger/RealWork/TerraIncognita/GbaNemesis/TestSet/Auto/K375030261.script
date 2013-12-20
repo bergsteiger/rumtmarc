@@ -1,0 +1,21 @@
+// Разработчик: Селянкин Владимир
+
+: K375030261
+
+ : Действия
+  300 SLEEP
+  VAR Editor
+  VAR x
+  VAR y
+  focused:control:push >>> Editor
+  Editor pop:editor:CursorCoordsToScreen >>> y >>> x
+  y 20 - >>> y
+  x y mouse:SetCursorPosition
+  "Клик средней кнопкой мыши"
+ ;
+
+ ППР
+ "Запомнить позицию мыши и выполнить {(@ Действия)}"
+;
+
+K375030261

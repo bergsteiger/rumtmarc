@@ -1,0 +1,819 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Library/LibExecutor.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Library::LibExecutor
+//
+// Исполнитель
+// ---
+// Точка входа в программу (библиотеку). Может быть созданно несколько executor'ов - все будут
+// запущенны асинхронно. Может иметь методы и атрибуты.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: LibExecutor::Class
+implementation @ <<LibExecutor>>
+//? Исполнитель
+//? Точка входа в программу (библиотеку). Может быть созданно несколько executor'ов - все будут запущенны асинхронно. Может иметь методы и атрибуты.
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= C++ интерфейсы и реализация::MDAGenerator
+//= Java::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_lib_executer.gif
+//L code_lib_executer
+//D
+// - запрещена форвард-декларация
+// Параметры визуализации
+//$ C 195,245,195
+//$ l 10,195,10
+//$ f 10,195,10
+//d 1
+// - может иметь унаследованную реализацию
+//W true
+// - может быть параметризован
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p type=server\stand alone|client|both ? тип executor'а определяет на какой стороне (для КС) будет выполнен
+//p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{type}"!="%S{!type}"}%f_up_prefix(%S) *type* = *%S{type}* - тип executor'а определяет на какой стороне (для КС) будет выполнен
+ ?inherited
+ %IF ( ( %S get_up ( 'type' ) ) %!= ( %S get_up_def ( 'type' ) ) ) 
+  [%f] up_prefix %( %S )% ' *type* = *'
+  %S get_up ( 'type' ) '* - тип executor''а определяет на какой стороне (для КС) будет выполнен'
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций Юзер-Кода
+ %END-IF
+ %IF ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций Юзер-Кода'
+//	]
+ %END-IF
+
+// Метод необходим для поддержки генерации через обую функцию, возвращает
+// true
+//%f _additional_condition
+; // wiki_up_print
+
+: additional_condition OBJECT IN %S
+//#UC START# *49B8FB7C00FCfor470483F102AF*
+//	true
+ true
+//#UC END# *49B8FB7C00FCfor470483F102AF*
+; // additional_condition
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor470483F102AF*
+//O %SN.cpp
+//P
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	\#include "ace/Signal.h"
+ '#include "ace/Signal.h"'
+//	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+ '#include '
+ [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %S |L )% %, %S )% 
+//	<{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(h,%WL),%W)
+ %FOR ( %W ) 
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %W |L )% %, %W )% 
+//	]><{}{}{%W}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%WL),%W)
+  %END-IF
+ %END-FOR
+ %FOR ( %W ) 
+  %IF-NOT-EMPTY
+   '#include '
+   [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %W |L )% %, %W )% 
+//	]>[// by \<\<uses\>\> dependencies
+  %END-IF
+ %END-FOR
+ %IF-NOT-EMPTY
+  '// by <<uses>> dependencies'
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&"[{%A%PU=%SU|"%A%Po"=""}true]"="true"}[\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%A%TW),%A%T)
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'uses' %&& 
+    ( ( %A |C ) %== 'Dependency'  ) %&& 
+    ( %IF ( ( %A ->P |U  ) %== ( %S |U ) %|| 
+     ( ( %A ->P |o  ) %== ''  ) ) 
+     true 
+   %END-IF
+   %== true  ) ) 
+   %IF-NOT-EMPTY
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'fctr.h' %, %A ->T |W  )% %, %A ->T  )% 
+//	][\#include %f_dump_include_path(%f_with_gen_id(h,%A%TW),%A%T)
+   %END-IF
+   %IF-NOT-EMPTY
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %A ->T |W  )% %, %A ->T  )% 
+//	]>]
+   %END-IF
+  %END-FOR
+ %END-IF
+//	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]%SP[{%S{need UC}=true}
+  %S %f open_ifdef %( )% 
+ %END-IF
+ %S |P %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[{_CUSTOM_BODY}
+  %U%IF ( '_CUSTOM_BODY' ) 
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested implementation<{}{"%CC"="Class"}[
+  '// nested implementation'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' ) 
+   %IF-NOT-EMPTY
+
+//	%CX
+    %C |X 
+//	]>][
+   %END-IF
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods
+  '// static member methods'
+//	<{}{"%CS"="static"}
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' ) 
+
+//	%CX
+   %C |X 
+//	>
+  %END-FOR
+//	]
+ %END-IF
+//	//////////////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// main execute method
+ '// main execute method'
+//	
+//	void %SN::execute_ () {
+ 'void '
+ %S |N '::execute_ () {'
+//		try {
+ '	try {'
+//			
+ '		'
+//			ACE_Sig_Action ((ACE_SignalHandler)%SN::handle_control, SIGTERM);
+ '		ACE_Sig_Action ((ACE_SignalHandler)'
+ %S |N '::handle_control, SIGTERM);'
+//			ACE_Sig_Action ((ACE_SignalHandler)%SN::handle_control, SIGINT);
+ '		ACE_Sig_Action ((ACE_SignalHandler)'
+ %S |N '::handle_control, SIGINT);'
+//			ACE_Sig_Action ((ACE_SignalHandler)%SN::handle_control, SIGQUIT);
+ '		ACE_Sig_Action ((ACE_SignalHandler)'
+ %S |N '::handle_control, SIGQUIT);'
+//		
+ '	'
+//			%U[
+ '		'
+ %U%IF-NOT-EMPTY
+
+//			LOG_D (("Hello world, this is %SN!"));
+  '		LOG_D (("Hello world, this is '
+  %S |N '!"));'
+//			]	
+  '		' 
+ %END-IF
+  '	'
+//			ExecutorBase::execute_ ();
+ '		ExecutorBase::execute_ ();'
+//			return;
+ '		return;'
+//		} CATCH_AND_LOG ("in execute")
+ '	} CATCH_AND_LOG ("in execute")'
+//		
+ '	'
+//		this-\>set_current_status(Core::Root::ES_ERROR);
+ '	this->set_current_status(Core::Root::ES_ERROR);'
+//	}
+ '}'
+//	
+//	void %SN::finalize () {
+ 'void '
+ %S |N '::finalize () {'
+//		%U[{_FINI}
+ '	'
+ %U%IF ( '_FINI' ) 
+
+//		]
+  '	' 
+ %END-IF
+ //	}
+ '}'
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self implementation<{}{"%CC"="Operation"&"%Ca"!="true"&"%CS"!="static"&"%CS"!="ctor"|"%CC"="Attribute"&"%CS"="cached"}{Sn}
+  '// self implementation'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+    ( ( %C |a ) %!= true  ) %&& 
+    ( ( %C |S ) %!= 'static'  ) %&& 
+    ( ( %C |S ) %!= 'ctor'  ) %|| 
+    ( ( %C |C ) %== 'Attribute'  ) %&& 
+    ( ( %C |S ) %== 'cached'  ) ) 
+   ( 'Sn' ) 
+
+//	
+
+//	%CX>]
+   %C |X 
+  %END-FOR
+ %END-IF
+//	void %SN::handle_control (int sig) {
+ 'void '
+ %S |N '::handle_control (int sig) {'
+//		%U[{_HANDLE_CONTROl}
+ '	'
+ %U%IF ( '_HANDLE_CONTROl' ) 
+
+//		//TODO: write your code for handle Ctrl-C
+  '	//TODO: write your code for handle Ctrl-C'
+
+//		%SN::get ().set_current_status (Core::Root::ES_EXIT_REQUESTED);
+//		]
+  '	' 
+ %END-IF
+ //	}
+ '}'
+//	%f_dump_cpp_derrived_impl_cpp(%S)
+ [%f] dump_cpp_derrived_impl_cpp %( %S )% 
+//	%Sp
+ %S |p 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *47022CB8034Bfor470483F102AF*
+; // cpp
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor470483F102AF*
+//O %SN.h
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_h_header(%S)
+ [%f] h_header %( %S )% 
+//	%f_std_inc(%S)
+ [%f] std_inc %( %S )% 
+//	\#include [{%PS!=ServerLibrary}{"shared/CoreSrv/impl/Root_i/CorbaExecutorBase.h"}"shared/Core/impl/Root_i/ExecutorBase.h"]
+ '#include '
+ %IF ( ( %P |S ) %!= 'ServerLibrary' ) 
+  %ELSE
+   'shared/CoreSrv/impl/Root_i/CorbaExecutorBase.h' 
+  %THEN
+  'shared/Core/impl/Root_i/ExecutorBase.h' 
+ %END-IF
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)[%f_includes_by_contents(%S)
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% %IF-NOT-EMPTY
+  [%f] includes_by_contents %( %S )% 
+//	]<\#include %f_dump_include_path(%wL,%w)
+ %END-IF
+ %FOR '#include '
+  [%f] dump_include_path %( %w |L %, %w )% 
+//	>[{%S{need UC}=true}
+ %END-FOR
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+
+//	%U[{_CUSTOM_INCLUDES}
+  %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+  %END-IF
+ //	][
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	%S%f_open_ifdef()]%SP
+  %S %f open_ifdef %( )% 
+ %END-IF
+ %S |P 
+//	%f_docs(%S)
+ [%f] docs %( %S )% 
+//	class %SN :[{}{ virtual public [{%PS!=ServerLibrary}{CoreSrv::Root_i::Corba}Core::Root_i::]ExecutorBase }
+ 'class '
+ %S |N ' :'
+ %IF ( ) 
+  %ELSE
+   ' virtual public '
+   %IF ( ( %P |S ) %!= 'ServerLibrary' ) 
+    %ELSE
+     'CoreSrv::Root_i::Corba' 
+    %THEN
+    'Core::Root_i::' 
+   %END-IF
+   'ExecutorBase ' 
+  %THEN
+
+//		<{\n	, }virtual public %f_type(%R)>[{"%Rx"="true"}\n\t, ]<{\n	, }virtual public %f_type(%G)>
+  '	'
+  %FOR %ITEM-SEPARATOR #13#10'	, ' ; // %ITEM-SEPARATOR 
+   'virtual public '
+   [%f] type %( %R )% 
+  %END-FOR
+  %IF ( ( %R |x ) %== true ) 
+   #13#10#9', ' 
+  %END-IF
+  %FOR %ITEM-SEPARATOR #13#10'	, ' ; // %ITEM-SEPARATOR 
+   'virtual public '
+   [%f] type %( %G )% 
+  %END-FOR
+//	]{
+ %END-IF
+ '{'
+//		SET_OBJECT_COUNTER (%SN)		
+ '	SET_OBJECT_COUNTER ('
+ %S |N ')		'
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested declorations
+  '// nested declorations'
+//	protected:
+  'protected:'
+//	<{}{"%CC"="Class"}
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' ) 
+
+//	%CX
+   %C |X 
+//	>][
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods
+  '// static member methods'
+//	private:
+  'private:'
+//		REFCOUNT_SINGLETON(%SN)
+  '	REFCOUNT_SINGLETON('
+  %S |N ')'
+//	
+
+//	public:
+  'public:'
+//		static %SN& get () {
+  '	static '
+  %S |N '& get () {'
+//			return Singleton::instance();
+  '		return Singleton::instance();'
+//		}		
+  '	}		'
+//	
+
+//	[protected:<{}{"%CS"="static"&"%CV"!="PrivateAccess"}{Sn}
+  %IF-NOT-EMPTY
+   'protected:'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' %&& 
+     ( ( %C |V ) %!= 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][private:<{}{"%CS"="static"&"%CV"="PrivateAccess"}{Sn}
+  %END-IF
+  %IF-NOT-EMPTY
+   'private:'
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]]
+  %END-IF
+ %END-IF
+//	private:
+ 'private:'
+//		static void handle_control (int sig);
+ '	static void handle_control (int sig);'
+//		
+ '	'
+//		void execute_ ();	
+ '	void execute_ ();	'
+//		
+ '	'
+//		void finalize ();
+ '	void finalize ();'
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self methods
+  '// self methods'
+//	[protected:
+  %IF-NOT-EMPTY
+   'protected:'
+//	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"!="PrivateAccess"}{Sn}
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %!= 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	][private:
+  %END-IF
+  %IF-NOT-EMPTY
+   'private:'
+//	<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"&"%CV"="PrivateAccess"}{Sn}
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) %&& 
+     ( ( %C |V ) %== 'PrivateAccess'  ) ) 
+    ( 'Sn' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]][//////////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self data
+  '// self data'
+//	private:<{}{"%CC"="Attribute"}{Sn}
+  'private:'
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+   ( 'Sn' ) 
+
+//	%CX
+   %C |X 
+//	>][%f_dump_cpp_derrived_impl_h(%S)
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] dump_cpp_derrived_impl_h %( %S )% 
+//	]
+ %END-IF
+//	[{%S{need UC}=true}%U[
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  %U%IF-NOT-EMPTY
+
+//	]
+  %END-IF
+ //	]}; // class %SN
+ %END-IF
+ '}; // class '
+ %S |N 
+//	
+//	%Sp
+ %S |p 
+//	%f_h_footer(%S)
+ [%f] h_footer %( %S )% 
+//#UC END# *47022C88029Ffor470483F102AF*
+; // h
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for470483F102AF*
+//O %SN.java
+//P
+//	%f_output_constraint(%S)\
+ [%f] output_constraint %( %S )% 
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	%f_set_var(SELF,S)%f_set_var(SERV,S)
+ [%f] set_var %( 'SELF' %, 'S' )% [%f] set_var %( 'SERV' %, 'S' )% 
+//	package %f_dump_java_package(%S);
+ 'package '
+ [%f] dump_java_package %( %S )% ';'
+//	
+//	%f_dump_std_java_imports(%S)
+ [%f] dump_std_java_imports %( %S )% 
+//	
+//	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDES}
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  %U%IF ( '_CUSTOM_INCLUDES' ) 
+
+//	]
+  %END-IF
+ //	]public class %SN
+ %END-IF
+ 'public class '
+ %S |N 
+//		extends [{%PS!=ServerLibrary}{ru.garant.shared.CoreSrv.Root_i.Corba}ru.garant.shared.Core.Root_i].ExecutorBase]
+ '	extends '
+ %IF ( ( %P |S ) %!= 'ServerLibrary' ) 
+  %ELSE
+   'ru.garant.shared.CoreSrv.Root_i.Corba' 
+  %THEN
+  'ru.garant.shared.Core.Root_i' 
+ %END-IF
+ '.ExecutorBase]'
+//	[	implements <{\n	, }%f_type(%R)>
+ %IF-NOT-EMPTY
+  '	implements '
+  %FOR %ITEM-SEPARATOR #13#10'	, ' ; // %ITEM-SEPARATOR 
+   [%f] type %( %R )% 
+  %END-FOR
+//	]{
+ %END-IF
+ '{'
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// nested declorations
+  '// nested declorations'
+//	<{}{"%CC"="Class"}
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Class' ) 
+
+//	%CX
+   %C |X 
+//	>][
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// static member methods
+  '// static member methods'
+//		static class Singleton {
+  '	static class Singleton {'
+//			private static %SN INSTANCE = null;
+  '		private static '
+  %S |N ' INSTANCE = null;'
+//	
+
+//			public static %SN instance () {
+  '		public static '
+  %S |N ' instance () {'
+//				if (INSTANCE == null) {
+  '			if (INSTANCE == null) {'
+//					INSTANCE = new %SN ();
+  '				INSTANCE = new '
+  %S |N ' ();'
+//				}
+  '			}'
+//				return INSTANCE;
+  '			return INSTANCE;'
+//			}
+  '		}'
+//		}
+  '	}'
+//	
+
+//		static ru.garant.shared.Core.Root.Executor get () {
+  '	static ru.garant.shared.Core.Root.Executor get () {'
+//			return Singleton.instance();
+  '		return Singleton.instance();'
+//		}
+  '	}'
+//	
+
+//	[<{}{"%CS"="static"}
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'static' ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]]
+  %END-IF
+ %END-IF
+//		protected void executeImpl () {
+ '	protected void executeImpl () {'
+//			try {
+ '		try {'
+//				%U[
+ '			'
+ %U%IF-NOT-EMPTY
+
+//				System.out.println ("Hello world, this is %SN!");
+  '			System.out.println ("Hello world, this is '
+  %S |N '!");'
+//				]
+  '			' 
+ %END-IF
+ //				super.executeImpl ();
+ '			super.executeImpl ();'
+//			} catch (java.lang.Throwable ex) {
+ '		} catch (java.lang.Throwable ex) {'
+//				this.setCurrentStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_ERROR);
+ '			this.setCurrentStatus (ru.garant.shared.Core.Root.ExecutorStatus.ES_ERROR);'
+//				Logs.LOG_SEX(ex);
+ '			Logs.LOG_SEX(ex);'
+//			}
+ '		}'
+//		}
+ '	}'
+//	
+//		protected void finalize () {
+ '	protected void finalize () {'
+//			%U[{_FINI}
+ '		'
+ %U%IF ( '_FINI' ) 
+
+//			]
+  '		' 
+ %END-IF
+ //		}
+ '	}'
+//	[
+ %IF-NOT-EMPTY
+
+//	//////////////////////////////////////////////////////////////////////////////////////////
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self methods
+  '// self methods'
+//	[<{}{"%CC"="Operation"&"%CS"!="static"&"%CS"!="ctor"}
+  %IF-NOT-EMPTY
+   %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Operation' %&& 
+     ( ( %C |S ) %!= 'static'  ) %&& 
+     ( ( %C |S ) %!= 'ctor'  ) ) 
+
+//	%CX
+    %C |X 
+//	>
+   %END-FOR
+//	]][//////////////////////////////////////////////////////////////////////////////////////////
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+  '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// self data
+  '// self data'
+//	<{}{"%CC"="Attribute"}
+  %FOR %ITEM-CONDITION ( ( %C |C ) %== 'Attribute' ) 
+
+//	%CX
+   %C |X 
+//	>][%f_dump_java_derrived_impl(%S)
+  %END-FOR
+ %END-IF
+ %IF-NOT-EMPTY
+  [%f] dump_java_derrived_impl %( %S )% 
+//	]
+ %END-IF
+//	[{%S{need UC}=true}%U[
+ %IF ( ( %S get_up ( 'need UC' ) ) %==  true ) 
+  %U%IF-NOT-EMPTY
+
+//	]
+  %END-IF
+ //	]}; // class %SN
+ %END-IF
+ '}; // class '
+ %S |N 
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+//#UC END# *470321950119for470483F102AF*
+; // java
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: LibExecutor::Class::Attribute
+end. // <<LibExecutor>>
+
+implementation @ :: <<LibExecutor>> <<Attribute>> ;
+//? атрибут
+//= ClassBase::Class::Attribute
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: LibExecutor::Class::Operation
+; // st_space_key
+
+end. // :: <<LibExecutor>> <<Attribute>> ;
+
+implementation @ :: <<LibExecutor>> <<Operation>> ;
+//? метод
+//= ClassBase::Class::Operation
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: LibExecutor::Class::Operation::Parameter
+; // st_space_key
+
+end. // :: <<LibExecutor>> <<Operation>> ;
+
+implementation @ :: <<LibExecutor>> <<Operation>> ;
+//? Параметр операции
+//= ClassBase::Class::Operation::Parameter
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: LibExecutor::Class::uses::ClassDependency
+; // st_space_key
+
+end. // :: <<LibExecutor>> <<Operation>> ;
+
+implementation @ :: <<LibExecutor>> <<uses>> ;
+//? Использование
+//= UsesContainer::Class::uses::ClassDependency
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // st_space_key
+
+end. // :: <<LibExecutor>> <<uses>> ;
+

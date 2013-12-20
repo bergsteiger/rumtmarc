@@ -1,0 +1,75 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Предыдущая серия "потока сознания была тут" -&nbsp;<a href="http://programmingmindstream.blogspot.ru/2013/11/blog-post.html">http://programmingmindstream.blogspot.ru/2013/11/blog-post.html</a><br />
+<br />
+Продолжу.<br />
+<br />
+Пока не забыл.<br />
+<br />
+Опять же о "линейности" и "читаемости человеком".<br />
+<br />
+Пусть нам в каком-то тесте надо поработать с состоянием системы с пользовательской настройкой <b>отличной</b> от умолчания.<br />
+<br />
+Первое что приходит на ум это примерно следующее:<br />
+<br />
+<pre class="brush:delphi">var
+ SomeSettingValue : Value;
+...
+ SomeSettingValue := System.GetValue('SomeSetting');
+ DoOurWork;
+ System.SetValue('SomeSetting', SomeSettingValue );
+</pre>
+- ну что сказать? А если тест упадёт? Всё? Система окажется в нестабильном состоянии?
+
+Ну "решение на поверхности" такое:
+<br />
+<pre class="brush:delphi">var
+ SomeSettingValue : Value;
+...
+ SomeSettingValue := System.GetValue('SomeSetting');
+ try
+  System.SetValue('SomeSetting', SomeNewSettingValue);
+  DoOurWork;
+ finally
+  System.SetValue('SomeSetting', SomeSettingValue );
+ end;
+</pre>
+<br />
+- оно конечно лучше.<br />
+<br />
+Но по-моему это то самый случай, когда "за деревьями скрывается лес".<br />
+<br />
+Все эти try..finally явно не повышают читабельность.<br />
+<br />
+Для человека, который должен мочь "читать тест" и "воспринимать его как тест-кейс".<br />
+<br />
+"Хорошее" решение, как мне кажется выглядит примерно так:
+
+<br />
+<br />
+<pre class="brush:delphi"> TemporaryChangedSystemStateFor('SomeSettingValue', SomeNewSettingValue, DoOurWork);
+</pre>
+<br />
+Ну или "по-русски":
+
+<br />
+<br />
+<pre class="brush:delphi"> "Для шрифта системы в {(20px)}" "Построить предварительный просмотр и сравнить с эталоном" 
+</pre>
+<br />
+Опять же - разница вроде бы невелика. Тонкая грань. Вкусовщина.<br />
+<br />
+Но! С одной стороны мы обеспечиваем <b>стабильность</b> автоматических тестов, а с другой стороны мы не перегружаем человека читающего это лишней информацией.<br />
+<br />
+Если человек читает первоначальный вариант и выполняет тест, то он вроде бы как <b>обязан</b> - вернуть все настройки в исходное состояние.<br />
+<br />
+А если он руками дальше не будет ничего тестировать? Зачем ему это?<br />
+<br />
+А если <b>будет</b>, то там есть - "подсказка".<br />
+<br />
+Но именно - <b>подсказка</b>, а не <b>побуждение</b> к действию.<br />
+<br />
+Ну вот как-то так мне кажется.<br />
+<br />
+Опять же - ни на чём - не настаиваю.<br />
+<br />
+<br /></div>

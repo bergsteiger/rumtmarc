@@ -1,0 +1,503 @@
+<html>
+<style type="text/css">
+body {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.50 in;
+text-align: justify;
+}
+pre {
+margin: 0; margin-left: 0 in;text-indent : 0 in;text-align: left;
+}
+td {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: justify;
+font-family : Arial;
+}
+p {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.50 in;
+text-align: justify;
+}
+.ColorSelection {
+font-weight: Bold;
+color: #26282F;
+}
+a {
+color: #106BBE;
+}
+h1 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+h2 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+h3 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+h4 {
+font-weight: Bold;
+font-family:  Arial;
+font-size: 13pt;
+color: #26282F;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: center;
+}
+.ArticleHeader {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+margin-left: 1.12 in;
+text-indent : -0.62 in;
+text-align: justify;
+}
+.NormalNote {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+margin-left: 0.12 in;
+margin-right: 0.12 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.TxtComment {
+background-color: #F0F0F0;
+font-family:  Arial;
+font-size: 13pt;
+color: #353842;
+margin: 0 in;
+margin-left: 0.12 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.VersionInfo {
+font-style: Italic;
+background-color: #F0F0F0;
+font-family:  Arial;
+font-size: 13pt;
+color: #353842;
+margin: 0 in;
+margin-left: 0.12 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.NormalSBSLeft {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.HFLeft {
+font-family:  Arial;
+font-size: 8pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.NormalSBSRight {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: right;
+}
+.HFRight {
+font-family:  Arial;
+font-size: 8pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: right;
+}
+.UserComment {
+background-color: #FFDFE0;
+font-family:  Arial;
+font-size: 13pt;
+color: #353842;
+margin: 0 in;
+margin-left: 0.12 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.ANSIDOS {
+font-family:  Courier New;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+}
+.FoundWords {
+background-color: #FFF580;
+}
+.NotApplied {
+background-color: #D8EDE8;
+color: #000000;
+}
+.NormalTable {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.NormalOEM {
+font-family:  Courier New;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+}
+.Contents {
+font-family:  Courier New;
+font-size: 13pt;
+margin: 0 in;
+margin-left: 0.10 in;
+text-indent : 0.00 in;
+}
+.ToLeft {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.HyperLinkCont {
+color: #106BBE;
+}
+.DictEntry {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+margin-right: 0.08 in;
+text-indent : 0.00 in;
+text-align: justify;
+}
+.NormalTableList {
+font-family:  Arial;
+font-size: 13pt;
+margin: 0 in;
+text-indent : 0.35 in;
+text-align: justify;
+}
+.TechComment {
+background-color: #FFFFA6;
+font-family:  Arial;
+font-size: 13pt;
+color: #463F31;
+margin: 0 in;
+text-indent : 0.00 in;
+text-align: left;
+}
+.TxtOutOfDate {
+color: #666600;
+text-decoration: line-through;
+}
+</style>
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<META NAME="Generator" CONTENT="ГАРАНТ аэро">
+<HEAD>
+<TITLE></TITLE>
+</HEAD>
+<body>
+<a name="0"></a>
+<p>Это блок 100 со всякими ссылками</p>
+<pre>&nbsp;</pre>
+<p>Ссылка на ААК-текст. Просто текст. Просто текст.</p>
+<pre>&nbsp;</pre>
+<p>Просто текст. Ссылка на обычный топик. Просто текст.</p>
+<pre>&nbsp;</pre>
+<p>Просто текст. Просто текст. Ссылка на ААК-текст.</p>
+<pre>&nbsp;</pre>
+<p>Ссылка на ААК-текст. Просто текст. Ссылка на обычный топик.</p>
+<pre>&nbsp;</pre>
+<p><a href="#3">Ссылка на другой правый блок (3 &quot;Налоги и взносы&quot;) в ААК-Содержании</a></p>
+<pre>&nbsp;</pre>
+<p>Ссылка на ААК-текст с новыми стилями (#70 - 73 в style). 57976253</p>
+<pre>&nbsp;</pre>
+<p>Ссылка на ААК-текст с новыми стилями (#45 - 48, 50 в style). 57938916</p>
+<pre>&nbsp;</pre>
+<p><font class="ColorSelection">Далее ссылки на ААК-тексты, в которых есть блоки с новыми стилями (параметр syle= в команде BlockData)</font></p>
+<pre>&nbsp;</pre>
+<p>Стиль &quot;Внимание&quot; (68) 57974200.3</p>
+<pre>&nbsp;</pre>
+<p>Стиль &quot;Пример&quot; (50) 57974200.4</p>
+<p class="TxtComment">ГАРАНТ:</p>
+<p class="TxtComment">Обратите внимание на то, что эти стили идут подряд. Без пустой строки между ними в nsr. По ТЗ в оболочке между ними должна показываться пустая строка.</p>
+<pre>&nbsp;</pre>
+<p>Стиль &quot;Примечание&quot; (49) 57976026.3</p>
+<pre>&nbsp;</pre>
+<p><font class="ColorSelection">Далее просто параграфы со стилями (# в команде style):</font></p>
+<pre>&nbsp;</pre>
+<p>стиль номер 70. Никакого другого выделения нет.</p>
+<pre>&nbsp;</pre>
+<p>стиль номер 71 Никакого другого выделения нет.</p>
+<pre>&nbsp;</pre>
+<p>стиль номер 72 Никакого другого выделения нет.</p>
+<pre>&nbsp;</pre>
+<p>стиль номер 73 Никакого другого выделения нет.</p>
+<pre>&nbsp;</pre>
+<p>Стиль номер 45 (&quot;Необходимые документы&quot;). Этот и следующий параграфы (с пустыми строками и таблицей между параграфами в NSR). В этом параграфе нет никакого выделения. </p>
+<pre>&nbsp;</pre>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p>Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p>Картинка, встроенная в параграф: <img src = "pict0-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p>Вместе с заявлением должны быть представлены документы, подтверждающие право состоять на учете нуждающихся в жилье. К заявлению могут прилагаться: Тут ссылка на УК.</p>
+<p>Стиль номер 46 (&quot;Куда обратиться?&quot;). Этот и следующий параграфы (с пустой строкой между параграфами в NSR) и таблица. В NSR между параграфом и таблицей нет пустой строки. В этом параграфе нет никакого выделения.</p>
+<pre>&nbsp;</pre>
+<p>Тут ссылка на УК. Встать на учет в качестве нуждающихся в жилье граждан можно в органе местного самоуправления по месту жительства, подав соответствующее заявление. Законодательством предусмотрены случаи, когда заявление можно подать и не по месту своего жительства.</p>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p>Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p>Картинка, встроенная в параграф: <img src = "pict1-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<p>Стиль номер 47 (&quot;Внимание: недобросовестность!&quot;). Этот и следующий параграфы (с пустой строкой между параграфами в NSR) и таблица. В этом параграфе нет никакого выделения.</p>
+<pre>&nbsp;</pre>
+<p>Большая часть операций с недвижимостью осуществляется с непосредственным участием посредников - риэлтерских компаний и отдельных риэлтеров. Тут ссылка на УК. Мошенники, действующие под видом риэлтеров, часто используют различные схемы-прикрытия для совершения противоправных действий с целью обмана граждан, участвующих в приобретении жилья.</p>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p>Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p>Картинка, встроенная в параграф: <img src = "pict2-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<p>Стиль номер 48 (&quot;Внимание: криминал!!&quot;). Этот и следующий параграфы (без пустой строки между параграфами в NSR) и таблица. В этом параграфе нет никакого выделения. В следующем параграфе есть цветовое выделение синим жирным. </p>
+<p>При совершении сделки с жильем существует опасность столкнуться с <font class="ColorSelection">фирмой-однодневкой</font>, сама цель создания которой - обман клиента. Получив от клиента деньги (в размере комиссионных, залога или полной стоимости квартиры), мошенники присваивают их и скрываются. Тут ссылка на УК.</p>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p>Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p>Картинка, встроенная в параграф: <img src = "pict3-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<p>Стиль номер 49 (&quot;Примечание&quot;). Этот и следующий параграфы (с тремя пустыми строками между параграфами в NSR) и таблица. В этом параграфе нет никакого выделения.</p>
+<pre>&nbsp;</pre>
+<pre>&nbsp;</pre>
+<p>В остальных случаях обнаружения неучтенных в прошлых периодах доходов, если период получения Тут ссылка на УК. такого дохода известен, то перерасчет производится за тот период, в котором допущена ошибка (искажение) в определении налоговой базы.</p>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p>Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p>Картинка, встроенная в параграф: <img src = "pict4-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<p>Стиль номер 50 (&quot;Пример&quot;). Этот и следующий параграфы (с пустой строкой между параграфами в NSR). И таблица. В этом параграфе нет никакого выделения.</p>
+<pre>&nbsp;</pre>
+<p>Ребенок был зарегистрирован в квартире вместе с родителями. Впоследствии родители были лишены родительских прав, а ребенку был назначен опекун - его дядя, к которому он переехал жить. Тут ссылка на УК. Однако при этом ребенок сохранил право пользования квартирой, в которой проживал вместе с родителями. После 18 лет он подал в суд иск о принудительном обмене квартиры. Суд иск удовлетворил.</p>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p>Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p>Картинка, встроенная в параграф: <img src = "pict5-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<p>Стиль номер 68 (&quot;Внимание&quot;). Этот и следующий параграфы (с пустой строкой между параграфами в NSR). И таблица. В этом параграфе нет никакого выделения.</p>
+<pre>&nbsp;</pre>
+<p>Ребенок был зарегистрирован в квартире вместе с родителями. Впоследствии родители были лишены родительских прав, а ребенку был назначен опекун - его дядя, к которому он переехал жить. Тут ссылка на УК. Однако при этом ребенок сохранил право пользования квартирой, в которой проживал вместе с родителями. После 18 лет он подал в суд иск о принудительном обмене квартиры. Суд иск удовлетворил.</p>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p>Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p>Картинка, встроенная в параграф: <img src = "pict6-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p><font class="ColorSelection">Далее вложенные блоки 145 - 150 и 168. С соответствующими стилями (параметр syle= в команде BlockData). Сделаны потому, что встроенная картинка &quot;см. графический объект&quot; не может быть в параграфе со стилем (# в команде style)</font></p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Блок 145. Стиль 45 &quot;Необходимые документы&quot;. Между параграфами в блоке есть пустые строки.</p>
+<pre>&nbsp;</pre>
+<img src = "pict7-58070000.png">
+<pre>&nbsp;</pre>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Картинка, встроенная в параграф: <img src = "pict8-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Между этим блоком и следующим (номер 1450, стиль=45) в nsr нет пустой строки.</p>
+<p class="DictEntry">Блок 1450. Стиль 45 &quot;Необходимые документы&quot;. Между параграфами в блоке есть пустые строки. </p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Между этим блоком и следующим (номер 146, стиль=46) в nsr нет пустой строки.</p>
+<p class="DictEntry">Блок 146. Стиль 46 Куда обратиться? В блоке нет пустых строк.</p>
+<img src = "pict9-58070000.png">
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Картинка, встроенная в параграф: <img src = "pict10-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<p class="DictEntry">Между этим блоком и следующим (номер 147, стиль=47) в nsr есть пустая строка.</p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Блок 147. Стиль 47 Внимание недобросовестность! Между параграфами в блоке есть пустые строки.</p>
+<pre>&nbsp;</pre>
+<img src = "pict11-58070000.png">
+<pre>&nbsp;</pre>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Картинка, встроенная в параграф: <img src = "pict12-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Между этим блоком и следующим (номер 148, стиль=48) в nsr есть пустая строка.</p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Блок 148. Стиль 48 Внимание криминал! Между параграфами в блоке есть пустые строки.</p>
+<pre>&nbsp;</pre>
+<img src = "pict13-58070000.png">
+<pre>&nbsp;</pre>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Картинка, встроенная в параграф: <img src = "pict14-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Между этим блоком и следующим (номер 149, стиль=49) в nsr есть пустая строка.</p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Блок 149. Стиль 49 Примечание. Между параграфами в блоке есть пустые строки.</p>
+<pre>&nbsp;</pre>
+<img src = "pict15-58070000.png">
+<pre>&nbsp;</pre>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Картинка, встроенная в параграф: <img src = "pict16-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Между этим блоком и следующим (номер 150, стиль=50) в nsr есть пустая строка.</p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Блок 150. Стиль 50 Пример. Между параграфами в блоке есть пустые строки.</p>
+<pre>&nbsp;</pre>
+<img src = "pict17-58070000.png">
+<pre>&nbsp;</pre>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Картинка, встроенная в параграф: <img src = "pict18-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p class="DictEntry">тут конец блока 150</p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Блок 168. Стиль 68 &quot;Внимание!&quot;. Между параграфами в блоке есть пустые строки.</p>
+<pre>&nbsp;</pre>
+<img src = "pict19-58070000.png">
+<pre>&nbsp;</pre>
+<table border="1">
+ <tr>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Формула: *</p>
+</th>
+<th VALIGN="TOP" width="340">
+<p class="DictEntry">Картинка, встроенная в параграф: <img src = "pict20-58070000.jpg">
+</p>
+</th>
+</tr>
+</table>
+<pre>&nbsp;</pre>
+<p class="DictEntry">тут конец блока 168</p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Ссылка на ААК-текст (57970004). В этом ААК-тексте также есть все стили, представленные в данном блоке (57970000.100).</p>
+<pre>&nbsp;</pre>
+<p style = "{text-indent : 0.50 in;text-align=justify;}">Ссылка на топик 2233 (PREFIX Формы документов, SOURCE Компания &quot;Гарант&quot;)</p>
+<pre>&nbsp;</pre>
+<p style = "{text-indent : 0.50 in;text-align=justify;}">Мультиссылка на топики 2234 и 2235 (PREFIX Формы документов, SOURCE Компания &quot;Гарант&quot;)</p>
+<pre>&nbsp;</pre>
+<p style = "{text-indent : 0.50 in;text-align=justify;}">Ссылка на топик 2239 (SOURCE Служба Правового консалтинга ГАРАНТ)</p>
+<pre>&nbsp;</pre>
+<p style = "{text-indent : 0.50 in;text-align=justify;}">Мультиссылка на топики 2240 и 2241 (SOURCE Служба Правового консалтинга ГАРАНТ)</p>
+<pre>&nbsp;</pre>
+<p class="DictEntry">Тут конец блока 100 и топика 57970000.</p>
+</body>
+</html>
+

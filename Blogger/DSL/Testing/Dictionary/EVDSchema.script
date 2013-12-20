@@ -1,0 +1,561 @@
+// !!! Это автосгенерированный файл. Не добавляйте сюда ничего руками !!!
+
+// Идентификаторы атрибутов
+
+CONST evd::ti_Handle 0
+CONST evd::ti_ShortName 1
+CONST evd::ti_ExternalHandle 2
+CONST evd::ti_InternalHandle 3
+CONST evd::ti_MDPPageID 4
+CONST evd::ti_NameComment 5
+CONST evd::ti_Name 6
+CONST evd::ti_Pitch 7
+CONST evd::ti_Size 8
+CONST evd::ti_Bold 9
+CONST evd::ti_Italic 10
+CONST evd::ti_Underline 11
+CONST evd::ti_Strikeout 12
+CONST evd::ti_ForeColor 13
+CONST evd::ti_BackColor 14
+CONST evd::ti_Index 15
+CONST evd::ti_CodePage 16
+CONST evd::ti_FontParamRsr1 17
+CONST evd::ti_FontParamRsr2 18
+CONST evd::ti_FontParamRsr3 19
+CONST evd::ti_FontParamRsr4 20
+CONST evd::ti_Font 21
+CONST evd::ti_Style 22
+CONST evd::ti_Visible 23
+CONST evd::ti_Segments 24
+CONST evd::ti_Frame 25
+CONST evd::ti_FrameUp 26
+CONST evd::ti_FrameDown 27
+CONST evd::ti_FrameLeft 28
+CONST evd::ti_FrameRight 29
+CONST evd::ti_Orientation 30
+CONST evd::ti_Width 31
+CONST evd::ti_Height 32
+CONST evd::ti_FirstIndent 33
+CONST evd::ti_LeftIndent 34
+CONST evd::ti_Justification 35
+CONST evd::ti_FixedHeight 36
+CONST evd::ti_PercentSign 37
+CONST evd::ti_RightIndent 38
+CONST evd::ti_FirstLineIndent 39
+CONST evd::ti_SpaceBefore 40
+CONST evd::ti_SpaceAfter 41
+CONST evd::ti_Collapsed 42
+CONST evd::ti_Paras 43
+CONST evd::ti_Subs 44
+CONST evd::ti_IsActive 45
+CONST evd::ti_StrParamRsr2 46
+CONST evd::ti_StrParamRsr3 47
+CONST evd::ti_StrParamRsr4 48
+CONST evd::ti_CaseDocParticipants 49
+CONST evd::ti_Apply2Para 50
+CONST evd::ti_StyleParamRsr1 51
+CONST evd::ti_IsChangeableFont 52
+CONST evd::ti_VisibleToUser 53
+CONST evd::ti_LineSpacing 54
+CONST evd::ti_HeaderHasOwnSpace 55
+CONST evd::ti_Start 56
+CONST evd::ti_Finish 57
+CONST evd::ti_BaseLine 58
+CONST evd::ti_SegmentParamRsr2 59
+CONST evd::ti_SegmentParamRsr3 60
+CONST evd::ti_SegmentParamRsr4 61
+CONST evd::ti_SegmentParamRsr5 62
+CONST evd::ti_Text 63
+CONST evd::ti_OldChildren 64
+CONST evd::ti_IsPeriodic 65
+CONST evd::ti_LineType 66
+CONST evd::ti_Loaded 67
+CONST evd::ti_AlternateText 68
+CONST evd::ti_MaxTextLength 69
+CONST evd::ti_PrintFontSize 70
+CONST evd::ti_TextRsr4 71
+CONST evd::ti_TextRsr5 72
+CONST evd::ti_TextRsr6 73
+CONST evd::ti_TextRsr7 74
+CONST evd::ti_TextRsr8 75
+CONST evd::ti_TextRsr9 76
+CONST evd::ti_MaxSubID 77
+CONST evd::ti_HasAnno 78
+CONST evd::ti_Zoom 79
+CONST evd::ti_NoCompare 80
+CONST evd::ti_OldNSRC 81
+CONST evd::ti_Language 82
+CONST evd::ti_DPI 83
+CONST evd::ti_Urgency 84
+CONST evd::ti_FixedWidth 85
+CONST evd::ti_AllowHyphen 86
+CONST evd::ti_VerticalAligment 87
+CONST evd::ti_Groups 88
+CONST evd::ti_Sources 89
+CONST evd::ti_Types 90
+CONST evd::ti_Classes 91
+CONST evd::ti_KeyWords 92
+CONST evd::ti_Warnings 93
+CONST evd::ti_Type 94
+CONST evd::ti_UserType 95
+CONST evd::ti_User 96
+CONST evd::ti_DocID 97
+CONST evd::ti_SubID 98
+CONST evd::ti_Number 99
+CONST evd::ti_Comment 100
+CONST evd::ti_NumANDDates 101
+CONST evd::ti_LogRecords 102
+CONST evd::ti_Stages 103
+CONST evd::ti_Checks 104
+CONST evd::ti_Source 105
+CONST evd::ti_SortDate 106
+CONST evd::ti_ActiveIntervals 107
+CONST evd::ti_RelExternalHandle 108
+CONST evd::ti_Priority 109
+CONST evd::ti_PublishedIn 110
+CONST evd::ti_Prefix 111
+CONST evd::ti_Territory 112
+CONST evd::ti_Alarms 113
+CONST evd::ti_Norm 114
+CONST evd::ti_ExternalPath 115
+CONST evd::ti_LinkedDocuments 116
+CONST evd::ti_Flags 117
+CONST evd::ti_Object 118
+CONST evd::ti_Bitmap 119
+CONST evd::ti_PriceLevel 120
+CONST evd::ti_URL 121
+CONST evd::ti_Headers 122
+CONST evd::ti_Footers 123
+CONST evd::ti_MergeStatus 124
+CONST evd::ti_AccGroups 125
+CONST evd::ti_RelInternalHandle 126
+CONST evd::ti_AutoClasses 127
+CONST evd::ti_Weight 128
+CONST evd::ti_InternalVerLink 129
+CONST evd::ti_ExternalVerLink 130
+CONST evd::ti_AnnoClasses 131
+CONST evd::ti_Bullet 132
+CONST evd::ti_Time 133
+CONST evd::ti_TabStops 134
+CONST evd::ti_Revision 135
+CONST evd::ti_ContentsLevel6 136
+CONST evd::ti_ContentsLevel5 137
+CONST evd::ti_Pages 138
+CONST evd::ti_LinkComment 139
+CONST evd::ti_Private 140
+CONST evd::ti_Value 141
+CONST evd::ti_Enabled 142
+CONST evd::ti_Valid 143
+CONST evd::ti_Upper 144
+CONST evd::ti_StateIndex 145
+CONST evd::ti_Flat 146
+CONST evd::ti_ImageIndex 147
+CONST evd::ti_Script 148
+CONST evd::ti_CardType 149
+CONST evd::ti_ReqID 150
+CONST evd::ti_Required 151
+CONST evd::ti_NumList 152
+CONST evd::ti_InternalNextVerLink 153
+CONST evd::ti_FilterType 154
+CONST evd::ti_ModelControl 155
+CONST evd::ti_Multy 156
+CONST evd::ti_ReqKind 157
+CONST evd::ti_SysLogRecords 158
+CONST evd::ti_Versions 159
+CONST evd::ti_ExternalNextVerLink 160
+CONST evd::ti_ServiceInfo 161
+CONST evd::ti_InContents 162
+CONST evd::ti_CompareContentsLevel 163
+CONST evd::ti_ViewKind 164
+CONST evd::ti_LinkAddress 165
+CONST evd::ti_Children 166
+CONST evd::ti_Formatted 167
+CONST evd::ti_LimitWidth 168
+CONST evd::ti_DeltaX 169
+CONST evd::ti_DeltaY 170
+CONST evd::ti_Map 171
+CONST evd::ti_MaxHyperlinkHandle 172
+CONST evd::ti_ExcludeSuper 173
+CONST evd::ti_LayerID 174
+CONST evd::ti_StateCount 175
+CONST evd::ti_AllChildrenCount 176
+CONST evd::ti_Rubber 177
+CONST evd::ti_NodeVisibleIndex 178
+CONST evd::ti_DefaultText 179
+CONST evd::ti_DefaultNode 180
+CONST evd::ti_Modified 181
+CONST evd::ti_Operations 182
+
+// Идентификаторы типов
+
+CONST evd::id_Empty 0
+CONST evd::id_Long 1
+CONST evd::id_Enum 2
+CONST evd::id_Bool 3
+CONST evd::id_Color 4
+CONST evd::id_String 5
+CONST evd::id_Object 6
+CONST evd::id_Justification 7
+CONST evd::id_Rsr2 8
+CONST evd::id_l3Base 9
+CONST evd::id_Tag 10
+CONST evd::id_DocumentSub 11
+CONST evd::id_Segment 12
+CONST evd::id_TextSegment 13
+CONST evd::id_HyperLink 14
+CONST evd::id_Sub 15
+CONST evd::id_List 16
+CONST evd::id_SubLayer 17
+CONST evd::id_DocSubLayer 18
+CONST evd::id_SegmentsLayer 19
+CONST evd::id_Document 20
+CONST evd::id_Para 21
+CONST evd::id_TextPara 22
+CONST evd::id_ParaList 23
+CONST evd::id_Table 24
+CONST evd::id_SBS 25
+CONST evd::id_TableRow 26
+CONST evd::id_TableColumn 27
+CONST evd::id_Handle 28
+CONST evd::id_Inch 29
+CONST evd::id_OList 30
+CONST evd::id_Position 31
+CONST evd::id_ObjectWithHandle 32
+CONST evd::id_SgLHandle 33
+CONST evd::id_SbLHandle 34
+CONST evd::id_FontName 35
+CONST evd::id_Font 36
+CONST evd::id_PercentSign 37
+CONST evd::id_Style 38
+CONST evd::id_TextStyle 39
+CONST evd::id_FramePart 40
+CONST evd::id_Frame 41
+CONST evd::id_Rsr3 42
+CONST evd::id_Rsr4 43
+CONST evd::id_Reserved6 44
+CONST evd::id_Reserved2 45
+CONST evd::id_NodeGroup 46
+CONST evd::id_Cloak 47
+CONST evd::id_DictEntryBlock 48
+CONST evd::id_DictEntry 49
+CONST evd::id_Block 50
+CONST evd::id_ObjectSegment 51
+CONST evd::id_SimpleDocumentTextPara 52
+CONST evd::id_TableTextPara 53
+CONST evd::id_AnnoTopic 54
+CONST evd::id_ReqGroup 55
+CONST evd::id_TextRsr4 56
+CONST evd::id_TextRsr5 57
+CONST evd::id_TextRsr6 58
+CONST evd::id_TextRsr7 59
+CONST evd::id_TextRsr8 60
+CONST evd::id_TextRsr9 61
+CONST evd::id_TextRsr10 62
+CONST evd::id_TextRsr11 63
+CONST evd::id_TextRsr12 64
+CONST evd::id_TextRsr13 65
+CONST evd::id_TextRsr14 66
+CONST evd::id_TextRsr15 67
+CONST evd::id_TextRsr16 68
+CONST evd::id_TextRsr17 69
+CONST evd::id_TextRsr18 70
+CONST evd::id_TextRsr19 71
+CONST evd::id_DecorTextPara 72
+CONST evd::id_DictItem 73
+CONST evd::id_DictRec 74
+CONST evd::id_Date 75
+CONST evd::id_Type 76
+CONST evd::id_Address 77
+CONST evd::id_LogRecord 78
+CONST evd::id_StagePrim 79
+CONST evd::id_Stage 80
+CONST evd::id_Check 81
+CONST evd::id_NumANDDate 82
+CONST evd::id_TinyDocument 83
+CONST evd::id_ActiveInterval 84
+CONST evd::id_Alarm 85
+CONST evd::id_AutoClass 86
+CONST evd::id_DictItemEx 87
+CONST evd::id_PIRec 88
+CONST evd::id_NSRCTag 89
+CONST evd::id_Participant 90
+CONST evd::id_NSRCRsr0 91
+CONST evd::id_NSRCRsr1 92
+CONST evd::id_NSRCRsr2 93
+CONST evd::id_NSRCRsr3 94
+CONST evd::id_NSRCEnd 95
+CONST evd::id_RawData 96
+CONST evd::id_BitmapPara 97
+CONST evd::id_IUnknown 98
+CONST evd::id_HFParent 99
+CONST evd::id_Header 100
+CONST evd::id_Footer 101
+CONST evd::id_Division 102
+CONST evd::id_PageBreak 103
+CONST evd::id_SectionBreak 104
+CONST evd::id_SimpleDocument 105
+CONST evd::id_PageProperties 106
+CONST evd::id_TreePara 107
+CONST evd::id_SBSRow 108
+CONST evd::id_SBSCell 109
+CONST evd::id_Formula 110
+CONST evd::id_Bullet 111
+CONST evd::id_LogRecordPrim 112
+CONST evd::id_Time 113
+CONST evd::id_TabStop 114
+CONST evd::id_Bookmark 115
+CONST evd::id_Mark 116
+CONST evd::id_LeafPara 117
+CONST evd::id_StyledLeafPara 118
+CONST evd::id_ControlPara 119
+CONST evd::id_CommentPara 120
+CONST evd::id_ControlsBlock 121
+CONST evd::id_XML 122
+CONST evd::id_XMLTag 123
+CONST evd::id_TagName 124
+CONST evd::id_Attr 125
+CONST evd::id_AttrName 126
+CONST evd::id_AttrValue 127
+CONST evd::id_TagBody 128
+CONST evd::id_QueryCard 129
+CONST evd::id_ReqRow 130
+CONST evd::id_ReqCell 131
+CONST evd::id_ExtDataPara 132
+CONST evd::id_ContentsElement 133
+CONST evd::id_LeafParaDecorationsHolder 134
+CONST evd::id_AutoreferatDocument 135
+CONST evd::id_Version 136
+CONST evd::id_ImageListBitmap 137
+
+// Идентификаторы стилей
+
+CONST evd::sa_ActiveHyperlink -39
+// Активная гиперссылка
+CONST evd::sa_Attention -68
+// Внимание
+CONST evd::sa_HLE4 -48
+// Внимание: криминал!!
+CONST evd::sa_HLE3 -47
+// Внимание: недобросовестность!
+CONST evd::sa_ColorSelectionForBaseSearch -51
+// Выделение для Базового Поиска
+CONST evd::sa_ItalicColorSelectionForBaseSearch -53
+// Выделение для Базового Поиска (курсив)
+CONST evd::sa_HyperLink -8
+// Гипертекстовая ссылка
+CONST evd::sa_AddedText -41
+// Добавленный текст
+CONST evd::sa_Snippet -75
+// Дочерний элемент списка
+CONST evd::sa_MainMenuHeader -33
+// Заголовок *
+CONST evd::sa_TxtHeader1 -3
+// Заголовок 1
+CONST evd::sa_TxtHeader2 -4
+// Заголовок 2
+CONST evd::sa_TxtHeader3 -5
+// Заголовок 3
+CONST evd::sa_TxtHeader4 -6
+// Заголовок 4
+CONST evd::sa_ControlsBlockHeader -58
+// Заголовок группы контролов
+CONST evd::sa_NodeGroupHeader -66
+// Заголовок группы редакций
+CONST evd::sa_HeaderForChangesInfo -54
+// Заголовок для информации об изменениях
+CONST evd::sa_ChatHeaderRecipient -44
+// Заголовок полученного сообщения
+CONST evd::sa_EnclosureHeader -37
+// Заголовок приложения
+CONST evd::sa_CloakHeader -59
+// Заголовок распахивающейся части диалога
+CONST evd::sa_ChatHeaderSender -43
+// Заголовок собственного сообщения
+CONST evd::sa_ArticleHeader -15
+// Заголовок статьи
+CONST evd::sa_HeaderAACLeftWindow -71
+// Заголовок ЭР (левое окно)
+CONST evd::sa_HeaderAACRightWindow -72
+// Заголовок ЭР (правое окно)
+CONST evd::sa_MainMenuInteractiveHeader -34
+// Интерактивный заголовок
+CONST evd::sa_EditionInterval -63
+// Интервал действия редакции
+CONST evd::sa_Interface -38
+// Интерфейс
+CONST evd::sa_VersionInfo -22
+// Информация о версии
+CONST evd::sa_ChangesInfo -52
+// Информация об изменениях
+CONST evd::sa_HFLeft -27
+// Колонтитул (левый)
+CONST evd::sa_HFRight -28
+// Колонтитул (правый)
+CONST evd::sa_TxtComment -9
+// Комментарий
+CONST evd::sa_UserComment -23
+// Комментарий пользователя
+CONST evd::sa_HLE2 -46
+// Куда обратиться?
+CONST evd::sa_ANSIDOS -12
+// Моноширинный
+CONST evd::sa_FoundWords -13
+// Найденные слова
+CONST evd::sa_WriteToUs -69
+// Напишите нам
+CONST evd::sa_NotApplied -25
+// Не вступил в силу
+CONST evd::sa_HLE1 -45
+// Необходимые документы
+CONST evd::sa_EditionNumber -65
+// Номер редакции
+CONST evd::sa_NormalTable -17
+// Нормальный (таблица)
+CONST evd::sa_Object -35
+// Объект
+CONST evd::sa_Contents -24
+// Оглавление
+CONST evd::sa_Mistake -36
+// Опечатки
+CONST evd::sa_MainMenu -29
+// Основное меню (преемственное)
+CONST evd::sa_MainMenuChangePath -32
+// Переменная часть
+CONST evd::sa_FooterForChangesInfo -55
+// Подвал для информации об изменениях
+CONST evd::sa_SubHeaderForChangesInfo -57
+// Подзаголовок для информации об изменениях
+CONST evd::sa_UnderlinedText -61
+// Подчёркнуный текст
+CONST evd::sa_MainMenuConstPath -31
+// Постоянная часть *
+CONST evd::sa_ToLeft -16
+// Прижатый влево
+CONST evd::sa_HLE6 -50
+// Пример.
+CONST evd::sa_HLE5 -49
+// Примечание.
+CONST evd::sa_HyperLinkCont -11
+// Продолжение ссылки
+CONST evd::sa_Edition -64
+// Редакция
+CONST evd::sa_DictEntry -26
+// Словарная статья
+CONST evd::sa_LinkToPublication -60
+// Ссылка на официальную публикацию
+CONST evd::sa_TOC -67
+// Структура документа
+CONST evd::sa_TxtNormalOEM -2
+// Таблицы (моноширинный)
+CONST evd::sa_TxtNormalANSI -1
+// Текст
+CONST evd::sa_NormalSBSLeft -18
+// Текст (лев. подпись)
+CONST evd::sa_NormalSBSRight -19
+// Текст (прав. подпись)
+CONST evd::sa_NormalNote -14
+// Текст (справка)
+CONST evd::sa_NormalTableList -20
+// Текст в таблице
+CONST evd::sa_Dialogs -62
+// Текст диалогов
+CONST evd::sa_TextForChangesInfo -56
+// Текст информации об изменениях
+CONST evd::sa_TxtNormalAACSeeAlso -70
+// Текст ЭР (см. также)
+CONST evd::sa_TechComment -21
+// Технический комментарий
+CONST evd::sa_DeletedText -42
+// Удалённый текст
+CONST evd::sa_TxtOutOfDate -7
+// Утратил силу
+CONST evd::sa_FormulaInAAC -74
+// Формула
+CONST evd::sa_ColorSelection -10
+// Цветовое выделение
+CONST evd::sa_CenteredTable -40
+// Центрированный (таблица)
+CONST evd::sa_ContextAACRightWindows -73
+// ЭР-содержание (правое окно)
+
+CONST evd::стиль:"Активная гиперссылка" -39
+CONST evd::стиль:"Внимание" -68
+CONST evd::стиль:"Внимание: криминал!!" -48
+CONST evd::стиль:"Внимание: недобросовестность!" -47
+CONST evd::стиль:"Выделение для Базового Поиска" -51
+CONST evd::стиль:"Выделение для Базового Поиска (курсив)" -53
+CONST evd::стиль:"Гипертекстовая ссылка" -8
+CONST evd::стиль:"Добавленный текст" -41
+CONST evd::стиль:"Дочерний элемент списка" -75
+CONST evd::стиль:"Заголовок" -65533
+CONST evd::стиль:"Заголовок *" -33
+CONST evd::стиль:"Заголовок 1" -3
+CONST evd::стиль:"Заголовок 2" -4
+CONST evd::стиль:"Заголовок 3" -5
+CONST evd::стиль:"Заголовок 4" -6
+CONST evd::стиль:"Заголовок группы контролов" -58
+CONST evd::стиль:"Заголовок группы редакций" -66
+CONST evd::стиль:"Заголовок для информации об изменениях" -54
+CONST evd::стиль:"Заголовок полученного сообщения" -44
+CONST evd::стиль:"Заголовок приложения" -37
+CONST evd::стиль:"Заголовок распахивающейся части диалога" -59
+CONST evd::стиль:"Заголовок собственного сообщения" -43
+CONST evd::стиль:"Заголовок статьи" -15
+CONST evd::стиль:"Заголовок ЭР (левое окно)" -71
+CONST evd::стиль:"Заголовок ЭР (правое окно)" -72
+CONST evd::стиль:"Интерактивный заголовок" -34
+CONST evd::стиль:"Интервал действия редакции" -63
+CONST evd::стиль:"Интерфейс" -38
+CONST evd::стиль:"Информация о версии" -22
+CONST evd::стиль:"Информация об изменениях" -52
+CONST evd::стиль:"Колонтитул (левый)" -27
+CONST evd::стиль:"Колонтитул (правый)" -28
+CONST evd::стиль:"Комментарий" -9
+CONST evd::стиль:"Комментарий пользователя" -23
+CONST evd::стиль:"Куда обратиться?" -46
+CONST evd::стиль:"Моноширинный" -12
+CONST evd::стиль:"Найденные слова" -13
+CONST evd::стиль:"Напишите нам" -69
+CONST evd::стиль:"Не вступил в силу" -25
+CONST evd::стиль:"Необходимые документы" -45
+CONST evd::стиль:"Номер редакции" -65
+CONST evd::стиль:"Нормальный (таблица)" -17
+CONST evd::стиль:"Обзор изменений документа 1" -65530
+CONST evd::стиль:"Обзор изменений документа 2" -65529
+CONST evd::стиль:"Объект" -35
+CONST evd::стиль:"Оглавление" -24
+CONST evd::стиль:"Опечатки" -36
+CONST evd::стиль:"Основное меню (по-умолчанию)" -65531
+CONST evd::стиль:"Основное меню (преемственное)" -29
+CONST evd::стиль:"Переменная часть" -32
+CONST evd::стиль:"Подвал для информации об изменениях" -55
+CONST evd::стиль:"Подзаголовок для информации об изменениях" -57
+CONST evd::стиль:"Подсказки для контекста" -65535
+CONST evd::стиль:"Подчёркнуный текст" -61
+CONST evd::стиль:"Постоянная часть" -65532
+CONST evd::стиль:"Постоянная часть *" -31
+CONST evd::стиль:"Прижатый влево" -16
+CONST evd::стиль:"Пример." -50
+CONST evd::стиль:"Примечание." -49
+CONST evd::стиль:"Продолжение ссылки" -11
+CONST evd::стиль:"Редакция" -64
+CONST evd::стиль:"Словарная статья" -26
+CONST evd::стиль:"Сравнение редакций" -65534
+CONST evd::стиль:"Ссылка на официальную публикацию" -60
+CONST evd::стиль:"Структура документа" -67
+CONST evd::стиль:"Таблицы (моноширинный)" -2
+CONST evd::стиль:"Текст" -1
+CONST evd::стиль:"Текст (лев. подпись)" -18
+CONST evd::стиль:"Текст (прав. подпись)" -19
+CONST evd::стиль:"Текст (справка)" -14
+CONST evd::стиль:"Текст в таблице" -20
+CONST evd::стиль:"Текст диалогов" -62
+CONST evd::стиль:"Текст информации об изменениях" -56
+CONST evd::стиль:"Текст ЭР (см. также)" -70
+CONST evd::стиль:"Технический комментарий" -21
+CONST evd::стиль:"Удалённый текст" -42
+CONST evd::стиль:"Утратил силу" -7
+CONST evd::стиль:"Формула" -74
+CONST evd::стиль:"Цветовое выделение" -10
+CONST evd::стиль:"Центрированный (таблица)" -40
+CONST evd::стиль:"ЭР-содержание (правое окно)" -73

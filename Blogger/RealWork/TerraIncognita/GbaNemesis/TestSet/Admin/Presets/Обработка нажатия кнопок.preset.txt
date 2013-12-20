@@ -1,0 +1,6 @@
+K278850759.script
+K386664281.script
+
+Форма_ForbidAutoregistration.script
+Форма_GroupList.script
+Форма_GroupProperty.script

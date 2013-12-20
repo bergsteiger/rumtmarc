@@ -1,0 +1,141 @@
+----
+Obj type = Document
+Count = 1
+Rect = (900, -300, 12000, 11500)
+MaxLinesCount = 29
+----
+Obj type = ContentsElement
+Count = 1
+Rect = (1700, 700, 12000, 10700)
+Dim = (9900, 10200)
+MaxLinesCount = 29
+----
+Obj type = ContentsElement
+Count = 1
+Rect = (1700, 700, 12000, 10700)
+Dim = (9900, 10200)
+MaxLinesCount = 29
+----
+Obj type = ContentsElement
+Count = 15
+Rect = (1700, 700, 12000, 10700)
+Dim = (9900, 10200)
+MaxLinesCount = 29
+----
+Obj type = TextPara
+Text = 'Домашняя правовая энциклопедия. Дом (жилище) (подготовлено экспертами компании "Гарант")'
+Rect = (1700, 700, 2500, 10800)
+Dim = (9900, 700)
+MaxLinesCount = 2
+LinesCount = 2
+----
+Obj type = TextPara
+Text = 'тут весь топик'
+Rect = (2500, 700, 3000, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '2. Жилье социального найма'
+Rect = (3000, 700, 3600, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '2.1 Учет граждан, нуждающихся в жилье'
+Rect = (3600, 700, 4100, 10700)
+Dim = (9900, 400)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Если гражданин недееспособен, заявление (подписанное всеми проживающими вместе с ним дееспособными членами семьи) может подать его законный представитель.'
+Rect = (4100, 700, 5000, 10800)
+Dim = (9900, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+Obj type = TextPara
+Text = 'Вместе с заявлением должны быть представлены документы, подтверждающие право состоять на учете нуждающихся в жилье. К заявлению могут прилагаться:'
+Rect = (5000, 700, 6500, 10700)
+Dim = (9500, 1400)
+MaxLinesCount = 3
+LinesCount = 3
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- документы, подтверждающие состав семьи (свидетельство о рождении, свидетельство о заключении брака, решение об усыновлении (удочерении), судебное решение о признании членом семьи и т.п.);'
+Rect = (6500, 700, 7300, 10700)
+Dim = (9500, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- документы, необходимые для признания гражданина малоимущим;'
+Rect = (7300, 700, 7600, 10700)
+Dim = (9500, 200)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- документы, подтверждающие право быть признанным нуждающимся в жилом помещении:'
+Rect = (7600, 700, 8200, 10700)
+Dim = (9500, 500)
+MaxLinesCount = 2
+LinesCount = 2
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- выписка из домовой книги;'
+Rect = (8200, 700, 8500, 10700)
+Dim = (9500, 200)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- документы, подтверждающие право пользования жилым помещением, занимаемым заявителем и членами его семьи (договор, ордер, решение о предоставлении жилого помещения и т.п.);'
+Rect = (8500, 700, 9300, 10700)
+Dim = (9500, 800)
+MaxLinesCount = 3
+LinesCount = 3
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- выписка из кадастрового паспорта БТИ (поэтажного плана с экспликацией);'
+Rect = (9300, 700, 9600, 10700)
+Dim = (9500, 200)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- справка органов государственной регистрации о наличии или отсутствии жилых помещений на праве собственности по месту постоянного жительства членов семьи, предоставляемая каждым дееспособным членом семьи заявителя;'
+Rect = (9600, 700, 10800, 10700)
+Dim = (9500, 1100)
+MaxLinesCount = 4
+LinesCount = 4
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = '- при необходимости - иные документы.'
+Rect = (10800, 700, 11100, 10700)
+Dim = (9500, 200)
+MaxLinesCount = 1
+----
+ImageInfo FirstIndex = 3, LastIndex = -1
+----
+Obj type = TextPara
+Text = 'Все документы рекомендуется представлять в копиях, одновременно прилагая к ним оригинал.'
+Rect = (11100, 700, 12000, 10700)
+Dim = (9500, 900)
+MaxLinesCount = 2
+LinesCount = 2
+----
+ImageInfo FirstIndex = 3, LastIndex = -1

@@ -1,0 +1,641 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/JavaUtils.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::JavaUtils
+//
+// набор вспомогательных функции для генерации на Java
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// возвращает рут, от которого расчитывается путь к java-классам
+//f _java_root
+: java_root OBJECT IN %S
+//#UC START# *4799906E0262*
+//	[{%SS=Project}{<{}{%PS=Project}%f_set_var(PROJECT,P)>}%f_set_var(PROJECT,S)]%f_with_gen_id(java,%SR/%{PROJECT}N%{PROJECT}{root path suffix})/java/src/java
+ %IF ( ( %S |S ) %== 'Project' ) 
+  %ELSE
+   %FOR %ITEM-CONDITION ( ( %P |S ) %== 'Project' ) 
+    [%f] set_var %( 'PROJECT' %, 'P' )% 
+   %END-FOR
+  %THEN
+  [%f] set_var %( 'PROJECT' %, 'S' )% 
+ %END-IF
+ [%f] with_gen_id %( 'java' %, %S |R '/'
+ ( get_global_var ( 'PROJECT' ) |N ) ( get_global_var ( 'PROJECT' ) get_up ( 'root path suffix' ) ) )% '/java/src/java'
+//#UC END# *4799906E0262*
+; // java_root
+
+
+// Возвращает путь к java-типу
+//f _import_path
+: import_path OBJECT IN %S
+//#UC START# *479991BB003D*
+//	[{%f_can_import(%S)=true}[{%Se=false}{%SW}[{%f_is_server_type(%S)=false&"%SO"!=""}{%f_java_full_path(%S)}%f_with_gen_id(java,%f_java_type_path(S))]]]
+ %IF ( ( [%f] can_import %( %S )% ) %==  true ) 
+  %IF ( ( %S |e ) %==  false ) 
+   %ELSE
+    %S |W 
+   %THEN
+   %IF ( ( [%f] is_server_type %( %S )% ) %==  false %&& 
+     ( ( %S |O ) %!= ''  ) ) 
+    %ELSE
+     [%f] java_full_path %( %S )% 
+    %THEN
+    [%f] with_gen_id %( 'java' %, [%f] java_type_path %( 'S' )% )% 
+   %END-IF
+  %END-IF
+ %END-IF
+
+//f _java_type_package
+; // import_path
+
+: java_type_package OBJECT IN %S
+//	%f_cut_postfix(%f_java_type_path(S),.[{}{%SN}%1N])
+ [%f] cut_postfix %( [%f] java_type_path %( 'S' )% %, '.'
+ %IF ( ) 
+  %ELSE
+   %S |N 
+  %THEN
+  %1 |N 
+ %END-IF
+)% //#UC END# *479991BB003D*
+; // java_type_package
+
+
+// Возвращает имя импортируемого типа, формат вызова:
+// %f_get_name_from_type(«элемент»,"«путь к типу»")
+//f _get_name_from_type
+: get_name_from_type OBJECT IN %S
+//#UC START# *479991E60066*
+//	%f_clear_list(TYPE_LIST)\
+ [%f] clear_list %( 'TYPE_LIST' )% 
+//	%f_split_to_list(TYPE_LIST,%1N,.)\
+ [%f] split_to_list %( 'TYPE_LIST' %, %1 |N %, '.' )% 
+//	[{%f_is_empty(TYPE_LIST)=false}%f_pop_last_to_var(TYPE_LIST,_TYPE_)[{"%{_TYPE_}N"!="*"}%{_TYPE_}N]]%f_clear_list(TYPE_LIST)
+ %IF ( ( [%f] is_empty %( 'TYPE_LIST' )% ) %==  false ) 
+  [%f] pop_last_to_var %( 'TYPE_LIST' %, '_TYPE_' )% %IF ( ( ( get_global_var ( '_TYPE_' ) |N ) ) %!= '*' ) 
+   ( get_global_var ( '_TYPE_' ) |N ) 
+  %END-IF
+ %END-IF
+ [%f] clear_list %( 'TYPE_LIST' )% 
+
+//f _get_package_from_type
+; // get_name_from_type
+
+: get_package_from_type OBJECT IN %S
+//#UC START# *479991E60066*
+//	%f_clear_list(TYPE_LIST)\
+ [%f] clear_list %( 'TYPE_LIST' )% 
+//	%f_split_to_list(TYPE_LIST,%1N,.)\
+ [%f] split_to_list %( 'TYPE_LIST' %, %1 |N %, '.' )% 
+//	%f_pop_last_to_var(TYPE_LIST,_TYPE_)\
+ [%f] pop_last_to_var %( 'TYPE_LIST' %, '_TYPE_' )% 
+//	<{.}{%f_is_empty(TYPE_LIST)=false}{W}[%f_pop_first_to_var(TYPE_LIST,_TYPE_)%{_TYPE_}N]>
+ %FOR %ITEM-SEPARATOR '.' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( 'TYPE_LIST' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TYPE_LIST' %, '_TYPE_' )% ( get_global_var ( '_TYPE_' ) |N ) 
+  %END-IF
+ %END-FOR
+//#UC END# *479991E60066*
+; // get_package_from_type
+
+
+// Возвращает нормализованный путь к типу, нормализация проводится по наличию импорта этого пути в
+// текущем файле
+//f _java_normalized_type
+: java_normalized_type OBJECT IN %S
+//#UC START# *47999321006C*
+//	%f_dump_java_package(%S)[{%Se=false|"%SL"=""}.%SN]
+//	[{%XU=java&%BC!=Category}{%f_java_full_path(%S)}\
+ %IF ( ( %X |U ) %== 'java' %&& 
+   ( ( %B |C ) %!= 'Category'  ) ) 
+  %ELSE
+   [%f] java_full_path %( %S )% 
+  %THEN
+//	%f_set_var(CONTEXT,B)\
+  [%f] set_var %( 'CONTEXT' %, 'B' )% 
+//	[{%BC=Class}{%B<{}{"%{CONTEXT}U"=""&%PC=Class}{%P}%f_set_var(CONTEXT,P)>}%f_set_var(CONTEXT,B)]\
+  %IF ( ( %B |C ) %== 'Class' ) 
+   %ELSE
+    %B
+    %FOR %ITEM-CONDITION ( ( ( get_global_var ( 'CONTEXT' ) |U ) ) %== '' %&& 
+      ( ( %P |C ) %== 'Class'  ) ) 
+     ( %P ) 
+     [%f] set_var %( 'CONTEXT' %, 'P' )% 
+    %END-FOR
+    %THEN
+   [%f] set_var %( 'CONTEXT' %, 'B' )% 
+  %END-IF
+//	[{"%{CONTEXT}U"=""}%f_error("%SN, variable CONTEXT is undefined")]\
+  %IF ( ( ( get_global_var ( 'CONTEXT' ) |U ) ) %== '' ) 
+   [%f] error %( %S |N %, ' variable CONTEXT is undefined' )% 
+  %END-IF
+//	[{"%{CONTEXT}O"=""}{%f_set_var(OUTPUT_OWNER,{CONTEXT})}%{CONTEXT}<{}{"%PO"!=""}{%Pr}%f_set_var(OUTPUT_OWNER,P)>]\
+  %IF ( ( ( get_global_var ( 'CONTEXT' ) |O ) ) %== '' ) 
+   %ELSE
+    [%f] set_var %( 'OUTPUT_OWNER' %, '{CONTEXT}' )% 
+   %THEN
+   ( get_global_var ( 'CONTEXT' ) ) 
+   %FOR %ITEM-CONDITION ( ( %P |O ) %!= '' ) 
+    ( %P |r ) 
+    [%f] set_var %( 'OUTPUT_OWNER' %, 'P' )% 
+   %END-FOR
+  %END-IF
+//	[{"%{OUTPUT_OWNER}U"=""}%f_error("%SN, variable OUTPUT_OWNER is undefined")]\
+  %IF ( ( ( get_global_var ( 'OUTPUT_OWNER' ) |U ) ) %== '' ) 
+   [%f] error %( %S |N %, ' variable OUTPUT_OWNER is undefined' )% 
+  %END-IF
+//	[{}{%SN}[{%f_need_full_path(%{OUTPUT_OWNER},%S)=false}{%f_java_full_path(%S)}%SN]]]
+  %IF ( ) 
+   %ELSE
+    %S |N 
+   %THEN
+   %IF ( ( [%f] need_full_path %( ( get_global_var ( 'OUTPUT_OWNER' ) ) %, %S )% ) %==  false ) 
+    %ELSE
+     [%f] java_full_path %( %S )% 
+    %THEN
+    %S |N 
+   %END-IF
+  %END-IF
+ %END-IF
+
+//f _need_full_path
+; // java_normalized_type
+
+: need_full_path OBJECT IN %S
+//	[{%SC=Class|%SC=State}{true}[{%SU=%1U|%f_exists_in_import_list(%S,%1)=true|%f_equal_scope(%S,%1)=true}{true}false]]
+ %IF ( ( %S |C ) %== 'Class' %|| 
+   ( ( %S |C ) %== 'State'  ) ) 
+  %ELSE
+    true 
+  %THEN
+  %IF ( ( %S |U ) %== ( %1 |U ) %|| 
+    ( ( [%f] exists_in_import_list %( %S %, %1 )% ) %==  true  ) %|| 
+    ( ( [%f] equal_scope %( %S %, %1 )% ) %==  true  ) ) 
+   %ELSE
+     true 
+   %THEN
+    false 
+  %END-IF
+ %END-IF
+
+//f _need_full_path1
+; // need_full_path
+
+: need_full_path1 OBJECT IN %S
+//	[{%SC=Class}{true}[{%SN!=%1N|%SU=%1U}{true}false]]
+ %IF ( ( %S |C ) %== 'Class' ) 
+  %ELSE
+    true 
+  %THEN
+  %IF ( ( %S |N ) %!= ( %1 |N ) %|| 
+    ( ( %S |U ) %== ( %1 |U )  ) ) 
+   %ELSE
+     true 
+   %THEN
+    false 
+  %END-IF
+ %END-IF
+
+//f _dump_import_list
+; // need_full_path1
+
+: dump_import_list OBJECT IN %S
+//	%f_copy_list(%SU_IMPORT_LIST,TEMP_LIST)\
+ [%f] copy_list %( %S |U '_IMPORT_LIST' %, 'TEMP_LIST' )% 
+//	<{, }{%f_is_empty(TEMP_LIST)=false}{W}[%f_pop_first_to_var(TEMP_LIST,TEMP),%{TEMP}N]>
+ %FOR %ITEM-SEPARATOR ', ' ; // %ITEM-SEPARATOR 
+  %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP_LIST' )% ) %==  false ) 
+  ( 'W' ) 
+  %IF-NOT-EMPTY
+   [%f] pop_first_to_var %( 'TEMP_LIST' %, 'TEMP' )% ','
+   ( get_global_var ( 'TEMP' ) |N ) 
+  %END-IF
+ %END-FOR
+
+//f _exists_in_import_list
+; // dump_import_list
+
+: exists_in_import_list OBJECT IN %S
+//	%f_set_var(PATH,"%f_import_path(%1)")\
+ [%f] set_var %( 'PATH' %, [%f] import_path %( %1 )% )% 
+//нужно принудительно проинициализировать переменную %SU_IMPORT_LIST
+//т.к она может быть не проинициализированна, при генерации не от рута
+//	%f_get_import_list(%S)\
+ [%f] get_import_list %( %S )% 
+//	[{%f_exists_in_list(%SU_IMPORT_LIST,"%{PATH}N")=true|%f_exists_in_list(%SU_IMPORT_LIST,"%f_get_package_from_type(%{PATH},%{PATH}N).*")=true}{false}true]
+ %IF ( ( [%f] exists_in_list %( %S |U '_IMPORT_LIST' %, ( get_global_var ( 'PATH' ) |N ) )% ) %==  true %|| 
+   ( ( [%f] exists_in_list %( %S |U '_IMPORT_LIST' %, [%f] get_package_from_type %( ( get_global_var ( 'PATH' ) ) %, ( get_global_var ( 'PATH' ) |N ) )% '.*' )% ) %==  true  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+
+//f _equal_scope
+; // exists_in_import_list
+
+: equal_scope OBJECT IN %S
+//	%f_split_to_list(FIRST,%f_import_path(%1),.)\
+ [%f] split_to_list %( 'FIRST' %, [%f] import_path %( %1 )% %, '.' )% 
+//	%f_split_to_list(OWNER,%f_import_path(%S),.)\
+ [%f] split_to_list %( 'OWNER' %, [%f] import_path %( %S )% %, '.' )% 
+//	%f_pop_last_to_var(FIRST,TEMP)\
+ [%f] pop_last_to_var %( 'FIRST' %, 'TEMP' )% 
+//	[{%f_is_equal_list(FIRST,OWNER)=false}{true}%f_pop_last_to_var(OWNER,TEMP)\
+ %IF ( ( [%f] is_equal_list %( 'FIRST' %, 'OWNER' )% ) %==  false ) 
+  %ELSE
+    true 
+  %THEN
+  [%f] pop_last_to_var %( 'OWNER' %, 'TEMP' )% 
+//	%f_is_equal_list(FIRST,OWNER)]
+  [%f] is_equal_list %( 'FIRST' %, 'OWNER' )% 
+ %END-IF
+
+//f _java_full_path
+; // equal_scope
+
+: java_full_path OBJECT IN %S
+//	%f_dump_java_package(%S)[{%Se=false|"%SL"=""}[{%f_is_nested(%P)=true&%{ARG}M=Constants::Class}{[{%SM=State::Class}.sm.%PN].%SN}]]
+ [%f] dump_java_package %( %S )% %IF ( ( %S |e ) %==  false %|| 
+   ( ( %S |L ) %== ''  ) ) 
+  %IF ( ( [%f] is_nested %( %P )% ) %==  true %&& 
+    ( ( ( get_global_var ( 'ARG' ) |M ) ) %== 'Constants::Class'  ) ) 
+   %ELSE
+    %IF ( ( %S |M ) %== 'State::Class' ) 
+     '.sm.'
+     %P |N 
+    %END-IF
+    '.'
+    %S |N 
+   %THEN
+  %END-IF
+ %END-IF
+//#UC END# *47999321006C*
+; // java_full_path
+
+
+// Инициализирует контекст генерации, в котором будет сгенерён блок импорта
+//f _start_import_context
+: start_import_context OBJECT IN %S
+//#UC START# *4799BA3A0253*
+//#UC END# *4799BA3A0253*
+; // start_import_context
+
+
+// Деинициализирует контекст генерации, в котором будет сгенерён блок импорта
+//f _end_import_context
+: end_import_context OBJECT IN %S
+//#UC START# *4799BA6D0342*
+//#UC END# *4799BA6D0342*
+; // end_import_context
+
+
+// Возвращает список видимых типов относительно текущей точки генерации
+// список представлен в виде строчки, в которой элементы разделены символом "|"
+//f _get_available_types
+: get_available_types OBJECT IN %S
+//#UC START# *4799D80403A0*
+//#UC END# *4799D80403A0*
+; // get_available_types
+
+
+// Возвращает список импортируемых типов для элемента в виде строчки, элементы в списке разделены
+// символом "|"
+//f _get_import_list
+: get_import_list OBJECT IN %S
+//#UC START# *479D5D730229*
+//	%f_set_var(IMPORT_CONTEXT,S)[{%f_is_empty(%SU_IMPORT_LIST)=true&%t_has_import_list(%S)=true}[%f_clear_list(IMPORT_TYPE_LIST)\
+ [%f] set_var %( 'IMPORT_CONTEXT' %, 'S' )% %IF ( ( [%f] is_empty %( %S |U '_IMPORT_LIST' )% ) %==  true %&& 
+   ( ( [%t] has_import_list %( %S )% ) %==  true  ) ) 
+  %IF-NOT-EMPTY
+   [%f] clear_list %( 'IMPORT_TYPE_LIST' )% 
+//	%f_clear_list(NEW_IMPORT_TYPE)\
+   [%f] clear_list %( 'NEW_IMPORT_TYPE' )% 
+//	%f_fill_self_import_list(%S)\
+   [%f] fill_self_import_list %( %S )% 
+//	<{}{"%AO"=""&%AC=Class}{%A}%f_fill_self_import_list(%A)>\
+   %FOR %ITEM-CONDITION ( ( %A |O ) %== '' %&& 
+     ( ( %A |C ) %== 'Class'  ) ) 
+    ( %A ) 
+    [%f] fill_self_import_list %( %A )% 
+   %END-FOR
+//	[{%f_is_interface(%S)=true|%SS=LocalInterface}<{}{%Ga=abstract}%f_fill_self_import_list(%G)>]\
+   %IF ( ( [%f] is_interface %( %S )% ) %==  true %|| 
+     ( ( %S |S ) %== 'LocalInterface'  ) ) 
+    %FOR %ITEM-CONDITION ( ( %G |a ) %== 'abstract' ) 
+     [%f] fill_self_import_list %( %G )% 
+    %END-FOR
+   %END-IF
+//	[{%SS=LocalInterface}<{}{%f_is_interface(%R)=true}%f_fill_self_import_list(%R)>]\
+   %IF ( ( %S |S ) %== 'LocalInterface' ) 
+    %FOR %ITEM-CONDITION ( ( [%f] is_interface %( %R )% ) %==  true ) 
+     [%f] fill_self_import_list %( %R )% 
+    %END-FOR
+   %END-IF
+//	%f_remove_from_list(%SU_IMPORT_LIST,"")\
+   [%f] remove_from_list %( %S |U '_IMPORT_LIST' %, '' )% 
+//удаляем дубликаты из списка
+//	%f_sort_list(%SU_IMPORT_LIST,n)\
+   [%f] sort_list %( %S |U '_IMPORT_LIST' %, 'n' )% 
+//	%f_unique_list(%SU_IMPORT_LIST)\
+   [%f] unique_list %( %S |U '_IMPORT_LIST' )% 
+//перед итерированием списка копируем его
+
+//
+//	%f_copy_list(%SU_IMPORT_LIST,NEW_IMPORT_LIST)\
+   [%f] copy_list %( %S |U '_IMPORT_LIST' %, 'NEW_IMPORT_LIST' )% 
+//
+
+//формируем список импортируемых типов
+
+//
+//	<{}{%f_is_empty(%SU_IMPORT_LIST)=false}{W}%f_pop_last_to_var(%SU_IMPORT_LIST,_IMPORT_)\
+   %FOR %ITEM-CONDITION ( ( [%f] is_empty %( %S |U '_IMPORT_LIST' )% ) %==  false ) 
+    ( 'W' ) 
+    [%f] pop_last_to_var %( %S |U '_IMPORT_LIST' %, '_IMPORT_' )% 
+//	%f_add_to_list(IMPORT_TYPE_LIST,"%f_get_name_from_type(%{_IMPORT_},"%{_IMPORT_}N")")>\
+    [%f] add_to_list %( 'IMPORT_TYPE_LIST' %, [%f] get_name_from_type %( ( get_global_var ( '_IMPORT_' ) ) %, ( get_global_var ( '_IMPORT_' ) |N ) )% )% 
+   %END-FOR
+//	%f_add_to_list(IMPORT_TYPE_LIST,"%f_get_name_from_type(%S,"%f_import_path(%S)")")\
+   [%f] add_to_list %( 'IMPORT_TYPE_LIST' %, [%f] get_name_from_type %( %S %, [%f] import_path %( %S )% )% )% 
+//	%f_remove_from_list(IMPORT_TYPE_LIST,"")\
+   [%f] remove_from_list %( 'IMPORT_TYPE_LIST' %, '' )% 
+//	%f_copy_list(NEW_IMPORT_LIST,%SU_IMPORT_LIST)\
+   [%f] copy_list %( 'NEW_IMPORT_LIST' %, %S |U '_IMPORT_LIST' )% 
+//
+
+//удаляем из списка импорта те элементы, которые встречаются в списке IMPORT_TYPE_LIST более одного раза
+
+//т.к в этом случае возникнет ситуация, что будут пытаться импортироваться два различных типа с одинаковым
+
+//именем, но это недопустимо!
+
+//
+//	<{}{%f_is_empty(NEW_IMPORT_LIST)=false}{W}%f_pop_last_to_var(NEW_IMPORT_LIST,_IMPORT_)\
+   %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'NEW_IMPORT_LIST' )% ) %==  false ) 
+    ( 'W' ) 
+    [%f] pop_last_to_var %( 'NEW_IMPORT_LIST' %, '_IMPORT_' )% 
+//	[{%f_number_cmp("%f_count_in_list(IMPORT_TYPE_LIST,"%f_get_name_from_type(%{_IMPORT_},"%{_IMPORT_}N")")","1","\>")=1}\
+    %IF ( ( [%f] number_cmp %( [%f] count_in_list %( 'IMPORT_TYPE_LIST' %, [%f] get_name_from_type %( ( get_global_var ( '_IMPORT_' ) ) %, ( get_global_var ( '_IMPORT_' ) |N ) )% )% %, 1 %, '>' )% ) %== 1 ) 
+//	%f_remove_from_list(%SU_IMPORT_LIST,"%{_IMPORT_}N")]\
+     [%f] remove_from_list %( %S |U '_IMPORT_LIST' %, ( get_global_var ( '_IMPORT_' ) |N ) )% 
+    %END-IF
+
+//	%f_add_to_list(%SU_IMPORT_LIST,"[%f_get_package_from_type(%{_IMPORT_},"%{_IMPORT_}N").*]")\
+//	>\
+   %END-FOR
+//	%f_remove_from_list(%SU_IMPORT_LIST,"")\
+   [%f] remove_from_list %( %S |U '_IMPORT_LIST' %, '' )% 
+//	%f_clean_wrong_import(%S)\
+   [%f] clean_wrong_import %( %S )% 
+//	%f_unique_list(%SU_IMPORT_LIST)\
+   [%f] unique_list %( %S |U '_IMPORT_LIST' )% 
+//	%f_clear_list(NEW_IMPORT_TYPE_LIST)\
+   [%f] clear_list %( 'NEW_IMPORT_TYPE_LIST' )% 
+//	%f_clear_list(IMPORT_TYPE_LIST)]]
+   [%f] clear_list %( 'IMPORT_TYPE_LIST' )% 
+  %END-IF
+ %END-IF
+
+//f _fill_self_import_list
+; // get_import_list
+
+: fill_self_import_list OBJECT IN %S
+//	<{}{%f_can_import(%I)=true}%f_add_to_import_list(%I)>\
+ %FOR %ITEM-CONDITION ( ( [%f] can_import %( %I )% ) %==  true ) 
+  [%f] add_to_import_list %( %I )% 
+ %END-FOR
+//	<{}{%f_can_import(%W)=true}%f_add_to_import_list(%W)>\
+ %FOR %ITEM-CONDITION ( ( [%f] can_import %( %W )% ) %==  true ) 
+  [%f] add_to_import_list %( %W )% 
+ %END-FOR
+//	<{}{}{%o}[{%f_can_import(%o%T)=true}%f_add_to_import_list(%o%T)]\
+ %FOR ( %o ) 
+  %IF ( ( [%f] can_import %( %o ->T  )% ) %==  true ) 
+   [%f] add_to_import_list %( %o ->T  )% 
+  %END-IF
+//	%o<{}{%f_can_import(%C%T)=true}{%C}%f_add_to_import_list(%C%T)>>\
+  %o
+  %FOR %ITEM-CONDITION ( ( [%f] can_import %( %C ->T  )% ) %==  true ) 
+   ( %C ) 
+   [%f] add_to_import_list %( %C ->T  )% 
+  %END-FOR
+  %END-FOR
+//	<{}{}{%O}[{%f_can_import(%O%T)=true}%f_add_to_import_list(%O%T)]\
+ %FOR ( %O ) 
+  %IF ( ( [%f] can_import %( %O ->T  )% ) %==  true ) 
+   [%f] add_to_import_list %( %O ->T  )% 
+  %END-IF
+//	%O<{}{%f_can_import(%C%T)=true}{%C}%f_add_to_import_list(%C%T)>>\
+  %O
+  %FOR %ITEM-CONDITION ( ( [%f] can_import %( %C ->T  )% ) %==  true ) 
+   ( %C ) 
+   [%f] add_to_import_list %( %C ->T  )% 
+  %END-FOR
+  %END-FOR
+//	[{%SS=Servant|%SS=LocalInterface}<{}{}{%r}%f_set_var(R_PATH,"%f_import_path(%r)")[{%f_is_interface(%r)=true}{[{%rM=StateMachine::Class}\
+ %IF ( ( %S |S ) %== 'Servant' %|| 
+   ( ( %S |S ) %== 'LocalInterface'  ) ) 
+  %FOR ( %r ) 
+   [%f] set_var %( 'R_PATH' %, [%f] import_path %( %r )% )% %IF ( ( [%f] is_interface %( %r )% ) %==  true ) 
+    %ELSE
+     %IF ( ( %r |M ) %== 'StateMachine::Class' ) 
+//	%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_make_sm_package(%r,%{R_PATH})")]}%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%{R_PATH}N")\
+      [%f] add_to_list %( ( get_global_var ( 'IMPORT_CONTEXT' ) |U ) '_IMPORT_LIST' %, [%f] make_sm_package %( %r %, ( get_global_var ( 'R_PATH' ) ) )% )% 
+     %END-IF
+    %THEN
+    [%f] add_to_list %( ( get_global_var ( 'IMPORT_CONTEXT' ) |U ) '_IMPORT_LIST' %, ( get_global_var ( 'R_PATH' ) |N ) )% 
+//	%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_get_package_from_type(%r,"%{R_PATH}N").*")]%r<{}{%RM=StateMachine::Class}\
+    [%f] add_to_list %( ( get_global_var ( 'IMPORT_CONTEXT' ) |U ) '_IMPORT_LIST' %, [%f] get_package_from_type %( %r %, ( get_global_var ( 'R_PATH' ) |N ) )% '.*' )% 
+   %END-IF
+   %r
+   %FOR %ITEM-CONDITION ( ( %R |M ) %== 'StateMachine::Class' ) 
+//	%f_set_var(R_PATH,"%f_import_path(%R)")%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_make_sm_package(%R,%{R_PATH})")>>]\
+    [%f] set_var %( 'R_PATH' %, [%f] import_path %( %R )% )% [%f] add_to_list %( ( get_global_var ( 'IMPORT_CONTEXT' ) |U ) '_IMPORT_LIST' %, [%f] make_sm_package %( %R %, ( get_global_var ( 'R_PATH' ) ) )% )% 
+   %END-FOR
+   %END-FOR
+ %END-IF
+//	<{}{"%AS"="uses"&"%AC"="Dependency"&%f_can_import(%A%T)=true}%f_add_to_import_list(%A%T)>
+ %FOR %ITEM-CONDITION ( ( %A |S ) %== 'uses' %&& 
+   ( ( %A |C ) %== 'Dependency'  ) %&& 
+   ( ( [%f] can_import %( %A ->T  )% ) %==  true  ) ) 
+  [%f] add_to_import_list %( %A ->T  )% 
+ %END-FOR
+
+//f _add_to_import_list
+; // fill_self_import_list
+
+: add_to_import_list OBJECT IN %S
+//	%f_set_var(IMPORT_PATH,"%f_import_path(%S)")\
+ [%f] set_var %( 'IMPORT_PATH' %, [%f] import_path %( %S )% )% 
+//	[{%SM=StateMachine::Class&%t_impl_class(%{IMPORT_CONTEXT})=true}%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_make_sm_package(%S,%{IMPORT_PATH})")]\
+ %IF ( ( %S |M ) %== 'StateMachine::Class' %&& 
+   ( ( [%t] impl_class %( ( get_global_var ( 'IMPORT_CONTEXT' ) ) )% ) %==  true  ) ) 
+  [%f] add_to_list %( ( get_global_var ( 'IMPORT_CONTEXT' ) |U ) '_IMPORT_LIST' %, [%f] make_sm_package %( %S %, ( get_global_var ( 'IMPORT_PATH' ) ) )% )% 
+ %END-IF
+//	%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%{IMPORT_PATH}N")
+ [%f] add_to_list %( ( get_global_var ( 'IMPORT_CONTEXT' ) |U ) '_IMPORT_LIST' %, ( get_global_var ( 'IMPORT_PATH' ) |N ) )% 
+
+//f _make_sm_package
+; // add_to_import_list
+
+: make_sm_package OBJECT IN %S
+//	%f_str_replace(%1N,.%SN,.sm.%SN.*)
+ [%f] str_replace %( %1 |N %, '.'
+ %S |N %, '.sm.'
+ %S |N '.*' )% 
+
+//удаляем не нужные импорты
+//f _clean_wrong_import
+; // make_sm_package
+
+: clean_wrong_import OBJECT IN %S
+//	%f_set_var(SELF_PATH,"%f_import_path(%S)")\
+ [%f] set_var %( 'SELF_PATH' %, [%f] import_path %( %S )% )% 
+//	%f_set_var(SELF_PACK,"%f_get_package_from_type(%S,"%{SELF_PATH}N")")\
+ [%f] set_var %( 'SELF_PACK' %, [%f] get_package_from_type %( %S %, ( get_global_var ( 'SELF_PATH' ) |N ) )% )% 
+//	%f_set_var(LIST_ID,"%SU_IMPORT_LIST")\
+ [%f] set_var %( 'LIST_ID' %, %S |U '_IMPORT_LIST' )% 
+//	%f_copy_list(%{LIST_ID}N,TEMP_IMPORT_LIST)\
+ [%f] copy_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, 'TEMP_IMPORT_LIST' )% 
+//	<{}{%f_is_empty(TEMP_IMPORT_LIST)=false}{W}%f_pop_last_to_var(TEMP_IMPORT_LIST,_IMPORT_)\
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP_IMPORT_LIST' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_last_to_var %( 'TEMP_IMPORT_LIST' %, '_IMPORT_' )% 
+//	%f_set_var(CURR_PACK,"%f_get_package_from_type(%{_IMPORT_},"%{_IMPORT_}N")")\
+  [%f] set_var %( 'CURR_PACK' %, [%f] get_package_from_type %( ( get_global_var ( '_IMPORT_' ) ) %, ( get_global_var ( '_IMPORT_' ) |N ) )% )% 
+//	[{%{CURR_PACK}N=%{SELF_PACK}N|%{CURR_PACK}N=%{SELF_PATH}N}\
+  %IF ( ( ( get_global_var ( 'CURR_PACK' ) |N ) ) %== ( ( get_global_var ( 'SELF_PACK' ) |N ) ) %|| 
+    ( ( ( get_global_var ( 'CURR_PACK' ) |N ) ) %== ( ( get_global_var ( 'SELF_PATH' ) |N ) )  ) ) 
+//	%f_remove_from_list(%{LIST_ID}N,"%{_IMPORT_}N")]\
+   [%f] remove_from_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, ( get_global_var ( '_IMPORT_' ) |N ) )% 
+  %END-IF
+//	[{%f_need_force_import(%{_IMPORT_},"%{_IMPORT_}N")=false&%f_is_package_import(%{_IMPORT_})=false&%f_exists_in_list(%{LIST_ID}N,"%{CURR_PACK}N.*")=true}\
+  %IF ( ( [%f] need_force_import %( ( get_global_var ( '_IMPORT_' ) ) %, ( get_global_var ( '_IMPORT_' ) |N ) )% ) %==  false %&& 
+    ( ( [%f] is_package_import %( ( get_global_var ( '_IMPORT_' ) ) )% ) %==  false  ) %&& 
+    ( ( [%f] exists_in_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, ( get_global_var ( 'CURR_PACK' ) |N ) '.*' )% ) %==  true  ) ) 
+//	%f_remove_from_list(%{LIST_ID}N,"%{_IMPORT_}N")]\
+   [%f] remove_from_list %( ( get_global_var ( 'LIST_ID' ) |N ) %, ( get_global_var ( '_IMPORT_' ) |N ) )% 
+  %END-IF
+//	>
+ %END-FOR
+
+
+//f _need_force_import
+; // clean_wrong_import
+
+: need_force_import OBJECT IN %S
+//	%f_set_var(NAME,"%f_get_name_from_type(%S,"%SN")")\
+ [%f] set_var %( 'NAME' %, [%f] get_name_from_type %( %S %, %S |N )% )% 
+//	%t_is_java_lang_type(%{NAME})
+ [%t] is_java_lang_type %( ( get_global_var ( 'NAME' ) ) )% 
+
+//возвращает true, если тип с таким именем определён в пакете java.lang
+//t _is_java_lang_type
+; // need_force_import
+
+<<transformator>> is_java_lang_type OBJECT IN %S
+//c                                  {}
+//r {%SN=Error}:                     {true}
+//r {%SN=InternalError}:             {true}
+//r {""=""}:                         {false}
+
+//возвращает true, если имортируется весь пакет
+//т.е импорт вида: A.B.C.*
+//f _is_package_import
+; // is_java_lang_type
+
+: is_package_import OBJECT IN %S
+//	%f_clear_list(TYPE_LIST)\
+ [%f] clear_list %( 'TYPE_LIST' )% 
+//	%f_split_to_list(TYPE_LIST,%SN,.)\
+ [%f] split_to_list %( 'TYPE_LIST' %, %S |N %, '.' )% 
+//	%f_pop_last_to_var(TYPE_LIST,_TYPE_)\
+ [%f] pop_last_to_var %( 'TYPE_LIST' %, '_TYPE_' )% 
+//	[{%{_TYPE_}N=*}{false}true]%f_clear_list(TYPE_LIST)
+ %IF ( ( ( get_global_var ( '_TYPE_' ) |N ) ) %== '*' ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+ [%f] clear_list %( 'TYPE_LIST' )% 
+
+//f _have_path
+; // is_package_import
+
+: have_path OBJECT IN %S
+//	[{%SC=Class&%SS!=UMLPrimitive&%SS!=Typedef&%t_is_container(%S)=false}{false}true]
+ %IF ( ( %S |C ) %== 'Class' %&& 
+   ( ( %S |S ) %!= 'UMLPrimitive'  ) %&& 
+   ( ( %S |S ) %!= 'Typedef'  ) %&& 
+   ( ( [%t] is_container %( %S )% ) %==  false  ) ) 
+  %ELSE
+    false 
+  %THEN
+   true 
+ %END-IF
+
+//f _can_import
+; // have_path
+
+: can_import OBJECT IN %S
+//	[{%SC=Class&%SS!=UMLPrimitive&%SS!=Typedef&%t_is_container(%S)=false}{[{%SC!=State}{true}false]}true]
+ %IF ( ( %S |C ) %== 'Class' %&& 
+   ( ( %S |S ) %!= 'UMLPrimitive'  ) %&& 
+   ( ( %S |S ) %!= 'Typedef'  ) %&& 
+   ( ( [%t] is_container %( %S )% ) %==  false  ) ) 
+  %ELSE
+   %IF ( ( %S |C ) %!= 'State' ) 
+    %ELSE
+      true 
+    %THEN
+     false 
+   %END-IF
+  %THEN
+   true 
+ %END-IF
+//	[{%SC=Class|%SC=State}{false}[%SS!=UMLPrimitive&%SS!=Typedef&%t_is_container(%S)=false}{false}true]]
+//#UC END# *479D5D730229*
+; // can_import
+
+
+// выводит блок импорта для java
+//f _java_dump_import_block
+: java_dump_import_block OBJECT IN %S
+//#UC START# *47A026140332*
+//	%f_get_import_list(%S)\
+ [%f] get_import_list %( %S )% 
+//	%f_copy_list(%SU_IMPORT_LIST,TEMP_IMPORT_LIST)\
+ [%f] copy_list %( %S |U '_IMPORT_LIST' %, 'TEMP_IMPORT_LIST' )% 
+//	[<{}{%f_is_empty(TEMP_IMPORT_LIST)=false}{W}[%f_pop_first_to_var(TEMP_IMPORT_LIST,TEMP)import %{TEMP}N;
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'TEMP_IMPORT_LIST' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'TEMP_IMPORT_LIST' %, 'TEMP' )% 'import '
+    ( get_global_var ( 'TEMP' ) |N ) ';'
+//	]>]
+   %END-IF
+  %END-FOR
+ %END-IF
+
+//t _has_import_list
+; // java_dump_import_block
+
+<<transformator>> has_import_list OBJECT IN %S
+//c                                {}
+//r {%SM=StateMachine::Class}:     {false}
+//r {""=""}:                       {true}
+//#UC END# *47A026140332*
+; // has_import_list
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,4 @@
+ : TnscStatusBarPanel
+StatusBar : TnscStatusBar
+nscDock_for_nscStatusbar : TnscStatusBarDock
+nsMainWindow : TnsMainWindow

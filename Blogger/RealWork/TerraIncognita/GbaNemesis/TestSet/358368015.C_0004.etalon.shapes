@@ -1,0 +1,44 @@
+----
+Obj type = Document
+Count = 1
+Rect = (-2000, -300, 4900, 11500)
+MaxLinesCount = 83
+----
+Obj type = Table
+Count = 1
+Rect = (-1200, 700, 4900, 10600)
+Dim = (10100, 18800)
+MaxLinesCount = 39
+----
+Obj type = TableRow
+Count = 2
+Rect = (-1100, 700, 4800, 10900)
+Dim = (10100, 18000)
+MaxLinesCount = 37
+DeltaHeight = 18000
+----
+Obj type = TableCell
+Count = 1
+Rect = (-1100, 700, 4800, 5800)
+Dim = (5000, 18000)
+MaxLinesCount = 37
+----
+Obj type = TextPara
+Text = 'А этот текст есть только в редакции. Просто текст для наполнения Просто текст для наполнения. Картинка (сдвиг вниз = 10) * внутри текста в параграфе #50. Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения Просто текст для наполнения.'
+Count = 1
+Rect = (-1100, 800, 4800, 6200)
+Dim = (4400, 5900)
+MaxLinesCount = 11
+LinesCount = 11
+----
+ImageInfo FirstIndex = 4, LastIndex = -1
+----
+Obj type = BitmapPara
+Rect = (800, 1200, 2900, 6200)
+Dim = (4900, 2000)
+MaxLinesCount = 11
+----
+Obj type = TableCell
+Rect = (900, 5800, 900, 10900)
+Dim = (5000, 14500)
+MaxLinesCount = 32

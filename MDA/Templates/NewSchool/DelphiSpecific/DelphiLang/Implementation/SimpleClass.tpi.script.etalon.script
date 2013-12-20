@@ -1,0 +1,461 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/SimpleClass.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::SimpleClass
+//
+// Простой класс
+// ---
+// Абстракция простого класса в терминах ООП
+// используется для опеределяения типов не являющихся ни интерфесйами, ни сервантами, ни
+// структурами, ни производными от них, или патернами более высокого уровня (контейнеры,
+// специализированные шаблоные типы и т.д.)
+// 
+// "Абстрактный" класс - не может быть создан (т.е. должен использоваться как примесь)
+// "Финальный" класс, напротив не может быть использован в качестве базового класса.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: SimpleClass::Class (redefinition)
+implementation @ <<SimpleClass>>
+//? Простой класс
+//? Абстракция простого класса в терминах ООП
+//? используется для опеределяения типов не являющихся ни интерфесйами, ни сервантами, ни структурами, ни производными от них, или патернами более высокого уровня (контейнеры, специализированные шаблоные типы и т.д.)
+//? 
+//? "Абстрактный" класс - не может быть создан (т.е. должен использоваться как примесь)
+//? "Финальный" класс, напротив не может быть использован в качестве базового класса.
+//> SetOf::Class
+//> SetConst::Class
+//> Range::Class
+//> StaticObject::Class
+//> method::Class
+//> Constructor::Class
+//> Factory::Class
+//> LocalConst::Class
+//> Contract::Class
+
+//= StandardClassInclude::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит документацию для СЛОВА скрипта, которое представляет данный эелемент
+//%f _DoSpellKeywordDocumentation
+; // st_space_key
+
+: DoSpellKeywordDocumentation OBJECT IN %S
+// параметры: aSummoner: MDAClass = %1
+//#UC START# *4F30D27300BAfor481EC6BD016B*
+//	%S%[inherited]f_DoSpellKeywordDocumentation(%1)\
+ call-inherited DoSpellKeywordDocumentation %( %1 )%
+//	[{%S%f_NeedsKeywordDocumentation()=true}\
+ %IF ( ( %S %f NeedsKeywordDocumentation %( )% ) %==  true ) 
+//	%f_set_var(NAME,"%S%f_ScriptKeywordDocumentationName()")\
+  [%f] set_var %( 'NAME' %, %S %f ScriptKeywordDocumentationName %( )% )% 
+//	[{"%1<{}{%CN=%{NAME}N}{C}>"="0"}\
+//	%1%f_add_class(%SU_%1U,ScriptKeywordDocumentation,%{NAME}N,KeywordDocumentation_Inst)\
+  %1 %f add_class %( %S |U '_'
+  %1 |U %, 'ScriptKeywordDocumentation' %, ( get_global_var ( 'NAME' ) |N ) %, 'KeywordDocumentation_Inst' )% 
+//	%{KeywordDocumentation_Inst}%f_set_documentation(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%SD, Пример:, *Пример:*),\n\n*Пример:*,\n *Пример:*),\n\nПример:,\n *Пример:*),\n*Пример:*,\n *Пример:*),\nПример:,\n *Пример:*))\
+  ( get_global_var ( 'KeywordDocumentation_Inst' ) %f set_documentation %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( [%f] str_replace %( %S |D %, ' Пример:' %, ' *Пример:*' )% %, #13#10#13#10'*Пример:*' %, #13#10' *Пример:*' )% %, #13#10#13#10'Пример:' %, #13#10' *Пример:*' )% %, #13#10'*Пример:*' %, #13#10' *Пример:*' )% %, #13#10'Пример:' %, #13#10' *Пример:*' )% )% ) 
+// WST = WasSpelledTo
+//	%{KeywordDocumentation_Inst}%f_set_var(WST,S)\
+  ( get_global_var ( 'KeywordDocumentation_Inst' ) %f set_var %( 'WST' %, 'S' )% ) 
+//	]\
+//	]
+ %END-IF
+//#UC END# *4F30D27300BAfor481EC6BD016B*
+; // DoSpellKeywordDocumentation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Нужно ли документацию к слову скрипта, которое представляет элемента
+//%f _NeedsKeywordDocumentation
+: NeedsKeywordDocumentation OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4F30B869036Efor481EC6BD016B*
+//	[{%S%f_IsMixIn()=true}{\
+ %IF ( ( %S %f IsMixIn %( )% ) %==  true ) 
+  %ELSE
+
+//	[{%S{NeedsKeywordDoc}=true|%S%f_InheritsFrom("_tfwAutoregisteringWord_")=true|%S%f_InheritsFrom("TtfwString")=true}{\
+//	[{%S{NeedsKeywordDoc}=true|%S%f_InheritsFrom("_tfwAutoregisteringWord_")=true}{\
+   %IF ( ( %S get_up ( 'NeedsKeywordDoc' ) ) %==  true %|| 
+     ( ( %S %f InheritsFrom %( '_tfwAutoregisteringWord_' )% ) %==  true  ) ) 
+    %ELSE
+//	false\
+      false 
+//	}\
+    %THEN
+//	true\
+     true 
+//	]\
+   %END-IF
+//	}\
+  %THEN
+//	false\
+   false 
+//	]
+ %END-IF
+//#UC END# *4F30B869036Efor481EC6BD016B*
+; // NeedsKeywordDocumentation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _ScriptKeywordDocumentationName
+: ScriptKeywordDocumentationName OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4F30B8E60385for481EC6BD016B*
+//	[%P#f_pas_ElementPrefixBase()_]%f_cut_prefix(%f_cut_prefix(%f_N(%S),Tkw),_)
+ %IF-NOT-EMPTY
+  %P %?f pas_ElementPrefixBase %( )% '_' 
+ %END-IF
+ [%f] cut_prefix %( [%f] cut_prefix %( [%f] N %( %S )% %, 'Tkw' )% %, '_' )% 
+//#UC END# *4F30B8E60385for481EC6BD016B*
+; // ScriptKeywordDocumentationName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Создаёт документацию к словам скрипта
+//%f _SpellKeywordsDocumentation
+: SpellKeywordsDocumentation OBJECT IN %S
+// параметры: aSummoner: MDAClass = %1
+//#UC START# *4F30B8A403DFfor481EC6BD016B*
+//	%S%[inherited]f_SpellKeywordsDocumentation(%1)
+ call-inherited SpellKeywordsDocumentation %( %1 )%
+//#UC END# *4F30B8A403DFfor481EC6BD016B*
+; // SpellKeywordsDocumentation
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: SimpleClass::Class::factory::Operation
+end. // <<SimpleClass>>
+
+implementation @ :: <<SimpleClass>> <<factory>> ;
+//? Фабричный метод.
+//? Создает экземпляр класса в виде указанного интерфейса/фасета.
+//= ClassBase::Class::static::Operation
+//= FactoryMixIn::Class
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_factory.gif
+//L code_factory
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4787ED5E030C*
+//#UC END# *46E6D4BB0339for4787ED5E030C*
+; // wiki
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4787ED5E030C*
+//#UC END# *470321C1038Afor4787ED5E030C*
+; // fctr.java
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4787ED5E030C*
+//#UC END# *477398E501C0for4787ED5E030C*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for4787ED5E030C*
+//#UC END# *4774D2A20372for4787ED5E030C*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor4787ED5E030C*
+//#UC END# *49F5795900ECfor4787ED5E030C*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for4787ED5E030C*
+//#UC END# *4DE79AFC0030for4787ED5E030C*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor4787ED5E030C*
+//#UC END# *4E65F581015Afor4787ED5E030C*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[ClassBase::Class::static::Operation]f_wiki_up_print()[{"%S{check nil}"!="%S{!check nil}"}%f_up_prefix(%S) *check nil* = *%S{check nil}* - Проверять, что первый параметр nil и не создавать объекта
+ call-inherited:: 'ClassBase::static::Operation' wiki_up_print %( )%
+ %IF ( ( %S get_up ( 'check nil' ) ) %!= ( %S get_up_def ( 'check nil' ) ) ) 
+  [%f] up_prefix %( %S )% ' *check nil* = *'
+  %S get_up ( 'check nil' ) '* - Проверять, что первый параметр nil и не создавать объекта'
+//	][{"%S{need As}"!="%S{!need As}"}%f_up_prefix(%S) *need As* = *%S{need As}* - Определяет, что нужно приводить класс к интерфейсу через As
+ %END-IF
+ %IF ( ( %S get_up ( 'need As' ) ) %!= ( %S get_up_def ( 'need As' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need As* = *'
+  %S get_up ( 'need As' ) '* - Определяет, что нужно приводить класс к интерфейсу через As'
+//	][{"%S{need AfterCreate}"!="%S{!need AfterCreate}"}%f_up_prefix(%S) *need AfterCreate* = *%S{need AfterCreate}*
+ %END-IF
+ %IF ( ( %S get_up ( 'need AfterCreate' ) ) %!= ( %S get_up_def ( 'need AfterCreate' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need AfterCreate* = *'
+  %S get_up ( 'need AfterCreate' ) '*'
+//	][{"%S{need Aggregate}"!="%S{!need Aggregate}"}%f_up_prefix(%S) *need Aggregate* = *%S{need Aggregate}*
+ %END-IF
+ %IF ( ( %S get_up ( 'need Aggregate' ) ) %!= ( %S get_up_def ( 'need Aggregate' ) ) ) 
+  [%f] up_prefix %( %S )% ' *need Aggregate* = *'
+  %S get_up ( 'need Aggregate' ) '*'
+//	]
+ %END-IF
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+; // wiki_up_print
+
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4787ED5E030C*
+//#UC END# *470484D50138for4787ED5E030C*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsFactory
+: IsFactory OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE026A90143for4787ED5E030C*
+//	true
+ true
+//#UC END# *4AE026A90143for4787ED5E030C*
+; // IsFactory
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+//%f _pas_MethodBodyPrim
+: pas_MethodBodyPrim OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for4787ED5E030C*
+//	%S%f_OutFactoryBody(%1,%2)
+ %S %f OutFactoryBody %( %1 %, %2 )% 
+//#UC END# *494BB3A201A2for4787ED5E030C*
+; // pas_MethodBodyPrim
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит параметры и результат метода
+//%f _pas_MethodParams
+: pas_MethodParams OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BE0CC0226for4787ED5E030C*
+//	[{%t_interface(%T)!=true&%TS!=ImpurityParamType&%TN!=void}\
+ %IF ( ( [%t] interface %( %T )% ) %!=  true %&& 
+   ( ( %T |S ) %!= 'ImpurityParamType'  ) %&& 
+   ( ( %T |N ) %!= 'void'  ) ) 
+//	%f_error("Фабрика %PN.%SN не может конструировать %TN: %TS")\
+  [%f] error %( 'Фабрика '
+  %P |N '.'
+  %S |N ' не может конструировать '
+  %T |N ': '
+  %T |S )% 
+//	]\
+ %END-IF
+//	%S%[inherited]
+ inherited
+//#UC END# *494BE0CC0226for4787ED5E030C*
+; // pas_MethodParams
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+//%f _pas_Params
+: pas_Params OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor4787ED5E030C*
+//	[{%P#f_IsVCMForm()!=true}{\
+ %IF ( ( %P %?f IsVCMForm %( )% ) %!=  true ) 
+  %ELSE
+//	[%S%[inherited];]\
+   %IF-NOT-EMPTY
+    inherited
+    ';' 
+   %END-IF
+//	%S%f_pas_VCMFormFactoryParams()\
+   %S %f pas_VCMFormFactoryParams %( )% 
+//	}\
+  %THEN
+//	%S%[inherited]\
+  inherited
+//	]
+ %END-IF
+//#UC END# *494BDCF3030Efor4787ED5E030C*
+; // pas_Params
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+//%f _pas_ResultTypeName
+: pas_ResultTypeName OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for4787ED5E030C*
+//@ %SU
+//	%S%f_OutFactoryResult()
+ %S %f OutFactoryResult %( )% 
+//#UC END# *494BDD190361for4787ED5E030C*
+; // pas_ResultTypeName
+
+
+//: SimpleClass::Class::vctor::Operation
+end. // :: <<SimpleClass>> <<factory>> ;
+
+implementation @ :: <<SimpleClass>> <<vctor>> ;
+//? виртуальный конструктор
+//= ClassBase::Class::ctor::Operation
+
+// Параметры стереотипа
+//a r
+// - тип абстракции
+//T 
+// - может не иметь "цели" (типа/результата)
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for47A08DC70357*
+//#UC END# *46E6D4BB0339for47A08DC70357*
+; // wiki
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor47A08DC70357*
+//#UC END# *470321C1038Afor47A08DC70357*
+; // fctr.java
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for47A08DC70357*
+//#UC END# *477398E501C0for47A08DC70357*
+; // intf2.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for47A08DC70357*
+//#UC END# *4774D2A20372for47A08DC70357*
+; // intf3.pas
+
+
+// Генератор файлов форм (.dfm)
+//+ dfm
+<<generator>> dfm OBJECT IN %S
+//R  
+//#UC START# *49F5795900ECfor47A08DC70357*
+//#UC END# *49F5795900ECfor47A08DC70357*
+; // dfm
+
+
+// Скрипты TC (.sd)
+//+ sd
+<<generator>> sd OBJECT IN %S
+//R  
+//#UC START# *4DE79AFC0030for47A08DC70357*
+//#UC END# *4DE79AFC0030for47A08DC70357*
+; // sd
+
+
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor47A08DC70357*
+//#UC END# *4E65F581015Afor47A08DC70357*
+; // link_to_requests_hack
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+; // st_space_key
+
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for47A08DC70357*
+//#UC END# *470484D50138for47A08DC70357*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<SimpleClass>> <<vctor>> ;
+

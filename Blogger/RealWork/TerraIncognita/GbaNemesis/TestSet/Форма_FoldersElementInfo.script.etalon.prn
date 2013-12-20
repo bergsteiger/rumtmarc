@@ -1,0 +1,482 @@
+--------------- Контрол в фокусе: ------------------
+ElementName : TnscComboBoxWithReadOnly
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+enFoldersElementInfo : TenFoldersElementInfo
+
+Left = 0
+Top = 5
+Width = 315
+Height = 270
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+InfoName : TvtLabel
+Новая папка
+Left = 0
+Top = 0
+Width = 70
+Height = 15
+Align: 1
+Anchors: 7
+Transparent: 0
+---------------
+CommentPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 80
+Width = 315
+Height = 190
+TabOrder: 4
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 7
+---------------
+ElementComment : TeeMemoWithEditOperations
+Папка
+Left = 5
+Top = 25
+Width = 300
+Height = 155
+TabOrder: 0
+TabStop: 1
+Align: 5
+Anchors: 15
+ReadOnly: 0
+Выделить все
+---------------
+CaptionPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 5
+Top = 5
+Width = 300
+Height = 15
+TabOrder: 1
+TabStop: 0
+Align: 1
+Anchors: 7
+BorderWidth: 0
+---------------
+lblComment : TvtLabel
+Примечание:
+Left = 0
+Top = 0
+Width = 75
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+TopPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 15
+Width = 315
+Height = 65
+TabOrder: 2
+TabStop: 0
+Align: 1
+Anchors: 7
+BorderWidth: 0
+---------------
+NamePanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 315
+Height = 65
+TabOrder: 0
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+lblElementName : TvtLabel
+Имя:
+Left = 5
+Top = 0
+Width = 25
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+ElementName : TnscComboBoxWithReadOnly
+Новая папка 1
+Left = 5
+Top = 15
+Width = 300
+Height = 20
+TabOrder: 0
+Anchors: 7
+ReadOnly: 0
+Выделить все
+Снять выделение
+Вырезать
+Копировать
+---------------
+cbShared : TeeCheckBox
+Общий доступ
+Left = 5
+Top = 45
+Width = 320
+Height = 15
+TabOrder: 1
+TabStop: 1
+Anchors: 3
+---------------
+--------------- Содержимое тулбаров: -------------------
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:False
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:True
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:True
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:False
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Common_opTasksPanel : TvcmToolButtonDef
+Панель задач
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+ElementName : TnscComboBoxWithReadOnly
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 0
+---------------
+enFoldersElementInfo : TenFoldersElementInfo
+
+Left = 0
+Top = 5
+Width = 315
+Height = 170
+Align: 0
+Anchors: 3
+BorderWidth: 0
+---------------
+InfoName : TvtLabel
+Новая папка
+Left = 0
+Top = 0
+Width = 70
+Height = 15
+Align: 1
+Anchors: 7
+Transparent: 0
+---------------
+CommentPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 80
+Width = 315
+Height = 90
+TabOrder: 4
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 7
+---------------
+ElementComment : TeeMemoWithEditOperations
+Папка
+Left = 5
+Top = 25
+Width = 300
+Height = 60
+TabOrder: 0
+TabStop: 1
+Align: 5
+Anchors: 15
+ReadOnly: 0
+Выделить все
+---------------
+CaptionPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 5
+Top = 5
+Width = 300
+Height = 15
+TabOrder: 1
+TabStop: 0
+Align: 1
+Anchors: 7
+BorderWidth: 0
+---------------
+lblComment : TvtLabel
+Примечание:
+Left = 0
+Top = 0
+Width = 75
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+TopPanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 15
+Width = 315
+Height = 65
+TabOrder: 2
+TabStop: 0
+Align: 1
+Anchors: 7
+BorderWidth: 0
+---------------
+NamePanel : TvtPanel
+
+BevelWidth: 1
+BorderStyle: 0
+BevelOuter: 0
+BevelInner: 0
+Left = 0
+Top = 0
+Width = 315
+Height = 65
+TabOrder: 0
+TabStop: 0
+Align: 5
+Anchors: 15
+BorderWidth: 0
+---------------
+lblElementName : TvtLabel
+Имя:
+Left = 5
+Top = 0
+Width = 25
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 0
+---------------
+ElementName : TnscComboBoxWithReadOnly
+Новая папка 1
+Left = 5
+Top = 15
+Width = 300
+Height = 20
+TabOrder: 0
+Anchors: 7
+ReadOnly: 0
+Выделить все
+Снять выделение
+Вырезать
+Копировать
+---------------
+cbShared : TeeCheckBox
+Общий доступ
+Left = 5
+Top = 45
+Width = 320
+Height = 15
+TabOrder: 1
+TabStop: 1
+Anchors: 3
+---------------
+--------------- Содержимое тулбаров: -------------------
+tben_NavigatorTop : TvcmToolbar
+Order = 0
+---------------
+bt_enTree_opExpandAll : TvcmToolButtonDef
+Развернуть все
+Активность:True
+bt_enTree_opCollapseAll : TvcmToolButtonDef
+Свернуть все
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enTree_opWrap : TvcmToolButtonDef
+Перенос по словам
+Активность:True
+
+tbenFoldersElementInfoBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResultExt_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbenFoldersTreeTop : TvcmToolbar
+Order = 0
+---------------
+bt_enFolder_opNew : TvcmToolButtonDef
+Создать папку
+Активность:True
+bt_enEdit_opDelete : TvcmToolButtonDef
+Удалить
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enFolderElement_opEdit : TvcmToolButtonDef
+Свойства
+Активность:False
+bt_enFolders_opFiltrate : TvcmComboBox
+
+tbcfFoldersBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:True
+bt_enResult_opAppend : TvcmToolButtonDef
+Добавить
+Активность:True
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+
+tbnsMainWindowTop : TvcmToolbar
+Order = 0
+---------------
+bt_mo_Common_OpenMainMenuNew : TvcmToolButtonDef
+Основное меню
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enHistory_opBack : TvcmToolButtonDef
+Назад
+Активность:False
+bt_enHistory_opForward : TvcmToolButtonDef
+Вперед
+Активность:False
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Search_opAllSearch : TvcmToolButtonDef
+Поиск
+Активность:True
+bt_enFonts_opIncreaseFont : TvcmToolButtonDef
+Увеличить шрифт
+Активность:True
+bt_enFonts_opDecreaseFont : TvcmToolButtonDef
+Уменьшить шрифт
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_mo_Folders_opMyInformation : TvcmToolButtonDef
+Моя информация
+Активность:True
+ : TvcmSeparatorDef
+
+Активность:True
+bt_enCommon_opGetWindowList : TvcmToolButtonDef
+Список открытых окон
+Активность:False
+

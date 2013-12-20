@@ -1,0 +1,473 @@
+----
+Obj type = Document
+Count = 1
+Rect = (700, -300, 15200, 11500)
+MaxLinesCount = 2287
+----
+Obj type = Block
+Count = 45
+Rect = (1500, 700, 15200, 10600)
+MaxLinesCount = 86
+----
+Obj type = TextPara
+Text = 'По кредитному договору (договору займа) N _______________________________'
+Rect = (1500, 700, 1700, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'в _______________________________________________________________________'
+Rect = (1700, 700, 2000, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '                (наименование кредитной организации)'
+Rect = (2000, 700, 2200, 1073741800)
+Dim = (6800, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '         за период с "___"______20__ г. по "___"_______ 20 __ г.'
+Rect = (2200, 700, 2500, 1073741800)
+Dim = (8400, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '1. Дата заключения кредитного договора (договора займа) _________________'
+Rect = (2500, 700, 2700, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '2. Сроки погашения кредита (займа) по договору __________________________'
+Rect = (2700, 700, 2900, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '2.1. Срок погашения кредита (займа) "___"_____ 20__ г. по дополнительному'
+Rect = (2900, 700, 3200, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'соглашению о пролонгации N __________ от "___"______20__ г.'
+Rect = (3200, 700, 3400, 1073741800)
+Dim = (7700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '3. Размер полученного кредита (займа) _______________ рублей'
+Rect = (3400, 700, 3600, 1073741800)
+Dim = (7900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '4. Процентная ставка по кредиту (займу) ___________% годовых'
+Rect = (3600, 700, 3900, 1073741800)
+Dim = (7900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '5. Ставка   рефинансирования  Банка России на дату заключения  кредитного'
+Rect = (3900, 700, 4100, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'договора (договора займа)* ________________%'
+Rect = (4100, 700, 4400, 1073741800)
+Dim = (5700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (4400, 700, 4600, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = Table
+Count = 3
+Rect = (4600, 700, 8000, 11000)
+Dim = (10100, 3300)
+MaxLinesCount = 10
+----
+Obj type = TableRow
+Count = 4
+Rect = (4700, 700, 7100, 10900)
+Dim = (10100, 2300)
+MaxLinesCount = 8
+DeltaHeight = 2300
+----
+Obj type = TableCell
+Count = 1
+Rect = (4700, 700, 6800, 2900)
+Dim = (2100, 2100)
+MaxLinesCount = 7
+----
+Obj type = TextPara
+Text = '╬ёЄрЄюъ ёёєфэющ чрфюыцхээюёЄш, шч ъюЄюЁющ шёўшёы хЄё  ЁрчьхЁ ёєсёшфшш'
+Rect = (4800, 800, 6800, 2800)
+Dim = (1900, 1900)
+MaxLinesCount = 7
+LinesCount = 7
+----
+Obj type = TableCell
+Count = 1
+Rect = (4700, 2900, 7100, 4500)
+Dim = (1600, 2300)
+MaxLinesCount = 8
+----
+Obj type = TextPara
+Text = '╩юышўхёЄтю фэхщ яюы№чютрэш  ъЁхфшЄюь (чрщьюь) т ЁрёўхЄэюь яхЁшюфх'
+Rect = (4800, 2900, 7100, 4500)
+Dim = (1400, 2200)
+MaxLinesCount = 8
+LinesCount = 8
+----
+Obj type = TableCell
+Count = 2
+Rect = (4700, 4500, 5900, 7700)
+Dim = (3100, 1100)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = '╨рчьхЁ ёєсёшфшш'
+Rect = (4800, 4600, 5000, 7700)
+Dim = (3000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '*'
+Count = 1
+Rect = (5000, 4600, 5800, 8000)
+Dim = (3000, 700)
+MaxLinesCount = 1
+----
+Obj type = Formula
+Text = '((String("уЁ.1")*+String("уЁ.2")*+String("1%"))/(100&String("%")*+365&!(366)&фэхщ))*+100&String("%")'
+Rect = (5000, 4600, 5800, 8000)
+Dim = (3300, 700)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 2
+Rect = (4700, 7700, 5900, 10900)
+Dim = (3100, 1100)
+MaxLinesCount = 2
+----
+Obj type = TextPara
+Text = '╨рчьхЁ ёєсёшфшш'
+Rect = (4800, 7800, 5000, 10900)
+Dim = (3000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '*'
+Count = 1
+Rect = (5000, 7800, 5800, 11200)
+Dim = (3000, 700)
+MaxLinesCount = 1
+----
+Obj type = Formula
+Text = '((String("уЁ.1")*+String("уЁ.2")*+(String("я.4")-String("я.5")))/(100&String("%")*+365&!(366)&фэхщ))*+100&String("%")'
+Rect = (5000, 7800, 5800, 11200)
+Dim = (3300, 700)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 4
+Rect = (7100, 700, 7500, 10900)
+Dim = (10100, 300)
+MaxLinesCount = 1
+DeltaHeight = 300
+----
+Obj type = TableCell
+Count = 1
+Rect = (7100, 700, 7500, 2900)
+Dim = (2100, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '1'
+Rect = (7200, 800, 7500, 2800)
+Dim = (1900, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (7100, 2900, 7500, 4500)
+Dim = (1600, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '2'
+Rect = (7200, 2900, 7500, 4500)
+Dim = (1400, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (7100, 4500, 7500, 7700)
+Dim = (3100, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '3'
+Rect = (7200, 4600, 7500, 7700)
+Dim = (3000, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (7100, 7700, 7500, 10900)
+Dim = (3100, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '4'
+Rect = (7200, 7800, 7500, 10900)
+Dim = (3000, 200)
+MaxLinesCount = 1
+----
+Obj type = TableRow
+Count = 4
+Rect = (7500, 700, 7900, 10900)
+Dim = (10100, 300)
+MaxLinesCount = 1
+DeltaHeight = 300
+----
+Obj type = TableCell
+Count = 1
+Rect = (7500, 700, 7900, 2900)
+Dim = (2100, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (7600, 800, 7900, 2800)
+Dim = (1900, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (7500, 2900, 7900, 4500)
+Dim = (1600, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (7600, 2900, 7900, 4500)
+Dim = (1400, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (7500, 4500, 7900, 7700)
+Dim = (3100, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (7600, 4600, 7900, 7700)
+Dim = (3000, 200)
+MaxLinesCount = 1
+----
+Obj type = TableCell
+Count = 1
+Rect = (7500, 7700, 7900, 10900)
+Dim = (3100, 300)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (7600, 7800, 7900, 10900)
+Dim = (3000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (8000, 700, 8300, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = 'Размер предоставляемой субсидии (минимальная величина из граф 3 и 4)'
+Rect = (8300, 700, 8500, 1073741800)
+Dim = (8900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '__________________________________________________________________ рублей'
+Rect = (8500, 700, 8700, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '                        (сумма прописью)'
+Rect = (8700, 700, 9000, 1073741800)
+Dim = (5200, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (9000, 700, 9300, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' Проценты, начисленные в соответствии  Достоверность представленных'
+Rect = (9300, 700, 9500, 1073741800)
+Dim = (8800, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' с заключенным кредитным договором     документов, целевое использование'
+Rect = (9500, 700, 9700, 1073741800)
+Dim = (9400, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' (договором займа) и основной долг     кредита и размер субсидии'
+Rect = (9700, 700, 10000, 1073741800)
+Dim = (8400, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' оплачены своевременно и в полном      подтверждаю:***'
+Rect = (10000, 700, 10200, 1073741800)
+Dim = (7100, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' объёме:                               Начальник УСХиП Минсельхозпрода РТ'
+Rect = (10200, 700, 10500, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' Руководитель организации**            в ________ муниципальном районе РТ'
+Rect = (10500, 700, 10700, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' _______________ Ф.И.О.                _____________ Ф.И.О.'
+Rect = (10700, 700, 10900, 1073741800)
+Dim = (7700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '    (подпись)                             (подпись)'
+Rect = (10900, 700, 11200, 1073741800)
+Dim = (6700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' Главный бухгалтер                     Начальник финансово-экономического'
+Rect = (11200, 700, 11400, 1073741800)
+Dim = (9600, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' _______________ Ф.И.О.                отдела'
+Rect = (11400, 700, 11600, 1073741800)
+Dim = (5900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '    (подпись)                          _______________ Ф.И.О.'
+Rect = (11600, 700, 11900, 1073741800)
+Dim = (8000, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '                                          (подпись)'
+Rect = (11900, 700, 12100, 1073741800)
+Dim = (6700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' печать'
+Rect = (12100, 700, 12400, 1073741800)
+Dim = (900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '                                      печать'
+Rect = (12400, 700, 12600, 1073741800)
+Dim = (5700, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' Расчёт, своевременную уплату'
+Rect = (12600, 700, 12800, 1073741800)
+Dim = (3800, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' процентов и основного долга          Заместитель Премьер-министра РТ -'
+Rect = (12800, 700, 13100, 1073741800)
+Dim = (9300, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' подтверждаю:                         министр сельского хозяйства и'
+Rect = (13100, 700, 13300, 1073741800)
+Dim = (8800, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' Руководитель кредитной организации   продовольствия РТ'
+Rect = (13300, 700, 13500, 1073741800)
+Dim = (7200, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' (филиала)                            ______________ М.Г. Ахметов'
+Rect = (13500, 700, 13800, 1073741800)
+Dim = (8500, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' ___________________ Ф.И.О.'
+Rect = (13800, 700, 14000, 1073741800)
+Dim = (3500, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '     (подпись)'
+Rect = (14000, 700, 14300, 1073741800)
+Dim = (1800, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' Главный бухгалтер'
+Rect = (14300, 700, 14500, 1073741800)
+Dim = (2300, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' ___________________ Ф.И.О.'
+Rect = (14500, 700, 14700, 1073741800)
+Dim = (3500, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = '     (подпись)'
+Rect = (14700, 700, 15000, 1073741800)
+Dim = (1800, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ' печать'
+Rect = (15000, 700, 15200, 1073741800)
+Dim = (900, 200)
+MaxLinesCount = 1
+----
+Obj type = TextPara
+Text = ''
+Rect = (15200, 700, 15200, 10600)
+Dim = (9900, 200)
+MaxLinesCount = 1

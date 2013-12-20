@@ -1,0 +1,29 @@
+: TestCallerFirstParamWorker
+
+ CallerFirstParamWorker DoIt
+  %S .
+ ;
+ 
+ : A IN aParam
+  VAR X
+  1025 =: X
+  X .
+  
+  DoIt
+  
+ ;
+ 
+ : B IN anIn
+  VAR X
+  'Hello' =: X
+  X .
+  
+  DoIt
+ ;
+ 
+ 'Test' A
+ 'oops' B
+
+;
+
+TestCallerFirstParamWorker

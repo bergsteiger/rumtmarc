@@ -1,0 +1,17 @@
+TextForm : TTextForm
+ParentZone : TvtPanel
+ParentForm : TParentForm
+ParentZonePanel : TvtPanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow
+efList : TefList
+ : TElTabSheet
+ChildZone : TnscFormsPageControl
+ChildForm : TChildForm
+ChildZonePanel : TvtSizeablePanel
+MainZone : TvtProportionalPanel
+ClientZone : TvtPanel
+vcmDockContainer : TvcmDockContainer
+nsMainWindow : TnsMainWindow

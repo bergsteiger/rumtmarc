@@ -1,0 +1,276 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Ещё раз про DelphiSpec (<a href="http://roman.yankovsky.me/?p=1258">http://roman.yankovsky.me/?p=1258</a>) и "тестировании по-русски" (<a href="http://18delphi.blogspot.ru/2013/11/gui.html">http://18delphi.blogspot.ru/2013/11/gui.html</a>).<br />
+<br />
+Побудительным мотивом данного поста послужил комментарий Николая Зверева - "Это действительно круто, наконец-то от требований к тестам всего один шаг — формализовать требования в виде сценария… (ну и со стороны программы предоставить API)".<br />
+<br />
+Тут я понял, что "я не всё правильно рассказал про "свои скрипты"" и что "Роман уделал меня на моём же поле" :-)<br />
+<br />
+Я не претендую на первенство или оригинальность.<br />
+<br />
+Тем более я не хочу умалять достоинства разработки Романа или критиковать её.<br />
+<br />
+Я лишь хочу подкинуть "пищу для размышлений".<br />
+<!--more--><br />
+Итак - "как я бы делал бы "то же самое" на своей скриптовой машине".<br />
+<br />
+Давайте возьмём пример Романа:<br />
+<br />
+<pre class="brush:delphi">Feature: Calculator
+
+ Scenario: Add two numbers
+   Given I have entered 50 in calculator
+     And I have entered 70 in calculator
+   When I press Add
+   Then the result should be 120 on the screen
+
+ Scenario: Add two numbers (fails)
+   Given I have entered 50 in calculator
+     And I have entered 50 in calculator
+   When I press Add
+   Then the result should be 120 on the screen
+
+ Scenario: Multiply three numbers
+   Given I have entered 5 in calculator
+     And I have entered 5 in calculator
+     And I have entered 4 in calculator
+   When I press mul
+   Then the result should be 100 on the screen
+</pre>
+<br />
+И "адаптируем" его к нашей скриптовой машине.<br />
+<br />
+Первым делом посмотрим на класс:
+
+<br />
+<br />
+<pre class="brush:delphi">type
+  TCalculator = class
+  private
+    FData: TStack&lt;integer&gt;;
+    FValue: Integer;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure Add;
+    procedure Mul;
+    procedure Push(Value: Integer);
+
+    property Value: Integer read FValue;
+  end;
+</pre>
+<br />
+Отобразим его (на стороне Delphi) на аксиоматику тестовой машины.<br />
+<br />
+Это можно сделать несколькими способами:<br />
+<br />
+1. Ручное отображение, через RegisterMethod.<br />
+2. UML и кодогенерацию.<br />
+3. "Новый" RTTI.<br />
+<br />
+Я пользуюсь ВСЕМИ этими способами, в зависимости от задачи и её сложности.<br />
+<br />
+Но это в общем - "не сильно важно".<br />
+<br />
+Я лишь хочу наметить "пути".<br />
+<br />
+Если кому-то интересен код "отображения" - я им потом поделюсь.<br />
+<br />
+В результате отображения получим следующие слова скриптовой машины:
+
+<br />
+<br />
+<pre class="brush:delphi"> 
+ OBJECT: TCalculator FUNCTION TCalculator.Create
+ PROCEDURE TCalculator.Add OBJECT: TCalculator IN aCalculator
+ PROCEDURE TCalculator.Mul OBJECT: TCalculator IN aCalculator
+ PROCEDURE TCalculator.Push INTEGER IN aValue OBJECT: TCalculator IN aCalculator
+ INTEGER FUNCTION TCalculator.GetValue OBJECT: TCalculator IN aCalculator
+</pre>
+<br />
+Теперь опишем аксиоматику на стороне скриптов:<br />
+<br />
+Отдельно - <b>базовую аксиоматику</b> (она - ОДНА "на всех", это можно ОДИН РАЗ написать и "забыть как <b>страшный сон</b>"):
+
+<br />
+<br />
+<pre class="brush:delphi">[WordWorker2] 
+// - [WordWorker2] это слово, которое выполняется при компиляции кода и принимает ДВА ПАРАМЕТРА СПРАВА 
+ Feature:
+
+  FUNCTOR IN aClassFactory
+  // - aClassFactory - фабрика тестируемого класса
+  aClassFactory := WordToWork1 
+
+  [] VAR l_Steps
+  // - объявляем массив сценариев
+  l_Steps := ( [[ WordToWork2 DO ]] )
+  // - складываем сценарии в массив
+  @ 
+  ( 
+    FUNCTOR IN aStep 
+    // - aStep - текущий сценарий
+    aClassFactory aStep DO 
+  ) ITERATE l_Steps
+  // - регистрируем сценарии в тестовой машине
+; // Feature:
+
+OBJECT VAR gTestedObject
+// - текущий тестируемый объект
+
+WordWorker2 Scenario: FUNCTOR IN anObjectConstructor
+  STRING VAR l_ScenarioName
+  // - объявляем переменную для имени сценария
+  l_ScenarioName := ( WordToWork1 DO )
+  // - получаем имя сценария
+  l_ScenarioName 
+  // - кладём имя сценария на стек
+  @ (
+   gTestedObject := ( 
+    [ 
+    // - Обратно переключаемся в режим выполнения
+    anObjectConstructor CompileValue
+    // - компилируем значение anObjectConstructor как "литерал" в коде
+    ]
+    // - Обратно переключаемся в режим компиляции 
+    DO 
+   )
+   // - создаём тестируемый объект
+   TRY
+    [ WordToWork2 CompileValue ] DO
+    // - выполняем код сценария
+   FINALLY
+    gTestedObject TObject.Free
+    // - уничтожаем тестируемый объект
+   END
+  ) 
+  // - компилируем код сценария на стек
+  TestEngine.RegisterTest
+  // - регистрируем в тестовой машине тест с именем сценария и указанным кодом
+; // Scenario:
+</pre>
+<br />
+Далее регистрируем слова-"заглушки", семантика которых не влияет на код сценария.<br />
+<br />
+Если я всё правильно понял - они служат лишь "декорацией".<br />
+<br />
+(Роман наверное меня поправит, если я что-то не так понял)
+
+<br />
+<br />
+<pre class="brush:delphi">WordWorker Given
+ WordtoWork DO
+; // Given
+
+WordWorker And
+ WordtoWork DO
+; // And
+
+WordWorker When
+ WordtoWork DO
+; // When
+</pre>
+<br />
+И ещё определяем слово Then.<br />
+<br />
+Семантика которого понятна - <b>проверить условие и вывести ошибку</b>, если условие не выполняется.
+
+<br />
+<pre class="brush:delphi">WordWorker Then
+ // - ожидает, что параметр справа вычислит массив из ДВУХ значений - булевского и строкового
+ [] VAR l_Check
+ // - объявляем массив
+ l_Check := ( WordtoWork DO )
+ // - присваиваем массиву значение
+ BOOLEAN VAR l_Condition
+ // - условие
+ l_Condition := ( l_Check [0] )
+ if ( NOT l_Condition ) then
+ ( 
+  Fail ( l_Check [1] )
+  // - выводим сообщение о неуспехе
+ )
+; // Then
+</pre>
+<br />
+И отдельно аксиоматику калькулятора:
+
+<br />
+<br />
+<pre class="brush:delphi">OBJECT FUNCTON Calculator
+ Resut := ( @ TCalculator.Create )
+ // - возвращаем указатель на конструктор объекта
+;
+
+PROCEDURE "I have entered {(INTEGER IN aValue)} in calculator"
+ aValue gTestedObject TCalculator.Push
+;
+
+PROCEDURE "I press Add"
+ gTestedObject TCalculator.Add
+;
+
+PROCEDURE "I press mul"
+ gTestedObject TCalculator.Mul
+;
+
+[] FUNCTION "the result should be {(INTEGER IN aValue)} on the screen"
+ Result := 
+  [[  
+   ( gTestedObject TCalculator.GetValue = aValue ) 
+   'Incorrect result on calculator screen' 
+  ]]
+;
+</pre>
+<br />
+Тогда пример переписывается вот так:
+
+<br />
+<br />
+<pre class="brush:delphi"> Feature: Calculator
+ (
+  Scenario: 'Add two numbers'
+  (
+    Given "I have entered {(50)} in calculator"
+      And "I have entered {(70)} in calculator"
+    When "I press Add"
+    Then "the result should be {(120)} on the screen"
+  )
+
+  Scenario: 'Add two numbers (fails)'
+  (
+    Given "I have entered {(50)} in calculator"
+      And "I have entered {(50)} in calculator"
+    When "I press Add"
+    Then "the result should be {(120)} on the screen"
+  )
+
+  Scenario: 'Multiply three numbers'
+  (
+    Given "I have entered {(5)} in calculator"
+      And "I have entered {(5)} in calculator"
+      And "I have entered {(4)} in calculator"
+    When "I press mul"
+    Then "the result should be {(100)}" on the screen"
+  )
+ )
+</pre>
+<br />
+Выглядит наверное "тяжеловесно" <b>для начала</b>.<br />
+<br />
+Но!<br />
+<br />
+Это практически повторяет реализацию Романа, но при этом обладает - гораздо большей гибкостью.<br />
+<br />
+Это - раз.<br />
+<br />
+Два - это то, что код скриптов не требует перекомпиляции приложения.<br />
+<br />
+А три - это то, что классы в "аксиоматику" можно отображать "один в один" (разными способами, я часть из них перечислил выше), а "синтаксический сахар" - можно "добирать" уже средствами скриптов.<br />
+<br />
+А четыре - скрипты - КОМПИЛИРУЮТСЯ, ДО их выполнения. С указанием места ошибки. В отличии от регулярных выражений.<br />
+<br />
+Повод для размышлений?
+</div>
+<br /></div>

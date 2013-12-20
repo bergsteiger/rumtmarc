@@ -1,0 +1,18 @@
+unit Script.Interfaces;
+
+interface
+
+type
+  IscriptLog = interface
+   procedure Log(const aString: String);
+  end;//IscriptLog
+
+  IscriptCompileLog = interface(IscriptLog)
+  end;//IscriptCompileLog
+
+  IscriptRunLog = interface(IscriptLog)
+  end;//IscriptRunLog
+
+implementation
+
+end.

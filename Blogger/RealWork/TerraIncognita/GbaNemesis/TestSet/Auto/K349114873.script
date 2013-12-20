@@ -1,0 +1,20 @@
+: K349114873
+ OBJECT VAR l_QC
+ vcm:Dispatcher:Lock
+ TRY
+  ППР_Prim
+  "Убедиться, что фокус в редакторе"
+  focused:control:push >>> l_QC
+  false 'Editor' QueryCard:SetCanSaveState
+  'AT_TEXT_NAME' true l_QC pop:QueryCard:Attribute:SetCollapsed
+  'AT_TYPE' true l_QC pop:QueryCard:Attribute:SetCollapsed
+  'AT_REG_IN_MU' true l_QC pop:QueryCard:Attribute:SetCollapsed
+  'AT_NORM' true l_QC pop:QueryCard:Attribute:SetCollapsed
+  'AT_LC_IN_DATE' false l_QC pop:QueryCard:Attribute:SetCollapsed
+  'AT_LC_IN_DATE' l_QC pop:QueryCard:Attribute:SetFocus
+ FINALLY 
+  vcm:Dispatcher:Unlock
+ END // TRY..FINALLY 
+; // K349114873
+
+K349114873

@@ -1,0 +1,747 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/HighLayers/MDATemplates.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$Templates::MetaTemplate::Meta::HighLayers::MDATemplates
+//
+// Модель шаблонов
+// ---
+// Проект модели, которая описывает произвольные шаблоны и генерит их (на основе мета-шаблонов)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDATemplates::Category
+implementation @ <<MDATemplates>>
+//? Модель шаблонов
+//? Проект модели, которая описывает произвольные шаблоны и генерит их (на основе мета-шаблонов)
+//> MDALibrary::Category
+
+//= Проектные файлы::MDAGenerator
+//= ModelSerialize::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a ra
+// - тип абстракции
+//Y code_mda_templates.gif
+//L code_mda_templates
+// Параметры визуализации
+//$ C 105,205,255
+//$ l 5,205,255
+//$ f 5,205,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46E13A69005D*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for46E13A69005D*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46E13A69005D*
+//#UC END# *4705CBD6003Efor46E13A69005D*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46E13A69005D*
+//#UC END# *470484D50138for46E13A69005D*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
+// генератор структуры модели в описание на языке FORTH
+//+ forth_structure
+<<generator>> forth_structure OBJECT IN %S
+//R  
+//#UC START# *4F368B80039Efor46E13A69005D*
+//= Requirements::Category;forth_structure
+%call-other-gen ( 'Requirements' 'forth_structure' )
+//#UC END# *4F368B80039Efor46E13A69005D*
+; // forth_structure
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Хак для [$281531116]
+//+ link_to_requests_hack
+<<generator>> link_to_requests_hack OBJECT IN %S
+//#UC START# *4E65F581015Afor46E13A69005D*
+//#UC END# *4E65F581015Afor46E13A69005D*
+; // link_to_requests_hack
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E13A69005D*
+//C /%SN:%SU
+//O %SN
+//S %SN
+
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ %IF-NOT-EMPTY
+  'h2. Модель'
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Включает реализацию требований:
+   '{info}Включает реализацию требований:'
+//	<{}{%aS=Requirements}{Sg}* %f_k_link_wp(%a,%S)
+   %FOR %ITEM-CONDITION ( ( %a |S ) %== 'Requirements' ) 
+    ( 'Sg' ) 
+    '* '
+    [%f] k_link_wp %( %a %, %S )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Использует другие модели шаблонов:
+   '{info}Использует другие модели шаблонов:'
+//	<{}{%DS!=Requirements}* %f_k_link(%D)
+   %FOR %ITEM-CONDITION ( ( %D |S ) %!= 'Requirements' ) 
+    '* '
+    [%f] k_link %( %D )% 
+//	>{info}][
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	
+
+//	{info}Используется из других моделей шаблонов:
+   '{info}Используется из других моделей шаблонов:'
+//	<{}{%aS!=Requirements}{Sp}* %f_k_link(%a)
+   %FOR %ITEM-CONDITION ( ( %a |S ) %!= 'Requirements' ) 
+    ( 'Sp' ) 
+    '* '
+    [%f] k_link %( %a )% 
+//	>{info}][\
+   %END-FOR
+   '{info}' 
+  %END-IF
+  %IF-NOT-EMPTY
+//	%f_k_common_elem_docs(%S)][{%mx=true&%Cx=true}
+   [%f] k_common_elem_docs %( %S )% 
+  %END-IF
+  %IF ( ( %m |x ) %==  true %&& 
+    ( ( %C |x ) %==  true  ) ) 
+
+//	
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма модели шаблонов:_
+   %FOR %ITEM-SEPARATOR '----'#13#10 ; // %ITEM-SEPARATOR 
+    '_'
+    %IF ( ( %m |N ) %!= 'Main' ) 
+     %ELSE
+      'Основная' 
+     %THEN
+     %m |N 
+    %END-IF
+    ' диаграмма модели шаблонов:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+    [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+    %m |U '.jpg}'
+//	>]][
+   %END-FOR
+  %END-IF
+ %END-IF
+ %IF-NOT-EMPTY
+
+//	
+
+//	h2. Состав модели шаблонов[
+  'h2. Состав модели шаблонов'
+  %IF-NOT-EMPTY
+
+//	
+
+//	_Библиотеки шаблонов:_<
+   '_Библиотеки шаблонов:_'
+   %FOR 
+
+//	\# *%f_k_link(%C)*
+    '# *'
+    [%f] k_link %( %C )% '*'
+//	_%C?_[, %f_str_replace(%CD,\n\n,\n\\\\)]>]]<%CX>
+    '_'
+    %C |? '_'
+    %IF-NOT-EMPTY
+     ', '
+     [%f] str_replace %( %C |D %, #13#10#13#10 %, #13#10'\\' )% 
+    %END-IF
+   %END-FOR
+  %END-IF
+ %END-IF
+ %FOR %C |X 
+ %END-FOR
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for46E13A69005D*
+; // wiki
+
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E13A69005D*
+//C /%SN
+//O [{%Sa!=abstract}%SN.tpl]
+//	MDA GENERATOR TEMPLATE FILE
+ 'MDA GENERATOR TEMPLATE FILE'
+//	
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	
+//	Generator definitions:
+ 'Generator definitions:'
+//	group "All" \{
+ 'group "All" {'
+//	<%d<{}{%AS=MDAGenerator&%A{internal}=false&%A<{}{%CS=group}{C}>=0}{Sn}
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAGenerator' %&& 
+    ( ( %A get_up ( 'internal' ) ) %==  false  ) %&& 
+    ( ( %A
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'group' ) 
+    ( 'C' ) 
+   %END-FOR
+ )    %== 0  ) ) 
+   ( 'Sn' ) 
+
+//	%f_dump_group(%A)
+   [%f] dump_group %( %A )% 
+//	>><{}{%AS=MDAGenerator&%A{internal}=false&%A<{}{%CS=group}{C}>=0}{Sn}
+  %END-FOR
+  %END-FOR
+ %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAGenerator' %&& 
+   ( ( %A get_up ( 'internal' ) ) %==  false  ) %&& 
+   ( ( %A
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'group' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %== 0  ) ) 
+  ( 'Sn' ) 
+
+//	%f_dump_group(%A)
+  [%f] dump_group %( %A )% 
+//	>
+ %END-FOR
+//	
+//	Stereotype definitions:
+ 'Stereotype definitions:'
+//	
+//	//////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////'
+//	// default
+ '// default'
+//	
+//	: default
+ ': default'
+//	
+//	//////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////'
+//	// default Category (Using for generation LogicalView)
+ '// default Category (Using for generation LogicalView)'
+//	
+//	: default::Category
+ ': default::Category'
+//	%f_clear_list(DEFAULT_CATS)<%d<{}{%A{can be main}=true}[{%f_exists_in_list(DEFAULT_CATS,"%AN::Category")=false}%f_add_to_list(DEFAULT_CATS,"%AN::Category")]>>\
+ [%f] clear_list %( 'DEFAULT_CATS' )% 
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A get_up ( 'can be main' ) ) %==  true ) 
+   %IF ( ( [%f] exists_in_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% ) %==  false ) 
+    [%f] add_to_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% 
+   %END-IF
+  %END-FOR
+  %END-FOR
+//	<{}{%A{can be main}=true}[{%f_exists_in_list(DEFAULT_CATS,"%AN::Category")=false}%f_add_to_list(DEFAULT_CATS,"%AN::Category")]>\
+ %FOR %ITEM-CONDITION ( ( %A get_up ( 'can be main' ) ) %==  true ) 
+  %IF ( ( [%f] exists_in_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% ) %==  false ) 
+   [%f] add_to_list %( 'DEFAULT_CATS' %, %A |N '::Category' )% 
+  %END-IF
+ %END-FOR
+//	<{}{%f_is_empty(DEFAULT_CATS)=false}{W}%f_pop_first_to_var(DEFAULT_CATS,DEF_CAT)\> %{DEF_CAT}N
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'DEFAULT_CATS' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'DEFAULT_CATS' %, 'DEF_CAT' )% '> '
+  ( get_global_var ( 'DEF_CAT' ) |N ) 
+//	>%f_clear_list(DEFAULT_CATS)
+ %END-FOR
+ [%f] clear_list %( 'DEFAULT_CATS' )% //	%U[{def}\n]
+
+//	[<%d<{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}
+ %IF-NOT-EMPTY
+  %FOR %d
+   %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAGenerator' %&& 
+     ( ( %A get_up ( 'internal' ) ) %==  false  ) ) 
+    ( 'Sn' ) 
+    %A
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'generator' ) 
+     ( 'Sn' ) 
+
+//	+ %CN
+     '+ '
+     %C |N 
+//	P
+     'P'
+//		\<\%CX\>
+     '	<%CX>'
+//	>>><{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}
+    %END-FOR
+    %END-FOR
+   %END-FOR
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAGenerator' %&& 
+    ( ( %A get_up ( 'internal' ) ) %==  false  ) ) 
+   ( 'Sn' ) 
+   %A
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'generator' ) 
+    ( 'Sn' ) 
+
+//	+ %CN
+    '+ '
+    %C |N 
+//	P
+    'P'
+//		\<\%CX\>
+    '	<%CX>'
+//	>>]
+   %END-FOR
+   %END-FOR
+ %END-IF
+//	
+//	[\# %f_normolized_path(mda.inc,S)]
+ %IF-NOT-EMPTY
+  '# '
+  [%f] normolized_path %( 'mda.inc' %, 'S' )% 
+ %END-IF
+//	
+//	f _all_generators
+ 'f _all_generators'
+//	%f_clear_list(GEN_LIST)\
+ [%f] clear_list %( 'GEN_LIST' )% 
+//	[<%d<{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}%f_add_to_list(GEN_LIST,"%CN")>>>\
+ %IF-NOT-EMPTY
+  %FOR %d
+   %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAGenerator' %&& 
+     ( ( %A get_up ( 'internal' ) ) %==  false  ) ) 
+    ( 'Sn' ) 
+    %A
+    %FOR %ITEM-CONDITION ( ( %C |S ) %== 'generator' ) 
+     ( 'Sn' ) 
+     [%f] add_to_list %( 'GEN_LIST' %, %C |N )% 
+    %END-FOR
+    %END-FOR
+   %END-FOR
+//	<{}{%AS=MDAGenerator&%A{internal}=false}{Sn}%A<{}{%CS=generator}{Sn}%f_add_to_list(GEN_LIST,"%CN")>>]\
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAGenerator' %&& 
+    ( ( %A get_up ( 'internal' ) ) %==  false  ) ) 
+   ( 'Sn' ) 
+   %A
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'generator' ) 
+    ( 'Sn' ) 
+    [%f] add_to_list %( 'GEN_LIST' %, %C |N )% 
+   %END-FOR
+   %END-FOR
+ %END-IF
+//	%f_sort_list(GEN_LIST,n)%f_unique_list(GEN_LIST)\
+ [%f] sort_list %( 'GEN_LIST' %, 'n' )% [%f] unique_list %( 'GEN_LIST' )% 
+//		\[\%f_clear_list(ALL_GENERATORS_ID)[<{}{%f_is_empty(GEN_LIST)=false}{W}[%f_pop_first_to_var(GEN_LIST,GEN)
+ '	[%f_clear_list(ALL_GENERATORS_ID)'
+ %IF-NOT-EMPTY
+  %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'GEN_LIST' )% ) %==  false ) 
+   ( 'W' ) 
+   %IF-NOT-EMPTY
+    [%f] pop_first_to_var %( 'GEN_LIST' %, 'GEN' )% 
+//		\%f_add_to_list(ALL_GENERATORS_ID,"%{GEN}N")]>]\]
+    '	%f_add_to_list(ALL_GENERATORS_ID,"'
+    ( get_global_var ( 'GEN' ) |N ) ')' 
+   %END-IF
+  %END-FOR
+ %END-IF
+ ']'
+//	
+//	Reports definitions:
+ 'Reports definitions:'
+//	group "All" \{
+ 'group "All" {'
+//	
+//	<%d<{}{%AS=MDAReport&%A<{}{%CS=group}{C}>=0}[\# %f_normolized_path(mda,A)
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAReport' %&& 
+    ( ( %A
+   %FOR %ITEM-CONDITION ( ( %C |S ) %== 'group' ) 
+    ( 'C' ) 
+   %END-FOR
+ )    %== 0  ) ) 
+   %IF-NOT-EMPTY
+    '# '
+    [%f] normolized_path %( 'mda' %, 'A' )% 
+//	]>><{}{%AS=MDAReport&%A<{}{%CS=group}{C}>=0}[\# %f_normolized_path(mda,A)
+   %END-IF
+  %END-FOR
+  %END-FOR
+ %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDAReport' %&& 
+   ( ( %A
+  %FOR %ITEM-CONDITION ( ( %C |S ) %== 'group' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %== 0  ) ) 
+  %IF-NOT-EMPTY
+   '# '
+   [%f] normolized_path %( 'mda' %, 'A' )% 
+//	]>\}
+  %END-IF
+ %END-FOR
+ '}'
+//	<%CX>
+ %FOR %C |X 
+ %END-FOR
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//f _dump_group
+; // mda
+
+end. // <<MDATemplates>>
+
+: dump_group OBJECT IN %S
+//	#group "%SN" {
+ out_indent 'group "'
+ %S |N '" {'
+//	<{}{%CS=generator}{Sn}\
+ %FOR %ITEM-CONDITION ( ( %C |S ) %== 'generator' ) 
+  ( 'Sn' ) 
+//	#	generator "%CN" {
+  out_indent '	generator "'
+  %C |N ' {'
+//	#		Description: %f_str_replace(%CD,\n,%f_space(%C))[
+  out_indent '		Description: '
+  [%f] str_replace %( %C |D %, #13#10 %, [%f] space %( %C )% )% %IF-NOT-EMPTY
+
+//	#		lid: %C{lang id}][
+   out_indent '		lid: '
+   %C get_up ( 'lang id' ) 
+  %END-IF
+  %IF-NOT-EMPTY
+
+//	#		ifdef_suffix: %C{ifdef_suffix}][%C<{}{}{%C}
+   out_indent '		ifdef_suffix: '
+   %C get_up ( 'ifdef_suffix' ) 
+  %END-IF
+  %IF-NOT-EMPTY
+   %C
+   %FOR ( %C ) 
+
+//	#		%CN: %CI>]
+    out_indent '		'
+    %C |N ': '
+    %C |I 
+   %END-FOR
+   %END-IF
+//	#	}
+  out_indent '	}'
+//	>%f_shift_intend(1)<{}{%aM=MDAGenerator::Class::group::ClassDependency}{Sg}%f_dump_group(%a%P)
+ %END-FOR
+ [%f] shift_intend %( 1 )% 
+ %FOR %ITEM-CONDITION ( ( %a |M ) %== 'MDAGenerator::Class::group::ClassDependency' ) 
+  ( 'Sg' ) 
+  [%f] dump_group %( %a ->P  )% 
+//	>%f_shift_intend(-1)\
+ %END-FOR
+ [%f] shift_intend %( -1 )% 
+//	#}
+ out_indent '}'
+
+//f _dump_default_user_code
+; // dump_group
+
+: dump_default_user_code OBJECT IN %S
+//	%U[{def}\n]
+ %U%IF ( 'def' ) 
+  #13#10 
+ %END-IF
+ 
+//f _collect_all_elems
+; // dump_default_user_code
+
+: collect_all_elems OBJECT IN %S
+//	[%f_clear_list(ALL_ELEMENTS)<%d<{}{}{}[{%f_exists_in_list(ALL_ELEMENTS,A)=false}%f_add_to_list(ALL_ELEMENTS,A)]>>\
+ %IF-NOT-EMPTY
+  [%f] clear_list %( 'ALL_ELEMENTS' )% 
+  %FOR %d
+   %FOR ( ) 
+    %IF ( ( [%f] exists_in_list %( 'ALL_ELEMENTS' %, 'A' )% ) %==  false ) 
+     [%f] add_to_list %( 'ALL_ELEMENTS' %, 'A' )% 
+    %END-IF
+   %END-FOR
+   %END-FOR
+//	<{}{}{%A}[{%f_exists_in_list(ALL_ELEMENTS,A)=false}%f_add_to_list(ALL_ELEMENTS,A)]>]
+  %FOR ( %A ) 
+   %IF ( ( [%f] exists_in_list %( 'ALL_ELEMENTS' %, 'A' )% ) %==  false ) 
+    [%f] add_to_list %( 'ALL_ELEMENTS' %, 'A' )% 
+   %END-IF
+  %END-FOR
+ %END-IF
+
+//определяет может ли стереотип использоваться как зависимый, например
+//включаться в список стереотипов модели
+//f _can_use_by_dep
+; // collect_all_elems
+
+: can_use_by_dep OBJECT IN %S
+//	[{%Lx=true&<{}{%LN=%SN&%L<{}{%PM=MDATemplates::Category}%PU>!=%S<{}{%PM=MDATemplates::Category}%PU>}{C}>!=0}{true}false]
+ %IF ( ( %L |x ) %==  true %&& 
+   ( 
+  %FOR %ITEM-CONDITION ( ( %L |N ) %== ( %S |N ) %&& 
+    ( ( %L
+   %FOR %ITEM-CONDITION ( ( %P |M ) %== 'MDATemplates::Category' ) 
+    %P |U 
+   %END-FOR
+ )    %!= ( %S
+   %FOR %ITEM-CONDITION ( ( %P |M ) %== 'MDATemplates::Category' ) 
+    %P |U 
+   %END-FOR
+ )  ) ) 
+   ( 'C' ) 
+  %END-FOR
+  %!= 0  ) ) 
+  %ELSE
+    true 
+  %THEN
+   false 
+ %END-IF
+//#UC END# *46E28D830109for46E13A69005D*
+; // can_use_by_dep
+
+
+// реализация абстрактного стереотипа Проектные файлы::MDAGenerator
+// Генератор проекта для UE
+//+ ue_prj
+implementation @ <<MDATemplates>>
+<<generator>> ue_prj OBJECT IN %S
+//#UC START# *46E2BF6E004Efor46E13A69005D*
+//C /project
+//O [{%Sa!=abstract}ue_%SN.prj]
+//	\[Project ID\]
+ '[Project ID]'
+//	Signature=UE Proj: v.1
+ 'Signature=UE Proj: v.1'
+//	\[Project Information\]
+ '[Project Information]'
+//	Use Relative Directory=1
+ 'Use Relative Directory=1'
+//	Relative to Project File=1
+ 'Relative to Project File=1'
+//	Include Sub Directories=1
+ 'Include Sub Directories=1'
+//	Project Tagfile=
+ 'Project Tagfile='
+//	Project Wordfile=
+ 'Project Wordfile='
+//	Filter=
+ 'Filter='
+//	Create Tagfile=0
+ 'Create Tagfile=0'
+//	Project Directory=%SR%Sd
+ 'Project Directory='
+ %S |R %S |d 
+//	\[Folders\]
+ '[Folders]'
+//	<%d<{}{%AS=MDALayer}%A%PN - %AN=1
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDALayer' ) 
+   %A ->P |N  ' - '
+   %A |N '=1'
+//	>><{}{%AS=MDALayer}%A%PN - %AN=1
+  %END-FOR
+  %END-FOR
+ %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDALayer' ) 
+  %A ->P |N  ' - '
+  %A |N '=1'
+//	>
+ %END-FOR
+//	\[Find\]
+ '[Find]'
+//	Files To Search=2
+ 'Files To Search=2'
+//	\[Group Filter\]
+ '[Group Filter]'
+//	%SR/%SN=*.tpl,*.tpi;
+ %S |R '/'
+ %S |N '=*.tpl,*.tpi;'
+//	\[Group\]
+ '[Group]'
+//	%f_clear_list(GROUPS)\
+ [%f] clear_list %( 'GROUPS' )% 
+//	<%d<{}{%AS=MDALayer&%A<{}{"%f_normolized_path(mda,C)"!=""}{C}>!=0}[{%f_exists_in_list(GROUPS,"%A%PN - %AN")=false}%f_add_to_list(GROUPS,"%A%PN - %AN")]>>\
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDALayer' %&& 
+    ( ( %A
+   %FOR %ITEM-CONDITION ( ( [%f] normolized_path %( 'mda' %, 'C' )% ) %!= '' ) 
+    ( 'C' ) 
+   %END-FOR
+ )    %!= 0  ) ) 
+   %IF ( ( [%f] exists_in_list %( 'GROUPS' %, %A ->P |N  ' - '
+    %A |N )% ) %==  false ) 
+    [%f] add_to_list %( 'GROUPS' %, %A ->P |N  ' - '
+    %A |N )% 
+   %END-IF
+  %END-FOR
+  %END-FOR
+//	<{}{%AS=MDALayer&%A<{}{"%f_normolized_path(mda,C)"!=""}{C}>!=0}[{%f_exists_in_list(GROUPS,"%A%PN - %AN")=false}%f_add_to_list(GROUPS,"%A%PN - %AN")]>\
+ %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDALayer' %&& 
+   ( ( %A
+  %FOR %ITEM-CONDITION ( ( [%f] normolized_path %( 'mda' %, 'C' )% ) %!= '' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0  ) ) 
+  %IF ( ( [%f] exists_in_list %( 'GROUPS' %, %A ->P |N  ' - '
+   %A |N )% ) %==  false ) 
+   [%f] add_to_list %( 'GROUPS' %, %A ->P |N  ' - '
+   %A |N )% 
+  %END-IF
+ %END-FOR
+//	%f_sort_list(GROUPS,n)\
+ [%f] sort_list %( 'GROUPS' %, 'n' )% 
+//	<{}{%f_is_empty(GROUPS)=false}{W}%f_pop_first_to_var(GROUPS,GROUP)%{GROUP}n=%{GROUP}N
+ %FOR %ITEM-CONDITION ( ( [%f] is_empty %( 'GROUPS' )% ) %==  false ) 
+  ( 'W' ) 
+  [%f] pop_first_to_var %( 'GROUPS' %, 'GROUP' )% ( get_global_var ( 'GROUP' ) |n ) '='
+  ( get_global_var ( 'GROUP' ) |N ) 
+//	>%f_clear_list(GROUPS)
+ %END-FOR
+ [%f] clear_list %( 'GROUPS' )% 
+////////////
+//	<%d<{}{%AS=MDALayer&%A<{}{"%f_normolized_path(mda,C)"!=""}{C}>!=0}%An=%A%PN - %AN
+//	>><{}{%AS=MDALayer&%A<{}{"%f_normolized_path(mda,C)"!=""}{C}>!=0}%An=%A%PN - %AN
+//	>
+//	\[Files\]
+ '[Files]'
+//	0=%f_normolized_path(mda,S)
+ '0='
+ [%f] normolized_path %( 'mda' %, 'S' )% 
+//	
+//	<%d<{}{%AS=MDALayer&%A<{}{"%f_normolized_path(mda,C)"!=""}{C}>!=0}
+ %FOR %d
+  %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDALayer' %&& 
+    ( ( %A
+   %FOR %ITEM-CONDITION ( ( [%f] normolized_path %( 'mda' %, 'C' )% ) %!= '' ) 
+    ( 'C' ) 
+   %END-FOR
+ )    %!= 0  ) ) 
+
+//	\[Files - %A%PN - %AN\]
+   '[Files - '
+   %A ->P |N  ' - '
+   %A |N ']'
+//	%A<{}{"%f_normolized_path(mda,C)"!=""}%Cn=%f_normolized_path(mda,C)
+   %A
+   %FOR %ITEM-CONDITION ( ( [%f] normolized_path %( 'mda' %, 'C' )% ) %!= '' ) 
+    %C |n '='
+    [%f] normolized_path %( 'mda' %, 'C' )% 
+//	>>><{}{%AS=MDALayer&%A<{}{"%f_normolized_path(mda,C)"!=""}{C}>!=0}
+   %END-FOR
+   %END-FOR
+  %END-FOR
+ %FOR %ITEM-CONDITION ( ( %A |S ) %== 'MDALayer' %&& 
+   ( ( %A
+  %FOR %ITEM-CONDITION ( ( [%f] normolized_path %( 'mda' %, 'C' )% ) %!= '' ) 
+   ( 'C' ) 
+  %END-FOR
+ )   %!= 0  ) ) 
+
+//	\[Files - %A%PN - %AN\]
+  '[Files - '
+  %A ->P |N  ' - '
+  %A |N ']'
+//	%A<{}{"%f_normolized_path(mda,C)"!=""}%Cn=%f_normolized_path(mda,C)
+  %A
+  %FOR %ITEM-CONDITION ( ( [%f] normolized_path %( 'mda' %, 'C' )% ) %!= '' ) 
+   %C |n '='
+   [%f] normolized_path %( 'mda' %, 'C' )% 
+//	>>
+  %END-FOR
+  %END-FOR
+//	
+//	\[Open Files\]
+ '[Open Files]'
+//	Active File Display Mode=3
+ 'Active File Display Mode=3'
+//#UC END# *46E2BF6E004Efor46E13A69005D*
+; // ue_prj
+
+
+// перекрытие базового стереотипа Мета-MDA::MDAGenerator
+// Генерация списка включения мета-шаблонов (mda.inc)
+//+ mda.inc
+<<generator>> mda.inc OBJECT IN %S
+//#UC START# *4A09484300C6for46E13A69005D*
+//C /%SN
+//O %SN.inc.tpi
+//	//////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////'
+//	// includes
+ '// includes'
+//	<{}{}{%D}[\# %f_normolized_path(mda.inc,D)
+ %FOR ( %D ) 
+  %IF-NOT-EMPTY
+   '# '
+   [%f] normolized_path %( 'mda.inc' %, 'D' )% 
+//	]>\
+  %END-IF
+ %END-FOR
+////генерим сначала инклуды стереотипов, подстереотипов которых ни от кого не наследуется
+//	<{}{%AS!=MDAIncludeFile&%AS!=MDAReport}[\# %f_normolized_path(mda,A)
+ %FOR %ITEM-CONDITION ( ( %A |S ) %!= 'MDAIncludeFile' %&& 
+   ( ( %A |S ) %!= 'MDAReport'  ) ) 
+  %IF-NOT-EMPTY
+   '# '
+   [%f] normolized_path %( 'mda' %, 'A' )% 
+//	]>
+  %END-IF
+ %END-FOR
+//#UC END# *4A09484300C6for46E13A69005D*
+; // mda.inc
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<MDATemplates>>
+

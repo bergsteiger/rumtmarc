@@ -1,0 +1,15 @@
+unit Script.Axiomatics;
+
+interface
+
+uses
+ Script.Dictionary
+ ;
+
+type
+ TscriptAxiomatics = class(TscriptDictionary)
+ end;//TscriptAxiomatics
+
+implementation
+
+end.

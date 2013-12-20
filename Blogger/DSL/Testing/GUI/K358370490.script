@@ -1,0 +1,22 @@
+// Разработчик: Селянкин Владимир
+
+: K358370490
+
+ : Действия
+  VAR Editor
+  VAR x
+  VAR y
+  "Открываем НК"
+  "Перейти на параграф вниз"
+  focused:control:push >>> Editor
+  Editor pop:editor:ParaMiddleCoordsToScreen >>> y >>> x
+  y 6 - >>> y
+  x y mouse:SetCursorPosition
+  ProcessMessages
+  "Клик средней кнопкой мыши"
+ ;
+ 
+ "Запомнить позицию мыши и выполнить {(@ Действия)}"
+;
+
+анти-тест K358370490

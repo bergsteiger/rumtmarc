@@ -1,0 +1,135 @@
+--------------- Контрол в фокусе: ------------------
+edNumber : TnscComboBox
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 3
+---------------
+DocNumberQueryForm : TDocNumberQueryForm
+Открыть документ по номеру
+Position:0
+Width = 285
+Height = 120
+Align: 0
+Anchors: 3
+BorderWidth: 0
+Ок
+Отмена
+---------------
+Label1 : TvtLabel
+Номер документа:
+Left = 5
+Top = 10
+Width = 110
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 0
+Ок
+Отмена
+---------------
+edNumber : TnscComboBox
+
+Left = 120
+Top = 5
+Width = 150
+Height = 20
+TabOrder: 2
+Anchors: 3
+Выделить все
+Отмена изменений
+-
+Ок
+Отмена
+---------------
+cbInternal : TeeCheckBox
+Внутренний номер в базе
+Left = 5
+Top = 30
+Width = 265
+Height = 15
+TabOrder: 4
+TabStop: 1
+Anchors: 3
+Ок
+Отмена
+---------------
+tbDocNumberQueryFormBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:True
+---
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+---
+
+*********------------Расширенная конфигурация:---------------********
+--------------- Контрол в фокусе: ------------------
+edNumber : TnscComboBox
+--------------- Перечень дочерних контролов, их размеры, координаты и контекстное меню: -------------------
+Форма:
+BorderStyle: 3
+---------------
+DocNumberQueryForm : TDocNumberQueryForm
+Открыть документ по номеру
+Position:0
+Width = 285
+Height = 110
+Align: 0
+Anchors: 3
+BorderWidth: 0
+Ок
+Отмена
+---------------
+Label1 : TvtLabel
+Номер документа:
+Left = 5
+Top = 10
+Width = 110
+Height = 15
+Align: 0
+Anchors: 3
+Transparent: 0
+Ок
+Отмена
+---------------
+edNumber : TnscComboBox
+
+Left = 120
+Top = 5
+Width = 150
+Height = 20
+TabOrder: 2
+Anchors: 3
+Выделить все
+Отмена изменений
+-
+Ок
+Отмена
+---------------
+cbInternal : TeeCheckBox
+Внутренний номер в базе
+Left = 5
+Top = 30
+Width = 265
+Height = 15
+TabOrder: 4
+TabStop: 1
+Anchors: 3
+Ок
+Отмена
+---------------
+tbDocNumberQueryFormBottom : TvcmToolbar
+Order = 0
+---------------
+bt_enResult_opOk : TvcmToolButtonDef
+Ок
+Активность:True
+---
+bt_enResult_opCancel : TvcmToolButtonDef
+Отмена
+Активность:True
+---
+

@@ -1,0 +1,121 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Для скриптовой машины сделать слово WordWorkerN.<br />
+<br />
+Обрабатывающее (и компилирующее) ВСЕ слова ДО указанной скобки.<br />
+<br />
+И на его основе "конструктор" для классов и исключений:
+
+<br />
+<br />
+<pre class="brush:delphi">WordWorkerN .Create( ) CLASS IN aClassToCreate
+ aClassToCreate [[ WordToWork DO ]] .Create
+;
+</pre>
+<br />
+И вызов:
+
+<br />
+<br />
+<pre class="brush:delphi">class::Exception .Create( 'Какое-то исключение' )
+</pre>
+<br />
+или:
+
+<br />
+<br />
+<pre class="brush:delphi">class::EListError .Create( [[ 'List index ' anIndex ' out of bounds' ]] any:Cat )
+</pre>
+<br />
+или:
+
+<br />
+<br />
+<pre class="brush:delphi">class::EListError .Create( [[ 'List index ' anIndex ' out of bounds' ]]+ )
+</pre>
+<br />
+или:
+<br />
+<br />
+<pre class="brush:delphi">class::EListError .Create( Format( 'List index ' anIndex ' out of bounds' ) )
+</pre>
+<br />
+Где Format тоже определяется ЧЕРЕЗ WordWorkerN:
+
+<br />
+<br />
+<pre class="brush:delphi">STRING WordWorkerN Format( )
+ [[ WordToWork DO ]]+
+;
+</pre>
+<br />
+Где ]]+ определяется так:
+
+<br />
+<br />
+<pre class="brush:delphi">STRING FUNCTION ]]+
+ ]] any:Cat &gt;&gt;&gt; Result
+;
+</pre>
+<br />
+Где any:Cat определяется так:
+
+<br />
+<br />
+<pre class="brush:delphi">STRING FUNCTION any:Cat [] IN anArray
+ // - складывает ЛЮБЫЕ значения из массива как строки
+ [[ @ ( IN anItem anItem ToPrintable )ITERATE anArray ]] strings:Cat &gt;&gt;&gt; Result
+;
+</pre>
+<br />
+Где strings:Cat определено так:
+<br />
+<br />
+<pre class="brush:delphi">STRING FUNCTION strings:Cat [] IN anArray
+ // - складывает строки массива на стеке
+
+ Result := ''
+
+ PROCEDURE DoCat STRING IN anItem
+  Result := ( Result anItem Cat )
+ ; // DoCat
+ 
+ @ DoCat ITERATE anArray
+;
+</pre>
+<br />
+P.S. флективность (<a href="http://ru.wikipedia.org/wiki/%D0%A4%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C">http://ru.wikipedia.org/wiki/%D0%A4%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%8C</a>) грамматики - это кстати - плохо.<br />
+<br />
+Будем от неё со временем избавляться.
+<br />
+<br />
+P.P.S.<br />
+<br />
+Или кстати ещё пример:
+
+<br />
+<br />
+<pre class="brush:delphi">class::TEdit .Create( CurrentForm )</pre>
+<br />
+P.P.P.S. И кстати ещё пример:
+
+<br />
+<br />
+<pre class="brush:delphi">: [[
+ // - слово начинает определение "константного массива"
+ VOID
+; // [[
+
+[] : ]]
+ // - слово заканчивает определение "константного массива"
+ [] VAR Tmp
+ Tmp := array:New
+ 
+ @ ( DUP IsVoid ! ) WHILE
+ BEGIN
+  &gt;&gt;&gt;L[] Tmp
+ END
+ DROP
+ Tmp
+; // ]]
+</pre>
+</div>

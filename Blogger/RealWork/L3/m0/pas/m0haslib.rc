@@ -1,0 +1,14 @@
+/*
+//
+// module:  m0haslib.rc
+// author:  Mickael P. Golovin
+//
+// Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
+//
+// $Id: m0haslib.rc,v 1.1 2008/02/07 09:54:24 lulin Exp $
+//
+*/
+language LANG_NEUTRAL,SUBLANG_NEUTRAL
+
+          m0HASLib_16_0001 RCDATA m0haslib_16_0001.bin // HashTable16 0001
+          m0HASLib_32_0001 RCDATA m0haslib_32_0001.bin // HashTable32 0001
