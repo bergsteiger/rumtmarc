@@ -1,0 +1,137 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Порой возникает необходимость из низкоуровневой библиотеки передавать данные в высокоуровневую. У меня такая нужда возникла, когда надо было зарегистрировать операции (наша реализация дельфовских TAction-ов в скриптовой машине).<br />
+<br />
+Изначально это было сделано напрямую:
+
+<br />
+<br />
+<pre class="brush:delphi">unit vcmBaseMenuManager;
+
+uses
+ kwEntityOperation;
+
+procedure TvcmBaseMenuManager.RegisterKeywords;
+var
+ l_I, l_J : Integer;
+ l_En : TvcmBaseEntitiesCollectionItem;
+begin
+ if not f_KeywordsRegistered then
+ begin
+  f_KeywordsRegistered := True;
+  for l_I := 0 to Pred(Entities.Count) do
+  begin
+   l_En := Entities.Items[l_I] as TvcmBaseEntitiesCollectionItem;
+   for l_J := 0 to Pred(l_En.Operations.Count) do
+    TkwEntityOperation.Register(l_En, l_En.Operations.Items[l_J] as TvcmBaseOperationsCollectionItem);
+  end;//for l_I
+ end;//not f_KeywordsRegistered
+end;//TvcmBaseMenuManagerPrim.RegisterKeywords
+</pre>
+<br />
+Однако такой подход является неправильным с точки зрения архитектуры проекта: операциям совсем необязательно знать о скриптовой машине.<br />
+<br />
+Даже наоборот - не нужно знать.<br />
+<br />
+Чтобы обойти эту проблему можно использовать следующий подход: в библиотеке операций создаём утилитный класс-менеджер, который "выставляет" наружу интерфейс для передачи информации выше:
+
+<br />
+<br />
+<pre class="brush:delphi">unit vcmOperationsManager;
+
+type
+ IvcmOperationsRegistrar = interface(IUnknown)
+   ['{3E98A7F7-A01F-4D5A-8AB2-2C731A6E8CB5}']
+   procedure Register(anEn: TvcmBaseEntitiesCollectionItem;
+     anOp: TvcmBaseOperationsCollectionItem);
+ end;//IvcmOperationsRegistrar
+
+ TvcmOperationsManager = class
+ private
+   f_Registrar : IvcmOperationsRegistrar;
+ public
+   procedure Register(anEn: TvcmBaseEntitiesCollectionItem;
+     anOp: TvcmBaseOperationsCollectionItem);
+ public
+   property Registrar: IvcmOperationsRegistrar
+     read f_Registrar
+     write f_Registrar;
+ public
+   class function Instance: TvcmOperationsManager;
+ end;//TvcmOperationsManager
+</pre>
+<br />
+Также на нём реализован транзитный метод регистрации:
+
+<br />
+<br />
+<pre class="brush:delphi">procedure TvcmOperationsManager.Register(anEn: TvcmBaseEntitiesCollectionItem;
+  anOp: TvcmBaseOperationsCollectionItem);
+begin
+ if f_Registrar &lt;&gt; nil then
+ // или так: Assert(f_Registrar &lt;&gt; nil); - если мы уверены, что подписка происходит всегда
+  f_Registrar.Register(anEn, anOp);
+end;//TvcmOperationsManager.Register
+</pre>
+<br />
+Этот класс создаём синглтоном (<a href="http://ru.wikipedia.org/wiki/%CE%E4%E8%ED%EE%F7%EA%E0_(%F8%E0%E1%EB%EE%ED_%EF%F0%EE%E5%EA%F2%E8%F0%EE%E2%E0%ED%E8%FF)#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_.D0.BD.D0.B0_Delphi">http://ru.wikipedia.org/wiki/%CE%E4%E8%ED%EE%F7%EA%E0_(%F8%E0%E1%EB%EE%ED_%EF%F0%EE%E5%EA%F2%E8%F0%EE%E2%E0%ED%E8%FF)#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_.D0.BD.D0.B0_Delphi</a>)<br />
+<br />
+Также создаём класс-регистратор в скриптовой библиотеке, реализующий описанный выше интерфейс, который будет подписан к менеджеру как получатель информации о регистрируемый операциях:
+
+<br />
+<br />
+<pre class="brush:delphi">unit kwOperationsRegistrar;
+
+uses
+ kwEntityOperation,
+ vcmOperationsManager;
+
+type
+ TkwOperationsRegistrar = class(TObject, IvcmOperationsRegistrar)
+ protected
+   procedure Register(anEn: TvcmBaseEntitiesCollectionItem;
+      anOp: TvcmBaseOperationsCollectionItem);
+ public
+   class function Instance: TkwOperationsRegistrar;
+ end;//TkwOperationsRegistrar
+
+procedure TkwOperationsRegistrar.Register(anEn: TvcmBaseEntitiesCollectionItem;
+  anOp: TvcmBaseOperationsCollectionItem);
+begin
+ TkwEntityOperation.Register(anEn, anOp);
+end;//TkwOperationsRegistrar.Register
+</pre>
+<br />
+Осталось организовать подписку.<br />
+<br />
+Это можно сделать во многих местах, но мне было удобнее это сделать непосредственно в секции инициализации модуля kwOperationsRegistrar:
+<br />
+<br />
+<pre class="brush:delphi">initialization
+ TvcmOperationsManager.Instance.Registrar := TkwOperationsRegistrar.Instance;
+end.
+</pre>
+<br />
+Теперь оба синглтона созданы и путь для регистрации операций проложен.<br />
+<br />
+Операции регистрируются через "третьи руки", целостность проекта не нарушена, зато понижена его связность:
+<br />
+<br />
+В модуле vcmBaseMenuManager вместо строки
+<br />
+<br />
+<pre class="brush:delphi">    TkwEntityOperation.Register(l_En, l_En.Operations.Items[l_J] as TvcmBaseOperationsCollectionItem);
+</pre>
+<br />
+надо вписать
+<br />
+<br />
+<pre class="brush:delphi">    TvcmOperationsManager.Instance.Register(l_En, l_En.Operations.Items[l_J] as TvcmBaseOperationsCollectionItem);
+</pre>
+<br />
+Естественно, я не открыл Америку, и этот подход давно известен:<br />
+<br />
+<a href="http://ru.wikipedia.org/wiki/%C2%ED%E5%E4%F0%E5%ED%E8%E5_%E7%E0%E2%E8%F1%E8%EC%EE%F1%F2%E8">http://ru.wikipedia.org/wiki/%C2%ED%E5%E4%F0%E5%ED%E8%E5_%E7%E0%E2%E8%F1%E8%EC%EE%F1%F2%E8</a><br />
+<br />
+Вывод один - надо больше читать полезной литературы и тогда не придётся ломать голову, как избавиться от лишнего uses-а.
+
+</div>
