@@ -1,0 +1,102 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+Как я решаю проблему "ленивой инициализации" у "себя".<br />
+<br />
+По мотивам &nbsp;-&nbsp;<a href="http://programmingmindstream.blogspot.ru/2013/12/blog-post_3160.html">http://programmingmindstream.blogspot.ru/2013/12/blog-post_3160.html</a><br />
+<br />
+Есть СИСТЕМНЫЙ МЕТОД - l3SystemDown.<br />
+<br />
+Используется он так:
+
+<br />
+<br />
+<pre class="brush:delphi">class function TafwImplementation.Application: IafwApplication;
+//#UC START# *4775153A0006_47764F3F0064_var*
+var
+ l_AC : TafwApplicationClass;
+//#UC END# *4775153A0006_47764F3F0064_var*
+begin
+//#UC START# *4775153A0006_47764F3F0064_impl*
+{$IfNDef DesignTimeLibrary}
+ l_AC := GetApplicationClass;
+ if (g_Application &lt;&gt; nil) AND not l3SystemDown then
+ begin
+  if not g_Application.InheritsFrom(l_AC) then
+  begin
+   FreeAndNil(g_Application);
+   g_Application := l_AC.Create;
+  end;//not g_Application.InheritsFrom(l_AC)
+ end;//g_Application &lt;&gt; nil
+ if (g_Application = nil) AND not l3SystemDown then
+ begin
+  l3System.AddExitProc(FreeApp);
+  g_Application := l_AC.Create;
+ end;//g_Application = nil
+ Result := g_Application;
+{$Else}
+ Result := nil;
+{$EndIf  DesignTimeLibrary}
+//#UC END# *4775153A0006_47764F3F0064_impl*
+end;//TafwImplementation.Application
+...
+procedure RemoveContainer(aCont: Tl3IEBitmapContainer);
+begin
+ if not l3SystemDown then
+ // - не надо ничего удалять в процессе завершения работы, т.к. может оказаться, что и удалять неоткуда 
+  if Tl3IEBitmapContainerStack.Exists then
+   Tl3IEBitmapContainerStack.Instance.Remove(aCont);
+end;
+...
+function _l3UnknownPrim_.CheckStamp(const aGUID: TGUID): Boolean;
+  {-}
+begin
+ {$IfDef _UnknownNeedL3}
+ if l3SystemDown then
+  Result := false
+ else
+  Result := IsEqualGUID(l3System.GetStamp, aGUID);
+ {$Else _UnknownNeedL3}
+ Result := false;
+ {$EndIf _UnknownNeedL3}
+end;
+...
+procedure RemoveResource(const AObject: TvgObject);
+var
+  Idx: integer;
+begin
+  if (g_ResourceList &lt;&gt; nil) then
+  begin
+    try
+     Idx := g_ResourceList.IndexOf(AObject);
+    except
+     on E : Exception do
+     begin
+      if not l3SystemDown then
+       l3System.Exception2Log(E);
+      try
+       FreeAndNil(g_ResourceList);
+      except
+       g_ResourceList := nil;
+      end;//try..except
+      Exit;
+     end;//on E : Exception
+    end;//try..except 
+    if (Idx &gt;= 0) then
+     g_ResourceList.Delete(Idx);
+     //g_ResourceList[Idx] := nil;
+  end;//g_ResourceList &lt;&gt; nil
+end;
+...
+function vtVGSceneResources: TvtVGSceneResources;
+begin
+ Assert(not l3SystemDown);
+ if (vtStdVGSceneResources = nil) then
+ begin
+  vtStdVGSceneResources := TvtVGSceneResources.Create(nil);
+  l3System.AddExitProc(Fini);
+ end;//vtStdVGSceneResources = nil
+ Result := vtStdVGSceneResources;
+end;
+
+</pre>
+И никакого "шаманства"...
+</div>
