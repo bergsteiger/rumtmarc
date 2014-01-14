@@ -60,6 +60,9 @@ end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
+ {$IfNDef NoTesting}
+ TtestEngine.CurrentTest.SocketMetric(TtestSocket.Create(Self, 'Button1Click')).PutValue((Sender As TButton).Caption + ' clicked');
+ {$EndIf  NoTesting}
  Edit1.Text := (Sender As TButton).Caption + ' clicked';
 end;
 

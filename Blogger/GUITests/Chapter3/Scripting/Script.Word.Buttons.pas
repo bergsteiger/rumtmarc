@@ -42,10 +42,20 @@ procedure TkwFindComponent.DoDoIt(aContext: TscriptContext);
 var
  l_Name : String;
  l_Component : TComponent;
+ l_ActiveForm : TForm;
+ l_Index : Integer;
 begin
  l_Name := aContext.PopString;
  Assert(l_Name <> '');
- l_Component := Screen.ActiveForm.FindComponent(l_Name);
+ l_ActiveForm := nil;
+ for l_Index := 0 to Pred(Screen.FormCount) do
+  if (Screen.Forms[l_Index].ClassName <> 'TGUITestRunner') then
+  begin
+   l_ActiveForm := Screen.Forms[l_Index];
+   break;
+  end;//Screen.Forms[l_Index].ClassName <> 'TGUITestRunner'
+ Assert(l_ActiveForm <> nil);
+ l_Component := l_ActiveForm.FindComponent(l_Name);
  Assert(l_Component <> nil);
  aContext.PushObject(l_Component);
 end;

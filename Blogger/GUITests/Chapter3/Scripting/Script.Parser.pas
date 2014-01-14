@@ -125,7 +125,9 @@ constructor TscriptParser.Create(const aFileName : String);
 var
  l_FileName : String;
 begin
- l_FileName := ExtractFilePath(ParamStr(0)) + '\' + aFileName;
+ l_FileName := aFileName;
+ if (ExtractFilePath(l_FileName) = '') then
+  l_FileName := ExtractFilePath(ParamStr(0)) + '\' + l_FileName;
  Create(TFileStream.Create(l_FileName, fmOpenRead));
 end;
 

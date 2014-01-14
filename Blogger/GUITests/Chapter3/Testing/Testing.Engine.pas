@@ -166,12 +166,16 @@ end;
 procedure TtestSocketMetric.PutValue(const aValue: String);
  {* - «аписывает текущее значение в набор значений дл€ метрики }
 begin
+ if (@Self = nil) then
+  Exit;
  Self.rValues.PutValue(TtestValue.CreateAsString(aValue));
 end;
 
 procedure  TtestSocketMetric.PutValue(const aValue: AnsiChar);
  {* - «аписывает текущее значение в набор значений дл€ метрики }
 begin
+ if (@Self = nil) then
+  Exit;
  Self.rValues.PutValue(TtestValue.CreateAsChar(aValue));
 end;
 
@@ -197,6 +201,8 @@ procedure TtestMetricValues.PutValue(const aValue: TtestValue);
 const
  cEOL : AnsiString = #13#10;
 begin
+ if (@Self = nil) then
+  Exit;
  Assert(f_Stream <> nil, '‘айл дл€ записи значений метрики не открыт');
  case aValue.rType of
   test_vtChar:
@@ -234,6 +240,11 @@ function TtestInstance.SocketMetric(const aSocket: TtestSocket): PtestMetric;
 var
  l_Index : Integer;
 begin
+ if (Self = nil) then
+ begin
+  Result := nil;
+  Exit;
+ end;//Self = nil
  for l_Index := Low(f_Metrics) to High(f_Metrics) do
   if f_Metrics[l_Index].EQ(aSocket) then
   begin

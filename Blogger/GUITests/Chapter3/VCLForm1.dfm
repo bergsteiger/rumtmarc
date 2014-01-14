@@ -51,7 +51,6 @@ object Form1: TForm1
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 3
     Text = 'Edit1'
-    ExplicitWidth = 409
   end
   object CompileLog: TMemo
     Left = 16
@@ -63,7 +62,6 @@ object Form1: TForm1
       'CompileLog')
     ScrollBars = ssBoth
     TabOrder = 4
-    ExplicitHeight = 163
   end
   object RunLog: TMemo
     Left = 280
@@ -75,8 +73,6 @@ object Form1: TForm1
       'RunLog')
     ScrollBars = ssBoth
     TabOrder = 5
-    ExplicitWidth = 233
-    ExplicitHeight = 163
   end
   object Run: TButton
     Left = 16
